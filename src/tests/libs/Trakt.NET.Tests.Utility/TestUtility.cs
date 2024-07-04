@@ -2,17 +2,27 @@
 using System.Reflection;
 using System.Text.Json;
 
+#if NET6_0_OR_GREATER
+using System.Text.Json.Serialization;
+#endif
+
 namespace TraktNET
 {
     public static class TestUtility
     {
         private static string? _location;
 
-        public static async Task<T?> DeserializeJsonAsync<T>(string jsonFilename)
+        public static async Task<T?> DeserializeJsonAsync<T>(string jsonFilename) where T : class
         {
             string filepath = GetJsonFilepath(jsonFilename);
             using var stream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
-            return await JsonSerializer.DeserializeAsync<T>(stream, Constants.Json.JsonSettings);
+
+#if NET6_0_OR_GREATER
+            JsonSerializerContext jsonSerializerContext = JsonSerializerContextFactory.GetContext<T>();
+            return await JsonSerializer.DeserializeAsync(stream, typeof(T), jsonSerializerContext) as T;
+#else
+            return await JsonSerializer.DeserializeAsync<T>(stream, Constants.Json.JsonOptions);
+#endif
         }
 
         public static DateTime ParseUTCDateTime(string dateTime)

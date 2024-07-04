@@ -85,9 +85,24 @@ namespace TraktNET
             internal static readonly JsonNamingPolicy NamingPolicy = new LowerSnakeCaseJsonNamingPolicy();
 #endif
 
-            internal static readonly JsonSerializerOptions JsonSettings = new()
+            internal static readonly JsonSerializerOptions JsonOptions = new()
             {
-                PropertyNamingPolicy = NamingPolicy
+                PropertyNamingPolicy = NamingPolicy,
+                Converters =
+                {
+#if NET6_0_OR_GREATER
+                    new TimeOnlyJsonConverter(),
+#endif
+                    new TraktAccessScopeJsonConverter(),
+                    new TraktAccessTokenTypeJsonConverter(),
+                    new TraktDayOfWeekJsonConverter(),
+                    new TraktEpisodeTypeJsonConverter(),
+                    new TraktExtendedInfoJsonConverter(),
+                    new TraktGenderJsonConverter(),
+                    new TraktKnownForDepartmentJsonConverter(),
+                    new TraktMovieStatusJsonConverter(),
+                    new TraktShowStatusJsonConverter()
+                }
             };
         }
     }

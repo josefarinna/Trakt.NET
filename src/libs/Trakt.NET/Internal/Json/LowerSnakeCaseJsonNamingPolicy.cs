@@ -1,4 +1,5 @@
-﻿using System.Buffers;
+﻿#if !NET8_0_OR_GREATER
+using System.Buffers;
 using System.Diagnostics;
 using System.Globalization;
 using System.Runtime.CompilerServices;
@@ -179,3 +180,4 @@ namespace TraktNET
         }
     }
 }
+#endif

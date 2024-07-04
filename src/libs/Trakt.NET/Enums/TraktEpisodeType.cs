@@ -1,10 +1,7 @@
-﻿using System.Text.Json.Serialization;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>Determines the type of an episode.</summary>
     [TraktEnum]
-    [JsonConverter(typeof(TraktEpisodeTypeJsonConverter))]
     public enum TraktEpisodeType
     {
         /// <summary>An invalid episode type.</summary>

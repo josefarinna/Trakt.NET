@@ -1,10 +1,7 @@
-﻿using System.Text.Json.Serialization;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>Determines the day of a week.</summary>
     [TraktEnum]
-    [JsonConverter(typeof(TraktDayOfWeekJsonConverter))]
     public enum TraktDayOfWeek
     {
         /// <summary>An invalid weekday.</summary>

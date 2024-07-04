@@ -1,10 +1,7 @@
-﻿using System.Text.Json.Serialization;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>Determines the access authorization for different resources.</summary>
     [TraktEnum]
-    [JsonConverter(typeof(TraktAccessScopeJsonConverter))]
     public enum TraktAccessScope
     {
         /// <summary>An invalid access scope.</summary>

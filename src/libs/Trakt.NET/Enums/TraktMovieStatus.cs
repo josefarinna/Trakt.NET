@@ -1,10 +1,7 @@
-﻿using System.Text.Json.Serialization;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>Determines the status of a movie.</summary>
     [TraktEnum]
-    [JsonConverter(typeof(TraktMovieStatusJsonConverter))]
     public enum TraktMovieStatus
     {
         /// <summary>An invalid status.</summary>

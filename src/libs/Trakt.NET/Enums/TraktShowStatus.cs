@@ -1,10 +1,7 @@
-﻿using System.Text.Json.Serialization;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>Determines the status of a show.</summary>
     [TraktEnum]
-    [JsonConverter(typeof(TraktShowStatusJsonConverter))]
     public enum TraktShowStatus
     {
         /// <summary>An invalid status.</summary>

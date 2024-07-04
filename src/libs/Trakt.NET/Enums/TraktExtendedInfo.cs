@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>
     /// Determines the possible extended options for Trakt API requests, allowing retrieving of additional data.<para />
@@ -9,7 +7,6 @@ namespace TraktNET
     /// </summary>
     [TraktParameterEnum("extended")]
     [Flags]
-    [JsonConverter(typeof(TraktExtendedInfoJsonConverter))]
     public enum TraktExtendedInfo
     {
         /// <summary>No additional data should be retrieved.</summary>

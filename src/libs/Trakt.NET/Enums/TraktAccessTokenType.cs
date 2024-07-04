@@ -1,10 +1,7 @@
-﻿using System.Text.Json.Serialization;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>Determines the type of an access token.</summary>
     [TraktEnum]
-    [JsonConverter(typeof(TraktAccessTokenTypeJsonConverter))]
     public enum TraktAccessTokenType
     {
         /// <summary>An invalid access token type.</summary>

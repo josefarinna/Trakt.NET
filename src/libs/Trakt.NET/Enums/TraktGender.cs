@@ -1,10 +1,7 @@
-﻿using System.Text.Json.Serialization;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>Determines the gender of a person.</summary>
     [TraktEnum]
-    [JsonConverter(typeof(TraktGenderJsonConverter))]
     public enum TraktGender
     {
         /// <summary>An invalid gender type.</summary>

@@ -1,10 +1,7 @@
-﻿using System.Text.Json.Serialization;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>Determines the department of a person.</summary>
     [TraktEnum]
-    [JsonConverter(typeof(TraktKnownForDepartmentJsonConverter))]
     public enum TraktKnownForDepartment
     {
         /// <summary>An invalid department type.</summary>
