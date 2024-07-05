@@ -172,6 +172,13 @@ namespace TraktNET.SourceGeneration.Requests
                         }
                     }
                 }
+                else
+                {
+                    // If not defined, use first value ("NotRequired") as default.
+                    _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
+                    IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues.First();
+                    _requestOAuthRequirementValue = enumField.Name;
+                }
             }
 
             return true;

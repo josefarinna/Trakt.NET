@@ -16,6 +16,8 @@ namespace SourceGeneraterTestNamespace
     {
         internal TraktExtendedInfo? ExtendedInfo { get; set; }
 
+        internal TraktOAuthRequirement OAuthRequirement { get; } = TraktOAuthRequirement.NotRequired;
+
         internal TestPostRequest() : base(HttpMethod.Post, (Uri?)null) { }
 
         internal override void BuildUri()
