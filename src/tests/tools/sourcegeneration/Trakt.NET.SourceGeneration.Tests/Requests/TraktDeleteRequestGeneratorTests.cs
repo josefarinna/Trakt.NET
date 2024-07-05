@@ -199,5 +199,59 @@
 
             return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterAll", source, RequestTestType.DeleteRequest);
         }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithParameterDefaultTypeString()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("notes/{id}", SupportsExtendedInfo = true, SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterTypeDefault", source, RequestTestType.DeleteRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithMultipleParametersDefaultTypeString()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("shows/{id}/seasons/{season_number}/episodes/{episode_number}", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.NotRequired)]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestMultipleParameterTypeDefault", source, RequestTestType.DeleteRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithMultipleParameters()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("shows/{id:string}/seasons/{season_number:uint}/episodes/{episode_number:uint}", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.NotRequired)]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestMultipleParameters", source, RequestTestType.DeleteRequest);
+        }
     }
 }

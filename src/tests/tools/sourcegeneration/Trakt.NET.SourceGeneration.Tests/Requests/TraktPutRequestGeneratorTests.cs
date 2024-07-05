@@ -199,5 +199,59 @@
 
             return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterAll", source, RequestTestType.PutRequest);
         }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithParameterDefaultTypeString()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("notes/{id}", SupportsExtendedInfo = true, SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterTypeDefault", source, RequestTestType.PutRequest);
+        }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithMultipleParametersDefaultTypeString()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("shows/{id}/seasons/{season_number}/episodes/{episode_number}", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.NotRequired)]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestMultipleParameterTypeDefault", source, RequestTestType.PutRequest);
+        }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithMultipleParameters()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("shows/{id:string}/seasons/{season_number:uint}/episodes/{episode_number:uint}", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.NotRequired)]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestMultipleParameters", source, RequestTestType.PutRequest);
+        }
     }
 }

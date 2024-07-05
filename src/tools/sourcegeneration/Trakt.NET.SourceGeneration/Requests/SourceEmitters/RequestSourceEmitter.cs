@@ -290,8 +290,8 @@ namespace TraktNET.SourceGeneration.Requests
             int charsWritten = 0;
 
             bool firstPlaceHolderNameLetterNeedsToBeUppercase = false;
-            int placeHolderNameStartPosition = 0;
-            int placeHolderTypeStartPosition = 0;
+            int placeHolderNameStartPosition = -1;
+            int placeHolderTypeStartPosition = -1;
 
             string placeHolderName = string.Empty;
             string placeHolderType = string.Empty;
@@ -310,11 +310,38 @@ namespace TraktNET.SourceGeneration.Requests
                                 state = UriParserState.ParsingPlaceHolderType;
                                 placeHolderTypeStartPosition = i + 1;
                                 placeHolderName = destination.Slice(placeHolderNameStartPosition, charsWritten - placeHolderNameStartPosition).ToString();
-                                placeHolderNameStartPosition = 0;
+                                placeHolderNameStartPosition = -1;
                                 break;
                             case '_':
                                 // Ignore this character, so '_' gets removed from the name.
                                 firstPlaceHolderNameLetterNeedsToBeUppercase = true;
+                                break;
+                            case '}':
+                                // No parameter type defined.
+                                // Use "string" as default.
+
+                                state = UriParserState.Default;
+
+                                placeHolderName = destination.Slice(placeHolderNameStartPosition, charsWritten - placeHolderNameStartPosition).ToString();
+                                placeHolderNameStartPosition = -1;
+
+                                placeHolderType = "string";
+                                placeHolderTypeStartPosition = -1;
+
+                                bool isOptional = placeHolderType.IndexOf('?') >= 0;
+                                _hasOptionalPlaceholders = _hasOptionalPlaceholders || isOptional;
+
+                                _uriPlaceHolders.Add(new PlaceHolder
+                                {
+                                    Name = placeHolderName,
+                                    ValueType = placeHolderType,
+                                    IsRequired = !isOptional
+                                });
+
+                                placeHolderName = string.Empty;
+                                placeHolderType = string.Empty;
+
+                                WriteChar(currentCharacter, ref destination);
                                 break;
                             default:
                             {
@@ -342,8 +369,9 @@ namespace TraktNET.SourceGeneration.Requests
                             case '}':
                                 WriteChar(currentCharacter, ref destination);
                                 state = UriParserState.Default;
+
                                 placeHolderType = uriPath.Slice(placeHolderTypeStartPosition, i - placeHolderTypeStartPosition).ToString();
-                                placeHolderTypeStartPosition = 0;
+                                placeHolderTypeStartPosition = -1;
 
                                 bool isOptional = placeHolderType.IndexOf('?') >= 0;
                                 _hasOptionalPlaceholders = _hasOptionalPlaceholders || isOptional;
@@ -354,6 +382,9 @@ namespace TraktNET.SourceGeneration.Requests
                                     ValueType = placeHolderType,
                                     IsRequired = !isOptional
                                 });
+
+                                placeHolderName = string.Empty;
+                                placeHolderType = string.Empty;
 
                                 break;
                             default:
@@ -370,7 +401,7 @@ namespace TraktNET.SourceGeneration.Requests
                             case '{':
                                 WriteChar(currentCharacter, ref destination);
                                 state = UriParserState.ParsingPlaceHolderName;
-                                placeHolderNameStartPosition = i + 1;
+                                placeHolderNameStartPosition = charsWritten;
                                 firstPlaceHolderNameLetterNeedsToBeUppercase = true;
                                 break;
                             default:
