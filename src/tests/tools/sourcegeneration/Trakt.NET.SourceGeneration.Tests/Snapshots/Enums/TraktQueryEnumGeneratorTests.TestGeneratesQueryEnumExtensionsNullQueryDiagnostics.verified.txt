@@ -1,0 +1,14 @@
+﻿{
+  Diagnostics: [
+    {
+      Id: TRAKTNET1004,
+      Title: Invalid query support and query name combination,
+      Severity: Error,
+      WarningLevel: 0,
+      Location: : (5,16)-(5,24),
+      MessageFormat: Query support is enabled but query name is null or empty.,
+      Message: Query support is enabled but query name is null or empty.,
+      Category: Trakt.NET.SourceGeneration.Enums
+    }
+  ]
+}

@@ -37,23 +37,52 @@ namespace SourceGeneraterTestNamespace
 
         /// <summary>Returns the display name for <see cref="TestEnum" />.</summary>
         public static string DisplayName(this TestEnum value)
-            => value switch
-            {
-                TestEnum.Unspecified => "Unspecified",
-                TestEnum.ValueOne => "Value One",
-                TestEnum.ValueTwo => "Value Two",
-                _ => value.ToString(),
-            };
+        {
+            var values = new List<string>();
 
-        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI path value.</summary>
-        public static string ToUriPath(this TestEnum value)
+            if (value == TestEnum.Unspecified)
+            {
+                values.Add("Unspecified");
+            }
+
+            if (value.HasFlagSet(TestEnum.ValueOne))
+            {
+                values.Add("Value One");
+            }
+
+            if (value.HasFlagSet(TestEnum.ValueTwo))
+            {
+                values.Add("Value Two");
+            }
+
+            return string.Join(", ", values);
+        }
+
+        /// <summary>Determines whether one or more bit fields are set in <see cref="TestEnum" />.</summary>
+        public static bool HasFlagSet(this TestEnum value, TestEnum flag)
+            => flag == 0 ? true : (value & flag) == flag;
+
+        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI query.</summary>
+        public static string AsQuery(this TestEnum value)
         {
             if (value == TestEnum.Unspecified)
             {
                 return string.Empty;
             }
 
-            return "testenum=" + value.ToJson();
+            var values = new List<string>();
+
+            if (value.HasFlagSet(TestEnum.ValueOne))
+            {
+                values.Add(TestEnum.ValueOne.ToJson()!);
+            }
+
+            if (value.HasFlagSet(TestEnum.ValueTwo))
+            {
+                values.Add(TestEnum.ValueTwo.ToJson()!);
+            }
+
+            return "testenum=" + string.Join(",", values);
         }
     }
 

@@ -14,7 +14,9 @@ namespace TraktNET.SourceGeneration.Enums
         private INamedTypeSymbol? _enumDeclarationSymbol;
         private Location? _enumDeclarationLocation;
         private bool _hasFlagsAttribute;
-        private string _parameterEnumAttributeValue = string.Empty;
+        private string _queryName = string.Empty;
+        private bool _hasPathSupport;
+        private bool _hasQuerySupport;
         private readonly List<EnumMemberGenerationSpecification> _enumMembers = [];
 
         public List<DiagnosticInfo> Diagnostics { get; } = [];
@@ -22,9 +24,7 @@ namespace TraktNET.SourceGeneration.Enums
         public TraktEnumDeclarationParser(KnownEnumSymbols knownEnumSymbols)
         {
             _knownEnumSymbols = knownEnumSymbols;
-
-            _compilationContainsTraktEnumTypes =
-                _knownEnumSymbols.TraktEnumAttributeType != null || _knownEnumSymbols.TraktParameterEnumAttributeType != null;
+            _compilationContainsTraktEnumTypes = _knownEnumSymbols.TraktEnumAttributeType != null;
         }
 
         public EnumGenerationSpecification? ParseTraktEnumDeclaration(EnumDeclarationSyntax enumDeclaration,
@@ -39,7 +39,7 @@ namespace TraktNET.SourceGeneration.Enums
 
             GetEnumSymbolAndLocation(enumDeclaration, semanticModel, cancellationToken);
 
-            if (!ParseEnumAttributes(_enumDeclarationSymbol!, false, cancellationToken))
+            if (!ParseEnumAttributes(_enumDeclarationSymbol!, cancellationToken))
             {
                 return null;
             }
@@ -54,38 +54,9 @@ namespace TraktNET.SourceGeneration.Enums
                 Name = _enumDeclarationSymbol!.Name,
                 Namespace = _enumDeclarationSymbol!.ContainingNamespace.ToDisplayString(),
                 HasFlagsAttribute = _hasFlagsAttribute,
-                Members = _enumMembers
-            };
-        }
-
-        public ParameterEnumGenerationSpecification? ParseTraktParameterEnumDeclaration(EnumDeclarationSyntax enumDeclaration,
-            SemanticModel semanticModel, CancellationToken cancellationToken)
-        {
-            if (!_compilationContainsTraktEnumTypes)
-            {
-                return null;
-            }
-
-            cancellationToken.ThrowIfCancellationRequested();
-
-            GetEnumSymbolAndLocation(enumDeclaration, semanticModel, cancellationToken);
-
-            if (!ParseEnumAttributes(_enumDeclarationSymbol!, true, cancellationToken))
-            {
-                return null;
-            }
-
-            if (!ParseEnumMembers(_enumDeclarationSymbol!, cancellationToken))
-            {
-                return null;
-            }
-
-            return new ParameterEnumGenerationSpecification
-            {
-                Name = _enumDeclarationSymbol!.Name,
-                Namespace = _enumDeclarationSymbol!.ContainingNamespace.ToDisplayString(),
-                HasFlagsAttribute = _hasFlagsAttribute,
-                ParameterEnumAttributeValue = _parameterEnumAttributeValue,
+                QueryName = _queryName,
+                HasPathSupport = _hasPathSupport,
+                HasQuerySupport = _hasQuerySupport,
                 Members = _enumMembers
             };
         }
@@ -103,7 +74,7 @@ namespace TraktNET.SourceGeneration.Enums
             Debug.Assert(_enumDeclarationLocation != null);
         }
 
-        private bool ParseEnumAttributes(INamedTypeSymbol enumTypeSymbol, bool parseTraktParameterEnum, CancellationToken cancellationToken)
+        private bool ParseEnumAttributes(INamedTypeSymbol enumTypeSymbol, CancellationToken cancellationToken)
         {
             foreach (AttributeData attributeData in enumTypeSymbol.GetAttributes())
             {
@@ -115,21 +86,46 @@ namespace TraktNET.SourceGeneration.Enums
                 {
                     _hasFlagsAttribute = true;
                 }                
-                else if (parseTraktParameterEnum && SymbolEqualityComparer.Default.Equals(attributeClass, _knownEnumSymbols.TraktParameterEnumAttributeType))
+                else if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownEnumSymbols.TraktEnumAttributeType))
                 {
-                    ImmutableArray<TypedConstant> constructorArguments = attributeData.ConstructorArguments;
-                    string? parameterEnumValue = constructorArguments[0].Value as string;
+                    var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
 
-                    if (string.IsNullOrWhiteSpace(parameterEnumValue))
+                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyQueryName, out TypedConstant queryNameConstant))
                     {
-                        ReportDiagnostic(DiagnosticDescriptors.InvalidTraktParameterEnumValue);
-                        return false;
+                        if (queryNameConstant.Value is string queryName)
+                        {
+                            if (string.IsNullOrEmpty(queryName))
+                            {
+                                ReportDiagnostic(DiagnosticDescriptors.InvalidQueryNameValue);
+                                return false;
+                            }
+
+                            _queryName = queryName;
+                        }
                     }
-                    else
+
+                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyHasPathSupport, out TypedConstant hasPathSupportConstant))
                     {
-                        _parameterEnumAttributeValue = parameterEnumValue!;
+                        if (hasPathSupportConstant.Value is bool hasPathSupport)
+                        {
+                            _hasPathSupport = hasPathSupport;
+                        }
+                    }
+
+                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyHasQuerySupport, out TypedConstant hasQuerySupportConstant))
+                    {
+                        if (hasQuerySupportConstant.Value is bool hasQuerySupport)
+                        {
+                            _hasQuerySupport = hasQuerySupport;
+                        }
                     }
                 }
+            }
+
+            if (_hasQuerySupport && string.IsNullOrWhiteSpace(_queryName))
+            {
+                ReportDiagnostic(DiagnosticDescriptors.InvalidQuerySupportAndQueryNameCombination);
+                return false;
             }
 
             return true;

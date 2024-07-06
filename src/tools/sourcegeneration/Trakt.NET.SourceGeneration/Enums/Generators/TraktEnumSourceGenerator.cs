@@ -1,19 +1,42 @@
 ﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using TraktNET.SourceGeneration.Models;
+
+using EnumDeclarationSyntaxTuple =
+    ((Microsoft.CodeAnalysis.CSharp.Syntax.EnumDeclarationSyntax ContextClass, Microsoft.CodeAnalysis.SemanticModel SemanticModel) EnumDeclarationContext,
+    TraktNET.SourceGeneration.Enums.KnownEnumSymbols KnownEnumSymbols);
+
+using EnumGenerationSpecificationTuple =
+    (TraktNET.SourceGeneration.Enums.EnumGenerationSpecification? EnumGenerationSpecification,
+        TraktNET.SourceGeneration.Models.ImmutableEquatableArray<TraktNET.SourceGeneration.Models.DiagnosticInfo> Diagnostics);
 
 namespace TraktNET.SourceGeneration.Enums
 {
     [Generator]
-    public sealed class TraktEnumSourceGenerator : TraktEnumSourceGeneratorBase<EnumGenerationSpecification>, IIncrementalGenerator
+    public sealed class TraktEnumSourceGenerator : IIncrementalGenerator
     {
-        public void Initialize(IncrementalGeneratorInitializationContext context) => InitializeGenerator(context);
+        private IncrementalValueProvider<KnownEnumSymbols> _knownEnumTypeSymbols;
+        private IncrementalValuesProvider<EnumGenerationSpecificationTuple> _enumGenerationSpecifications;
 
-        protected override IncrementalValuesProvider<EnumGenerationSpecificationTuple> CombineAndSelectEnumsWithAttribute(
+        public void Initialize(IncrementalGeneratorInitializationContext context)
+        {
+            _knownEnumTypeSymbols = context.CompilationProvider.Select(static (compilation, _) => new KnownEnumSymbols(compilation));
+            _enumGenerationSpecifications = CombineAndSelectEnumsWithAttribute(context);
+            context.RegisterSourceOutput(_enumGenerationSpecifications, ReportDiagnosticsAndEmitSource);
+        }
+
+        private IncrementalValuesProvider<EnumGenerationSpecificationTuple> CombineAndSelectEnumsWithAttribute(
             IncrementalGeneratorInitializationContext context)
-            => CombineAndSelectEnumsWithAttribute(context, EnumConstants.FullTraktEnumAttributeName,
-                EnumConstants.TrackingNames.InitialEnumExtraction, EnumConstants.TrackingNames.FilteredEnums);
+            => context.SyntaxProvider
+                .ForAttributeWithMetadataName(EnumConstants.FullTraktEnumAttributeName,
+                    static (syntaxNode, _) => syntaxNode is EnumDeclarationSyntax,
+                    (context, _) => (ContextClass: (EnumDeclarationSyntax)context.TargetNode, context.SemanticModel))
+                .WithTrackingName(EnumConstants.TrackingNames.InitialEnumExtraction)
+                .Combine(_knownEnumTypeSymbols)
+                .Select(ParseEnumDeclaration)
+                .WithTrackingName(EnumConstants.TrackingNames.FilteredEnums);
 
-        protected override EnumGenerationSpecificationTuple ParseEnumDeclaration(EnumDeclarationSyntaxTuple enumDeclarationInput, CancellationToken cancellationToken)
+        private EnumGenerationSpecificationTuple ParseEnumDeclaration(EnumDeclarationSyntaxTuple enumDeclarationInput, CancellationToken cancellationToken)
         {
             TraktEnumDeclarationParser parser = new(enumDeclarationInput.KnownEnumSymbols);
 
@@ -24,7 +47,20 @@ namespace TraktNET.SourceGeneration.Enums
             return (enumGenerationSpecification, diagnostics);
         }
 
-        protected override EnumSourceEmitterBase<EnumGenerationSpecification> CreateSourceEmitter(SourceProductionContext context)
-            => new EnumSourceEmitter(context);
+        private void ReportDiagnosticsAndEmitSource(SourceProductionContext sourceProductionContext, EnumGenerationSpecificationTuple input)
+        {
+            foreach (DiagnosticInfo diagnosticInfo in input.Diagnostics)
+            {
+                sourceProductionContext.ReportDiagnostic(diagnosticInfo.CreateDiagnostic());
+            }
+
+            if (input.EnumGenerationSpecification == null)
+            {
+                return;
+            }
+
+            var enumSourceEmitter = new EnumSourceEmitter(sourceProductionContext);
+            enumSourceEmitter.Emit(input.EnumGenerationSpecification);
+        }
     }
 }

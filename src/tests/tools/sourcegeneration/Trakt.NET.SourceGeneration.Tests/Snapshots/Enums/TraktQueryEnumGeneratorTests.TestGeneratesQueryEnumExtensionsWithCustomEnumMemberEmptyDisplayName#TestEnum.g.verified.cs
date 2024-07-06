@@ -20,7 +20,7 @@ namespace SourceGeneraterTestNamespace
             => value switch
             {
                 TestEnum.Unspecified => null,
-                TestEnum.ValueOne => "",
+                TestEnum.ValueOne => "first_value",
                 TestEnum.ValueTwo => "second_value",
                 _ => null,
             };
@@ -30,7 +30,7 @@ namespace SourceGeneraterTestNamespace
             => value switch
             {
                 "unspecified" => TestEnum.Unspecified,
-                "" => TestEnum.ValueOne,
+                "first_value" => TestEnum.ValueOne,
                 "second_value" => TestEnum.ValueTwo,
                 _ => TestEnum.Unspecified,
             };
@@ -41,12 +41,12 @@ namespace SourceGeneraterTestNamespace
             {
                 TestEnum.Unspecified => "Unspecified",
                 TestEnum.ValueOne => "Value One",
-                TestEnum.ValueTwo => "Value Nr. 2",
+                TestEnum.ValueTwo => "",
                 _ => value.ToString(),
             };
 
-        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI path value.</summary>
-        public static string ToUriPath(this TestEnum value)
+        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI query.</summary>
+        public static string AsQuery(this TestEnum value)
         {
             if (value == TestEnum.Unspecified)
             {

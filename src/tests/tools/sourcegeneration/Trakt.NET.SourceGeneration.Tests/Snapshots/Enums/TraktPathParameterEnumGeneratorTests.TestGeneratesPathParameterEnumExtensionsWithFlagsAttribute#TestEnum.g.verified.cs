@@ -62,8 +62,8 @@ namespace SourceGeneraterTestNamespace
         public static bool HasFlagSet(this TestEnum value, TestEnum flag)
             => flag == 0 ? true : (value & flag) == flag;
 
-        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI path value.</summary>
-        public static string ToUriPath(this TestEnum value)
+        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI path parameter.</summary>
+        public static string AsPathParameter(this TestEnum value)
         {
             if (value == TestEnum.Unspecified)
             {
@@ -82,7 +82,7 @@ namespace SourceGeneraterTestNamespace
                 values.Add(TestEnum.ValueTwo.ToJson()!);
             }
 
-            return "testenum=" + string.Join(",", values);
+            return string.Join(",", values);
         }
     }
 

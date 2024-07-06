@@ -54,25 +54,25 @@
         }
 
         [Fact]
-        public void TestTraktExtendedInfoToUriPath()
+        public void TestTraktExtendedInfoAsQuery()
         {
-            TraktExtendedInfo.None.ToUriPath().Should().BeEmpty();
-            TraktExtendedInfo.Metadata.ToUriPath().Should().Be("extended=metadata");
-            TraktExtendedInfo.Full.ToUriPath().Should().Be("extended=full");
-            TraktExtendedInfo.NoSeasons.ToUriPath().Should().Be("extended=noseasons");
-            TraktExtendedInfo.Episodes.ToUriPath().Should().Be("extended=episodes");
-            TraktExtendedInfo.GuestStars.ToUriPath().Should().Be("extended=guest_stars");
-            TraktExtendedInfo.Comments.ToUriPath().Should().Be("extended=comments");
-            TraktExtendedInfo.VIP.ToUriPath().Should().Be("extended=vip");
+            TraktExtendedInfo.None.AsQuery().Should().BeEmpty();
+            TraktExtendedInfo.Metadata.AsQuery().Should().Be("extended=metadata");
+            TraktExtendedInfo.Full.AsQuery().Should().Be("extended=full");
+            TraktExtendedInfo.NoSeasons.AsQuery().Should().Be("extended=noseasons");
+            TraktExtendedInfo.Episodes.AsQuery().Should().Be("extended=episodes");
+            TraktExtendedInfo.GuestStars.AsQuery().Should().Be("extended=guest_stars");
+            TraktExtendedInfo.Comments.AsQuery().Should().Be("extended=comments");
+            TraktExtendedInfo.VIP.AsQuery().Should().Be("extended=vip");
 
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
-            fullAndVIP.ToUriPath().Should().Be("extended=full,vip");
+            fullAndVIP.AsQuery().Should().Be("extended=full,vip");
 
             TraktExtendedInfo fullAndComments = TraktExtendedInfo.Full | TraktExtendedInfo.Comments;
-            fullAndComments.ToUriPath().Should().Be("extended=full,comments");
+            fullAndComments.AsQuery().Should().Be("extended=full,comments");
 
             TraktExtendedInfo episodesAndGuestStarts = TraktExtendedInfo.Episodes | TraktExtendedInfo.GuestStars;
-            episodesAndGuestStarts.ToUriPath().Should().Be("extended=episodes,guest_stars");
+            episodesAndGuestStarts.AsQuery().Should().Be("extended=episodes,guest_stars");
         }
     }
 }

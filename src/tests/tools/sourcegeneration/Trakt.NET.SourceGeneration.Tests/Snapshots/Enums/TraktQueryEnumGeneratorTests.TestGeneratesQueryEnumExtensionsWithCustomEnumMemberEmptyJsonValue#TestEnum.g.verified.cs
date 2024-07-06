@@ -20,7 +20,7 @@ namespace SourceGeneraterTestNamespace
             => value switch
             {
                 TestEnum.Unspecified => null,
-                TestEnum.ValueOne => "first_value",
+                TestEnum.ValueOne => "",
                 TestEnum.ValueTwo => "second_value",
                 _ => null,
             };
@@ -30,59 +30,30 @@ namespace SourceGeneraterTestNamespace
             => value switch
             {
                 "unspecified" => TestEnum.Unspecified,
-                "first_value" => TestEnum.ValueOne,
+                "" => TestEnum.ValueOne,
                 "second_value" => TestEnum.ValueTwo,
                 _ => TestEnum.Unspecified,
             };
 
         /// <summary>Returns the display name for <see cref="TestEnum" />.</summary>
         public static string DisplayName(this TestEnum value)
-        {
-            var values = new List<string>();
-
-            if (value == TestEnum.Unspecified)
+            => value switch
             {
-                values.Add("Unspecified");
-            }
+                TestEnum.Unspecified => "Unspecified",
+                TestEnum.ValueOne => "Value One",
+                TestEnum.ValueTwo => "Value Nr. 2",
+                _ => value.ToString(),
+            };
 
-            if (value.HasFlagSet(TestEnum.ValueOne))
-            {
-                values.Add("Value One");
-            }
-
-            if (value.HasFlagSet(TestEnum.ValueTwo))
-            {
-                values.Add("Value Nr. 2");
-            }
-
-            return string.Join(", ", values);
-        }
-
-        /// <summary>Determines whether one or more bit fields are set in <see cref="TestEnum" />.</summary>
-        public static bool HasFlagSet(this TestEnum value, TestEnum flag)
-            => flag == 0 ? true : (value & flag) == flag;
-
-        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI path value.</summary>
-        public static string ToUriPath(this TestEnum value)
+        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI query.</summary>
+        public static string AsQuery(this TestEnum value)
         {
             if (value == TestEnum.Unspecified)
             {
                 return string.Empty;
             }
 
-            var values = new List<string>();
-
-            if (value.HasFlagSet(TestEnum.ValueOne))
-            {
-                values.Add(TestEnum.ValueOne.ToJson()!);
-            }
-
-            if (value.HasFlagSet(TestEnum.ValueTwo))
-            {
-                values.Add(TestEnum.ValueTwo.ToJson()!);
-            }
-
-            return "testenum=" + string.Join(",", values);
+            return "testenum=" + value.ToJson();
         }
     }
 

@@ -7,10 +7,10 @@ namespace TraktNET.SourceGeneration.Common
         private const string EnumsCategory = "Trakt.NET.SourceGeneration.Enums";
         private const string RequestsCategory = "Trakt.NET.SourceGeneration.Requests";
 
-        public static DiagnosticDescriptor InvalidTraktParameterEnumValue { get; } = new(
+        public static DiagnosticDescriptor InvalidQueryNameValue { get; } = new(
             id: "TRAKTNET1001",
-            title: "Invalid parameter value for Trakt parameter enum.",
-            messageFormat: "Parameter value for Trakt parameter enum is null or empty.",
+            title: "Invalid query name value for Trakt enum.",
+            messageFormat: "Query name value for Trakt enum is null or empty.",
             category: EnumsCategory,
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
@@ -31,8 +31,16 @@ namespace TraktNET.SourceGeneration.Common
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
 
-        public static DiagnosticDescriptor InvalidRequestUriPathValue { get; } = new(
+        public static DiagnosticDescriptor InvalidQuerySupportAndQueryNameCombination { get; } = new(
             id: "TRAKTNET1004",
+            title: "Invalid query support and query name combination",
+            messageFormat: "Query support is enabled but query name is null or empty.",
+            category: EnumsCategory,
+            defaultSeverity: DiagnosticSeverity.Error,
+            isEnabledByDefault: true);
+
+        public static DiagnosticDescriptor InvalidRequestUriPathValue { get; } = new(
+            id: "TRAKTNET1005",
             title: "Invalid URI path for Trakt request",
             messageFormat: "URI path for Trakt request is null, empty or not of type 'string'.",
             category: RequestsCategory,

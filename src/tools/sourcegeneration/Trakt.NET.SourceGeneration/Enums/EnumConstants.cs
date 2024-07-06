@@ -8,13 +8,15 @@ namespace TraktNET.SourceGeneration.Enums
 
         internal const string TraktEnumMemberAttributeName = "TraktEnumMemberAttribute";
 
-        internal const string TraktParameterEnumAttributeName = "TraktParameterEnumAttribute";
-
         internal const string FullTraktEnumAttributeName = Constants.LibraryNamespace + "." + TraktEnumAttributeName;
 
         internal const string FullTraktEnumMemberAttributeName = Constants.LibraryNamespace + "." + TraktEnumMemberAttributeName;
 
-        internal const string FullTraktParameterEnumAttributeName = Constants.LibraryNamespace + "." + TraktParameterEnumAttributeName;
+        internal const string TraktEnumPropertyQueryName = "QueryName";
+
+        internal const string TraktEnumPropertyHasPathSupport = "HasPathSupport";
+
+        internal const string TraktEnumPropertyHasQuerySupport = "HasQuerySupport";
 
         internal const string TraktEnumMemberPropertyDisplayName = "DisplayName";
 
