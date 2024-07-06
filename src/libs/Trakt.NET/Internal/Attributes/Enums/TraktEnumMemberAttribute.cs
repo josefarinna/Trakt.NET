@@ -7,5 +7,7 @@
         public string JsonValue { get; } = jsonValue;
 
         public string? DisplayName { get; set; }
+
+        public string? UriValue { get; set; }
     }
 }
