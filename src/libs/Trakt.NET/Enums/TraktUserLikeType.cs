@@ -1,18 +1,18 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the type of an object in an user like item.</summary>
-    [TraktEnum]
+    [TraktEnum(HasPathSupport = true)]
     public enum TraktUserLikeType
     {
         /// <summary>An invalid object type.</summary>
         Unspecified,
 
         /// <summary>The user like item contains a comment.</summary>
-        [TraktEnumMember("comment", UriValue = "comments")]
+        [TraktEnumMember(UriValue = "comments")]
         Comment,
 
         /// <summary>The user like item contains a list.</summary>
-        [TraktEnumMember("list", UriValue = "lists")]
+        [TraktEnumMember(UriValue = "lists")]
         List
     }
 }

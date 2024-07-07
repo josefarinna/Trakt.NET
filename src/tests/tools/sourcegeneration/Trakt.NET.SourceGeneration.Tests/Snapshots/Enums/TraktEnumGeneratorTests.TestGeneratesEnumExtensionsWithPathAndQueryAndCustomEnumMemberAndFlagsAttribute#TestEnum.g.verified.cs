@@ -20,7 +20,7 @@ namespace SourceGeneraterTestNamespace
             => value switch
             {
                 TestEnum.Unspecified => null,
-                TestEnum.ValueOne => "first_value",
+                TestEnum.ValueOne => "value_one",
                 TestEnum.ValueTwo => "second_value",
                 _ => null,
             };
@@ -30,30 +30,70 @@ namespace SourceGeneraterTestNamespace
             => value switch
             {
                 "unspecified" => TestEnum.Unspecified,
-                "first_value" => TestEnum.ValueOne,
+                "value_one" => TestEnum.ValueOne,
                 "second_value" => TestEnum.ValueTwo,
                 _ => TestEnum.Unspecified,
             };
 
         /// <summary>Returns the display name for <see cref="TestEnum" />.</summary>
         public static string DisplayName(this TestEnum value)
-            => value switch
+        {
+            var values = new List<string>();
+
+            if (value == TestEnum.Unspecified)
             {
-                TestEnum.Unspecified => "Unspecified",
-                TestEnum.ValueOne => "Value One",
-                TestEnum.ValueTwo => "",
-                _ => value.ToString(),
-            };
+                values.Add("Unspecified");
+            }
+
+            if (value.HasFlagSet(TestEnum.ValueOne))
+            {
+                values.Add("Value One");
+            }
+
+            if (value.HasFlagSet(TestEnum.ValueTwo))
+            {
+                values.Add("Value Nr. 2");
+            }
+
+            return string.Join(", ", values);
+        }
+
+        /// <summary>Determines whether one or more bit fields are set in <see cref="TestEnum" />.</summary>
+        public static bool HasFlagSet(this TestEnum value, TestEnum flag)
+            => flag == 0 ? true : (value & flag) == flag;
 
         /// <summary>Returns the URI value for <see cref="TestEnum" />.</summary>
         public static string ToURI(this TestEnum value)
             => value switch
             {
                 TestEnum.Unspecified => string.Empty,
-                TestEnum.ValueOne => "first_value",
+                TestEnum.ValueOne => "value_one",
                 TestEnum.ValueTwo => "second_value",
                 _ => string.Empty,
             };
+
+        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI path parameter.</summary>
+        public static string AsPathParameter(this TestEnum value)
+        {
+            if (value == TestEnum.Unspecified)
+            {
+                return string.Empty;
+            }
+
+            var values = new List<string>();
+
+            if (value.HasFlagSet(TestEnum.ValueOne))
+            {
+                values.Add("value_one");
+            }
+
+            if (value.HasFlagSet(TestEnum.ValueTwo))
+            {
+                values.Add("second_value");
+            }
+
+            return string.Join(",", values);
+        }
 
         /// <summary>Converts a <see cref="TestEnum" /> to a valid URI query.</summary>
         public static string AsQuery(this TestEnum value)
@@ -63,7 +103,19 @@ namespace SourceGeneraterTestNamespace
                 return string.Empty;
             }
 
-            return "testenum=" + value.ToURI();
+            var values = new List<string>();
+
+            if (value.HasFlagSet(TestEnum.ValueOne))
+            {
+                values.Add("value_one");
+            }
+
+            if (value.HasFlagSet(TestEnum.ValueTwo))
+            {
+                values.Add("second_value");
+            }
+
+            return "testenum=" + string.Join(",", values);
         }
     }
 

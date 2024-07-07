@@ -14,7 +14,7 @@
         Bluray,
 
         /// <summary>The collection item has HD DVD media.</summary>
-        [TraktEnumMember("hddvd", DisplayName = "HD DVD")]
+        [TraktEnumMember(JsonValue = "hddvd", DisplayName = "HD DVD")]
         HDDVD,
 
         /// <summary>The collection item has DVD media.</summary>
@@ -27,11 +27,11 @@
         VHS,
 
         /// <summary>The collection item has Betamax media.</summary>
-        [TraktEnumMember("betamax", DisplayName = "BetaMax")]
+        [TraktEnumMember(JsonValue = "betamax", DisplayName = "BetaMax")]
         BetaMax,
 
         /// <summary>The collection item has Laserdisc media.</summary>
-        [TraktEnumMember("laserdisc", DisplayName = "LaserDisc")]
+        [TraktEnumMember(JsonValue = "laserdisc", DisplayName = "LaserDisc")]
         LaserDisc
     }
 }

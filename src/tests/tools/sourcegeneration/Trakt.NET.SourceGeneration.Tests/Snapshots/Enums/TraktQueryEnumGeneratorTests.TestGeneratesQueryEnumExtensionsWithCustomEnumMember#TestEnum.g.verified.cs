@@ -45,6 +45,16 @@ namespace SourceGeneraterTestNamespace
                 _ => value.ToString(),
             };
 
+        /// <summary>Returns the URI value for <see cref="TestEnum" />.</summary>
+        public static string ToURI(this TestEnum value)
+            => value switch
+            {
+                TestEnum.Unspecified => string.Empty,
+                TestEnum.ValueOne => "first_value",
+                TestEnum.ValueTwo => "second_value",
+                _ => string.Empty,
+            };
+
         /// <summary>Converts a <see cref="TestEnum" /> to a valid URI query.</summary>
         public static string AsQuery(this TestEnum value)
         {
@@ -53,7 +63,7 @@ namespace SourceGeneraterTestNamespace
                 return string.Empty;
             }
 
-            return "testenum=" + value.ToJson();
+            return "testenum=" + value.ToURI();
         }
     }
 

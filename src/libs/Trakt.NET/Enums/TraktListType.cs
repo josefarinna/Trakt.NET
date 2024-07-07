@@ -14,7 +14,7 @@
         Official,
 
         /// <summary>The list type for watchlists.</summary>
-        [TraktEnumMember("watchlists", DisplayName = "Watchlists")]
+        [TraktEnumMember(JsonValue = "watchlists", DisplayName = "Watchlists")]
         Watchlist,
 
         /// <summary>The list type for recommendations.</summary>

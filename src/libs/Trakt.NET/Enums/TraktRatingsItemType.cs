@@ -1,26 +1,26 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the type of an object in a rating item.</summary>
-    [TraktEnum]
+    [TraktEnum(HasPathSupport = true)]
     public enum TraktRatingsItemType
     {
         /// <summary>An invalid object type.</summary>
         Unspecified,
 
         /// <summary>The rating item contains a movie.</summary>
-        [TraktEnumMember("movie", UriValue = "movies")]
+        [TraktEnumMember(UriValue = "movies")]
         Movie,
 
         /// <summary>The ratingv item contains a show.</summary>
-        [TraktEnumMember("show", UriValue = "shows")]
+        [TraktEnumMember(UriValue = "shows")]
         Show,
 
         /// <summary>The rating item contains a season.</summary>
-        [TraktEnumMember("season", UriValue = "seasons")]
+        [TraktEnumMember(UriValue = "seasons")]
         Season,
 
         /// <summary>The rating item contains an episode.</summary>
-        [TraktEnumMember("episode", UriValue = "episodes")]
+        [TraktEnumMember(UriValue = "episodes")]
         Episode,
 
         /// <summary>The rating item contains a movie, show, season or an episode.</summary>

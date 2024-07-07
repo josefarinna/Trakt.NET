@@ -41,7 +41,7 @@ namespace SourceGeneraterTestNamespace
             {
                 TestEnum.Unspecified => "Unspecified",
                 TestEnum.ValueOne => "Value One",
-                TestEnum.ValueTwo => "",
+                TestEnum.ValueTwo => "Value Nr. 2",
                 _ => value.ToString(),
             };
 
@@ -55,15 +55,15 @@ namespace SourceGeneraterTestNamespace
                 _ => string.Empty,
             };
 
-        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI query.</summary>
-        public static string AsQuery(this TestEnum value)
+        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI path parameter.</summary>
+        public static string AsPathParameter(this TestEnum value)
         {
             if (value == TestEnum.Unspecified)
             {
                 return string.Empty;
             }
 
-            return "testenum=" + value.ToURI();
+            return value.ToURI();
         }
     }
 

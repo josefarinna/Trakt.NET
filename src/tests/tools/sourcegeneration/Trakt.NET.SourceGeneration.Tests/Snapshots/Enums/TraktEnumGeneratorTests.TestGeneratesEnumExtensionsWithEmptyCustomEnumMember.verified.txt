@@ -1,0 +1,14 @@
+﻿{
+  Diagnostics: [
+    {
+      Id: TRAKTNET1006,
+      Title: Empty Trakt enum member attribute declared,
+      Severity: Warning,
+      WarningLevel: 1,
+      Location: : (5,16)-(5,24),
+      MessageFormat: Trakt enum member attribute declared without any custom values.,
+      Message: Trakt enum member attribute declared without any custom values.,
+      Category: Trakt.NET.SourceGeneration.Enums
+    }
+  ]
+}

@@ -7,19 +7,19 @@
         Unspecified,
 
         /// <summary>The date format for Month Day Year.</summary>
-        [TraktEnumMember("mdy")]
+        [TraktEnumMember(JsonValue = "mdy")]
         MonthDayYear,
 
         /// <summary>The date format for Day Month Year.</summary>
-        [TraktEnumMember("dmy")]
+        [TraktEnumMember(JsonValue = "dmy")]
         DayMonthYear,
 
         /// <summary>The date format for Year Month Day.</summary>
-        [TraktEnumMember("ymd")]
+        [TraktEnumMember(JsonValue = "ymd")]
         YearMonthDay,
 
         /// <summary>The date format for Year Day Month.</summary>
-        [TraktEnumMember("ydm")]
+        [TraktEnumMember(JsonValue = "ydm")]
         YearDayMonth
     }
 }

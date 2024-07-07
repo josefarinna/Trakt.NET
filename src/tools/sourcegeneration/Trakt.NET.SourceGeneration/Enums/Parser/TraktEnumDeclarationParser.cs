@@ -2,6 +2,7 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Collections.Immutable;
 using System.Diagnostics;
+using System.Text;
 using TraktNET.SourceGeneration.Common;
 using TraktNET.SourceGeneration.Models;
 
@@ -145,7 +146,10 @@ namespace TraktNET.SourceGeneration.Enums
                 string enumMemberName = enumField.Name;
                 string displayName = enumMemberName.ToDisplayName();
                 string jsonValue = enumMemberName.ToLowercaseNamingConvention();
+                string uriValue = jsonValue;
                 bool hasTraktEnumMemberAttribute = false;
+                bool hasCustomJsonValue = false;
+                bool hasCustomUriValue = false;
 
                 foreach (AttributeData attributeData in enumField.GetAttributes())
                 {
@@ -156,19 +160,39 @@ namespace TraktNET.SourceGeneration.Enums
                     if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownEnumSymbols.TraktEnumMemberAttributeType))
                     {
                         hasTraktEnumMemberAttribute = true;
-                        ImmutableArray<TypedConstant> constructorArguments = attributeData.ConstructorArguments;
-
-                        if (constructorArguments[0].Value is not string value)
-                        {
-                            ReportDiagnostic(DiagnosticDescriptors.InvalidJsonValue);
-                            return false;
-                        }
-                        else
-                        {
-                            jsonValue = value!;
-                        }
+                        bool hasAnyCustomValueSet = false;
 
                         var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
+
+                        if (namedArguments.TryGetValue(EnumConstants.TraktEnumMemberPropertyJsonValue, out TypedConstant jsonValueConstant))
+                        {
+                            if (jsonValueConstant.Value is not string constantJsonValue)
+                            {
+                                ReportDiagnostic(DiagnosticDescriptors.InvalidJsonValue);
+                                return false;
+                            }
+                            else
+                            {
+                                hasAnyCustomValueSet = true;
+                                hasCustomJsonValue = true;
+                                jsonValue = constantJsonValue;
+                            }
+                        }
+
+                        if (namedArguments.TryGetValue(EnumConstants.TraktEnumMemberPropertyUriValue, out TypedConstant uriValueConstant))
+                        {
+                            if (uriValueConstant.Value is not string constantUriValue)
+                            {
+                                ReportDiagnostic(DiagnosticDescriptors.InvalidUriValue);
+                                return false;
+                            }
+                            else
+                            {
+                                hasAnyCustomValueSet = true;
+                                hasCustomUriValue = true;
+                                uriValue = constantUriValue;
+                            }
+                        }
 
                         if (namedArguments.TryGetValue(EnumConstants.TraktEnumMemberPropertyDisplayName, out TypedConstant displayNameConstant))
                         {
@@ -179,18 +203,30 @@ namespace TraktNET.SourceGeneration.Enums
                             }
                             else
                             {
+                                hasAnyCustomValueSet = true;
                                 displayName = displayNameValue!;
                             }
                         }
+
+                        if (!hasAnyCustomValueSet)
+                        {
+                            ReportDiagnostic(DiagnosticDescriptors.NoCustomValuesProvidedForEnumMemberAttribute);
+                        }
                     }
+                }
+
+                if (hasCustomJsonValue && !hasCustomUriValue)
+                {
+                    uriValue = jsonValue;
                 }
 
                 _enumMembers.Add(new EnumMemberGenerationSpecification
                 {
                     Name = enumMemberName,
                     HasTraktEnumMemberAttribute = hasTraktEnumMemberAttribute,
-                    DisplayName = displayName,
-                    JsonValue = jsonValue
+                    JsonValue = jsonValue,
+                    UriValue = uriValue,
+                    DisplayName = displayName
                 });
             }
 

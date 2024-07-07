@@ -20,11 +20,11 @@
         Production,
 
         /// <summary>The visual effects department.</summary>
-        [TraktEnumMember("visual effects")]
+        [TraktEnumMember(JsonValue = "visual effects")]
         VisualEffects,
 
         /// <summary>The costume and make-up department.</summary>
-        [TraktEnumMember("costume & make-up", DisplayName = "Costume & Make-Up")]
+        [TraktEnumMember(JsonValue = "costume & make-up", DisplayName = "Costume & Make-Up")]
         CostumeMakeup,
 
         /// <summary>The camera department.</summary>

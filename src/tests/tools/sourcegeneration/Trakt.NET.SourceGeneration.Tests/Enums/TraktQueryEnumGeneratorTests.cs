@@ -61,10 +61,10 @@
                     {
                         Unspecified,
                 
-                        [TraktEnumMember("first_value")]
+                        [TraktEnumMember(JsonValue = "first_value")]
                         ValueOne,
                 
-                        [TraktEnumMember("second_value", DisplayName = "Value Nr. 2")]
+                        [TraktEnumMember(JsonValue = "second_value", DisplayName = "Value Nr. 2")]
                         ValueTwo
                     }
                 }
@@ -72,6 +72,60 @@
 
             return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
                 "SourceGeneration.QueryEnumMemberTests", source);
+        }
+
+        [Fact]
+        public Task TestGeneratesQueryEnumExtensionsWithCustomEnumMemberURIAndFlagsAttribute()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktEnum(QueryName = "testenum", HasQuerySupport = true)]
+                    [Flags]
+                    public enum TestEnum
+                    {
+                        Unspecified,
+                
+                        [TraktEnumMember(JsonValue = "first_value", UriValue = "first_value_uri")]
+                        ValueOne,
+                
+                        [TraktEnumMember(JsonValue = "second_value", DisplayName = "Value Nr. 2", UriValue = "second_value_uri")]
+                        ValueTwo
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
+                "SourceGeneration.QueryEnumMemberURIAndFlagsTests", source);
+        }
+
+        [Fact]
+        public Task TestGeneratesQueryEnumExtensionsWithCustomEnumMemberURI()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktEnum(QueryName = "testenum", HasQuerySupport = true)]
+                    public enum TestEnum
+                    {
+                        Unspecified,
+                
+                        [TraktEnumMember(JsonValue = "first_value", UriValue = "first_value_uri")]
+                        ValueOne,
+                
+                        [TraktEnumMember(JsonValue = "second_value", DisplayName = "Value Nr. 2", UriValue = "second_value_uri")]
+                        ValueTwo
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
+                "SourceGeneration.QueryEnumMemberURITests", source);
         }
 
         [Fact]
@@ -89,10 +143,10 @@
                     {
                         Unspecified,
                 
-                        [TraktEnumMember("first_value")]
+                        [TraktEnumMember(JsonValue = "first_value")]
                         ValueOne,
                 
-                        [TraktEnumMember("second_value", DisplayName = "Value Nr. 2")]
+                        [TraktEnumMember(JsonValue = "second_value", DisplayName = "Value Nr. 2")]
                         ValueTwo
                     }
                 }
@@ -181,10 +235,10 @@
                     {
                         Unspecified,
                 
-                        [TraktEnumMember("")]
+                        [TraktEnumMember(JsonValue = "")]
                         ValueOne,
                 
-                        [TraktEnumMember("second_value", DisplayName = "Value Nr. 2")]
+                        [TraktEnumMember(JsonValue = "second_value", DisplayName = "Value Nr. 2")]
                         ValueTwo
                     }
                 }
@@ -207,10 +261,10 @@
                     {
                         Unspecified,
                 
-                        [TraktEnumMember("first_value")]
+                        [TraktEnumMember(JsonValue = "first_value")]
                         ValueOne,
                 
-                        [TraktEnumMember("second_value", DisplayName = "")]
+                        [TraktEnumMember(JsonValue = "second_value", DisplayName = "")]
                         ValueTwo
                     }
                 }
@@ -233,10 +287,10 @@
                     {
                         Unspecified,
                 
-                        [TraktEnumMember(null)]
+                        [TraktEnumMember(JsonValue = null)]
                         ValueOne,
                 
-                        [TraktEnumMember("second_value", DisplayName = "Value Nr. 2")]
+                        [TraktEnumMember(JsonValue = "second_value", DisplayName = "Value Nr. 2")]
                         ValueTwo
                     }
                 }
@@ -259,10 +313,10 @@
                     {
                         Unspecified,
                 
-                        [TraktEnumMember("first_value")]
+                        [TraktEnumMember(JsonValue = "first_value")]
                         ValueOne,
                 
-                        [TraktEnumMember("second_value", DisplayName = null)]
+                        [TraktEnumMember(JsonValue = "second_value", DisplayName = null)]
                         ValueTwo
                     }
                 }

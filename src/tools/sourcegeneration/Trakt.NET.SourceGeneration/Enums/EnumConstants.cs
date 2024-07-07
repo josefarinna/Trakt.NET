@@ -18,6 +18,10 @@ namespace TraktNET.SourceGeneration.Enums
 
         internal const string TraktEnumPropertyHasQuerySupport = "HasQuerySupport";
 
+        internal const string TraktEnumMemberPropertyJsonValue = "JsonValue";
+
+        internal const string TraktEnumMemberPropertyUriValue = "UriValue";
+
         internal const string TraktEnumMemberPropertyDisplayName = "DisplayName";
 
         internal static class TrackingNames

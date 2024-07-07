@@ -1,13 +1,16 @@
 ﻿namespace TraktNET
 {
-    /// <summary>Provides a custom Json value and optional display name for an enum member.</summary>
+    /// <summary>Can be used to provide a custom Json value, URI value and / or display name for an enum member.</summary>
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
-    internal sealed class TraktEnumMemberAttribute(string jsonValue) : Attribute
+    internal sealed class TraktEnumMemberAttribute() : Attribute
     {
-        public string JsonValue { get; } = jsonValue;
+        /// <summary>A custom Json value for an enum member.</summary>
+        public string? JsonValue { get; set; }
 
-        public string? DisplayName { get; set; }
-
+        /// <summary>A custom URI value for an enum member.</summary>
         public string? UriValue { get; set; }
+
+        /// <summary>A custom display name for an enum member.</summary>
+        public string? DisplayName { get; set; }
     }
 }

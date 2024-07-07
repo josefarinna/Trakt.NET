@@ -8,31 +8,31 @@
         Unspecified,
 
         /// <summary>The weekday is monday.</summary>
-        [TraktEnumMember("Monday")]
+        [TraktEnumMember(JsonValue = "Monday")]
         Monday,
 
         /// <summary>The weekday is tuesday.</summary>
-        [TraktEnumMember("Tuesday")]
+        [TraktEnumMember(JsonValue = "Tuesday")]
         Tuesday,
 
         /// <summary>The weekday is wednesday.</summary>
-        [TraktEnumMember("Wednesday")]
+        [TraktEnumMember(JsonValue = "Wednesday")]
         Wednesday,
 
         /// <summary>The weekday is thursday.</summary>
-        [TraktEnumMember("Thursday")]
+        [TraktEnumMember(JsonValue = "Thursday")]
         Thursday,
 
         /// <summary>The weekday is friday.</summary>
-        [TraktEnumMember("Friday")]
+        [TraktEnumMember(JsonValue = "Friday")]
         Friday,
 
         /// <summary>The weekday is saturday.</summary>
-        [TraktEnumMember("Saturday")]
+        [TraktEnumMember(JsonValue = "Saturday")]
         Saturday,
 
         /// <summary>The weekday is sunday.</summary>
-        [TraktEnumMember("Sunday")]
+        [TraktEnumMember(JsonValue = "Sunday")]
         Sunday
     }
 }

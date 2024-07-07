@@ -11,11 +11,11 @@
         DolbyVision,
 
         /// <summary>The collection item supports HDR10.</summary>
-        [TraktEnumMember("hdr10", DisplayName = "HDR10")]
+        [TraktEnumMember(JsonValue = "hdr10", DisplayName = "HDR10")]
         HDR10,
 
         /// <summary>The collection item supports HDR10 Plus.</summary>
-        [TraktEnumMember("hdr10_plus", DisplayName = "HDR10 Plus")]
+        [TraktEnumMember(JsonValue = "hdr10_plus", DisplayName = "HDR10 Plus")]
         HDR10Plus,
 
         /// <summary>The collection item supports HLG.</summary>

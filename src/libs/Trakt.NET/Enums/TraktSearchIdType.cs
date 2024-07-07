@@ -11,19 +11,19 @@
         Trakt,
 
         /// <summary>Search for ImDB ids.</summary>
-        [TraktEnumMember("imdb", DisplayName = "Internet Movie Database")]
+        [TraktEnumMember(JsonValue = "imdb", DisplayName = "Internet Movie Database")]
         ImDB,
 
         /// <summary>Search for TmDB ids.</summary>
-        [TraktEnumMember("tmdb", DisplayName = "The Movie Database")]
+        [TraktEnumMember(JsonValue = "tmdb", DisplayName = "The Movie Database")]
         TmDB,
 
         /// <summary>Search for TvDB ids.</summary>
-        [TraktEnumMember("tvdb", DisplayName = "TheTVDB")]
+        [TraktEnumMember(JsonValue = "tvdb", DisplayName = "TheTVDB")]
         TvDB,
 
         /// <summary>Search for TVRage ids.</summary>
-        [TraktEnumMember("tvrage", DisplayName = "TVRage")]
+        [TraktEnumMember(JsonValue = "tvrage", DisplayName = "TVRage")]
         TVRage
     }
 }

@@ -1,7 +1,7 @@
 ﻿{
   Diagnostics: [
     {
-      Id: TRAKTNET1004,
+      Id: TRAKTNET1005,
       Title: Invalid query support and query name combination,
       Severity: Error,
       WarningLevel: 0,

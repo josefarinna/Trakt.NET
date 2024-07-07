@@ -31,16 +31,32 @@ namespace TraktNET.SourceGeneration.Common
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
 
-        public static DiagnosticDescriptor InvalidQuerySupportAndQueryNameCombination { get; } = new(
+        public static DiagnosticDescriptor InvalidUriValue { get; } = new(
             id: "TRAKTNET1004",
+            title: "Invalid URI value for Trakt enum member.",
+            messageFormat: "URI value for Trakt enum member is null or not of type 'string'.",
+            category: EnumsCategory,
+            defaultSeverity: DiagnosticSeverity.Error,
+            isEnabledByDefault: true);
+
+        public static DiagnosticDescriptor InvalidQuerySupportAndQueryNameCombination { get; } = new(
+            id: "TRAKTNET1005",
             title: "Invalid query support and query name combination",
             messageFormat: "Query support is enabled but query name is null or empty.",
             category: EnumsCategory,
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
 
+        public static DiagnosticDescriptor NoCustomValuesProvidedForEnumMemberAttribute { get; } = new(
+            id: "TRAKTNET1006",
+            title: "Empty Trakt enum member attribute declared",
+            messageFormat: "Trakt enum member attribute declared without any custom values.",
+            category: EnumsCategory,
+            defaultSeverity: DiagnosticSeverity.Warning,
+            isEnabledByDefault: true);
+
         public static DiagnosticDescriptor InvalidRequestUriPathValue { get; } = new(
-            id: "TRAKTNET1005",
+            id: "TRAKTNET1007",
             title: "Invalid URI path for Trakt request",
             messageFormat: "URI path for Trakt request is null, empty or not of type 'string'.",
             category: RequestsCategory,

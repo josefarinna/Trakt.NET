@@ -11,7 +11,7 @@
         LPCM,
 
         /// <summary>The collection item has MP3 audio.</summary>
-        [TraktEnumMember("mp3", DisplayName = "MP3")]
+        [TraktEnumMember(JsonValue = "mp3", DisplayName = "MP3")]
         MP3,
 
         /// <summary>The collection item has AAC audio.</summary>
@@ -27,11 +27,11 @@
         DTS,
 
         /// <summary>The collection item has DTS Master Audio.</summary>
-        [TraktEnumMember("dts_ma", DisplayName = "DTS Master Audio")]
+        [TraktEnumMember(JsonValue = "dts_ma", DisplayName = "DTS Master Audio")]
         DTSMA,
 
         /// <summary>The collection item has DTS X Audio.</summary>
-        [TraktEnumMember("dts_x", DisplayName = "DTS X")]
+        [TraktEnumMember(JsonValue = "dts_x", DisplayName = "DTS X")]
         DTSX,
 
         /// <summary>The collection item has Dolby Prologic audio.</summary>
@@ -44,18 +44,18 @@
         DolbyDigitalPlus,
 
         /// <summary>The collection item has Dolby True HD audio.</summary>
-        [TraktEnumMember("dolby_truehd", DisplayName = "Dolby True HD")]
+        [TraktEnumMember(JsonValue = "dolby_truehd", DisplayName = "Dolby True HD")]
         DolbyTrueHD,
 
         /// <summary>The collection item has Dolby Atmos audio.</summary>
         DolbyAtmos,
 
         /// <summary>The collection item has DTS HR audio.</summary>
-        [TraktEnumMember("dts_hr", DisplayName = "DTS HR")]
+        [TraktEnumMember(JsonValue = "dts_hr", DisplayName = "DTS HR")]
         DTSHR,
 
         /// <summary>The collection item has AURO 3D audio.</summary>
-        [TraktEnumMember("auro_3d", DisplayName = "AURO 3D")]
+        [TraktEnumMember(JsonValue = "auro_3d", DisplayName = "AURO 3D")]
         AURO3D
     }
 }

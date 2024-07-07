@@ -129,6 +129,12 @@ namespace TraktNET.SourceGeneration.Enums
                 WriteHasFlagSetMethod();
             }
 
+            if (_hasPathSupport || _hasQuerySupport)
+            {
+                _sourceWriter.WriteEmptyLine();
+                WriteToURIValueMethod();
+            }
+
             if (_hasPathSupport)
             {
                 _sourceWriter.WriteEmptyLine();
@@ -141,6 +147,41 @@ namespace TraktNET.SourceGeneration.Enums
                 WriteAsQueryMethod();
             }
         }
+
+        private void WriteToURIValueMethod()
+        {
+            _sourceWriter.WriteLine($"/// <summary>Returns the URI value for <see cref=\"{_enumName}\" />.</summary>");
+            _sourceWriter.WriteLine($"public static string ToURI(this {_enumName} value)");
+            _sourceWriter.Indent();
+            _sourceWriter.WriteLine("=> value switch");
+            _sourceWriter.WriteLine('{');
+            _sourceWriter.Indent();
+
+            foreach (EnumMemberGenerationSpecification enumMember in _enumMembers)
+            {
+                string enumMemberName = enumMember.Name;
+
+                if ((enumMemberName == UnspecifiedValue || enumMemberName == NoneValue) && !enumMember.HasTraktEnumMemberAttribute)
+                {
+                    WriteToURISwitchInvalidCase(enumMemberName);
+                }
+                else
+                {
+                    WriteToURISwitchCase(enumMemberName, enumMember.UriValue);
+                }
+            }
+
+            _sourceWriter.WriteLine("_ => string.Empty,");
+            _sourceWriter.DecrementIndent();
+            _sourceWriter.WriteLine("};");
+            _sourceWriter.DecrementIndent();
+        }
+
+        private void WriteToURISwitchInvalidCase(string enumMemberName)
+            => _sourceWriter.WriteLine($"{_enumName}.{enumMemberName} => string.Empty,");
+
+        private void WriteToURISwitchCase(string enumMemberName, string uriValue)
+            => _sourceWriter.WriteLine($"{_enumName}.{enumMemberName} => \"{uriValue}\",");
 
         private void WriteToJsonMethod()
         {
@@ -319,7 +360,7 @@ namespace TraktNET.SourceGeneration.Enums
                     }
 
                     _sourceWriter.WriteEmptyLine();
-                    WriteAsPathParameterOrQueryValueAdd(enumMember.Name);
+                    WriteAsPathParameterOrQueryValueAdd(enumMember);
                 }
 
                 _sourceWriter.WriteEmptyLine();
@@ -327,7 +368,7 @@ namespace TraktNET.SourceGeneration.Enums
             }
             else
             {
-                _sourceWriter.WriteLine("return value.ToJson();");
+                _sourceWriter.WriteLine("return value.ToURI();");
             }
 
             _sourceWriter.DecrementIndent();
@@ -364,7 +405,7 @@ namespace TraktNET.SourceGeneration.Enums
                     }
 
                     _sourceWriter.WriteEmptyLine();
-                    WriteAsPathParameterOrQueryValueAdd(enumMember.Name);
+                    WriteAsPathParameterOrQueryValueAdd(enumMember);
                 }
 
                 _sourceWriter.WriteEmptyLine();
@@ -372,19 +413,19 @@ namespace TraktNET.SourceGeneration.Enums
             }
             else
             {
-                WriteAsQueryReturn("value.ToJson();");
+                WriteAsQueryReturn("value.ToURI();");
             }
 
             _sourceWriter.DecrementIndent();
             _sourceWriter.WriteLine('}');
         }
 
-        private void WriteAsPathParameterOrQueryValueAdd(string enumMemberName)
+        private void WriteAsPathParameterOrQueryValueAdd(EnumMemberGenerationSpecification enumMember)
         {
-            _sourceWriter.WriteLine($"if (value.HasFlagSet({_enumName}.{enumMemberName}))");
+            _sourceWriter.WriteLine($"if (value.HasFlagSet({_enumName}.{enumMember.Name}))");
             _sourceWriter.WriteLine('{');
             _sourceWriter.Indent();
-            _sourceWriter.WriteLine($"values.Add({_enumName}.{enumMemberName}.ToJson()!);");
+            _sourceWriter.WriteLine($"values.Add(\"{enumMember.UriValue}\");");
             _sourceWriter.DecrementIndent();
             _sourceWriter.WriteLine('}');
         }

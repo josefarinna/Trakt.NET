@@ -6,8 +6,10 @@
 
         public required bool HasTraktEnumMemberAttribute { get; init; }
 
-        public required string DisplayName { get; init; }
-
         public required string JsonValue { get; init; }
+
+        public required string UriValue { get; init; }
+
+        public required string DisplayName { get; init; }
     }
 }

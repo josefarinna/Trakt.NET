@@ -8,11 +8,11 @@
         Unspecified,
 
         /// <summary>The comment type for reviews.</summary>
-        [TraktEnumMember("reviews")]
+        [TraktEnumMember(JsonValue = "reviews")]
         Review,
 
         /// <summary>The comment type for shouts.</summary>
-        [TraktEnumMember("shouts")]
+        [TraktEnumMember(JsonValue = "shouts")]
         Shout,
 
         /// <summary>The comment type for both reviews and shouts.</summary>

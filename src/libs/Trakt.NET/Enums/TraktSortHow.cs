@@ -8,11 +8,11 @@
         Unspecified,
 
         /// <summary>Items are ordered in ascending order.</summary>
-        [TraktEnumMember("asc")]
+        [TraktEnumMember(JsonValue = "asc")]
         Ascending,
 
         /// <summary>Items are ordered in descending order.</summary>
-        [TraktEnumMember("desc")]
+        [TraktEnumMember(JsonValue = "desc")]
         Descending
     }
 }
