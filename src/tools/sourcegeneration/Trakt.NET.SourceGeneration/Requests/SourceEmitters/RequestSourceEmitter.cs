@@ -211,7 +211,7 @@ namespace TraktNET.SourceGeneration.Requests
                     _sourceWriter.WriteLine("if (ExtendedInfo.HasValue && ExtendedInfo.Value != TraktExtendedInfo.None)");
                     _sourceWriter.WriteLine('{');
                     _sourceWriter.Indent();
-                    _sourceWriter.WriteLine("queries.Add(ExtendedInfo.Value.ToUriPath());");
+                    _sourceWriter.WriteLine("queries.Add(ExtendedInfo.Value.AsQuery());");
                     _sourceWriter.DecrementIndent();
                     _sourceWriter.WriteLine('}');
                 }

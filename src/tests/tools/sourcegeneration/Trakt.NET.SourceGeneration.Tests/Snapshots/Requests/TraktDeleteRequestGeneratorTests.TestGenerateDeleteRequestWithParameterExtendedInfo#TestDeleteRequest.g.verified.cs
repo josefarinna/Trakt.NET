@@ -29,7 +29,7 @@ namespace SourceGeneraterTestNamespace
 
             if (ExtendedInfo.HasValue && ExtendedInfo.Value != TraktExtendedInfo.None)
             {
-                queries.Add(ExtendedInfo.Value.ToUriPath());
+                queries.Add(ExtendedInfo.Value.AsQuery());
             }
 
             if (queries.Count > 0)
