@@ -253,5 +253,508 @@
 
             return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestMultipleParameters", source, RequestTestType.GetRequest);
         }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithSlashAtEnd()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows/")]
+                    public sealed partial class TestGetRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestSlashAtEnd", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomEnumParameter()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        internal TraktListType ListType { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomEnumParameter", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomOptionalEnumParameter()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        internal TraktListType? ListType { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalEnumParameter", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomStringParameter()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        internal string Country { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomStringParameter", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomOptionalStringParameter()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        internal string? Country { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalStringParameter", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomDateTimeParameter()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        internal DateTime StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomDateTimeParameter", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomOptionalDateTimeParameter()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        internal DateTime? StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalDateTimeParameter", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomParametersMix()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        internal TraktListType? ListType { get; set; }
+                
+                        [TraktRequestParameter]
+                        internal string Country { get; set; }
+
+                        [TraktRequestParameter]
+                        internal DateTime? StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomParametersMix", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomParameterAndExtendedInfoPagination()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows", SupportsExtendedInfo = true, SupportsPagination = true)]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        internal TraktListType? ListType { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomParameterExtendedPagination", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomEnumQuery()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery]
+                        internal TraktListType ListType { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomEnumQuery", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomOptionalEnumQuery()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery]
+                        internal TraktListType? ListType { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalEnumQuery", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomEnumQueryName()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery("type")]
+                        internal TraktListType ListType { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomEnumQueryName", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomOptionalEnumQueryName()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery("type")]
+                        internal TraktListType? ListType { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalEnumQueryName", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomStringQuery()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery("country")]
+                        internal string Country { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomStringQuery", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomOptionalStringQuery()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery("country")]
+                        internal string? Country { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalStringQuery", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomDateTimeQuery()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery("start_date")]
+                        internal DateTime StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomDateTimeQuery", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomOptionalDateTimeQuery()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery("start_date")]
+                        internal DateTime? StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalDateTimeQuery", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomQueriesMix()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery]
+                        internal TraktListType? ListType { get; set; }
+                
+                        [TraktRequestQuery("country")]
+                        internal string Country { get; set; }
+
+                        [TraktRequestQuery("start_date")]
+                        internal DateTime? StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomQueriesMix", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomQueryAndExtendedInfoPagination()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows", SupportsExtendedInfo = true, SupportsPagination = true)]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery]
+                        internal TraktListType? ListType { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomQueryExtendedPagination", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomParametersAndQueriesMix()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        internal TraktListType? ListType { get; set; }
+                
+                        [TraktRequestParameter]
+                        internal string Country { get; set; }
+
+                        [TraktRequestParameter]
+                        internal DateTime? StartDate { get; set; }
+
+                        [TraktRequestQuery]
+                        internal TraktListSortOrder? SortOrder { get; set; }
+
+                        [TraktRequestQuery("language")]
+                        internal string? Language { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomParametersAndQueriesMix", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestParametersQueriesExtendedInfoPagination()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows", SupportsExtendedInfo = true, SupportsPagination = true)]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        internal TraktListType? ListType { get; set; }
+                
+                        [TraktRequestParameter]
+                        internal string Country { get; set; }
+
+                        [TraktRequestParameter]
+                        internal DateTime? StartDate { get; set; }
+
+                        [TraktRequestQuery]
+                        internal TraktListSortOrder? SortOrder { get; set; }
+
+                        [TraktRequestQuery("language")]
+                        internal string? Language { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomParametersAndQueriesMixExtendedInfoPagination", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithParameterAndQueryAttributeDiagnostic()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter]
+                        [TraktRequestQuery]
+                        internal TraktListType? ListType { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterQueryAttributeDiagnostic", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestQueryAttributeNameRequiredDiagnostic()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery]
+                        internal string? Country { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestQueryAttributeNameRequiredDiagnostic", source, RequestTestType.GetRequest);
+        }
     }
 }

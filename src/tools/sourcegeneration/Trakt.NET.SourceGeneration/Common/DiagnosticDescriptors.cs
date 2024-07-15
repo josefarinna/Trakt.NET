@@ -62,5 +62,21 @@ namespace TraktNET.SourceGeneration.Common
             category: RequestsCategory,
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
+
+        public static DiagnosticDescriptor RequestAndQueryBothDeclared { get; } = new(
+            id: "TRAKTNET1008",
+            title: "Property has both request and query attribute",
+            messageFormat: "TraktRequestParameterAttribute and TraktRequestQueryAttribute are both declared. Only one of them is allowed.",
+            category: RequestsCategory,
+            defaultSeverity: DiagnosticSeverity.Error,
+            isEnabledByDefault: true);
+
+        public static DiagnosticDescriptor QueryNameIsRequired { get; } = new(
+            id: "TRAKTNET1009",
+            title: "Property type is not a Trakt enum type and needs a query name.",
+            messageFormat: "TraktRequestQueryAttribute specified without a query name on a property type which is not a Trakt enum.",
+            category: RequestsCategory,
+            defaultSeverity: DiagnosticSeverity.Error,
+            isEnabledByDefault: true);
     }
 }

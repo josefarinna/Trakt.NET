@@ -19,10 +19,6 @@ namespace SourceGeneraterTestNamespace
         internal TestPostRequest() : base(HttpMethod.Post, (Uri?)null) { }
 
         internal override void BuildUri()
-        {
-            string uriPath = $"notes";
-            string? encodedUriPath = HttpUtility.UrlEncode(uriPath, Encoding.UTF8);
-            RequestUri = new Uri(encodedUriPath);
-        }
+            => RequestUri = new Uri("notes");
     }
 }

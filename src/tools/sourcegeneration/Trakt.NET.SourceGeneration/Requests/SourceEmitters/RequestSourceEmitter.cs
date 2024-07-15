@@ -7,6 +7,8 @@ namespace TraktNET.SourceGeneration.Requests
 {
     public sealed class RequestSourceEmitter(SourceProductionContext context) : SourceEmitter<RequestGenerationSpecification>(context)
     {
+        private const string RequestUriName = "requestUri";
+
         private static readonly IReadOnlyList<string> Usings = [
             "System.Text",
             "System.Web"
@@ -22,11 +24,15 @@ namespace TraktNET.SourceGeneration.Requests
         private bool _supportsExtendedInfo;
         private bool _supportsPagination;
         private bool _hasOAuthRequirementDefined;
+        private bool _hasOptionalParameters;
         private bool _hasOptionalQueries;
 
         private string _resolvedUriPath = string.Empty;
         private readonly List<PlaceHolder> _uriPlaceHolders = [];
         private bool _hasOptionalPlaceholders;
+
+        private List<RequestParameterGenerationSpecification> _requestParameters = [];
+        private List<RequestQueryGenerationSpecification> _requestQueries = [];
 
         public override void Emit(RequestGenerationSpecification generationSpecification)
         {
@@ -45,17 +51,20 @@ namespace TraktNET.SourceGeneration.Requests
             AddSource(_requestName + Constants.GeneratedFilenameSuffix, _sourceWriter.ToSourceText());
         }
 
-        private void Setup(RequestGenerationSpecification enumGenerationSpecification)
+        private void Setup(RequestGenerationSpecification requestGenerationSpecification)
         {
-            _requestName = enumGenerationSpecification.Name;
-            _requestNamespace = enumGenerationSpecification.Namespace!;
-            _httpMethodValue = enumGenerationSpecification.HttpMethodValue;
-            _uriPath = enumGenerationSpecification.UriPath;
-            _oauthRequirementValue = enumGenerationSpecification.OAuthRequirementValue;
-            _supportsExtendedInfo = enumGenerationSpecification.SupportsExtendedInfo;
-            _supportsPagination = enumGenerationSpecification.SupportsPagination;
-            _hasOAuthRequirementDefined = enumGenerationSpecification.HasOAuthRequirementDefined;
-            _hasOptionalQueries = _supportsExtendedInfo || _supportsPagination;
+            _requestName = requestGenerationSpecification.Name;
+            _requestNamespace = requestGenerationSpecification.Namespace!;
+            _httpMethodValue = requestGenerationSpecification.HttpMethodValue;
+            _uriPath = requestGenerationSpecification.UriPath;
+            _oauthRequirementValue = requestGenerationSpecification.OAuthRequirementValue;
+            _supportsExtendedInfo = requestGenerationSpecification.SupportsExtendedInfo;
+            _supportsPagination = requestGenerationSpecification.SupportsPagination;
+            _hasOAuthRequirementDefined = requestGenerationSpecification.HasOAuthRequirementDefined;
+            _requestParameters = requestGenerationSpecification.RequestParameters;
+            _requestQueries = requestGenerationSpecification.RequestQueries;
+            _hasOptionalParameters = _requestParameters.Count > 0;
+            _hasOptionalQueries = _supportsExtendedInfo || _supportsPagination || _requestQueries.Count > 0;
 
             ParseRequestUri();
         }
@@ -165,6 +174,18 @@ namespace TraktNET.SourceGeneration.Requests
             _sourceWriter.WriteEmptyLine();
 
             WriteBuildUriMethod();
+
+            if (_hasOptionalParameters && _requestParameters.Count > 1)
+            {
+                _sourceWriter.WriteEmptyLine();
+                WriteGetParametersMethod();
+            }
+
+            if (_requestQueries.Count > 1 || (_supportsExtendedInfo && _supportsPagination))
+            {
+                _sourceWriter.WriteEmptyLine();
+                WriteGetQueriesMethod();
+            }
         }
 
         private void WriteExtendedInfoProperty()
@@ -183,92 +204,476 @@ namespace TraktNET.SourceGeneration.Requests
         private void WriteRequestConstructor()
             => _sourceWriter.WriteLine($"internal {_requestName}() : base(HttpMethod.{_httpMethodValue}, (Uri?)null) {{ }}");
 
-        private void WriteBuildUriMethod()
+        private void WriteGetParametersMethod()
         {
-            if (_hasOptionalQueries)
+            _sourceWriter.WriteLine("private List<string> GetParameters()");
+            _sourceWriter.WriteLine('{');
+            _sourceWriter.Indent();
+
+            _sourceWriter.WriteLine("List<string> parameters = [];");
+
+            foreach (RequestParameterGenerationSpecification requestParameter in _requestParameters)
             {
-                _sourceWriter.WriteLine("internal override void BuildUri()");
-                _sourceWriter.WriteLine('{');
-                _sourceWriter.Indent();
+                _sourceWriter.WriteEmptyLine();
+                WriteGetParametersEntry(requestParameter);
+            }
 
-                const string requestUriName = "requestUri";
+            _sourceWriter.WriteEmptyLine();
+            _sourceWriter.WriteLine("return parameters;");
+            _sourceWriter.DecrementIndent();
+            _sourceWriter.WriteLine('}');
+        }
 
-                _sourceWriter.WriteLine("List<string> queries = [];");
-
-                if (_hasOptionalPlaceholders)
+        private void WriteGetParametersEntry(RequestParameterGenerationSpecification requestParameter, bool writeDirectlyInBuildMethod = false)
+        {
+            if (requestParameter.IsTraktEnum)
+            {
+                if (requestParameter.IsRequired)
                 {
-                    _sourceWriter.WriteLine($"string {requestUriName} = $\"{_resolvedUriPath}\".Replace(\"//\", \"/\");");
+                    if (writeDirectlyInBuildMethod)
+                    {
+                        _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name}.AsPathParameter();");
+                    }
+                    else
+                    {
+                        _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name}.AsPathParameter());");
+                    }
                 }
                 else
                 {
-                    _sourceWriter.WriteLine($"string {requestUriName} = $\"{_resolvedUriPath}\";");
-                }
+                    _sourceWriter.WriteLine($"if ({requestParameter.Name}.HasValue && {requestParameter.Name}.Value != {requestParameter.TraktEnumTypeName}.{requestParameter.TraktEnumDefaultValue})");
+                    _sourceWriter.WriteLine('{');
+                    _sourceWriter.Indent();
 
-                if (_supportsExtendedInfo)
+                    if (writeDirectlyInBuildMethod)
+                    {
+                        _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name}.Value.AsPathParameter();");
+                    }
+                    else
+                    {
+                        _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name}.Value.AsPathParameter());");
+                    }
+
+                    _sourceWriter.DecrementIndent();
+                    _sourceWriter.WriteLine('}');
+                }
+            }
+            else
+            {
+                switch (requestParameter.SpecialType)
                 {
-                    _sourceWriter.WriteEmptyLine();
+                    case SpecialType.System_String:
+                    {
+                        if (requestParameter.IsRequired)
+                        {
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name};");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name});");
+                            }
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"if (!string.IsNullOrWhiteSpace({requestParameter.Name}))");
+                            _sourceWriter.WriteLine('{');
+                            _sourceWriter.Indent();
 
-                    _sourceWriter.WriteLine("if (ExtendedInfo.HasValue && ExtendedInfo.Value != TraktExtendedInfo.None)");
-                    _sourceWriter.WriteLine('{');
-                    _sourceWriter.Indent();
-                    _sourceWriter.WriteLine("queries.Add(ExtendedInfo.Value.AsQuery());");
-                    _sourceWriter.DecrementIndent();
-                    _sourceWriter.WriteLine('}');
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name}!;");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name}!);");
+                            }
+
+                            _sourceWriter.DecrementIndent();
+                            _sourceWriter.WriteLine('}');
+                        }
+
+                        break;
+                    }
+                    case SpecialType.System_DateTime:
+                    {
+                        if (requestParameter.IsRequired)
+                        {
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name}.ToTraktLongDateTimeString();");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name}.ToTraktLongDateTimeString());");
+                            }
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"if ({requestParameter.Name}.HasValue)");
+                            _sourceWriter.WriteLine('{');
+                            _sourceWriter.Indent();
+
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name}.Value.ToTraktLongDateTimeString();");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name}.Value.ToTraktLongDateTimeString());");
+                            }
+
+                            _sourceWriter.DecrementIndent();
+                            _sourceWriter.WriteLine('}');
+                        }
+
+                        break;
+                    }
+                    default:
+                        break;
                 }
+            }
+        }
 
-                if (_supportsPagination)
-                {
-                    _sourceWriter.WriteEmptyLine();
+        private void WriteGetQueriesMethod()
+        {
+            _sourceWriter.WriteLine("private List<string> GetQueries()");
+            _sourceWriter.WriteLine('{');
+            _sourceWriter.Indent();
 
-                    _sourceWriter.WriteLine("if (Page.HasValue && Page.Value > 0)");
-                    _sourceWriter.WriteLine('{');
-                    _sourceWriter.Indent();
-                    _sourceWriter.WriteLine("queries.Add($\"page={Page.Value}\");");
-                    _sourceWriter.DecrementIndent();
-                    _sourceWriter.WriteLine('}');
+            _sourceWriter.WriteLine("List<string> queries = [];");
 
-                    _sourceWriter.WriteEmptyLine();
-
-                    _sourceWriter.WriteLine("if (Limit.HasValue && Limit.Value > 0)");
-                    _sourceWriter.WriteLine('{');
-                    _sourceWriter.Indent();
-                    _sourceWriter.WriteLine("queries.Add($\"limit={Limit.Value}\");");
-                    _sourceWriter.DecrementIndent();
-                    _sourceWriter.WriteLine('}');
-                }
-
+            if (_supportsExtendedInfo)
+            {
                 _sourceWriter.WriteEmptyLine();
+                WriteExtendedInfoQueryEntry();
+            }
 
-                _sourceWriter.WriteLine("if (queries.Count > 0)");
+            if (_supportsPagination)
+            {
+                _sourceWriter.WriteEmptyLine();
+                WritePaginationQueryEntry();
+            }
+
+            if (_requestQueries.Count > 0)
+            {
+                foreach (RequestQueryGenerationSpecification requestQuery in _requestQueries)
+                {
+                    _sourceWriter.WriteEmptyLine();
+                    WriteGetQueriesEntry(requestQuery);
+                }
+            }
+
+            _sourceWriter.WriteEmptyLine();
+            _sourceWriter.WriteLine("return queries;");
+            _sourceWriter.DecrementIndent();
+            _sourceWriter.WriteLine('}');
+        }
+
+        private void WriteExtendedInfoQueryEntry(bool writeDirectlyInBuildMethod = false)
+        {
+            _sourceWriter.WriteLine("if (ExtendedInfo.HasValue && ExtendedInfo.Value != TraktExtendedInfo.None)");
+            _sourceWriter.WriteLine('{');
+            _sourceWriter.Indent();
+
+            if (writeDirectlyInBuildMethod)
+            {
+                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + ExtendedInfo.Value.AsQuery();");
+            }
+            else
+            {
+                _sourceWriter.WriteLine("queries.Add(ExtendedInfo.Value.AsQuery());");
+            }
+
+            _sourceWriter.DecrementIndent();
+            _sourceWriter.WriteLine('}');
+        }
+
+        private void WritePaginationQueryEntry(bool writeDirectlyInBuildMethod = false)
+        {
+            _sourceWriter.WriteLine("if (Page.HasValue && Page.Value > 0)");
+            _sourceWriter.WriteLine('{');
+            _sourceWriter.Indent();
+
+            if (writeDirectlyInBuildMethod)
+            {
+                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?page={{Page.Value}}\";");
+            }
+            else
+            {
+                _sourceWriter.WriteLine("queries.Add($\"page={Page.Value}\");");
+            }
+
+            _sourceWriter.DecrementIndent();
+            _sourceWriter.WriteLine('}');
+
+            _sourceWriter.WriteEmptyLine();
+
+            _sourceWriter.WriteLine("if (Limit.HasValue && Limit.Value > 0)");
+            _sourceWriter.WriteLine('{');
+            _sourceWriter.Indent();
+
+            if (writeDirectlyInBuildMethod)
+            {
+                _sourceWriter.WriteLine("if (Page.HasValue && Page.Value > 0)");
                 _sourceWriter.WriteLine('{');
                 _sourceWriter.Indent();
-                _sourceWriter.WriteLine($"{requestUriName} = {requestUriName} + \"?\" + string.Join(\"&\", queries);");
+                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"&limit={{Limit.Value}}\";");
                 _sourceWriter.DecrementIndent();
                 _sourceWriter.WriteLine('}');
-                _sourceWriter.WriteEmptyLine();
-                _sourceWriter.WriteLine($"string? encodedUriPath = HttpUtility.UrlEncode({requestUriName}, Encoding.UTF8);");
-                _sourceWriter.WriteLine("RequestUri = new Uri(encodedUriPath);");
-
+                _sourceWriter.WriteLine("else");
+                _sourceWriter.WriteLine('{');
+                _sourceWriter.Indent();
+                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?limit={{Limit.Value}}\";");
                 _sourceWriter.DecrementIndent();
                 _sourceWriter.WriteLine('}');
             }
             else
             {
-                _sourceWriter.WriteLine("internal override void BuildUri()");
-                _sourceWriter.WriteLine('{');
-                _sourceWriter.Indent();
+                _sourceWriter.WriteLine("queries.Add($\"limit={Limit.Value}\");");
+            }
 
-                if (_hasOptionalPlaceholders)
+            _sourceWriter.DecrementIndent();
+            _sourceWriter.WriteLine('}');
+        }
+
+        private void WriteGetQueriesEntry(RequestQueryGenerationSpecification requestQuery, bool writeDirectlyInBuildMethod = false)
+        {
+            if (requestQuery.IsTraktEnum)
+            {
+                if (requestQuery.IsRequired)
                 {
-                    _sourceWriter.WriteLine($"string uriPath = $\"{_resolvedUriPath}\".Replace(\"//\", \"/\");");
+                    if (writeDirectlyInBuildMethod)
+                    {
+                        if (!string.IsNullOrEmpty(requestQuery.QueryName))
+                        {
+                            _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.ToURI()}}\";");
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + {requestQuery.Name}.AsQuery();");
+                        }
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(requestQuery.QueryName))
+                        {
+                            _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.ToURI()}}\");");
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"queries.Add({requestQuery.Name}.AsQuery());");
+                        }
+                    }
                 }
                 else
                 {
-                    _sourceWriter.WriteLine($"string uriPath = $\"{_resolvedUriPath}\";");
+                    _sourceWriter.WriteLine($"if ({requestQuery.Name}.HasValue && {requestQuery.Name}.Value != {requestQuery.TraktEnumTypeName}.{requestQuery.TraktEnumDefaultValue})");
+                    _sourceWriter.WriteLine('{');
+                    _sourceWriter.Indent();
+
+                    if (writeDirectlyInBuildMethod)
+                    {
+                        if (!string.IsNullOrEmpty(requestQuery.QueryName))
+                        {
+                            _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToURI()}}\";");
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + {requestQuery.Name}.Value.AsQuery();");
+                        }
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(requestQuery.QueryName))
+                        {
+                            _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToURI()}}\");");
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"queries.Add({requestQuery.Name}.Value.AsQuery());");
+                        }
+                    }
+
+                    _sourceWriter.DecrementIndent();
+                    _sourceWriter.WriteLine('}');
+                }
+            }
+            else
+            {
+                switch (requestQuery.SpecialType)
+                {
+                    case SpecialType.System_String:
+                    {
+                        if (requestQuery.IsRequired)
+                        {
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}}}\");");
+                            }
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"if (!string.IsNullOrWhiteSpace({requestQuery.Name}))");
+                            _sourceWriter.WriteLine('{');
+                            _sourceWriter.Indent();
+
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}!}};");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}!}}\");");
+                            }
+
+                            _sourceWriter.DecrementIndent();
+                            _sourceWriter.WriteLine('}');
+                        }
+
+                        break;
+                    }
+                    case SpecialType.System_DateTime:
+                    {
+                        if (requestQuery.IsRequired)
+                        {
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToTraktLongDateTimeString()}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToTraktLongDateTimeString()}}\");");
+                            }
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"if ({requestQuery.Name}.HasValue)");
+                            _sourceWriter.WriteLine('{');
+                            _sourceWriter.Indent();
+
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToTraktLongDateTimeString()}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToTraktLongDateTimeString()}}\");");
+                            }
+
+                            _sourceWriter.DecrementIndent();
+                            _sourceWriter.WriteLine('}');
+                        }
+
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void WriteBuildUriMethod()
+        {
+            const string encodedRequestUri = "encodedRequestUri";
+
+            _sourceWriter.WriteLine("internal override void BuildUri()");
+
+            if ((!_hasOptionalPlaceholders && _uriPlaceHolders.Count == 0) && !_hasOptionalParameters && !_hasOptionalQueries)
+            {
+                _sourceWriter.Indent();
+                _sourceWriter.WriteLine($"=> RequestUri = new Uri(\"{_resolvedUriPath}\");");
+                _sourceWriter.DecrementIndent();
+            }
+            else
+            {
+                _sourceWriter.WriteLine('{');
+                _sourceWriter.Indent();
+
+                if (_hasOptionalPlaceholders || _hasOptionalParameters || _hasOptionalQueries)
+                {
+                    if (_hasOptionalPlaceholders)
+                    {
+                        _sourceWriter.WriteLine($"string {RequestUriName} = $\"{_resolvedUriPath}\".Replace(\"//\", \"/\");");
+                    }
+                    else
+                    {
+                        _sourceWriter.WriteLine($"string {RequestUriName} = $\"{_resolvedUriPath}\";");
+                    }
+
+                    if (_hasOptionalParameters)
+                    {
+                        _sourceWriter.WriteEmptyLine();
+
+                        if (_requestParameters.Count == 1)
+                        {
+                            WriteGetParametersEntry(_requestParameters[0], writeDirectlyInBuildMethod: true);
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine("List<string> parameters = GetParameters();");
+                            _sourceWriter.WriteEmptyLine();
+                            _sourceWriter.WriteLine("if (parameters.Count > 0)");
+                            _sourceWriter.WriteLine('{');
+                            _sourceWriter.Indent();
+                            _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + string.Join(\"/\", parameters);");
+                            _sourceWriter.DecrementIndent();
+                            _sourceWriter.WriteLine('}');
+                        }
+                    }
+
+                    if (_hasOptionalQueries)
+                    {
+                        _sourceWriter.WriteEmptyLine();
+
+                        if (_requestQueries.Count > 1 || (_supportsExtendedInfo && _supportsPagination))
+                        {
+                            _sourceWriter.WriteLine("List<string> queries = GetQueries();");
+                            _sourceWriter.WriteEmptyLine();
+                            _sourceWriter.WriteLine("if (queries.Count > 0)");
+                            _sourceWriter.WriteLine('{');
+                            _sourceWriter.Indent();
+                            _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + string.Join(\"&\", queries);");
+                            _sourceWriter.DecrementIndent();
+                            _sourceWriter.WriteLine('}');
+                        }
+                        else if (_requestQueries.Count == 1 && !_supportsExtendedInfo && !_supportsPagination)
+                        {
+                            WriteGetQueriesEntry(_requestQueries[0], writeDirectlyInBuildMethod: true);
+                        }
+                        else if (_supportsExtendedInfo ^ _supportsPagination)
+                        {
+                            if (_supportsExtendedInfo)
+                            {
+                                WriteExtendedInfoQueryEntry(writeDirectlyInBuildMethod: true);
+                            }
+                            else if (_supportsPagination)
+                            {
+                                WritePaginationQueryEntry(writeDirectlyInBuildMethod: true);
+                            }
+                        }
+                    }
+
+                    if (_hasOptionalParameters || _hasOptionalQueries)
+                    {
+                        _sourceWriter.WriteEmptyLine();
+                    }
+
+                    _sourceWriter.WriteLine($"string? {encodedRequestUri} = HttpUtility.UrlEncode({RequestUriName}, Encoding.UTF8);");
+                    _sourceWriter.WriteLine($"RequestUri = new Uri({encodedRequestUri});");
+                }
+                else
+            {
+                    _sourceWriter.WriteLine($"string {RequestUriName} = $\"{_resolvedUriPath}\";");
+                    _sourceWriter.WriteLine($"string? {encodedRequestUri} = HttpUtility.UrlEncode({RequestUriName}, Encoding.UTF8);");
+                    _sourceWriter.WriteLine($"RequestUri = new Uri({encodedRequestUri});");
                 }
 
-                _sourceWriter.WriteLine("string? encodedUriPath = HttpUtility.UrlEncode(uriPath, Encoding.UTF8);");
-                _sourceWriter.WriteLine("RequestUri = new Uri(encodedUriPath);");
                 _sourceWriter.DecrementIndent();
                 _sourceWriter.WriteLine('}');
             }
@@ -405,7 +810,16 @@ namespace TraktNET.SourceGeneration.Requests
                                 firstPlaceHolderNameLetterNeedsToBeUppercase = true;
                                 break;
                             default:
-                                WriteChar(currentCharacter, ref destination);
+                                if (i == _uriPath.Length - 1 && currentCharacter == '/')
+                                {
+                                    // Last character is "/"
+                                    // Just ignore it.
+                                }
+                                else
+                                {
+                                    WriteChar(currentCharacter, ref destination);
+                                }
+
                                 break;
                         }
 

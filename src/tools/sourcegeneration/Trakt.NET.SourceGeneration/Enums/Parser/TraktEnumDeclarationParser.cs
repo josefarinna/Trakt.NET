@@ -2,7 +2,6 @@
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Collections.Immutable;
 using System.Diagnostics;
-using System.Text;
 using TraktNET.SourceGeneration.Common;
 using TraktNET.SourceGeneration.Models;
 

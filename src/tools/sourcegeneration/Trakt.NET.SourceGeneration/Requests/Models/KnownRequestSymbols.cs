@@ -11,6 +11,8 @@ namespace TraktNET.SourceGeneration.Requests
         private OptionalValue<INamedTypeSymbol?> _traktPutRequestAttributeType;
         private OptionalValue<INamedTypeSymbol?> _traktDeleteRequestAttributeType;
         private OptionalValue<INamedTypeSymbol?> _traktExtendedInfoEnumType;
+        private OptionalValue<INamedTypeSymbol?> _traktRequestParameterAttributeType;
+        private OptionalValue<INamedTypeSymbol?> _traktRequestQueryAttributeType;
 
         public INamedTypeSymbol? TraktOAuthRequirementEnumType
             => GetOrResolveType(RequestConstants.FullTraktOAuthRequirementName, ref _traktOAuthRequirementEnumType);
@@ -29,6 +31,12 @@ namespace TraktNET.SourceGeneration.Requests
 
         public INamedTypeSymbol? TraktExtendedInfoEnumType
             => GetOrResolveType(RequestConstants.FullTraktExtendedInfoName, ref _traktExtendedInfoEnumType);
+
+        public INamedTypeSymbol? TraktRequestParameterAttributeType
+            => GetOrResolveType(RequestConstants.FullTraktRequestParameterAttributeName, ref _traktRequestParameterAttributeType);
+
+        public INamedTypeSymbol? TraktRequestQueryAttributeType
+            => GetOrResolveType(RequestConstants.FullTraktRequestQueryAttributeName, ref _traktRequestQueryAttributeType);
 
         public List<IFieldSymbol> TraktOAuthRequirementValues { get; } = [];
 

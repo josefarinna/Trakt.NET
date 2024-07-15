@@ -1,5 +1,6 @@
 ﻿namespace TraktNET
 {
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     internal abstract class TraktRequestAttribute(HttpMethod method, string path) : Attribute
     {
         public HttpMethod Method { get; } = method;

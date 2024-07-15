@@ -17,5 +17,9 @@
         public required bool SupportsPagination { get; set; }
 
         public required bool HasOAuthRequirementDefined { get; set; }
+
+        public required List<RequestParameterGenerationSpecification> RequestParameters { get; set; }
+
+        public required List<RequestQueryGenerationSpecification> RequestQueries { get; set; }
     }
 }

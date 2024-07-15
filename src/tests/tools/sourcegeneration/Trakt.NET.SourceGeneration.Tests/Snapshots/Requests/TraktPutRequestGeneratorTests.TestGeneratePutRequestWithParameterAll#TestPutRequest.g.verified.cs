@@ -28,8 +28,22 @@ namespace SourceGeneraterTestNamespace
 
         internal override void BuildUri()
         {
-            List<string> queries = [];
             string requestUri = $"notes/{Id}";
+
+            List<string> queries = GetQueries();
+
+            if (queries.Count > 0)
+            {
+                requestUri = requestUri + "?" + string.Join("&", queries);
+            }
+
+            string? encodedRequestUri = HttpUtility.UrlEncode(requestUri, Encoding.UTF8);
+            RequestUri = new Uri(encodedRequestUri);
+        }
+
+        private List<string> GetQueries()
+        {
+            List<string> queries = [];
 
             if (ExtendedInfo.HasValue && ExtendedInfo.Value != TraktExtendedInfo.None)
             {
@@ -46,13 +60,7 @@ namespace SourceGeneraterTestNamespace
                 queries.Add($"limit={Limit.Value}");
             }
 
-            if (queries.Count > 0)
-            {
-                requestUri = requestUri + "?" + string.Join("&", queries);
-            }
-
-            string? encodedUriPath = HttpUtility.UrlEncode(requestUri, Encoding.UTF8);
-            RequestUri = new Uri(encodedUriPath);
+            return queries;
         }
     }
 }

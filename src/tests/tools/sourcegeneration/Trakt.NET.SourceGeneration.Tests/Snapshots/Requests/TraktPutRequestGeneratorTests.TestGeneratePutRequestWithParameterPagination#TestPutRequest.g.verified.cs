@@ -26,26 +26,27 @@ namespace SourceGeneraterTestNamespace
 
         internal override void BuildUri()
         {
-            List<string> queries = [];
             string requestUri = $"notes/{Id}";
 
             if (Page.HasValue && Page.Value > 0)
             {
-                queries.Add($"page={Page.Value}");
+                requestUri = requestUri + $"?page={Page.Value}";
             }
 
             if (Limit.HasValue && Limit.Value > 0)
             {
-                queries.Add($"limit={Limit.Value}");
+                if (Page.HasValue && Page.Value > 0)
+                {
+                    requestUri = requestUri + $"&limit={Limit.Value}";
+                }
+                else
+                {
+                    requestUri = requestUri + $"?limit={Limit.Value}";
+                }
             }
 
-            if (queries.Count > 0)
-            {
-                requestUri = requestUri + "?" + string.Join("&", queries);
-            }
-
-            string? encodedUriPath = HttpUtility.UrlEncode(requestUri, Encoding.UTF8);
-            RequestUri = new Uri(encodedUriPath);
+            string? encodedRequestUri = HttpUtility.UrlEncode(requestUri, Encoding.UTF8);
+            RequestUri = new Uri(encodedRequestUri);
         }
     }
 }

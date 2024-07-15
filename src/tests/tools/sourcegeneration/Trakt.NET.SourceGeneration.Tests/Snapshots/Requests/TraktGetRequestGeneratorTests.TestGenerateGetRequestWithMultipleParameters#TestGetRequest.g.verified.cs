@@ -28,21 +28,15 @@ namespace SourceGeneraterTestNamespace
 
         internal override void BuildUri()
         {
-            List<string> queries = [];
             string requestUri = $"shows/{Id}/seasons/{SeasonNumber}/episodes/{EpisodeNumber}";
 
             if (ExtendedInfo.HasValue && ExtendedInfo.Value != TraktExtendedInfo.None)
             {
-                queries.Add(ExtendedInfo.Value.AsQuery());
+                requestUri = requestUri + "?" + ExtendedInfo.Value.AsQuery();
             }
 
-            if (queries.Count > 0)
-            {
-                requestUri = requestUri + "?" + string.Join("&", queries);
-            }
-
-            string? encodedUriPath = HttpUtility.UrlEncode(requestUri, Encoding.UTF8);
-            RequestUri = new Uri(encodedUriPath);
+            string? encodedRequestUri = HttpUtility.UrlEncode(requestUri, Encoding.UTF8);
+            RequestUri = new Uri(encodedRequestUri);
         }
     }
 }

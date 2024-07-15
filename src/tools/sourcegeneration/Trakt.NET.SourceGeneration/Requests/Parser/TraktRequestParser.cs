@@ -12,6 +12,7 @@ namespace TraktNET.SourceGeneration.Requests
     {
         private readonly KnownRequestSymbols _knownRequestSymbols;
         private readonly bool _compilationContainsRequestType;
+        private readonly bool _compilationContainsRequestPropertyAttributeType;
         private INamedTypeSymbol? _requestClassDeclarationSymbol;
         private Location? _requestClassDeclarationLocation;
 
@@ -21,6 +22,8 @@ namespace TraktNET.SourceGeneration.Requests
         private bool _requestSupportsPagination;
         private bool _requestHasOAuthRequirementDefined;
         private string _requestOAuthRequirementValue = string.Empty;
+        private readonly List<RequestParameterGenerationSpecification> _requestParameters = [];
+        private readonly List<RequestQueryGenerationSpecification> _requestQueries = [];
 
         internal List<DiagnosticInfo> Diagnostics { get; } = [];
 
@@ -31,6 +34,9 @@ namespace TraktNET.SourceGeneration.Requests
             _compilationContainsRequestType = _knownRequestSymbols.TraktGetRequestAttributeType != null
                 || _knownRequestSymbols.TraktPostRequestAttributeType != null || _knownRequestSymbols.TraktPutRequestAttributeType != null
                 || _knownRequestSymbols.TraktDeleteRequestAttributeType != null;
+
+            _compilationContainsRequestPropertyAttributeType = _knownRequestSymbols.TraktRequestParameterAttributeType != null
+                || _knownRequestSymbols.TraktRequestQueryAttributeType != null;
         }
 
         internal RequestGenerationSpecification? Parse(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, CancellationToken cancellationToken)
@@ -43,11 +49,23 @@ namespace TraktNET.SourceGeneration.Requests
             cancellationToken.ThrowIfCancellationRequested();
             GetClassSymbolAndLocation(classDeclaration, semanticModel, cancellationToken);
 
-            return !ParseAttribute(cancellationToken) ? null : CreateSpecification();
+            if (!ParseAttributes(cancellationToken))
+            {
+                return null;
+            }
+
+            if (!ParseProperties(cancellationToken))
+            {
+                return null;
+            }
+
+            return CreateSpecification();
         }
 
-        private bool ParseAttribute(CancellationToken cancellationToken)
+        private bool ParseAttributes(CancellationToken cancellationToken)
         {
+            Debug.Assert(_requestClassDeclarationSymbol != null);
+
             foreach (AttributeData attributeData in _requestClassDeclarationSymbol!.GetAttributes())
             {
                 cancellationToken.ThrowIfCancellationRequested();
@@ -76,6 +94,199 @@ namespace TraktNET.SourceGeneration.Requests
             return true;
         }
 
+        private bool ParseProperties(CancellationToken cancellationToken)
+        {
+            if (!_compilationContainsRequestPropertyAttributeType)
+            {
+                return true;
+            }
+
+            Debug.Assert(_requestClassDeclarationSymbol != null);
+            var classProperties = _requestClassDeclarationSymbol!.GetMembers().Where(s => s.Kind == SymbolKind.Property).ToImmutableArray();
+
+            foreach (ISymbol member in classProperties)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                ImmutableArray<AttributeData> attributes = member.GetAttributes();
+
+                if (attributes.Length == 0)
+                {
+                    // Ignore properties without any attributes.
+                    continue;
+                }
+
+                if (member is not IPropertySymbol propertySymbol)
+                {
+                    continue;
+                }
+
+                if (!ParseRequestProperty(propertySymbol, attributes, cancellationToken))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool ParseRequestProperty(IPropertySymbol propertySymbol, ImmutableArray<AttributeData> attributes, CancellationToken cancellationToken)
+        {
+            bool isRequired = false;
+            bool isTraktEnum = false;
+            string traktEnumTypeName = string.Empty;
+            string traktEnumDefaultValue = string.Empty;
+            bool hasParameterAttribute = false;
+            bool hasQueryAttribute = false;
+            SpecialType specialType = SpecialType.None;
+            string queryName = string.Empty;
+
+            foreach (AttributeData attributeData in attributes)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                INamedTypeSymbol? attributeClass = attributeData.AttributeClass;
+
+                Location? attributeLocation = null;
+
+                if (attributeClass!.Locations.Length > 0)
+                {
+                    attributeLocation = attributeClass!.Locations[0];
+                }
+
+                if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestParameterAttributeType))
+                {
+                    if (hasQueryAttribute)
+                    {
+                        ReportDiagnostic(DiagnosticDescriptors.RequestAndQueryBothDeclared, attributeLocation);
+                        return false;
+                    }
+
+                    hasParameterAttribute = true;
+                }
+                else if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestQueryAttributeType))
+                {
+                    if (hasParameterAttribute)
+                    {
+                        ReportDiagnostic(DiagnosticDescriptors.RequestAndQueryBothDeclared, attributeLocation);
+                        return false;
+                    }
+
+                    hasQueryAttribute = true;
+
+                    ImmutableArray<TypedConstant> arguments = attributeData.ConstructorArguments;
+
+                    if (arguments.Length > 0)
+                    {
+                        string? queryNameValue = arguments[0].Value as string;
+
+                        if (!string.IsNullOrWhiteSpace(queryNameValue))
+                        {
+                            queryName = queryNameValue!;
+                        }
+                    }
+                }
+            }
+
+            string name = propertySymbol.Name;
+            Location? propertyLocation = null;
+
+            if (propertySymbol.Locations.Length > 0)
+            {
+                propertyLocation = propertySymbol.Locations[0];
+            }
+
+            if (propertySymbol.Type.NullableAnnotation == NullableAnnotation.Annotated)
+            {
+                // Property type is a nullable type => optional
+
+                if (propertySymbol.Type is INamedTypeSymbol propertyTypeSymbol)
+                {
+                    if (propertyTypeSymbol.ConstructedFrom.SpecialType == SpecialType.System_String)
+                    {
+                        // string is a special nullable type
+                        // Special types get handled in the RequestSourceEmitter
+                        specialType = propertyTypeSymbol.ConstructedFrom.SpecialType;
+                    }
+                    else if (propertyTypeSymbol.ConstructedFrom.SpecialType == SpecialType.System_Nullable_T && propertyTypeSymbol.TypeArguments.Length > 0)
+                    {
+                        ITypeSymbol underlyingType = propertyTypeSymbol.TypeArguments[0];
+
+                        if (underlyingType.TypeKind == TypeKind.Enum)
+                        {
+                            if (underlyingType.Name.StartsWith("Trakt", StringComparison.InvariantCulture))
+                            {
+                                // Property type as a Trakt enum
+                                isTraktEnum = true;
+                                traktEnumTypeName = underlyingType.Name;
+                                traktEnumDefaultValue = underlyingType.GetMembers()[0].Name;
+                            }
+                        }
+                        else if (underlyingType.SpecialType == SpecialType.System_DateTime)
+                        {
+                            // Special types get handled in the RequestSourceEmitter
+                            specialType = underlyingType.SpecialType;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                isRequired = true;
+
+                if (propertySymbol.Type.TypeKind == TypeKind.Enum)
+                {
+                    if (propertySymbol.Type.Name.StartsWith("Trakt", StringComparison.InvariantCulture))
+                    {
+                        // Property type as a Trakt enum
+                        isTraktEnum = true;
+                        traktEnumTypeName = propertySymbol.Type.Name;
+                        traktEnumDefaultValue = propertySymbol.Type.GetMembers()[0].Name;
+                    }
+                }
+                else if (propertySymbol.Type.SpecialType != SpecialType.None && propertySymbol.Type.TypeKind != TypeKind.Error)
+                {
+                    // Special types get handled in the RequestSourceEmitter
+                    specialType = propertySymbol.Type.SpecialType;
+                }
+            }
+
+            if (hasParameterAttribute)
+            {
+                _requestParameters.Add(new RequestParameterGenerationSpecification
+                {
+                    Name = name,
+                    IsRequired = isRequired,
+                    IsTraktEnum = isTraktEnum,
+                    TraktEnumTypeName = traktEnumTypeName,
+                    TraktEnumDefaultValue = traktEnumDefaultValue,
+                    SpecialType = specialType
+                });
+            }
+            else if (hasQueryAttribute)
+            {
+                if (!isTraktEnum && string.IsNullOrEmpty(queryName))
+                {
+                    // Query Name is only optional if property type is not a Trakt enum
+                    ReportDiagnostic(DiagnosticDescriptors.QueryNameIsRequired, propertyLocation);
+                    return false;
+                }
+
+                _requestQueries.Add(new RequestQueryGenerationSpecification
+                {
+                    Name = name,
+                    IsRequired = isRequired,
+                    IsTraktEnum = isTraktEnum,
+                    TraktEnumTypeName = traktEnumTypeName,
+                    TraktEnumDefaultValue = traktEnumDefaultValue,
+                    QueryName = queryName,
+                    SpecialType = specialType
+                });
+            }
+
+            return true;
+        }
+
         private RequestGenerationSpecification? CreateSpecification()
             => new()
             {
@@ -86,7 +297,9 @@ namespace TraktNET.SourceGeneration.Requests
                 OAuthRequirementValue = _requestOAuthRequirementValue,
                 SupportsExtendedInfo = _requestSupportsExtendedInfo,
                 SupportsPagination = _requestSupportsPagination,
-                HasOAuthRequirementDefined = _requestHasOAuthRequirementDefined
+                HasOAuthRequirementDefined = _requestHasOAuthRequirementDefined,
+                RequestParameters = _requestParameters,
+                RequestQueries = _requestQueries
             };
 
         private void ReportDiagnostic(DiagnosticDescriptor descriptor, Location? location)

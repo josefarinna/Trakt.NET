@@ -22,9 +22,9 @@ namespace SourceGeneraterTestNamespace
 
         internal override void BuildUri()
         {
-            string uriPath = $"notes/{Id}".Replace("//", "/");
-            string? encodedUriPath = HttpUtility.UrlEncode(uriPath, Encoding.UTF8);
-            RequestUri = new Uri(encodedUriPath);
+            string requestUri = $"notes/{Id}".Replace("//", "/");
+            string? encodedRequestUri = HttpUtility.UrlEncode(requestUri, Encoding.UTF8);
+            RequestUri = new Uri(encodedRequestUri);
         }
     }
 }

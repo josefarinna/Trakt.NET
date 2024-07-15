@@ -1,0 +1,14 @@
+﻿{
+  Diagnostics: [
+    {
+      Id: TRAKTNET1008,
+      Title: Property has both request and query attribute,
+      Severity: Error,
+      WarningLevel: 0,
+      Location: : (0,0)-(0,0),
+      MessageFormat: TraktRequestParameterAttribute and TraktRequestQueryAttribute are both declared. Only one of them is allowed.,
+      Message: TraktRequestParameterAttribute and TraktRequestQueryAttribute are both declared. Only one of them is allowed.,
+      Category: Trakt.NET.SourceGeneration.Requests
+    }
+  ]
+}
