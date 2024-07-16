@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the last activity type of a collection or watched progress.</summary>
-    [TraktEnum]
+    [TraktEnum(HasQuerySupport = true, QueryName = "last_activity")]
     public enum TraktLastActivity
     {
         /// <summary>An invalid last activity type.</summary>

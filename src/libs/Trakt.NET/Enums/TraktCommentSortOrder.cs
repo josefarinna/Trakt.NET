@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the sort order for comments.</summary>
-    [TraktEnum]
+    [TraktEnum(HasPathSupport = true)]
     public enum TraktCommentSortOrder
     {
         /// <summary>An invalid sort order.</summary>

@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the time period for most played, most watched and most collected movie and show requests.</summary>
-    [TraktEnum]
+    [TraktEnum(HasPathSupport = true)]
     public enum TraktTimePeriod
     {
         /// <summary>An invalid time period.</summary>

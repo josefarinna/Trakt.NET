@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the list type.</summary>
-    [TraktEnum]
+    [TraktEnum(HasPathSupport = true)]
     public enum TraktListType
     {
         /// <summary>An invalid list type.</summary>

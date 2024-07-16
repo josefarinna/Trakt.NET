@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     ///// <summary>Determines the sort order for lists of <see cref="ITraktList" />.</summary>
-    [TraktEnum]
+    [TraktEnum(HasPathSupport = true)]
     public enum TraktListSortOrder
     {
         /// <summary>An invalid sort order.</summary>
