@@ -7,9 +7,6 @@
 
 #nullable enable
 
-using System.Text;
-using System.Web;
-
 namespace SourceGeneraterTestNamespace
 {
     internal sealed partial class TestPostRequest : RequestBase
@@ -37,8 +34,7 @@ namespace SourceGeneraterTestNamespace
                 requestUri = requestUri + "?" + string.Join("&", queries);
             }
 
-            string? encodedRequestUri = HttpUtility.UrlEncode(requestUri, Encoding.UTF8);
-            RequestUri = new Uri(encodedRequestUri);
+            RequestUri = new Uri(requestUri, UriKind.Relative);
         }
 
         private List<string> GetQueries()

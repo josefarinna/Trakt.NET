@@ -7,9 +7,6 @@
 
 #nullable enable
 
-using System.Text;
-using System.Web;
-
 namespace SourceGeneraterTestNamespace
 {
     internal sealed partial class TestDeleteRequest : RequestBase
@@ -19,6 +16,6 @@ namespace SourceGeneraterTestNamespace
         internal TestDeleteRequest() : base(HttpMethod.Delete, (Uri?)null) { }
 
         internal override void BuildUri()
-            => RequestUri = new Uri("notes");
+            => RequestUri = new Uri("notes", UriKind.Relative);
     }
 }

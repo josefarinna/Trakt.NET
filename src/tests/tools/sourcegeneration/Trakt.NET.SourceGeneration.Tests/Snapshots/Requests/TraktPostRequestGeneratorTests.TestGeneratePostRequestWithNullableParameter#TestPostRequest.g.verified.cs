@@ -7,9 +7,6 @@
 
 #nullable enable
 
-using System.Text;
-using System.Web;
-
 namespace SourceGeneraterTestNamespace
 {
     internal sealed partial class TestPostRequest : RequestBase
@@ -23,8 +20,7 @@ namespace SourceGeneraterTestNamespace
         internal override void BuildUri()
         {
             string requestUri = $"notes/{Id}".Replace("//", "/");
-            string? encodedRequestUri = HttpUtility.UrlEncode(requestUri, Encoding.UTF8);
-            RequestUri = new Uri(encodedRequestUri);
+            RequestUri = new Uri(requestUri, UriKind.Relative);
         }
     }
 }

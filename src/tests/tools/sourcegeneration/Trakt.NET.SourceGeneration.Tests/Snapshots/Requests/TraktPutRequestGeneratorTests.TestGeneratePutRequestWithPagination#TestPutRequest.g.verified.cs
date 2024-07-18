@@ -7,9 +7,6 @@
 
 #nullable enable
 
-using System.Text;
-using System.Web;
-
 namespace SourceGeneraterTestNamespace
 {
     internal sealed partial class TestPutRequest : RequestBase
@@ -43,8 +40,7 @@ namespace SourceGeneraterTestNamespace
                 }
             }
 
-            string? encodedRequestUri = HttpUtility.UrlEncode(requestUri, Encoding.UTF8);
-            RequestUri = new Uri(encodedRequestUri);
+            RequestUri = new Uri(requestUri, UriKind.Relative);
         }
     }
 }

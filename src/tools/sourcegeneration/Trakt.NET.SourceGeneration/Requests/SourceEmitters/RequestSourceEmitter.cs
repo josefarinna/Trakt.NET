@@ -9,11 +9,6 @@ namespace TraktNET.SourceGeneration.Requests
     {
         private const string RequestUriName = "requestUri";
 
-        private static readonly IReadOnlyList<string> Usings = [
-            "System.Text",
-            "System.Web"
-        ];
-
         private readonly SourceWriter _sourceWriter = new();
 
         private string _requestName = string.Empty;
@@ -43,7 +38,8 @@ namespace TraktNET.SourceGeneration.Requests
 
             Setup(generationSpecification);
 
-            WriteHeaderAndUsings();
+            _sourceWriter.WriteLine(Constants.Header);
+
             WriteNamespaceStart();
             WriteRequestClass();
             WriteNamespaceEnd();
@@ -67,21 +63,6 @@ namespace TraktNET.SourceGeneration.Requests
             _hasOptionalQueries = _supportsExtendedInfo || _supportsPagination || _requestQueries.Count > 0;
 
             ParseRequestUri();
-        }
-
-        private void WriteHeaderAndUsings()
-        {
-            _sourceWriter.WriteLine(Constants.Header);
-
-            foreach (string @using in Usings)
-            {
-                _sourceWriter.WriteLine($"using {@using};");
-            }
-
-            if (Usings.Count > 0)
-            {
-                _sourceWriter.WriteEmptyLine();
-            }
         }
 
         private void WriteNamespaceStart()
@@ -580,14 +561,12 @@ namespace TraktNET.SourceGeneration.Requests
 
         private void WriteBuildUriMethod()
         {
-            const string encodedRequestUri = "encodedRequestUri";
-
             _sourceWriter.WriteLine("internal override void BuildUri()");
 
             if ((!_hasOptionalPlaceholders && _uriPlaceHolders.Count == 0) && !_hasOptionalParameters && !_hasOptionalQueries)
             {
                 _sourceWriter.Indent();
-                _sourceWriter.WriteLine($"=> RequestUri = new Uri(\"{_resolvedUriPath}\");");
+                _sourceWriter.WriteLine($"=> RequestUri = new Uri(\"{_resolvedUriPath}\", UriKind.Relative);");
                 _sourceWriter.DecrementIndent();
             }
             else
@@ -664,14 +643,12 @@ namespace TraktNET.SourceGeneration.Requests
                         _sourceWriter.WriteEmptyLine();
                     }
 
-                    _sourceWriter.WriteLine($"string? {encodedRequestUri} = HttpUtility.UrlEncode({RequestUriName}, Encoding.UTF8);");
-                    _sourceWriter.WriteLine($"RequestUri = new Uri({encodedRequestUri});");
+                    _sourceWriter.WriteLine($"RequestUri = new Uri({RequestUriName}, UriKind.Relative);");
                 }
                 else
             {
                     _sourceWriter.WriteLine($"string {RequestUriName} = $\"{_resolvedUriPath}\";");
-                    _sourceWriter.WriteLine($"string? {encodedRequestUri} = HttpUtility.UrlEncode({RequestUriName}, Encoding.UTF8);");
-                    _sourceWriter.WriteLine($"RequestUri = new Uri({encodedRequestUri});");
+                    _sourceWriter.WriteLine($"RequestUri = new Uri({RequestUriName}, UriKind.Relative);");
                 }
 
                 _sourceWriter.DecrementIndent();

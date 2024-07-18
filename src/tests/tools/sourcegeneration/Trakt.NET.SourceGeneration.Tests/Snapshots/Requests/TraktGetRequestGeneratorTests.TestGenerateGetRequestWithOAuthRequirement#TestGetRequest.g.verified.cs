@@ -7,9 +7,6 @@
 
 #nullable enable
 
-using System.Text;
-using System.Web;
-
 namespace SourceGeneraterTestNamespace
 {
     internal sealed partial class TestGetRequest : RequestBase
@@ -19,6 +16,6 @@ namespace SourceGeneraterTestNamespace
         internal TestGetRequest() : base(HttpMethod.Get, (Uri?)null) { }
 
         internal override void BuildUri()
-            => RequestUri = new Uri("notes");
+            => RequestUri = new Uri("notes", UriKind.Relative);
     }
 }
