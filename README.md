@@ -27,7 +27,7 @@ To use Trakt.NET, you will need to obtain an API key from Trakt and follow the g
 
 ### Features
 
-- Full Trakt.tv API Coverage
+- Full Trakt.tv API Coverage (As of April 2024)
 - Authentication and Authorization Support (OAuth 2.0 and Device)
 - Completely asynchronous
 - API Environments (Production and Sandbox)
