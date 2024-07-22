@@ -9,17 +9,17 @@
 
 namespace SourceGeneraterTestNamespace
 {
-    internal sealed partial class TestGetRequest : RequestBase
+    internal sealed partial class TestPostRequest : RequestBase
     {
         internal TraktOAuthRequirement OAuthRequirement { get; } = TraktOAuthRequirement.NotRequired;
 
-        internal TestGetRequest() : base(HttpMethod.Get, (Uri?)null) { }
+        internal TestPostRequest() : base(HttpMethod.Post, (Uri?)null) { }
 
         internal override void BuildUri()
         {
             string requestUri = $"shows";
 
-            requestUri = requestUri + $"?start_date={StartDate.ToTraktLongDateTimeString()}";
+            requestUri = requestUri + $"?start_date={StartDate.ToTraktCacheEfficientLongDateTimeString()}";
 
             RequestUri = new Uri(requestUri, UriKind.Relative);
         }

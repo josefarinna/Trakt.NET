@@ -65,6 +65,16 @@ namespace SourceGeneraterTestNamespace
         {
             List<string> queries = [];
 
+            if (SortOrder.HasValue && SortOrder.Value != TraktListSortOrder.Unspecified)
+            {
+                queries.Add(SortOrder.Value.AsQuery());
+            }
+
+            if (!string.IsNullOrWhiteSpace(Language))
+            {
+                queries.Add($"language={Language!}");
+            }
+
             if (ExtendedInfo.HasValue && ExtendedInfo.Value != TraktExtendedInfo.None)
             {
                 queries.Add(ExtendedInfo.Value.AsQuery());
@@ -78,16 +88,6 @@ namespace SourceGeneraterTestNamespace
             if (Limit.HasValue && Limit.Value > 0)
             {
                 queries.Add($"limit={Limit.Value}");
-            }
-
-            if (SortOrder.HasValue && SortOrder.Value != TraktListSortOrder.Unspecified)
-            {
-                queries.Add(SortOrder.Value.AsQuery());
-            }
-
-            if (!string.IsNullOrWhiteSpace(Language))
-            {
-                queries.Add($"language={Language!}");
             }
 
             return queries;

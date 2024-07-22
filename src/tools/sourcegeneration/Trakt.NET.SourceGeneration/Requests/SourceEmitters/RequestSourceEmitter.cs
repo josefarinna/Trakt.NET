@@ -8,6 +8,8 @@ namespace TraktNET.SourceGeneration.Requests
     public sealed class RequestSourceEmitter(SourceProductionContext context) : SourceEmitter<RequestGenerationSpecification>(context)
     {
         private const string RequestUriName = "requestUri";
+        private const string ToTraktDateTimeMethodName = "ToTraktLongDateTimeString";
+        private const string ToTraktCacheEfficientDateTimeMethodName = "ToTraktCacheEfficientLongDateTimeString";
 
         private readonly SourceWriter _sourceWriter = new();
 
@@ -59,8 +61,51 @@ namespace TraktNET.SourceGeneration.Requests
             _hasOAuthRequirementDefined = requestGenerationSpecification.HasOAuthRequirementDefined;
             _requestParameters = requestGenerationSpecification.RequestParameters;
             _requestQueries = requestGenerationSpecification.RequestQueries;
+
+            if (_supportsExtendedInfo)
+            {
+                _requestQueries.Add(new RequestQueryGenerationSpecification
+                {
+                    Name = "ExtendedInfo",
+                    QueryName = string.Empty,
+                    SpecialType = SpecialType.None,
+                    TraktEnumTypeName = "TraktExtendedInfo",
+                    TraktEnumDefaultValue = "None",
+                    IsRequired = false,
+                    IsTraktEnum = true,
+                    UseCacheEfficientDateTime = false
+                });
+            }
+
+            if (_supportsPagination)
+            {
+                _requestQueries.Add(new RequestQueryGenerationSpecification
+                {
+                    Name = "Page",
+                    QueryName = "page",
+                    SpecialType = SpecialType.System_UInt32,
+                    TraktEnumTypeName = string.Empty,
+                    TraktEnumDefaultValue = string.Empty,
+                    IsRequired = false,
+                    IsTraktEnum = false,
+                    UseCacheEfficientDateTime = false
+                });
+
+                _requestQueries.Add(new RequestQueryGenerationSpecification
+                {
+                    Name = "Limit",
+                    QueryName = "limit",
+                    SpecialType = SpecialType.System_UInt32,
+                    TraktEnumTypeName = string.Empty,
+                    TraktEnumDefaultValue = string.Empty,
+                    IsRequired = false,
+                    IsTraktEnum = false,
+                    UseCacheEfficientDateTime = false
+                });
+            }
+
             _hasOptionalParameters = _requestParameters.Count > 0;
-            _hasOptionalQueries = _supportsExtendedInfo || _supportsPagination || _requestQueries.Count > 0;
+            _hasOptionalQueries = _requestQueries.Count > 0;
 
             ParseRequestUri();
         }
@@ -156,13 +201,13 @@ namespace TraktNET.SourceGeneration.Requests
 
             WriteBuildUriMethod();
 
-            if (_hasOptionalParameters && _requestParameters.Count > 1)
+            if (_requestParameters.Count > 1)
             {
                 _sourceWriter.WriteEmptyLine();
                 WriteGetParametersMethod();
             }
 
-            if (_requestQueries.Count > 1 || (_supportsExtendedInfo && _supportsPagination))
+            if (_requestQueries.Count > 1)
             {
                 _sourceWriter.WriteEmptyLine();
                 WriteGetQueriesMethod();
@@ -283,11 +328,11 @@ namespace TraktNET.SourceGeneration.Requests
                         {
                             if (writeDirectlyInBuildMethod)
                             {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name}.ToTraktLongDateTimeString();");
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {WriteDateTimeValue(requestParameter.Name, requestParameter.UseCacheEfficientDateTime, requestParameter.IsRequired)};");
                             }
                             else
                             {
-                                _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name}.ToTraktLongDateTimeString());");
+                                _sourceWriter.WriteLine($"parameters.Add({WriteDateTimeValue(requestParameter.Name, requestParameter.UseCacheEfficientDateTime, requestParameter.IsRequired)});");
                             }
                         }
                         else
@@ -298,11 +343,50 @@ namespace TraktNET.SourceGeneration.Requests
 
                             if (writeDirectlyInBuildMethod)
                             {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name}.Value.ToTraktLongDateTimeString();");
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {WriteDateTimeValue(requestParameter.Name, requestParameter.UseCacheEfficientDateTime, requestParameter.IsRequired)};");
                             }
                             else
                             {
-                                _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name}.Value.ToTraktLongDateTimeString());");
+                                _sourceWriter.WriteLine($"parameters.Add({WriteDateTimeValue(requestParameter.Name, requestParameter.UseCacheEfficientDateTime, requestParameter.IsRequired)});");
+                            }
+
+                            _sourceWriter.DecrementIndent();
+                            _sourceWriter.WriteLine('}');
+                        }
+
+                        break;
+                    }
+                    case SpecialType.System_UInt16:
+                    case SpecialType.System_UInt32:
+                    case SpecialType.System_UInt64:
+                    case SpecialType.System_Int16:
+                    case SpecialType.System_Int32:
+                    case SpecialType.System_Int64:
+                    {
+                        if (requestParameter.IsRequired)
+                        {
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"/{{{requestParameter.Name}}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"parameters.Add($\"{{{requestParameter.Name}}}\");");
+                            }
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"if ({requestParameter.Name}.HasValue && {requestParameter.Name}.Value > 0)");
+                            _sourceWriter.WriteLine('{');
+                            _sourceWriter.Indent();
+
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"/{{{requestParameter.Name}.Value}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"parameters.Add($\"{{{requestParameter.Name}.Value}}\");");
                             }
 
                             _sourceWriter.DecrementIndent();
@@ -322,99 +406,16 @@ namespace TraktNET.SourceGeneration.Requests
             _sourceWriter.WriteLine("private List<string> GetQueries()");
             _sourceWriter.WriteLine('{');
             _sourceWriter.Indent();
-
             _sourceWriter.WriteLine("List<string> queries = [];");
 
-            if (_supportsExtendedInfo)
+            foreach (RequestQueryGenerationSpecification requestQuery in _requestQueries)
             {
                 _sourceWriter.WriteEmptyLine();
-                WriteExtendedInfoQueryEntry();
-            }
-
-            if (_supportsPagination)
-            {
-                _sourceWriter.WriteEmptyLine();
-                WritePaginationQueryEntry();
-            }
-
-            if (_requestQueries.Count > 0)
-            {
-                foreach (RequestQueryGenerationSpecification requestQuery in _requestQueries)
-                {
-                    _sourceWriter.WriteEmptyLine();
-                    WriteGetQueriesEntry(requestQuery);
-                }
+                WriteGetQueriesEntry(requestQuery);
             }
 
             _sourceWriter.WriteEmptyLine();
             _sourceWriter.WriteLine("return queries;");
-            _sourceWriter.DecrementIndent();
-            _sourceWriter.WriteLine('}');
-        }
-
-        private void WriteExtendedInfoQueryEntry(bool writeDirectlyInBuildMethod = false)
-        {
-            _sourceWriter.WriteLine("if (ExtendedInfo.HasValue && ExtendedInfo.Value != TraktExtendedInfo.None)");
-            _sourceWriter.WriteLine('{');
-            _sourceWriter.Indent();
-
-            if (writeDirectlyInBuildMethod)
-            {
-                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + ExtendedInfo.Value.AsQuery();");
-            }
-            else
-            {
-                _sourceWriter.WriteLine("queries.Add(ExtendedInfo.Value.AsQuery());");
-            }
-
-            _sourceWriter.DecrementIndent();
-            _sourceWriter.WriteLine('}');
-        }
-
-        private void WritePaginationQueryEntry(bool writeDirectlyInBuildMethod = false)
-        {
-            _sourceWriter.WriteLine("if (Page.HasValue && Page.Value > 0)");
-            _sourceWriter.WriteLine('{');
-            _sourceWriter.Indent();
-
-            if (writeDirectlyInBuildMethod)
-            {
-                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?page={{Page.Value}}\";");
-            }
-            else
-            {
-                _sourceWriter.WriteLine("queries.Add($\"page={Page.Value}\");");
-            }
-
-            _sourceWriter.DecrementIndent();
-            _sourceWriter.WriteLine('}');
-
-            _sourceWriter.WriteEmptyLine();
-
-            _sourceWriter.WriteLine("if (Limit.HasValue && Limit.Value > 0)");
-            _sourceWriter.WriteLine('{');
-            _sourceWriter.Indent();
-
-            if (writeDirectlyInBuildMethod)
-            {
-                _sourceWriter.WriteLine("if (Page.HasValue && Page.Value > 0)");
-                _sourceWriter.WriteLine('{');
-                _sourceWriter.Indent();
-                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"&limit={{Limit.Value}}\";");
-                _sourceWriter.DecrementIndent();
-                _sourceWriter.WriteLine('}');
-                _sourceWriter.WriteLine("else");
-                _sourceWriter.WriteLine('{');
-                _sourceWriter.Indent();
-                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?limit={{Limit.Value}}\";");
-                _sourceWriter.DecrementIndent();
-                _sourceWriter.WriteLine('}');
-            }
-            else
-            {
-                _sourceWriter.WriteLine("queries.Add($\"limit={Limit.Value}\");");
-            }
-
             _sourceWriter.DecrementIndent();
             _sourceWriter.WriteLine('}');
         }
@@ -525,11 +526,11 @@ namespace TraktNET.SourceGeneration.Requests
                         {
                             if (writeDirectlyInBuildMethod)
                             {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToTraktLongDateTimeString()}}\";");
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{WriteDateTimeValue(requestQuery.Name, requestQuery.UseCacheEfficientDateTime, requestQuery.IsRequired)}}}\";");
                             }
                             else
                             {
-                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToTraktLongDateTimeString()}}\");");
+                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{WriteDateTimeValue(requestQuery.Name, requestQuery.UseCacheEfficientDateTime, requestQuery.IsRequired)}}}\");");
                             }
                         }
                         else
@@ -540,11 +541,50 @@ namespace TraktNET.SourceGeneration.Requests
 
                             if (writeDirectlyInBuildMethod)
                             {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToTraktLongDateTimeString()}}\";");
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{WriteDateTimeValue(requestQuery.Name, requestQuery.UseCacheEfficientDateTime, requestQuery.IsRequired)}}}\";");
                             }
                             else
                             {
-                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToTraktLongDateTimeString()}}\");");
+                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{WriteDateTimeValue(requestQuery.Name, requestQuery.UseCacheEfficientDateTime, requestQuery.IsRequired)}}}\");");
+                            }
+
+                            _sourceWriter.DecrementIndent();
+                            _sourceWriter.WriteLine('}');
+                        }
+
+                        break;
+                    }
+                    case SpecialType.System_UInt16:
+                    case SpecialType.System_UInt32:
+                    case SpecialType.System_UInt64:
+                    case SpecialType.System_Int16:
+                    case SpecialType.System_Int32:
+                    case SpecialType.System_Int64:
+                    {
+                        if (requestQuery.IsRequired)
+                        {
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}}}\");");
+                            }
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"if ({requestQuery.Name}.HasValue && {requestQuery.Name}.Value > 0)");
+                            _sourceWriter.WriteLine('{');
+                            _sourceWriter.Indent();
+
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.Value}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value}}\");");
                             }
 
                             _sourceWriter.DecrementIndent();
@@ -557,6 +597,22 @@ namespace TraktNET.SourceGeneration.Requests
                         break;
                 }
             }
+        }
+
+        private static string WriteDateTimeValue(string name, bool cacheEfficient, bool isRequired)
+        {
+            if (isRequired)
+            {
+                if (cacheEfficient)
+                    return $"{name}.{ToTraktCacheEfficientDateTimeMethodName}()";
+
+                return $"{name}.{ToTraktDateTimeMethodName}()";
+            }
+
+            if (cacheEfficient)
+                return $"{name}.Value.{ToTraktCacheEfficientDateTimeMethodName}()";
+
+            return $"{name}.Value.{ToTraktDateTimeMethodName}()";
         }
 
         private void WriteBuildUriMethod()
@@ -609,8 +665,12 @@ namespace TraktNET.SourceGeneration.Requests
                     if (_hasOptionalQueries)
                     {
                         _sourceWriter.WriteEmptyLine();
-
-                        if (_requestQueries.Count > 1 || (_supportsExtendedInfo && _supportsPagination))
+                        
+                        if (_requestQueries.Count == 1)
+                        {
+                            WriteGetQueriesEntry(_requestQueries[0], writeDirectlyInBuildMethod: true);
+                        }
+                        else
                         {
                             _sourceWriter.WriteLine("List<string> queries = GetQueries();");
                             _sourceWriter.WriteEmptyLine();
@@ -620,21 +680,6 @@ namespace TraktNET.SourceGeneration.Requests
                             _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + string.Join(\"&\", queries);");
                             _sourceWriter.DecrementIndent();
                             _sourceWriter.WriteLine('}');
-                        }
-                        else if (_requestQueries.Count == 1 && !_supportsExtendedInfo && !_supportsPagination)
-                        {
-                            WriteGetQueriesEntry(_requestQueries[0], writeDirectlyInBuildMethod: true);
-                        }
-                        else if (_supportsExtendedInfo ^ _supportsPagination)
-                        {
-                            if (_supportsExtendedInfo)
-                            {
-                                WriteExtendedInfoQueryEntry(writeDirectlyInBuildMethod: true);
-                            }
-                            else if (_supportsPagination)
-                            {
-                                WritePaginationQueryEntry(writeDirectlyInBuildMethod: true);
-                            }
                         }
                     }
 

@@ -19,7 +19,7 @@ namespace SourceGeneraterTestNamespace
         {
             string requestUri = $"shows";
 
-            requestUri = requestUri + $"?start_date={StartDate.Value.ToTraktLongDateTimeString()}";
+            requestUri = requestUri + $"?start_date={StartDate.ToTraktLongDateTimeString()}";
 
             RequestUri = new Uri(requestUri, UriKind.Relative);
         }

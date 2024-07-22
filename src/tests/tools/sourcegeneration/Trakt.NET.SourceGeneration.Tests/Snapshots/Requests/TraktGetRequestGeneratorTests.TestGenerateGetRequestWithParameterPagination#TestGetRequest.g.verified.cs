@@ -25,24 +25,31 @@ namespace SourceGeneraterTestNamespace
         {
             string requestUri = $"notes/{Id}";
 
+            List<string> queries = GetQueries();
+
+            if (queries.Count > 0)
+            {
+                requestUri = requestUri + "?" + string.Join("&", queries);
+            }
+
+            RequestUri = new Uri(requestUri, UriKind.Relative);
+        }
+
+        private List<string> GetQueries()
+        {
+            List<string> queries = [];
+
             if (Page.HasValue && Page.Value > 0)
             {
-                requestUri = requestUri + $"?page={Page.Value}";
+                queries.Add($"page={Page.Value}");
             }
 
             if (Limit.HasValue && Limit.Value > 0)
             {
-                if (Page.HasValue && Page.Value > 0)
-                {
-                    requestUri = requestUri + $"&limit={Limit.Value}";
-                }
-                else
-                {
-                    requestUri = requestUri + $"?limit={Limit.Value}";
-                }
+                queries.Add($"limit={Limit.Value}");
             }
 
-            RequestUri = new Uri(requestUri, UriKind.Relative);
+            return queries;
         }
     }
 }

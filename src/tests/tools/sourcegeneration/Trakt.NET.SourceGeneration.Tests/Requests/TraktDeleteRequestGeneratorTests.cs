@@ -1,4 +1,4 @@
-﻿namespace TraktNET.SourceGeneration.Requests
+namespace TraktNET.SourceGeneration.Requests
 {
     public sealed class TraktDeleteRequestGeneratorTests
     {
@@ -395,6 +395,48 @@
         }
 
         [Fact]
+        public Task TestGenerateDeleteRequestWithCustomCachedDateTimeParameter()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("shows")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                        [TraktRequestParameter(UseCacheEfficientDateTime = true)]
+                        internal DateTime StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomCachedDateTimeParameter", source, RequestTestType.DeleteRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithCustomCachedOptionalDateTimeParameter()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("shows")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                        [TraktRequestParameter(UseCacheEfficientDateTime = true)]
+                        internal DateTime? StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomCachedOptionalDateTimeParameter", source, RequestTestType.DeleteRequest);
+        }
+
+        [Fact]
         public Task TestGenerateDeleteRequestWithCustomParametersMix()
         {
             string source = """
@@ -601,6 +643,48 @@
                 """;
 
             return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomOptionalDateTimeQuery", source, RequestTestType.DeleteRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithCustomCachedDateTimeQuery()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("shows")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                        [TraktRequestQuery("start_date", UseCacheEfficientDateTime = true)]
+                        internal DateTime StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomCachedDateTimeQuery", source, RequestTestType.DeleteRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithCustomCachedOptionalDateTimeQuery()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("shows")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                        [TraktRequestQuery("start_date", UseCacheEfficientDateTime = true)]
+                        internal DateTime? StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomCachedOptionalDateTimeQuery", source, RequestTestType.DeleteRequest);
         }
 
         [Fact]

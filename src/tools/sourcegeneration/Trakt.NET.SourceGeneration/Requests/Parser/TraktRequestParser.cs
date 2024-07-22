@@ -140,6 +140,7 @@ namespace TraktNET.SourceGeneration.Requests
             bool hasQueryAttribute = false;
             SpecialType specialType = SpecialType.None;
             string queryName = string.Empty;
+            bool useCacheEfficientDateTime = false;
 
             foreach (AttributeData attributeData in attributes)
             {
@@ -163,6 +164,16 @@ namespace TraktNET.SourceGeneration.Requests
                     }
 
                     hasParameterAttribute = true;
+
+                    var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
+
+                    if (namedArguments.TryGetValue(RequestConstants.TraktRequestParameterOrQueryUseCacheEfficientDateTimeName, out TypedConstant useCacheEfficientDateTimeConstant))
+                    {
+                        if (useCacheEfficientDateTimeConstant.Value is bool useCacheEfficientDateTimeValue)
+                        {
+                            useCacheEfficientDateTime = useCacheEfficientDateTimeValue;
+                        }
+                    }
                 }
                 else if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestQueryAttributeType))
                 {
@@ -183,6 +194,16 @@ namespace TraktNET.SourceGeneration.Requests
                         if (!string.IsNullOrWhiteSpace(queryNameValue))
                         {
                             queryName = queryNameValue!;
+                        }
+                    }
+
+                    var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
+
+                    if (namedArguments.TryGetValue(RequestConstants.TraktRequestParameterOrQueryUseCacheEfficientDateTimeName, out TypedConstant useCacheEfficientDateTimeConstant))
+                    {
+                        if (useCacheEfficientDateTimeConstant.Value is bool useCacheEfficientDateTimeValue)
+                        {
+                            useCacheEfficientDateTime = useCacheEfficientDateTimeValue;
                         }
                     }
                 }
@@ -260,7 +281,8 @@ namespace TraktNET.SourceGeneration.Requests
                     IsTraktEnum = isTraktEnum,
                     TraktEnumTypeName = traktEnumTypeName,
                     TraktEnumDefaultValue = traktEnumDefaultValue,
-                    SpecialType = specialType
+                    SpecialType = specialType,
+                    UseCacheEfficientDateTime = useCacheEfficientDateTime
                 });
             }
             else if (hasQueryAttribute)
@@ -280,7 +302,8 @@ namespace TraktNET.SourceGeneration.Requests
                     TraktEnumTypeName = traktEnumTypeName,
                     TraktEnumDefaultValue = traktEnumDefaultValue,
                     QueryName = queryName,
-                    SpecialType = specialType
+                    SpecialType = specialType,
+                    UseCacheEfficientDateTime = useCacheEfficientDateTime
                 });
             }
 

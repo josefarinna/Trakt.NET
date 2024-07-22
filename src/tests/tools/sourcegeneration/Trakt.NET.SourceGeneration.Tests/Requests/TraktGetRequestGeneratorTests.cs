@@ -395,6 +395,48 @@
         }
 
         [Fact]
+        public Task TestGenerateGetRequestWithCustomCachedDateTimeParameter()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter(UseCacheEfficientDateTime = true)]
+                        internal DateTime StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomCachedDateTimeParameter", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomCachedOptionalDateTimeParameter()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestParameter(UseCacheEfficientDateTime = true)]
+                        internal DateTime? StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomCachedOptionalDateTimeParameter", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
         public Task TestGenerateGetRequestWithCustomParametersMix()
         {
             string source = """
@@ -601,6 +643,48 @@
                 """;
 
             return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalDateTimeQuery", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomCachedDateTimeQuery()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery("start_date", UseCacheEfficientDateTime = true)]
+                        internal DateTime StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomCachedDateTimeQuery", source, RequestTestType.GetRequest);
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithCustomCachedOptionalDateTimeQuery()
+        {
+            string source = """
+                using System;
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("shows")]
+                    public sealed partial class TestGetRequest
+                    {
+                        [TraktRequestQuery("start_date", UseCacheEfficientDateTime = true)]
+                        internal DateTime? StartDate { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomCachedOptionalDateTimeQuery", source, RequestTestType.GetRequest);
         }
 
         [Fact]

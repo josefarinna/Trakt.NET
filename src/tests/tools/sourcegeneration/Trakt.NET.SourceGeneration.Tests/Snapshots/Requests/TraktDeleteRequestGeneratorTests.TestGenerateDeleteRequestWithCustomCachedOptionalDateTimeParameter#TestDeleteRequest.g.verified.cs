@@ -11,45 +11,20 @@ namespace SourceGeneraterTestNamespace
 {
     internal sealed partial class TestDeleteRequest : RequestBase
     {
-        internal required string Id { get; init; }
-
-        internal uint? Page { get; set; }
-
-        internal uint? Limit { get; set; }
-
         internal TraktOAuthRequirement OAuthRequirement { get; } = TraktOAuthRequirement.NotRequired;
 
         internal TestDeleteRequest() : base(HttpMethod.Delete, (Uri?)null) { }
 
         internal override void BuildUri()
         {
-            string requestUri = $"notes/{Id}";
+            string requestUri = $"shows";
 
-            List<string> queries = GetQueries();
-
-            if (queries.Count > 0)
+            if (StartDate.HasValue)
             {
-                requestUri = requestUri + "?" + string.Join("&", queries);
+                requestUri = requestUri + "/" + StartDate.Value.ToTraktCacheEfficientLongDateTimeString();
             }
 
             RequestUri = new Uri(requestUri, UriKind.Relative);
-        }
-
-        private List<string> GetQueries()
-        {
-            List<string> queries = [];
-
-            if (Page.HasValue && Page.Value > 0)
-            {
-                queries.Add($"page={Page.Value}");
-            }
-
-            if (Limit.HasValue && Limit.Value > 0)
-            {
-                queries.Add($"limit={Limit.Value}");
-            }
-
-            return queries;
         }
     }
 }

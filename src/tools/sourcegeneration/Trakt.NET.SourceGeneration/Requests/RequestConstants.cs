@@ -46,6 +46,8 @@ namespace TraktNET.SourceGeneration.Requests
 
         internal const string TraktRequestPropertyOAuthRequirementName = "OAuthRequirement";
 
+        internal const string TraktRequestParameterOrQueryUseCacheEfficientDateTimeName = "UseCacheEfficientDateTime";
+
         internal static class TrackingNames
         {
             internal const string InitialGetRequestsExtraction = "InitialGetRequestsExtraction";

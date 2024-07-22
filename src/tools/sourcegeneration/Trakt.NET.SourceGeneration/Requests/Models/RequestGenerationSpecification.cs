@@ -8,18 +8,18 @@
 
         public required string HttpMethodValue { get; init; }
 
-        public required string UriPath { get; set; }
+        public required string UriPath { get; init; }
 
         public required string OAuthRequirementValue { get; init; }
 
-        public required bool SupportsExtendedInfo { get; set; }
+        public required bool SupportsExtendedInfo { get; init; }
 
-        public required bool SupportsPagination { get; set; }
+        public required bool SupportsPagination { get; init; }
 
-        public required bool HasOAuthRequirementDefined { get; set; }
+        public required bool HasOAuthRequirementDefined { get; init; }
 
-        public required List<RequestParameterGenerationSpecification> RequestParameters { get; set; }
+        public required List<RequestParameterGenerationSpecification> RequestParameters { get; init; }
 
-        public required List<RequestQueryGenerationSpecification> RequestQueries { get; set; }
+        public required List<RequestQueryGenerationSpecification> RequestQueries { get; init; }
     }
 }

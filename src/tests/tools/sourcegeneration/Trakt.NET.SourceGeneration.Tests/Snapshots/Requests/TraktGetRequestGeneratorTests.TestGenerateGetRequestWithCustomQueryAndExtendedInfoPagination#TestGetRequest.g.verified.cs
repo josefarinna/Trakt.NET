@@ -39,6 +39,11 @@ namespace SourceGeneraterTestNamespace
         {
             List<string> queries = [];
 
+            if (ListType.HasValue && ListType.Value != TraktListType.Unspecified)
+            {
+                queries.Add(ListType.Value.AsQuery());
+            }
+
             if (ExtendedInfo.HasValue && ExtendedInfo.Value != TraktExtendedInfo.None)
             {
                 queries.Add(ExtendedInfo.Value.AsQuery());
@@ -52,11 +57,6 @@ namespace SourceGeneraterTestNamespace
             if (Limit.HasValue && Limit.Value > 0)
             {
                 queries.Add($"limit={Limit.Value}");
-            }
-
-            if (ListType.HasValue && ListType.Value != TraktListType.Unspecified)
-            {
-                queries.Add(ListType.Value.AsQuery());
             }
 
             return queries;
