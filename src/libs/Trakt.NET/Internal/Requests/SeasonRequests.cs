@@ -33,7 +33,7 @@
     internal sealed partial class SeasonListsGetRequest
     {
         [TraktRequestParameter]
-        internal TraktListType? Type { get; set; }
+        internal TraktListType? ListType { get; set; }
 
         [TraktRequestParameter]
         internal TraktListSortOrder? SortOrder { get; set; }

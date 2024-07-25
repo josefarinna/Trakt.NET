@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     // -------------------------------------------------------
     // GET Requests
@@ -26,7 +26,7 @@
     internal sealed partial class MovieListsGetRequest
     {
         [TraktRequestParameter]
-        internal TraktListType? Type { get; set; }
+        internal TraktListType? ListType { get; set; }
 
         [TraktRequestParameter]
         internal TraktListSortOrder? SortOrder { get; set; }
@@ -92,7 +92,7 @@
     internal sealed partial class MostCollectedMoviesGetRequest
     {
         [TraktRequestParameter]
-        internal TraktTimePeriod? Period { get; set; }
+        internal TraktTimePeriod? TimePeriod { get; set; }
 
         // TODO: [TraktRequestQuery]
         // TODO: public ITraktFilter Filter { get; set; }
@@ -102,7 +102,7 @@
     internal sealed partial class MostFavoritedMoviesGetRequest
     {
         [TraktRequestParameter]
-        internal TraktTimePeriod? Period { get; set; }
+        internal TraktTimePeriod? TimePeriod { get; set; }
 
         // TODO: [TraktRequestQuery]
         // TODO: public ITraktFilter Filter { get; set; }
@@ -112,7 +112,7 @@
     internal sealed partial class MostPlayedMoviesGetRequest
     {
         [TraktRequestParameter]
-        internal TraktTimePeriod? Period { get; set; }
+        internal TraktTimePeriod? TimePeriod { get; set; }
 
         // TODO: [TraktRequestQuery]
         // TODO: public ITraktFilter Filter { get; set; }
@@ -122,7 +122,7 @@
     internal sealed partial class MostWatchedMoviesGetRequest
     {
         [TraktRequestParameter]
-        internal TraktTimePeriod? Period { get; set; }
+        internal TraktTimePeriod? TimePeriod { get; set; }
 
         // TODO: [TraktRequestQuery]
         // TODO: public ITraktFilter Filter { get; set; }
@@ -138,14 +138,14 @@
     [TraktGetRequest("movies/updates/id", SupportsPagination = true)]
     internal sealed partial class RecentlyUpdatedMovieIdsGetRequest
     {
-        [TraktRequestParameter] // TODO: Cache Efficiency for DateTime
+        [TraktRequestParameter(UseCacheEfficientDateTime = true)]
         internal DateTime? StartDate { get; set; }
     }
 
     [TraktGetRequest("movies/updates", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class RecentlyUpdatedMoviesGetRequest
     {
-        [TraktRequestParameter] // TODO: Cache Efficiency for DateTime
+        [TraktRequestParameter(UseCacheEfficientDateTime = true)]
         internal DateTime? StartDate { get; set; }
     }
 

@@ -243,7 +243,7 @@ namespace TraktNET.SourceGeneration.Requests
                                 traktEnumDefaultValue = underlyingType.GetMembers()[0].Name;
                             }
                         }
-                        else if (underlyingType.SpecialType == SpecialType.System_DateTime)
+                        else if (underlyingType.SpecialType != SpecialType.None && underlyingType.TypeKind != TypeKind.Error)
                         {
                             // Special types get handled in the RequestSourceEmitter
                             specialType = underlyingType.SpecialType;

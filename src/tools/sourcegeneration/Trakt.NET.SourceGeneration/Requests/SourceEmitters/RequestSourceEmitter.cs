@@ -395,6 +395,40 @@ namespace TraktNET.SourceGeneration.Requests
 
                         break;
                     }
+                    case SpecialType.System_Boolean:
+                    {
+                        if (requestParameter.IsRequired)
+                        {
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"/{{{requestParameter.Name}.ToLowerCase()}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"parameters.Add($\"{{{requestParameter.Name}.ToLowerCase()}}\");");
+                            }
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"if ({requestParameter.Name}.HasValue)");
+                            _sourceWriter.WriteLine('{');
+                            _sourceWriter.Indent();
+
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"/{{{requestParameter.Name}.Value.ToLowerCase()}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"parameters.Add($\"{{{requestParameter.Name}.Value.ToLowerCase()}}\");");
+                            }
+
+                            _sourceWriter.DecrementIndent();
+                            _sourceWriter.WriteLine('}');
+                        }
+
+                        break;
+                    }
                     default:
                         break;
                 }
@@ -585,6 +619,40 @@ namespace TraktNET.SourceGeneration.Requests
                             else
                             {
                                 _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value}}\");");
+                            }
+
+                            _sourceWriter.DecrementIndent();
+                            _sourceWriter.WriteLine('}');
+                        }
+
+                        break;
+                    }
+                    case SpecialType.System_Boolean:
+                    {
+                        if (requestQuery.IsRequired)
+                        {
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.ToLowerCase()}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.ToLowerCase()}}\");");
+                            }
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"if ({requestQuery.Name}.HasValue)");
+                            _sourceWriter.WriteLine('{');
+                            _sourceWriter.Indent();
+
+                            if (writeDirectlyInBuildMethod)
+                            {
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToLowerCase()}}\";");
+                            }
+                            else
+                            {
+                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToLowerCase()}}\");");
                             }
 
                             _sourceWriter.DecrementIndent();

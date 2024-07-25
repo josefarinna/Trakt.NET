@@ -52,7 +52,7 @@
     internal sealed partial class ShowListsGetRequest
     {
         [TraktRequestParameter]
-        internal TraktListType? Type { get; set; }
+        internal TraktListType? ListType { get; set; }
 
         [TraktRequestParameter]
         internal TraktListSortOrder? SortOrder { get; set; }
@@ -112,7 +112,7 @@
     }
 
     [TraktGetRequest("shows/{id}/watching", SupportsExtendedInfo = true)]
-    internal sealed partial class ShowWatchingUsersGetRequest
+    internal sealed partial class ShowWatchingGetRequest
     {
     }
 
@@ -127,7 +127,7 @@
     internal sealed partial class MostCollectedShowsGetRequest
     {
         [TraktRequestParameter]
-        internal TraktTimePeriod? Period { get; set; }
+        internal TraktTimePeriod? TimePeriod { get; set; }
 
         // TODO: [TraktRequestQuery]
         // TODO: public ITraktFilter Filter { get; set; }
@@ -137,7 +137,7 @@
     internal sealed partial class MostFavoritedShowsGetRequest
     {
         [TraktRequestParameter]
-        internal TraktTimePeriod? Period { get; set; }
+        internal TraktTimePeriod? TimePeriod { get; set; }
 
         // TODO: [TraktRequestQuery]
         // TODO: public ITraktFilter Filter { get; set; }
@@ -147,7 +147,7 @@
     internal sealed partial class MostPlayedShowsGetRequest
     {
         [TraktRequestParameter]
-        internal TraktTimePeriod? Period { get; set; }
+        internal TraktTimePeriod? TimePeriod { get; set; }
 
         // TODO: [TraktRequestQuery]
         // TODO: public ITraktFilter Filter { get; set; }
@@ -157,7 +157,7 @@
     internal sealed partial class MostWatchedShowsGetRequest
     {
         [TraktRequestParameter]
-        internal TraktTimePeriod? Period { get; set; }
+        internal TraktTimePeriod? TimePeriod { get; set; }
 
         // TODO: [TraktRequestQuery]
         // TODO: public ITraktFilter Filter { get; set; }
@@ -170,17 +170,17 @@
         // TODO: public ITraktFilter Filter { get; set; }
     }
 
-    [TraktGetRequest("shows/updates", SupportsPagination = true)]
+    [TraktGetRequest("shows/updates/id", SupportsPagination = true)]
     internal sealed partial class RecentlyUpdatedShowIdsGetRequest
     {
-        [TraktRequestParameter] // TODO: Cache Efficiency for DateTime
+        [TraktRequestParameter(UseCacheEfficientDateTime = true)]
         internal DateTime? StartDate { get; set; }
     }
 
     [TraktGetRequest("shows/updates", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class RecentlyUpdatedShowsGetRequest
     {
-        [TraktRequestParameter] // TODO: Cache Efficiency for DateTime
+        [TraktRequestParameter(UseCacheEfficientDateTime = true)]
         internal DateTime? StartDate { get; set; }
     }
 
@@ -196,7 +196,7 @@
     // -------------------------------------------------------
 
     [TraktPostRequest("shows/{id}/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class ShowRefreshMetadataPostRequest
+    internal sealed partial class ShowRefreshPostRequest
     {
     }
 

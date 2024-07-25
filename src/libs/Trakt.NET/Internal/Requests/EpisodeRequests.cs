@@ -22,7 +22,7 @@
     internal sealed partial class EpisodeListsGetRequest
     {
         [TraktRequestParameter]
-        internal TraktListType? Type { get; set; }
+        internal TraktListType? ListType { get; set; }
 
         [TraktRequestParameter]
         internal TraktListSortOrder? SortOrder { get; set; }

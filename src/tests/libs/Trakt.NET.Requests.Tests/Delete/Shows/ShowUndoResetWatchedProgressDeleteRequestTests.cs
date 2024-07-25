@@ -1,0 +1,34 @@
+﻿namespace TraktNET.DeleteRequests.Shows
+{
+    public sealed class ShowUndoResetWatchedProgressDeleteRequestTests
+    {
+        private const string ShowID = TestConstants.Shows.ShowID;
+        private const string URIPath = $"shows/{ShowID}/progress/watched/reset";
+
+        [Fact]
+        public void TestShowUndoResetWatchedProgressDeleteRequestHasValidURIPath()
+        {
+            var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest
+            {
+                Id = ShowID
+            };
+
+            showUndoResetWatchedProgressDeleteRequest.BuildUri();
+            showUndoResetWatchedProgressDeleteRequest.RequestUri.Should().Be(new Uri(URIPath, UriKind.Relative));
+        }
+
+        [Fact]
+        public void TestShowUndoResetWatchedProgressDeleteRequestHasValidOAuthRequirement()
+        {
+            var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = ShowID };
+            showUndoResetWatchedProgressDeleteRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.Required);
+        }
+
+        [Fact]
+        public void TestShowUndoResetWatchedProgressDeleteRequestIsDeleteRequest()
+        {
+            var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = ShowID };
+            showUndoResetWatchedProgressDeleteRequest.Method.Should().Be(HttpMethod.Delete);
+        }
+    }
+}
