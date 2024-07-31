@@ -6,8 +6,8 @@
     /// </summary>
     public sealed class TraktClient
     {
-        /// <summary>Gets the context of the Trakt Client. See also <seealso cref="ITraktContext" />.</summary>
-        public ITraktContext Context { get; }
+        /// <summary>Gets the context of the Trakt Client. See also <seealso cref="TraktContext" />.</summary>
+        public TraktContext Context { get; }
 
         /// <summary>Gets or sets the Trakt Client Id. See also <seealso cref="ClientSecret" />.</summary>
         public string ClientID
@@ -90,12 +90,12 @@
         /// <param name="clientID">The Trakt Client Id. See <seealso cref="ClientID" />.</param>
         /// <param name="clientSecret">The Trakt Client Secret. See <seealso cref="ClientSecret" />.</param>
         public TraktClient(string clientID, string clientSecret)
-            : this(new TraktContext(clientID, clientSecret))
+            : this(new TraktDefaultContext(clientID, clientSecret))
         { }
 
         /// <summary>Initializes a new instance of the <see cref="TraktClient" /> class.</summary>
         /// <param name="context">The context of Trakt Client. See <seealso cref="Context" />.</param>
-        public TraktClient(ITraktContext context)
+        public TraktClient(TraktContext context)
         {
             ArgumentValidator.ThrowIfNull(context);
             Context = context;

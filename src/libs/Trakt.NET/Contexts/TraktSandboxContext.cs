@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public class TraktSandboxContext : TraktContext, ITraktSandboxContext
+    public class TraktSandboxContext : TraktContext
     {
         public TraktSandboxContext(string contextID, string clientID, string clientSecret)
             : base(contextID, clientID, clientSecret)
