@@ -8,7 +8,7 @@
         [Fact]
         public void TestTraktClientFromContext()
         {
-            var context = new TraktContext(ClientID, ClientSecret);
+            var context = new TraktDefaultContext(ClientID, ClientSecret);
             var client = new TraktClient(context);
 
             client.Context.Should().NotBeNull();
