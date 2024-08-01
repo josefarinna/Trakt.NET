@@ -1,38 +1,75 @@
-﻿namespace TraktNET
+﻿#if NET6_0_OR_GREATER
+using System.Diagnostics.CodeAnalysis;
+#endif
+
+using System.Net;
+using System.Net.Http.Headers;
+
+namespace TraktNET
 {
-    /// <summary>A Trakt response with content of type <typeparamref name="TResponseContentType" />.</summary>
-    /// <typeparam name="TResponseContentType">The content type.</typeparam>
-    public class TraktResponse<TResponseContentType> : TraktNoContentResponse
+    public partial class TraktResponse : ITraktResponseHeaders
     {
-        /// <summary>Gets, whether this response has a content value set.</summary>
-        public bool HasValue => Value != null;
+        public TraktResponseHeaders? TraktHeaders { get; internal set; }
 
-        /// <summary>Gets the set content value of this response.</summary>
-        public TResponseContentType? Value { get; internal set; }
+        public HttpResponseHeaders? Headers { get; internal set; }
 
-        // TODO Add header value properties
+        public HttpStatusCode StatusCode { get; internal set; }
 
-        public override bool Equals(object? obj) => Equals(obj as TraktResponse<TResponseContentType>);
+#if NET6_0_OR_GREATER
+        [MemberNotNullWhen(true, nameof(TraktHeaders))]
+        [MemberNotNullWhen(true, nameof(Headers))]
+#endif
+        public bool IsSuccess => (int)StatusCode >= 200 && (int)StatusCode <= 299;
 
-        public bool Equals(TraktResponse<TResponseContentType>? other)
-            => other != null && IsSuccess == other.IsSuccess && Exception == other.Exception && HasValue == other.HasValue
-            && (Value?.Equals(other.Value) ?? false);
+        public TraktSortBy? SortBy => TraktHeaders?.SortBy;
 
-        public bool Equals(TraktResponse<TResponseContentType>? x, TraktResponse<TResponseContentType>? y) => x?.Equals(y) ?? false;
+        public TraktSortHow? SortHow => TraktHeaders?.SortHow;
 
-        public int GetHashCode(TraktResponse<TResponseContentType>? obj) => obj?.GetHashCode() ?? 0;
+        public TraktSortBy? AppliedSortBy => TraktHeaders?.AppliedSortBy;
 
-        public override int GetHashCode()
-        {
-            int hashCode = IsSuccess.GetHashCode();
-            hashCode = HashHelpers.Combine(hashCode, Exception?.GetHashCode() ?? 0);
-            hashCode = HashHelpers.Combine(hashCode, HasValue.GetHashCode());
-            return HashHelpers.Combine(hashCode, Value?.GetHashCode() ?? 0);
-        }
+        public TraktSortHow? AppliedSortHow => TraktHeaders?.AppliedSortHow;
 
-        /// <summary>Enables implicit conversion to bool for this type.</summary>
-        /// <param name="response">The <see cref="TraktResponse{TResponseContentType}" /> instance, which will be converted to bool.</param>
-        public static implicit operator bool(TraktResponse<TResponseContentType> response)
-            => response.IsSuccess && response.HasValue;
+        public DateTime? StartDate => TraktHeaders?.StartDate;
+
+        public DateTime? EndDate => TraktHeaders?.EndDate;
+
+        public uint? TrendingUserCount => TraktHeaders?.TrendingUserCount;
+
+        public uint? Page => TraktHeaders?.Page;
+
+        public uint? Limit => TraktHeaders?.Limit;
+
+        public bool? IsPrivateUser => TraktHeaders?.IsPrivateUser;
+
+        public uint? ItemID => TraktHeaders?.ItemID;
+
+        public string? ItemType => TraktHeaders?.ItemType;
+
+        public string? RateLimit => TraktHeaders?.RateLimit;
+
+        public uint? RetryAfter => TraktHeaders?.RetryAfter;
+
+        public string? UpgradeURL => TraktHeaders?.UpgradeURL;
+
+        public bool? IsVIPUser => TraktHeaders?.IsVIPUser;
+
+        public uint? AccountLimit => TraktHeaders?.AccountLimit;
+
+        public static implicit operator bool(TraktResponse response) => response.IsSuccess;
+    }
+
+    public partial class TraktResponse<T> : TraktResponse
+    {
+#if NET6_0_OR_GREATER
+        [MemberNotNullWhen(true, nameof(Content))]
+        [MemberNotNullWhen(true, nameof(ContentHeaders))]
+#endif
+        public bool HasValue => Content != null;
+
+        public T? Content { get; internal set; }
+
+        public HttpContentHeaders? ContentHeaders { get; internal set; }
+
+        public static implicit operator bool(TraktResponse<T> response) => response.IsSuccess && response.HasValue;
     }
 }
