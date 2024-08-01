@@ -39,5 +39,9 @@
         public bool? IsVIPUser { get; internal set; }
 
         public uint? AccountLimit { get; internal set; }
+
+        public bool? IsAccountLocked { get; internal set; }
+
+        public bool? IsAccountDeactivated { get; internal set; }
     }
 }

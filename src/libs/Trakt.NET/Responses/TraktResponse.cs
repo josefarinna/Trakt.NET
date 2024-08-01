@@ -55,6 +55,10 @@ namespace TraktNET
 
         public uint? AccountLimit => TraktHeaders?.AccountLimit;
 
+        public bool? IsAccountLocked => TraktHeaders?.IsAccountLocked;
+
+        public bool? IsAccountDeactivated => TraktHeaders?.IsAccountDeactivated;
+
         public static implicit operator bool(TraktResponse response) => response.IsSuccess;
     }
 

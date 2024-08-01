@@ -35,5 +35,9 @@
         bool? IsVIPUser { get; }
 
         uint? AccountLimit { get; }
+
+        bool? IsAccountLocked { get; }
+
+        bool? IsAccountDeactivated { get; }
     }
 }
