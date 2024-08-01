@@ -9,6 +9,12 @@ namespace TraktNET
     {
         internal static JsonSerializerContext GetContext<TJsonObjectType>()
         {
+            if (s_authenticationJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(AuthenticationContextCacheKey));
+                return s_jsonSerializerContexts[AuthenticationContextCacheKey];
+            }
+
             if (s_episodeJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(EpisodesContextCacheKey));
@@ -48,6 +54,7 @@ namespace TraktNET
             throw new NotSupportedException($"Json type {nameof(TJsonObjectType)} has no registered json serializer context.");
         }
 
+        private const string AuthenticationContextCacheKey = "authentication";
         private const string EpisodesContextCacheKey = "episodes";
         private const string MoviesContextCacheKey = "movies";
         private const string PeopleContextCacheKey = "people";
@@ -62,6 +69,7 @@ namespace TraktNET
 
         private static readonly Dictionary<string, JsonSerializerContext> s_jsonSerializerContexts = new()
         {
+            { AuthenticationContextCacheKey, new AuthenticationJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { EpisodesContextCacheKey, new EpisodesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { MoviesContextCacheKey, new MoviesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -69,6 +77,11 @@ namespace TraktNET
             { ShowsContextCacheKey, new ShowsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) }
         };
+
+        private static readonly HashSet<Type> s_authenticationJsonTypes = [
+            typeof(TraktAuthorization),
+            typeof(TraktDevice)
+        ];
 
         private static readonly HashSet<Type> s_episodeJsonTypes = [
             typeof(TraktEpisode),
