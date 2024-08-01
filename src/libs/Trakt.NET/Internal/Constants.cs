@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 using System.Text.Json;
 
 namespace TraktNET
@@ -76,6 +76,13 @@ namespace TraktNET
 
             internal const HttpStatusCode ServiceUnavailableCloudflareError522 = (HttpStatusCode)522;
         }
+
+#if NETSTANDARD2_0
+        internal static class MediaTypeNames
+        {
+            internal const string ApplicationJson = "application/json";
+        }
+#endif
 
         internal static class Json
         {

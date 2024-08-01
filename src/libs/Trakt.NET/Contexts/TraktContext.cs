@@ -24,6 +24,8 @@
 
         internal Uri BaseAuthorizationUri { get; set; }
 
+        internal HttpClientProvider HttpClientProvider { get; set; }
+
         internal TraktContext(string contextID, string clientID, string clientSecret)
         {
             ArgumentValidator.ThrowIfNullOrWhiteSpace(contextID, "context id must not be null or empty only whitespace");
@@ -35,11 +37,14 @@
             ClientSecret = clientSecret;
             BaseUri = new Uri(Constants.API.BaseURL);
             BaseAuthorizationUri = new Uri(Constants.API.BaseAuthorizationURL);
+            HttpClientProvider = new DefaultHttpClientProvider();
         }
 
         internal TraktContext(string clientID, string clientSecret)
             : this(Guid.NewGuid().ToString(), clientID, clientSecret)
         {
         }
+
+        internal HttpClient GetHttpClient() => HttpClientProvider.GetHttpClient(this);
     }
 }
