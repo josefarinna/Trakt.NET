@@ -11,7 +11,7 @@ namespace SourceGeneraterTestNamespace
 {
     internal sealed partial class TestDeleteRequest : RequestBase
     {
-        internal TraktOAuthRequirement OAuthRequirement { get; } = TraktOAuthRequirement.NotRequired;
+        internal override TraktOAuthRequirement OAuthRequirement => TraktOAuthRequirement.NotRequired;
 
         internal TestDeleteRequest() : base(HttpMethod.Delete, (Uri?)null) { }
 

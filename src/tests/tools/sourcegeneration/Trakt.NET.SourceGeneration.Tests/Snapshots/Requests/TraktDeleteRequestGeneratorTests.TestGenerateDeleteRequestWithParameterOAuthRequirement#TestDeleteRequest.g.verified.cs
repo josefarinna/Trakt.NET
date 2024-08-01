@@ -13,7 +13,7 @@ namespace SourceGeneraterTestNamespace
     {
         internal required string Id { get; init; }
 
-        internal TraktOAuthRequirement OAuthRequirement { get; } = TraktOAuthRequirement.Required;
+        internal override TraktOAuthRequirement OAuthRequirement => TraktOAuthRequirement.Required;
 
         internal TestDeleteRequest() : base(HttpMethod.Delete, (Uri?)null) { }
 

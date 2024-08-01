@@ -225,7 +225,7 @@ namespace TraktNET.SourceGeneration.Requests
         }
 
         private void WirteOAuthRequirementProperty()
-            => _sourceWriter.WriteLine($"internal TraktOAuthRequirement OAuthRequirement {{ get; }} = TraktOAuthRequirement.{_oauthRequirementValue};");
+            => _sourceWriter.WriteLine($"internal override TraktOAuthRequirement OAuthRequirement => TraktOAuthRequirement.{_oauthRequirementValue};");
 
         private void WriteRequestConstructor()
             => _sourceWriter.WriteLine($"internal {_requestName}() : base(HttpMethod.{_httpMethodValue}, (Uri?)null) {{ }}");

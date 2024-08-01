@@ -17,7 +17,7 @@ namespace SourceGeneraterTestNamespace
 
         internal uint? Limit { get; set; }
 
-        internal TraktOAuthRequirement OAuthRequirement { get; } = TraktOAuthRequirement.NotRequired;
+        internal override TraktOAuthRequirement OAuthRequirement => TraktOAuthRequirement.NotRequired;
 
         internal TestGetRequest() : base(HttpMethod.Get, (Uri?)null) { }
 

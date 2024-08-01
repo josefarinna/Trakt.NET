@@ -11,7 +11,7 @@ namespace SourceGeneraterTestNamespace
 {
     internal sealed partial class TestPostRequest : RequestBase
     {
-        internal TraktOAuthRequirement OAuthRequirement { get; } = TraktOAuthRequirement.Required;
+        internal override TraktOAuthRequirement OAuthRequirement => TraktOAuthRequirement.Required;
 
         internal TestPostRequest() : base(HttpMethod.Post, (Uri?)null) { }
 

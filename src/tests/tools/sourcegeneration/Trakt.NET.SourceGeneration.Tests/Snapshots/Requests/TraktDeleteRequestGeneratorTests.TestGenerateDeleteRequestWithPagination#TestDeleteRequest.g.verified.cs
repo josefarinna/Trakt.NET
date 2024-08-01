@@ -15,7 +15,7 @@ namespace SourceGeneraterTestNamespace
 
         internal uint? Limit { get; set; }
 
-        internal TraktOAuthRequirement OAuthRequirement { get; } = TraktOAuthRequirement.NotRequired;
+        internal override TraktOAuthRequirement OAuthRequirement => TraktOAuthRequirement.NotRequired;
 
         internal TestDeleteRequest() : base(HttpMethod.Delete, (Uri?)null) { }
 
