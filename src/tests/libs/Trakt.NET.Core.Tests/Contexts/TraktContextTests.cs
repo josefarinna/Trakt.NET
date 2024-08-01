@@ -14,6 +14,7 @@
             context.ID.Should().NotBeNullOrEmpty();
             context.ClientID.Should().Be(ClientID);
             context.ClientSecret.Should().Be(ClientSecret);
+            context.Authorization.Should().NotBeNull();
         }
 
         [Fact]
@@ -24,6 +25,7 @@
             context.ID.Should().Be(ContextID);
             context.ClientID.Should().Be(ClientID);
             context.ClientSecret.Should().Be(ClientSecret);
+            context.Authorization.Should().NotBeNull();
         }
 
         [Fact]

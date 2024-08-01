@@ -23,6 +23,12 @@
             set => Context.ClientSecret = value;
         }
 
+        public TraktAuthorization? Authorization
+        {
+            get => Context.Authorization;
+            set => Context.Authorization = value;
+        }
+
         /// <summary>Provides access to the authentication module. See <seealso cref="TraktAuthModule" />.</summary>
         public TraktAuthModule Auth { get; }
 
