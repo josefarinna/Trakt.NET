@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    public class TraktUserIds : ITraktIds
+    public record class TraktUserIds : ITraktIds
     {
         public string? Slug { get; set; }
 

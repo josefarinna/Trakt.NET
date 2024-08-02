@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
-    public class TraktShowIds : ITraktIds
+    public record class TraktShowIds : ITraktIds
     {
         public uint? Trakt { get; set; }
 

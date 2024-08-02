@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public class TraktPersonMinimal
+    public record class TraktPersonMinimal
     {
         public string? Name { get; set; }
 

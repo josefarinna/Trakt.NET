@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public class TraktPersonSocialIds
+    public record class TraktPersonSocialIds
     {
         public string? Twitter { get; set; }
 

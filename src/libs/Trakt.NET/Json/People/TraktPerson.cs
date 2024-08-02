@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public class TraktPerson : TraktPersonMinimal
+    public record class TraktPerson : TraktPersonMinimal
     {
         public TraktPersonSocialIds? SocialIds { get; set; }
 

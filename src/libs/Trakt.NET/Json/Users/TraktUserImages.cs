@@ -1,11 +1,11 @@
 ﻿namespace TraktNET
 {
-    public class TraktUserImages
+    public record class TraktUserImages
     {
         public TraktUserImagesAvatar? Avatar { get; set; }
     }
 
-    public class TraktUserImagesAvatar
+    public record class TraktUserImagesAvatar
     {
         public string? Full { get; set; }
     }

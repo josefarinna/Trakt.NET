@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public class TraktShowAirs
+    public record class TraktShowAirs
     {
         public TraktDayOfWeek? Day { get; set; }
 

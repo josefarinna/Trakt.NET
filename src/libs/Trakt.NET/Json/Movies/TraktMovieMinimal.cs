@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public class TraktMovieMinimal
+    public record class TraktMovieMinimal
     {
         public string? Title { get; set; }
 

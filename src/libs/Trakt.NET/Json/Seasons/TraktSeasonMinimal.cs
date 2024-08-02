@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public class TraktSeasonMinimal
+    public record class TraktSeasonMinimal
     {
         public uint? Number { get; set; }
 

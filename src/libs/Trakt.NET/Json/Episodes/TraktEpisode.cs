@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    public class TraktEpisode : TraktEpisodeMinimal
+    public record class TraktEpisode : TraktEpisodeMinimal
     {
         [JsonPropertyName("number_abs")]
         public uint? NumberAbsolute { get; set; }

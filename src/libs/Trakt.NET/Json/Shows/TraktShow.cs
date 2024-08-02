@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public class TraktShow : TraktShowMinimal
+    public record class TraktShow : TraktShowMinimal
     {
         public string? Tagline { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    public class TraktUserMinimal
+    public record class TraktUserMinimal
     {
         public string? Username { get; set; }
 

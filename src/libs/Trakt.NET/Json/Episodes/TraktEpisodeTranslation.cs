@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public class TraktEpisodeTranslation
+    public record class TraktEpisodeTranslation
     {
         public string? Title { get; set; }
 

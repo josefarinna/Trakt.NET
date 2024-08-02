@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    public class TraktUser : TraktUserMinimal
+    public record class TraktUser : TraktUserMinimal
     {
         public DateTime? JoinedAt { get; set; }
 

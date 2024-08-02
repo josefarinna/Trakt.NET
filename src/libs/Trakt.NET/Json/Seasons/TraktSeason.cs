@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public class TraktSeason : TraktSeasonMinimal
+    public record class TraktSeason : TraktSeasonMinimal
     {
         public float? Rating { get; set; }
 
