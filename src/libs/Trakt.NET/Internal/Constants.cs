@@ -1,4 +1,4 @@
-using System.Net;
+﻿using System.Net;
 using System.Text.Json;
 
 namespace TraktNET
@@ -16,6 +16,16 @@ namespace TraktNET
             internal const string StagingBaseAuthorizationURL = "https://staging.trakt.tv/";
 
             internal const int Version = 2;
+        }
+
+        internal static class Request
+        {
+            internal static class Headers
+            {
+                internal const string APIVersionHeaderKey = "trakt-api-version";
+
+                internal const string APIClientIdHeaderKey = "trakt-api-key";
+            }
         }
 
         internal static class StatusCodes

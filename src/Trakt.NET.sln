@@ -140,7 +140,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sourcegeneration", "sourceg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trakt.NET.SourceGeneration.Tests", "tests\tools\sourcegeneration\Trakt.NET.SourceGeneration.Tests\Trakt.NET.SourceGeneration.Tests.csproj", "{C479E397-69C6-4C3D-BD4D-19C8ECAB74EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trakt.NET.Requests.Tests", "tests\libs\Trakt.NET.Requests.Tests\Trakt.NET.Requests.Tests.csproj", "{A5279041-12FE-4DEA-AC60-79B7FFF3D229}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trakt.NET.Requests.Tests", "tests\libs\Trakt.NET.Requests.Tests\Trakt.NET.Requests.Tests.csproj", "{A5279041-12FE-4DEA-AC60-79B7FFF3D229}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trakt.NET.Modules.Tests", "tests\libs\Trakt.NET.Modules.Tests\Trakt.NET.Modules.Tests.csproj", "{991F0FB1-CDFD-412E-B7B2-81946E12D6D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -208,6 +210,10 @@ Global
 		{A5279041-12FE-4DEA-AC60-79B7FFF3D229}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5279041-12FE-4DEA-AC60-79B7FFF3D229}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5279041-12FE-4DEA-AC60-79B7FFF3D229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{991F0FB1-CDFD-412E-B7B2-81946E12D6D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{991F0FB1-CDFD-412E-B7B2-81946E12D6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{991F0FB1-CDFD-412E-B7B2-81946E12D6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{991F0FB1-CDFD-412E-B7B2-81946E12D6D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -247,6 +253,7 @@ Global
 		{7CCCA937-44EC-4C43-9AEC-409BC790022C} = {A912E1BB-614D-41EE-9C2B-67994F3D5A65}
 		{C479E397-69C6-4C3D-BD4D-19C8ECAB74EA} = {7CCCA937-44EC-4C43-9AEC-409BC790022C}
 		{A5279041-12FE-4DEA-AC60-79B7FFF3D229} = {50AD22EC-EB56-476B-8DCE-4AF2B5BD8B09}
+		{991F0FB1-CDFD-412E-B7B2-81946E12D6D7} = {50AD22EC-EB56-476B-8DCE-4AF2B5BD8B09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7025A39E-11A6-4587-98F7-E887B941D5A0}
