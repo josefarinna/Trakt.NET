@@ -30,67 +30,67 @@
         }
 
         /// <summary>Provides access to the authentication module. See <seealso cref="TraktAuthModule" />.</summary>
-        public TraktAuthModule Auth { get; }
+        public TraktAuthModule Auth => Context.Auth;
 
         /// <summary>Provides access to the calendar module. See <seealso cref="TraktCalendarModule" />.</summary>
-        public TraktCalendarModule Calendar { get; }
+        public TraktCalendarModule Calendar => Context.Calendar;
 
         /// <summary>Provides access to the certifications module. See <seealso cref="TraktCertificationsModule" />.</summary>
-        public TraktCertificationsModule Certifications { get; }
+        public TraktCertificationsModule Certifications => Context.Certifications;
 
         /// <summary>Provides access to the checkins module. See <seealso cref="TraktCheckinsModule" />.</summary>
-        public TraktCheckinsModule Checkins { get; }
+        public TraktCheckinsModule Checkins => Context.Checkins;
 
         /// <summary>Provides access to the commends module. See <seealso cref="TraktCommentsModule" />.</summary>
-        public TraktCommentsModule Comments { get; }
+        public TraktCommentsModule Comments => Context.Comments;
 
         /// <summary>Provides access to the countries module. See <seealso cref="TraktCountriesModule" />.</summary>
-        public TraktCountriesModule Countries { get; }
+        public TraktCountriesModule Countries => Context.Countries;
 
         /// <summary>Provides access to the episodes module. See <seealso cref="TraktEpisodesModule" />.</summary>
-        public TraktEpisodesModule Episodes { get; }
+        public TraktEpisodesModule Episodes => Context.Episodes;
 
         /// <summary>Provides access to the genres module. See <seealso cref="TraktGenresModule" />.</summary>
-        public TraktGenresModule Genres { get; }
+        public TraktGenresModule Genres => Context.Genres;
 
         /// <summary>Provides access to the languages module. See <seealso cref="TraktLanguagesModule" />.</summary>
-        public TraktLanguagesModule Languages { get; }
+        public TraktLanguagesModule Languages => Context.Languages;
 
         /// <summary>Provides access to the lists module. See <seealso cref="TraktListsModule" />.</summary>
-        public TraktListsModule Lists { get; }
+        public TraktListsModule Lists => Context.Lists;
 
         /// <summary>Provides access to the movies module. See <seealso cref="TraktMoviesModule" />.</summary>
-        public TraktMoviesModule Movies { get; }
+        public TraktMoviesModule Movies => Context.Movies;
 
         /// <summary>Provides access to the networks module. See <seealso cref="TraktNetworksModule" />.</summary>
-        public TraktNetworksModule Networks { get; }
+        public TraktNetworksModule Networks => Context.Networks;
 
         /// <summary>Provides access to the notes module. See <seealso cref="TraktNotesModule" />.</summary>
-        public TraktNotesModule Notes { get; }
+        public TraktNotesModule Notes => Context.Notes;
 
         /// <summary>Provides access to the people module. See <seealso cref="TraktPeopleModule" />.</summary>
-        public TraktPeopleModule People { get; }
+        public TraktPeopleModule People => Context.People;
 
         /// <summary>Provides access to the recommendations module. See <seealso cref="TraktRecommendationsModule" />.</summary>
-        public TraktRecommendationsModule Recommendations { get; }
+        public TraktRecommendationsModule Recommendations => Context.Recommendations;
 
         /// <summary>Provides access to the scrobble module. See <seealso cref="TraktScrobbleModule" />.</summary>
-        public TraktScrobbleModule Scrobble { get; }
+        public TraktScrobbleModule Scrobble => Context.Scrobble;
 
         /// <summary>Provides access to the search module. See <seealso cref="TraktSearchModule" />.</summary>
-        public TraktSearchModule Search { get; }
+        public TraktSearchModule Search => Context.Search;
 
         /// <summary>Provides access to the seasons module. See <seealso cref="TraktSeasonsModule" />.</summary>
-        public TraktSeasonsModule Seasons { get; }
+        public TraktSeasonsModule Seasons => Context.Seasons;
 
         /// <summary>Provides access to the shows module. See <seealso cref="TraktShowsModule" />.</summary>
-        public TraktShowsModule Shows { get; }
+        public TraktShowsModule Shows => Context.Shows;
 
         /// <summary>Provides access to the sync module. See <seealso cref="TraktSyncModule" />.</summary>
-        public TraktSyncModule Sync { get; }
+        public TraktSyncModule Sync => Context.Sync;
 
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
-        public TraktUsersModule Users { get; }
+        public TraktUsersModule Users => Context.Users;
 
         /// <summary>Initializes a new instance of the <see cref="TraktClient" /> class.</summary>
         /// <param name="clientID">The Trakt Client Id. See <seealso cref="ClientID" />.</param>
@@ -105,28 +105,6 @@
         {
             ArgumentValidator.ThrowIfNull(context);
             Context = context;
-
-            Auth = new TraktAuthModule(Context);
-            Calendar = new TraktCalendarModule(Context);
-            Certifications = new TraktCertificationsModule(Context);
-            Checkins = new TraktCheckinsModule(Context);
-            Comments = new TraktCommentsModule(Context);
-            Countries = new TraktCountriesModule(Context);
-            Episodes = new TraktEpisodesModule(Context);
-            Genres = new TraktGenresModule(Context);
-            Languages = new TraktLanguagesModule(Context);
-            Lists = new TraktListsModule(Context);
-            Movies = new TraktMoviesModule(Context);
-            Networks = new TraktNetworksModule(Context);
-            Notes = new TraktNotesModule(Context);
-            People = new TraktPeopleModule(Context);
-            Recommendations = new TraktRecommendationsModule(Context);
-            Scrobble = new TraktScrobbleModule(Context);
-            Search = new TraktSearchModule(Context);
-            Seasons = new TraktSeasonsModule(Context);
-            Shows = new TraktShowsModule(Context);
-            Sync = new TraktSyncModule(Context);
-            Users = new TraktUsersModule(Context);
         }
     }
 }
