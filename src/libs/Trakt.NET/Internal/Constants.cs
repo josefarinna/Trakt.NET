@@ -48,14 +48,18 @@ namespace TraktNET
 
             internal const HttpStatusCode Conflict = HttpStatusCode.Conflict;
 
+            internal const HttpStatusCode Gone = HttpStatusCode.Gone;
+
             internal const HttpStatusCode PreconditionFailed = HttpStatusCode.PreconditionFailed;
+
+            internal const HttpStatusCode Denied = (HttpStatusCode)418;
 
             internal const HttpStatusCode AccountLimitExceeded = (HttpStatusCode)420;
 
 #if NETSTANDARD2_0
-            internal const HttpStatusCode UnprocessableEntity = (HttpStatusCode)422;
+            internal const HttpStatusCode ValidationError = (HttpStatusCode)422;
 #else
-            internal const HttpStatusCode UnprocessableEntity = HttpStatusCode.UnprocessableEntity;
+            internal const HttpStatusCode ValidationError = HttpStatusCode.UnprocessableEntity;
 #endif
 
 #if NETSTANDARD2_0
@@ -64,7 +68,7 @@ namespace TraktNET
             internal const HttpStatusCode LockedUserAccount = HttpStatusCode.Locked;
 #endif
 
-            internal const HttpStatusCode VIPOnly = HttpStatusCode.UpgradeRequired;
+            internal const HttpStatusCode VIPValidationError = HttpStatusCode.UpgradeRequired;
 
 #if NETSTANDARD2_0
             internal const HttpStatusCode RateLimitExceeded = (HttpStatusCode)429;

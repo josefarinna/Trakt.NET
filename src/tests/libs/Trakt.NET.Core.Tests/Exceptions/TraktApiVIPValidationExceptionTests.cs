@@ -5,11 +5,11 @@
         [Fact]
         public void TestTraktApiVIPValidationExceptionCreate()
         {
-            var exception = TraktApiException.Create(Constants.StatusCodes.VIPOnly, HttpMethod.Get,
+            var exception = TraktApiException.Create(Constants.StatusCodes.VIPValidationError, HttpMethod.Get,
                                                      new HttpRequestMessage(), "response content");
 
             exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(Constants.StatusCodes.VIPOnly);
+            exception.StatusCode.Should().Be(Constants.StatusCodes.VIPValidationError);
             exception.ReasonPhrase.Should().Be("VIP Only - user must upgrade to VIP");
             exception.HttpMethod.Should().Be(HttpMethod.Get);
             exception.RequestMessage.Should().NotBeNull();

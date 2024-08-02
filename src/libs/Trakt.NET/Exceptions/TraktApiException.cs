@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Net.Http.Headers;
 
 namespace TraktNET
 {
@@ -19,12 +20,18 @@ namespace TraktNET
         public HttpMethod HttpMethod { get; }
 
         /// <summary><see cref="Uri"/> used to send the request.</summary>
-        public Uri? RequestUrl => RequestMessage.RequestUri;
+        public Uri? RequestUri => RequestMessage.RequestUri;
 
         /// <summary>Request message used to send the request.</summary>
         public HttpRequestMessage RequestMessage { get; }
 
         /// <summary>HTTP response content as string.</summary>
         public string? ResponseContent { get; }
+
+        /// <summary>HTTP response headers.</summary>
+        public HttpResponseHeaders? Headers { get; }
+
+        /// <summary>HTTP response content headers.</summary>
+        public HttpContentHeaders? ContentHeaders { get; }
     }
 }
