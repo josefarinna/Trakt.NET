@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Reflection;
 using System.Text.Json;
 
@@ -33,7 +33,7 @@ namespace TraktNET
         public static TimeOnly ParseTime(string time) => TimeOnly.ParseExact(time, "HH:mm", CultureInfo.InvariantCulture);
 
         private static string GetJsonFilepath(string jsonFilename)
-            => Path.Combine(GetLocation(), Path.Combine("JsonData", jsonFilename));
+            => Path.Combine(GetLocation(), Path.Combine("..\\..\\..\\..\\JsonData", jsonFilename));
 
         private static string GetLocation()
         {
