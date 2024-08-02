@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using System.Reflection;
 using System.Text.Json;
 
@@ -11,6 +11,13 @@ namespace TraktNET
     public static class TestUtility
     {
         private static string? _location;
+
+        public static async Task<string> GetJsonFileContentAsync(string jsonFilename)
+        {
+            string filepath = GetJsonFilepath(jsonFilename);
+            using StreamReader reader = File.OpenText(filepath);
+            return await reader.ReadToEndAsync();
+        }
 
         public static async Task<T?> DeserializeJsonAsync<T>(string jsonFilename) where T : class
         {
