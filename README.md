@@ -96,11 +96,11 @@ Year: 2023
 
 ### Documentation
 
-https://henrikfroehling.github.io/Trakt.NET/docs/index.html
+[https://henrikfroehling.github.io/Trakt.NET/docs/index.html](https://henrikfroehling.github.io/Trakt.NET/index.html)
 
 ### Examples
 
-https://henrikfroehling.github.io/Trakt.NET/examples/index.html
+[https://henrikfroehling.github.io/Trakt.NET/examples/index.html](https://henrikfroehling.github.io/Trakt.NET/examples/index.html)
 
 ### Discussions and Issues
 Do you have a question or suggestion? [Start a discussion](https://github.com/henrikfroehling/Trakt.NET/discussions)
