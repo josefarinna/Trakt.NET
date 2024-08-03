@@ -10,6 +10,21 @@ on:
       - main
       - develop
       - 'release-**'
+    paths:
+      - '.github/**'
+      - 'Source/**'
+      - 'src/**'
+      - 'docs/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+      - 'release-**'
+    paths:
+      - '.github/**'
+      - 'Source/**'
+      - 'src/**'
+      - 'docs/**'
 
 jobs:
   init:
