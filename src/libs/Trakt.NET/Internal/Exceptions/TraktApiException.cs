@@ -1,53 +1,60 @@
-﻿using Microsoft.VisualBasic;
-using System.Net;
-using System.Net.Http.Headers;
+﻿using System.Net;
 
 namespace TraktNET
 {
     public partial class TraktApiException
     {
-        internal static TraktApiException Create(HttpStatusCode httpStatusCode, HttpMethod httpMethod, HttpRequestMessage requestMessage,
-                                                 string? responseContent = null, HttpResponseHeaders? headers = null, HttpContentHeaders? contentHeaders = null,
-                                                 Exception? innerException = null)
-            => httpStatusCode switch
+        internal static TraktApiException Create(ExceptionParameters parameters, Exception? innerException = null)
+            => parameters.StatusCode switch
             {
-                Constants.StatusCodes.BadRequest => new TraktApiBadRequestException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.Unauthorized => new TraktApiAuthorizationException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.Forbidden => new TraktApiForbiddenException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.NotFound => new TraktApiNotFoundException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.MethodNotFound => new TraktApiMethodNotFoundException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.Conflict => new TraktApiConflictException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.Denied => new TraktApiDeniedException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.PreconditionFailed => new TraktApiPreconditionFailedException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.AccountLimitExceeded => new TraktApiAccountLimitException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.ValidationError => new TraktApiValidationException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.LockedUserAccount => new TraktApiLockedUserAccountException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.VIPValidationError => new TraktApiVIPValidationException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.RateLimitExceeded => new TraktApiRateLimitException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.ServerError => new TraktApiServerException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.ServiceUnavailableBadGateway => new TraktApiBadGatewayException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.ServiceUnavailable => new TraktApiServerUnavailableException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.ServiceUnavailableGatewayTimeout => new TraktApiGatewayTimeoutException(httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.ServiceUnavailableCloudflareError520 => new TraktApiCloudflareException(httpStatusCode, httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.ServiceUnavailableCloudflareError521 => new TraktApiCloudflareException(httpStatusCode, httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                Constants.StatusCodes.ServiceUnavailableCloudflareError522 => new TraktApiCloudflareException(httpStatusCode, httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException),
-                _ => new TraktApiException(CreateExceptionMessage(httpStatusCode), httpStatusCode, httpMethod, requestMessage, responseContent,
-                                           headers, contentHeaders, innerException),
+                Constants.StatusCodes.BadRequest => new TraktApiBadRequestException(parameters, innerException),
+                Constants.StatusCodes.Unauthorized => new TraktApiAuthorizationException(parameters, innerException),
+                Constants.StatusCodes.Forbidden => new TraktApiForbiddenException(parameters, innerException),
+                Constants.StatusCodes.NotFound => new TraktApiNotFoundException(parameters, innerException),
+                Constants.StatusCodes.MethodNotFound => new TraktApiMethodNotFoundException(parameters, innerException),
+                Constants.StatusCodes.Conflict => new TraktApiConflictException(parameters, innerException),
+                Constants.StatusCodes.Denied => new TraktApiDeniedException(parameters, innerException),
+                Constants.StatusCodes.PreconditionFailed => new TraktApiPreconditionFailedException(parameters, innerException),
+                Constants.StatusCodes.AccountLimitExceeded => new TraktApiAccountLimitException(parameters, innerException),
+                Constants.StatusCodes.ValidationError => new TraktApiValidationException(parameters, innerException),
+                Constants.StatusCodes.LockedUserAccount => new TraktApiLockedUserAccountException(parameters, innerException),
+                Constants.StatusCodes.VIPValidationError => new TraktApiVIPValidationException(parameters, innerException),
+                Constants.StatusCodes.RateLimitExceeded => new TraktApiRateLimitException(parameters, innerException),
+                Constants.StatusCodes.ServerError => new TraktApiServerException(parameters, innerException),
+                Constants.StatusCodes.ServiceUnavailableBadGateway => new TraktApiBadGatewayException(parameters, innerException),
+                Constants.StatusCodes.ServiceUnavailable => new TraktApiServerUnavailableException(parameters, innerException),
+                Constants.StatusCodes.ServiceUnavailableGatewayTimeout => new TraktApiGatewayTimeoutException(parameters, innerException),
+                Constants.StatusCodes.ServiceUnavailableCloudflareError520 => new TraktApiCloudflareException(parameters, innerException),
+                Constants.StatusCodes.ServiceUnavailableCloudflareError521 => new TraktApiCloudflareException(parameters, innerException),
+                Constants.StatusCodes.ServiceUnavailableCloudflareError522 => new TraktApiCloudflareException(parameters, innerException),
+                _ => new TraktApiException(parameters, innerException),
             };
 
-        protected TraktApiException(string exceptionMessage, HttpStatusCode httpStatusCode, HttpMethod httpMethod, HttpRequestMessage requestMessage,
-                                    string? responseContent = null, HttpResponseHeaders? headers = null, HttpContentHeaders? contentHeaders = null,
-                                    Exception? innerException = null)
-            : base(exceptionMessage, innerException)
+        internal TraktApiException(ExceptionParameters parameters, Exception? innerException = null)
+            : base(CreateExceptionMessage(parameters.StatusCode), innerException)
         {
-            StatusCode = httpStatusCode;
-            ReasonPhrase = CreateReasonPhrase(httpStatusCode);
-            HttpMethod = httpMethod;
-            RequestMessage = requestMessage;
-            ResponseContent = responseContent;
-            Headers = headers;
-            ContentHeaders = contentHeaders;
+            StatusCode = parameters.StatusCode;
+            ReasonPhrase = CreateReasonPhrase(parameters.StatusCode);
+            HttpMethod = parameters.Method;
+            RequestMessage = parameters.Request;
+            ResponseContent = parameters.ResponseContent;
+            Headers = parameters.Headers;
+            ContentHeaders = parameters.ContentHeaders;
         }
+
+        internal TraktApiException(string exceptionMessage, ExceptionParameters parameters, Exception? innerException = null)
+            : base(CreateExceptionMessage(exceptionMessage), innerException)
+        {
+            StatusCode = parameters.StatusCode;
+            ReasonPhrase = exceptionMessage;
+            HttpMethod = parameters.Method;
+            RequestMessage = parameters.Request;
+            ResponseContent = parameters.ResponseContent;
+            Headers = parameters.Headers;
+            ContentHeaders = parameters.ContentHeaders;
+        }
+
+        protected static string CreateExceptionMessage(string message) => $"Trakt API request failed. {message}";
 
         protected static string CreateExceptionMessage(HttpStatusCode httpStatusCode) => $"Trakt API request failed. {CreateReasonPhrase(httpStatusCode)}";
 

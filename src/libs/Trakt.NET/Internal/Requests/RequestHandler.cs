@@ -19,13 +19,12 @@ namespace TraktNET
             HttpClient httpClient = context.GetHttpClient();
             using HttpResponseMessage responseMessage = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
 
+            TraktResponseHeaders traktHeaders = ParseTraktResponseHeaders(responseMessage.Headers);
+
             if (!responseMessage.IsSuccessStatusCode)
             {
-                // TODO parse content for additional error details
-                throw TraktApiException.Create(responseMessage.StatusCode, request.Method, request, null);
+                await HandleErrorAsync(request, responseMessage, traktHeaders, false, cancellationToken);
             }
-
-            TraktResponseHeaders traktResponseHeaders = ParseTraktResponseHeaders(responseMessage.Headers);
 
 #if NET5_0_OR_GREATER
             using Stream responseContentStream = await responseMessage.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
@@ -39,14 +38,14 @@ namespace TraktNET
             JsonSerializerContext jsonSerializerContext = JsonSerializerContextFactory.GetContext<TResponseContentType>();
 
             responseContent = await JsonSerializer.DeserializeAsync(responseContentStream, typeof(TResponseContentType),
-                jsonSerializerContext, cancellationToken) as TResponseContentType;
+                jsonSerializerContext, cancellationToken).ConfigureAwait(false) as TResponseContentType;
 #else
             responseContent = await JsonSerializer.DeserializeAsync<TResponseContentType>(responseContentStream,
                 Constants.Json.JsonOptions, cancellationToken).ConfigureAwait(false);
 #endif
 
             return TraktResponse<TResponseContentType>.Create(responseMessage.StatusCode, responseContent,
-                traktResponseHeaders, responseMessage.Headers, responseMessage.Content.Headers);
+                traktHeaders, responseMessage.Headers, responseMessage.Content.Headers);
         }
 
         private static void AddRequestMessageHeaders<TRequest>(TraktContext context, TRequest request) where TRequest : RequestBase

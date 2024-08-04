@@ -14,24 +14,24 @@ namespace TraktNET
         public HttpStatusCode StatusCode { get; }
 
         /// <summary>The server's reason phrase.</summary>
-        public string? ReasonPhrase { get; }
+        public string ReasonPhrase { get; }
 
         /// <summary>Request HTTP method.</summary>
         public HttpMethod HttpMethod { get; }
 
         /// <summary><see cref="Uri"/> used to send the request.</summary>
-        public Uri? RequestUri => RequestMessage.RequestUri;
+        public Uri RequestUri => RequestMessage.RequestUri!;
 
         /// <summary>Request message used to send the request.</summary>
         public HttpRequestMessage RequestMessage { get; }
 
         /// <summary>HTTP response content as string.</summary>
-        public string? ResponseContent { get; }
+        public string ResponseContent { get; }
 
         /// <summary>HTTP response headers.</summary>
-        public HttpResponseHeaders? Headers { get; }
+        public HttpResponseHeaders Headers { get; }
 
         /// <summary>HTTP response content headers.</summary>
-        public HttpContentHeaders? ContentHeaders { get; }
+        public HttpContentHeaders ContentHeaders { get; }
     }
 }

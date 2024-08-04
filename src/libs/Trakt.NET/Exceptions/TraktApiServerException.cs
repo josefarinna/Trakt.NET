@@ -1,13 +1,7 @@
-﻿using System.Net.Http.Headers;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>Exception, that will be thrown, if there is an error on the server side.</summary>
-    public sealed class TraktApiServerException(HttpMethod httpMethod, HttpRequestMessage requestMessage,
-                                                string? responseContent = null, HttpResponseHeaders? headers = null,
-                                                HttpContentHeaders? contentHeaders = null, Exception? innerException = null)
-        : TraktApiException(CreateExceptionMessage(Constants.StatusCodes.ServerError), Constants.StatusCodes.ServerError,
-                            httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException)
+    public sealed partial class TraktApiServerException : TraktApiException
     {
     }
 }

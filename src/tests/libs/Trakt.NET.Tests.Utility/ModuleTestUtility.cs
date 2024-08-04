@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Net;
 
 namespace TraktNET
 {
@@ -10,6 +11,15 @@ namespace TraktNET
             var context = TraktContext.Create(TestConstants.ClientId, TestConstants.ClientSecret);
             var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
             httpClientProvider.SetupMockResponse(requestUri, responseContent);
+            context.HttpClientProvider = httpClientProvider;
+            return context;
+        }
+
+        public static TraktContext GetContext([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri, HttpStatusCode statusCode)
+        {
+            var context = TraktContext.Create(TestConstants.ClientId, TestConstants.ClientSecret);
+            var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
+            httpClientProvider.SetupMockResponse(requestUri, statusCode);
             context.HttpClientProvider = httpClientProvider;
             return context;
         }

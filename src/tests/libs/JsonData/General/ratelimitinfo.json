@@ -1,0 +1,7 @@
+{
+    "name": "UNAUTHED_API_GET_LIMIT",
+    "period": 300,
+    "limit": 1000,
+    "remaining": 500,
+    "until": "2024-08-04T00:24:00Z"
+}

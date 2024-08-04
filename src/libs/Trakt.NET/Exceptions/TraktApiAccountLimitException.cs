@@ -1,21 +1,15 @@
-﻿using System.Net.Http.Headers;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>Exception, that will be thrown, if a user has exceeded their account limits.</summary>
-    public sealed class TraktApiAccountLimitException(HttpMethod httpMethod, HttpRequestMessage requestMessage,
-                                                      string? responseContent = null, HttpResponseHeaders? headers = null,
-                                                      HttpContentHeaders? contentHeaders = null, Exception? innerException = null)
-        : TraktApiException(CreateExceptionMessage(Constants.StatusCodes.AccountLimitExceeded), Constants.StatusCodes.AccountLimitExceeded,
-                            httpMethod, requestMessage, responseContent, headers, contentHeaders, innerException)
+    public sealed partial class TraktApiAccountLimitException : TraktApiException
     {
         /// <summary>URL where the user can sign up for Trakt VIP.</summary>
-        public string? UpgradeURL { get; internal set; }
+        public string UpgradeURL { get; }
 
         /// <summary>User's VIP status.</summary>
-        public bool? IsVIPUser { get; internal set; }
+        public bool IsVIPUser { get; }
 
         /// <summary>User's account limit.</summary>
-        public int? AccountLimit { get; internal set; }
+        public uint AccountLimit { get; }
     }
 }

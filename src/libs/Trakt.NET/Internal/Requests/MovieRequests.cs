@@ -7,11 +7,13 @@ namespace TraktNET
     [TraktGetRequest("movies/{id}", SupportsExtendedInfo = true)]
     internal sealed partial class MovieGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/aliases")]
     internal sealed partial class MovieAliasesGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/comments", SupportsExtendedInfo = true, SupportsPagination = true,
@@ -20,6 +22,8 @@ namespace TraktNET
     {
         [TraktRequestParameter]
         internal TraktCommentSortOrder? SortOrder { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/lists", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -30,21 +34,26 @@ namespace TraktNET
 
         [TraktRequestParameter]
         internal TraktListSortOrder? SortOrder { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/people", SupportsExtendedInfo = true)]
     internal sealed partial class MoviePeopleGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/ratings")]
     internal sealed partial class MovieRatingsGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/related", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class MovieRelatedMoviesGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/releases")]
@@ -52,16 +61,20 @@ namespace TraktNET
     {
         [TraktRequestParameter]
         internal string? Country { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/stats")]
     internal sealed partial class MovieStatisticsGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/studios")]
     internal sealed partial class MovieStudiosGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/translations")]
@@ -69,11 +82,14 @@ namespace TraktNET
     {
         [TraktRequestParameter]
         internal string? Language { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/{id}/watching", SupportsExtendedInfo = true)]
     internal sealed partial class MovieWatchingGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
     [TraktGetRequest("movies/boxoffice", SupportsExtendedInfo = true)]
@@ -163,5 +179,6 @@ namespace TraktNET
     [TraktPostRequest("movies/{id}/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class MovieRefreshPostRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 }

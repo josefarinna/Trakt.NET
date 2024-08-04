@@ -54,6 +54,22 @@ namespace TraktNET
                 .Respond(_ => response);
         }
 
+        public void SetupMockResponse([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri, HttpStatusCode statusCode)
+        {
+            if (string.IsNullOrWhiteSpace(requestUri))
+            {
+                throw new ArgumentException("invalid request URI", nameof(requestUri));
+            }
+
+            _mockHttpMessageHandler.When(_baseUrl + requestUri)
+                .WithHeaders(new Dictionary<string, string>
+                {
+                    { TraktApiHeaderKey, TestConstants.ClientId },
+                    { TraktApiVersionHeaderKey, "2" }
+                })
+                .Respond(statusCode);
+        }
+
         internal override HttpClient GetHttpClient(TraktContext context)
         {
             var httpClient = _mockHttpMessageHandler.ToHttpClient();

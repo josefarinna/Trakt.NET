@@ -7,11 +7,13 @@
     [TraktGetRequest("shows/{show_id}/seasons", SupportsExtendedInfo = true)]
     internal sealed partial class SeasonsAllGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
     [TraktGetRequest("shows/{show_id}/seasons/{season_number:uint}/info", SupportsExtendedInfo = true)]
     internal sealed partial class SeasonGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 
     [TraktGetRequest("shows/{show_id}/seasons/{season_number:uint}/comments", SupportsExtendedInfo = true, SupportsPagination = true,
@@ -20,6 +22,8 @@
     {
         [TraktRequestParameter]
         internal TraktCommentSortOrder? SortOrder { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 
     [TraktGetRequest("shows/{show_id}/seasons/{season_number:uint}", SupportsExtendedInfo = true)]
@@ -27,6 +31,8 @@
     {
         [TraktRequestQuery("translations")]
         internal string? Translations { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 
     [TraktGetRequest("shows/{show_id}/seasons/{season_number:uint}/lists", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -37,21 +43,26 @@
 
         [TraktRequestParameter]
         internal TraktListSortOrder? SortOrder { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 
     [TraktGetRequest("shows/{show_id}/seasons/{season_number:uint}/people", SupportsExtendedInfo = true)]
     internal sealed partial class SeasonPeopleGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 
     [TraktGetRequest("shows/{show_id}/seasons/{season_number:uint}/ratings")]
     internal sealed partial class SeasonRatingsGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 
     [TraktGetRequest("shows/{show_id}/seasons/{season_number:uint}/stats")]
     internal sealed partial class SeasonStatisticsGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 
     [TraktGetRequest("shows/{show_id}/seasons/{season_number:uint}/translations")]
@@ -59,10 +70,13 @@
     {
         [TraktRequestParameter]
         internal string? Language { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 
     [TraktGetRequest("shows/{show_id}/seasons/{season_number:uint}/watching", SupportsExtendedInfo = true)]
     internal sealed partial class SeasonWatchingGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 }
