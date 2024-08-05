@@ -17,7 +17,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequest", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequest",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequest));
         }
 
         [Fact]
@@ -35,7 +36,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestExtendedInfo", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestExtendedInfo",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithExtendedInfo));
         }
 
         [Fact]
@@ -53,7 +55,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestPagination", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestPagination",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithPagination));
         }
 
         [Fact]
@@ -71,7 +74,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestOAuth", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestOAuth",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithOAuthRequirement));
         }
 
         [Fact]
@@ -89,7 +93,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestAll", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestAll",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithAll));
         }
 
         [Fact]
@@ -107,7 +112,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameter", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameter",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameter));
         }
 
         [Fact]
@@ -125,7 +131,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestNullableParameter", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestNullableParameter",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithNullableParameter));
         }
 
         [Fact]
@@ -143,7 +150,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterExtendedInfo", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterExtendedInfo",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterExtendedInfo));
         }
 
         [Fact]
@@ -161,7 +169,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterPagination", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterPagination",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterPagination));
         }
 
         [Fact]
@@ -179,7 +188,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterOAuth", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterOAuth",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterOAuthRequirement));
         }
 
         [Fact]
@@ -197,7 +207,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterAll", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterAll",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterAll));
         }
 
         [Fact]
@@ -215,7 +226,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterTypeDefault", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterTypeDefault",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterDefaultTypeString));
         }
 
         [Fact]
@@ -233,7 +245,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestMultipleParameterTypeDefault", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestMultipleParameterTypeDefault",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithMultipleParametersDefaultTypeString));
         }
 
         [Fact]
@@ -251,7 +264,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestMultipleParameters", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestMultipleParameters",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithMultipleParameters));
         }
 
         [Fact]
@@ -269,7 +283,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestSlashAtEnd", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestSlashAtEnd",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithSlashAtEnd));
         }
 
         [Fact]
@@ -289,7 +304,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomEnumParameter", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomEnumParameter",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomEnumParameter));
         }
 
         [Fact]
@@ -309,7 +325,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalEnumParameter", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalEnumParameter",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomOptionalEnumParameter));
         }
 
         [Fact]
@@ -329,7 +346,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomStringParameter", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomStringParameter",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomStringParameter));
         }
 
         [Fact]
@@ -349,7 +367,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalStringParameter", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalStringParameter",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomOptionalStringParameter));
         }
 
         [Fact]
@@ -370,7 +389,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomDateTimeParameter", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomDateTimeParameter",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomDateTimeParameter));
         }
 
         [Fact]
@@ -391,7 +411,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalDateTimeParameter", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestCustomOptionalDateTimeParameter", source, RequestTestType.PutRequest,
+                nameof(TestGeneratePutRequestWithCustomOptionalDateTimeParameter));
         }
 
         [Fact]
@@ -412,7 +434,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomCachedDateTimeParameter", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomCachedDateTimeParameter",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomCachedDateTimeParameter));
         }
 
         [Fact]
@@ -433,7 +456,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomCachedOptionalDateTimeParameter", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestCustomCachedOptionalDateTimeParameter", source, RequestTestType.PutRequest,
+                nameof(TestGeneratePutRequestWithCustomCachedOptionalDateTimeParameter));
         }
 
         [Fact]
@@ -460,7 +485,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomParametersMix", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomParametersMix",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomParametersMix));
         }
 
         [Fact]
@@ -480,7 +506,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomParameterExtendedPagination", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestCustomParameterExtendedPagination", source, RequestTestType.PutRequest,
+                nameof(TestGeneratePutRequestWithCustomParameterAndExtendedInfoPagination));
         }
 
         [Fact]
@@ -500,7 +528,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomEnumQuery", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomEnumQuery",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomEnumQuery));
         }
 
         [Fact]
@@ -520,7 +549,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalEnumQuery", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalEnumQuery",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomOptionalEnumQuery));
         }
 
         [Fact]
@@ -540,7 +570,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomEnumQueryName", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomEnumQueryName",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomEnumQueryName));
         }
 
         [Fact]
@@ -560,7 +591,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalEnumQueryName", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalEnumQueryName",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomOptionalEnumQueryName));
         }
 
         [Fact]
@@ -580,7 +612,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomStringQuery", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomStringQuery",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomStringQuery));
         }
 
         [Fact]
@@ -600,7 +633,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalStringQuery", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalStringQuery",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomOptionalStringQuery));
         }
 
         [Fact]
@@ -621,7 +655,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomDateTimeQuery", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomDateTimeQuery",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomDateTimeQuery));
         }
 
         [Fact]
@@ -642,7 +677,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalDateTimeQuery", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomOptionalDateTimeQuery",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomOptionalDateTimeQuery));
         }
 
         [Fact]
@@ -663,7 +699,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomCachedDateTimeQuery", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomCachedDateTimeQuery",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomCachedDateTimeQuery));
         }
 
         [Fact]
@@ -684,7 +721,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomCachedOptionalDateTimeQuery", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestCustomCachedOptionalDateTimeQuery", source, RequestTestType.PutRequest,
+                nameof(TestGeneratePutRequestWithCustomCachedOptionalDateTimeQuery));
         }
 
         [Fact]
@@ -711,7 +750,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomQueriesMix", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomQueriesMix",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomQueriesMix));
         }
 
         [Fact]
@@ -731,7 +771,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomQueryExtendedPagination", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomQueryExtendedPagination",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomQueryAndExtendedInfoPagination));
         }
 
         [Fact]
@@ -764,7 +805,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomParametersAndQueriesMix", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomParametersAndQueriesMix",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithCustomParametersAndQueriesMix));
         }
 
         [Fact]
@@ -797,7 +839,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestCustomParametersAndQueriesMixExtendedInfoPagination", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestCustomParametersAndQueriesMixExtendedInfoPagination", source, RequestTestType.PutRequest,
+                nameof(TestGeneratePutRequestParametersQueriesExtendedInfoPagination));
         }
 
         [Fact]
@@ -818,7 +862,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestParameterQueryAttributeDiagnostic", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestParameterQueryAttributeDiagnostic", source, RequestTestType.PutRequest,
+                nameof(TestGeneratePutRequestWithParameterAndQueryAttributeDiagnostic));
         }
 
         [Fact]
@@ -838,7 +884,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests", "SourceGeneration.PutRequestQueryAttributeNameRequiredDiagnostic", source, RequestTestType.PutRequest);
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestQueryAttributeNameRequiredDiagnostic", source, RequestTestType.PutRequest,
+                nameof(TestGeneratePutRequestQueryAttributeNameRequiredDiagnostic));
         }
     }
 }

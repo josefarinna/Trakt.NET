@@ -24,7 +24,9 @@ namespace TraktNET.SourceGeneration
         private const string TraktPostRequestSourceFile = $"{TraktRequestAttributesDirectory}/TraktPostRequestAttribute.cs";
         private const string TraktPutRequestSourceFile = $"{TraktRequestAttributesDirectory}/TraktPutRequestAttribute.cs";
 
-        internal static Task Verify<T>(string subDirectory, string compilationName, string source, RequestTestType requestTestType = RequestTestType.None) where T : IIncrementalGenerator, new()
+        internal static Task Verify<T>(string subDirectory, string compilationName, string source,
+                                       RequestTestType requestTestType = RequestTestType.None,
+                                       string customFilename = "") where T : IIncrementalGenerator, new()
         {
             IEnumerable<PortableExecutableReference> references = new[]
             {
@@ -55,18 +57,22 @@ namespace TraktNET.SourceGeneration
                     case RequestTestType.DeleteRequest:
                         SyntaxTree deleteRequestSyntaxTree = CSharpSyntaxTree.ParseText(File.ReadAllText(TraktDeleteRequestSourceFile));
                         syntaxTrees.Add(deleteRequestSyntaxTree);
+                        subDirectory = $"{subDirectory}/Delete";
                         break;
                     case RequestTestType.GetRequest:
                         SyntaxTree getRequestSyntaxTree = CSharpSyntaxTree.ParseText(File.ReadAllText(TraktGetRequestSourceFile));
                         syntaxTrees.Add(getRequestSyntaxTree);
+                        subDirectory = $"{subDirectory}/Get";
                         break;
                     case RequestTestType.PostRequest:
                         SyntaxTree postRequestSyntaxTree = CSharpSyntaxTree.ParseText(File.ReadAllText(TraktPostRequestSourceFile));
                         syntaxTrees.Add(postRequestSyntaxTree);
+                        subDirectory = $"{subDirectory}/Post";
                         break;
                     case RequestTestType.PutRequest:
                         SyntaxTree putRequestSyntaxTree = CSharpSyntaxTree.ParseText(File.ReadAllText(TraktPutRequestSourceFile));
                         syntaxTrees.Add(putRequestSyntaxTree);
+                        subDirectory = $"{subDirectory}/Put";
                         break;
                 }
             }
@@ -96,9 +102,15 @@ namespace TraktNET.SourceGeneration
 
             driver = driver.RunGeneratorsAndUpdateCompilation(compilation, out _, out _);
 
-            return Verifier.Verify(driver)
-                .UseDirectory($"Snapshots/{subDirectory}")
-                .ScrubLines(static x => x.StartsWith("//HintName", StringComparison.InvariantCulture));
+            SettingsTask result = Verifier.Verify(driver);
+            result.UseDirectory($"Snapshots/{subDirectory}");
+
+            if (!string.IsNullOrWhiteSpace(customFilename))
+            {
+                result.UseFileName(customFilename);
+            }
+
+            return result.ScrubLines(static x => x.StartsWith("//HintName", StringComparison.InvariantCulture));
         }
     }
 }

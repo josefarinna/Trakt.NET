@@ -17,7 +17,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequest", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequest",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequest));
         }
 
         [Fact]
@@ -35,7 +36,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestExtendedInfo", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestExtendedInfo",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithExtendedInfo));
         }
 
         [Fact]
@@ -53,7 +55,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestPagination", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestPagination",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithPagination));
         }
 
         [Fact]
@@ -71,7 +74,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestOAuth", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestOAuth",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithOAuthRequirement));
         }
 
         [Fact]
@@ -89,7 +93,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestAll", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestAll",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithAll));
         }
 
         [Fact]
@@ -107,7 +112,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameter", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameter",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithParameter));
         }
 
         [Fact]
@@ -125,7 +131,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestNullableParameter", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestNullableParameter",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithNullableParameter));
         }
 
         [Fact]
@@ -143,7 +150,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterExtendedInfo", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterExtendedInfo",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithParameterExtendedInfo));
         }
 
         [Fact]
@@ -161,7 +169,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterPagination", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterPagination",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithParameterPagination));
         }
 
         [Fact]
@@ -179,7 +188,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterOAuth", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterOAuth",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithParameterOAuthRequirement));
         }
 
         [Fact]
@@ -197,7 +207,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterAll", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterAll",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithParameterAll));
         }
 
         [Fact]
@@ -215,7 +226,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterTypeDefault", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterTypeDefault",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithParameterDefaultTypeString));
         }
 
         [Fact]
@@ -233,7 +245,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestMultipleParameterTypeDefault", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestMultipleParameterTypeDefault",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithMultipleParametersDefaultTypeString));
         }
 
         [Fact]
@@ -251,7 +264,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestMultipleParameters", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestMultipleParameters",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithMultipleParameters));
         }
 
         [Fact]
@@ -269,7 +283,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestSlashAtEnd", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestSlashAtEnd",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithSlashAtEnd));
         }
 
         [Fact]
@@ -289,7 +304,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomEnumParameter", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomEnumParameter",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomEnumParameter));
         }
 
         [Fact]
@@ -309,7 +325,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalEnumParameter", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalEnumParameter",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomOptionalEnumParameter));
         }
 
         [Fact]
@@ -329,7 +346,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomStringParameter", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomStringParameter",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomStringParameter));
         }
 
         [Fact]
@@ -349,7 +367,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalStringParameter", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalStringParameter",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomOptionalStringParameter));
         }
 
         [Fact]
@@ -370,7 +389,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomDateTimeParameter", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomDateTimeParameter",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomDateTimeParameter));
         }
 
         [Fact]
@@ -391,7 +411,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalDateTimeParameter", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests",
+                "SourceGeneration.GetRequestCustomOptionalDateTimeParameter", source, RequestTestType.GetRequest, 
+                nameof(TestGenerateGetRequestWithCustomOptionalDateTimeParameter));
         }
 
         [Fact]
@@ -412,7 +434,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomCachedDateTimeParameter", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomCachedDateTimeParameter",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomCachedDateTimeParameter));
         }
 
         [Fact]
@@ -433,7 +456,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomCachedOptionalDateTimeParameter", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests",
+                "SourceGeneration.GetRequestCustomCachedOptionalDateTimeParameter", source, RequestTestType.GetRequest,
+                nameof(TestGenerateGetRequestWithCustomCachedOptionalDateTimeParameter));
         }
 
         [Fact]
@@ -460,7 +485,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomParametersMix", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomParametersMix",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomParametersMix));
         }
 
         [Fact]
@@ -480,7 +506,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomParameterExtendedPagination", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests",
+                "SourceGeneration.GetRequestCustomParameterExtendedPagination", source, RequestTestType.GetRequest,
+                nameof(TestGenerateGetRequestWithCustomParameterAndExtendedInfoPagination));
         }
 
         [Fact]
@@ -500,7 +528,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomEnumQuery", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomEnumQuery",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomEnumQuery));
         }
 
         [Fact]
@@ -520,7 +549,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalEnumQuery", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalEnumQuery",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomOptionalEnumQuery));
         }
 
         [Fact]
@@ -540,7 +570,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomEnumQueryName", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomEnumQueryName",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomEnumQueryName));
         }
 
         [Fact]
@@ -560,7 +591,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalEnumQueryName", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalEnumQueryName",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomOptionalEnumQueryName));
         }
 
         [Fact]
@@ -580,7 +612,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomStringQuery", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomStringQuery",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomStringQuery));
         }
 
         [Fact]
@@ -600,7 +633,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalStringQuery", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalStringQuery",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomOptionalStringQuery));
         }
 
         [Fact]
@@ -621,7 +655,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomDateTimeQuery", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomDateTimeQuery",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomDateTimeQuery));
         }
 
         [Fact]
@@ -642,7 +677,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalDateTimeQuery", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomOptionalDateTimeQuery",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomOptionalDateTimeQuery));
         }
 
         [Fact]
@@ -663,7 +699,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomCachedDateTimeQuery", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomCachedDateTimeQuery",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomCachedDateTimeQuery));
         }
 
         [Fact]
@@ -684,7 +721,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomCachedOptionalDateTimeQuery", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests",
+                "SourceGeneration.GetRequestCustomCachedOptionalDateTimeQuery", source, RequestTestType.GetRequest,
+                nameof(TestGenerateGetRequestWithCustomCachedOptionalDateTimeQuery));
         }
 
         [Fact]
@@ -711,7 +750,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomQueriesMix", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomQueriesMix",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomQueriesMix));
         }
 
         [Fact]
@@ -731,7 +771,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomQueryExtendedPagination", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomQueryExtendedPagination",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomQueryAndExtendedInfoPagination));
         }
 
         [Fact]
@@ -764,7 +805,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomParametersAndQueriesMix", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomParametersAndQueriesMix",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithCustomParametersAndQueriesMix));
         }
 
         [Fact]
@@ -797,7 +839,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestCustomParametersAndQueriesMixExtendedInfoPagination", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests",
+                "SourceGeneration.GetRequestCustomParametersAndQueriesMixExtendedInfoPagination", source, RequestTestType.GetRequest,
+                nameof(TestGenerateGetRequestParametersQueriesExtendedInfoPagination));
         }
 
         [Fact]
@@ -818,7 +862,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestParameterQueryAttributeDiagnostic", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests",
+                "SourceGeneration.GetRequestParameterQueryAttributeDiagnostic", source, RequestTestType.GetRequest,
+                nameof(TestGenerateGetRequestWithParameterAndQueryAttributeDiagnostic));
         }
 
         [Fact]
@@ -838,7 +884,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestQueryAttributeNameRequiredDiagnostic", source, RequestTestType.GetRequest);
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests",
+                "SourceGeneration.GetRequestQueryAttributeNameRequiredDiagnostic", source, RequestTestType.GetRequest,
+                nameof(TestGenerateGetRequestQueryAttributeNameRequiredDiagnostic));
         }
     }
 }

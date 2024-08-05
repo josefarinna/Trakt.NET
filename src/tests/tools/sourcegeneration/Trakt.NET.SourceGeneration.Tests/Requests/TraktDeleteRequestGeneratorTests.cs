@@ -17,7 +17,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequest", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequest",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequest));
         }
 
         [Fact]
@@ -35,7 +36,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestExtendedInfo", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestExtendedInfo",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithExtendedInfo));
         }
 
         [Fact]
@@ -53,7 +55,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestPagination", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestPagination",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithPagination));
         }
 
         [Fact]
@@ -71,7 +74,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestOAuth", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestOAuth",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithOAuthRequirement));
         }
 
         [Fact]
@@ -89,7 +93,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestAll", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestAll",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithAll));
         }
 
         [Fact]
@@ -107,7 +112,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameter", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameter",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameter));
         }
 
         [Fact]
@@ -125,7 +131,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestNullableParameter", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestNullableParameter",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithNullableParameter));
         }
 
         [Fact]
@@ -143,7 +150,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterExtendedInfo", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterExtendedInfo",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterExtendedInfo));
         }
 
         [Fact]
@@ -161,7 +169,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterPagination", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterPagination",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterPagination));
         }
 
         [Fact]
@@ -179,7 +188,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterOAuth", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterOAuth",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterOAuthRequirement));
         }
 
         [Fact]
@@ -197,7 +207,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterAll", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterAll",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterAll));
         }
 
         [Fact]
@@ -215,7 +226,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterTypeDefault", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterTypeDefault",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterDefaultTypeString));
         }
 
         [Fact]
@@ -233,7 +245,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestMultipleParameterTypeDefault", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestMultipleParameterTypeDefault", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithMultipleParametersDefaultTypeString));
         }
 
         [Fact]
@@ -251,7 +265,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestMultipleParameters", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestMultipleParameters",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithMultipleParameters));
         }
 
         [Fact]
@@ -269,7 +284,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestSlashAtEnd", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestSlashAtEnd",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithSlashAtEnd));
         }
 
         [Fact]
@@ -289,7 +305,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomEnumParameter", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomEnumParameter",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithCustomEnumParameter));
         }
 
         [Fact]
@@ -309,7 +326,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomOptionalEnumParameter", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomOptionalEnumParameter", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomOptionalEnumParameter));
         }
 
         [Fact]
@@ -329,7 +348,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomStringParameter", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomStringParameter",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithCustomStringParameter));
         }
 
         [Fact]
@@ -349,7 +369,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomOptionalStringParameter", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomOptionalStringParameter", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomOptionalStringParameter));
         }
 
         [Fact]
@@ -370,7 +392,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomDateTimeParameter", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomDateTimeParameter",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithCustomDateTimeParameter));
         }
 
         [Fact]
@@ -391,7 +414,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomOptionalDateTimeParameter", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomOptionalDateTimeParameter", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomOptionalDateTimeParameter));
         }
 
         [Fact]
@@ -412,7 +437,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomCachedDateTimeParameter", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomCachedDateTimeParameter", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomCachedDateTimeParameter));
         }
 
         [Fact]
@@ -433,7 +460,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomCachedOptionalDateTimeParameter", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomCachedOptionalDateTimeParameter", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomCachedOptionalDateTimeParameter));
         }
 
         [Fact]
@@ -460,7 +489,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomParametersMix", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomParametersMix",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithCustomParametersMix));
         }
 
         [Fact]
@@ -480,7 +510,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomParameterExtendedPagination", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomParameterExtendedPagination", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomParameterAndExtendedInfoPagination));
         }
 
         [Fact]
@@ -500,7 +532,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomEnumQuery", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomEnumQuery",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithCustomEnumQuery));
         }
 
         [Fact]
@@ -520,7 +553,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomOptionalEnumQuery", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomOptionalEnumQuery",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithCustomOptionalEnumQuery));
         }
 
         [Fact]
@@ -540,7 +574,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomEnumQueryName", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomEnumQueryName",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithCustomEnumQueryName));
         }
 
         [Fact]
@@ -560,7 +595,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomOptionalEnumQueryName", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomOptionalEnumQueryName", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomOptionalEnumQueryName));
         }
 
         [Fact]
@@ -580,7 +617,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomStringQuery", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomStringQuery",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithCustomStringQuery));
         }
 
         [Fact]
@@ -600,7 +638,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomOptionalStringQuery", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomOptionalStringQuery", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomOptionalStringQuery));
         }
 
         [Fact]
@@ -621,7 +661,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomDateTimeQuery", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomDateTimeQuery",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithCustomDateTimeQuery));
         }
 
         [Fact]
@@ -642,7 +683,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomOptionalDateTimeQuery", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomOptionalDateTimeQuery", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomOptionalDateTimeQuery));
         }
 
         [Fact]
@@ -663,7 +706,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomCachedDateTimeQuery", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomCachedDateTimeQuery", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomCachedDateTimeQuery));
         }
 
         [Fact]
@@ -684,7 +729,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomCachedOptionalDateTimeQuery", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomCachedOptionalDateTimeQuery", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomCachedOptionalDateTimeQuery));
         }
 
         [Fact]
@@ -711,7 +758,8 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomQueriesMix", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomQueriesMix",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithCustomQueriesMix));
         }
 
         [Fact]
@@ -731,7 +779,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomQueryExtendedPagination", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomQueryExtendedPagination", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomQueryAndExtendedInfoPagination));
         }
 
         [Fact]
@@ -764,7 +814,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomParametersAndQueriesMix", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomParametersAndQueriesMix", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithCustomParametersAndQueriesMix));
         }
 
         [Fact]
@@ -797,7 +849,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestCustomParametersAndQueriesMixExtendedInfoPagination", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestCustomParametersAndQueriesMixExtendedInfoPagination", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestParametersQueriesExtendedInfoPagination));
         }
 
         [Fact]
@@ -818,7 +872,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestParameterQueryAttributeDiagnostic", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestParameterQueryAttributeDiagnostic", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestWithParameterAndQueryAttributeDiagnostic));
         }
 
         [Fact]
@@ -838,7 +894,9 @@ namespace TraktNET.SourceGeneration.Requests
                 }
                 """;
 
-            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests", "SourceGeneration.DeleteRequestQueryAttributeNameRequiredDiagnostic", source, RequestTestType.DeleteRequest);
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestQueryAttributeNameRequiredDiagnostic", source, RequestTestType.DeleteRequest,
+                nameof(TestGenerateDeleteRequestQueryAttributeNameRequiredDiagnostic));
         }
     }
 }

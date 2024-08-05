@@ -20,8 +20,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EnumTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumTests", source, customFilename: nameof(TestGeneratesEnumExtensions));
         }
 
         [Fact]
@@ -46,8 +46,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EnumMemberTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumMemberTests", source, customFilename: nameof(TestGeneratesEnumExtensionsWithCustomEnumMember));
         }
 
         [Fact]
@@ -71,8 +71,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EmptyEnumMemberTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EmptyEnumMemberTests", source, customFilename: nameof(TestGeneratesEnumExtensionsWithEmptyCustomEnumMember));
         }
 
         [Fact]
@@ -97,8 +97,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EnumMemberEmptyJsonValueTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumMemberEmptyJsonValueTests", source,
+                customFilename: nameof(TestGeneratesEnumExtensionsWithCustomEnumMemberEmptyJsonValue));
         }
 
         [Fact]
@@ -123,8 +124,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EnumMemberEmptyDisplayNameTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumMemberEmptyDisplayNameTests", source,
+                customFilename: nameof(TestGeneratesEnumExtensionsWithCustomEnumMemberEmptyDisplayName));
         }
 
         [Fact]
@@ -149,8 +151,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EnumMemberNullJsonValueDiagnosticsTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumMemberNullJsonValueDiagnosticsTests", source,
+                customFilename: nameof(TestGeneratesEnumExtensionsWithCustomEnumMemberNullJsonValueDiagnostics));
         }
 
         [Fact]
@@ -175,8 +178,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EnumMemberNullDisplayNameDiagnosticsTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumMemberNullDisplayNameDiagnosticsTests", source,
+                customFilename: nameof(TestGeneratesEnumExtensionsWithCustomEnumMemberNullDisplayNameDiagnostics));
         }
 
         [Fact]
@@ -200,8 +204,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EnumMemberPathQueryEnumMemberTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumMemberPathQueryEnumMemberTests", source,
+                customFilename: nameof(TestGeneratesEnumExtensionsWithPathAndQueryAndCustomEnumMember));
         }
 
         [Fact]
@@ -226,8 +231,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EnumMemberPathQueryEnumMemberURITests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumMemberPathQueryEnumMemberURITests", source,
+                customFilename: nameof(TestGeneratesEnumExtensionsWithPathAndQueryAndCustomEnumMemberURI));
         }
 
         [Fact]
@@ -253,8 +259,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EnumMemberPathQueryEnumMemberFlagsTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumMemberPathQueryEnumMemberFlagsTests", source,
+                customFilename: nameof(TestGeneratesEnumExtensionsWithPathAndQueryAndCustomEnumMemberAndFlagsAttribute));
         }
 
         [Fact]
@@ -281,8 +288,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.EnumMemberPathQueryEnumMemberURIFlagsTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumMemberPathQueryEnumMemberURIFlagsTests", source,
+                customFilename: nameof(TestGeneratesEnumExtensionsWithPathAndQueryAndCustomEnumMemberURIAndFlagsAttribute));
         }
     }
 }

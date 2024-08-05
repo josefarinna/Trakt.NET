@@ -20,8 +20,8 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.PathParameterEnumTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/ParameterEnum",
+                "SourceGeneration.PathParameterEnumTests", source, customFilename: nameof(TestGeneratesPathParameterEnumExtensions));
         }
 
         [Fact]
@@ -44,8 +44,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.PathParameterFlagsEnumTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/ParameterEnum",
+                "SourceGeneration.PathParameterFlagsEnumTests", source,
+                customFilename: nameof(TestGeneratesPathParameterEnumExtensionsWithFlagsAttribute));
         }
 
         [Fact]
@@ -70,8 +71,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.PathParameterEnumMemberTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/ParameterEnum",
+                "SourceGeneration.PathParameterEnumMemberTests", source,
+                customFilename: nameof(TestGeneratesPathParameterEnumExtensionsWithCustomEnumMember));
         }
 
         [Fact]
@@ -96,8 +98,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.PathParameterEnumMemberURITests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/ParameterEnum",
+                "SourceGeneration.PathParameterEnumMemberURITests", source,
+                customFilename: nameof(TestGeneratesPathParameterEnumExtensionsWithCustomEnumMemberURI));
         }
 
         [Fact]
@@ -124,8 +127,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.PathParameterEnumMemberURIAndFlagsTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/ParameterEnum",
+                "SourceGeneration.PathParameterEnumMemberURIAndFlagsTests", source,
+                customFilename: nameof(TestGeneratesPathParameterEnumExtensionsWithCustomEnumMemberURIAndFlagsAttribute));
         }
 
         [Fact]
@@ -146,8 +150,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.PathParameterQueryEnumTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/ParameterEnum",
+                "SourceGeneration.PathParameterQueryEnumTests", source,
+                customFilename: nameof(TestGeneratesPathParameterEnumExtensionsWithQuerySupport));
         }
 
         [Fact]
@@ -170,8 +175,9 @@
                 }
                 """;
 
-            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums",
-                "SourceGeneration.PathParameterQueryFlagsEnumTests", source);
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/ParameterEnum",
+                "SourceGeneration.PathParameterQueryFlagsEnumTests", source,
+                customFilename: nameof(TestGeneratesPathParameterEnumExtensionsWithQuerySupportAndFlagsAttribute));
         }
     }
 }

@@ -5,6 +5,10 @@ namespace TraktNET.SourceGeneration
     public static class TestInitializer
     {
         [ModuleInitializer]
-        public static void Init() => VerifySourceGenerators.Initialize();
+        public static void Init()
+        {
+            VerifySourceGenerators.Initialize();
+            VerifyDiffPlex.Initialize();
+        }
     }
 }
