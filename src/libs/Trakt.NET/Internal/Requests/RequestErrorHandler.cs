@@ -1,9 +1,4 @@
 ﻿using System.Text;
-using System.Text.Json;
-
-#if NET6_0_OR_GREATER
-using System.Text.Json.Serialization;
-#endif
 
 namespace TraktNET
 {
@@ -125,25 +120,12 @@ namespace TraktNET
         {
             if (parameters.Flags.IsCheckinRequest)
             {
-                TraktCheckinErrorResponse? checkinErrorResponse;
-
                 if (!string.IsNullOrWhiteSpace(parameters.ResponseContent))
                 {
                     try
                     {
                         using var contentStream = new MemoryStream(Encoding.UTF8.GetBytes(parameters.ResponseContent));
-
-#if NET6_0_OR_GREATER
-                        JsonSerializerContext jsonSerializerContext = JsonSerializerContextFactory.GetContext<TraktCheckinErrorResponse>();
-
-                        checkinErrorResponse = await JsonSerializer.DeserializeAsync(contentStream, typeof(TraktCheckinErrorResponse),
-                            jsonSerializerContext, cancellationToken).ConfigureAwait(false) as TraktCheckinErrorResponse;
-#else
-                        checkinErrorResponse = await JsonSerializer.DeserializeAsync<TraktCheckinErrorResponse>(contentStream,
-                            Constants.Json.JsonOptions, cancellationToken).ConfigureAwait(false);
-#endif
-
-                        parameters.CheckinErrorResponse = checkinErrorResponse;
+                        parameters.CheckinErrorResponse = await contentStream.ReadAsJsonAsync<TraktCheckinErrorResponse>(cancellationToken).ConfigureAwait(false);
                     }
                     catch
                     {
@@ -167,25 +149,12 @@ namespace TraktNET
                 throw new TraktApiAuthenticationDeviceException("Slow Down - your app is polling too quickly", parameters);
             }
 
-            TraktRateLimitInfo? rateLimitInfo;
-
             if (!string.IsNullOrWhiteSpace(parameters.ResponseContent))
             {
                 try
                 {
                     using var contentStream = new MemoryStream(Encoding.UTF8.GetBytes(parameters.ResponseContent));
-
-#if NET6_0_OR_GREATER
-                    JsonSerializerContext jsonSerializerContext = JsonSerializerContextFactory.GetContext<TraktRateLimitInfo>();
-
-                    rateLimitInfo = await JsonSerializer.DeserializeAsync(contentStream, typeof(TraktRateLimitInfo),
-                        jsonSerializerContext, cancellationToken).ConfigureAwait(false) as TraktRateLimitInfo;
-#else
-                    rateLimitInfo = await JsonSerializer.DeserializeAsync<TraktRateLimitInfo>(contentStream,
-                        Constants.Json.JsonOptions, cancellationToken).ConfigureAwait(false);
-#endif
-
-                    parameters.RateLimitInfo = rateLimitInfo;
+                    parameters.RateLimitInfo = await contentStream.ReadAsJsonAsync<TraktRateLimitInfo>(cancellationToken).ConfigureAwait(false);
                 }
                 catch
                 {

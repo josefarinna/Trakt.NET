@@ -1,9 +1,4 @@
 ﻿using System.Net.Http.Headers;
-using System.Text.Json;
-
-#if NET6_0_OR_GREATER
-using System.Text.Json.Serialization;
-#endif
 
 namespace TraktNET
 {
@@ -17,7 +12,8 @@ namespace TraktNET
             AddRequestMessageHeaders(context, request);
 
             HttpClient httpClient = context.GetHttpClient();
-            using HttpResponseMessage responseMessage = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+            using HttpResponseMessage responseMessage =
+                await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
 
             TraktResponseHeaders traktHeaders = ParseTraktResponseHeaders(responseMessage.Headers);
 
@@ -32,17 +28,8 @@ namespace TraktNET
             using Stream responseContentStream = await responseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false);
 #endif
 
-            TResponseContentType? responseContent;
-
-#if NET6_0_OR_GREATER
-            JsonSerializerContext jsonSerializerContext = JsonSerializerContextFactory.GetContext<TResponseContentType>();
-
-            responseContent = await JsonSerializer.DeserializeAsync(responseContentStream, typeof(TResponseContentType),
-                jsonSerializerContext, cancellationToken).ConfigureAwait(false) as TResponseContentType;
-#else
-            responseContent = await JsonSerializer.DeserializeAsync<TResponseContentType>(responseContentStream,
-                Constants.Json.JsonOptions, cancellationToken).ConfigureAwait(false);
-#endif
+            TResponseContentType? responseContent =
+                await responseContentStream.ReadAsJsonAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
 
             return TraktResponse<TResponseContentType>.Create(responseMessage.StatusCode, responseContent,
                 traktHeaders, responseMessage.Headers, responseMessage.Content.Headers);
