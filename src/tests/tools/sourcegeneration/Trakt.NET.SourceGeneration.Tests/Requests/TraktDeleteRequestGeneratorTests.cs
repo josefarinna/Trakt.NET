@@ -898,5 +898,185 @@ namespace TraktNET.SourceGeneration.Requests
                 "SourceGeneration.DeleteRequestQueryAttributeNameRequiredDiagnostic", source, RequestTestType.DeleteRequest,
                 nameof(TestGenerateDeleteRequestQueryAttributeNameRequiredDiagnostic));
         }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithParameterRequiredDefaultStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("notes/{id!!}")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestParameterRequiredDefaultStringVerification",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterRequiredDefaultStringVerification));
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithParameterRequiredStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("notes/{id:string!!}")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestParameterRequiredStringVerification",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterRequiredStringVerification));
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithParameterOptionalDefaultStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("notes/{id?!!}")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestParameterOptionalDefaultStringVerification",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterOptionalDefaultStringVerification));
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithParameterOptionalStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("notes/{id:string?!!}")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestParameterOptionalStringVerification",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterOptionalStringVerification));
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithParameterRequiredIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("notes/{id:int!!}")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestParameterRequiredIntVerification",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterRequiredIntVerification));
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithParameterOptionalIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("notes/{id:int?!!}")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestParameterOptionalIntVerification",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterOptionalIntVerification));
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithParameterRequiredUIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("notes/{id:uint!!}")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestParameterRequiredUIntVerification",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterRequiredUIntVerification));
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithParameterOptionalUIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("notes/{id:uint?!!}")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestParameterOptionalUIntVerification",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterOptionalUIntVerification));
+        }
+
+        [Fact]
+        public Task TestGenerateDeleteRequestWithParameterMixedVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktDeleteRequest("notes/{id1:string!!}/{id2:string?!!}/{id3!!}/{id4?!!}/{nr1:int!!}/{nr2:uint!!}/{nr3:int?!!}/{nr4:uint?!!}")]
+                    public sealed partial class TestDeleteRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktDeleteRequestSourceGenerator>("Requests",
+                "SourceGeneration.DeleteRequestParameterMixedVerification",
+                source, RequestTestType.DeleteRequest, nameof(TestGenerateDeleteRequestWithParameterMixedVerification));
+        }
     }
 }

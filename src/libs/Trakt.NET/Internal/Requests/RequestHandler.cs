@@ -8,6 +8,7 @@ namespace TraktNET
             TraktContext context, TRequest request, CancellationToken cancellationToken = default)
             where TRequest : RequestBase where TResponseContentType : class
         {
+            request.Validate();
             request.BuildUri();
             AddRequestMessageHeaders(context, request);
 

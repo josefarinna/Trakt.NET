@@ -15,6 +15,8 @@
         internal virtual uint EpisodeNr => 0;
 
         internal abstract void BuildUri();
+
+        internal virtual void Validate() { }
     }
 
     internal record struct RequestFlags

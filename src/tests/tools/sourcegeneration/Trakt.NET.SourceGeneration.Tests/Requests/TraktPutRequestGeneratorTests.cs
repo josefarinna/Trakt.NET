@@ -888,5 +888,185 @@
                 "SourceGeneration.PutRequestQueryAttributeNameRequiredDiagnostic", source, RequestTestType.PutRequest,
                 nameof(TestGeneratePutRequestQueryAttributeNameRequiredDiagnostic));
         }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithParameterRequiredDefaultStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("notes/{id!!}")]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestParameterRequiredDefaultStringVerification",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterRequiredDefaultStringVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithParameterRequiredStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("notes/{id:string!!}")]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestParameterRequiredStringVerification",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterRequiredStringVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithParameterOptionalDefaultStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("notes/{id?!!}")]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestParameterOptionalDefaultStringVerification",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterOptionalDefaultStringVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithParameterOptionalStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("notes/{id:string?!!}")]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestParameterOptionalStringVerification",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterOptionalStringVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithParameterRequiredIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("notes/{id:int!!}")]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestParameterRequiredIntVerification",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterRequiredIntVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithParameterOptionalIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("notes/{id:int?!!}")]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestParameterOptionalIntVerification",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterOptionalIntVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithParameterRequiredUIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("notes/{id:uint!!}")]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestParameterRequiredUIntVerification",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterRequiredUIntVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithParameterOptionalUIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("notes/{id:uint?!!}")]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestParameterOptionalUIntVerification",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterOptionalUIntVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePutRequestWithParameterMixedVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPutRequest("notes/{id1:string!!}/{id2:string?!!}/{id3!!}/{id4?!!}/{nr1:int!!}/{nr2:uint!!}/{nr3:int?!!}/{nr4:uint?!!}")]
+                    public sealed partial class TestPutRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPutRequestSourceGenerator>("Requests",
+                "SourceGeneration.PutRequestParameterMixedVerification",
+                source, RequestTestType.PutRequest, nameof(TestGeneratePutRequestWithParameterMixedVerification));
+        }
     }
 }

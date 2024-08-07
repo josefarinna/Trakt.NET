@@ -212,6 +212,12 @@ namespace TraktNET.SourceGeneration.Requests
                 _sourceWriter.WriteEmptyLine();
                 WriteGetQueriesMethod();
             }
+
+            if (_uriPlaceHolders.Any(x => x.NeedsVerification))
+            {
+                _sourceWriter.WriteEmptyLine();
+                WriteValidateMethod();
+            }
         }
 
         private void WriteExtendedInfoProperty()
@@ -769,6 +775,75 @@ namespace TraktNET.SourceGeneration.Requests
             }
         }
 
+        private void WriteValidateMethod()
+        {
+            _sourceWriter.WriteLine("internal override void Validate()");
+            _sourceWriter.WriteLine('{');
+            _sourceWriter.Indent();
+
+            bool needsEmptyLine = false;
+
+            foreach (PlaceHolder placeholder in _uriPlaceHolders)
+            {
+                if (!placeholder.NeedsVerification)
+                {
+                    continue;
+                }
+
+                if (needsEmptyLine)
+                {
+                    _sourceWriter.WriteEmptyLine();
+                }
+
+                string name = placeholder.Name;
+                string valueType = placeholder.ValueType;
+
+                // valueType can be a nullable type name suffixed with '?'.
+                // E.g. for "string?" == "string" a simple equal comparison does not work.
+
+                if (valueType.Contains("string"))
+                {
+                    _sourceWriter.WriteLine($"if (string.IsNullOrWhiteSpace({name}))");
+                    _sourceWriter.WriteLine('{');
+                    _sourceWriter.Indent();
+                    _sourceWriter.WriteLine($"throw new TraktRequestValidationException(nameof({name}), \"{name} must not be null or empty\");");
+                    _sourceWriter.DecrementIndent();
+                    _sourceWriter.WriteLine('}');
+
+                    _sourceWriter.WriteEmptyLine();
+
+                    _sourceWriter.WriteLine($"if ({name}.ContainsSpace())");
+                    _sourceWriter.WriteLine('{');
+                    _sourceWriter.Indent();
+                    _sourceWriter.WriteLine($"throw new TraktRequestValidationException(nameof({name}), \"{name} must not contain any spaces\");");
+                    _sourceWriter.DecrementIndent();
+                    _sourceWriter.WriteLine('}');
+                }
+                else if (valueType.Contains("uint") || valueType.Contains("int") || valueType.Contains("ulong") || valueType.Contains("long"))
+                {
+                    if (placeholder.IsRequired)
+                    {
+                        _sourceWriter.WriteLine($"if ({name} == 0)");
+                    }
+                    else
+                    {
+                        _sourceWriter.WriteLine($"if ({name}.HasValue && {name}.Value == 0)");
+                    }
+
+                    _sourceWriter.WriteLine('{');
+                    _sourceWriter.Indent();
+                    _sourceWriter.WriteLine($"throw new TraktRequestValidationException(nameof({name}), \"{name} must not be zero\");");
+                    _sourceWriter.DecrementIndent();
+                    _sourceWriter.WriteLine('}');
+                }
+
+                needsEmptyLine = true;
+            }
+
+            _sourceWriter.DecrementIndent();
+            _sourceWriter.WriteLine('}');
+        }
+
         private void ParseRequestUri()
         {
             const int StackallocCharThreshold = 128;
@@ -790,6 +865,9 @@ namespace TraktNET.SourceGeneration.Requests
 
             string placeHolderName = string.Empty;
             string placeHolderType = string.Empty;
+
+            bool hasQuesionMark = false;
+            int exclamationMarkCount = 0;
 
             for (int i = 0; i < uriPath.Length; i++)
             {
@@ -823,26 +901,39 @@ namespace TraktNET.SourceGeneration.Requests
                                 placeHolderType = "string";
                                 placeHolderTypeStartPosition = -1;
 
-                                bool isOptional = placeHolderType.IndexOf('?') >= 0;
-                                _hasOptionalPlaceholders = _hasOptionalPlaceholders || isOptional;
+                                _hasOptionalPlaceholders = _hasOptionalPlaceholders || hasQuesionMark;
 
                                 _uriPlaceHolders.Add(new PlaceHolder
                                 {
                                     Name = placeHolderName,
                                     ValueType = placeHolderType,
-                                    IsRequired = !isOptional
+                                    IsRequired = !hasQuesionMark,
+                                    NeedsVerification = exclamationMarkCount == 2
                                 });
 
                                 placeHolderName = string.Empty;
                                 placeHolderType = string.Empty;
 
+                                hasQuesionMark = false;
+                                exclamationMarkCount = 0;
+
                                 WriteChar(currentCharacter, ref destination);
+                                break;
+                            case '?':
+                                hasQuesionMark = true;
+                                break;
+                            case '!':
+                                exclamationMarkCount++;
                                 break;
                             default:
                             {
                                 if (firstPlaceHolderNameLetterNeedsToBeUppercase)
                                 {
-                                    // Flip last bit to switch character casing.
+                                    // Flip sixth bit to switch character casing.
+                                    //     65 => 01000001 => 'A'
+                                    // XOR 32 => 00100000
+                                    // ---------------------
+                                    //     97 => 01100001 => 'a'
                                     WriteChar((char)(currentCharacter ^ 32), ref destination);
                                     firstPlaceHolderNameLetterNeedsToBeUppercase = false;
                                 }
@@ -869,13 +960,20 @@ namespace TraktNET.SourceGeneration.Requests
                                 placeHolderTypeStartPosition = -1;
 
                                 bool isOptional = placeHolderType.IndexOf('?') >= 0;
+                                bool needsVerification = placeHolderType.IndexOf("!!", StringComparison.InvariantCulture) >= 0;
                                 _hasOptionalPlaceholders = _hasOptionalPlaceholders || isOptional;
+
+                                if (needsVerification)
+                                {
+                                    placeHolderType = placeHolderType.Substring(0, placeHolderType.Length - 2);
+                                }
 
                                 _uriPlaceHolders.Add(new PlaceHolder
                                 {
                                     Name = placeHolderName,
                                     ValueType = placeHolderType,
-                                    IsRequired = !isOptional
+                                    IsRequired = !isOptional,
+                                    NeedsVerification = needsVerification
                                 });
 
                                 placeHolderName = string.Empty;
@@ -961,6 +1059,8 @@ namespace TraktNET.SourceGeneration.Requests
             internal required string ValueType { get; init; }
 
             internal required bool IsRequired { get; init; }
+
+            internal required bool NeedsVerification { get; init; }
         }
 
         private enum UriParserState

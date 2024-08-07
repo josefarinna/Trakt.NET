@@ -4,25 +4,25 @@
     // GET Requests
     // -------------------------------------------------------
 
-    [TraktGetRequest("shows/{id}", SupportsExtendedInfo = true)]
+    [TraktGetRequest("shows/{id!!}", SupportsExtendedInfo = true)]
     internal sealed partial class ShowGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/aliases")]
+    [TraktGetRequest("shows/{id!!}/aliases")]
     internal sealed partial class ShowAliasesGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/certifications")]
+    [TraktGetRequest("shows/{id!!}/certifications")]
     internal sealed partial class ShowCertificationsGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/progress/collection", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktGetRequest("shows/{id!!}/progress/collection", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class ShowCollectionProgressGetRequest
     {
         [TraktRequestQuery("hidden")]
@@ -40,7 +40,7 @@
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/comments", SupportsExtendedInfo = true, SupportsPagination = true,
+    [TraktGetRequest("shows/{id!!}/comments", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.Optional)]
     internal sealed partial class ShowCommentsGetRequest
     {
@@ -50,13 +50,13 @@
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/last_episode", SupportsExtendedInfo = true)]
+    [TraktGetRequest("shows/{id!!}/last_episode", SupportsExtendedInfo = true)]
     internal sealed partial class ShowLastEpisodeGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/lists", SupportsExtendedInfo = true, SupportsPagination = true)]
+    [TraktGetRequest("shows/{id!!}/lists", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class ShowListsGetRequest
     {
         [TraktRequestParameter]
@@ -68,43 +68,43 @@
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/next_episode", SupportsExtendedInfo = true)]
+    [TraktGetRequest("shows/{id!!}/next_episode", SupportsExtendedInfo = true)]
     internal sealed partial class ShowNextEpisodeGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/people", SupportsExtendedInfo = true)]
+    [TraktGetRequest("shows/{id!!}/people", SupportsExtendedInfo = true)]
     internal sealed partial class ShowPeopleGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/ratings")]
+    [TraktGetRequest("shows/{id!!}/ratings")]
     internal sealed partial class ShowRatingsGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/related", SupportsExtendedInfo = true, SupportsPagination = true)]
+    [TraktGetRequest("shows/{id!!}/related", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class ShowRelatedShowsGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/stats")]
+    [TraktGetRequest("shows/{id!!}/stats")]
     internal sealed partial class ShowStatisticsGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/studios")]
+    [TraktGetRequest("shows/{id!!}/studios")]
     internal sealed partial class ShowStudiosGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/translations")]
+    [TraktGetRequest("shows/{id!!}/translations")]
     internal sealed partial class ShowTranslationsGetRequest
     {
         [TraktRequestParameter]
@@ -113,7 +113,7 @@
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/progress/watched", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktGetRequest("shows/{id!!}/progress/watched", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class ShowWatchedProgressGetRequest
     {
         [TraktRequestQuery("hidden")]
@@ -131,7 +131,7 @@
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id}/watching", SupportsExtendedInfo = true)]
+    [TraktGetRequest("shows/{id!!}/watching", SupportsExtendedInfo = true)]
     internal sealed partial class ShowWatchingGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
@@ -216,13 +216,13 @@
     // POST Requests
     // -------------------------------------------------------
 
-    [TraktPostRequest("shows/{id}/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("shows/{id!!}/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class ShowRefreshPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktPostRequest("shows/{id}/progress/watched/reset", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("shows/{id!!}/progress/watched/reset", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class ShowResetWatchedProgressPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
@@ -232,7 +232,7 @@
     // DELETE Requests
     // -------------------------------------------------------
 
-    [TraktDeleteRequest("shows/{id}/progress/watched/reset", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("shows/{id!!}/progress/watched/reset", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class ShowUndoResetWatchedProgressDeleteRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;

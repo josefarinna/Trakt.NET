@@ -4,19 +4,19 @@ namespace TraktNET
     // GET Requests
     // -------------------------------------------------------
 
-    [TraktGetRequest("movies/{id}", SupportsExtendedInfo = true)]
+    [TraktGetRequest("movies/{id!!}", SupportsExtendedInfo = true)]
     internal sealed partial class MovieGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/aliases")]
+    [TraktGetRequest("movies/{id!!}/aliases")]
     internal sealed partial class MovieAliasesGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/comments", SupportsExtendedInfo = true, SupportsPagination = true,
+    [TraktGetRequest("movies/{id!!}/comments", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.Optional)]
     internal sealed partial class MovieCommentsGetRequest
     {
@@ -26,7 +26,7 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/lists", SupportsExtendedInfo = true, SupportsPagination = true)]
+    [TraktGetRequest("movies/{id!!}/lists", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class MovieListsGetRequest
     {
         [TraktRequestParameter]
@@ -38,25 +38,25 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/people", SupportsExtendedInfo = true)]
+    [TraktGetRequest("movies/{id!!}/people", SupportsExtendedInfo = true)]
     internal sealed partial class MoviePeopleGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/ratings")]
+    [TraktGetRequest("movies/{id!!}/ratings")]
     internal sealed partial class MovieRatingsGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/related", SupportsExtendedInfo = true, SupportsPagination = true)]
+    [TraktGetRequest("movies/{id!!}/related", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class MovieRelatedMoviesGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/releases")]
+    [TraktGetRequest("movies/{id!!}/releases")]
     internal sealed partial class MovieReleasesGetRequest
     {
         [TraktRequestParameter]
@@ -65,19 +65,19 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/stats")]
+    [TraktGetRequest("movies/{id!!}/stats")]
     internal sealed partial class MovieStatisticsGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/studios")]
+    [TraktGetRequest("movies/{id!!}/studios")]
     internal sealed partial class MovieStudiosGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/translations")]
+    [TraktGetRequest("movies/{id!!}/translations")]
     internal sealed partial class MovieTranslationsGetRequest
     {
         [TraktRequestParameter]
@@ -86,7 +86,7 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id}/watching", SupportsExtendedInfo = true)]
+    [TraktGetRequest("movies/{id!!}/watching", SupportsExtendedInfo = true)]
     internal sealed partial class MovieWatchingGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
@@ -176,7 +176,7 @@ namespace TraktNET
     // POST Requests
     // -------------------------------------------------------
 
-    [TraktPostRequest("movies/{id}/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("movies/{id!!}/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class MovieRefreshPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;

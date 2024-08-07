@@ -893,5 +893,185 @@
                 "SourceGeneration.PostRequestQueryAttributeNameRequiredDiagnostic", source, RequestTestType.PostRequest,
                 nameof(TestGeneratePostRequestQueryAttributeNameRequiredDiagnostic));
         }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithParameterRequiredDefaultStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes/{id!!}")]
+                    public sealed partial class TestPostRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests",
+                "SourceGeneration.PostRequestParameterRequiredDefaultStringVerification",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithParameterRequiredDefaultStringVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithParameterRequiredStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes/{id:string!!}")]
+                    public sealed partial class TestPostRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests",
+                "SourceGeneration.PostRequestParameterRequiredStringVerification",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithParameterRequiredStringVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithParameterOptionalDefaultStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes/{id?!!}")]
+                    public sealed partial class TestPostRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests",
+                "SourceGeneration.PostRequestParameterOptionalDefaultStringVerification",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithParameterOptionalDefaultStringVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithParameterOptionalStringVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes/{id:string?!!}")]
+                    public sealed partial class TestPostRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests",
+                "SourceGeneration.PostRequestParameterOptionalStringVerification",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithParameterOptionalStringVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithParameterRequiredIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes/{id:int!!}")]
+                    public sealed partial class TestPostRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests",
+                "SourceGeneration.PostRequestParameterRequiredIntVerification",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithParameterRequiredIntVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithParameterOptionalIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes/{id:int?!!}")]
+                    public sealed partial class TestPostRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests",
+                "SourceGeneration.PostRequestParameterOptionalIntVerification",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithParameterOptionalIntVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithParameterRequiredUIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes/{id:uint!!}")]
+                    public sealed partial class TestPostRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests",
+                "SourceGeneration.PostRequestParameterRequiredUIntVerification",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithParameterRequiredUIntVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithParameterOptionalUIntVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes/{id:uint?!!}")]
+                    public sealed partial class TestPostRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests",
+                "SourceGeneration.PostRequestParameterOptionalUIntVerification",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithParameterOptionalUIntVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithParameterMixedVerification()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes/{id1:string!!}/{id2:string?!!}/{id3!!}/{id4?!!}/{nr1:int!!}/{nr2:uint!!}/{nr3:int?!!}/{nr4:uint?!!}")]
+                    public sealed partial class TestPostRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests",
+                "SourceGeneration.PostRequestParameterMixedVerification",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithParameterMixedVerification));
+        }
     }
 }
