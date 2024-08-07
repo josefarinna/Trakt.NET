@@ -29,7 +29,7 @@
             movieIds!.TMDB.Should().Be(447365U);
 
             movieIds!.HasAnyID.Should().BeTrue();
-            movieIds!.BestID.Should().Be("293990");
+            movieIds!.BestID.Should().Be("guardians-of-the-galaxy-volume-3-2023");
         }
     }
 }

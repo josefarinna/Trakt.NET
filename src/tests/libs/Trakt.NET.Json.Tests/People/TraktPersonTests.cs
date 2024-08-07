@@ -35,7 +35,7 @@
             person!.Ids!.IMDB.Should().Be("nm0186505");
             person!.Ids!.TMDB.Should().Be(17419U);
             person!.Ids!.HasAnyID.Should().BeTrue();
-            person!.Ids!.BestID.Should().Be("297737");
+            person!.Ids!.BestID.Should().Be("bryan-cranston");
         }
 
         [Fact]
@@ -53,7 +53,7 @@
             person!.Ids!.IMDB.Should().Be("nm0186505");
             person!.Ids!.TMDB.Should().Be(17419U);
             person!.Ids!.HasAnyID.Should().BeTrue();
-            person!.Ids!.BestID.Should().Be("297737");
+            person!.Ids!.BestID.Should().Be("bryan-cranston");
 
             person!.SocialIds.Should().NotBeNull();
             person!.SocialIds!.Twitter.Should().Be("BryanCranston");

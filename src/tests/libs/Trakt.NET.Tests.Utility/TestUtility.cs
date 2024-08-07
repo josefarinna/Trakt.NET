@@ -32,6 +32,19 @@ namespace TraktNET
 #endif
         }
 
+        public static async Task<IReadOnlyList<T>?> DeserializeJsonListAsync<T>(string jsonFilename) where T : class
+        {
+            string filepath = GetJsonFilepath(jsonFilename);
+            using var stream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+
+#if NET6_0_OR_GREATER
+            JsonSerializerContext jsonSerializerContext = JsonSerializerContextFactory.GetContext<T>();
+            return await JsonSerializer.DeserializeAsync(stream, typeof(IReadOnlyList<T>), jsonSerializerContext) as IReadOnlyList<T>;
+#else
+            return await JsonSerializer.DeserializeAsync<T>(stream, Constants.Json.JsonOptions);
+#endif
+        }
+
         public static DateTime ParseUTCDateTime(string dateTime)
             => DateTime.Parse(dateTime, CultureInfo.InvariantCulture).ToUniversalTime();
 

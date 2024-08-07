@@ -1,0 +1,69 @@
+{
+    "watchers": 58,
+    "movie": {
+        "title": "Deadpool & Wolverine",
+        "year": 2024,
+        "ids": {
+            "trakt": 395672,
+            "slug": "deadpool-wolverine-2024",
+            "imdb": "tt6263850",
+            "tmdb": 533535
+        },
+        "tagline": "Come together.",
+        "overview": "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him.",
+        "released": "2024-07-26",
+        "runtime": 128,
+        "country": "us",
+        "trailer": "https://youtube.com/watch?v=Idh8n5XuYIA",
+        "homepage": "http://www.marvel.com/movies/deadpool-and-wolverine",
+        "status": "released",
+        "rating": 8.244876693296284,
+        "votes": 5758,
+        "comment_count": 159,
+        "updated_at": "2024-08-07T08:05:37.000Z",
+        "language": "en",
+        "languages": [
+            "en"
+        ],
+        "available_translations": [
+            "ar",
+            "bg",
+            "cs",
+            "de",
+            "el",
+            "en",
+            "es",
+            "fa",
+            "fr",
+            "he",
+            "hu",
+            "id",
+            "it",
+            "ja",
+            "ka",
+            "kk",
+            "ko",
+            "lt",
+            "nl",
+            "pl",
+            "pt",
+            "ru",
+            "sk",
+            "sl",
+            "sr",
+            "sv",
+            "th",
+            "tr",
+            "uk",
+            "vi",
+            "zh"
+        ],
+        "genres": [
+            "comedy",
+            "superhero",
+            "science-fiction",
+            "action"
+        ],
+        "certification": "R"
+    }
+}

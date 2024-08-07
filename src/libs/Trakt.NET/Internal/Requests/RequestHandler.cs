@@ -4,39 +4,67 @@ namespace TraktNET
 {
     internal sealed partial class RequestHandler
     {
-        internal static async Task<TraktResponse<TResponseContentType>> ExecuteSingleItemRequestAsync<TResponseContentType, TRequest>(
-            TraktContext context, TRequest request, CancellationToken cancellationToken = default)
-            where TRequest : RequestBase where TResponseContentType : class
+        internal static async Task<TraktResponse<TResponseContentType>> ExecuteSingleItemRequestAsync<TResponseContentType>(
+            TraktContext context, RequestBase request, CancellationToken cancellationToken = default)
+            where TResponseContentType : class
+        {
+            using RequestResponse response = await ExecuteRequestAsync(context, request, cancellationToken).ConfigureAwait(false);
+
+            TResponseContentType? responseContent =
+                await response.ResponseContentStream.ReadAsJsonAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
+
+            return TraktResponse<TResponseContentType>.Create(response.ResponseMessage.StatusCode, responseContent,
+                response.TraktHeaders, response.ResponseMessage.Headers, response.ResponseMessage.Content.Headers);
+        }
+
+        internal static async Task<TraktPagedResponse<TResponseContentType>> ExecutePagedListRequestAsync<TResponseContentType>(
+            TraktContext context, RequestBase request, Func<uint?, uint?, RequestBase>? requestBuilder, CancellationToken cancellationToken = default)
+            where TResponseContentType : class
+        {
+            using RequestResponse response = await ExecuteRequestAsync(context, request, cancellationToken).ConfigureAwait(false);
+
+            IReadOnlyList<TResponseContentType>? responseContent =
+                await response.ResponseContentStream.ReadAsJsonArrayAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
+
+            var pagedResponse = TraktPagedResponse<TResponseContentType>.Create(response.ResponseMessage.StatusCode, responseContent,
+                response.TraktHeaders, response.ResponseMessage.Headers, response.ResponseMessage.Content.Headers);
+
+            pagedResponse.Context = context;
+            pagedResponse.RequestBuilder = requestBuilder;
+
+            return pagedResponse;
+        }
+
+        private static async Task<RequestResponse> ExecuteRequestAsync(TraktContext context, RequestBase request,
+            CancellationToken cancellationToken = default)
         {
             request.Validate();
             request.BuildUri();
             AddRequestMessageHeaders(context, request);
 
             HttpClient httpClient = context.GetHttpClient();
-            using HttpResponseMessage responseMessage =
-                await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+
+            HttpResponseMessage responseMessage = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead,
+                cancellationToken).ConfigureAwait(false);
 
             TraktResponseHeaders traktHeaders = ParseTraktResponseHeaders(responseMessage.Headers);
 
             if (!responseMessage.IsSuccessStatusCode)
             {
-                await HandleErrorAsync(request, responseMessage, traktHeaders, false, cancellationToken);
+                await HandleErrorAsync(request, responseMessage, traktHeaders, false, cancellationToken).ConfigureAwait(false);
             }
 
-#if NET5_0_OR_GREATER
-            using Stream responseContentStream = await responseMessage.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-#else
-            using Stream responseContentStream = await responseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false);
-#endif
+            Stream responseContentStream = await GetResponseContentStreamAsync(responseMessage, cancellationToken).ConfigureAwait(false);
 
-            TResponseContentType? responseContent =
-                await responseContentStream.ReadAsJsonAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
-
-            return TraktResponse<TResponseContentType>.Create(responseMessage.StatusCode, responseContent,
-                traktHeaders, responseMessage.Headers, responseMessage.Content.Headers);
+            return new RequestResponse
+            {
+                ResponseMessage = responseMessage,
+                ResponseContentStream = responseContentStream,
+                TraktHeaders = traktHeaders
+            };
         }
 
-        private static void AddRequestMessageHeaders<TRequest>(TraktContext context, TRequest request) where TRequest : RequestBase
+        private static void AddRequestMessageHeaders(TraktContext context, RequestBase request)
         {
             const string AuthenticationScheme = "Bearer";
 
@@ -57,6 +85,28 @@ namespace TraktNET
             }
 
             request.Headers.Authorization = new AuthenticationHeaderValue(AuthenticationScheme, context.Authorization!.AccessToken ?? string.Empty);
+        }
+
+        private static Task<Stream> GetResponseContentStreamAsync(HttpResponseMessage responseMessage, CancellationToken cancellationToken = default)
+#if NET5_0_OR_GREATER
+            => responseMessage.Content.ReadAsStreamAsync(cancellationToken);
+#else
+            => responseMessage.Content.ReadAsStreamAsync();
+#endif
+    }
+
+    internal readonly struct RequestResponse : IDisposable
+    {
+        internal HttpResponseMessage ResponseMessage { get; init; }
+
+        internal Stream ResponseContentStream { get; init; }
+
+        internal TraktResponseHeaders TraktHeaders { get; init; }
+
+        public readonly void Dispose()
+        {
+            ResponseMessage.Dispose();
+            ResponseContentStream.Dispose();
         }
     }
 }

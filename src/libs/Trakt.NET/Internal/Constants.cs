@@ -160,5 +160,50 @@ namespace TraktNET
                 }
             };
         }
+
+        internal static class ResponseHeaders
+        {
+            internal const string HEADER_PAGINATION_PAGE_KEY = "X-Pagination-Page";
+
+            internal const string HEADER_PAGINATION_LIMIT_KEY = "X-Pagination-Limit";
+
+            internal const string HEADER_PAGINATION_PAGE_COUNT_KEY = "X-Pagination-Page-Count";
+
+            internal const string HEADER_PAGINATION_ITEM_COUNT_KEY = "X-Pagination-Item-Count";
+
+            internal const string HEADER_TRENDING_USER_COUNT_KEY = "X-Trending-User-Count";
+
+            internal const string HEADER_SORT_BY_KEY = "X-Sort-By";
+
+            internal const string HEADER_SORT_HOW_KEY = "X-Sort-How";
+
+            internal const string HEADER_APPLIED_SORT_BY = "X-Applied-Sort-By";
+
+            internal const string HEADER_APPLIED_SORT_HOW = "X-Applied-Sort-How";
+
+            internal const string HEADER_STARTDATE_KEY = "X-Start-Date";
+
+            internal const string HEADER_ENDDATE_KEY = "X-End-Date";
+
+            internal const string HEADER_PRIVATE_USER_KEY = "X-Private-User";
+
+            internal const string HEADER_ITEM_ID = "X-Item-ID";
+
+            internal const string HEADER_ITEM_TYPE = "X-Item-Type";
+
+            internal const string HEADER_RATE_LIMIT = "X-RateLimit";
+
+            internal const string HEADER_RETRY_AFTER = "Retry-After";
+
+            internal const string HEADER_UPGRADE_URL = "X-Upgrade-URL";
+
+            internal const string HEADER_VIP_USER = "X-VIP-User";
+
+            internal const string HEADER_ACCOUNT_LIMIT = "X-Account-Limit";
+
+            internal const string HEADER_ACCOUNT_LOCKED = "X-Account-Locked";
+
+            internal const string HEADER_ACCOUNT_DEACTIVATED = "X-Account-Deactivated";
+        }
     }
 }

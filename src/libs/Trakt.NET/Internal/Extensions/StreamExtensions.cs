@@ -11,19 +11,37 @@ namespace TraktNET
         internal static async Task<TJsonObjectType?> ReadAsJsonAsync<TJsonObjectType>(this Stream stream,
             CancellationToken cancellationToken = default) where TJsonObjectType : class
         {
-            TJsonObjectType? jsonObjectType;
+            TJsonObjectType? value;
 
 #if NET6_0_OR_GREATER
             JsonSerializerContext jsonSerializerContext = JsonSerializerContextFactory.GetContext<TJsonObjectType>();
 
-            jsonObjectType = await JsonSerializer.DeserializeAsync(stream, typeof(TJsonObjectType),
+            value = await JsonSerializer.DeserializeAsync(stream, typeof(TJsonObjectType),
                 jsonSerializerContext, cancellationToken).ConfigureAwait(false) as TJsonObjectType;
 #else
-            jsonObjectType = await JsonSerializer.DeserializeAsync<TJsonObjectType>(stream,
+            value = await JsonSerializer.DeserializeAsync<TJsonObjectType>(stream,
                 Constants.Json.JsonOptions, cancellationToken).ConfigureAwait(false);
 #endif
 
-            return jsonObjectType;
+            return value;
+        }
+
+        internal static async Task<IReadOnlyList<TJsonObjectType>?> ReadAsJsonArrayAsync<TJsonObjectType>(this Stream stream,
+            CancellationToken cancellationToken = default) where TJsonObjectType : class
+        {
+            IReadOnlyList<TJsonObjectType>? values;
+
+#if NET6_0_OR_GREATER
+            JsonSerializerContext jsonSerializerContext = JsonSerializerContextFactory.GetContext<TJsonObjectType>();
+
+            values = await JsonSerializer.DeserializeAsync(stream, typeof(IReadOnlyList<TJsonObjectType>),
+                jsonSerializerContext, cancellationToken).ConfigureAwait(false) as IReadOnlyList<TJsonObjectType>;
+#else
+            values = await JsonSerializer.DeserializeAsync<IReadOnlyList<TJsonObjectType>>(stream,
+                Constants.Json.JsonOptions, cancellationToken).ConfigureAwait(false);
+#endif
+
+            return values;
         }
     }
 }

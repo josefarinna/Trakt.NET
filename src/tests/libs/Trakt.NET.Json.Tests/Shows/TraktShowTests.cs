@@ -49,7 +49,7 @@
             show!.Ids!.IMDB.Should().Be("tt0944947");
             show!.Ids!.TMDB.Should().Be(1399U);
             show!.Ids!.HasAnyID.Should().BeTrue();
-            show!.Ids!.BestID.Should().Be("1390");
+            show!.Ids!.BestID.Should().Be("game-of-thrones");
         }
 
         [Fact]
@@ -69,7 +69,7 @@
             show!.Ids!.IMDB.Should().Be("tt0944947");
             show!.Ids!.TMDB.Should().Be(1399U);
             show!.Ids!.HasAnyID.Should().BeTrue();
-            show!.Ids!.BestID.Should().Be("1390");
+            show!.Ids!.BestID.Should().Be("game-of-thrones");
 
             show!.Tagline.Should().Be("Winter is coming.");
             show!.Overview.Should().Be("Seven noble families fight for control of the mythical land of Westeros.");

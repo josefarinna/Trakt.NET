@@ -12,6 +12,11 @@ namespace TraktNET
         private const string TraktApiHeaderKey = "trakt-api-key";
         private const string TraktApiVersionHeaderKey = "trakt-api-version";
 
+        private const uint DefaultPage = 1;
+        private const uint DefaultPageCount = 1;
+        private const uint DefaultLimit = 10;
+        private const uint DefaultItemCount = 10;
+
         private readonly MockHttpMessageHandler _mockHttpMessageHandler;
         private readonly string _baseUrl;
 
@@ -44,6 +49,39 @@ namespace TraktNET
                 StatusCode = HttpStatusCode.OK,
                 Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
             };
+
+            _mockHttpMessageHandler.When(_baseUrl + requestUri)
+                .WithHeaders(new Dictionary<string, string>
+                {
+                    { TraktApiHeaderKey, TestConstants.ClientId },
+                    { TraktApiVersionHeaderKey, "2" }
+                })
+                .Respond(_ => response);
+        }
+
+        public void SetupMockResponse([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri,
+            [StringSyntax(StringSyntaxAttribute.Json)] string responseContent, uint? page, uint? pageCount, uint? limit, uint? itemCount)
+        {
+            if (string.IsNullOrWhiteSpace(requestUri))
+            {
+                throw new ArgumentException("invalid request URI", nameof(requestUri));
+            }
+
+            if (string.IsNullOrWhiteSpace(responseContent))
+            {
+                throw new ArgumentException("invalid response content", nameof(responseContent));
+            }
+
+            var response = new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK,
+                Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
+            };
+
+            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_KEY, $"{page ?? DefaultPage}");
+            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_COUNT_KEY, $"{pageCount ?? DefaultPageCount}");
+            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_LIMIT_KEY, $"{limit ?? DefaultLimit}");
+            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_ITEM_COUNT_KEY, $"{itemCount ?? DefaultItemCount}");
 
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
                 .WithHeaders(new Dictionary<string, string>

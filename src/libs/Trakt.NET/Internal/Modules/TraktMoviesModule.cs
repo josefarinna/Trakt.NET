@@ -11,7 +11,7 @@
                 ExtendedInfo = extendedInfo
             };
 
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktMovie, MovieGetRequest>(_context, request, cancellationToken);
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktMovie>(_context, request, cancellationToken);
         }
     }
 }

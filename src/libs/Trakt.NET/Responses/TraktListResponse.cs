@@ -2,9 +2,9 @@
 
 namespace TraktNET
 {
-    public partial class TraktListResponse<T> : TraktResponse<IReadOnlyList<T>>, IReadOnlyList<T>
+    public partial class TraktListResponse<TResponseContentType> : TraktResponse<IReadOnlyList<TResponseContentType>>, IReadOnlyList<TResponseContentType>
     {
-        public T this[int index]
+        public TResponseContentType this[int index]
         {
             get
             {
@@ -19,7 +19,7 @@ namespace TraktNET
 
         public int Count => Content?.Count ?? 0;
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator<TResponseContentType> GetEnumerator()
         {
             if (Content == null)
             {
@@ -31,6 +31,6 @@ namespace TraktNET
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-        public static implicit operator bool(TraktListResponse<T> response) => response.IsSuccess && response.HasValue;
+        public static implicit operator bool(TraktListResponse<TResponseContentType> response) => response.IsSuccess && response.HasValue;
     }
 }

@@ -127,7 +127,8 @@ namespace TraktNET
         {
             typeof(TraktMovie),
             typeof(TraktMovieIds),
-            typeof(TraktMovieMinimal)
+            typeof(TraktMovieMinimal),
+            typeof(TraktTrendingMovie)
         });
 
         private static readonly FrozenSet<Type> s_peopleJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -198,7 +199,8 @@ namespace TraktNET
         private static readonly HashSet<Type> s_movieJsonTypes = [
             typeof(TraktMovie),
             typeof(TraktMovieIds),
-            typeof(TraktMovieMinimal)
+            typeof(TraktMovieMinimal),
+            typeof(TraktTrendingMovie)
         ];
 
         private static readonly HashSet<Type> s_peopleJsonTypes = [

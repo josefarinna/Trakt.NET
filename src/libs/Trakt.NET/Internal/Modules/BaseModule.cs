@@ -2,9 +2,9 @@
 {
     public class BaseModule
     {
-        internal readonly TraktContext _context;
+        protected readonly TraktContext _context;
 
-        internal BaseModule(TraktContext context)
+        protected BaseModule(TraktContext context)
         {
             ArgumentValidator.ThrowIfNull(context);
             _context = context;

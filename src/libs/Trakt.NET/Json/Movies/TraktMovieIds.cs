@@ -25,11 +25,11 @@ namespace TraktNET
                 if (!HasAnyID)
                     return string.Empty;
 
-                if (Trakt.HasValue && Trakt.Value > 0)
-                    return Trakt.Value.ToString(CultureInfo.InvariantCulture);
-
                 if (!string.IsNullOrWhiteSpace(Slug))
                     return Slug!;
+
+                if (Trakt.HasValue && Trakt.Value > 0)
+                    return Trakt.Value.ToString(CultureInfo.InvariantCulture);
 
                 if (!string.IsNullOrWhiteSpace(IMDB))
                     return IMDB!;

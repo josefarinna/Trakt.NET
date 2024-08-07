@@ -62,7 +62,7 @@ namespace TraktNET
         public static implicit operator bool(TraktResponse response) => response.IsSuccess;
     }
 
-    public partial class TraktResponse<T> : TraktResponse
+    public partial class TraktResponse<TResponseContentType> : TraktResponse
     {
 #if NET6_0_OR_GREATER
         [MemberNotNullWhen(true, nameof(Content))]
@@ -70,10 +70,10 @@ namespace TraktNET
 #endif
         public bool HasValue => Content != null;
 
-        public T? Content { get; internal set; }
+        public TResponseContentType? Content { get; internal set; }
 
         public HttpContentHeaders? ContentHeaders { get; internal set; }
 
-        public static implicit operator bool(TraktResponse<T> response) => response.IsSuccess && response.HasValue;
+        public static implicit operator bool(TraktResponse<TResponseContentType> response) => response.IsSuccess && response.HasValue;
     }
 }

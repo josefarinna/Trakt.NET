@@ -14,23 +14,9 @@ namespace TraktNET
             };
     }
 
-    public partial class TraktResponse<T>
+    public partial class TraktResponse<TResponseContentType>
     {
-        internal static TraktResponse<T> Create(HttpStatusCode statusCode, T? content, TraktResponseHeaders? traktHeaders,
-            HttpResponseHeaders? headers, HttpContentHeaders? contentHeaders)
-            => new()
-            {
-                TraktHeaders = traktHeaders,
-                Headers = headers,
-                StatusCode = statusCode,
-                Content = content,
-                ContentHeaders = contentHeaders
-            };
-    }
-
-    public partial class TraktListResponse<T>
-    {
-        internal static new TraktListResponse<T> Create(HttpStatusCode statusCode, IReadOnlyList<T>? content,
+        internal static TraktResponse<TResponseContentType> Create(HttpStatusCode statusCode, TResponseContentType? content,
             TraktResponseHeaders? traktHeaders, HttpResponseHeaders? headers, HttpContentHeaders? contentHeaders)
             => new()
             {
@@ -42,9 +28,27 @@ namespace TraktNET
             };
     }
 
-    public partial class TraktPagedResponse<T>
+    public partial class TraktListResponse<TResponseContentType>
     {
-        internal static new TraktPagedResponse<T> Create(HttpStatusCode statusCode, IReadOnlyList<T>? content,
+        internal static new TraktListResponse<TResponseContentType> Create(HttpStatusCode statusCode, IReadOnlyList<TResponseContentType>? content,
+            TraktResponseHeaders? traktHeaders, HttpResponseHeaders? headers, HttpContentHeaders? contentHeaders)
+            => new()
+            {
+                TraktHeaders = traktHeaders,
+                Headers = headers,
+                StatusCode = statusCode,
+                Content = content,
+                ContentHeaders = contentHeaders
+            };
+    }
+
+    public partial class TraktPagedResponse<TResponseContentType>
+    {
+        internal TraktContext? Context { get; set; }
+
+        internal Func<uint?, uint?, RequestBase>? RequestBuilder { get; set; }
+
+        internal static new TraktPagedResponse<TResponseContentType> Create(HttpStatusCode statusCode, IReadOnlyList<TResponseContentType>? content,
             TraktResponseHeaders? traktHeaders, HttpResponseHeaders? headers, HttpContentHeaders? contentHeaders)
             => new()
             {

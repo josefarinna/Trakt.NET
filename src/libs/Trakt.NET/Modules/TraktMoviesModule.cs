@@ -31,5 +31,25 @@
 
             return GetMovieImplAsync(movieIds.BestID, extendedInfo, cancellationToken);
         }
+
+        public Task<TraktPagedResponse<TraktTrendingMovie>> GetTrendingMoviesAsync(TraktExtendedInfo? extendedInfo = null, // TODO: TraktMovieFilter filter = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new TrendingMoviesGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktTrendingMovie>(_context, request, (uint? page, uint? limit)
+                => new TrendingMoviesGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                },
+                cancellationToken);
+        }
     }
 }

@@ -31,7 +31,7 @@
             showIds!.TMDB.Should().Be(1399U);
 
             showIds!.HasAnyID.Should().BeTrue();
-            showIds!.BestID.Should().Be("1390");
+            showIds!.BestID.Should().Be("game-of-thrones");
         }
     }
 }

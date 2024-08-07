@@ -44,7 +44,7 @@
             movie!.Ids!.IMDB.Should().Be("tt6791350");
             movie!.Ids!.TMDB.Should().Be(447365U);
             movie!.Ids!.HasAnyID.Should().BeTrue();
-            movie!.Ids!.BestID.Should().Be("293990");
+            movie!.Ids!.BestID.Should().Be("guardians-of-the-galaxy-volume-3-2023");
         }
 
         [Fact]
@@ -62,7 +62,7 @@
             movie!.Ids!.IMDB.Should().Be("tt6791350");
             movie!.Ids!.TMDB.Should().Be(447365U);
             movie!.Ids!.HasAnyID.Should().BeTrue();
-            movie!.Ids!.BestID.Should().Be("293990");
+            movie!.Ids!.BestID.Should().Be("guardians-of-the-galaxy-volume-3-2023");
 
             movie!.Tagline.Should().Be("Once more with feeling.");
 
