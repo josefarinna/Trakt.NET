@@ -144,6 +144,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trakt.NET.Requests.Tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trakt.NET.Modules.Tests", "tests\libs\Trakt.NET.Modules.Tests\Trakt.NET.Modules.Tests.csproj", "{991F0FB1-CDFD-412E-B7B2-81946E12D6D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trakt.NET.HttpClientFactory", "libs\Trakt.NET.HttpClientFactory\Trakt.NET.HttpClientFactory.csproj", "{AE64986B-39E8-49C2-A3E0-48FBA888B437}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -214,6 +216,10 @@ Global
 		{991F0FB1-CDFD-412E-B7B2-81946E12D6D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{991F0FB1-CDFD-412E-B7B2-81946E12D6D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{991F0FB1-CDFD-412E-B7B2-81946E12D6D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE64986B-39E8-49C2-A3E0-48FBA888B437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE64986B-39E8-49C2-A3E0-48FBA888B437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE64986B-39E8-49C2-A3E0-48FBA888B437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE64986B-39E8-49C2-A3E0-48FBA888B437}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -254,6 +260,7 @@ Global
 		{C479E397-69C6-4C3D-BD4D-19C8ECAB74EA} = {7CCCA937-44EC-4C43-9AEC-409BC790022C}
 		{A5279041-12FE-4DEA-AC60-79B7FFF3D229} = {50AD22EC-EB56-476B-8DCE-4AF2B5BD8B09}
 		{991F0FB1-CDFD-412E-B7B2-81946E12D6D7} = {50AD22EC-EB56-476B-8DCE-4AF2B5BD8B09}
+		{AE64986B-39E8-49C2-A3E0-48FBA888B437} = {E7B2A7FC-F550-4546-8F2C-6FC9AA49F6B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7025A39E-11A6-4587-98F7-E887B941D5A0}
