@@ -6,6 +6,7 @@ namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
     [JsonSerializable(typeof(TraktMovie))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktMovie>))]
     [JsonSerializable(typeof(TraktMovieIds))]
     [JsonSerializable(typeof(TraktMovieMinimal))]
     [JsonSerializable(typeof(TraktTrendingMovie))]

@@ -51,5 +51,25 @@
                 },
                 cancellationToken);
         }
+
+        public Task<TraktPagedResponse<TraktMovie>> GetPopularMoviesAsync(TraktExtendedInfo? extendedInfo = null, // TODO: TraktMovieFilter filter = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new PopularMoviesGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMovie>(_context, request, (uint? page, uint? limit)
+                => new PopularMoviesGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                },
+                cancellationToken);
+        }
     }
 }
