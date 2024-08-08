@@ -27,5 +27,31 @@
             var showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = ShowID };
             showStatisticsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestShowStatisticsGetRequestHasCorrectRequestObjectType()
+        {
+            var showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = ShowID };
+            showStatisticsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestShowStatisticsGetRequestValidate()
+        {
+            var showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = string.Empty };
+
+            Action act = () => showStatisticsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = "  " };
+
+            act = () => showStatisticsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = "id with spaces" };
+
+            act = () => showStatisticsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

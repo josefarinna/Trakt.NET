@@ -43,5 +43,12 @@
             var trendingShowsGetRequest = new TrendingShowsGetRequest();
             trendingShowsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestTrendingShowsGetRequestHasCorrectRequestObjectType()
+        {
+            var trendingShowsGetRequest = new TrendingShowsGetRequest();
+            trendingShowsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

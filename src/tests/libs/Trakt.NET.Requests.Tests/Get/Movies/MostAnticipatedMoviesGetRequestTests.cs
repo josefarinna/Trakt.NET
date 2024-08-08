@@ -43,5 +43,12 @@
             var mostAnticipatedMoviesGetRequest = new MostAnticipatedMoviesGetRequest();
             mostAnticipatedMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestMostAnticipatedMoviesGetRequestHasCorrectRequestObjectType()
+        {
+            var mostAnticipatedMoviesGetRequest = new MostAnticipatedMoviesGetRequest();
+            mostAnticipatedMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

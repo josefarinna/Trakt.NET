@@ -79,5 +79,72 @@
 
             episodeCommentsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestEpisodeCommentsGetRequestHasCorrectRequestObjectType()
+        {
+            var episodeCommentsGetRequest = new EpisodeCommentsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            episodeCommentsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Episode);
+        }
+
+        [Fact]
+        public void TestEpisodeCommentsGetRequestValidate()
+        {
+            var episodeCommentsGetRequest = new EpisodeCommentsGetRequest
+            {
+                ShowId = string.Empty,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            Action act = () => episodeCommentsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeCommentsGetRequest = new EpisodeCommentsGetRequest
+            {
+                ShowId = "  ",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeCommentsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeCommentsGetRequest = new EpisodeCommentsGetRequest
+            {
+                ShowId = "id with spaces",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeCommentsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeCommentsGetRequest = new EpisodeCommentsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 0,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeCommentsGetRequest.Validate();
+            act.Should().NotThrow();
+
+            episodeCommentsGetRequest = new EpisodeCommentsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 0
+            };
+
+            act = () => episodeCommentsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

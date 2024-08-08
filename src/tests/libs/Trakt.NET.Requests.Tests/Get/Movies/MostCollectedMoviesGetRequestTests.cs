@@ -63,5 +63,12 @@
             var mostCollectedMoviesGetRequest = new MostCollectedMoviesGetRequest();
             mostCollectedMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestMostCollectedMoviesGetRequestHasCorrectRequestObjectType()
+        {
+            var mostCollectedMoviesGetRequest = new MostCollectedMoviesGetRequest();
+            mostCollectedMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

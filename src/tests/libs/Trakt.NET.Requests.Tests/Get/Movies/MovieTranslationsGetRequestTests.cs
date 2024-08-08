@@ -1,4 +1,4 @@
-﻿namespace TraktNET.GetRequests.Movies
+namespace TraktNET.GetRequests.Movies
 {
     public sealed class MovieTranslationsGetRequestTests
     {
@@ -34,6 +34,32 @@
         {
             var movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = MovieID };
             movieTranslationsGetRequest.Method.Should().Be(HttpMethod.Get);
+        }
+
+        [Fact]
+        public void TestMovieTranslationsGetRequestHasCorrectRequestObjectType()
+        {
+            var movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = MovieID };
+            movieTranslationsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Movie);
+        }
+
+        [Fact]
+        public void TestMovieTranslationsGetRequestValidate()
+        {
+            var movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = string.Empty };
+
+            Action act = () => movieTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = "  " };
+
+            act = () => movieTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = "id with spaces" };
+
+            act = () => movieTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace TraktNET.GetRequests.Movies
+namespace TraktNET.GetRequests.Movies
 {
     public sealed class MoviePeopleGetRequestTests
     {
@@ -33,6 +33,32 @@
         {
             var moviePeopleGetRequest = new MoviePeopleGetRequest { Id = MovieID };
             moviePeopleGetRequest.Method.Should().Be(HttpMethod.Get);
+        }
+
+        [Fact]
+        public void TestMoviePeopleGetRequestHasCorrectRequestObjectType()
+        {
+            var moviePeopleGetRequest = new MoviePeopleGetRequest { Id = MovieID };
+            moviePeopleGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Movie);
+        }
+
+        [Fact]
+        public void TestMoviePeopleGetRequestValidate()
+        {
+            var moviePeopleGetRequest = new MoviePeopleGetRequest { Id = string.Empty };
+
+            Action act = () => moviePeopleGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            moviePeopleGetRequest = new MoviePeopleGetRequest { Id = "  " };
+
+            act = () => moviePeopleGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            moviePeopleGetRequest = new MoviePeopleGetRequest { Id = "id with spaces" };
+
+            act = () => moviePeopleGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
         }
     }
 }

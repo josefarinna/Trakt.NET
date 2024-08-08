@@ -34,5 +34,31 @@
             var showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = ShowID };
             showLastEpisodeGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestShowLastEpisodeGetRequestHasCorrectRequestObjectType()
+        {
+            var showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = ShowID };
+            showLastEpisodeGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestShowLastEpisodeGetRequestValidate()
+        {
+            var showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = string.Empty };
+
+            Action act = () => showLastEpisodeGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = "  " };
+
+            act = () => showLastEpisodeGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = "id with spaces" };
+
+            act = () => showLastEpisodeGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

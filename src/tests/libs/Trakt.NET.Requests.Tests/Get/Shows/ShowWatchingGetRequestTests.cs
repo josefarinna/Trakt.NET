@@ -34,5 +34,31 @@
             var showWatchingGetRequest = new ShowWatchingGetRequest { Id = ShowID };
             showWatchingGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestShowWatchingGetRequestHasCorrectRequestObjectType()
+        {
+            var showWatchingGetRequest = new ShowWatchingGetRequest { Id = ShowID };
+            showWatchingGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestShowWatchingGetRequestValidate()
+        {
+            var showWatchingGetRequest = new ShowWatchingGetRequest { Id = string.Empty };
+
+            Action act = () => showWatchingGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showWatchingGetRequest = new ShowWatchingGetRequest { Id = "  " };
+
+            act = () => showWatchingGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showWatchingGetRequest = new ShowWatchingGetRequest { Id = "id with spaces" };
+
+            act = () => showWatchingGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

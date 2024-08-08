@@ -74,5 +74,12 @@ namespace TraktNET.GetRequests.Movies
             var recentlyUpdatedMoviesGetRequest = new RecentlyUpdatedMoviesGetRequest();
             recentlyUpdatedMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestRecentlyUpdatedMoviesGetRequestHasCorrectRequestObjectType()
+        {
+            var recentlyUpdatedMoviesGetRequest = new RecentlyUpdatedMoviesGetRequest();
+            recentlyUpdatedMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

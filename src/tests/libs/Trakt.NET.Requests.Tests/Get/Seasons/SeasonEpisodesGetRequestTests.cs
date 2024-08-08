@@ -52,5 +52,57 @@
 
             seasonEpisodesGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestSeasonEpisodesGetRequestHasCorrectRequestObjectType()
+        {
+            var seasonEpisodesGetRequest = new SeasonEpisodesGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1
+            };
+
+            seasonEpisodesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Season);
+        }
+
+        [Fact]
+        public void TestSeasonEpisodesGetRequestValidate()
+        {
+            var seasonEpisodesGetRequest = new SeasonEpisodesGetRequest
+            {
+                ShowId = string.Empty,
+                SeasonNumber = 1
+            };
+
+            Action act = () => seasonEpisodesGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonEpisodesGetRequest = new SeasonEpisodesGetRequest
+            {
+                ShowId = "  ",
+                SeasonNumber = 1
+            };
+
+            act = () => seasonEpisodesGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonEpisodesGetRequest = new SeasonEpisodesGetRequest
+            {
+                ShowId = "id with spaces",
+                SeasonNumber = 1
+            };
+
+            act = () => seasonEpisodesGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonEpisodesGetRequest = new SeasonEpisodesGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 0
+            };
+
+            act = () => seasonEpisodesGetRequest.Validate();
+            act.Should().NotThrow();
+        }
     }
 }

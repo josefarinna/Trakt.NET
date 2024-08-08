@@ -48,5 +48,72 @@
 
             episodeWatchingGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestEpisodeWatchingGetRequestHasCorrectRequestObjectType()
+        {
+            var episodeWatchingGetRequest = new EpisodeWatchingGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            episodeWatchingGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Episode);
+        }
+
+        [Fact]
+        public void TestEpisodeWatchingGetRequestValidate()
+        {
+            var episodeWatchingGetRequest = new EpisodeWatchingGetRequest
+            {
+                ShowId = string.Empty,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            Action act = () => episodeWatchingGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeWatchingGetRequest = new EpisodeWatchingGetRequest
+            {
+                ShowId = "  ",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeWatchingGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeWatchingGetRequest = new EpisodeWatchingGetRequest
+            {
+                ShowId = "id with spaces",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeWatchingGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeWatchingGetRequest = new EpisodeWatchingGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 0,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeWatchingGetRequest.Validate();
+            act.Should().NotThrow();
+
+            episodeWatchingGetRequest = new EpisodeWatchingGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 0
+            };
+
+            act = () => episodeWatchingGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

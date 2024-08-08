@@ -93,5 +93,57 @@
 
             seasonListsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestSeasonListsGetRequestHasCorrectRequestObjectType()
+        {
+            var seasonListsGetRequest = new SeasonListsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1
+            };
+
+            seasonListsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Season);
+        }
+
+        [Fact]
+        public void TestSeasonListsGetRequestValidate()
+        {
+            var seasonListsGetRequest = new SeasonListsGetRequest
+            {
+                ShowId = string.Empty,
+                SeasonNumber = 1
+            };
+
+            Action act = () => seasonListsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonListsGetRequest = new SeasonListsGetRequest
+            {
+                ShowId = "  ",
+                SeasonNumber = 1
+            };
+
+            act = () => seasonListsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonListsGetRequest = new SeasonListsGetRequest
+            {
+                ShowId = "id with spaces",
+                SeasonNumber = 1
+            };
+
+            act = () => seasonListsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonListsGetRequest = new SeasonListsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 0
+            };
+
+            act = () => seasonListsGetRequest.Validate();
+            act.Should().NotThrow();
+        }
     }
 }

@@ -43,5 +43,12 @@
             var trendingMoviesGetRequest = new TrendingMoviesGetRequest();
             trendingMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestTrendingMoviesGetRequestHasCorrectRequestObjectType()
+        {
+            var trendingMoviesGetRequest = new TrendingMoviesGetRequest();
+            trendingMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

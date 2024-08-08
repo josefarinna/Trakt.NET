@@ -45,5 +45,57 @@
 
             seasonWatchingGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestSeasonWatchingGetRequestHasCorrectRequestObjectType()
+        {
+            var seasonWatchingGetRequest = new SeasonWatchingGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1
+            };
+
+            seasonWatchingGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Season);
+        }
+
+        [Fact]
+        public void TestSeasonWatchingGetRequestValidate()
+        {
+            var seasonWatchingGetRequest = new SeasonWatchingGetRequest
+            {
+                ShowId = string.Empty,
+                SeasonNumber = 1
+            };
+
+            Action act = () => seasonWatchingGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonWatchingGetRequest = new SeasonWatchingGetRequest
+            {
+                ShowId = "  ",
+                SeasonNumber = 1
+            };
+
+            act = () => seasonWatchingGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonWatchingGetRequest = new SeasonWatchingGetRequest
+            {
+                ShowId = "id with spaces",
+                SeasonNumber = 1
+            };
+
+            act = () => seasonWatchingGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonWatchingGetRequest = new SeasonWatchingGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 0
+            };
+
+            act = () => seasonWatchingGetRequest.Validate();
+            act.Should().NotThrow();
+        }
     }
 }

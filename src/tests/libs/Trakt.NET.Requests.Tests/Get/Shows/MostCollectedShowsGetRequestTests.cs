@@ -63,5 +63,12 @@
             var mostCollectedShowsGetRequest = new MostCollectedShowsGetRequest();
             mostCollectedShowsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestMostCollectedShowsGetRequestHasCorrectRequestObjectType()
+        {
+            var mostCollectedShowsGetRequest = new MostCollectedShowsGetRequest();
+            mostCollectedShowsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

@@ -43,5 +43,12 @@
             var mostAnticipatedShowsGetRequest = new MostAnticipatedShowsGetRequest();
             mostAnticipatedShowsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestMostAnticipatedShowsGetRequestHasCorrectRequestObjectType()
+        {
+            var mostAnticipatedShowsGetRequest = new MostAnticipatedShowsGetRequest();
+            mostAnticipatedShowsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

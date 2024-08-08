@@ -30,5 +30,31 @@
             var movieRefreshPostRequest = new MovieRefreshPostRequest { Id = MovieID };
             movieRefreshPostRequest.Method.Should().Be(HttpMethod.Post);
         }
+
+        [Fact]
+        public void TestMovieRefreshPostRequestHasCorrectRequestObjectType()
+        {
+            var movieRefreshPostRequest = new MovieRefreshPostRequest { Id = MovieID };
+            movieRefreshPostRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Movie);
+        }
+
+        [Fact]
+        public void TestMovieRefreshPostRequestValidate()
+        {
+            var movieRefreshPostRequest = new MovieRefreshPostRequest { Id = string.Empty };
+
+            Action act = () => movieRefreshPostRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            movieRefreshPostRequest = new MovieRefreshPostRequest { Id = "  " };
+
+            act = () => movieRefreshPostRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            movieRefreshPostRequest = new MovieRefreshPostRequest { Id = "id with spaces" };
+
+            act = () => movieRefreshPostRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

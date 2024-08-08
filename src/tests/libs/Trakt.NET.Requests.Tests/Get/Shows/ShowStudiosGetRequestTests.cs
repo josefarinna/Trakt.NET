@@ -27,5 +27,31 @@
             var showStudiosGetRequest = new ShowStudiosGetRequest { Id = ShowID };
             showStudiosGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestShowStudiosGetRequestHasCorrectRequestObjectType()
+        {
+            var showStudiosGetRequest = new ShowStudiosGetRequest { Id = ShowID };
+            showStudiosGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestShowStudiosGetRequestValidate()
+        {
+            var showStudiosGetRequest = new ShowStudiosGetRequest { Id = string.Empty };
+
+            Action act = () => showStudiosGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showStudiosGetRequest = new ShowStudiosGetRequest { Id = "  " };
+
+            act = () => showStudiosGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showStudiosGetRequest = new ShowStudiosGetRequest { Id = "id with spaces" };
+
+            act = () => showStudiosGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

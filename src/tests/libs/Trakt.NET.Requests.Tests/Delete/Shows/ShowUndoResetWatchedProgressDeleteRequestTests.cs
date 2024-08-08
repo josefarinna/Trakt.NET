@@ -30,5 +30,31 @@
             var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = ShowID };
             showUndoResetWatchedProgressDeleteRequest.Method.Should().Be(HttpMethod.Delete);
         }
+
+        [Fact]
+        public void TestShowUndoResetWatchedProgressDeleteRequestHasCorrectRequestObjectType()
+        {
+            var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = ShowID };
+            showUndoResetWatchedProgressDeleteRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestShowUndoResetWatchedProgressDeleteRequestValidate()
+        {
+            var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = string.Empty };
+
+            Action act = () => showUndoResetWatchedProgressDeleteRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = "  " };
+
+            act = () => showUndoResetWatchedProgressDeleteRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = "id with spaces" };
+
+            act = () => showUndoResetWatchedProgressDeleteRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

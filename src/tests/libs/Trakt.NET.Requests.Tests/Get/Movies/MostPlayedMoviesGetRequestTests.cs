@@ -63,5 +63,12 @@
             var mostPlayedMoviesGetRequest = new MostPlayedMoviesGetRequest();
             mostPlayedMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestMostPlayedMoviesGetRequestHasCorrectRequestObjectType()
+        {
+            var mostPlayedMoviesGetRequest = new MostPlayedMoviesGetRequest();
+            mostPlayedMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

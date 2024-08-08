@@ -49,5 +49,31 @@
             var showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = ShowID };
             showCollectionProgressGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestShowCollectionProgressGetRequestHasCorrectRequestObjectType()
+        {
+            var showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = ShowID };
+            showCollectionProgressGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestShowCollectionProgressGetRequestValidate()
+        {
+            var showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = string.Empty };
+
+            Action act = () => showCollectionProgressGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = "  " };
+
+            act = () => showCollectionProgressGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = "id with spaces" };
+
+            act = () => showCollectionProgressGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

@@ -27,5 +27,31 @@
             var movieStudiosGetRequest = new MovieStudiosGetRequest { Id = MovieID };
             movieStudiosGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestMovieStudiosGetRequestHasCorrectRequestObjectType()
+        {
+            var movieStudiosGetRequest = new MovieStudiosGetRequest { Id = MovieID };
+            movieStudiosGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Movie);
+        }
+
+        [Fact]
+        public void TestMovieStudiosGetRequestValidate()
+        {
+            var movieStudiosGetRequest = new MovieStudiosGetRequest { Id = string.Empty };
+
+            Action act = () => movieStudiosGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            movieStudiosGetRequest = new MovieStudiosGetRequest { Id = "  " };
+
+            act = () => movieStudiosGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            movieStudiosGetRequest = new MovieStudiosGetRequest { Id = "id with spaces" };
+
+            act = () => movieStudiosGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

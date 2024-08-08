@@ -30,5 +30,31 @@
             var showRefreshPostRequest = new ShowRefreshPostRequest { Id = ShowID };
             showRefreshPostRequest.Method.Should().Be(HttpMethod.Post);
         }
+
+        [Fact]
+        public void TestShowRefreshPostRequestHasCorrectRequestObjectType()
+        {
+            var showRefreshPostRequest = new ShowRefreshPostRequest { Id = ShowID };
+            showRefreshPostRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestShowRefreshPostRequestValidate()
+        {
+            var showRefreshPostRequest = new ShowRefreshPostRequest { Id = string.Empty };
+
+            Action act = () => showRefreshPostRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showRefreshPostRequest = new ShowRefreshPostRequest { Id = "  " };
+
+            act = () => showRefreshPostRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showRefreshPostRequest = new ShowRefreshPostRequest { Id = "id with spaces" };
+
+            act = () => showRefreshPostRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

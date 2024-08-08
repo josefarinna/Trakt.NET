@@ -48,5 +48,72 @@
 
             episodeGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestEpisodeGetRequestHasCorrectRequestObjectType()
+        {
+            var episodeGetRequest = new EpisodeGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            episodeGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Episode);
+        }
+
+        [Fact]
+        public void TestEpisodeGetRequestValidate()
+        {
+            var episodeGetRequest = new EpisodeGetRequest
+            {
+                ShowId = string.Empty,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            Action act = () => episodeGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeGetRequest = new EpisodeGetRequest
+            {
+                ShowId = "  ",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeGetRequest = new EpisodeGetRequest
+            {
+                ShowId = "id with spaces",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeGetRequest = new EpisodeGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 0,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeGetRequest.Validate();
+            act.Should().NotThrow();
+
+            episodeGetRequest = new EpisodeGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 0
+            };
+
+            act = () => episodeGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

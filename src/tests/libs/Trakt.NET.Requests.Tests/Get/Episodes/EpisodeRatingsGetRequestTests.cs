@@ -44,5 +44,72 @@
 
             episodeRatingsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestEpisodeRatingsGetRequestHasCorrectRequestObjectType()
+        {
+            var episodeRatingsGetRequest = new EpisodeRatingsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            episodeRatingsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Episode);
+        }
+
+        [Fact]
+        public void TestEpisodeRatingsGetRequestValidate()
+        {
+            var episodeRatingsGetRequest = new EpisodeRatingsGetRequest
+            {
+                ShowId = string.Empty,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            Action act = () => episodeRatingsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeRatingsGetRequest = new EpisodeRatingsGetRequest
+            {
+                ShowId = "  ",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeRatingsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeRatingsGetRequest = new EpisodeRatingsGetRequest
+            {
+                ShowId = "id with spaces",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeRatingsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeRatingsGetRequest = new EpisodeRatingsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 0,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeRatingsGetRequest.Validate();
+            act.Should().NotThrow();
+
+            episodeRatingsGetRequest = new EpisodeRatingsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 0
+            };
+
+            act = () => episodeRatingsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

@@ -35,5 +35,31 @@
             var showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = ShowID };
             showTranslationsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestShowTranslationsGetRequestHasCorrectRequestObjectType()
+        {
+            var showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = ShowID };
+            showTranslationsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestShowTranslationsGetRequestValidate()
+        {
+            var showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = string.Empty };
+
+            Action act = () => showTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = "  " };
+
+            act = () => showTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = "id with spaces" };
+
+            act = () => showTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

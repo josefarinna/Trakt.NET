@@ -63,5 +63,12 @@
             var mostFavoritedShowsGetRequest = new MostFavoritedShowsGetRequest();
             mostFavoritedShowsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestMostFavoritedShowsGetRequestHasCorrectRequestObjectType()
+        {
+            var mostFavoritedShowsGetRequest = new MostFavoritedShowsGetRequest();
+            mostFavoritedShowsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

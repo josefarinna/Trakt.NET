@@ -49,5 +49,72 @@
 
             episodeTranslationsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestEpisodeTranslationsGetRequestHasCorrectRequestObjectType()
+        {
+            var episodeTranslationsGetRequest = new EpisodeTranslationsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            episodeTranslationsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Episode);
+        }
+
+        [Fact]
+        public void TestEpisodeTranslationsGetRequestValidate()
+        {
+            var episodeTranslationsGetRequest = new EpisodeTranslationsGetRequest
+            {
+                ShowId = string.Empty,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            Action act = () => episodeTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeTranslationsGetRequest = new EpisodeTranslationsGetRequest
+            {
+                ShowId = "  ",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeTranslationsGetRequest = new EpisodeTranslationsGetRequest
+            {
+                ShowId = "id with spaces",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeTranslationsGetRequest = new EpisodeTranslationsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 0,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeTranslationsGetRequest.Validate();
+            act.Should().NotThrow();
+
+            episodeTranslationsGetRequest = new EpisodeTranslationsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 0
+            };
+
+            act = () => episodeTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

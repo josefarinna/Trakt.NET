@@ -96,5 +96,72 @@
 
             episodeListsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestEpisodeListsGetRequestHasCorrectRequestObjectType()
+        {
+            var episodeListsGetRequest = new EpisodeListsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            episodeListsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Episode);
+        }
+
+        [Fact]
+        public void TestEpisodeListsGetRequestValidate()
+        {
+            var episodeListsGetRequest = new EpisodeListsGetRequest
+            {
+                ShowId = string.Empty,
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            Action act = () => episodeListsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeListsGetRequest = new EpisodeListsGetRequest
+            {
+                ShowId = "  ",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeListsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeListsGetRequest = new EpisodeListsGetRequest
+            {
+                ShowId = "id with spaces",
+                SeasonNumber = 1,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeListsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            episodeListsGetRequest = new EpisodeListsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 0,
+                EpisodeNumber = 1
+            };
+
+            act = () => episodeListsGetRequest.Validate();
+            act.Should().NotThrow();
+
+            episodeListsGetRequest = new EpisodeListsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                EpisodeNumber = 0
+            };
+
+            act = () => episodeListsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

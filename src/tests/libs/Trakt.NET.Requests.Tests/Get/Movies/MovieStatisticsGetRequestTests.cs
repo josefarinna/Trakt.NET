@@ -27,5 +27,31 @@
             var movieStatisticsGetRequest = new MovieStatisticsGetRequest { Id = MovieID };
             movieStatisticsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestMovieStatisticsGetRequestHasCorrectRequestObjectType()
+        {
+            var movieStatisticsGetRequest = new MovieStatisticsGetRequest { Id = MovieID };
+            movieStatisticsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Movie);
+        }
+
+        [Fact]
+        public void TestMovieStatisticsGetRequestValidate()
+        {
+            var movieStatisticsGetRequest = new MovieStatisticsGetRequest { Id = string.Empty };
+
+            Action act = () => movieStatisticsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            movieStatisticsGetRequest = new MovieStatisticsGetRequest { Id = "  " };
+
+            act = () => movieStatisticsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            movieStatisticsGetRequest = new MovieStatisticsGetRequest { Id = "id with spaces" };
+
+            act = () => movieStatisticsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

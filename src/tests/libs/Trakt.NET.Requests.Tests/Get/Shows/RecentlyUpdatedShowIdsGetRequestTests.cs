@@ -56,5 +56,12 @@ namespace TraktNET.GetRequests.Shows
             var recentlyUpdatedShowIdsGetRequest = new RecentlyUpdatedShowIdsGetRequest();
             recentlyUpdatedShowIdsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestRecentlyUpdatedShowIdsGetRequestHasCorrectRequestObjectType()
+        {
+            var recentlyUpdatedShowIdsGetRequest = new RecentlyUpdatedShowIdsGetRequest();
+            recentlyUpdatedShowIdsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

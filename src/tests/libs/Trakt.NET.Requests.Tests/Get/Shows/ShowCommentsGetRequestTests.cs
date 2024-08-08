@@ -65,5 +65,31 @@
             var showCommentsGetRequest = new ShowCommentsGetRequest { Id = ShowID };
             showCommentsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestShowCommentsGetRequestHasCorrectRequestObjectType()
+        {
+            var showCommentsGetRequest = new ShowCommentsGetRequest { Id = ShowID };
+            showCommentsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestShowCommentsGetRequestValidate()
+        {
+            var showCommentsGetRequest = new ShowCommentsGetRequest { Id = string.Empty };
+
+            Action act = () => showCommentsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showCommentsGetRequest = new ShowCommentsGetRequest { Id = "  " };
+
+            act = () => showCommentsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showCommentsGetRequest = new ShowCommentsGetRequest { Id = "id with spaces" };
+
+            act = () => showCommentsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

@@ -32,5 +32,12 @@
             var boxOfficeMoviesGetRequest = new BoxOfficeMoviesGetRequest();
             boxOfficeMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestBoxOfficeMoviesGetRequestHasCorrectRequestObjectType()
+        {
+            var boxOfficeMoviesGetRequest = new BoxOfficeMoviesGetRequest();
+            boxOfficeMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

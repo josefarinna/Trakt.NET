@@ -43,5 +43,12 @@
             var popularShowsGetRequest = new PopularShowsGetRequest();
             popularShowsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestPopularShowsGetRequestHasCorrectRequestObjectType()
+        {
+            var popularShowsGetRequest = new PopularShowsGetRequest();
+            popularShowsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

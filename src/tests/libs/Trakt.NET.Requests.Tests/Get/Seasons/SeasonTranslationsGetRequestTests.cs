@@ -46,5 +46,57 @@
 
             seasonTranslationsGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestSeasonTranslationsGetRequestHasCorrectRequestObjectType()
+        {
+            var seasonTranslationsGetRequest = new SeasonTranslationsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1
+            };
+
+            seasonTranslationsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Season);
+        }
+
+        [Fact]
+        public void TestSeasonTranslationsGetRequestValidate()
+        {
+            var seasonTranslationsGetRequest = new SeasonTranslationsGetRequest
+            {
+                ShowId = string.Empty,
+                SeasonNumber = 1
+            };
+
+            Action act = () => seasonTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonTranslationsGetRequest = new SeasonTranslationsGetRequest
+            {
+                ShowId = "  ",
+                SeasonNumber = 1
+            };
+
+            act = () => seasonTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonTranslationsGetRequest = new SeasonTranslationsGetRequest
+            {
+                ShowId = "id with spaces",
+                SeasonNumber = 1
+            };
+
+            act = () => seasonTranslationsGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonTranslationsGetRequest = new SeasonTranslationsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 0
+            };
+
+            act = () => seasonTranslationsGetRequest.Validate();
+            act.Should().NotThrow();
+        }
     }
 }

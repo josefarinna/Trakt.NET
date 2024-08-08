@@ -43,5 +43,12 @@
             var popularMoviesGetRequest = new PopularMoviesGetRequest();
             popularMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestPopularMoviesGetRequestHasCorrectRequestObjectType()
+        {
+            var popularMoviesGetRequest = new PopularMoviesGetRequest();
+            popularMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+        }
     }
 }

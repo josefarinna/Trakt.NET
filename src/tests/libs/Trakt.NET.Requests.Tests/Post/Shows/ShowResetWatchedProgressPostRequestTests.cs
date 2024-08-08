@@ -30,5 +30,31 @@
             var showResetWatchedProgressPostRequest = new ShowResetWatchedProgressPostRequest { Id = ShowID };
             showResetWatchedProgressPostRequest.Method.Should().Be(HttpMethod.Post);
         }
+
+        [Fact]
+        public void TestShowResetWatchedProgressPostRequestHasCorrectRequestObjectType()
+        {
+            var showResetWatchedProgressPostRequest = new ShowResetWatchedProgressPostRequest { Id = ShowID };
+            showResetWatchedProgressPostRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestShowResetWatchedProgressPostRequestValidate()
+        {
+            var showResetWatchedProgressPostRequest = new ShowResetWatchedProgressPostRequest { Id = string.Empty };
+
+            Action act = () => showResetWatchedProgressPostRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showResetWatchedProgressPostRequest = new ShowResetWatchedProgressPostRequest { Id = "  " };
+
+            act = () => showResetWatchedProgressPostRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            showResetWatchedProgressPostRequest = new ShowResetWatchedProgressPostRequest { Id = "id with spaces" };
+
+            act = () => showResetWatchedProgressPostRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

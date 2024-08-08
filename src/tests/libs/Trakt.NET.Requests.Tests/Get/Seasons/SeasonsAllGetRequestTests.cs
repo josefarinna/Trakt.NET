@@ -34,5 +34,31 @@
             var seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = ShowID };
             seasonsAllGetRequest.Method.Should().Be(HttpMethod.Get);
         }
+
+        [Fact]
+        public void TestSeasonsAllGetRequestHasCorrectRequestObjectType()
+        {
+            var seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = ShowID };
+            seasonsAllGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+        }
+
+        [Fact]
+        public void TestSeasonsAllGetRequestValidate()
+        {
+            var seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = string.Empty };
+
+            Action act = () => seasonsAllGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = "  " };
+
+            act = () => seasonsAllGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = "id with spaces" };
+
+            act = () => seasonsAllGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+        }
     }
 }

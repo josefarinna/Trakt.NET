@@ -1,4 +1,4 @@
-﻿namespace TraktNET.GetRequests.Movies
+namespace TraktNET.GetRequests.Movies
 {
     public sealed class MovieAliasesGetRequestTests
     {
@@ -26,6 +26,32 @@
         {
             var movieAliasesGetRequest = new MovieAliasesGetRequest { Id = MovieID };
             movieAliasesGetRequest.Method.Should().Be(HttpMethod.Get);
+        }
+
+        [Fact]
+        public void TestMovieAliasesGetRequestHasCorrectRequestObjectType()
+        {
+            var movieAliasesGetRequest = new MovieAliasesGetRequest { Id = MovieID };
+            movieAliasesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Movie);
+        }
+
+        [Fact]
+        public void TestMovieAliasesGetRequestValidate()
+        {
+            var movieAliasesGetRequest = new MovieAliasesGetRequest { Id = string.Empty };
+
+            Action act = () => movieAliasesGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            movieAliasesGetRequest = new MovieAliasesGetRequest { Id = "  " };
+
+            act = () => movieAliasesGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
+
+            movieAliasesGetRequest = new MovieAliasesGetRequest { Id = "id with spaces" };
+
+            act = () => movieAliasesGetRequest.Validate();
+            act.Should().Throw<TraktRequestValidationException>();
         }
     }
 }
