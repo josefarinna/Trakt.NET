@@ -24,7 +24,55 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(extendedInfo, page, limit);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(extendedInfo, null, page, limit);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(page ?? 1U);
+            response.Limit.Should().Be(limit ?? 10U);
+            response.PageCount.Should().Be(1U);
+            response.ItemCount.Should().Be(2U);
+
+            IReadOnlyList<TraktMovie> popularMovies = response.Content!;
+
+            TraktMovie popularMovie = popularMovies[0];
+
+            popularMovie.Title.Should().Be("Deadpool");
+            popularMovie.Year.Should().Be(2016U);
+            popularMovie.Ids!.Slug.Should().Be("deadpool-2016");
+
+            popularMovie = popularMovies[1];
+
+            popularMovie.Title.Should().Be("Guardians of the Galaxy");
+            popularMovie.Year.Should().Be(2014U);
+            popularMovie.Ids!.Slug.Should().Be("guardians-of-the-galaxy-2014");
+        }
+
+        [Theory]
+        [InlineData(null, null, null, $"{GetPopularMoviesUri}?genres=action,drama&years=2024", "Movies\\movies_minimal.json")]
+        [InlineData(TraktExtendedInfo.None, null, null, $"{GetPopularMoviesUri}?genres=action,drama&years=2024", "Movies\\movies_minimal.json")]
+        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetPopularMoviesUri}?genres=action,drama&years=2024&extended=full", "Movies\\movies.json")]
+        [InlineData(null, 4U, null, $"{GetPopularMoviesUri}?genres=action,drama&years=2024&page=4", "Movies\\movies_minimal.json")]
+        [InlineData(null, null, 20U, $"{GetPopularMoviesUri}?genres=action,drama&years=2024&limit=20", "Movies\\movies_minimal.json")]
+        [InlineData(null, 4U, 20U, $"{GetPopularMoviesUri}?genres=action,drama&years=2024&page=4&limit=20", "Movies\\movies_minimal.json")]
+        [InlineData(TraktExtendedInfo.None, 4U, null, $"{GetPopularMoviesUri}?genres=action,drama&years=2024&page=4", "Movies\\movies_minimal.json")]
+        [InlineData(TraktExtendedInfo.None, null, 20U, $"{GetPopularMoviesUri}?genres=action,drama&years=2024&limit=20", "Movies\\movies_minimal.json")]
+        [InlineData(TraktExtendedInfo.None, 4U, 20U, $"{GetPopularMoviesUri}?genres=action,drama&years=2024&page=4&limit=20", "Movies\\movies_minimal.json")]
+        [InlineData(TraktExtendedInfo.Full, 4U, null, $"{GetPopularMoviesUri}?genres=action,drama&years=2024&extended=full&page=4", "Movies\\movies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, 20U, $"{GetPopularMoviesUri}?genres=action,drama&years=2024&extended=full&limit=20", "Movies\\movies.json")]
+        [InlineData(TraktExtendedInfo.Full, 4U, 20U, $"{GetPopularMoviesUri}?genres=action,drama&years=2024&extended=full&page=4&limit=20", "Movies\\movies.json")]
+        public async Task TestGetPopularMoviesWithFilter(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(extendedInfo, TestConstants.Movies.Filter, page, limit);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -60,7 +108,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, 2);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -84,7 +132,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, 1);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -108,7 +156,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=2", responseContent, 2, 3, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, 2);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -132,7 +180,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=1", responseContent, 1, 1, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, 1);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -156,7 +204,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, 2);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -199,7 +247,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, 1);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

@@ -522,7 +522,7 @@ namespace TraktNET.SourceGeneration.Requests
                     _sourceWriter.WriteLine('}');
                 }
             }
-            else
+            else if (requestQuery.SpecialType != SpecialType.None)
             {
                 switch (requestQuery.SpecialType)
                 {
@@ -669,6 +669,41 @@ namespace TraktNET.SourceGeneration.Requests
                     }
                     default:
                         break;
+                }
+            }
+            else
+            {
+                if (requestQuery.IsRequired)
+                {
+                    if (writeDirectlyInBuildMethod)
+                    {
+                        _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + {requestQuery.Name}.ToString();");
+                    }
+                    else
+                    {
+                        _sourceWriter.WriteLine($"queries.Add({requestQuery.Name}.ToString());");
+                    }
+                }
+                else
+                {
+                    if (writeDirectlyInBuildMethod)
+                    {
+                        _sourceWriter.WriteLine($"if ({requestQuery.Name} != null)");
+                        _sourceWriter.WriteLine('{');
+                        _sourceWriter.Indent();
+                        _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + {requestQuery.Name}.ToString();");
+                        _sourceWriter.DecrementIndent();
+                        _sourceWriter.WriteLine('}');
+                    }
+                    else
+                    {
+                        _sourceWriter.WriteLine($"if ({requestQuery.Name} != null)");
+                        _sourceWriter.WriteLine('{');
+                        _sourceWriter.Indent();
+                        _sourceWriter.WriteLine($"queries.Add({requestQuery.Name}.ToString());");
+                        _sourceWriter.DecrementIndent();
+                        _sourceWriter.WriteLine('}');
+                    }
                 }
             }
         }

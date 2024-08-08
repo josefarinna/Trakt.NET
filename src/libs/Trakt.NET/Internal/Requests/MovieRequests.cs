@@ -100,8 +100,8 @@ namespace TraktNET
     [TraktGetRequest("movies/anticipated", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class MostAnticipatedMoviesGetRequest
     {
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("movies/collected", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -110,8 +110,8 @@ namespace TraktNET
         [TraktRequestParameter]
         internal TraktTimePeriod? TimePeriod { get; set; }
 
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("movies/favorited", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -120,8 +120,8 @@ namespace TraktNET
         [TraktRequestParameter]
         internal TraktTimePeriod? TimePeriod { get; set; }
 
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("movies/played", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -130,8 +130,8 @@ namespace TraktNET
         [TraktRequestParameter]
         internal TraktTimePeriod? TimePeriod { get; set; }
 
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("movies/watched", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -140,15 +140,15 @@ namespace TraktNET
         [TraktRequestParameter]
         internal TraktTimePeriod? TimePeriod { get; set; }
 
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("movies/popular", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class PopularMoviesGetRequest
     {
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("movies/updates/id", SupportsPagination = true)]
@@ -168,8 +168,8 @@ namespace TraktNET
     [TraktGetRequest("movies/trending", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class TrendingMoviesGetRequest
     {
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     // -------------------------------------------------------

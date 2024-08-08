@@ -140,8 +140,8 @@
     [TraktGetRequest("shows/anticipated", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class MostAnticipatedShowsGetRequest
     {
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("shows/collected", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -150,8 +150,8 @@
         [TraktRequestParameter]
         internal TraktTimePeriod? TimePeriod { get; set; }
 
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("shows/favorited", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -160,8 +160,8 @@
         [TraktRequestParameter]
         internal TraktTimePeriod? TimePeriod { get; set; }
 
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("shows/played", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -170,8 +170,8 @@
         [TraktRequestParameter]
         internal TraktTimePeriod? TimePeriod { get; set; }
 
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("shows/watched", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -180,15 +180,15 @@
         [TraktRequestParameter]
         internal TraktTimePeriod? TimePeriod { get; set; }
 
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("shows/popular", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class PopularShowsGetRequest
     {
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("shows/updates/id", SupportsPagination = true)]
@@ -208,8 +208,8 @@
     [TraktGetRequest("shows/trending", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class TrendingShowsGetRequest
     {
-        // TODO: [TraktRequestQuery]
-        // TODO: public ITraktFilter Filter { get; set; }
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
     }
 
     // -------------------------------------------------------

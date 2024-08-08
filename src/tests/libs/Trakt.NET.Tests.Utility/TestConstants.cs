@@ -8,6 +8,12 @@
         public static class Movies
         {
             public const string MovieID = "guardians-of-the-galaxy-volume-3-2023";
+
+            public static readonly TraktFilter Filter = new()
+            {
+                Genres = ["action", "drama"],
+                Year = 2024
+            };
         }
 
         public static class Shows

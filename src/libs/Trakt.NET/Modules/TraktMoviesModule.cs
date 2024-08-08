@@ -32,14 +32,15 @@
             return GetMovieImplAsync(movieIds.BestID, extendedInfo, cancellationToken);
         }
 
-        public Task<TraktPagedResponse<TraktTrendingMovie>> GetTrendingMoviesAsync(TraktExtendedInfo? extendedInfo = null, // TODO: TraktMovieFilter filter = null,
-            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        public Task<TraktPagedResponse<TraktTrendingMovie>> GetTrendingMoviesAsync(TraktExtendedInfo? extendedInfo = null,
+            TraktFilter? filter = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new TrendingMoviesGetRequest
             {
                 ExtendedInfo = extendedInfo,
                 Page = page,
-                Limit = limit
+                Limit = limit,
+                Filter = filter
             };
 
             return RequestHandler.ExecutePagedListRequestAsync<TraktTrendingMovie>(_context, request, (uint? page, uint? limit)
@@ -47,19 +48,21 @@
                 {
                     ExtendedInfo = extendedInfo,
                     Page = page,
-                    Limit = limit
+                    Limit = limit,
+                    Filter = filter
                 },
                 cancellationToken);
         }
 
-        public Task<TraktPagedResponse<TraktMovie>> GetPopularMoviesAsync(TraktExtendedInfo? extendedInfo = null, // TODO: TraktMovieFilter filter = null,
-            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        public Task<TraktPagedResponse<TraktMovie>> GetPopularMoviesAsync(TraktExtendedInfo? extendedInfo = null,
+            TraktFilter? filter = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new PopularMoviesGetRequest
             {
                 ExtendedInfo = extendedInfo,
                 Page = page,
-                Limit = limit
+                Limit = limit,
+                Filter = filter
             };
 
             return RequestHandler.ExecutePagedListRequestAsync<TraktMovie>(_context, request, (uint? page, uint? limit)
@@ -67,7 +70,8 @@
                 {
                     ExtendedInfo = extendedInfo,
                     Page = page,
-                    Limit = limit
+                    Limit = limit,
+                    Filter = filter
                 },
                 cancellationToken);
         }
