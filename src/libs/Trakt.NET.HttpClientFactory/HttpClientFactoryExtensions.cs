@@ -15,7 +15,6 @@ namespace TraktNET
 
             string clientId = configuration[ConfigurationKeyClientId] ?? string.Empty;
             string clientSecret = configuration[ConfigurationKeyClientSecret] ?? string.Empty;
-
             string sandboxValue = configuration[ConfigurationKeySandbox] ?? string.Empty;
             bool useSandbox = false;
 
@@ -25,12 +24,6 @@ namespace TraktNET
             }
 
             return useSandbox ? services.AddTraktSandboxClient(clientId, clientSecret) : services.AddTraktClient(clientId, clientSecret);
-        }
-
-        public static IHttpClientBuilder AddTraktClient(this IServiceCollection services, TraktContext context)
-        {
-            ArgumentValidator.ThrowIfNull(context);
-            return services.AddTraktHttpClient(context).AddTypedClient(context);
         }
 
         public static IHttpClientBuilder AddTraktClient(this IServiceCollection services, string clientId, string clientSecret)

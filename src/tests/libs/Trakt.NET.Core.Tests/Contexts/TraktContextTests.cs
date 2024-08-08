@@ -18,17 +18,6 @@
         }
 
         [Fact]
-        public void TestTraktContextWithContextIDAndClientIDAndSecret()
-        {
-            var context = new TraktDefaultContext(ContextID, ClientID, ClientSecret);
-
-            context.ID.Should().Be(ContextID);
-            context.ClientID.Should().Be(ClientID);
-            context.ClientSecret.Should().Be(ClientSecret);
-            context.Authorization.Should().NotBeNull();
-        }
-
-        [Fact]
         public void TestTraktContextHasCorrectBaseUri()
         {
             var context = new TraktDefaultContext(ClientID, ClientSecret);
@@ -42,16 +31,6 @@
             var context = new TraktDefaultContext(ClientID, ClientSecret);
 
             context.BaseAuthorizationUri.AbsoluteUri.Should().Be("https://trakt.tv/");
-        }
-
-        [Fact]
-        public void TestTraktContextInvalidContextID()
-        {
-            Action act = () => _ = new TraktDefaultContext(string.Empty, ClientID, ClientSecret);
-            act.Should().Throw<ArgumentException>();
-
-            act = () => _ = new TraktDefaultContext("    ", ClientID, ClientSecret);
-            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]

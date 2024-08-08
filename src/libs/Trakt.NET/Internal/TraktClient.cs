@@ -1,0 +1,19 @@
+﻿namespace TraktNET
+{
+    public sealed partial class TraktClient
+    {
+        private readonly TraktContext _context;
+
+        internal HttpClientProvider HttpClientProvider
+        {
+            get => _context.HttpClientProvider;
+            set => _context.HttpClientProvider = value;
+        }
+
+        internal TraktClient(TraktContext context)
+        {
+            ArgumentValidator.ThrowIfNull(context);
+            _context = context;
+        }
+    }
+}

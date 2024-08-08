@@ -2,30 +2,31 @@
 {
     public class TraktClientTests
     {
-        private const string ClientID = "clientID";
-        private const string ClientSecret = "clientSecret";
-
-        [Fact]
-        public void TestTraktClientFromContext()
-        {
-            var context = new TraktDefaultContext(ClientID, ClientSecret);
-            var client = new TraktClient(context);
-
-            client.Context.Should().NotBeNull();
-            client.ClientID.Should().Be(ClientID);
-            client.ClientSecret.Should().Be(ClientSecret);
-        }
-
         [Fact]
         public void TestTraktClientWithClientIDAndSecret()
         {
-            var client = new TraktClient(ClientID, ClientSecret);
+            var client = new TraktClient(TestConstants.ClientId, TestConstants.ClientSecret);
 
-            client.Context.Should().NotBeNull();
-            client.Context.ClientID.Should().Be(ClientID);
-            client.Context.ClientSecret.Should().Be(ClientSecret);
-            client.ClientID.Should().Be(ClientID);
-            client.ClientSecret.Should().Be(ClientSecret);
+            client.ClientID.Should().Be(TestConstants.ClientId);
+            client.ClientSecret.Should().Be(TestConstants.ClientSecret);
+        }
+
+        [Fact]
+        public void TestTraktClientCreate()
+        {
+            var client = TraktClient.Create(TestConstants.ClientId, TestConstants.ClientSecret);
+
+            client.ClientID.Should().Be(TestConstants.ClientId);
+            client.ClientSecret.Should().Be(TestConstants.ClientSecret);
+        }
+
+        [Fact]
+        public void TestTraktClientCreateForSandbox()
+        {
+            var client = TraktClient.CreateForSandbox(TestConstants.ClientId, TestConstants.ClientSecret);
+
+            client.ClientID.Should().Be(TestConstants.ClientId);
+            client.ClientSecret.Should().Be(TestConstants.ClientSecret);
         }
     }
 }

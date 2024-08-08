@@ -13,9 +13,9 @@ namespace TraktNET.MoviesModule
         public async Task TestGetMovie(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktContext context = ModuleTestUtility.GetContext(requestUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktMovie> response = await context.Movies.GetMovieAsync(TestConstants.Movies.MovieID, extendedInfo);
+            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieID, extendedInfo);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -54,11 +54,11 @@ namespace TraktNET.MoviesModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetMovieThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktContext context = ModuleTestUtility.GetContext(GetMovieUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieUri, statusCode);
 
             try
             {
-                await context.Movies.GetMovieAsync(TestConstants.Movies.MovieID);
+                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieID);
                 Assert.False(true);
             }
             catch (Exception exception)

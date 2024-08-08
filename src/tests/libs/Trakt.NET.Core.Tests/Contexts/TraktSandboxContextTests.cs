@@ -18,17 +18,6 @@
         }
 
         [Fact]
-        public void TestTraktSandboxContextWithContextIDAndClientIDAndSecret()
-        {
-            var context = new TraktSandboxContext(ContextID, ClientID, ClientSecret);
-
-            context.ID.Should().Be(ContextID);
-            context.ClientID.Should().Be(ClientID);
-            context.ClientSecret.Should().Be(ClientSecret);
-            context.Authorization.Should().NotBeNull();
-        }
-
-        [Fact]
         public void TestTraktSandboxContextHasCorrectBaseUri()
         {
             var context = new TraktSandboxContext(ClientID, ClientSecret);
@@ -42,16 +31,6 @@
             var context = new TraktSandboxContext(ClientID, ClientSecret);
 
             context.BaseAuthorizationUri.AbsoluteUri.Should().Be("https://staging.trakt.tv/");
-        }
-
-        [Fact]
-        public void TestTraktSandboxContextInvalidContextID()
-        {
-            Action act = () => _ = new TraktSandboxContext(string.Empty, ClientID, ClientSecret);
-            act.Should().Throw<ArgumentException>();
-
-            act = () => _ = new TraktSandboxContext("    ", ClientID, ClientSecret);
-            act.Should().Throw<ArgumentException>();
         }
 
         [Fact]

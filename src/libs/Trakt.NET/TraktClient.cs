@@ -4,107 +4,107 @@
     /// Provides access to all functionality of this library.<para/>
     /// Provides the only access to all of the library's modules.
     /// </summary>
-    public sealed class TraktClient
+    public sealed partial class TraktClient
     {
-        /// <summary>Gets the context of the Trakt Client. See also <seealso cref="TraktContext" />.</summary>
-        public TraktContext Context { get; }
-
         /// <summary>Gets or sets the Trakt Client Id. See also <seealso cref="ClientSecret" />.</summary>
         public string ClientID
         {
-            get => Context.ClientID;
-            set => Context.ClientID = value;
+            get => _context.ClientID;
+            set => _context.ClientID = value;
         }
 
         /// <summary>Gets or sets the Trakt Client Secret. See also <seealso cref="ClientID" />.</summary>
         public string ClientSecret
         {
-            get => Context.ClientSecret;
-            set => Context.ClientSecret = value;
+            get => _context.ClientSecret;
+            set => _context.ClientSecret = value;
         }
 
         public TraktAuthorization Authorization
         {
-            get => Context.Authorization;
-            set => Context.Authorization = value ?? new TraktAuthorization();
+            get => _context.Authorization;
+            set => _context.Authorization = value ?? new TraktAuthorization();
+        }
+
+        public bool IgnoreOAuthIfOptional
+        {
+            get => _context.IgnoreOAuthIfOptional;
+            set => _context.IgnoreOAuthIfOptional = value;
         }
 
         /// <summary>Provides access to the authentication module. See <seealso cref="TraktAuthModule" />.</summary>
-        public TraktAuthModule Auth => Context.Auth;
+        public TraktAuthModule Auth => _context.Auth;
 
         /// <summary>Provides access to the calendar module. See <seealso cref="TraktCalendarModule" />.</summary>
-        public TraktCalendarModule Calendar => Context.Calendar;
+        public TraktCalendarModule Calendar => _context.Calendar;
 
         /// <summary>Provides access to the certifications module. See <seealso cref="TraktCertificationsModule" />.</summary>
-        public TraktCertificationsModule Certifications => Context.Certifications;
+        public TraktCertificationsModule Certifications => _context.Certifications;
 
         /// <summary>Provides access to the checkins module. See <seealso cref="TraktCheckinsModule" />.</summary>
-        public TraktCheckinsModule Checkins => Context.Checkins;
+        public TraktCheckinsModule Checkins => _context.Checkins;
 
         /// <summary>Provides access to the commends module. See <seealso cref="TraktCommentsModule" />.</summary>
-        public TraktCommentsModule Comments => Context.Comments;
+        public TraktCommentsModule Comments => _context.Comments;
 
         /// <summary>Provides access to the countries module. See <seealso cref="TraktCountriesModule" />.</summary>
-        public TraktCountriesModule Countries => Context.Countries;
+        public TraktCountriesModule Countries => _context.Countries;
 
         /// <summary>Provides access to the episodes module. See <seealso cref="TraktEpisodesModule" />.</summary>
-        public TraktEpisodesModule Episodes => Context.Episodes;
+        public TraktEpisodesModule Episodes => _context.Episodes;
 
         /// <summary>Provides access to the genres module. See <seealso cref="TraktGenresModule" />.</summary>
-        public TraktGenresModule Genres => Context.Genres;
+        public TraktGenresModule Genres => _context.Genres;
 
         /// <summary>Provides access to the languages module. See <seealso cref="TraktLanguagesModule" />.</summary>
-        public TraktLanguagesModule Languages => Context.Languages;
+        public TraktLanguagesModule Languages => _context.Languages;
 
         /// <summary>Provides access to the lists module. See <seealso cref="TraktListsModule" />.</summary>
-        public TraktListsModule Lists => Context.Lists;
+        public TraktListsModule Lists => _context.Lists;
 
         /// <summary>Provides access to the movies module. See <seealso cref="TraktMoviesModule" />.</summary>
-        public TraktMoviesModule Movies => Context.Movies;
+        public TraktMoviesModule Movies => _context.Movies;
 
         /// <summary>Provides access to the networks module. See <seealso cref="TraktNetworksModule" />.</summary>
-        public TraktNetworksModule Networks => Context.Networks;
+        public TraktNetworksModule Networks => _context.Networks;
 
         /// <summary>Provides access to the notes module. See <seealso cref="TraktNotesModule" />.</summary>
-        public TraktNotesModule Notes => Context.Notes;
+        public TraktNotesModule Notes => _context.Notes;
 
         /// <summary>Provides access to the people module. See <seealso cref="TraktPeopleModule" />.</summary>
-        public TraktPeopleModule People => Context.People;
+        public TraktPeopleModule People => _context.People;
 
         /// <summary>Provides access to the recommendations module. See <seealso cref="TraktRecommendationsModule" />.</summary>
-        public TraktRecommendationsModule Recommendations => Context.Recommendations;
+        public TraktRecommendationsModule Recommendations => _context.Recommendations;
 
         /// <summary>Provides access to the scrobble module. See <seealso cref="TraktScrobbleModule" />.</summary>
-        public TraktScrobbleModule Scrobble => Context.Scrobble;
+        public TraktScrobbleModule Scrobble => _context.Scrobble;
 
         /// <summary>Provides access to the search module. See <seealso cref="TraktSearchModule" />.</summary>
-        public TraktSearchModule Search => Context.Search;
+        public TraktSearchModule Search => _context.Search;
 
         /// <summary>Provides access to the seasons module. See <seealso cref="TraktSeasonsModule" />.</summary>
-        public TraktSeasonsModule Seasons => Context.Seasons;
+        public TraktSeasonsModule Seasons => _context.Seasons;
 
         /// <summary>Provides access to the shows module. See <seealso cref="TraktShowsModule" />.</summary>
-        public TraktShowsModule Shows => Context.Shows;
+        public TraktShowsModule Shows => _context.Shows;
 
         /// <summary>Provides access to the sync module. See <seealso cref="TraktSyncModule" />.</summary>
-        public TraktSyncModule Sync => Context.Sync;
+        public TraktSyncModule Sync => _context.Sync;
 
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
-        public TraktUsersModule Users => Context.Users;
+        public TraktUsersModule Users => _context.Users;
+
+        public static TraktClient Create(string clientID, string clientSecret) => new(new TraktDefaultContext(clientID, clientSecret));
+
+        public static TraktClient CreateForSandbox(string clientID, string clientSecret) => new(new TraktSandboxContext(clientID, clientSecret));
 
         /// <summary>Initializes a new instance of the <see cref="TraktClient" /> class.</summary>
         /// <param name="clientID">The Trakt Client Id. See <seealso cref="ClientID" />.</param>
         /// <param name="clientSecret">The Trakt Client Secret. See <seealso cref="ClientSecret" />.</param>
         public TraktClient(string clientID, string clientSecret)
             : this(new TraktDefaultContext(clientID, clientSecret))
-        { }
-
-        /// <summary>Initializes a new instance of the <see cref="TraktClient" /> class.</summary>
-        /// <param name="context">The context of Trakt Client. See <seealso cref="Context" />.</param>
-        public TraktClient(TraktContext context)
         {
-            ArgumentValidator.ThrowIfNull(context);
-            Context = context;
         }
     }
 }

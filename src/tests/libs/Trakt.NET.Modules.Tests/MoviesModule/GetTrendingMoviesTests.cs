@@ -22,9 +22,9 @@ namespace TraktNET.MoviesModule
         public async Task TestGetTrendingMovies(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktContext context = ModuleTestUtility.GetContext(requestUri, responseContent, page, 1, limit, 2);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktTrendingMovie> response = await context.Movies.GetTrendingMoviesAsync(extendedInfo, page, limit);
+            TraktPagedResponse<TraktTrendingMovie> response = await client.Movies.GetTrendingMoviesAsync(extendedInfo, page, limit);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -58,9 +58,9 @@ namespace TraktNET.MoviesModule
         public async Task TestGetTrendingMoviesPagingHasPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\trendingmovies_minimal.json");
-            TraktContext context = ModuleTestUtility.GetContext($"{GetTrendingMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktTrendingMovie> response = await context.Movies.GetTrendingMoviesAsync(null, 2);
+            TraktPagedResponse<TraktTrendingMovie> response = await client.Movies.GetTrendingMoviesAsync(null, 2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -82,9 +82,9 @@ namespace TraktNET.MoviesModule
         public async Task TestGetTrendingMoviesPagingHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\trendingmovies_minimal.json");
-            TraktContext context = ModuleTestUtility.GetContext($"{GetTrendingMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktTrendingMovie> response = await context.Movies.GetTrendingMoviesAsync(null, 1);
+            TraktPagedResponse<TraktTrendingMovie> response = await client.Movies.GetTrendingMoviesAsync(null, 1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -106,9 +106,9 @@ namespace TraktNET.MoviesModule
         public async Task TestGetTrendingMoviesPagingHasPreviousPageAndHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\trendingmovies_minimal.json");
-            TraktContext context = ModuleTestUtility.GetContext($"{GetTrendingMoviesUri}?page=2", responseContent, 2, 3, 10, 2);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingMoviesUri}?page=2", responseContent, 2, 3, 10, 2);
 
-            TraktPagedResponse<TraktTrendingMovie> response = await context.Movies.GetTrendingMoviesAsync(null, 2);
+            TraktPagedResponse<TraktTrendingMovie> response = await client.Movies.GetTrendingMoviesAsync(null, 2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -130,9 +130,9 @@ namespace TraktNET.MoviesModule
         public async Task TestGetTrendingMoviesPagingHasNotPreviousPageAndHasNotNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\trendingmovies_minimal.json");
-            TraktContext context = ModuleTestUtility.GetContext($"{GetTrendingMoviesUri}?page=1", responseContent, 1, 1, 10, 2);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingMoviesUri}?page=1", responseContent, 1, 1, 10, 2);
 
-            TraktPagedResponse<TraktTrendingMovie> response = await context.Movies.GetTrendingMoviesAsync(null, 1);
+            TraktPagedResponse<TraktTrendingMovie> response = await client.Movies.GetTrendingMoviesAsync(null, 1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -154,9 +154,9 @@ namespace TraktNET.MoviesModule
         public async Task TestGetTrendingMoviesPagingGetPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\trendingmovies_minimal.json");
-            TraktContext context = ModuleTestUtility.GetContext($"{GetTrendingMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktTrendingMovie> response = await context.Movies.GetTrendingMoviesAsync(null, 2);
+            TraktPagedResponse<TraktTrendingMovie> response = await client.Movies.GetTrendingMoviesAsync(null, 2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -173,7 +173,7 @@ namespace TraktNET.MoviesModule
             response.HasPreviousPage.Should().BeTrue();
             response.HasNextPage.Should().BeFalse();
 
-            ModuleTestUtility.SetContext(context, $"{GetTrendingMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
+            ModuleTestUtility.SetClient(client, $"{GetTrendingMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
             response = await response.GetPreviousPageAsync();
 
@@ -197,9 +197,9 @@ namespace TraktNET.MoviesModule
         public async Task TestGetTrendingMoviesPagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\trendingmovies_minimal.json");
-            TraktContext context = ModuleTestUtility.GetContext($"{GetTrendingMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktTrendingMovie> response = await context.Movies.GetTrendingMoviesAsync(null, 1);
+            TraktPagedResponse<TraktTrendingMovie> response = await client.Movies.GetTrendingMoviesAsync(null, 1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -216,7 +216,7 @@ namespace TraktNET.MoviesModule
             response.HasPreviousPage.Should().BeFalse();
             response.HasNextPage.Should().BeTrue();
 
-            ModuleTestUtility.SetContext(context, $"{GetTrendingMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
+            ModuleTestUtility.SetClient(client, $"{GetTrendingMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
             response = await response.GetNextPageAsync();
 
@@ -257,11 +257,11 @@ namespace TraktNET.MoviesModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetTrendingMoviesThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktContext context = ModuleTestUtility.GetContext(GetTrendingMoviesUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetTrendingMoviesUri, statusCode);
 
             try
             {
-                await context.Movies.GetTrendingMoviesAsync();
+                await client.Movies.GetTrendingMoviesAsync();
                 Assert.False(true);
             }
             catch (Exception exception)

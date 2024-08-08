@@ -5,41 +5,41 @@ namespace TraktNET
 {
     public static class ModuleTestUtility
     {
-        public static TraktContext GetContext([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri,
+        public static TraktClient GetClient([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri,
             [StringSyntax(StringSyntaxAttribute.Json)] string responseContent)
         {
-            var context = TraktContext.Create(TestConstants.ClientId, TestConstants.ClientSecret);
+            var client = TraktClient.Create(TestConstants.ClientId, TestConstants.ClientSecret);
             var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
             httpClientProvider.SetupMockResponse(requestUri, responseContent);
-            context.HttpClientProvider = httpClientProvider;
-            return context;
+            client.HttpClientProvider = httpClientProvider;
+            return client;
         }
 
-        public static TraktContext GetContext([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri,
+        public static TraktClient GetClient([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri,
             [StringSyntax(StringSyntaxAttribute.Json)] string responseContent, uint? page, uint? pageCount, uint? limit, uint? itemCount)
         {
-            var context = TraktContext.Create(TestConstants.ClientId, TestConstants.ClientSecret);
+            var client = TraktClient.Create(TestConstants.ClientId, TestConstants.ClientSecret);
             var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
             httpClientProvider.SetupMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount);
-            context.HttpClientProvider = httpClientProvider;
-            return context;
+            client.HttpClientProvider = httpClientProvider;
+            return client;
         }
 
-        public static void SetContext(TraktContext context, [StringSyntax(StringSyntaxAttribute.Uri)] string requestUri,
+        public static void SetClient(TraktClient client, [StringSyntax(StringSyntaxAttribute.Uri)] string requestUri,
             [StringSyntax(StringSyntaxAttribute.Json)] string responseContent, uint? page, uint? pageCount, uint? limit, uint? itemCount)
         {
             var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
             httpClientProvider.SetupMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount);
-            context.HttpClientProvider = httpClientProvider;
+            client.HttpClientProvider = httpClientProvider;
         }
 
-        public static TraktContext GetContext([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri, HttpStatusCode statusCode)
+        public static TraktClient GetClient([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri, HttpStatusCode statusCode)
         {
-            var context = TraktContext.Create(TestConstants.ClientId, TestConstants.ClientSecret);
+            var client = TraktClient.Create(TestConstants.ClientId, TestConstants.ClientSecret);
             var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
             httpClientProvider.SetupMockResponse(requestUri, statusCode);
-            context.HttpClientProvider = httpClientProvider;
-            return context;
+            client.HttpClientProvider = httpClientProvider;
+            return client;
         }
     }
 }

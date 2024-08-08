@@ -5,9 +5,9 @@
         private string _clientId = string.Empty;
         private string _clientSecret = string.Empty;
 
-        public string ID { get; }
+        internal string ID { get; }
 
-        public string ClientID
+        internal string ClientID
         {
             get => _clientId;
 
@@ -18,7 +18,7 @@
             }
         }
 
-        public string ClientSecret
+        internal string ClientSecret
         {
             get => _clientSecret;
 
@@ -96,14 +96,8 @@
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
         public TraktUsersModule Users { get; }
 
-        public static TraktContext Create(string contextID, string clientID, string clientSecret)
-            => new TraktDefaultContext(contextID, clientID, clientSecret);
-
         public static TraktContext Create(string clientID, string clientSecret)
             => new TraktDefaultContext(clientID, clientSecret);
-
-        public static TraktContext CreateForSandbox(string contextID, string clientID, string clientSecret)
-            => new TraktSandboxContext(contextID, clientID, clientSecret);
 
         public static TraktContext CreateForSandbox(string clientID, string clientSecret)
             => new TraktSandboxContext(clientID, clientSecret);
@@ -114,11 +108,9 @@
 
         internal HttpClientProvider HttpClientProvider { get; set; }
 
-        internal TraktContext(string contextID, string clientID, string clientSecret)
+        internal TraktContext(string clientID, string clientSecret)
         {
-            ArgumentValidator.ThrowIfNullOrWhiteSpace(contextID, "context id must not be null or empty or only whitespace");
-
-            ID = contextID;
+            ID = Guid.NewGuid().ToString();
             ClientID = clientID;
             ClientSecret = clientSecret;
             Authorization = new TraktAuthorization();
@@ -147,11 +139,6 @@
             Shows = new TraktShowsModule(this);
             Sync = new TraktSyncModule(this);
             Users = new TraktUsersModule(this);
-        }
-
-        internal TraktContext(string clientID, string clientSecret)
-            : this(Guid.NewGuid().ToString(), clientID, clientSecret)
-        {
         }
 
         internal HttpClient GetHttpClient() => HttpClientProvider.GetHttpClient(this);
