@@ -108,7 +108,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 2);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -132,7 +132,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 1);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -156,7 +156,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=2", responseContent, 2, 3, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 2);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -180,7 +180,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=1", responseContent, 1, 1, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 1);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -204,7 +204,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 2);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -247,7 +247,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetPopularMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(null, null, 1);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetPopularMoviesAsync(1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

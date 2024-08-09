@@ -1,6 +1,10 @@
 ﻿namespace TraktNET
 {
-    public partial class TraktMoviesModule
+    /// <summary>
+    /// Provides access to data retrieving methods specific to movies.<para />
+    /// This module contains all methods of the <a href ="https://trakt.docs.apiary.io/#reference/movies">"Trakt API Documentation - Movies"</a> section.
+    /// </summary>
+    public partial class TraktMoviesModule(TraktContext context) : BaseModule(context)
     {
         private Task<TraktResponse<TraktMovie>> GetMovieImplAsync(string movieIdOrSlug, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
