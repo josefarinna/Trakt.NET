@@ -2,7 +2,7 @@ namespace TraktNET.GetRequests.Movies
 {
     public sealed class MovieTranslationsGetRequestTests
     {
-        private const string MovieID = TestConstants.Movies.MovieID;
+        private const string MovieID = TestConstants.Movies.MovieSlug;
         private const string URIPath = $"movies/{MovieID}/translations";
 
         [Theory]

@@ -2,7 +2,7 @@
 {
     public sealed class MovieStatisticsGetRequestTests
     {
-        private const string MovieID = TestConstants.Movies.MovieID;
+        private const string MovieID = TestConstants.Movies.MovieSlug;
         private const string URIPath = $"movies/{MovieID}/stats";
 
         [Fact]

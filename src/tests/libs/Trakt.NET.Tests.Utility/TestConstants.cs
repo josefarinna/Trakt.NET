@@ -7,7 +7,17 @@
 
         public static class Movies
         {
-            public const string MovieID = "guardians-of-the-galaxy-volume-3-2023";
+            public const uint MovieID = 293990;
+
+            public const string MovieSlug = "guardians-of-the-galaxy-volume-3-2023";
+
+            public static readonly TraktMovieIds MovieIds = new()
+            {
+                Trakt = 293990,
+                Slug = "guardians-of-the-galaxy-volume-3-2023",
+                IMDB = "tt6791350",
+                TMDB = 447365
+            };
 
             public static readonly TraktFilter Filter = new()
             {
