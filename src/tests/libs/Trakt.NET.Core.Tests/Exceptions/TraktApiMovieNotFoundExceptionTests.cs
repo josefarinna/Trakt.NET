@@ -21,7 +21,7 @@
             exception.ContentHeaders.Should().NotBeNull();
             exception.Message.Should().Be("Trakt API request failed. Movie Not Found - method exists, but no record found");
 
-            exception.MovieId.Should().Be("movieId");
+            exception.MovieID.Should().Be("movieId");
         }
     }
 }

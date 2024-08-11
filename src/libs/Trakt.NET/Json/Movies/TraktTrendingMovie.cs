@@ -2,12 +2,16 @@
 
 namespace TraktNET
 {
+    /// <summary>A trending Trakt movie.</summary>
     public record class TraktTrendingMovie
     {
+        /// <summary>The watcher count for the <see cref="Movie" />.</summary>
         public uint? Watchers { get; set; }
 
+        /// <summary>The Trakt movie. See also <seealso cref="TraktMovie" />.</summary>
         public TraktMovie? Movie { get; set; }
 
+        /// <summary>The movie title.</summary>
         [JsonIgnore]
         public string? Title
         {
@@ -22,6 +26,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The movie release year.</summary>
         [JsonIgnore]
         public uint? Year
         {
@@ -36,6 +41,10 @@ namespace TraktNET
             }
         }
 
+        /// <summary>
+        /// The collection of IDs of the movie for various web services.
+        /// See also <seealso cref="TraktMovieIds" />.
+        /// </summary>
         [JsonIgnore]
         public TraktMovieIds? Ids
         {
@@ -50,6 +59,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The movie tagline.</summary>
         [JsonIgnore]
         public string? Tagline
         {
@@ -64,6 +74,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The synopsis of the movie.</summary>
         [JsonIgnore]
         public string? Overview
         {
@@ -79,6 +90,7 @@ namespace TraktNET
         }
 
 #if NET6_0_OR_GREATER
+        /// <summary>The date when the movie was released.</summary>
         [JsonIgnore]
         public DateOnly? Released
         {
@@ -93,8 +105,9 @@ namespace TraktNET
             }
         }
 #else
+        /// <summary>The UTC datetime when the movie was released.</summary>
         [JsonIgnore]
-        public string? Released
+        public DateTime? Released
         {
             get => Movie?.Released;
             
@@ -108,6 +121,7 @@ namespace TraktNET
         }
 #endif
 
+        /// <summary>The runtime of the movie.</summary>
         [JsonIgnore]
         public uint? Runtime
         {
@@ -122,6 +136,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The country code of the movie.</summary>
         [JsonIgnore]
         public string? Country
         {
@@ -136,6 +151,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The web address of a trailer of the movie.</summary>
         [JsonIgnore]
         public string? Trailer
         {
@@ -150,6 +166,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The web address of the homepage of the movie.</summary>
         [JsonIgnore]
         public string? Homepage
         {
@@ -164,6 +181,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The movie's current status. See also <seealso cref="TraktMovieStatus" />.</summary>
         [JsonIgnore]
         public TraktMovieStatus? Status
         {
@@ -178,6 +196,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The average user rating of the movie.</summary>
         [JsonIgnore]
         public float? Rating
         {
@@ -192,6 +211,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The number of votes of the movie.</summary>
         [JsonIgnore]
         public uint? Votes
         {
@@ -206,6 +226,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The comment count of the movie.</summary>
         [JsonIgnore]
         public uint? CommentCount
         {
@@ -220,6 +241,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The UTC datetime when the movie was last updated.</summary>
         [JsonIgnore]
         public DateTime? UpdatedAt
         {
@@ -234,6 +256,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The language code of the movie.</summary>
         [JsonIgnore]
         public string? Language
         {
@@ -248,8 +271,9 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The list of language codes of the movie.</summary>
         [JsonIgnore]
-        public IList<string>? Languages
+        public List<string>? Languages
         {
             get => Movie?.Languages;
 
@@ -262,8 +286,9 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The list of translation language codes of the movie.</summary>
         [JsonIgnore]
-        public IList<string>? AvailableTranslations
+        public List<string>? AvailableTranslations
         {
             get => Movie?.AvailableTranslations;
 
@@ -276,8 +301,9 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The collection of Trakt genre slugs of the movie.</summary>
         [JsonIgnore]
-        public IList<string>? Genres
+        public List<string>? Genres
         {
             get => Movie?.Genres;
 
@@ -290,6 +316,7 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The content certification of the movie.</summary>
         [JsonIgnore]
         public string? Certification
         {

@@ -20,12 +20,14 @@
             set => _context.ClientSecret = value;
         }
 
+        /// <summary>Gets or sets the Trakt Authorization information. See also <seealso cref="TraktAuthorization" />.</summary>
         public TraktAuthorization Authorization
         {
             get => _context.Authorization;
             set => _context.Authorization = value ?? new TraktAuthorization();
         }
 
+        /// <summary>Gets or sets, whether authorization should be ignored, if it is optional. This is disabled by default.</summary>
         public bool IgnoreOAuthIfOptional
         {
             get => _context.IgnoreOAuthIfOptional;
@@ -95,8 +97,22 @@
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
         public TraktUsersModule Users => _context.Users;
 
+        /// <summary>
+        /// Create the a <see cref="TraktClient" /> with the given <paramref name="clientID" /> and <paramref name="clientSecret" />.
+        /// </summary>
+        /// <param name="clientID">The Trakt Client ID to be used in the <see cref="TraktClient" />.</param>
+        /// <param name="clientSecret">The Trakt Client Secret to be used in the <see cref="TraktClient" />.</param>
+        /// <returns>A <see cref="TraktClient" /> instance.</returns>
         public static TraktClient Create(string clientID, string clientSecret) => new(new TraktDefaultContext(clientID, clientSecret));
 
+        /// <summary>
+        /// Create the a <see cref="TraktClient" /> with the given <paramref name="clientID" /> and <paramref name="clientSecret" />.
+        /// <para />
+        /// The created <see cref="TraktClient" /> uses Trakt's sandbox environment.
+        /// </summary>
+        /// <param name="clientID">The Trakt Client ID to be used in the <see cref="TraktClient" />.</param>
+        /// <param name="clientSecret">The Trakt Client Secret to be used in the <see cref="TraktClient" />.</param>
+        /// <returns>A <see cref="TraktClient" /> instance.</returns>
         public static TraktClient CreateForSandbox(string clientID, string clientSecret) => new(new TraktSandboxContext(clientID, clientSecret));
 
         /// <summary>Initializes a new instance of the <see cref="TraktClient" /> class.</summary>

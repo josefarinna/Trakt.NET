@@ -2,29 +2,52 @@
 
 namespace TraktNET
 {
+    /// <inheritdoc />
     public record class TraktEpisode : TraktEpisodeMinimal
     {
+        /// <summary>The absolute episode number of all episodes in all seasons.</summary>
         [JsonPropertyName("number_abs")]
         public uint? NumberAbsolute { get; set; }
 
+        /// <summary>The synopsis of the episode.</summary>
         public string? Overview { get; set; }
 
+        /// <summary>The average user rating of the episode.</summary>
         public float? Rating { get; set; }
 
+        /// <summary>The number of votes for the episode.</summary>
         public uint? Votes { get; set; }
 
+        /// <summary>The comment count of the episode.</summary>
         public uint? CommentCount { get; set; }
 
+        /// <summary>The UTC datetime when the episode was first aired.</summary>
         public DateTime? FirstAired { get; set; }
 
+        /// <summary>The UTC datetime when the episode was last updated.</summary>
         public DateTime? UpdatedAt { get; set; }
 
+        /// <summary>The runtime of the episode.</summary>
         public uint? Runtime { get; set; }
 
+        /// <summary>The episode type. See also <seealso cref="TraktEpisodeType" />.</summary>
         public TraktEpisodeType? EpisodeType { get; set; }
 
-        public IList<string>? AvailableTranslations { get; set; }
+        /// <summary>The list of translation language codes for the episode.</summary>
+        public List<string>? AvailableTranslations { get; set; }
 
-        public IList<TraktEpisodeTranslation>? Translations { get; set; }
+        /// <summary>The list of <see cref="TraktEpisodeTranslation" />s for the episode.</summary>
+        /// <seealso cref="TraktSeason.Episodes" />
+        /// <remarks>
+        /// This property is set automatically if this episode is in a
+        /// <see cref="TraktSeason.Episodes" /> collection and the episode's season
+        /// is in a collection of seasons returned by
+        /// <see cref="TraktSeasonsModule.GetAllSeasonsAsync(string, TraktExtendedInfo, string, CancellationToken)" />
+        /// and a translation language code was specified.
+        /// This property is also set automatically if this episode is in
+        /// a collection returned by <see cref="TraktSeasonsModule.GetSeasonAsync(string, uint, TraktExtendedInfo, string, CancellationToken)" />
+        /// and a translation language code was specified.
+        /// </remarks>
+        public List<TraktEpisodeTranslation>? Translations { get; set; }
     }
 }

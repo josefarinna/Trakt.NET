@@ -21,7 +21,7 @@
             exception.ContentHeaders.Should().NotBeNull();
             exception.Message.Should().Be("Trakt API request failed. User Not Found - method exists, but no record found");
 
-            exception.UserId.Should().Be("userId");
+            exception.UserID.Should().Be("userId");
         }
     }
 }

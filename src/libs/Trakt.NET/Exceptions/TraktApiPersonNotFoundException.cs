@@ -3,6 +3,7 @@
     /// <summary>Exception, that will be thrown, if a person was not found.</summary>
     public sealed partial class TraktApiPersonNotFoundException : TraktApiObjectNotFoundException
     {
-        public string PersonId => ObjectId;
+        /// <summary>The not found person ID.</summary>
+        public string PersonID => ObjectID;
     }
 }

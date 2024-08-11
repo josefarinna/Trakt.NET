@@ -1,9 +1,15 @@
 ﻿namespace TraktNET
 {
+    /// <summary>A Trakt season.</summary>
     public record class TraktSeasonMinimal
     {
+        /// <summary>The season number.</summary>
         public uint? Number { get; set; }
 
+        /// <summary>
+        /// The collection of IDs for the season for various web services.
+        /// See also <seealso cref="TraktSeasonIds" />.
+        /// </summary>
         public TraktSeasonIds? Ids { get; set; }
     }
 }

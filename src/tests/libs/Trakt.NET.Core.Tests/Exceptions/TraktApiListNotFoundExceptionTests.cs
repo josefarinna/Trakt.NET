@@ -21,7 +21,7 @@
             exception.ContentHeaders.Should().NotBeNull();
             exception.Message.Should().Be("Trakt API request failed. List Not Found - method exists, but no record found");
 
-            exception.ListId.Should().Be("listId");
+            exception.ListID.Should().Be("listId");
         }
     }
 }

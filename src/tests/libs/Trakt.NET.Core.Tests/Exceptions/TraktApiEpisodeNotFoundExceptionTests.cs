@@ -21,7 +21,7 @@
             exception.ContentHeaders.Should().NotBeNull();
             exception.Message.Should().Be("Trakt API request failed. Episode Not Found - method exists, but no record found");
 
-            exception.ShowId.Should().Be("showId");
+            exception.ShowID.Should().Be("showId");
             exception.SeasonNumber.Should().Be(1U);
             exception.EpisodeNumber.Should().Be(1U);
         }

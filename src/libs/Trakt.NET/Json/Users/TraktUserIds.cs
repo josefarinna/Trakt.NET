@@ -2,15 +2,20 @@
 
 namespace TraktNET
 {
+    /// <summary>A collection of IDs for a Trakt user.</summary>
     public record class TraktUserIds : ITraktIds
     {
+        /// <summary>The Trakt slug.</summary>
         public string? Slug { get; set; }
 
+        /// <summary>The globally unique UUID.</summary>
         public string? UUID { get; set; }
 
+        /// <inheritdoc />
         [JsonIgnore]
         public bool HasAnyID => !string.IsNullOrWhiteSpace(Slug) || !string.IsNullOrWhiteSpace(UUID);
 
+        /// <inheritdoc />
         [JsonIgnore]
         public string BestID
         {
