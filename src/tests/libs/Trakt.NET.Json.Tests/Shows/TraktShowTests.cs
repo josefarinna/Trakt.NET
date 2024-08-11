@@ -78,7 +78,11 @@
 
             show!.Airs.Should().NotBeNull();
             show!.Airs!.Day.Should().Be(TraktDayOfWeek.Sunday);
+#if NET7_0_OR_GREATER
             show!.Airs!.Time.Should().Be(TestUtility.ParseTime("21:00"));
+#else
+            show!.Airs!.Time.Should().Be("21:00");
+#endif
             show!.Airs!.Timezone.Should().Be("America/New_York");
 
             show!.Runtime.Should().Be(57U);

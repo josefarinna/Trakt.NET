@@ -9,7 +9,7 @@
         /// <summary>The synopsis of the movie.</summary>
         public string? Overview { get; set; }
 
-#if NET6_0_OR_GREATER
+#if NET7_0_OR_GREATER
         /// <summary>The date when the movie was released.</summary>
         public DateOnly? Released { get; set; }
 #else

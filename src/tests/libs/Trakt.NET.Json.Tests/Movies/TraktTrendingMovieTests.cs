@@ -74,7 +74,11 @@
             trendingMovie!.Overview.Should().Be("A listless Wade Wilson toils away in civilian life with his days as the morally "
                 + "flexible mercenary, Deadpool, behind him.");
 
+#if NET7_0_OR_GREATER
             trendingMovie!.Released.Should().Be(TestUtility.ParseDate("2024-07-26"));
+#else
+            trendingMovie!.Released.Should().Be(TestUtility.ParseUTCDateTime("2024-07-26T00:00:00.000Z"));
+#endif
             trendingMovie!.Runtime.Should().Be(128U);
             trendingMovie!.Country.Should().Be("us");
             trendingMovie!.Trailer.Should().Be("https://youtube.com/watch?v=Idh8n5XuYIA");
@@ -169,7 +173,11 @@
             trendingMovie.Overview.Should().Be("A listless Wade Wilson toils away in civilian life with his days as the morally "
                 + "flexible mercenary, Deadpool, behind him.");
 
-            trendingMovie.Released.Should().Be(TestUtility.ParseDate("2024-07-26"));
+#if NET7_0_OR_GREATER
+            trendingMovie!.Released.Should().Be(TestUtility.ParseDate("2024-07-26"));
+#else
+            trendingMovie!.Released.Should().Be(TestUtility.ParseUTCDateTime("2024-07-26T00:00:00.000Z"));
+#endif
             trendingMovie.Runtime.Should().Be(128U);
             trendingMovie.Country.Should().Be("us");
             trendingMovie.Trailer.Should().Be("https://youtube.com/watch?v=Idh8n5XuYIA");
@@ -216,7 +224,11 @@
             trendingMovie.Overview.Should().Be("Several generations following Caesar's reign, apes – now the dominant species – "
                 + "live harmoniously while humans have been reduced to living in the shadows.");
 
-            trendingMovie.Released.Should().Be(TestUtility.ParseDate("2024-05-10"));
+#if NET7_0_OR_GREATER
+            trendingMovie!.Released.Should().Be(TestUtility.ParseDate("2024-05-10"));
+#else
+            trendingMovie!.Released.Should().Be(TestUtility.ParseUTCDateTime("2024-05-10T00:00:00.000Z"));
+#endif
             trendingMovie.Runtime.Should().Be(145U);
             trendingMovie.Country.Should().Be("us");
             trendingMovie.Trailer.Should().Be("https://youtube.com/watch?v=Tg1FesR8X90");

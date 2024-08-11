@@ -89,7 +89,7 @@ namespace TraktNET
             }
         }
 
-#if NET6_0_OR_GREATER
+#if NET7_0_OR_GREATER
         /// <summary>The date when the movie was released.</summary>
         [JsonIgnore]
         public DateOnly? Released

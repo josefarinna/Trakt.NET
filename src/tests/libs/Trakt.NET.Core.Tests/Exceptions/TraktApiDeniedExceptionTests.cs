@@ -1,4 +1,8 @@
-﻿namespace TraktNET.Exceptions
+﻿#if TRAKT_OLDER_NET_TARGETS
+using System.Net.Http;
+#endif
+
+namespace TraktNET.Exceptions
 {
     public class TraktApiDeniedExceptionTests
     {

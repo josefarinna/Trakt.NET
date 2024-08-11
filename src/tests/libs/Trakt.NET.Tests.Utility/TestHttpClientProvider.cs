@@ -1,6 +1,10 @@
 ﻿using RichardSzalay.MockHttp;
-using System.Diagnostics.CodeAnalysis;
 using System.Net;
+
+#if TRAKT_OLDER_NET_TARGETS
+using System.Net.Http;
+#endif
+
 using System.Net.Http.Headers;
 using System.Text;
 
@@ -31,8 +35,7 @@ namespace TraktNET
             _baseUrl = baseUrl;
         }
 
-        public void SetupMockResponse([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri,
-            [StringSyntax(StringSyntaxAttribute.Json)] string responseContent)
+        public void SetupMockResponse(string requestUri, string responseContent)
         {
             if (string.IsNullOrWhiteSpace(requestUri))
             {
@@ -59,8 +62,7 @@ namespace TraktNET
                 .Respond(_ => response);
         }
 
-        public void SetupMockResponse([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri,
-            [StringSyntax(StringSyntaxAttribute.Json)] string responseContent, uint? page, uint? pageCount, uint? limit, uint? itemCount)
+        public void SetupMockResponse(string requestUri, string responseContent, uint? page, uint? pageCount, uint? limit, uint? itemCount)
         {
             if (string.IsNullOrWhiteSpace(requestUri))
             {
@@ -92,7 +94,7 @@ namespace TraktNET
                 .Respond(_ => response);
         }
 
-        public void SetupMockResponse([StringSyntax(StringSyntaxAttribute.Uri)] string requestUri, HttpStatusCode statusCode)
+        public void SetupMockResponse(string requestUri, HttpStatusCode statusCode)
         {
             if (string.IsNullOrWhiteSpace(requestUri))
             {

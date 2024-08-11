@@ -1,6 +1,10 @@
 ﻿using System.Net;
 using System.Text;
 
+#if TRAKT_OLDER_NET_TARGETS
+using System.Net.Http;
+#endif
+
 namespace TraktNET.Exceptions
 {
     internal static class ExceptionsTestUtility

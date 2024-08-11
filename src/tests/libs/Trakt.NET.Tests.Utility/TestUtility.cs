@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Reflection;
 using System.Text.Json;
 
@@ -41,16 +41,18 @@ namespace TraktNET
             JsonSerializerContext jsonSerializerContext = JsonSerializerContextFactory.GetContext<T>();
             return await JsonSerializer.DeserializeAsync(stream, typeof(IReadOnlyList<T>), jsonSerializerContext) as IReadOnlyList<T>;
 #else
-            return await JsonSerializer.DeserializeAsync<T>(stream, Constants.Json.JsonOptions);
+            return await JsonSerializer.DeserializeAsync<IReadOnlyList<T>>(stream, Constants.Json.JsonOptions);
 #endif
         }
 
         public static DateTime ParseUTCDateTime(string dateTime)
             => DateTime.Parse(dateTime, CultureInfo.InvariantCulture).ToUniversalTime();
 
+#if NET7_0_OR_GREATER
         public static DateOnly ParseDate(string date) => DateOnly.Parse(date, CultureInfo.InvariantCulture);
 
         public static TimeOnly ParseTime(string time) => TimeOnly.ParseExact(time, "HH:mm", CultureInfo.InvariantCulture);
+#endif
 
         private static string GetJsonFilepath(string jsonFilename)
             => Path.Combine(GetLocation(), Path.Combine("..\\..\\..\\..\\JsonData", jsonFilename));
@@ -58,9 +60,21 @@ namespace TraktNET
         private static string GetLocation()
         {
             if (!string.IsNullOrWhiteSpace(_location))
+            {
                 return _location!;
+            }
 
+#if TRAKT_OLDER_NET_TARGETS
+            _location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
+
+            // Known issue in 4.x.x .NET versions.
+            // Filepaths do not work with URIs.
+            // This is a workaround.
+            _location = _location.Replace("file:\\", string.Empty);
+#else
             _location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+#endif
+
             return _location!;
         }
     }

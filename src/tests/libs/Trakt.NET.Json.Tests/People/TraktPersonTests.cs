@@ -65,7 +65,12 @@
                 + "is mainly known for portraying Walter White in the AMC crime drama series Breaking Bad (2008–2013) and Hal in "
                 + "the Fox sitcom Malcolm in the Middle (2000–2006).");
 
+#if NET7_0_OR_GREATER
             person!.Birthday.Should().Be(TestUtility.ParseDate("1956-03-07"));
+#else
+
+            person!.Birthday.Should().Be(TestUtility.ParseUTCDateTime("1956-03-07T00:00:00.000Z"));
+#endif
             person!.Death.Should().BeNull();
             person!.Birthplace.Should().Be("Hollywood, Los Angeles, California, USA");
             person!.Homepage.Should().BeNull();

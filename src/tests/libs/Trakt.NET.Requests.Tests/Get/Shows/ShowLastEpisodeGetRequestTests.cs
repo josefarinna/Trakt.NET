@@ -1,4 +1,8 @@
-﻿namespace TraktNET.GetRequests.Shows
+﻿#if TRAKT_OLDER_NET_TARGETS
+using System.Net.Http;
+#endif
+
+namespace TraktNET.GetRequests.Shows
 {
     public sealed class ShowLastEpisodeGetRequestTests
     {

@@ -1,4 +1,8 @@
-﻿using System.Globalization;
+﻿#if TRAKT_OLDER_NET_TARGETS
+using System.Net.Http;
+#endif
+
+using System.Globalization;
 
 namespace TraktNET.GetRequests.Movies
 {

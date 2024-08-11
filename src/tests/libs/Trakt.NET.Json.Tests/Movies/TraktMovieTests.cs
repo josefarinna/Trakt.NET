@@ -70,7 +70,11 @@
                 + "universe along with protecting one of their own. A mission that, if not completed successfully, could quite possibly "
                 + "lead to the end of the Guardians as we know them.");
 
+#if NET7_0_OR_GREATER
             movie!.Released.Should().Be(TestUtility.ParseDate("2023-05-05"));
+#else
+            movie!.Released.Should().Be(TestUtility.ParseUTCDateTime("2023-05-05T00:00:00.000Z"));
+#endif
             movie!.Runtime.Should().Be(150U);
             movie!.Country.Should().Be("us");
             movie!.Trailer.Should().Be("https://youtube.com/watch?v=AAE5VZktooM");

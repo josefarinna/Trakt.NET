@@ -3,7 +3,7 @@
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>$(TestTargetFrameworks)</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <OutputType>Library</OutputType>
   </PropertyGroup>
@@ -17,6 +17,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="$(DefineConstants.Contains(TRAKT_OLDER_NET_TARGETS))">
+    <PackageReference Include="System.Net.Http" />
   </ItemGroup>
 
 </Project>

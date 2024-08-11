@@ -4,6 +4,10 @@
     <LibraryCopyright>© 2016 - $([System.DateTime]::Now.ToString("yyyy")) by Henrik Fröhling and Contributors</LibraryCopyright>
     <LibraryTargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0;net7.0;net8.0</LibraryTargetFrameworks>
     <HttpClientFactoryLibraryTargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0</HttpClientFactoryLibraryTargetFrameworks>
+    <TestTargetFrameworks>net472;net481;net6.0;net7.0;net8.0</TestTargetFrameworks>
+
+    <!-- These tests use Verify packages which only support these .NET versions. -->
+    <SourceGenerationTestTargetFrameworks>net6.0;net7.0;net8.0</SourceGenerationTestTargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>

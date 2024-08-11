@@ -6,7 +6,7 @@
         /// <summary>The day of week on which the show airs. See also <seealso cref="TraktDayOfWeek" />.</summary>
         public TraktDayOfWeek? Day { get; set; }
 
-#if NET6_0_OR_GREATER
+#if NET7_0_OR_GREATER
         /// <summary>The time of day at which the show airs.</summary>
         public TimeOnly? Time { get; set; }
 #else

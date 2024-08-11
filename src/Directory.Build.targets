@@ -4,4 +4,8 @@
     <DefineConstants>$(DefineConstants);NET5_0_OR_GREATER</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net472' OR '$(TargetFramework)' == 'net481'">
+    <DefineConstants>$(DefineConstants);TRAKT_OLDER_NET_TARGETS</DefineConstants>
+  </PropertyGroup>
+
 </Project>

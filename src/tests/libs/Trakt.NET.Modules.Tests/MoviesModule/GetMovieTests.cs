@@ -94,10 +94,16 @@ namespace TraktNET.MoviesModule
         [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
         [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
         [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_OLDER_NET_TARGETS
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
         [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
         [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
         [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
         [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
         [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
         [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
@@ -129,10 +135,16 @@ namespace TraktNET.MoviesModule
         [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
         [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
         [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_OLDER_NET_TARGETS
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
         [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
         [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
         [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
         [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
         [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
         [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
@@ -164,10 +176,16 @@ namespace TraktNET.MoviesModule
         [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
         [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
         [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_OLDER_NET_TARGETS
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
         [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
         [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
         [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
         [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
         [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
         [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]

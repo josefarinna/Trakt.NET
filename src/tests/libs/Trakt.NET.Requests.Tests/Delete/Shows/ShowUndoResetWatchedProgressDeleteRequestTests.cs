@@ -1,4 +1,8 @@
-﻿namespace TraktNET.DeleteRequests.Shows
+﻿#if TRAKT_OLDER_NET_TARGETS
+using System.Net.Http;
+#endif
+
+namespace TraktNET.DeleteRequests.Shows
 {
     public sealed class ShowUndoResetWatchedProgressDeleteRequestTests
     {

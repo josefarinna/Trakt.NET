@@ -44,7 +44,14 @@ namespace TraktNET
 #if NET5_0_OR_GREATER
             string responseContent = await responseMessage.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 #else
-            string responseContent = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+            HttpContent content = new StringContent(string.Empty);
+            string responseContent = string.Empty;
+
+            if (responseMessage.Content != null)
+            {
+                content = responseMessage.Content;
+                responseContent = await content.ReadAsStringAsync().ConfigureAwait(false);
+            }
 #endif
 
             return new()
@@ -56,7 +63,11 @@ namespace TraktNET
                 ReasonPhrase = responseMessage.ReasonPhrase ?? string.Empty,
                 Headers = responseMessage.Headers,
                 TraktHeaders = traktHeaders,
+#if NET5_0_OR_GREATER
                 ContentHeaders = responseMessage.Content.Headers,
+#else
+                ContentHeaders = responseMessage.Content != null ? responseMessage.Content.Headers : content.Headers,
+#endif
                 Flags = request.Flags,
                 RequestObjectType = request.RequestObjectType,
                 ObjectId = request.ObjectId,

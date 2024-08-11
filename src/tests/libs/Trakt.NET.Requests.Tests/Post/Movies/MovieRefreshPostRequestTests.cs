@@ -1,4 +1,8 @@
-﻿namespace TraktNET.PostRequests.Movies
+﻿#if TRAKT_OLDER_NET_TARGETS
+using System.Net.Http;
+#endif
+
+namespace TraktNET.PostRequests.Movies
 {
     public sealed class MovieRefreshPostRequestTests
     {

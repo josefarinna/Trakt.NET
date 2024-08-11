@@ -1,4 +1,8 @@
-﻿namespace TraktNET
+﻿#if TRAKT_OLDER_NET_TARGETS
+using System.Net.Http;
+#endif
+
+namespace TraktNET
 {
     internal sealed class MockRequest(HttpMethod method, Uri? requestUri, string objectId, uint seasonNumber, uint episodeNumber)
         : RequestBase(method, requestUri)

@@ -12,7 +12,7 @@
         /// <summary>The biography of the person.</summary>
         public string? Biography { get; set; }
 
-#if NET6_0_OR_GREATER
+#if NET7_0_OR_GREATER
         /// <summary>The date when the person was born.</summary>
         public DateOnly? Birthday { get; set; }
 #else
@@ -20,7 +20,7 @@
         public DateTime? Birthday { get; set; }
 #endif
 
-#if NET6_0_OR_GREATER
+#if NET7_0_OR_GREATER
         /// <summary>The date when the person died.</summary>
         public DateOnly? Death { get; set; }
 #else

@@ -1,4 +1,8 @@
-﻿namespace TraktNET.PostRequests.Shows
+﻿#if TRAKT_OLDER_NET_TARGETS
+using System.Net.Http;
+#endif
+
+namespace TraktNET.PostRequests.Shows
 {
     public sealed class ShowResetWatchedProgressPostRequestTests
     {

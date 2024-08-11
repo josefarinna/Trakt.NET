@@ -1,5 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <TargetFrameworks>$(SourceGenerationTestTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Basic.Reference.Assemblies" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />

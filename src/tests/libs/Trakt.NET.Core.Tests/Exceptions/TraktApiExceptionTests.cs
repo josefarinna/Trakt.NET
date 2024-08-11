@@ -1,5 +1,9 @@
 ﻿using System.Net;
 
+#if TRAKT_OLDER_NET_TARGETS
+using System.Net.Http;
+#endif
+
 namespace TraktNET.Exceptions
 {
     public class TraktApiExceptionTests
@@ -7,14 +11,20 @@ namespace TraktNET.Exceptions
         [Fact]
         public async Task TestTraktApiExceptionCreate()
         {
+#if TRAKT_OLDER_NET_TARGETS
+            var httpStatusCode = (HttpStatusCode)451;
+#else
+            HttpStatusCode httpStatusCode = HttpStatusCode.UnavailableForLegalReasons;
+#endif
+
             // Test with a random unused status code
             ExceptionParameters parameters = await ExceptionsTestUtility.CreateMockExceptionParametersAsync(
-                HttpStatusCode.UnavailableForLegalReasons, HttpMethod.Get);
+                httpStatusCode, HttpMethod.Get);
 
             var exception = TraktApiException.Create(parameters);
 
             exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(HttpStatusCode.UnavailableForLegalReasons);
+            exception.StatusCode.Should().Be(httpStatusCode);
             exception.ReasonPhrase.Should().Be("Response status code does not indicate success: 451");
             exception.HttpMethod.Should().Be(HttpMethod.Get);
             exception.RequestMessage.Should().NotBeNull();
