@@ -18,9 +18,9 @@ namespace TraktNET.SourceGeneration.Requests
 
         internal const string TraktExtendedInfoName = "TraktExtendedInfo";
 
-        internal const string TraktRequestParameterAttributeName = "TraktRequestParameter";
+        internal const string TraktRequestParameterAttributeName = "TraktRequestParameterAttribute";
 
-        internal const string TraktRequestQueryAttributeName = "TraktRequestQuery";
+        internal const string TraktRequestQueryAttributeName = "TraktRequestQueryAttribute";
 
         internal const string FullTraktExtendedInfoName = Constants.LibraryNamespace + "." + TraktExtendedInfoName;
 

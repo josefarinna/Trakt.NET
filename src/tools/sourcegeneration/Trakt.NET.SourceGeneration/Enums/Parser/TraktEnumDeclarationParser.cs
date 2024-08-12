@@ -66,7 +66,7 @@ namespace TraktNET.SourceGeneration.Enums
             _enumDeclarationSymbol = (INamedTypeSymbol?)semanticModel.GetDeclaredSymbol(enumDeclaration, cancellationToken);
             Debug.Assert(_enumDeclarationSymbol != null);
 
-            if (_enumDeclarationSymbol != null && _enumDeclarationSymbol.Locations.Length > 0)
+            if (_enumDeclarationSymbol?.Locations.Length > 0)
             {
                 _enumDeclarationLocation = _enumDeclarationSymbol.Locations[0];
             }
@@ -85,39 +85,33 @@ namespace TraktNET.SourceGeneration.Enums
                 if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownEnumSymbols.SystemFlagsAttributeType))
                 {
                     _hasFlagsAttribute = true;
-                }                
+                }
                 else if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownEnumSymbols.TraktEnumAttributeType))
                 {
                     var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
 
-                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyQueryName, out TypedConstant queryNameConstant))
+                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyQueryName, out TypedConstant queryNameConstant)
+                        && queryNameConstant.Value is string queryName)
                     {
-                        if (queryNameConstant.Value is string queryName)
+                        if (string.IsNullOrEmpty(queryName))
                         {
-                            if (string.IsNullOrEmpty(queryName))
-                            {
-                                ReportDiagnostic(DiagnosticDescriptors.InvalidQueryNameValue);
-                                return false;
-                            }
-
-                            _queryName = queryName;
+                            ReportDiagnostic(DiagnosticDescriptors.InvalidQueryNameValue);
+                            return false;
                         }
+
+                        _queryName = queryName;
                     }
 
-                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyHasPathSupport, out TypedConstant hasPathSupportConstant))
+                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyHasPathSupport, out TypedConstant hasPathSupportConstant)
+                        && hasPathSupportConstant.Value is bool hasPathSupport)
                     {
-                        if (hasPathSupportConstant.Value is bool hasPathSupport)
-                        {
-                            _hasPathSupport = hasPathSupport;
-                        }
+                        _hasPathSupport = hasPathSupport;
                     }
 
-                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyHasQuerySupport, out TypedConstant hasQuerySupportConstant))
+                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyHasQuerySupport, out TypedConstant hasQuerySupportConstant)
+                        && hasQuerySupportConstant.Value is bool hasQuerySupport)
                     {
-                        if (hasQuerySupportConstant.Value is bool hasQuerySupport)
-                        {
-                            _hasQuerySupport = hasQuerySupport;
-                        }
+                        _hasQuerySupport = hasQuerySupport;
                     }
                 }
             }

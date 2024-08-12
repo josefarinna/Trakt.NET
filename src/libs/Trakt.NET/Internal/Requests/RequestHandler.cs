@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    internal sealed partial class RequestHandler
+    internal static partial class RequestHandler
     {
         internal static async Task<TraktResponse<TResponseContentType>> ExecuteSingleItemRequestAsync<TResponseContentType>(
             TraktContext context, RequestBase request, CancellationToken cancellationToken = default)
@@ -54,7 +54,11 @@ namespace TraktNET
                 await HandleErrorAsync(request, responseMessage, traktHeaders, false, cancellationToken).ConfigureAwait(false);
             }
 
+#if NET5_0_OR_GREATER
             Stream responseContentStream = await GetResponseContentStreamAsync(responseMessage, cancellationToken).ConfigureAwait(false);
+#else
+            Stream responseContentStream = await GetResponseContentStreamAsync(responseMessage).ConfigureAwait(false);
+#endif
 
             return new RequestResponse
             {
@@ -87,10 +91,11 @@ namespace TraktNET
             request.Headers.Authorization = new AuthenticationHeaderValue(AuthenticationScheme, context.Authorization!.AccessToken ?? string.Empty);
         }
 
-        private static Task<Stream> GetResponseContentStreamAsync(HttpResponseMessage responseMessage, CancellationToken cancellationToken = default)
 #if NET5_0_OR_GREATER
+        private static Task<Stream> GetResponseContentStreamAsync(HttpResponseMessage responseMessage, CancellationToken cancellationToken = default)
             => responseMessage.Content.ReadAsStreamAsync(cancellationToken);
 #else
+        private static Task<Stream> GetResponseContentStreamAsync(HttpResponseMessage responseMessage)
             => responseMessage.Content.ReadAsStreamAsync();
 #endif
     }

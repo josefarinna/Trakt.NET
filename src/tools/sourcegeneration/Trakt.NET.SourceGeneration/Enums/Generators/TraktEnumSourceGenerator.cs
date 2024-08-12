@@ -16,13 +16,15 @@ namespace TraktNET.SourceGeneration.Enums
     public sealed class TraktEnumSourceGenerator : IIncrementalGenerator
     {
         private IncrementalValueProvider<KnownEnumSymbols> _knownEnumTypeSymbols;
-        private IncrementalValuesProvider<EnumGenerationSpecificationTuple> _enumGenerationSpecifications;
 
         public void Initialize(IncrementalGeneratorInitializationContext context)
         {
             _knownEnumTypeSymbols = context.CompilationProvider.Select(static (compilation, _) => new KnownEnumSymbols(compilation));
-            _enumGenerationSpecifications = CombineAndSelectEnumsWithAttribute(context);
-            context.RegisterSourceOutput(_enumGenerationSpecifications, ReportDiagnosticsAndEmitSource);
+
+            IncrementalValuesProvider<EnumGenerationSpecificationTuple> enumGenerationSpecifications =
+                CombineAndSelectEnumsWithAttribute(context);
+
+            context.RegisterSourceOutput(enumGenerationSpecifications, ReportDiagnosticsAndEmitSource);
         }
 
         private IncrementalValuesProvider<EnumGenerationSpecificationTuple> CombineAndSelectEnumsWithAttribute(

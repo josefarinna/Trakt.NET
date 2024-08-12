@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    internal sealed partial class RequestHandler
+    internal static partial class RequestHandler
     {
         private static TraktResponseHeaders ParseTraktResponseHeaders(HttpResponseHeaders responseHeaders)
         {

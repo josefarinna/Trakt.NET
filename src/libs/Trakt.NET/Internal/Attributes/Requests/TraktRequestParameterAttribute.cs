@@ -1,10 +1,8 @@
-namespace TraktNET
+﻿namespace TraktNET
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
-    internal sealed class TraktRequestQuery(string? queryName = null) : Attribute
+    internal sealed class TraktRequestParameterAttribute() : Attribute
     {
-        public string? QueryName { get; } = queryName;
-
         public bool UseCacheEfficientDateTime { get; set; }
     }
 }

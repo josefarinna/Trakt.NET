@@ -108,7 +108,7 @@
 
         internal HttpClientProvider HttpClientProvider { get; set; }
 
-        internal TraktContext(string clientID, string clientSecret)
+        protected TraktContext(string clientID, string clientSecret)
         {
             ID = Guid.NewGuid().ToString();
             ClientID = clientID;

@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    internal sealed partial class RequestHandler
+    internal static partial class RequestHandler
     {
         private static async Task HandleErrorAsync(RequestBase request, HttpResponseMessage responseMessage, TraktResponseHeaders traktHeaders,
                                                    bool isInAuthorizationPolling, CancellationToken cancellationToken = default)
@@ -129,6 +129,10 @@ namespace TraktNET
                     }
                     catch
                     {
+                        // Exception handling while handling an API exception is not considered.
+                        // This might change in the future, but for now just catch any exceptions.
+                        // In this case these might be JsonException or ArgumentNullException.
+                        // In either case the content is not valid.
                     }
                 }
 
@@ -158,6 +162,10 @@ namespace TraktNET
                 }
                 catch
                 {
+                    // Exception handling while handling an API exception is not considered.
+                    // This might change in the future, but for now just catch any exceptions.
+                    // In this case these might be JsonException or ArgumentNullException.
+                    // In either case the content is not valid.
                 }
             }
 

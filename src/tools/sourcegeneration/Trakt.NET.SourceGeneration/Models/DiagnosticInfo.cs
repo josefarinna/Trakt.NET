@@ -10,18 +10,11 @@ namespace TraktNET.SourceGeneration.Models
         public Location? Location { get; private init; }
 
         public static DiagnosticInfo Create(DiagnosticDescriptor descriptor, Location? location)
-        {
-            Location? trimmedLocation = location == null ? null : GetTrimmedLocation(location);
-
-            return new DiagnosticInfo
+            => new()
             {
                 Descriptor = descriptor,
                 Location = location
             };
-
-            static Location? GetTrimmedLocation(Location location)
-                => Location.Create(location.SourceTree?.FilePath ?? string.Empty, location.SourceSpan, location.GetLineSpan().Span);
-        }
 
         public Diagnostic CreateDiagnostic() => Diagnostic.Create(Descriptor, Location);
 

@@ -167,12 +167,10 @@ namespace TraktNET.SourceGeneration.Requests
 
                     var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
 
-                    if (namedArguments.TryGetValue(RequestConstants.TraktRequestParameterOrQueryUseCacheEfficientDateTimeName, out TypedConstant useCacheEfficientDateTimeConstant))
+                    if (namedArguments.TryGetValue(RequestConstants.TraktRequestParameterOrQueryUseCacheEfficientDateTimeName, out TypedConstant useCacheEfficientDateTimeConstant)
+                        && useCacheEfficientDateTimeConstant.Value is bool useCacheEfficientDateTimeValue)
                     {
-                        if (useCacheEfficientDateTimeConstant.Value is bool useCacheEfficientDateTimeValue)
-                        {
-                            useCacheEfficientDateTime = useCacheEfficientDateTimeValue;
-                        }
+                        useCacheEfficientDateTime = useCacheEfficientDateTimeValue;
                     }
                 }
                 else if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestQueryAttributeType))
@@ -199,12 +197,10 @@ namespace TraktNET.SourceGeneration.Requests
 
                     var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
 
-                    if (namedArguments.TryGetValue(RequestConstants.TraktRequestParameterOrQueryUseCacheEfficientDateTimeName, out TypedConstant useCacheEfficientDateTimeConstant))
+                    if (namedArguments.TryGetValue(RequestConstants.TraktRequestParameterOrQueryUseCacheEfficientDateTimeName, out TypedConstant useCacheEfficientDateTimeConstant)
+                        && useCacheEfficientDateTimeConstant.Value is bool useCacheEfficientDateTimeValue)
                     {
-                        if (useCacheEfficientDateTimeConstant.Value is bool useCacheEfficientDateTimeValue)
-                        {
-                            useCacheEfficientDateTime = useCacheEfficientDateTimeValue;
-                        }
+                        useCacheEfficientDateTime = useCacheEfficientDateTimeValue;
                     }
                 }
             }
@@ -342,7 +338,7 @@ namespace TraktNET.SourceGeneration.Requests
             _requestClassDeclarationSymbol = semanticModel.GetDeclaredSymbol(classDeclaration, cancellationToken);
             Debug.Assert(_requestClassDeclarationSymbol != null);
 
-            if (_requestClassDeclarationSymbol != null && _requestClassDeclarationSymbol.Locations.Length > 0)
+            if (_requestClassDeclarationSymbol?.Locations.Length > 0)
             {
                 _requestClassDeclarationLocation = _requestClassDeclarationSymbol.Locations[0];
             }
@@ -369,42 +365,34 @@ namespace TraktNET.SourceGeneration.Requests
 
             var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
 
-            if (_knownRequestSymbols.TraktExtendedInfoEnumType != null)
+            if (_knownRequestSymbols.TraktExtendedInfoEnumType != null
+                && namedArguments.TryGetValue(RequestConstants.TraktRequestPropertySupportsExtendedInfoName, out TypedConstant supportsExtendedInfoConstant)
+                && supportsExtendedInfoConstant.Value is bool supportsExtendedInfo)
             {
-                if (namedArguments.TryGetValue(RequestConstants.TraktRequestPropertySupportsExtendedInfoName, out TypedConstant supportsExtendedInfoConstant))
-                {
-                    if (supportsExtendedInfoConstant.Value is bool supportsExtendedInfo)
-                    {
-                        _requestSupportsExtendedInfo = supportsExtendedInfo;
-                    }
-                }
+                _requestSupportsExtendedInfo = supportsExtendedInfo;
             }
 
-            if (namedArguments.TryGetValue(RequestConstants.TraktRequestPropertySupportsPaginationName, out TypedConstant supportsPaginationConstant))
+            if (namedArguments.TryGetValue(RequestConstants.TraktRequestPropertySupportsPaginationName, out TypedConstant supportsPaginationConstant)
+                && supportsPaginationConstant.Value is bool supportsPagination)
             {
-                if (supportsPaginationConstant.Value is bool supportsPagination)
-                {
-                    _requestSupportsPagination = supportsPagination;
-                }
+                _requestSupportsPagination = supportsPagination;
             }
 
             if (_knownRequestSymbols.TraktOAuthRequirementEnumType != null)
             {
                 if (namedArguments.TryGetValue(RequestConstants.TraktRequestPropertyOAuthRequirementName, out TypedConstant oauthRequirementConstant))
                 {
-                    if (SymbolEqualityComparer.Default.Equals(oauthRequirementConstant.Type, _knownRequestSymbols.TraktOAuthRequirementEnumType))
+                    if (SymbolEqualityComparer.Default.Equals(oauthRequirementConstant.Type, _knownRequestSymbols.TraktOAuthRequirementEnumType)
+                        && oauthRequirementConstant.Value is int requirementValue)
                     {
-                        if (oauthRequirementConstant.Value is int requirementValue)
-                        {
-                            _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
-                            
-                            IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues
-                                .FirstOrDefault(x => x.ConstantValue is int enumValue && enumValue == requirementValue);
+                        _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
 
-                            if (enumField != null)
-                            {
-                                _requestOAuthRequirementValue = enumField.Name;
-                            }
+                        IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues
+                            .FirstOrDefault(x => x.ConstantValue is int enumValue && enumValue == requirementValue);
+
+                        if (enumField != null)
+                        {
+                            _requestOAuthRequirementValue = enumField.Name;
                         }
                     }
                 }
@@ -436,12 +424,10 @@ namespace TraktNET.SourceGeneration.Requests
 
             public override void VisitPrimaryConstructorBaseType(PrimaryConstructorBaseTypeSyntax node)
             {
-                if (node.Type.ToString() == RequestConstants.TraktRequestAttributeName)
+                if (node.Type.ToString() == RequestConstants.TraktRequestAttributeName
+                    && node.ArgumentList.Arguments[0].Expression is MemberAccessExpressionSyntax httpMethodArgument)
                 {
-                    if (node.ArgumentList.Arguments[0].Expression is MemberAccessExpressionSyntax httpMethodArgument)
-                    {
-                        HttpMethod = httpMethodArgument.Name.ToString();
-                    }
+                    HttpMethod = httpMethodArgument.Name.ToString();
                 }
             }
         }

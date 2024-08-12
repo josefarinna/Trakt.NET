@@ -774,7 +774,7 @@ namespace TraktNET.SourceGeneration.Requests
                     if (_hasOptionalQueries)
                     {
                         _sourceWriter.WriteEmptyLine();
-                        
+
                         if (_requestQueries.Count == 1)
                         {
                             WriteGetQueriesEntry(_requestQueries[0], writeDirectlyInBuildMethod: true);
@@ -800,7 +800,7 @@ namespace TraktNET.SourceGeneration.Requests
                     _sourceWriter.WriteLine($"RequestUri = new Uri({RequestUriName}, UriKind.Relative);");
                 }
                 else
-            {
+                {
                     _sourceWriter.WriteLine($"string {RequestUriName} = $\"{_resolvedUriPath}\";");
                     _sourceWriter.WriteLine($"RequestUri = new Uri({RequestUriName}, UriKind.Relative);");
                 }
@@ -947,7 +947,6 @@ namespace TraktNET.SourceGeneration.Requests
                                 });
 
                                 placeHolderName = string.Empty;
-                                placeHolderType = string.Empty;
 
                                 hasQuesionMark = false;
                                 exclamationMarkCount = 0;
@@ -1012,7 +1011,6 @@ namespace TraktNET.SourceGeneration.Requests
                                 });
 
                                 placeHolderName = string.Empty;
-                                placeHolderType = string.Empty;
 
                                 break;
                             default:
