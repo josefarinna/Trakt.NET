@@ -63,7 +63,7 @@ namespace TraktNET
         public string? ItemType => TraktHeaders?.ItemType;
 
         /// <summary>The Trakt "X-RateLimit" header.</summary>
-        public string? RateLimit => TraktHeaders?.RateLimit; // TODO: Use Json object
+        public TraktRateLimitInfo? RateLimit => TraktHeaders?.RateLimit;
 
         /// <summary>The Trakt "Retry-After" header.</summary>
         public uint? RetryAfter => TraktHeaders?.RetryAfter;

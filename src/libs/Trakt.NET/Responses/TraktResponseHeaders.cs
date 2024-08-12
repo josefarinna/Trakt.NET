@@ -46,7 +46,7 @@
         public string? ItemType { get; internal set; }
 
         /// <summary>The Trakt "X-RateLimit" header.</summary>
-        public string? RateLimit { get; internal set; } // TODO: Use Json object
+        public TraktRateLimitInfo? RateLimit { get; internal set; }
 
         /// <summary>The Trakt "Retry-After" header.</summary>
         public uint? RetryAfter { get; internal set; }

@@ -40,7 +40,7 @@
         string? ItemType { get; }
 
         /// <summary>The Trakt "X-RateLimit" header.</summary>
-        string? RateLimit { get; } // TODO: Use Json object
+        TraktRateLimitInfo? RateLimit { get; }
 
         /// <summary>The Trakt "Retry-After" header.</summary>
         uint? RetryAfter { get; }

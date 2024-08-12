@@ -1,10 +1,12 @@
 ﻿using System.Net.Http.Headers;
+using System.Text;
 
 namespace TraktNET
 {
     internal static partial class RequestHandler
     {
-        private static TraktResponseHeaders ParseTraktResponseHeaders(HttpResponseHeaders responseHeaders)
+        private static async Task<TraktResponseHeaders> ParseTraktResponseHeadersAsync(HttpResponseHeaders responseHeaders,
+            CancellationToken cancellationToken = default)
         {
             var headers = new TraktResponseHeaders();
 
@@ -125,7 +127,23 @@ namespace TraktNET
 
             if (responseHeaders.TryGetValues(Constants.ResponseHeaders.HEADER_RATE_LIMIT, out values))
             {
-                headers.RateLimit = values.First();
+                string rateLimitInfo = values.First();
+
+                if (!string.IsNullOrWhiteSpace(rateLimitInfo))
+                {
+                    try
+                    {
+                        using var contentStream = new MemoryStream(Encoding.UTF8.GetBytes(rateLimitInfo));
+                        headers.RateLimit = await contentStream.ReadAsJsonAsync<TraktRateLimitInfo>(cancellationToken).ConfigureAwait(false);
+                    }
+                    catch
+                    {
+                        // Exception handling is not considered here.
+                        // This might change in the future, but for now just catch any exceptions.
+                        // In this case these might be JsonException or ArgumentNullException.
+                        // In either case the rate limit info is not valid.
+                    }
+                }
             }
 
             if (responseHeaders.TryGetValues(Constants.ResponseHeaders.HEADER_RETRY_AFTER, out values))

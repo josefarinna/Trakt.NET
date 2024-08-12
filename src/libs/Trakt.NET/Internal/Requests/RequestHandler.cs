@@ -47,7 +47,7 @@ namespace TraktNET
             HttpResponseMessage responseMessage = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead,
                 cancellationToken).ConfigureAwait(false);
 
-            TraktResponseHeaders traktHeaders = ParseTraktResponseHeaders(responseMessage.Headers);
+            TraktResponseHeaders traktHeaders = await ParseTraktResponseHeadersAsync(responseMessage.Headers, cancellationToken).ConfigureAwait(false);
 
             if (!responseMessage.IsSuccessStatusCode)
             {
