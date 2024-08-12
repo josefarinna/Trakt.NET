@@ -9,11 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{
 		..\.github\workflows\build.yml = ..\.github\workflows\build.yml
 		..\.github\workflows\ci.yml = ..\.github\workflows\ci.yml
 		..\.github\workflows\code-scan.yml = ..\.github\workflows\code-scan.yml
+		..\.github\constants.env = ..\.github\constants.env
 		..\.github\workflows\delete-old-packages.yml = ..\.github\workflows\delete-old-packages.yml
 		..\.github\workflows\dependabot-auto-approve.yml = ..\.github\workflows\dependabot-auto-approve.yml
 		..\.github\workflows\dependabot-auto-merge.yml = ..\.github\workflows\dependabot-auto-merge.yml
 		..\.github\workflows\documentation.yml = ..\.github\workflows\documentation.yml
 		..\.github\workflows\sonarcloud.yml = ..\.github\workflows\sonarcloud.yml
+		..\.github\workflows\sonarcloudworkflow.yml = ..\.github\workflows\sonarcloudworkflow.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{E8878124-ADAC-493E-9ECC-8BF405D431AB}"

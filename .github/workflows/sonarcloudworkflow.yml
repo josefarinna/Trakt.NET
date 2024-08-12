@@ -1,0 +1,80 @@
+name: SonarCloud
+
+on:
+  workflow_call:
+    inputs:
+      project_name:
+        required: true
+        type: string
+      build_configuration:
+        required: true
+        type: string
+      working_directory:
+        required: true
+        type: string
+      source_exclusions:
+        required: true
+        type: string
+
+jobs:
+  sonarcloud:
+    name: SonarCloud
+    if: ${{ github.actor == 'henrikfroehling' }}
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
+      - name: Setup environment variables
+        uses: cardinalby/export-env-action@v2
+        with:
+          envFile: './.github/constants.env'  
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+          dotnet-quality: ${{ env.DOTNET_QUALITY }}
+
+      - name: Restore dependencies
+        run: dotnet restore ${{ inputs.project_name }}
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v4
+        with:
+          path: ~\sonar\cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Cache SonarCloud scanner
+        id: cache-sonar-scanner
+        uses: actions/cache@v4
+        with:
+          path: .\.sonar\scanner
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
+
+      - name: Install SonarCloud scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+        shell: powershell
+        run: |
+          New-Item -Path .\.sonar\scanner -ItemType Directory
+          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        shell: powershell
+        run: |
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"henrikfroehling_Trakt.NET" /o:"henrikfroehling-github" /n:"Trakt.NET" /d:sonar.sources="${{ inputs.working_directory }}/" /d:sonar.sourceEncoding="UTF-8" /d:sonar.exclusions="${{ inputs.source_exclusions }}" /d:sonar.dotnet.excludeTestProjects=true /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet build ${{ inputs.project_name }} --configuration ${{ inputs.build_configuration }} --no-restore
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
