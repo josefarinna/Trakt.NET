@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net472' OR '$(TargetFramework)' == 'net481'">
-    <DefineConstants>$(DefineConstants);TRAKT_OLDER_NET_TARGETS</DefineConstants>
+    <DefineConstants>$(DefineConstants);TRAKT_NET_4XX_FRAMEWORK_TARGET</DefineConstants>
   </PropertyGroup>
 
 </Project>

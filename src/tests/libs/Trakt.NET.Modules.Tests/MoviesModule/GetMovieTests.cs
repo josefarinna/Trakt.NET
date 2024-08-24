@@ -94,7 +94,7 @@ namespace TraktNET.MoviesModule
         [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
         [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
         [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_OLDER_NET_TARGETS
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
         [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
         [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
         [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
@@ -135,7 +135,7 @@ namespace TraktNET.MoviesModule
         [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
         [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
         [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_OLDER_NET_TARGETS
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
         [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
         [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
         [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
@@ -176,7 +176,7 @@ namespace TraktNET.MoviesModule
         [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
         [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
         [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_OLDER_NET_TARGETS
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
         [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
         [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
         [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]

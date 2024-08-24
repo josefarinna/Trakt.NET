@@ -19,7 +19,7 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup Condition="$(DefineConstants.Contains(TRAKT_OLDER_NET_TARGETS))">
+  <ItemGroup Condition="$(DefineConstants.Contains(TRAKT_NET_4XX_FRAMEWORK_TARGET))">
     <PackageReference Include="System.Net.Http" />
   </ItemGroup>
 

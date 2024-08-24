@@ -1,4 +1,4 @@
-﻿#if TRAKT_OLDER_NET_TARGETS
+﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 

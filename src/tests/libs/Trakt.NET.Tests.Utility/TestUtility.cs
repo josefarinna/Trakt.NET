@@ -64,7 +64,7 @@ namespace TraktNET
                 return _location!;
             }
 
-#if TRAKT_OLDER_NET_TARGETS
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
             _location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
 
             // Known issue in 4.x.x .NET versions.
