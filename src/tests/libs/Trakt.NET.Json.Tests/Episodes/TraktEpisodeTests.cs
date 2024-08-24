@@ -116,7 +116,7 @@
 
             episode.Translations.Should().NotBeNull().And.HaveCount(2);
 
-            IList<TraktEpisodeTranslation> translations = episode.Translations!;
+            List<TraktEpisodeTranslation> translations = episode.Translations!;
 
             translations[0].Should().NotBeNull();
             translations[0].Title.Should().Be("Der Winter naht");

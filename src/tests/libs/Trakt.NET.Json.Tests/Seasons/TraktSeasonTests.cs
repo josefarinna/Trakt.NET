@@ -93,7 +93,7 @@
             season!.Network.Should().Be("HBO");
             season!.Episodes.Should().NotBeNull().And.HaveCount(10);
 
-            IList<TraktEpisode> episodes = season!.Episodes!;
+            List<TraktEpisode> episodes = season!.Episodes!;
 
             episodes[0].Should().NotBeNull();
             episodes[0].Season.Should().Be(1U);
