@@ -14,11 +14,11 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
-  <PropertyGroup Condition="('$(TargetFramework)' == 'net6.0') Or ('$(TargetFramework)' == 'net7.0') Or ('$(TargetFramework)' == 'net8.0')">
+  <PropertyGroup Condition="$(DefineConstants.Contains(NET6_0_OR_GREATER))">
     <IsTrimmable>true</IsTrimmable>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0'">
+  <PropertyGroup Condition="$(DefineConstants.Contains(NET8_0_OR_GREATER))">
     <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
 
@@ -47,7 +47,7 @@
     <PackageReference Include="Nerdbank.GitVersioning" PrivateAssets="all" />
   </ItemGroup>
 
-  <ItemGroup Condition="('$(TargetFramework)' == 'netstandard2.0') Or ('$(TargetFramework)' == 'netstandard2.1')">
+  <ItemGroup Condition="$(DefineConstants.Contains(TRAKT_NETSTANDARD_TARGET))">
     <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 

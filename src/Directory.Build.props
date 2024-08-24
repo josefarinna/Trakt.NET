@@ -1,19 +1,26 @@
 <Project>
 
+  <!-- Custom constants and variables. -->
   <PropertyGroup>
     <LibraryCopyright>© 2016 - $([System.DateTime]::Now.ToString("yyyy")) by Henrik Fröhling and Contributors</LibraryCopyright>
-    <LibraryTargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0;net7.0;net8.0</LibraryTargetFrameworks>
-    <HttpClientFactoryLibraryTargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0;net8.0</HttpClientFactoryLibraryTargetFrameworks>
-    <TestTargetFrameworks>net472;net481;net6.0;net7.0;net8.0</TestTargetFrameworks>
 
-    <!-- These tests use Verify packages which only support these .NET versions. -->
-    <SourceGenerationTestTargetFrameworks>net6.0;net7.0;net8.0</SourceGenerationTestTargetFrameworks>
+    <!-- NET (Framework | Standard) Targets -->
+    <LibraryNETFrameworkTargets>net472;net481</LibraryNETFrameworkTargets>
+    <LibraryNETStandardTargets>netstandard2.0;netstandard2.1</LibraryNETStandardTargets>
+    <LibraryCommonNETTargets>net6.0;net7.0;net8.0</LibraryCommonNETTargets>
+
+    <LibraryTargetFrameworks>$(LibraryNETStandardTargets);net5.0;$(LibraryCommonNETTargets)</LibraryTargetFrameworks>
+    <HttpClientFactoryLibraryTargetFrameworks>$(LibraryNETStandardTargets);$(LibraryCommonNETTargets)</HttpClientFactoryLibraryTargetFrameworks>
+    <TestTargetFrameworks>$(LibraryNETFrameworkTargets);$(LibraryCommonNETTargets)</TestTargetFrameworks>
+
+    <!-- These tests use Verify packages which only support these .NET versions >= 6. -->
+    <SourceGenerationTestTargetFrameworks>$(LibraryCommonNETTargets)</SourceGenerationTestTargetFrameworks>
+
+    <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
+    <IsTestUtilityProject>$(MSBuildProjectName.EndsWith('Tests.Utility'))</IsTestUtilityProject>
   </PropertyGroup>
 
   <PropertyGroup>
-    <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
-    <IsTestUtilityProject>$(MSBuildProjectName.EndsWith('Tests.Utility'))</IsTestUtilityProject>
-
     <NoWarn>1701;1702;1705;1591</NoWarn>
     <Copyright>$(LibraryCopyright)</Copyright>
 

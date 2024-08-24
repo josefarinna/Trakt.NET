@@ -8,4 +8,8 @@
     <DefineConstants>$(DefineConstants);TRAKT_NET_4XX_FRAMEWORK_TARGET</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="('$(TargetFramework)' == 'netstandard2.0') OR ('$(TargetFramework)' == 'netstandard2.1')">
+    <DefineConstants>$(DefineConstants);TRAKT_NETSTANDARD_TARGET</DefineConstants>
+  </PropertyGroup>
+
 </Project>
