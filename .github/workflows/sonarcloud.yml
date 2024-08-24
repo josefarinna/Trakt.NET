@@ -14,29 +14,41 @@ on:
       - 'src/**'
 
 jobs:
-  stable:
-    uses: ./.github/workflows/sonarcloudworkflow.yml
-    secrets: inherit
-    with:
-      working_directory: 'Source'
-      project_name: 'Source/Lib/Trakt.NET/Trakt.NET.csproj'
-      build_configuration: Release
-      source_exclusions: 'Source/Tests/**'
+  sonarcloud:
+    name: SonarCloud
+    if: ${{ github.actor == 'henrikfroehling' }}
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-  v2-alpha:
-    uses: ./.github/workflows/sonarcloudworkflow.yml
-    secrets: inherit
-    with:
-      working_directory: 'src'
-      project_name: 'src/libs/Trakt.NET/Trakt.NET.csproj'
-      build_configuration: Release
-      source_exclusions: 'src/tests/**'
+      - name: Setup environment variables
+        uses: cardinalby/export-env-action@v2
+        with:
+          envFile: './.github/constants.env'  
 
-  v2-alpha-httpclientfactory:
-    uses: ./.github/workflows/sonarcloudworkflow.yml
-    secrets: inherit
-    with:
-      working_directory: 'src'
-      project_name: 'src/libs/Trakt.NET.HttpClientFactory/Trakt.NET.HttpClientFactory.csproj'
-      build_configuration: Release
-      source_exclusions: 'src/tests/**'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+          dotnet-quality: ${{ env.DOTNET_QUALITY }}
+
+      - name: Install SonarCloud scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+        shell: powershell
+        run: |
+          New-Item -Path .\.sonar\scanner -ItemType Directory
+          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        shell: powershell
+        run: |
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"henrikfroehling_Trakt.NET" /o:"henrikfroehling-github" /n:"Trakt.NET" /d:sonar.exclusions="**/docs/**,**/Tests/**,**/tests/**," /d:sonar.sourceEncoding="UTF-8" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet build 'Source/Trakt.NET.sln' --configuration Release
+          dotnet build 'src/Trakt.NET.sln' --configuration Release
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
