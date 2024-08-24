@@ -8,10 +8,11 @@
     <LibraryNETFrameworkTargets>net472;net481</LibraryNETFrameworkTargets>
     <LibraryNETStandardTargets>netstandard2.0;netstandard2.1</LibraryNETStandardTargets>
     <LibraryCommonNETTargets>net6.0;net7.0;net8.0</LibraryCommonNETTargets>
+    <LibraryCommonNETPreviewTargets>net9.0</LibraryCommonNETPreviewTargets>
 
-    <LibraryTargetFrameworks>$(LibraryNETStandardTargets);net5.0;$(LibraryCommonNETTargets)</LibraryTargetFrameworks>
-    <HttpClientFactoryLibraryTargetFrameworks>$(LibraryNETStandardTargets);$(LibraryCommonNETTargets)</HttpClientFactoryLibraryTargetFrameworks>
-    <TestTargetFrameworks>$(LibraryNETFrameworkTargets);$(LibraryCommonNETTargets)</TestTargetFrameworks>
+    <LibraryTargetFrameworks>$(LibraryNETStandardTargets);net5.0;$(LibraryCommonNETTargets);$(LibraryCommonNETPreviewTargets)</LibraryTargetFrameworks>
+    <HttpClientFactoryLibraryTargetFrameworks>$(LibraryNETStandardTargets);$(LibraryCommonNETTargets);$(LibraryCommonNETPreviewTargets)</HttpClientFactoryLibraryTargetFrameworks>
+    <TestTargetFrameworks>$(LibraryNETFrameworkTargets);$(LibraryCommonNETTargets);$(LibraryCommonNETPreviewTargets)</TestTargetFrameworks>
 
     <!-- These tests use Verify packages which only support these .NET versions >= 6. -->
     <SourceGenerationTestTargetFrameworks>$(LibraryCommonNETTargets)</SourceGenerationTestTargetFrameworks>

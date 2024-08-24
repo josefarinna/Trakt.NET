@@ -42,8 +42,9 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-          dotnet-quality: ${{ env.DOTNET_QUALITY }}
+          dotnet-version: |
+            ${{ env.DOTNET_VERSION_STABLE }}
+            ${{ env.DOTNET_VERSION_PREVIEW }}
 
       - name: Setup DocFX
         run: dotnet tool update -g docfx
