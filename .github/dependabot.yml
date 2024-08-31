@@ -1,5 +1,5 @@
-#version: 2
-#updates:
+version: 2
+updates:
 #- package-ecosystem: nuget
 #  directory: "Source/"
 #  schedule:
@@ -16,10 +16,10 @@
 #    time: "22:00"
 #  open-pull-requests-limit: 20
 
-#- package-ecosystem: github-actions
-#  directory: "/"
-#  schedule:
-#    interval: weekly
-#    day: "friday"
-#    time: "22:00"
-#  open-pull-requests-limit: 20
+- package-ecosystem: github-actions
+  directory: "/"
+  schedule:
+    interval: weekly
+    day: "friday"
+    time: "22:00"
+  open-pull-requests-limit: 20
