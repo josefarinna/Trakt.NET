@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public partial class TraktMoviesModule
+    public sealed partial class TraktMoviesModule
     {
         /// <summary>Gets a <see cref="TraktMovie" /> with the specified Trakt-Id or -Slug.</summary>
         /// <param name="traktMovieIdOrSlug">The movie's Trakt-Id or -Slug.</param>

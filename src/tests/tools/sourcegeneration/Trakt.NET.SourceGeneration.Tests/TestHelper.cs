@@ -48,7 +48,7 @@ namespace TraktNET.SourceGeneration
                 // which is empty if the assembly is only added as MetadataReference, because the locations
                 // of the attribute symbols are empty and their syntax trees are null.
                 // To fix this, it is necessary to add the attributes syntax trees explicitly to the compilation.
-                
+
                 // NOTE: It's odd that adding all syntax trees at once still results in empty "DeclaringSyntaxReferences".
                 //       Therefore only add the actual needed syntax tree for the specific request test case.
 
