@@ -25,6 +25,50 @@
         }
 
         [Fact]
+        public Task TestGeneratesEnumExtensionsWithCustomJsonSeparator()
+        {
+            string source = """
+                using TraktNET;
+
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktEnum(JsonSeparator = " ")]
+                    public enum TestEnum
+                    {
+                        Unspecified,
+                        ValueOne,
+                        ValueTwo
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumCustomJsonSeparatorTests", source, customFilename: nameof(TestGeneratesEnumExtensionsWithCustomJsonSeparator));
+        }
+
+        [Fact]
+        public Task TestGeneratesEnumExtensionsWithEmptyCustomJsonSeparator()
+        {
+            string source = """
+                using TraktNET;
+
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktEnum(JsonSeparator = "")]
+                    public enum TestEnum
+                    {
+                        Unspecified,
+                        ValueOne,
+                        ValueTwo
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumEmptyCustomJsonSeparatorTests", source, customFilename: nameof(TestGeneratesEnumExtensionsWithEmptyCustomJsonSeparator));
+        }
+
+        [Fact]
         public Task TestGeneratesEnumExtensionsWithCustomEnumMember()
         {
             string source = """

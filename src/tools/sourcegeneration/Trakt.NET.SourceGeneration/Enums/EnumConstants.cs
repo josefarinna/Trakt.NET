@@ -12,6 +12,8 @@ namespace TraktNET.SourceGeneration.Enums
 
         internal const string FullTraktEnumMemberAttributeName = Constants.LibraryNamespace + "." + TraktEnumMemberAttributeName;
 
+        internal const string TraktEnumPropertyJsonSeparator = "JsonSeparator";
+
         internal const string TraktEnumPropertyQueryName = "QueryName";
 
         internal const string TraktEnumPropertyHasPathSupport = "HasPathSupport";

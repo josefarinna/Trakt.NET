@@ -4,7 +4,7 @@ namespace TraktNET.SourceGeneration.Common
 {
     internal static class StringExtensions
     {
-        internal static string ToLowercaseNamingConvention(this string value) => CapitalLetter.Replace(value, "_").ToLowerInvariant();
+        internal static string ToLowercaseNamingConvention(this string value, string separator = "_") => CapitalLetter.Replace(value, separator).ToLowerInvariant();
 
         internal static string ToDisplayName(this string value) => CapitalLetter.Replace(value, " ");
 

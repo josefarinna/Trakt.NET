@@ -285,7 +285,7 @@ namespace TraktNET.SourceGeneration.Enums
 
                 string enumMemberName = enumMember.Name;
 
-                if (enumMemberName == UnspecifiedValue || enumMemberName == NoneValue)
+                if (enumMemberName is UnspecifiedValue or NoneValue)
                 {
                     WriteFlagDisplayNameValuesAdd(enumMemberName, enumMember.DisplayName);
                 }

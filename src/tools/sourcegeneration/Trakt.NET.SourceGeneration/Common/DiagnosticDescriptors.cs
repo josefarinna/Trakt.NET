@@ -78,5 +78,13 @@ namespace TraktNET.SourceGeneration.Common
             category: RequestsCategory,
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
+
+        public static DiagnosticDescriptor InvalidCustomJsonSeparator { get; } = new(
+            id: "TRAKTNET1010",
+            title: "Invalid JSON separator value for Trakt enum.",
+            messageFormat: "JSON separator value for Trakt enum is null or empty.",
+            category: EnumsCategory,
+            defaultSeverity: DiagnosticSeverity.Error,
+            isEnabledByDefault: true);
     }
 }

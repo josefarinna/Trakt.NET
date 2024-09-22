@@ -18,6 +18,7 @@ namespace TraktNET.SourceGeneration.Enums
         private bool _hasPathSupport;
         private bool _hasQuerySupport;
         private readonly List<EnumMemberGenerationSpecification> _enumMembers = [];
+        private string _customJsonSeparator = "_";
 
         public List<DiagnosticInfo> Diagnostics { get; } = [];
 
@@ -90,6 +91,20 @@ namespace TraktNET.SourceGeneration.Enums
                 {
                     var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
 
+                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyJsonSeparator, out TypedConstant jsonSeparatorConstant)
+                        && jsonSeparatorConstant.Value is string jsonSeparator)
+                    {
+                        if (string.IsNullOrEmpty(jsonSeparator))
+                        {
+                            ReportDiagnostic(DiagnosticDescriptors.InvalidCustomJsonSeparator);
+                            return false;
+                        }
+                        else
+                        {
+                            _customJsonSeparator = jsonSeparator;
+                        }
+                    }
+
                     if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyQueryName, out TypedConstant queryNameConstant)
                         && queryNameConstant.Value is string queryName)
                     {
@@ -138,7 +153,7 @@ namespace TraktNET.SourceGeneration.Enums
 
                 string enumMemberName = enumField.Name;
                 string displayName = enumMemberName.ToDisplayName();
-                string jsonValue = enumMemberName.ToLowercaseNamingConvention();
+                string jsonValue = enumMemberName.ToLowercaseNamingConvention(_customJsonSeparator);
                 string uriValue = jsonValue;
                 bool hasTraktEnumMemberAttribute = false;
                 bool hasCustomJsonValue = false;

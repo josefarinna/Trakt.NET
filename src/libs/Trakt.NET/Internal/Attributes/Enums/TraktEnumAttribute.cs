@@ -11,6 +11,9 @@
     [AttributeUsage(AttributeTargets.Enum, AllowMultiple = false, Inherited = false)]
     internal sealed class TraktEnumAttribute() : Attribute
     {
+        /// <summary>A custom separator for JSON values. Default is '_'.</summary>
+        public string? JsonSeparator { get; set; }
+
         /// <summary>The name for an URI query value which will be used when <see cref="HasQuerySupport" /> is enabled.</summary>
         public string? QueryName { get; set; }
 
