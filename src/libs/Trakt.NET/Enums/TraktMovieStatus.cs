@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the status of a movie.</summary>
-    [TraktEnum]
+    [TraktEnum(JsonSeparator = " ")]
     public enum TraktMovieStatus
     {
         /// <summary>An invalid status.</summary>

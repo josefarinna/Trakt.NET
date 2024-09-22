@@ -7,8 +7,8 @@
         {
             TraktMovieStatus.Unspecified.ToJson().Should().BeNull();
             TraktMovieStatus.Released.ToJson().Should().Be("released");
-            TraktMovieStatus.InProduction.ToJson().Should().Be("in_production");
-            TraktMovieStatus.PostProduction.ToJson().Should().Be("post_production");
+            TraktMovieStatus.InProduction.ToJson().Should().Be("in production");
+            TraktMovieStatus.PostProduction.ToJson().Should().Be("post production");
             TraktMovieStatus.Planned.ToJson().Should().Be("planned");
             TraktMovieStatus.Rumored.ToJson().Should().Be("rumored");
             TraktMovieStatus.Canceled.ToJson().Should().Be("canceled");
@@ -19,8 +19,8 @@
         {
             "unspecified".ToTraktMovieStatus().Should().Be(TraktMovieStatus.Unspecified);
             "released".ToTraktMovieStatus().Should().Be(TraktMovieStatus.Released);
-            "in_production".ToTraktMovieStatus().Should().Be(TraktMovieStatus.InProduction);
-            "post_production".ToTraktMovieStatus().Should().Be(TraktMovieStatus.PostProduction);
+            "in production".ToTraktMovieStatus().Should().Be(TraktMovieStatus.InProduction);
+            "post production".ToTraktMovieStatus().Should().Be(TraktMovieStatus.PostProduction);
             "planned".ToTraktMovieStatus().Should().Be(TraktMovieStatus.Planned);
             "rumored".ToTraktMovieStatus().Should().Be(TraktMovieStatus.Rumored);
             "canceled".ToTraktMovieStatus().Should().Be(TraktMovieStatus.Canceled);
