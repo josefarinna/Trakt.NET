@@ -1,0 +1,28 @@
+[
+    {
+        "list_count": 33464,
+        "movie": {
+            "title": "Avatar: Fire and Ash",
+            "year": 2025,
+            "ids": {
+                "trakt": 62544,
+                "slug": "avatar-fire-and-ash-2025",
+                "imdb": "tt1757678",
+                "tmdb": 83533
+            }
+        }
+    },
+    {
+        "list_count": 23502,
+        "movie": {
+            "title": "Blade",
+            "year": 2025,
+            "ids": {
+                "trakt": 460195,
+                "slug": "blade-2025",
+                "imdb": "tt10671440",
+                "tmdb": 617127
+            }
+        }
+    }
+]

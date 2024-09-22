@@ -27,7 +27,7 @@ namespace TraktNET
         }
 
         internal static async Task<IReadOnlyList<TJsonObjectType>?> ReadAsJsonArrayAsync<TJsonObjectType>(this Stream stream,
-            CancellationToken cancellationToken = default) where TJsonObjectType : class
+            CancellationToken cancellationToken = default)
         {
             IReadOnlyList<TJsonObjectType>? values;
 

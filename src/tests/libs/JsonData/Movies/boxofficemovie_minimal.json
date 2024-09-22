@@ -1,0 +1,13 @@
+{
+    "revenue": 52000000,
+    "movie": {
+        "title": "Beetlejuice Beetlejuice",
+        "year": 2024,
+        "ids": {
+            "trakt": 734869,
+            "slug": "beetlejuice-beetlejuice-2024",
+            "imdb": "tt2049403",
+            "tmdb": 917496
+        }
+    }
+}

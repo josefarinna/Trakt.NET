@@ -17,9 +17,20 @@ namespace TraktNET
                 response.TraktHeaders, response.ResponseMessage.Headers, response.ResponseMessage.Content.Headers);
         }
 
+        internal static async Task<TraktListResponse<TResponseContentType>> ExecuteListRequestAsync<TResponseContentType>(
+            TraktContext context, RequestBase request, CancellationToken cancellationToken = default)
+        {
+            using RequestResponse response = await ExecuteRequestAsync(context, request, cancellationToken).ConfigureAwait(false);
+
+            IReadOnlyList<TResponseContentType>? responseContent =
+                await response.ResponseContentStream.ReadAsJsonArrayAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
+
+            return TraktListResponse<TResponseContentType>.Create(response.ResponseMessage.StatusCode, responseContent,
+                response.TraktHeaders, response.ResponseMessage.Headers, response.ResponseMessage.Content.Headers);
+        }
+
         internal static async Task<TraktPagedResponse<TResponseContentType>> ExecutePagedListRequestAsync<TResponseContentType>(
             TraktContext context, RequestBase request, Func<uint?, uint?, RequestBase>? requestBuilder, CancellationToken cancellationToken = default)
-            where TResponseContentType : class
         {
             using RequestResponse response = await ExecuteRequestAsync(context, request, cancellationToken).ConfigureAwait(false);
 

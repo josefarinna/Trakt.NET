@@ -13,7 +13,7 @@ namespace TraktNET
             return client;
         }
 
-        public static TraktClient GetClient(string requestUri,  string responseContent, uint? page, uint? pageCount,
+        public static TraktClient GetClient(string requestUri, string responseContent, uint? page, uint? pageCount,
             uint? limit, uint? itemCount)
         {
             var client = TraktClient.Create(TestConstants.ClientId, TestConstants.ClientSecret);

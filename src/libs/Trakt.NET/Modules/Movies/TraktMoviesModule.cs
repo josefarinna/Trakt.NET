@@ -341,5 +341,181 @@ namespace TraktNET
                 },
                 cancellationToken);
         }
+
+        /// <summary>Gets the most anticipated movies.</summary>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the movies.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="filter">
+        /// Specifies optional filter for genres, languages, year, runtimes, ratings. etc.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried most anticipated movies.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktMostAnticipatedMovie" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/anticipated/get-the-most-anticipated-movies">
+        /// Trakt API Documentation: Movies: Anticipated - Get the most anticipated movies
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktMostAnticipatedMovie>> GetMostAnticipatedMoviesAsync(TraktExtendedInfo? extendedInfo = null,
+            TraktFilter? filter = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new MostAnticipatedMoviesGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit,
+                Filter = filter
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostAnticipatedMovie>(_context, request, (uint? page, uint? limit)
+                => new MostAnticipatedMoviesGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit,
+                    Filter = filter
+                },
+                cancellationToken);
+        }
+
+        /// <summary>Gets the weekend box office movies.</summary>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the movies.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried box office movies.
+        /// <para />
+        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktBoxOfficeMovie" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/box-office/get-the-weekend-box-office">
+        /// Trakt API Documentation: Movies: Box Office - Get the weekend box office movies
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        public Task<TraktListResponse<TraktBoxOfficeMovie>> GetBoxOfficeMoviesAsync(TraktExtendedInfo? extendedInfo = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new BoxOfficeMoviesGetRequest
+            {
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteListRequestAsync<TraktBoxOfficeMovie>(_context, request, cancellationToken);
+        }
+
+        /// <summary>Gets recently updated movies.</summary>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the movies.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="startDate">Specifies an optional UTC start datetime after which the queried movies were updated.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried updated movies.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktUpdatedMovie" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/updates/get-recently-updated-movies">
+        /// Trakt API Documentation: Movies: Updates - Get recently updated movies
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktUpdatedMovie>> GetRecentlyUpdatedMoviesAsync(TraktExtendedInfo? extendedInfo = null,
+            DateTime? startDate = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new RecentlyUpdatedMoviesGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit,
+                StartDate = startDate
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktUpdatedMovie>(_context, request, (uint? page, uint? limit)
+                => new RecentlyUpdatedMoviesGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit,
+                    StartDate = startDate
+                },
+                cancellationToken);
+        }
+
+        /// <summary>Gets recently updated movie Trakt IDs.</summary>
+        /// <param name="startDate">Specifies an optional UTC start datetime after which the queried movie IDs were updated.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried updated movie Trakt IDs.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/updated-ids/get-recently-updated-movie-trakt-ids">
+        /// Trakt API Documentation: Movies: Updated IDS - Get recently updated movie Trakt IDs
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        public Task<TraktPagedResponse<uint>> GetRecentlyUpdatedMovieTraktIDsAsync(DateTime? startDate = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new RecentlyUpdatedMovieIdsGetRequest
+            {
+                Page = page,
+                Limit = limit,
+                StartDate = startDate
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<uint>(_context, request, (uint? page, uint? limit)
+                => new RecentlyUpdatedMovieIdsGetRequest
+                {
+                    Page = page,
+                    Limit = limit,
+                    StartDate = startDate
+                },
+                cancellationToken);
+        }
     }
 }

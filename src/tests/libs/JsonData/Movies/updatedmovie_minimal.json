@@ -1,0 +1,13 @@
+{
+    "updated_at": "2024-09-23T01:16:57.000Z",
+    "movie": {
+        "title": "Second Life",
+        "year": 2024,
+        "ids": {
+            "trakt": 1110139,
+            "slug": "second-life-2024-1110139",
+            "imdb": "tt33111253",
+            "tmdb": 1329643
+        }
+    }
+}

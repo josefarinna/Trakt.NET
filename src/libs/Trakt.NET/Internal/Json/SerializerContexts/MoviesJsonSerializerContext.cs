@@ -5,6 +5,10 @@ using System.Text.Json.Serialization;
 namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
+    [JsonSerializable(typeof(TraktBoxOfficeMovie))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktBoxOfficeMovie>))]
+    [JsonSerializable(typeof(TraktMostAnticipatedMovie))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktMostAnticipatedMovie>))]
     [JsonSerializable(typeof(TraktMostCollectedMovie))]
     [JsonSerializable(typeof(IReadOnlyList<TraktMostCollectedMovie>))]
     [JsonSerializable(typeof(TraktMostFavoritedMovie))]
@@ -23,6 +27,8 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktMovieMinimal>))]
     [JsonSerializable(typeof(TraktTrendingMovie))]
     [JsonSerializable(typeof(IReadOnlyList<TraktTrendingMovie>))]
+    [JsonSerializable(typeof(TraktUpdatedMovie))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktUpdatedMovie>))]
     public sealed partial class MoviesJsonSerializerContext : JsonSerializerContext
     {
     }

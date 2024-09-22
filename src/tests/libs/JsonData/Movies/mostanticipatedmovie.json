@@ -1,0 +1,50 @@
+{
+    "list_count": 33464,
+    "movie": {
+        "title": "Avatar: Fire and Ash",
+        "year": 2025,
+        "ids": {
+            "trakt": 62544,
+            "slug": "avatar-fire-and-ash-2025",
+            "imdb": "tt1757678",
+            "tmdb": 83533
+        },
+        "tagline": "",
+        "overview": "In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri face a new threat on Pandora.",
+        "released": "2025-12-19",
+        "runtime": 1,
+        "country": "us",
+        "trailer": null,
+        "homepage": "http://www.avatar.com/movies",
+        "status": "post production",
+        "rating": 7.05102,
+        "votes": 98,
+        "comment_count": 2,
+        "updated_at": "2024-09-15T08:05:18.000Z",
+        "language": "en",
+        "languages": [
+            "en"
+        ],
+        "available_translations": [
+            "bg",
+            "en",
+            "es",
+            "fr",
+            "he",
+            "ka",
+            "ko",
+            "pl",
+            "pt",
+            "ru",
+            "uk",
+            "vi",
+            "zh"
+        ],
+        "genres": [
+            "adventure",
+            "science-fiction",
+            "fantasy"
+        ],
+        "certification": null
+    }
+}

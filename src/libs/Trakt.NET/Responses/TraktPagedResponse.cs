@@ -5,7 +5,6 @@ namespace TraktNET
     /// <summary>A Trakt paged list response with items of content type <typeparamref name="TResponseContentType" />.</summary>
     /// <typeparam name="TResponseContentType">The content type of the list items.</typeparam>
     public partial class TraktPagedResponse<TResponseContentType> : TraktListResponse<TResponseContentType>, ITraktPagedResponseHeaders
-        where TResponseContentType : class
     {
 
         /// <summary>The Trakt "X-Pagination-Page-Count" header.</summary>

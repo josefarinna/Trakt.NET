@@ -1,0 +1,137 @@
+[
+    {
+        "revenue": 52000000,
+        "movie": {
+            "title": "Beetlejuice Beetlejuice",
+            "year": 2024,
+            "ids": {
+                "trakt": 734869,
+                "slug": "beetlejuice-beetlejuice-2024",
+                "imdb": "tt2049403",
+                "tmdb": 917496
+            },
+            "tagline": "The ghost with the most is back.",
+            "overview": "After a family tragedy, three generations of the Deetz family return home to Winter River.",
+            "released": "2024-09-06",
+            "runtime": 105,
+            "country": "us",
+            "status": "released",
+            "rating": 7.16738,
+            "votes": 1631,
+            "comment_count": 29,
+            "trailer": "https://youtube.com/watch?v=As-vKW4ZboU",
+            "homepage": "http://www.beetlejuicemovie.com",
+            "updated_at": "2024-09-21T17:39:23.000Z",
+            "language": "en",
+            "languages": [
+                "en",
+                "it",
+                "es"
+            ],
+            "available_translations": [
+                "ar",
+                "az",
+                "bg",
+                "ca",
+                "cs",
+                "de",
+                "el",
+                "en",
+                "es",
+                "fa",
+                "fi",
+                "fr",
+                "he",
+                "hr",
+                "hu",
+                "it",
+                "ja",
+                "ka",
+                "ko",
+                "nl",
+                "pl",
+                "pt",
+                "ru",
+                "sk",
+                "sl",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "vi",
+                "zh"
+            ],
+            "genres": [
+                "comedy",
+                "fantasy",
+                "horror"
+            ],
+            "certification": "PG-13"
+        }
+    },
+    {
+        "revenue": 12000000,
+        "movie": {
+            "title": "Speak No Evil",
+            "year": 2024,
+            "ids": {
+                "trakt": 896755,
+                "slug": "speak-no-evil-2024",
+                "imdb": "tt27534307",
+                "tmdb": 1114513
+            },
+            "tagline": "",
+            "overview": "When an American family is invited to spend the weekend at the idyllic country estate of a charming British family...",
+            "released": "2024-09-13",
+            "runtime": 110,
+            "country": "us",
+            "status": "released",
+            "rating": 7.12963,
+            "votes": 378,
+            "comment_count": 12,
+            "trailer": "https://youtube.com/watch?v=iSIuxrjTMk0",
+            "homepage": "http://www.speaknoevilmovie.com",
+            "updated_at": "2024-09-21T08:05:55.000Z",
+            "language": "en",
+            "languages": [
+                "en"
+            ],
+            "available_translations": [
+                "ar",
+                "az",
+                "bg",
+                "cs",
+                "de",
+                "el",
+                "en",
+                "es",
+                "fa",
+                "fi",
+                "fr",
+                "he",
+                "hu",
+                "it",
+                "ja",
+                "ka",
+                "ko",
+                "lt",
+                "nl",
+                "pl",
+                "pt",
+                "ru",
+                "sk",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "vi",
+                "zh"
+            ],
+            "genres": [
+                "thriller",
+                "horror"
+            ],
+            "certification": "R"
+        }
+    }
+]
