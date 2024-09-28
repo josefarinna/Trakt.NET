@@ -2,21 +2,23 @@
 
 namespace TraktNET.MoviesModule
 {
-    public sealed class GetMovieTests
+    public sealed class GetMovieReleasesTests
     {
-        private const string GetMovieUri = "movies";
-        private const string GetMovieUriWithSlug = GetMovieUri + "/" + TestConstants.Movies.MovieSlug;
+        private const string GetMovieReleasesUriPrefix = "movies";
+        private const string GetMovieReleasesUriSuffix = "releases";
+        private const string GetMovieReleasesUri = GetMovieReleasesUriPrefix + "/293990/" + GetMovieReleasesUriSuffix;
+        private const string GetMovieReleasesUriWithSlug = GetMovieReleasesUriPrefix + "/" + TestConstants.Movies.MovieSlug + "/" + GetMovieReleasesUriSuffix;
 
         [Theory]
-        [InlineData(null, $"{GetMovieUri}/293990", "Movies\\movie_minimal.json")]
-        [InlineData(TraktExtendedInfo.None, $"{GetMovieUri}/293990", "Movies\\movie_minimal.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetMovieUri}/293990?extended=full", "Movies\\movie.json")]
-        public async Task TestGetMovieWithId(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [InlineData(null, GetMovieReleasesUri, "Movies\\moviereleases.json")]
+        [InlineData("", GetMovieReleasesUri, "Movies\\moviereleases.json")]
+        [InlineData("fr", $"{GetMovieReleasesUri}/fr", "Movies\\moviereleases.json")]
+        public async Task TestGetMovieReleasesWithID(string? country, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieID, extendedInfo);
+            TraktListResponse<TraktMovieRelease> response = await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieID, country);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -25,24 +27,31 @@ namespace TraktNET.MoviesModule
             response.Headers.Should().NotBeNull();
             response.TraktHeaders.Should().NotBeNull();
             response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
 
-            TraktMovie movie = response.Content!;
+            IReadOnlyList<TraktMovieRelease> movieReleases = response.Content!;
 
-            movie.Title.Should().Be("Guardians of the Galaxy Volume 3");
-            movie.Year.Should().Be(2023U);
-            movie.Ids!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            TraktMovieRelease movieRelease = movieReleases[0];
+
+            movieRelease.Country.Should().Be("fr");
+            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
+
+            movieRelease = movieReleases[1];
+
+            movieRelease.Country.Should().Be("us");
+            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
         }
 
         [Theory]
-        [InlineData(null, GetMovieUriWithSlug, "Movies\\movie_minimal.json")]
-        [InlineData(TraktExtendedInfo.None, GetMovieUriWithSlug, "Movies\\movie_minimal.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetMovieUriWithSlug}?extended=full", "Movies\\movie.json")]
-        public async Task TestGetMovieWithSlug(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [InlineData(null, GetMovieReleasesUriWithSlug, "Movies\\moviereleases.json")]
+        [InlineData("", GetMovieReleasesUriWithSlug, "Movies\\moviereleases.json")]
+        [InlineData("fr", $"{GetMovieReleasesUriWithSlug}/fr", "Movies\\moviereleases.json")]
+        public async Task TestGetMovieReleasesWithSlug(string? country, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieSlug, extendedInfo);
+            TraktListResponse<TraktMovieRelease> response = await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieSlug, country);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -51,24 +60,31 @@ namespace TraktNET.MoviesModule
             response.Headers.Should().NotBeNull();
             response.TraktHeaders.Should().NotBeNull();
             response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
 
-            TraktMovie movie = response.Content!;
+            IReadOnlyList<TraktMovieRelease> movieReleases = response.Content!;
 
-            movie.Title.Should().Be("Guardians of the Galaxy Volume 3");
-            movie.Year.Should().Be(2023U);
-            movie.Ids!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            TraktMovieRelease movieRelease = movieReleases[0];
+
+            movieRelease.Country.Should().Be("fr");
+            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
+
+            movieRelease = movieReleases[1];
+
+            movieRelease.Country.Should().Be("us");
+            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
         }
 
         [Theory]
-        [InlineData(null, GetMovieUriWithSlug, "Movies\\movie_minimal.json")]
-        [InlineData(TraktExtendedInfo.None, GetMovieUriWithSlug, "Movies\\movie_minimal.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetMovieUriWithSlug}?extended=full", "Movies\\movie.json")]
-        public async Task TestGetMovieWithIds(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [InlineData(null, GetMovieReleasesUriWithSlug, "Movies\\moviereleases.json")]
+        [InlineData("", GetMovieReleasesUriWithSlug, "Movies\\moviereleases.json")]
+        [InlineData("fr", $"{GetMovieReleasesUriWithSlug}/fr", "Movies\\moviereleases.json")]
+        public async Task TestGetMovieReleasesWithIDs(string? country, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIds, extendedInfo);
+            TraktListResponse<TraktMovieRelease> response = await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieIds, country);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -77,12 +93,19 @@ namespace TraktNET.MoviesModule
             response.Headers.Should().NotBeNull();
             response.TraktHeaders.Should().NotBeNull();
             response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
 
-            TraktMovie movie = response.Content!;
+            IReadOnlyList<TraktMovieRelease> movieReleases = response.Content!;
 
-            movie.Title.Should().Be("Guardians of the Galaxy Volume 3");
-            movie.Year.Should().Be(2023U);
-            movie.Ids!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            TraktMovieRelease movieRelease = movieReleases[0];
+
+            movieRelease.Country.Should().Be("fr");
+            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
+
+            movieRelease = movieReleases[1];
+
+            movieRelease.Country.Should().Be("us");
+            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
         }
 
         [Theory]
@@ -111,13 +134,13 @@ namespace TraktNET.MoviesModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetMovieWithIdThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetMovieReleasesWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieUri}/293990", statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieReleasesUri, statusCode);
 
             try
             {
-                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieID);
+                await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieID);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -152,13 +175,13 @@ namespace TraktNET.MoviesModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetMovieWithSlugThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetMovieReleasesWithSlugThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetMovieUriWithSlug, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieReleasesUriWithSlug, statusCode);
 
             try
             {
-                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieSlug);
+                await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieSlug);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -193,13 +216,13 @@ namespace TraktNET.MoviesModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetMovieWithIdsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetMovieReleasesWithIDsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetMovieUriWithSlug, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieReleasesUriWithSlug, statusCode);
 
             try
             {
-                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIds);
+                await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieIds);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -209,19 +232,19 @@ namespace TraktNET.MoviesModule
         }
 
         [Fact]
-        public async Task TestGetMovieWithIdsThrowsArgumentException()
+        public async Task TestGetMovieReleasesWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movie_minimal.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetMovieUriWithSlug, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviereleases.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieReleasesUriWithSlug, responseContent);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktResponse<TraktMovie>>> act = () => client.Movies.GetMovieAsync(default(TraktMovieIds));
+            Func<Task<TraktListResponse<TraktMovieRelease>>> act = () => client.Movies.GetMovieReleasesAsync(default(TraktMovieIds));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.Should().ThrowAsync<ArgumentException>();
 
-            var movieIds = new TraktMovieIds();
+            var movieIDs = new TraktMovieIds();
 
-            act = () => client.Movies.GetMovieAsync(movieIds);
+            act = () => client.Movies.GetMovieReleasesAsync(movieIDs);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

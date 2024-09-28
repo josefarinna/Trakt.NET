@@ -8,6 +8,9 @@ namespace TraktNET
     [JsonSerializable(typeof(uint))]
     [JsonSerializable(typeof(IReadOnlyList<uint>))]
     [JsonSerializable(typeof(TraktRateLimitInfo))]
+    [JsonSerializable(typeof(TraktRating))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktVideo>))]
+    [JsonSerializable(typeof(TraktVideo))]
     public sealed partial class GeneralJsonSerializerContext : JsonSerializerContext
     {
     }

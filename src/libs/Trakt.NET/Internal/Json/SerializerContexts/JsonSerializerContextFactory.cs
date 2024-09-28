@@ -121,7 +121,9 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_generalJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(uint),
-            typeof(TraktRateLimitInfo)
+            typeof(TraktRateLimitInfo),
+            typeof(TraktRating),
+            typeof(TraktVideo)
         });
 
         private static readonly FrozenSet<Type> s_movieJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -134,8 +136,12 @@ namespace TraktNET
             typeof(TraktMostPWCMovie),
             typeof(TraktMostWatchedMovie),
             typeof(TraktMovie),
+            typeof(TraktMovieAlias),
             typeof(TraktMovieIds),
             typeof(TraktMovieMinimal),
+            typeof(TraktMovieRelease),
+            typeof(TraktMovieStatistics),
+            typeof(TraktMovieTranslation),
             typeof(TraktTrendingMovie),
             typeof(TraktUpdatedMovie)
         });
@@ -203,7 +209,9 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_generalJsonTypes = [
             typeof(uint),
-            typeof(TraktRateLimitInfo)
+            typeof(TraktRateLimitInfo),
+            typeof(TraktRating),
+            typeof(TraktVideo)
         ];
 
         private static readonly HashSet<Type> s_movieJsonTypes = [
@@ -215,8 +223,12 @@ namespace TraktNET
             typeof(TraktMostPWCMovie),
             typeof(TraktMostWatchedMovie),
             typeof(TraktMovie),
+            typeof(TraktMovieAlias),
             typeof(TraktMovieIds),
             typeof(TraktMovieMinimal),
+            typeof(TraktMovieRelease),
+            typeof(TraktMovieStatistics),
+            typeof(TraktMovieTranslation),
             typeof(TraktTrendingMovie),
             typeof(TraktUpdatedMovie)
         ];

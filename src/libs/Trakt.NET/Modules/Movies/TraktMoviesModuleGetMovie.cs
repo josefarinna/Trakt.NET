@@ -2,8 +2,8 @@
 {
     public sealed partial class TraktMoviesModule
     {
-        /// <summary>Gets a <see cref="TraktMovie" /> with the specified Trakt-Id or -Slug.</summary>
-        /// <param name="traktMovieIdOrSlug">The movie's Trakt-Id or -Slug.</param>
+        /// <summary>Gets a <see cref="TraktMovie" /> with the specified Trakt-ID or -Slug.</summary>
+        /// <param name="traktMovieIdOrSlug">The movie's Trakt-ID or -Slug.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the movie.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -15,7 +15,7 @@
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried movie.
         /// <para />
-        /// See also <seealso cref="TraktMovie" />.
+        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovie" />.
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -29,8 +29,8 @@
             CancellationToken cancellationToken = default)
             => GetMovieImplAsync(traktMovieIdOrSlug, extendedInfo, cancellationToken);
 
-        /// <summary>Gets a <see cref="TraktMovie" /> with the specified Trakt-Id or -Slug.</summary>
-        /// <param name="traktMovieId">The movie's Trakt-Id.</param>
+        /// <summary>Gets a <see cref="TraktMovie" /> with the specified Trakt-ID.</summary>
+        /// <param name="traktMovieId">The movie's Trakt-ID.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the movie.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -42,7 +42,7 @@
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried movie.
         /// <para />
-        /// See also <seealso cref="TraktMovie" />.
+        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovie" />.
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -56,7 +56,7 @@
             CancellationToken cancellationToken = default)
             => GetMovieImplAsync(traktMovieId.ToInvariantCultureString(), extendedInfo, cancellationToken);
 
-        /// <summary>Gets a <see cref="TraktMovie" /> with the specified Trakt-Id or -Slug.</summary>
+        /// <summary>Gets a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIds" />.</summary>
         /// <param name="movieIds">The movie's ids. See also <seealso cref="TraktMovieIds" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the movie.
@@ -69,7 +69,7 @@
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried movie.
         /// <para />
-        /// See also <seealso cref="TraktMovie" />.
+        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovie" />.
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -80,9 +80,12 @@
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIds" /> has not set any ids.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIds" /> is null.</exception>
         public Task<TraktResponse<TraktMovie>> GetMovieAsync(TraktMovieIds movieIds, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {
+            ArgumentValidator.ThrowIfNull(movieIds);
+
             if (!movieIds.HasAnyID)
             {
                 throw new ArgumentException($"{nameof(movieIds)} has not any ids set", nameof(movieIds));
