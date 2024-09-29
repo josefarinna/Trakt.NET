@@ -12,6 +12,8 @@
             movieTranslation.Tagline.Should().BeNull();
             movieTranslation.Language.Should().BeNull();
             movieTranslation.Country.Should().BeNull();
+
+            movieTranslation.ToString().Should().Be("no title set");
         }
 
         [Fact]
@@ -26,6 +28,8 @@
             movieTranslation!.Tagline.Should().Be("Ho donaran tot.");
             movieTranslation!.Language.Should().Be("ca");
             movieTranslation!.Country.Should().Be("es");
+
+            movieTranslation!.ToString().Should().Be("ca-ES=Guardians of the Galaxy Vol. 3");
         }
 
         [Fact]
@@ -45,6 +49,8 @@
             movieTranslation.Language.Should().Be("ca");
             movieTranslation.Country.Should().Be("es");
 
+            movieTranslation.ToString().Should().Be("ca-ES=Guardians of the Galaxy Vol. 3");
+
             // --------------------------------------------------------------------------------------------
 
             movieTranslation = movieTranslations![1];
@@ -56,6 +62,8 @@
             movieTranslation.Tagline.Should().Be("Ještě jednou a s citem");
             movieTranslation.Language.Should().Be("cs");
             movieTranslation.Country.Should().Be("cz");
+
+            movieTranslation.ToString().Should().Be("cs-CZ=Strážci Galaxie: Volume 3");
         }
     }
 }

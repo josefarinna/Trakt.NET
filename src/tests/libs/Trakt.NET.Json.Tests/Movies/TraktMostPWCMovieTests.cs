@@ -30,6 +30,8 @@
             mostPWCMovie.AvailableTranslations.Should().BeNull();
             mostPWCMovie.Genres.Should().BeNull();
             mostPWCMovie.Certification.Should().BeNull();
+
+            mostPWCMovie.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -52,6 +54,8 @@
             mostPWCMovie!.Ids!.TMDB.Should().Be(1669U);
             mostPWCMovie!.Ids!.HasAnyID.Should().BeTrue();
             mostPWCMovie!.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+
+            mostPWCMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
         }
 
         [Fact]
@@ -74,6 +78,8 @@
             mostPWCMovie!.Ids!.TMDB.Should().Be(1669U);
             mostPWCMovie!.Ids!.HasAnyID.Should().BeTrue();
             mostPWCMovie!.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+
+            mostPWCMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
 
             mostPWCMovie!.Tagline.Should().Be("Invisible. Silent. Stolen.");
 
@@ -135,6 +141,8 @@
             mostPWCMovie.Ids!.HasAnyID.Should().BeTrue();
             mostPWCMovie.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
+            mostPWCMovie.ToString().Should().Be("The Hunt for Red October (1990)");
+
             // --------------------------------------------------------------------------------------------
 
             mostPWCMovie = mostPWCMovies![1];
@@ -154,6 +162,8 @@
             mostPWCMovie.Ids!.TMDB.Should().Be(646097U);
             mostPWCMovie.Ids!.HasAnyID.Should().BeTrue();
             mostPWCMovie.Ids!.BestID.Should().Be("rebel-ridge-2024");
+
+            mostPWCMovie.ToString().Should().Be("Rebel Ridge (2024)");
         }
 
         [Fact]
@@ -180,6 +190,8 @@
             mostPWCMovie.Ids!.TMDB.Should().Be(1669U);
             mostPWCMovie.Ids!.HasAnyID.Should().BeTrue();
             mostPWCMovie.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+
+            mostPWCMovie.ToString().Should().Be("The Hunt for Red October (1990)");
 
             mostPWCMovie.Tagline.Should().Be("Invisible. Silent. Stolen.");
 
@@ -234,6 +246,8 @@
             mostPWCMovie.Ids!.TMDB.Should().Be(646097U);
             mostPWCMovie.Ids!.HasAnyID.Should().BeTrue();
             mostPWCMovie.Ids!.BestID.Should().Be("rebel-ridge-2024");
+
+            mostPWCMovie.ToString().Should().Be("Rebel Ridge (2024)");
 
             mostPWCMovie.Tagline.Should().Be("Their laws. His rules.");
 

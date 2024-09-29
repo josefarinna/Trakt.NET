@@ -29,5 +29,42 @@
 
         /// <summary>The two character language code of the video item.</summary>
         public string? Language { get; set; }
+
+        /// <summary>Gets the culture name of the video item.</summary>
+        /// <returns>The culture name of the video item.</returns>
+        public string CultureName()
+        {
+            if (!string.IsNullOrEmpty(Language) && !string.IsNullOrEmpty(Country))
+            {
+                return $"{Language}-{Country!.ToUpperInvariant()}";
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>Gets a string representation of the video item.</summary>
+        /// <returns>A string representation of the video item.</returns>
+        public override string ToString()
+        {
+            string type = string.Empty;
+            string title = string.Empty;
+
+            if (Type.HasValue && Type.Value != TraktVideoType.Unspecified)
+            {
+                type = Type.Value.DisplayName();
+            }
+
+            if (!string.IsNullOrEmpty(Title))
+            {
+                title = Title!;
+            }
+
+            if (!string.IsNullOrEmpty(type) && !string.IsNullOrEmpty(title))
+            {
+                return $"{type}: {title}";
+            }
+
+            return title;
+        }
     }
 }

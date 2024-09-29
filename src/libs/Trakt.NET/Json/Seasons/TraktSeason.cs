@@ -39,5 +39,24 @@
         /// <see cref="TraktExtendedInfo.Episodes" /> set.
         /// </remarks>
         public List<TraktEpisode>? Episodes { get; set; }
+
+        /// <summary>Gets a string representation of the season.</summary>
+        /// <returns>A string representation of the season.</returns>
+        public override string ToString()
+        {
+            string title = string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(Title))
+            {
+                title = Title!;
+            }
+
+            if (Number.HasValue)
+            {
+                title = $"S{Number.Value.ToInvariantCultureString("D2")}: {title}";
+            }
+
+            return title;
+        }
     }
 }

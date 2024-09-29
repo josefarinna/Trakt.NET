@@ -22,6 +22,8 @@
             episode.EpisodeType.Should().BeNull();
             episode.AvailableTranslations.Should().BeNull();
             episode.Translations.Should().BeNull();
+
+            episode.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -42,6 +44,8 @@
             episode!.Ids!.TMDB.Should().Be(63056U);
             episode!.Ids!.HasAnyID.Should().BeTrue();
             episode!.Ids!.BestID.Should().Be("73640");
+
+            episode!.ToString().Should().Be("S01E01: Winter Is Coming");
         }
 
         [Fact]
@@ -63,6 +67,8 @@
             episode!.Ids!.TMDB.Should().Be(63056U);
             episode!.Ids!.HasAnyID.Should().BeTrue();
             episode!.Ids!.BestID.Should().Be("73640");
+
+            episode!.ToString().Should().Be("S01E01: Winter Is Coming");
 
             episode!.Overview.Should().Be("Jon Arryn, the Hand of the King, is dead. King Robert Baratheon plans to ask his oldest friend,"
                 + " Eddard Stark, to take Jon's place. Across the sea, Viserys Targaryen plans to wed his sister to a nomadic warlord in "
@@ -103,6 +109,8 @@
             episode!.Ids!.TMDB.Should().Be(63056U);
             episode!.Ids!.HasAnyID.Should().BeTrue();
             episode!.Ids!.BestID.Should().Be("73640");
+
+            episode!.ToString().Should().Be("S01E01: Winter Is Coming");
 
             episode!.Overview.Should().BeNull();
             episode!.Rating.Should().BeNull();

@@ -30,6 +30,8 @@
             show.Genres.Should().BeNull();
             show.AiredEpisodes.Should().BeNull();
             show.Status.Should().BeNull();
+
+            show.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -50,6 +52,8 @@
             show!.Ids!.TMDB.Should().Be(1399U);
             show!.Ids!.HasAnyID.Should().BeTrue();
             show!.Ids!.BestID.Should().Be("game-of-thrones");
+
+            show!.ToString().Should().Be("Game of Thrones (2011)");
         }
 
         [Fact]
@@ -70,6 +74,8 @@
             show!.Ids!.TMDB.Should().Be(1399U);
             show!.Ids!.HasAnyID.Should().BeTrue();
             show!.Ids!.BestID.Should().Be("game-of-thrones");
+
+            show!.ToString().Should().Be("Game of Thrones (2011)");
 
             show!.Tagline.Should().Be("Winter is coming.");
             show!.Overview.Should().Be("Seven noble families fight for control of the mythical land of Westeros.");

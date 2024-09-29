@@ -14,5 +14,24 @@
         /// See also <seealso cref="TraktShowIds" />.
         /// </summary>
         public TraktShowIds? Ids { get; set; }
+
+        /// <summary>Gets a string representation of the show.</summary>
+        /// <returns>A string representation of the show.</returns>
+        public override string ToString()
+        {
+            string title = string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(Title))
+            {
+                title = Title!;
+            }
+
+            if (Year.HasValue)
+            {
+                title = $"{title} ({Year.Value})";
+            }
+
+            return title;
+        }
     }
 }

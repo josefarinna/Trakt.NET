@@ -25,6 +25,8 @@
             authorization.IsValid.Should().BeFalse();
             authorization.IsRefreshPossible.Should().BeFalse();
             authorization.IgnoreExpiration.Should().BeFalse();
+
+            authorization.AsBearerToken().Should().Be("Bearer: invalid access token");
         }
 
         [Fact]
@@ -47,6 +49,8 @@
             authorization!.IsValid.Should().BeTrue();
             authorization!.IsRefreshPossible.Should().BeTrue();
             authorization!.IgnoreExpiration.Should().BeFalse();
+
+            authorization!.AsBearerToken().Should().Be("Bearer: dbaf9757982a9e738f05d249b7b5b4a266b3a139049317c4909f2f263572c781");
         }
 
         [Fact]

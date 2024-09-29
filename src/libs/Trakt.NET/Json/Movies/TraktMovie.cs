@@ -58,5 +58,24 @@
 
         /// <summary>The content certification of the movie.</summary>
         public string? Certification { get; set; }
+
+        /// <summary>Gets a string representation of the movie.</summary>
+        /// <returns>A string representation of the movie.</returns>
+        public override string ToString()
+        {
+            string title = string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(Title))
+            {
+                title = Title!;
+            }
+
+            if (Year.HasValue)
+            {
+                title = $"{title} ({Year.Value})";
+            }
+
+            return title;
+        }
     }
 }

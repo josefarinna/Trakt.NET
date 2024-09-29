@@ -30,6 +30,8 @@
             mostPlayedMovie.AvailableTranslations.Should().BeNull();
             mostPlayedMovie.Genres.Should().BeNull();
             mostPlayedMovie.Certification.Should().BeNull();
+
+            mostPlayedMovie.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -52,6 +54,8 @@
             mostPlayedMovie!.Ids!.TMDB.Should().Be(1669U);
             mostPlayedMovie!.Ids!.HasAnyID.Should().BeTrue();
             mostPlayedMovie!.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+
+            mostPlayedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
         }
 
         [Fact]
@@ -74,6 +78,8 @@
             mostPlayedMovie!.Ids!.TMDB.Should().Be(1669U);
             mostPlayedMovie!.Ids!.HasAnyID.Should().BeTrue();
             mostPlayedMovie!.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+
+            mostPlayedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
 
             mostPlayedMovie!.Tagline.Should().Be("Invisible. Silent. Stolen.");
 
@@ -135,6 +141,8 @@
             mostPlayedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostPlayedMovie.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
+            mostPlayedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
+
             // --------------------------------------------------------------------------------------------
 
             mostPlayedMovie = mostPlayedMovies![1];
@@ -154,6 +162,8 @@
             mostPlayedMovie.Ids!.TMDB.Should().Be(646097U);
             mostPlayedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostPlayedMovie.Ids!.BestID.Should().Be("rebel-ridge-2024");
+
+            mostPlayedMovie.ToString().Should().Be("Rebel Ridge (2024)");
         }
 
         [Fact]
@@ -180,6 +190,8 @@
             mostPlayedMovie.Ids!.TMDB.Should().Be(1669U);
             mostPlayedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostPlayedMovie.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+
+            mostPlayedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
 
             mostPlayedMovie.Tagline.Should().Be("Invisible. Silent. Stolen.");
 
@@ -234,6 +246,8 @@
             mostPlayedMovie.Ids!.TMDB.Should().Be(646097U);
             mostPlayedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostPlayedMovie.Ids!.BestID.Should().Be("rebel-ridge-2024");
+
+            mostPlayedMovie.ToString().Should().Be("Rebel Ridge (2024)");
 
             mostPlayedMovie.Tagline.Should().Be("Their laws. His rules.");
 

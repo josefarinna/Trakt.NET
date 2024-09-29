@@ -27,6 +27,8 @@
             movie.AvailableTranslations.Should().BeNull();
             movie.Genres.Should().BeNull();
             movie.Certification.Should().BeNull();
+
+            movie.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -45,6 +47,8 @@
             movie!.Ids!.TMDB.Should().Be(447365U);
             movie!.Ids!.HasAnyID.Should().BeTrue();
             movie!.Ids!.BestID.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+
+            movie!.ToString().Should().Be("Guardians of the Galaxy Volume 3 (2023)");
         }
 
         [Fact]
@@ -63,6 +67,8 @@
             movie!.Ids!.TMDB.Should().Be(447365U);
             movie!.Ids!.HasAnyID.Should().BeTrue();
             movie!.Ids!.BestID.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+
+            movie!.ToString().Should().Be("Guardians of the Galaxy Volume 3 (2023)");
 
             movie!.Tagline.Should().Be("Once more with feeling.");
 

@@ -28,6 +28,8 @@
             mostAnticipatedMovie.AvailableTranslations.Should().BeNull();
             mostAnticipatedMovie.Genres.Should().BeNull();
             mostAnticipatedMovie.Certification.Should().BeNull();
+
+            mostAnticipatedMovie.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -48,6 +50,8 @@
             mostAnticipatedMovie!.Ids!.TMDB.Should().Be(83533U);
             mostAnticipatedMovie!.Ids!.HasAnyID.Should().BeTrue();
             mostAnticipatedMovie!.Ids!.BestID.Should().Be("avatar-fire-and-ash-2025");
+
+            mostAnticipatedMovie!.ToString().Should().Be("Avatar: Fire and Ash (2025)");
         }
 
         [Fact]
@@ -68,6 +72,8 @@
             mostAnticipatedMovie!.Ids!.TMDB.Should().Be(83533U);
             mostAnticipatedMovie!.Ids!.HasAnyID.Should().BeTrue();
             mostAnticipatedMovie!.Ids!.BestID.Should().Be("avatar-fire-and-ash-2025");
+
+            mostAnticipatedMovie!.ToString().Should().Be("Avatar: Fire and Ash (2025)");
 
             mostAnticipatedMovie!.Tagline.Should().BeEmpty();
 
@@ -125,6 +131,8 @@
             mostAnticipatedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostAnticipatedMovie.Ids!.BestID.Should().Be("avatar-fire-and-ash-2025");
 
+            mostAnticipatedMovie.ToString().Should().Be("Avatar: Fire and Ash (2025)");
+
             // --------------------------------------------------------------------------------------------
 
             mostAnticipatedMovie = mostAnticipatedMovies![1];
@@ -142,6 +150,8 @@
             mostAnticipatedMovie.Ids!.TMDB.Should().Be(617127U);
             mostAnticipatedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostAnticipatedMovie.Ids!.BestID.Should().Be("blade-2025");
+
+            mostAnticipatedMovie.ToString().Should().Be("Blade (2025)");
         }
 
         [Fact]
@@ -166,6 +176,8 @@
             mostAnticipatedMovie.Ids!.TMDB.Should().Be(83533U);
             mostAnticipatedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostAnticipatedMovie.Ids!.BestID.Should().Be("avatar-fire-and-ash-2025");
+
+            mostAnticipatedMovie.ToString().Should().Be("Avatar: Fire and Ash (2025)");
 
             mostAnticipatedMovie.Tagline.Should().BeEmpty();
 
@@ -216,6 +228,8 @@
             mostAnticipatedMovie.Ids!.TMDB.Should().Be(617127U);
             mostAnticipatedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostAnticipatedMovie.Ids!.BestID.Should().Be("blade-2025");
+
+            mostAnticipatedMovie.ToString().Should().Be("Blade (2025)");
 
             mostAnticipatedMovie.Tagline.Should().BeEmpty();
 

@@ -76,6 +76,10 @@ namespace TraktNET
             return value;
         }
 
+        /// <summary>Gets a string representation of the access token in the Bearer: <access-token> format.</summary>
+        /// <returns>A string representation of the access token in the Bearer: <access-token> format.</returns>
+        public string AsBearerToken() => $"Bearer: {AccessToken ?? "invalid access token"}";
+
         /// <summary>Creates a new <see cref="TraktAuthorization" /> instance with the given values.</summary>
         /// <param name="accessToken">The access token for the new <see cref="TraktAuthorization" /> instance.</param>
         /// <param name="refreshToken">The optional refresh token for the new <see cref="TraktAuthorization" /> instance.</param>

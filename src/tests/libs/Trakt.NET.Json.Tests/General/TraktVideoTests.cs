@@ -16,6 +16,9 @@
             video.PublishedAt.Should().BeNull();
             video.Country.Should().BeNull();
             video.Language.Should().BeNull();
+
+            video.CultureName().Should().BeEmpty();
+            video.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -34,6 +37,9 @@
             video!.PublishedAt.Should().Be(TestUtility.ParseUTCDateTime("2023-08-03T18:00:02.000Z"));
             video!.Country.Should().Be("us");
             video!.Language.Should().Be("en");
+
+            video!.CultureName().Should().Be("en-US");
+            video!.ToString().Should().Be("Teaser: Disney+ Promo");
         }
 
         [Fact]
@@ -57,6 +63,9 @@
             video.Country.Should().Be("us");
             video.Language.Should().Be("en");
 
+            video.CultureName().Should().Be("en-US");
+            video.ToString().Should().Be("Teaser: Disney+ Promo");
+
             // --------------------------------------------------------------------------------------------
 
             video = videos![1];
@@ -72,6 +81,9 @@
             video.PublishedAt.Should().Be(TestUtility.ParseUTCDateTime("2023-08-02T16:00:17.000Z"));
             video.Country.Should().Be("us");
             video.Language.Should().Be("en");
+
+            video.CultureName().Should().Be("en-US");
+            video.ToString().Should().Be("Teaser: Now Streaming on Disney+");
         }
     }
 }

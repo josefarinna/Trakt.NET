@@ -14,5 +14,32 @@
 
         /// <summary>The two letter country code for the translation.</summary>
         public string? Country { get; set; }
+
+        /// <summary>Gets the culture name of the translation.</summary>
+        /// <returns>The culture name of the translation.</returns>
+        public string CultureName()
+        {
+            if (!string.IsNullOrEmpty(Language) && !string.IsNullOrEmpty(Country))
+            {
+                return $"{Language}-{Country!.ToUpperInvariant()}";
+            }
+
+            return string.Empty;
+        }
+
+        /// <summary>Gets a string representation of the translation.</summary>
+        /// <returns>A string representation of the translation.</returns>
+        public override string ToString()
+        {
+            string cultureName = CultureName();
+            string title = $"{Title ?? "no title set"}";
+
+            if (!string.IsNullOrEmpty(cultureName))
+            {
+                return $"{cultureName}={title}";
+            }
+
+            return title;
+        }
     }
 }

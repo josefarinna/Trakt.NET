@@ -11,6 +11,8 @@
             episodeTranslation.Overview.Should().BeNull();
             episodeTranslation.Language.Should().BeNull();
             episodeTranslation.Country.Should().BeNull();
+
+            episodeTranslation.ToString().Should().Be("no title set");
         }
 
         [Fact]
@@ -24,6 +26,8 @@
             episodeTranslation!.Overview.Should().Be("Jon Arryn, the Hand of the King, is dead.");
             episodeTranslation!.Language.Should().Be("en");
             episodeTranslation!.Country.Should().Be("us");
+
+            episodeTranslation!.ToString().Should().Be("en-US=Winter Is Coming");
         }
     }
 }

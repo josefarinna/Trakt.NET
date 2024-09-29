@@ -27,6 +27,8 @@
             updatedMovie.AvailableTranslations.Should().BeNull();
             updatedMovie.Genres.Should().BeNull();
             updatedMovie.Certification.Should().BeNull();
+
+            updatedMovie.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -47,6 +49,8 @@
             updatedMovie!.Ids!.TMDB.Should().Be(1329643U);
             updatedMovie!.Ids!.HasAnyID.Should().BeTrue();
             updatedMovie!.Ids!.BestID.Should().Be("second-life-2024-1110139");
+
+            updatedMovie!.ToString().Should().Be("Second Life (2024)");
         }
 
         [Fact]
@@ -67,6 +71,8 @@
             updatedMovie!.Ids!.TMDB.Should().Be(1329643U);
             updatedMovie!.Ids!.HasAnyID.Should().BeTrue();
             updatedMovie!.Ids!.BestID.Should().Be("second-life-2024-1110139");
+
+            updatedMovie!.ToString().Should().Be("Second Life (2024)");
 
             updatedMovie!.Tagline.Should().BeEmpty();
             updatedMovie!.Overview.Should().Be("28 years ago, Liang gives birth to a boy named \"Little Bean Jelly\" in prison.");
@@ -115,6 +121,8 @@
             updatedMovie.Ids!.HasAnyID.Should().BeTrue();
             updatedMovie.Ids!.BestID.Should().Be("second-life-2024-1110139");
 
+            updatedMovie.ToString().Should().Be("Second Life (2024)");
+
             // --------------------------------------------------------------------------------------------
 
             updatedMovie = updatedMovies![1];
@@ -132,6 +140,8 @@
             updatedMovie.Ids!.TMDB.Should().Be(1187782U);
             updatedMovie.Ids!.HasAnyID.Should().BeTrue();
             updatedMovie.Ids!.BestID.Should().Be("milk-serial-2024");
+
+            updatedMovie.ToString().Should().Be("Milk & Serial (2024)");
         }
 
         [Fact]
@@ -156,6 +166,8 @@
             updatedMovie.Ids!.TMDB.Should().Be(1329643U);
             updatedMovie.Ids!.HasAnyID.Should().BeTrue();
             updatedMovie.Ids!.BestID.Should().Be("second-life-2024-1110139");
+
+            updatedMovie.ToString().Should().Be("Second Life (2024)");
 
             updatedMovie.Tagline.Should().BeEmpty();
             updatedMovie.Overview.Should().Be("28 years ago, Liang gives birth to a boy named \"Little Bean Jelly\" in prison.");
@@ -197,6 +209,8 @@
             updatedMovie.Ids!.TMDB.Should().Be(1187782U);
             updatedMovie.Ids!.HasAnyID.Should().BeTrue();
             updatedMovie.Ids!.BestID.Should().Be("milk-serial-2024");
+
+            updatedMovie.ToString().Should().Be("Milk & Serial (2024)");
 
             updatedMovie.Tagline.Should().BeEmpty();
 

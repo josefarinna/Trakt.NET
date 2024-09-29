@@ -19,6 +19,8 @@
             season.UpdatedAt.Should().BeNull();
             season.Network.Should().BeNull();
             season.Episodes.Should().BeNull();
+
+            season.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -64,6 +66,8 @@
             season!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-03-23T06:24:59.000Z"));
             season!.Network.Should().Be("HBO");
             season!.Episodes.Should().BeNull();
+
+            season!.ToString().Should().Be("S01: Season 1");
         }
 
         [Fact]
@@ -92,6 +96,8 @@
             season!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-03-23T06:24:59.000Z"));
             season!.Network.Should().Be("HBO");
             season!.Episodes.Should().NotBeNull().And.HaveCount(10);
+
+            season!.ToString().Should().Be("S01: Season 1");
 
             List<TraktEpisode> episodes = season!.Episodes!;
 

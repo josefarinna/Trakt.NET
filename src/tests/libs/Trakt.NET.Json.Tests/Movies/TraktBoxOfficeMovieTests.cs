@@ -28,6 +28,8 @@
             boxOfficeMovie.AvailableTranslations.Should().BeNull();
             boxOfficeMovie.Genres.Should().BeNull();
             boxOfficeMovie.Certification.Should().BeNull();
+
+            boxOfficeMovie.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -48,6 +50,8 @@
             boxOfficeMovie!.Ids!.TMDB.Should().Be(917496U);
             boxOfficeMovie!.Ids!.HasAnyID.Should().BeTrue();
             boxOfficeMovie!.Ids!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
+
+            boxOfficeMovie!.ToString().Should().Be("Beetlejuice Beetlejuice (2024)");
         }
 
         [Fact]
@@ -68,6 +72,8 @@
             boxOfficeMovie!.Ids!.TMDB.Should().Be(917496U);
             boxOfficeMovie!.Ids!.HasAnyID.Should().BeTrue();
             boxOfficeMovie!.Ids!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
+
+            boxOfficeMovie!.ToString().Should().Be("Beetlejuice Beetlejuice (2024)");
 
             boxOfficeMovie!.Tagline.Should().Be("The ghost with the most is back.");
             boxOfficeMovie!.Overview.Should().Be("After a family tragedy, three generations of the Deetz family return home to Winter River.");
@@ -124,6 +130,8 @@
             boxOfficeMovie.Ids!.HasAnyID.Should().BeTrue();
             boxOfficeMovie.Ids!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
 
+            boxOfficeMovie.ToString().Should().Be("Beetlejuice Beetlejuice (2024)");
+
             // --------------------------------------------------------------------------------------------
 
             boxOfficeMovie = boxOfficeMovies![1];
@@ -141,6 +149,8 @@
             boxOfficeMovie.Ids!.TMDB.Should().Be(1114513U);
             boxOfficeMovie.Ids!.HasAnyID.Should().BeTrue();
             boxOfficeMovie.Ids!.BestID.Should().Be("speak-no-evil-2024");
+
+            boxOfficeMovie.ToString().Should().Be("Speak No Evil (2024)");
         }
 
         [Fact]
@@ -165,6 +175,8 @@
             boxOfficeMovie.Ids!.TMDB.Should().Be(917496U);
             boxOfficeMovie.Ids!.HasAnyID.Should().BeTrue();
             boxOfficeMovie.Ids!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
+
+            boxOfficeMovie.ToString().Should().Be("Beetlejuice Beetlejuice (2024)");
 
             boxOfficeMovie.Tagline.Should().Be("The ghost with the most is back.");
             boxOfficeMovie.Overview.Should().Be("After a family tragedy, three generations of the Deetz family return home to Winter River.");
@@ -214,6 +226,8 @@
             boxOfficeMovie.Ids!.TMDB.Should().Be(1114513U);
             boxOfficeMovie.Ids!.HasAnyID.Should().BeTrue();
             boxOfficeMovie.Ids!.BestID.Should().Be("speak-no-evil-2024");
+
+            boxOfficeMovie.ToString().Should().Be("Speak No Evil (2024)");
 
             boxOfficeMovie.Tagline.Should().BeEmpty();
 

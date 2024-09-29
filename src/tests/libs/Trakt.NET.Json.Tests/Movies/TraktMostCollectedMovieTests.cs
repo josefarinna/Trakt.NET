@@ -30,6 +30,8 @@
             mostCollectedMovie.AvailableTranslations.Should().BeNull();
             mostCollectedMovie.Genres.Should().BeNull();
             mostCollectedMovie.Certification.Should().BeNull();
+
+            mostCollectedMovie.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -52,6 +54,8 @@
             mostCollectedMovie!.Ids!.TMDB.Should().Be(1669U);
             mostCollectedMovie!.Ids!.HasAnyID.Should().BeTrue();
             mostCollectedMovie!.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+
+            mostCollectedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
         }
 
         [Fact]
@@ -74,6 +78,8 @@
             mostCollectedMovie!.Ids!.TMDB.Should().Be(1669U);
             mostCollectedMovie!.Ids!.HasAnyID.Should().BeTrue();
             mostCollectedMovie!.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+
+            mostCollectedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
 
             mostCollectedMovie!.Tagline.Should().Be("Invisible. Silent. Stolen.");
 
@@ -135,6 +141,8 @@
             mostCollectedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostCollectedMovie.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
+            mostCollectedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
+
             // --------------------------------------------------------------------------------------------
 
             mostCollectedMovie = mostCollectedMovies![1];
@@ -154,6 +162,8 @@
             mostCollectedMovie.Ids!.TMDB.Should().Be(646097U);
             mostCollectedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostCollectedMovie.Ids!.BestID.Should().Be("rebel-ridge-2024");
+
+            mostCollectedMovie.ToString().Should().Be("Rebel Ridge (2024)");
         }
 
         [Fact]
@@ -180,6 +190,8 @@
             mostCollectedMovie.Ids!.TMDB.Should().Be(1669U);
             mostCollectedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostCollectedMovie.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+
+            mostCollectedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
 
             mostCollectedMovie.Tagline.Should().Be("Invisible. Silent. Stolen.");
 
@@ -234,6 +246,8 @@
             mostCollectedMovie.Ids!.TMDB.Should().Be(646097U);
             mostCollectedMovie.Ids!.HasAnyID.Should().BeTrue();
             mostCollectedMovie.Ids!.BestID.Should().Be("rebel-ridge-2024");
+
+            mostCollectedMovie.ToString().Should().Be("Rebel Ridge (2024)");
 
             mostCollectedMovie.Tagline.Should().Be("Their laws. His rules.");
 

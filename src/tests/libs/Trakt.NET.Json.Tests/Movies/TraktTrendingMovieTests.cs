@@ -28,6 +28,8 @@
             trendingMovie.AvailableTranslations.Should().BeNull();
             trendingMovie.Genres.Should().BeNull();
             trendingMovie.Certification.Should().BeNull();
+
+            trendingMovie.ToString().Should().BeEmpty();
         }
 
         [Fact]
@@ -48,6 +50,8 @@
             trendingMovie!.Ids!.TMDB.Should().Be(533535U);
             trendingMovie!.Ids!.HasAnyID.Should().BeTrue();
             trendingMovie!.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+
+            trendingMovie!.ToString().Should().Be("Deadpool & Wolverine (2024)");
         }
 
         [Fact]
@@ -68,6 +72,8 @@
             trendingMovie!.Ids!.TMDB.Should().Be(533535U);
             trendingMovie!.Ids!.HasAnyID.Should().BeTrue();
             trendingMovie!.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+
+            trendingMovie!.ToString().Should().Be("Deadpool & Wolverine (2024)");
 
             trendingMovie!.Tagline.Should().Be("Come together.");
 
@@ -126,6 +132,8 @@
             trendingMovie.Ids!.HasAnyID.Should().BeTrue();
             trendingMovie.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
 
+            trendingMovie.ToString().Should().Be("Deadpool & Wolverine (2024)");
+
             // --------------------------------------------------------------------------------------------
 
             trendingMovie = trendingMovies![1];
@@ -143,6 +151,8 @@
             trendingMovie.Ids!.TMDB.Should().Be(653346U);
             trendingMovie.Ids!.HasAnyID.Should().BeTrue();
             trendingMovie.Ids!.BestID.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
+
+            trendingMovie.ToString().Should().Be("Kingdom of the Planet of the Apes (2024)");
         }
 
         [Fact]
@@ -167,6 +177,8 @@
             trendingMovie.Ids!.TMDB.Should().Be(533535U);
             trendingMovie.Ids!.HasAnyID.Should().BeTrue();
             trendingMovie.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+
+            trendingMovie.ToString().Should().Be("Deadpool & Wolverine (2024)");
 
             trendingMovie.Tagline.Should().Be("Come together.");
 
@@ -218,6 +230,8 @@
             trendingMovie.Ids!.TMDB.Should().Be(653346U);
             trendingMovie.Ids!.HasAnyID.Should().BeTrue();
             trendingMovie.Ids!.BestID.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
+
+            trendingMovie.ToString().Should().Be("Kingdom of the Planet of the Apes (2024)");
 
             trendingMovie.Tagline.Should().Be("No one can stop the reign.");
 
