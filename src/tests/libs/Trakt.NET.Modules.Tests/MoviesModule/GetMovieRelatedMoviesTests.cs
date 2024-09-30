@@ -1,0 +1,842 @@
+﻿using System.Net;
+
+namespace TraktNET.MoviesModule
+{
+    public sealed class GetMovieRelatedMoviesTests
+    {
+        private const string GetMovieRelatedMoviesUriPrefix = "movies";
+        private const string GetMovieRelatedMoviesUriSuffix = "related";
+        private const string GetMovieRelatedMoviesUriWithSlug = GetMovieRelatedMoviesUriPrefix + "/" + TestConstants.Movies.MovieSlug + "/" + GetMovieRelatedMoviesUriSuffix;
+        private static readonly string GetMovieRelatedMoviesUri = $"{GetMovieRelatedMoviesUriPrefix}/{TestConstants.Movies.MovieID}/{GetMovieRelatedMoviesUriSuffix}";
+
+        [Theory]
+        [InlineData(null, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, 4U, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, 4U, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, 4U, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, 4U, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, 4U, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full&page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, 4U, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        public async Task TestGetMovieRelatedMoviesWithID(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieID, extendedInfo, page, limit);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(page ?? 1U);
+            response.Limit.Should().Be(limit ?? 10U);
+            response.PageCount.Should().Be(1U);
+            response.ItemCount.Should().Be(2U);
+
+            IReadOnlyList<TraktMovie> relatedMovies = response.Content!;
+
+            TraktMovie relatedMovie = relatedMovies[0];
+
+            relatedMovie.Title.Should().Be("Avengers: Endgame");
+            relatedMovie.Year.Should().Be(2019U);
+            relatedMovie.Ids!.Slug.Should().Be("avengers-endgame-2019");
+
+            relatedMovie = relatedMovies[1];
+
+            relatedMovie.Title.Should().Be("Thor: Ragnarok");
+            relatedMovie.Year.Should().Be(2017U);
+            relatedMovie.Ids!.Slug.Should().Be("thor-ragnarok-2017");
+        }
+
+        [Theory]
+        [InlineData(null, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        public async Task TestGetMovieRelatedMoviesWithSlug(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieSlug, extendedInfo, page, limit);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(page ?? 1U);
+            response.Limit.Should().Be(limit ?? 10U);
+            response.PageCount.Should().Be(1U);
+            response.ItemCount.Should().Be(2U);
+
+            IReadOnlyList<TraktMovie> relatedMovies = response.Content!;
+
+            TraktMovie relatedMovie = relatedMovies[0];
+
+            relatedMovie.Title.Should().Be("Avengers: Endgame");
+            relatedMovie.Year.Should().Be(2019U);
+            relatedMovie.Ids!.Slug.Should().Be("avengers-endgame-2019");
+
+            relatedMovie = relatedMovies[1];
+
+            relatedMovie.Title.Should().Be("Thor: Ragnarok");
+            relatedMovie.Year.Should().Be(2017U);
+            relatedMovie.Ids!.Slug.Should().Be("thor-ragnarok-2017");
+        }
+
+        [Theory]
+        [InlineData(null, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        public async Task TestGetMovieRelatedMoviesWithIDs(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, extendedInfo, page, limit);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(page ?? 1U);
+            response.Limit.Should().Be(limit ?? 10U);
+            response.PageCount.Should().Be(1U);
+            response.ItemCount.Should().Be(2U);
+
+            IReadOnlyList<TraktMovie> relatedMovies = response.Content!;
+
+            TraktMovie relatedMovie = relatedMovies[0];
+
+            relatedMovie.Title.Should().Be("Avengers: Endgame");
+            relatedMovie.Year.Should().Be(2019U);
+            relatedMovie.Ids!.Slug.Should().Be("avengers-endgame-2019");
+
+            relatedMovie = relatedMovies[1];
+
+            relatedMovie.Title.Should().Be("Thor: Ragnarok");
+            relatedMovie.Year.Should().Be(2017U);
+            relatedMovie.Ids!.Slug.Should().Be("thor-ragnarok-2017");
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDPagingHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieID, page: 2);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDPagingHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieID, page: 1);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUri}?page=2", responseContent, 2, 3, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieID, page: 2);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(3U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDPagingHasNotPreviousPageAndHasNotNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUri}?page=1", responseContent, 1, 1, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieID, page: 1);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(1U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieID, page: 2);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetMovieRelatedMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
+
+            response = await response.GetPreviousPageAsync();
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieID, page: 1);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeTrue();
+
+            ModuleTestUtility.SetClient(client, $"{GetMovieRelatedMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
+
+            response = await response.GetNextPageAsync();
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithSlugPagingHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieSlug, page: 2);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithSlugPagingHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieSlug, page: 1);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithSlugPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 3, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieSlug, page: 2);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(3U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithSlugPagingHasNotPreviousPageAndHasNotNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 1, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieSlug, page: 1);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(1U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithSlugPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieSlug, page: 2);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
+
+            response = await response.GetPreviousPageAsync();
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithSlugPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieSlug, page: 1);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeTrue();
+
+            ModuleTestUtility.SetClient(client, $"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
+
+            response = await response.GetNextPageAsync();
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDsPagingHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 2);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDsPagingHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 1);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDsPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 3, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 2);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(3U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDsPagingHasNotPreviousPageAndHasNotNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 1, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 1);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(1U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDsPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 2);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
+
+            response = await response.GetPreviousPageAsync();
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDsPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
+
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 1);
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(1U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeFalse();
+            response.HasNextPage.Should().BeTrue();
+
+            ModuleTestUtility.SetClient(client, $"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
+
+            response = await response.GetNextPageAsync();
+
+            response.Should().NotBeNull();
+            response.IsSuccess.Should().BeTrue();
+            response.HasValue.Should().BeTrue();
+            response.Content.Should().NotBeNull();
+            response.Headers.Should().NotBeNull();
+            response.TraktHeaders.Should().NotBeNull();
+            response.ContentHeaders.Should().NotBeNull();
+            response.Count.Should().Be(2);
+            response.Page.Should().Be(2U);
+            response.Limit.Should().Be(10U);
+            response.PageCount.Should().Be(2U);
+            response.ItemCount.Should().Be(2U);
+            response.HasPreviousPage.Should().BeTrue();
+            response.HasNextPage.Should().BeFalse();
+        }
+
+        [Theory]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiMovieNotFoundException))]
+        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
+        public async Task TestGetMovieRelatedMoviesWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        {
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieRelatedMoviesUri, statusCode);
+
+            try
+            {
+                await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieID);
+                Assert.False(true);
+            }
+            catch (Exception exception)
+            {
+                (exception.GetType() == exceptionType).Should().BeTrue();
+            }
+        }
+
+        [Theory]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiMovieNotFoundException))]
+        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
+        public async Task TestGetMovieRelatedMoviesWithSlugThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        {
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieRelatedMoviesUriWithSlug, statusCode);
+
+            try
+            {
+                await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieSlug);
+                Assert.False(true);
+            }
+            catch (Exception exception)
+            {
+                (exception.GetType() == exceptionType).Should().BeTrue();
+            }
+        }
+
+        [Theory]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiMovieNotFoundException))]
+        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
+        public async Task TestGetMovieRelatedMoviesWithIDsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        {
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieRelatedMoviesUriWithSlug, statusCode);
+
+            try
+            {
+                await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds);
+                Assert.False(true);
+            }
+            catch (Exception exception)
+            {
+                (exception.GetType() == exceptionType).Should().BeTrue();
+            }
+        }
+
+        [Fact]
+        public async Task TestGetMovieRelatedMoviesWithIDsThrowsArgumentException()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieRelatedMoviesUriWithSlug, responseContent);
+
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
+            Func<Task<TraktPagedResponse<TraktMovie>>> act = () => client.Movies.GetMovieRelatedMoviesAsync(default(TraktMovieIds));
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
+            await act.Should().ThrowAsync<ArgumentException>();
+
+            var movieIDs = new TraktMovieIds();
+
+            act = () => client.Movies.GetMovieRelatedMoviesAsync(movieIDs);
+            await act.Should().ThrowAsync<ArgumentException>();
+        }
+    }
+}

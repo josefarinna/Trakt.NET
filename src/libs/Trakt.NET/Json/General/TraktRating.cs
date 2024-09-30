@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    /// <summary>Represents a Trakt rating.</summary>
+    /// <summary>A Trakt rating.</summary>
     public record class TraktRating
     {
         /// <summary>The rating value.</summary>

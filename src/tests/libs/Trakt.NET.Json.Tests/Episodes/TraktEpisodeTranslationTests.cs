@@ -1,6 +1,6 @@
 ﻿namespace TraktNET.Json.Episodes
 {
-    public partial class TraktEpisodeTranslationTests
+    public sealed class TraktEpisodeTranslationTests
     {
         [Fact]
         public void TestTraktEpisodeTranslationConstructor()

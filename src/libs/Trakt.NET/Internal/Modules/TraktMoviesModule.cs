@@ -81,5 +81,61 @@
 
             return RequestHandler.ExecuteListRequestAsync<TraktVideo>(_context, request, cancellationToken);
         }
+
+        private Task<TraktResponse<TraktCastAndCrew>> GetMoviePeopleImplAsync(string movieIdOrSlug, TraktExtendedInfo? extendedInfo = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new MoviePeopleGetRequest
+            {
+                Id = movieIdOrSlug,
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCastAndCrew>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktMovie>> GetMovieRelatedMoviesImplAsync(string movieIdOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new MovieRelatedMoviesGetRequest
+            {
+                Id = movieIdOrSlug,
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMovie>(_context, request, (uint? page, uint? limit)
+                => new MovieRelatedMoviesGetRequest
+                {
+                    Id = movieIdOrSlug,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                },
+                cancellationToken);
+        }
+
+        private Task<TraktListResponse<TraktStudio>> GetMovieStudiosImplAsync(string movieIDOrSlug, CancellationToken cancellationToken = default)
+        {
+            var request = new MovieStudiosGetRequest
+            {
+                Id = movieIDOrSlug
+            };
+
+            return RequestHandler.ExecuteListRequestAsync<TraktStudio>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktListResponse<TraktUser>> GetMovieWatchingUsersImplAsync(string movieIDOrSlug, TraktExtendedInfo? extendedInfo = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new MovieWatchingGetRequest
+            {
+                Id = movieIDOrSlug,
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteListRequestAsync<TraktUser>(_context, request, cancellationToken);
+        }
     }
 }

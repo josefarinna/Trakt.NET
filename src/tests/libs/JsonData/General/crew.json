@@ -1,0 +1,189 @@
+{
+    "sound": [
+        {
+            "jobs": [
+                "Original Music Composer"
+            ],
+            "person": {
+                "name": "John Murphy",
+                "ids": {
+                    "trakt": 1005,
+                    "slug": "john-murphy",
+                    "imdb": "nm0614373",
+                    "tmdb": 960,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "production": [
+        {
+            "jobs": [
+                "Casting"
+            ],
+            "person": {
+                "name": "Sarah Halley Finn",
+                "ids": {
+                    "trakt": 3223,
+                    "slug": "sarah-halley-finn",
+                    "imdb": "nm0278168",
+                    "tmdb": 7232,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "editing": [
+        {
+            "jobs": [
+                "Editor"
+            ],
+            "person": {
+                "name": "Tatiana S. Riegel",
+                "ids": {
+                    "trakt": 3527,
+                    "slug": "tatiana-s-riegel",
+                    "imdb": "nm0726186",
+                    "tmdb": 33685,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "art": [
+        {
+            "jobs": [
+                "Set Decoration"
+            ],
+            "person": {
+                "name": "Rosemary Brandenburg",
+                "ids": {
+                    "trakt": 6020,
+                    "slug": "rosemary-brandenburg",
+                    "imdb": "nm0104599",
+                    "tmdb": 13588,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "costume & make-up": [
+        {
+            "jobs": [
+                "Costume Design"
+            ],
+            "person": {
+                "name": "Judianna Makovsky",
+                "ids": {
+                    "trakt": 8106,
+                    "slug": "judianna-makovsky",
+                    "imdb": "nm0538721",
+                    "tmdb": 10970,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "crew": [
+        {
+            "jobs": [
+                "Thanks"
+            ],
+            "person": {
+                "name": "Mike Mignola",
+                "ids": {
+                    "trakt": 8710,
+                    "slug": "mike-mignola",
+                    "imdb": "nm0586005",
+                    "tmdb": 66266,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "writing": [
+        {
+            "jobs": [
+                "Characters"
+            ],
+            "person": {
+                "name": "Larry Lieber",
+                "ids": {
+                    "trakt": 15622,
+                    "slug": "larry-lieber",
+                    "imdb": "nm1293367",
+                    "tmdb": 18876,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "camera": [
+        {
+            "jobs": [
+                "Director of Photography"
+            ],
+            "person": {
+                "name": "Henry Braham",
+                "ids": {
+                    "trakt": 19744,
+                    "slug": "henry-braham",
+                    "imdb": "nm0103956",
+                    "tmdb": 23422,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "visual effects": [
+        {
+            "jobs": [
+                "Visual Effects Supervisor"
+            ],
+            "person": {
+                "name": "Theo Bialek",
+                "ids": {
+                    "trakt": 22793,
+                    "slug": "theo-bialek",
+                    "imdb": "nm1322273",
+                    "tmdb": 42275,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "directing": [
+        {
+            "jobs": [
+                "Script Supervisor"
+            ],
+            "person": {
+                "name": "Kera Dacy",
+                "ids": {
+                    "trakt": 155049,
+                    "slug": "kera-dacy",
+                    "imdb": null,
+                    "tmdb": 230505,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "lighting": [
+        {
+            "jobs": [
+                "Chief Lighting Technician"
+            ],
+            "person": {
+                "name": "Dan Cornwall",
+                "ids": {
+                    "trakt": 486318,
+                    "slug": "dan-cornwall",
+                    "imdb": "nm0180473",
+                    "tmdb": 1403412,
+                    "tvrage": null
+                }
+            }
+        }
+    ]
+}

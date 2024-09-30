@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    /// <summary>Represents a Trakt authorization response, which contains information, such as access token and refresh token.</summary>
+    /// <summary>A Trakt authorization response, which contains information, such as access token and refresh token.</summary>
     public record class TraktAuthorization
     {
         /// <summary>The access token.</summary>

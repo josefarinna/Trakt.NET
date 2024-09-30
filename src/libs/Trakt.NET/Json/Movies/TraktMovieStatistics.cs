@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    /// <summary>Represents Trakt movie statistics.</summary>
+    /// <summary>Statistics about a Trakt movie.</summary>
     public record class TraktMovieStatistics
     {
         /// <summary>The number of watchers.</summary>

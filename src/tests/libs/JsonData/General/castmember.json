@@ -1,0 +1,16 @@
+{
+    "characters": [
+        "Peter Quill",
+        "Star-Lord"
+    ],
+    "person": {
+        "name": "Chris Pratt",
+        "ids": {
+            "trakt": 422885,
+            "slug": "chris-pratt",
+            "imdb": "nm0695435",
+            "tmdb": 73457,
+            "tvrage": null
+        }
+    }
+}

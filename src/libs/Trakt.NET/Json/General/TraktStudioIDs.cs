@@ -2,8 +2,8 @@
 
 namespace TraktNET
 {
-    /// <summary>A collection of IDs for various web services, including the Trakt ID, for a <see cref="TraktMovie" />.</summary>
-    public record class TraktMovieIds : ITraktIds
+    /// <summary>A collection of IDs for various web services, including the Trakt ID, for a <see cref="TraktStudio" />.</summary>
+    public record class TraktStudioIDs : ITraktIds
     {
         /// <summary>The Trakt numeric ID.</summary>
         public uint? Trakt { get; set; }
@@ -11,16 +11,13 @@ namespace TraktNET
         /// <summary>The Trakt slug.</summary>
         public string? Slug { get; set; }
 
-        /// <summary>The ID from imdb.com</summary>
-        public string? IMDB { get; set; }
-
         /// <summary>The numeric ID from themoviedb.org</summary>
         public uint? TMDB { get; set; }
 
         /// <inheritdoc />
         [JsonIgnore]
         public bool HasAnyID => Trakt.HasValue && Trakt.Value > 0 || !string.IsNullOrWhiteSpace(Slug)
-            || !string.IsNullOrWhiteSpace(IMDB) || TMDB.HasValue && TMDB.Value > 0;
+            || TMDB.HasValue && TMDB.Value > 0;
 
         /// <inheritdoc />
         [JsonIgnore]
@@ -36,9 +33,6 @@ namespace TraktNET
 
                 if (Trakt.HasValue && Trakt.Value > 0)
                     return Trakt.Value.ToInvariantCultureString();
-
-                if (!string.IsNullOrWhiteSpace(IMDB))
-                    return IMDB!;
 
                 if (TMDB.HasValue && TMDB.Value > 0)
                     return TMDB.Value.ToInvariantCultureString();

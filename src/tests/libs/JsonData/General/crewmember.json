@@ -1,0 +1,15 @@
+{
+    "jobs": [
+        "Original Music Composer"
+    ],
+    "person": {
+        "name": "John Murphy",
+        "ids": {
+            "trakt": 1005,
+            "slug": "john-murphy",
+            "imdb": "nm0614373",
+            "tmdb": 960,
+            "tvrage": null
+        }
+    }
+}

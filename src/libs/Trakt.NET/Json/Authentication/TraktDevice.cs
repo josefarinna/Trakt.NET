@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    /// <summary>Represents a Trakt device response.</summary>
+    /// <summary>A Trakt device response.</summary>
     public record class TraktDevice
     {
         /// <summary>The actual device code.</summary>

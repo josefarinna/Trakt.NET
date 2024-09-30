@@ -1,0 +1,9 @@
+{
+    "name": "Marvel Studios",
+    "country": "us",
+    "ids": {
+        "trakt": 181,
+        "slug": "marvel-studios",
+        "tmdb": 420
+    }
+}

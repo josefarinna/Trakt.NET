@@ -1,6 +1,6 @@
 ﻿namespace TraktNET.Json.General
 {
-    public partial class TraktRateLimitInfoTests
+    public sealed class TraktRateLimitInfoTests
     {
         [Fact]
         public void TestTraktRateLimitInfoConstructor()

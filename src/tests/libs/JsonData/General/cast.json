@@ -1,0 +1,33 @@
+[
+    {
+        "characters": [
+            "Peter Quill",
+            "Star-Lord"
+        ],
+        "person": {
+            "name": "Chris Pratt",
+            "ids": {
+                "trakt": 422885,
+                "slug": "chris-pratt",
+                "imdb": "nm0695435",
+                "tmdb": 73457,
+                "tvrage": null
+            }
+        }
+    },
+    {
+        "characters": [
+            "Gamora"
+        ],
+        "person": {
+            "name": "Zoe Saldaña",
+            "ids": {
+                "trakt": 475,
+                "slug": "zoe-saldana",
+                "imdb": "nm0757855",
+                "tmdb": 8691,
+                "tvrage": null
+            }
+        }
+    }
+]

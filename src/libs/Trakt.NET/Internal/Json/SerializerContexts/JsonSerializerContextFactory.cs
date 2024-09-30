@@ -121,8 +121,14 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_generalJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(uint),
+            typeof(TraktCastAndCrew),
+            typeof(TraktCastMember),
+            typeof(TraktCrew),
+            typeof(TraktCrewMember),
             typeof(TraktRateLimitInfo),
             typeof(TraktRating),
+            typeof(TraktStudio),
+            typeof(TraktStudioIDs),
             typeof(TraktVideo)
         });
 
@@ -209,8 +215,14 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_generalJsonTypes = [
             typeof(uint),
+            typeof(TraktCastAndCrew),
+            typeof(TraktCastMember),
+            typeof(TraktCrew),
+            typeof(TraktCrewMember),
             typeof(TraktRateLimitInfo),
             typeof(TraktRating),
+            typeof(TraktStudio),
+            typeof(TraktStudioIDs),
             typeof(TraktVideo)
         ];
 

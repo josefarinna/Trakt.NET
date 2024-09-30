@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Marvel Studios",
+        "country": "us",
+        "ids": {
+            "trakt": 181,
+            "slug": "marvel-studios",
+            "tmdb": 420
+        }
+    },
+    {
+        "name": "Kevin Feige Productions",
+        "country": "us",
+        "ids": {
+            "trakt": 126097,
+            "slug": "kevin-feige-productions",
+            "tmdb": 176762
+        }
+    }
+]

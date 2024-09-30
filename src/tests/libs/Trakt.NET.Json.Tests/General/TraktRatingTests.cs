@@ -1,6 +1,6 @@
 ﻿namespace TraktNET.Json.General
 {
-    public partial class TraktRatingTests
+    public sealed class TraktRatingTests
     {
         [Fact]
         public void TestTraktRatingConstructor()

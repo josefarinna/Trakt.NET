@@ -1,6 +1,6 @@
 ﻿namespace TraktNET.Json.General
 {
-    public partial class TraktVideoTests
+    public sealed class TraktVideoTests
     {
         [Fact]
         public void TestTraktVideoConstructor()
