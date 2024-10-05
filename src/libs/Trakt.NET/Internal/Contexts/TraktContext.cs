@@ -29,7 +29,7 @@
             }
         }
 
-        public TraktAuthorization Authorization { get; set; }
+        public TraktAuthorization? Authorization { get; set; }
 
         public bool IgnoreOAuthIfOptional { get; set; }
 
@@ -113,7 +113,6 @@
             ID = Guid.NewGuid().ToString();
             ClientID = clientID;
             ClientSecret = clientSecret;
-            Authorization = new TraktAuthorization();
             BaseUri = new Uri(Constants.API.BaseURL);
             BaseAuthorizationUri = new Uri(Constants.API.BaseAuthorizationURL);
             HttpClientProvider = new DefaultHttpClientProvider();

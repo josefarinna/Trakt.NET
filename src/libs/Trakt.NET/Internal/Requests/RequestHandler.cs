@@ -4,11 +4,18 @@ namespace TraktNET
 {
     internal static partial class RequestHandler
     {
+        internal static async Task<TraktResponse> ExecuteNoContentRequestAsync(TraktContext context, RequestBase request,
+            CancellationToken cancellationToken = default)
+        {
+            using RequestResponse response = await ExecuteRequestAsync(false, context, request, cancellationToken).ConfigureAwait(false);
+            return TraktResponse.Create(response.ResponseMessage.StatusCode, response.TraktHeaders, response.ResponseMessage.Headers);
+        }
+
         internal static async Task<TraktResponse<TResponseContentType>> ExecuteSingleItemRequestAsync<TResponseContentType>(
             TraktContext context, RequestBase request, CancellationToken cancellationToken = default)
             where TResponseContentType : class
         {
-            using RequestResponse response = await ExecuteRequestAsync(context, request, cancellationToken).ConfigureAwait(false);
+            using var response = (ContentRequestResponse)await ExecuteRequestAsync(true, context, request, cancellationToken).ConfigureAwait(false);
 
             TResponseContentType? responseContent =
                 await response.ResponseContentStream.ReadAsJsonAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
@@ -20,7 +27,7 @@ namespace TraktNET
         internal static async Task<TraktListResponse<TResponseContentType>> ExecuteListRequestAsync<TResponseContentType>(
             TraktContext context, RequestBase request, CancellationToken cancellationToken = default)
         {
-            using RequestResponse response = await ExecuteRequestAsync(context, request, cancellationToken).ConfigureAwait(false);
+            using var response = (ContentRequestResponse)await ExecuteRequestAsync(true, context, request, cancellationToken).ConfigureAwait(false);
 
             IReadOnlyList<TResponseContentType>? responseContent =
                 await response.ResponseContentStream.ReadAsJsonArrayAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
@@ -32,7 +39,7 @@ namespace TraktNET
         internal static async Task<TraktPagedResponse<TResponseContentType>> ExecutePagedListRequestAsync<TResponseContentType>(
             TraktContext context, RequestBase request, Func<uint?, uint?, RequestBase>? requestBuilder, CancellationToken cancellationToken = default)
         {
-            using RequestResponse response = await ExecuteRequestAsync(context, request, cancellationToken).ConfigureAwait(false);
+            using var response = (ContentRequestResponse)await ExecuteRequestAsync(true, context, request, cancellationToken).ConfigureAwait(false);
 
             IReadOnlyList<TResponseContentType>? responseContent =
                 await response.ResponseContentStream.ReadAsJsonArrayAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
@@ -46,7 +53,7 @@ namespace TraktNET
             return pagedResponse;
         }
 
-        private static async Task<RequestResponse> ExecuteRequestAsync(TraktContext context, RequestBase request,
+        private static async Task<RequestResponse> ExecuteRequestAsync(bool withContent, TraktContext context, RequestBase request,
             CancellationToken cancellationToken = default)
         {
             request.Validate();
@@ -65,16 +72,25 @@ namespace TraktNET
                 await HandleErrorAsync(request, responseMessage, traktHeaders, false, cancellationToken).ConfigureAwait(false);
             }
 
+            if (withContent)
+            {
 #if NET5_0_OR_GREATER
-            Stream responseContentStream = await GetResponseContentStreamAsync(responseMessage, cancellationToken).ConfigureAwait(false);
+                Stream responseContentStream = await GetResponseContentStreamAsync(responseMessage, cancellationToken).ConfigureAwait(false);
 #else
-            Stream responseContentStream = await GetResponseContentStreamAsync(responseMessage).ConfigureAwait(false);
+                Stream responseContentStream = await GetResponseContentStreamAsync(responseMessage).ConfigureAwait(false);
 #endif
+
+                return new ContentRequestResponse
+                {
+                    ResponseMessage = responseMessage,
+                    ResponseContentStream = responseContentStream,
+                    TraktHeaders = traktHeaders
+                };
+            }
 
             return new RequestResponse
             {
                 ResponseMessage = responseMessage,
-                ResponseContentStream = responseContentStream,
                 TraktHeaders = traktHeaders
             };
         }
@@ -99,7 +115,10 @@ namespace TraktNET
                 return;
             }
 
-            request.Headers.Authorization = new AuthenticationHeaderValue(AuthenticationScheme, context.Authorization!.AccessToken ?? string.Empty);
+            if (context.Authorization != null)
+            {
+                request.Headers.Authorization = new AuthenticationHeaderValue(AuthenticationScheme, context.Authorization!.AccessToken ?? string.Empty);
+            }
         }
 
 #if NET5_0_OR_GREATER
@@ -111,18 +130,23 @@ namespace TraktNET
 #endif
     }
 
-    internal readonly struct RequestResponse : IDisposable
+    internal record class RequestResponse : IDisposable
     {
-        internal HttpResponseMessage ResponseMessage { get; init; }
+        internal required HttpResponseMessage ResponseMessage { get; init; }
 
-        internal Stream ResponseContentStream { get; init; }
+        internal required TraktResponseHeaders TraktHeaders { get; init; }
 
-        internal TraktResponseHeaders TraktHeaders { get; init; }
+        public virtual void Dispose() => ResponseMessage.Dispose();
+    }
 
-        public readonly void Dispose()
+    internal record class ContentRequestResponse : RequestResponse
+    {
+        internal required Stream ResponseContentStream { get; init; }
+
+        public override void Dispose()
         {
-            ResponseMessage.Dispose();
-            ResponseContentStream.Dispose();
+            base.Dispose();
+            ResponseContentStream?.Dispose();
         }
     }
 }

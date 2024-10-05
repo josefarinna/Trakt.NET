@@ -21,10 +21,10 @@
         }
 
         /// <summary>Gets or sets the Trakt Authorization information. See also <seealso cref="TraktAuthorization" />.</summary>
-        public TraktAuthorization Authorization
+        public TraktAuthorization? Authorization
         {
             get => _context.Authorization;
-            set => _context.Authorization = value ?? new TraktAuthorization();
+            set => _context.Authorization = value;
         }
 
         /// <summary>Gets or sets, whether authorization should be ignored, if it is optional. This is disabled by default.</summary>

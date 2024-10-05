@@ -4,6 +4,15 @@
     {
         public const string ClientId = "traktClientId";
         public const string ClientSecret = "traktClientSecret";
+        public const string MockAccessToken = "mockAccessToken";
+
+        public static readonly TraktAuthorization MockAuthorization =
+            new()
+            {
+                CreatedAt = (ulong)new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(),
+                AccessToken = MockAccessToken,
+                ExpiresIn = 3600
+            };
 
         public static class Movies
         {

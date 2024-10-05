@@ -15,6 +15,7 @@ namespace TraktNET
         private const string AcceptMediaType = "application/json";
         private const string TraktApiHeaderKey = "trakt-api-key";
         private const string TraktApiVersionHeaderKey = "trakt-api-version";
+        private const string TraktApiAuthorizationHeaderKey = "Authorization";
 
         private const uint DefaultPage = 1;
         private const uint DefaultPageCount = 1;
@@ -106,6 +107,56 @@ namespace TraktNET
                 {
                     { TraktApiHeaderKey, TestConstants.ClientId },
                     { TraktApiVersionHeaderKey, "2" }
+                })
+                .Respond(statusCode);
+        }
+
+        public void SetupOAuthMockResponse(string requestUri, string responseContent, uint? page, uint? pageCount, uint? limit, uint? itemCount)
+        {
+            if (string.IsNullOrWhiteSpace(requestUri))
+            {
+                throw new ArgumentException("invalid request URI", nameof(requestUri));
+            }
+
+            if (string.IsNullOrWhiteSpace(responseContent))
+            {
+                throw new ArgumentException("invalid response content", nameof(responseContent));
+            }
+
+            var response = new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK,
+                Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
+            };
+
+            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_KEY, $"{page ?? DefaultPage}");
+            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_COUNT_KEY, $"{pageCount ?? DefaultPageCount}");
+            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_LIMIT_KEY, $"{limit ?? DefaultLimit}");
+            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_ITEM_COUNT_KEY, $"{itemCount ?? DefaultItemCount}");
+
+            _mockHttpMessageHandler.When(_baseUrl + requestUri)
+                .WithHeaders(new Dictionary<string, string>
+                {
+                    { TraktApiHeaderKey, TestConstants.ClientId },
+                    { TraktApiVersionHeaderKey, "2" },
+                    { TraktApiAuthorizationHeaderKey, $"Bearer {TestConstants.MockAuthorization.AccessToken}" }
+                })
+                .Respond(_ => response);
+        }
+
+        public void SetupOAuthMockResponse(string requestUri, HttpStatusCode statusCode)
+        {
+            if (string.IsNullOrWhiteSpace(requestUri))
+            {
+                throw new ArgumentException("invalid request URI", nameof(requestUri));
+            }
+
+            _mockHttpMessageHandler.When(_baseUrl + requestUri)
+                .WithHeaders(new Dictionary<string, string>
+                {
+                    { TraktApiHeaderKey, TestConstants.ClientId },
+                    { TraktApiVersionHeaderKey, "2" },
+                    { TraktApiAuthorizationHeaderKey, $"Bearer {TestConstants.MockAuthorization.AccessToken}" }
                 })
                 .Respond(statusCode);
         }

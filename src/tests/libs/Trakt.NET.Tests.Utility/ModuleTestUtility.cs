@@ -39,5 +39,28 @@ namespace TraktNET
             client.HttpClientProvider = httpClientProvider;
             return client;
         }
+
+        public static TraktClient GetOAuthClient(string requestUri, string responseContent, uint? page, uint? pageCount,
+            uint? limit, uint? itemCount)
+        {
+            var client = TraktClient.Create(TestConstants.ClientId, TestConstants.ClientSecret);
+            client.Authorization = TestConstants.MockAuthorization;
+
+            var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
+            httpClientProvider.SetupOAuthMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount);
+            client.HttpClientProvider = httpClientProvider;
+            return client;
+        }
+
+        public static TraktClient GetOAuthClient(string requestUri, HttpStatusCode statusCode)
+        {
+            var client = TraktClient.Create(TestConstants.ClientId, TestConstants.ClientSecret);
+            client.Authorization = TestConstants.MockAuthorization;
+
+            var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
+            httpClientProvider.SetupOAuthMockResponse(requestUri, statusCode);
+            client.HttpClientProvider = httpClientProvider;
+            return client;
+        }
     }
 }

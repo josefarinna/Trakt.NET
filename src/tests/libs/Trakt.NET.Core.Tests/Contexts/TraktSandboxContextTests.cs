@@ -2,7 +2,6 @@
 {
     public class TraktSandboxContextTests
     {
-        private const string ContextID = "contextID";
         private const string ClientID = "clientID";
         private const string ClientSecret = "clientSecret";
 
@@ -14,7 +13,7 @@
             context.ID.Should().NotBeNullOrEmpty();
             context.ClientID.Should().Be(ClientID);
             context.ClientSecret.Should().Be(ClientSecret);
-            context.Authorization.Should().NotBeNull();
+            context.Authorization.Should().BeNull();
         }
 
         [Fact]

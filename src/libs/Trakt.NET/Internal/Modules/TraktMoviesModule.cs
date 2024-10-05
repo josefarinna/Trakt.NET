@@ -137,5 +137,66 @@
 
             return RequestHandler.ExecuteListRequestAsync<TraktUser>(_context, request, cancellationToken);
         }
+
+        private Task<TraktPagedResponse<TraktList>> GetMovieListsImplAsync(string movieIDOrSlug, TraktListType? listType = null,
+            TraktListSortOrder? listSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new MovieListsGetRequest
+            {
+                Id = movieIDOrSlug,
+                ListType = listType,
+                SortOrder = listSortOrder,
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktList>(_context, request, (uint? page, uint? limit)
+                => new MovieListsGetRequest
+                {
+                    Id = movieIDOrSlug,
+                    ListType = listType,
+                    SortOrder = listSortOrder,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                },
+                cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktComment>> GetMovieCommentsImplAsync(string movieIDOrSlug, TraktCommentSortOrder? commentSortOrder = null,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new MovieCommentsGetRequest
+            {
+                Id = movieIDOrSlug,
+                SortOrder = commentSortOrder,
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktComment>(_context, request, (uint? page, uint? limit)
+                => new MovieCommentsGetRequest
+                {
+                    Id = movieIDOrSlug,
+                    SortOrder = commentSortOrder,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                },
+                cancellationToken);
+        }
+
+        private Task<TraktResponse> RefreshMovieImplAsync(string movieIDOrSlug, CancellationToken cancellationToken = default)
+        {
+            var request = new MovieRefreshPostRequest
+            {
+                Id = movieIDOrSlug
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
     }
 }

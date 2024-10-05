@@ -1,0 +1,30 @@
+{
+    "name": "MARVEL Cinematic Universe",
+    "description": "MCU Shows and Movies in chronological order.",
+    "privacy": "public",
+    "share_link": "https://trakt.tv/lists/1248149",
+    "type": "personal",
+    "display_numbers": true,
+    "allow_comments": true,
+    "sort_by": "rank",
+    "sort_how": "asc",
+    "created_at": "2015-07-16T14:59:57.000Z",
+    "updated_at": "2024-10-04T06:47:38.000Z",
+    "item_count": 218,
+    "comment_count": 33,
+    "likes": 4668,
+    "ids": {
+        "trakt": 1248149,
+        "slug": "marvel-cinematic-universe"
+    },
+    "user": {
+        "username": "Donxy",
+        "private": false,
+        "name": "Donxy",
+        "vip": false,
+        "vip_ep": true,
+        "ids": {
+            "slug": "donxy"
+        }
+    }
+}
