@@ -45,13 +45,13 @@ namespace TraktNET.MoviesModule
 
             trendingMovie.Title.Should().Be("Deadpool & Wolverine");
             trendingMovie.Year.Should().Be(2024U);
-            trendingMovie.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
+            trendingMovie.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
 
             trendingMovie = trendingMovies[1];
 
             trendingMovie.Title.Should().Be("Kingdom of the Planet of the Apes");
             trendingMovie.Year.Should().Be(2024U);
-            trendingMovie.Ids!.Slug.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
+            trendingMovie.IDs!.Slug.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
         }
 
         [Theory]
@@ -93,13 +93,13 @@ namespace TraktNET.MoviesModule
 
             trendingMovie.Title.Should().Be("Deadpool & Wolverine");
             trendingMovie.Year.Should().Be(2024U);
-            trendingMovie.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
+            trendingMovie.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
 
             trendingMovie = trendingMovies[1];
 
             trendingMovie.Title.Should().Be("Kingdom of the Planet of the Apes");
             trendingMovie.Year.Should().Be(2024U);
-            trendingMovie.Ids!.Slug.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
+            trendingMovie.IDs!.Slug.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
         }
 
         [Fact]

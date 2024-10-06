@@ -6,100 +6,100 @@
     /// </summary>
     public sealed partial class TraktMoviesModule(TraktContext context) : BaseModule(context)
     {
-        private Task<TraktResponse<TraktMovie>> GetMovieImplAsync(string movieIdOrSlug, TraktExtendedInfo? extendedInfo = null,
+        private Task<TraktResponse<TraktMovie>> GetMovieImplAsync(string movieIDOrSlug, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {
             var request = new MovieGetRequest
             {
-                Id = movieIdOrSlug,
+                Id = movieIDOrSlug,
                 ExtendedInfo = extendedInfo
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktMovie>(_context, request, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktMovieAlias>> GetMovieAliasesImplAsync(string movieIdOrSlug, CancellationToken cancellationToken = default)
+        private Task<TraktListResponse<TraktMovieAlias>> GetMovieAliasesImplAsync(string movieIDOrSlug, CancellationToken cancellationToken = default)
         {
             var request = new MovieAliasesGetRequest
             {
-                Id = movieIdOrSlug
+                Id = movieIDOrSlug
             };
 
             return RequestHandler.ExecuteListRequestAsync<TraktMovieAlias>(_context, request, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktMovieRelease>> GetMovieReleasesImplAsync(string movieIdOrSlug, string? country = null,
+        private Task<TraktListResponse<TraktMovieRelease>> GetMovieReleasesImplAsync(string movieIDOrSlug, string? country = null,
             CancellationToken cancellationToken = default)
         {
             var request = new MovieReleasesGetRequest
             {
-                Id = movieIdOrSlug,
+                Id = movieIDOrSlug,
                 Country = country
             };
 
             return RequestHandler.ExecuteListRequestAsync<TraktMovieRelease>(_context, request, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktMovieTranslation>> GetMovieTranslationsImplAsync(string movieIdOrSlug, string? language = null,
+        private Task<TraktListResponse<TraktMovieTranslation>> GetMovieTranslationsImplAsync(string movieIDOrSlug, string? language = null,
             CancellationToken cancellationToken = default)
         {
             var request = new MovieTranslationsGetRequest
             {
-                Id = movieIdOrSlug,
+                Id = movieIDOrSlug,
                 Language = language
             };
 
             return RequestHandler.ExecuteListRequestAsync<TraktMovieTranslation>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktRating>> GetMovieRatingsImplAsync(string movieIdOrSlug, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktRating>> GetMovieRatingsImplAsync(string movieIDOrSlug, CancellationToken cancellationToken = default)
         {
             var request = new MovieRatingsGetRequest
             {
-                Id = movieIdOrSlug
+                Id = movieIDOrSlug
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktRating>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktMovieStatistics>> GetMovieStatisticsImplAsync(string movieIdOrSlug, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktMovieStatistics>> GetMovieStatisticsImplAsync(string movieIDOrSlug, CancellationToken cancellationToken = default)
         {
             var request = new MovieStatisticsGetRequest
             {
-                Id = movieIdOrSlug
+                Id = movieIDOrSlug
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktMovieStatistics>(_context, request, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktVideo>> GetMovieVideosImplAsync(string movieIdOrSlug, CancellationToken cancellationToken = default)
+        private Task<TraktListResponse<TraktVideo>> GetMovieVideosImplAsync(string movieIDOrSlug, CancellationToken cancellationToken = default)
         {
             var request = new MovieVideosGetRequest
             {
-                Id = movieIdOrSlug
+                Id = movieIDOrSlug
             };
 
             return RequestHandler.ExecuteListRequestAsync<TraktVideo>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktCastAndCrew>> GetMoviePeopleImplAsync(string movieIdOrSlug, TraktExtendedInfo? extendedInfo = null,
+        private Task<TraktResponse<TraktCastAndCrew>> GetMoviePeopleImplAsync(string movieIDOrSlug, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {
             var request = new MoviePeopleGetRequest
             {
-                Id = movieIdOrSlug,
+                Id = movieIDOrSlug,
                 ExtendedInfo = extendedInfo
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCastAndCrew>(_context, request, cancellationToken);
         }
 
-        private Task<TraktPagedResponse<TraktMovie>> GetMovieRelatedMoviesImplAsync(string movieIdOrSlug, TraktExtendedInfo? extendedInfo = null,
+        private Task<TraktPagedResponse<TraktMovie>> GetMovieRelatedMoviesImplAsync(string movieIDOrSlug, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new MovieRelatedMoviesGetRequest
             {
-                Id = movieIdOrSlug,
+                Id = movieIDOrSlug,
                 ExtendedInfo = extendedInfo,
                 Page = page,
                 Limit = limit
@@ -108,7 +108,7 @@
             return RequestHandler.ExecutePagedListRequestAsync<TraktMovie>(_context, request, (uint? page, uint? limit)
                 => new MovieRelatedMoviesGetRequest
                 {
-                    Id = movieIdOrSlug,
+                    Id = movieIDOrSlug,
                     ExtendedInfo = extendedInfo,
                     Page = page,
                     Limit = limit

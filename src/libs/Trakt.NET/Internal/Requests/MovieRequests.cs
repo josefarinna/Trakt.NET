@@ -158,7 +158,7 @@ namespace TraktNET
     }
 
     [TraktGetRequest("movies/updates/id", SupportsPagination = true)]
-    internal sealed partial class RecentlyUpdatedMovieIdsGetRequest
+    internal sealed partial class RecentlyUpdatedMovieIDsGetRequest
     {
         [TraktRequestParameter(UseCacheEfficientDateTime = true)]
         internal DateTime? StartDate { get; set; }

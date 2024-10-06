@@ -10,7 +10,7 @@ namespace TraktNET.Exceptions
         public async Task TestTraktApiCommentNotFoundExceptionCreate()
         {
             ExceptionParameters parameters = await ExceptionsTestUtility.CreateMockExceptionParametersAsync(
-                Constants.StatusCodes.NotFound, HttpMethod.Get, objectId: "commentId");
+                Constants.StatusCodes.NotFound, HttpMethod.Get, objectID: "commentID");
 
             var exception = new TraktApiCommentNotFoundException(parameters);
 
@@ -25,7 +25,7 @@ namespace TraktNET.Exceptions
             exception.ContentHeaders.Should().NotBeNull();
             exception.Message.Should().Be("Trakt API request failed. Comment Not Found - method exists, but no record found");
 
-            exception.CommentID.Should().Be("commentId");
+            exception.CommentID.Should().Be("commentID");
         }
     }
 }

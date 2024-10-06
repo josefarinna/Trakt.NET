@@ -6,7 +6,7 @@
     /// </summary>
     public sealed partial class TraktClient
     {
-        /// <summary>Gets or sets the Trakt Client Id. See also <seealso cref="ClientSecret" />.</summary>
+        /// <summary>Gets or sets the Trakt Client ID. See also <seealso cref="ClientSecret" />.</summary>
         public string ClientID
         {
             get => _context.ClientID;
@@ -116,7 +116,7 @@
         public static TraktClient CreateForSandbox(string clientID, string clientSecret) => new(new TraktSandboxContext(clientID, clientSecret));
 
         /// <summary>Initializes a new instance of the <see cref="TraktClient" /> class.</summary>
-        /// <param name="clientID">The Trakt Client Id. See <seealso cref="ClientID" />.</param>
+        /// <param name="clientID">The Trakt Client ID. See <seealso cref="ClientID" />.</param>
         /// <param name="clientSecret">The Trakt Client Secret. See <seealso cref="ClientSecret" />.</param>
         public TraktClient(string clientID, string clientSecret)
             : this(new TraktDefaultContext(clientID, clientSecret))

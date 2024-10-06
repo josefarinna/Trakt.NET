@@ -135,7 +135,7 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_episodeJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktEpisode),
-            typeof(TraktEpisodeIds),
+            typeof(TraktEpisodeIDs),
             typeof(TraktEpisodeMinimal),
             typeof(TraktEpisodeTranslation)
         });
@@ -171,7 +171,7 @@ namespace TraktNET
             typeof(TraktMostWatchedMovie),
             typeof(TraktMovie),
             typeof(TraktMovieAlias),
-            typeof(TraktMovieIds),
+            typeof(TraktMovieIDs),
             typeof(TraktMovieMinimal),
             typeof(TraktMovieRelease),
             typeof(TraktMovieStatistics),
@@ -183,15 +183,15 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_peopleJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktPerson),
-            typeof(TraktPersonIds),
+            typeof(TraktPersonIDs),
             typeof(TraktPersonMinimal),
-            typeof(TraktPersonSocialIds)
+            typeof(TraktPersonSocialIDs)
         });
 
         private static readonly FrozenSet<Type> s_seasonsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktSeason),
-            typeof(TraktSeasonIds),
+            typeof(TraktSeasonIDs),
             typeof(TraktSeasonMinimal)
         });
 
@@ -199,14 +199,14 @@ namespace TraktNET
         {
             typeof(TraktShow),
             typeof(TraktShowAirs),
-            typeof(TraktShowIds),
+            typeof(TraktShowIDs),
             typeof(TraktShowMinimal)
         });
 
         private static readonly FrozenSet<Type> s_usersJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktUser),
-            typeof(TraktUserIds),
+            typeof(TraktUserIDs),
             typeof(TraktUserImages),
             typeof(TraktUserImagesAvatar),
             typeof(TraktUserMinimal)
@@ -243,7 +243,7 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_episodeJsonTypes = [
             typeof(TraktEpisode),
-            typeof(TraktEpisodeIds),
+            typeof(TraktEpisodeIDs),
             typeof(TraktEpisodeMinimal),
             typeof(TraktEpisodeTranslation)
         ];
@@ -276,7 +276,7 @@ namespace TraktNET
             typeof(TraktMostWatchedMovie),
             typeof(TraktMovie),
             typeof(TraktMovieAlias),
-            typeof(TraktMovieIds),
+            typeof(TraktMovieIDs),
             typeof(TraktMovieMinimal),
             typeof(TraktMovieRelease),
             typeof(TraktMovieStatistics),
@@ -287,27 +287,27 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_peopleJsonTypes = [
             typeof(TraktPerson),
-            typeof(TraktPersonIds),
+            typeof(TraktPersonIDs),
             typeof(TraktPersonMinimal),
-            typeof(TraktPersonSocialIds)
+            typeof(TraktPersonSocialIDs)
         ];
 
         private static readonly HashSet<Type> s_seasonsJsonTypes = [
             typeof(TraktSeason),
-            typeof(TraktSeasonIds),
+            typeof(TraktSeasonIDs),
             typeof(TraktSeasonMinimal)
         ];
 
         private static readonly HashSet<Type> s_showsJsonTypes = [
             typeof(TraktShow),
             typeof(TraktShowAirs),
-            typeof(TraktShowIds),
+            typeof(TraktShowIDs),
             typeof(TraktShowMinimal)
         ];
 
         private static readonly HashSet<Type> s_usersJsonTypes = [
             typeof(TraktUser),
-            typeof(TraktUserIds),
+            typeof(TraktUserIDs),
             typeof(TraktUserImages),
             typeof(TraktUserImagesAvatar),
             typeof(TraktUserMinimal)

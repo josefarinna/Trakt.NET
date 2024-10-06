@@ -24,8 +24,8 @@
         /// <summary>Range in minutes.</summary>
         public Range<uint>? Runtimes { get; set; }
 
-        /// <summary>Trakt studio Ids.</summary>
-        public uint[]? StudioIds { get; set; }
+        /// <summary>Trakt studio IDs.</summary>
+        public uint[]? StudioIDs { get; set; }
 
         /// <summary>Trakt rating range between 0 and 100.</summary>
         public Range<uint>? Ratings { get; set; }
@@ -57,8 +57,8 @@
         /// <summary>US content certifications.</summary>
         public string[]? Certifications { get; set; }
 
-        /// <summary>Trakt network Ids.</summary>
-        public uint[]? NetworkIds { get; set; }
+        /// <summary>Trakt network IDs.</summary>
+        public uint[]? NetworkIDs { get; set; }
 
         /// <summary>Collection of show status.</summary>
         public TraktShowStatus[]? Status { get; set; }

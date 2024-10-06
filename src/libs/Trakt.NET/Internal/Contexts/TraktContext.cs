@@ -2,19 +2,19 @@
 {
     public abstract class TraktContext
     {
-        private string _clientId = string.Empty;
+        private string _clientID = string.Empty;
         private string _clientSecret = string.Empty;
 
         internal string ID { get; }
 
         internal string ClientID
         {
-            get => _clientId;
+            get => _clientID;
 
             set
             {
-                ArgumentValidator.ThrowIfNullOrWhiteSpace(value, "client id must not be null or empty or only whitespace", checkSpaces: true);
-                _clientId = value;
+                ArgumentValidator.ThrowIfNullOrWhiteSpace(value, "client ID must not be null or empty or only whitespace", checkSpaces: true);
+                _clientID = value;
             }
         }
 

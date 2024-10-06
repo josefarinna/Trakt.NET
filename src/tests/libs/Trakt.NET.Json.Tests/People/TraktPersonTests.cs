@@ -8,8 +8,8 @@
             var person = new TraktPerson();
 
             person.Name.Should().BeNull();
-            person.Ids.Should().BeNull();
-            person.SocialIds.Should().BeNull();
+            person.IDs.Should().BeNull();
+            person.SocialIDs.Should().BeNull();
             person.Biography.Should().BeNull();
             person.Birthday.Should().BeNull();
             person.Death.Should().BeNull();
@@ -29,13 +29,13 @@
 
             person!.Name.Should().Be("Bryan Cranston");
 
-            person!.Ids.Should().NotBeNull();
-            person!.Ids!.Trakt.Should().Be(297737U);
-            person!.Ids!.Slug.Should().Be("bryan-cranston");
-            person!.Ids!.IMDB.Should().Be("nm0186505");
-            person!.Ids!.TMDB.Should().Be(17419U);
-            person!.Ids!.HasAnyID.Should().BeTrue();
-            person!.Ids!.BestID.Should().Be("bryan-cranston");
+            person!.IDs.Should().NotBeNull();
+            person!.IDs!.Trakt.Should().Be(297737U);
+            person!.IDs!.Slug.Should().Be("bryan-cranston");
+            person!.IDs!.IMDB.Should().Be("nm0186505");
+            person!.IDs!.TMDB.Should().Be(17419U);
+            person!.IDs!.HasAnyID.Should().BeTrue();
+            person!.IDs!.BestID.Should().Be("bryan-cranston");
         }
 
         [Fact]
@@ -47,19 +47,19 @@
 
             person!.Name.Should().Be("Bryan Cranston");
 
-            person!.Ids.Should().NotBeNull();
-            person!.Ids!.Trakt.Should().Be(297737U);
-            person!.Ids!.Slug.Should().Be("bryan-cranston");
-            person!.Ids!.IMDB.Should().Be("nm0186505");
-            person!.Ids!.TMDB.Should().Be(17419U);
-            person!.Ids!.HasAnyID.Should().BeTrue();
-            person!.Ids!.BestID.Should().Be("bryan-cranston");
+            person!.IDs.Should().NotBeNull();
+            person!.IDs!.Trakt.Should().Be(297737U);
+            person!.IDs!.Slug.Should().Be("bryan-cranston");
+            person!.IDs!.IMDB.Should().Be("nm0186505");
+            person!.IDs!.TMDB.Should().Be(17419U);
+            person!.IDs!.HasAnyID.Should().BeTrue();
+            person!.IDs!.BestID.Should().Be("bryan-cranston");
 
-            person!.SocialIds.Should().NotBeNull();
-            person!.SocialIds!.Twitter.Should().Be("BryanCranston");
-            person!.SocialIds!.Facebook.Should().Be("thebryancranston");
-            person!.SocialIds!.Instagram.Should().Be("bryancranston");
-            person!.SocialIds!.Wikipedia.Should().BeNull();
+            person!.SocialIDs.Should().NotBeNull();
+            person!.SocialIDs!.Twitter.Should().Be("BryanCranston");
+            person!.SocialIDs!.Facebook.Should().Be("thebryancranston");
+            person!.SocialIDs!.Instagram.Should().Be("bryancranston");
+            person!.SocialIDs!.Wikipedia.Should().BeNull();
 
             person!.Biography.Should().Be("Bryan Lee Cranston (born March 7, 1956) is an American actor, director, and producer who "
                 + "is mainly known for portraying Walter White in the AMC crime drama series Breaking Bad (2008–2013) and Hal in "

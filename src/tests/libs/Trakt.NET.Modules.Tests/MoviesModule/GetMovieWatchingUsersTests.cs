@@ -84,7 +84,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieIds, extendedInfo);
+            TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieIDs, extendedInfo);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -222,7 +222,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieIds);
+                await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieIDs);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -238,11 +238,11 @@ namespace TraktNET.MoviesModule
             TraktClient client = ModuleTestUtility.GetClient(GetMovieWatchingUsersUriWithSlug, responseContent);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Movies.GetMovieWatchingUsersAsync(default(TraktMovieIds));
+            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Movies.GetMovieWatchingUsersAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.Should().ThrowAsync<ArgumentException>();
 
-            var movieIDs = new TraktMovieIds();
+            var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMovieWatchingUsersAsync(movieIDs);
             await act.Should().ThrowAsync<ArgumentException>();

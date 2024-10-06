@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>A collection of social IDs for various web services for a Trakt person.</summary>
-    public record class TraktPersonSocialIds
+    public record class TraktPersonSocialIDs
     {
         /// <summary>The Twitter ID of a person.</summary>
         public string? Twitter { get; set; }

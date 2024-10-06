@@ -11,7 +11,7 @@
             episode.Number.Should().BeNull();
             episode.NumberAbsolute.Should().BeNull();
             episode.Title.Should().BeNull();
-            episode.Ids.Should().BeNull();
+            episode.IDs.Should().BeNull();
             episode.Overview.Should().BeNull();
             episode.Rating.Should().BeNull();
             episode.Votes.Should().BeNull();
@@ -37,13 +37,13 @@
             episode!.Number.Should().Be(1U);
             episode!.Title.Should().Be("Winter Is Coming");
 
-            episode!.Ids.Should().NotBeNull();
-            episode!.Ids!.Trakt.Should().Be(73640U);
-            episode!.Ids!.TVDB.Should().Be(3254641U);
-            episode!.Ids!.IMDB.Should().Be("tt1480055");
-            episode!.Ids!.TMDB.Should().Be(63056U);
-            episode!.Ids!.HasAnyID.Should().BeTrue();
-            episode!.Ids!.BestID.Should().Be("73640");
+            episode!.IDs.Should().NotBeNull();
+            episode!.IDs!.Trakt.Should().Be(73640U);
+            episode!.IDs!.TVDB.Should().Be(3254641U);
+            episode!.IDs!.IMDB.Should().Be("tt1480055");
+            episode!.IDs!.TMDB.Should().Be(63056U);
+            episode!.IDs!.HasAnyID.Should().BeTrue();
+            episode!.IDs!.BestID.Should().Be("73640");
 
             episode!.ToString().Should().Be("S01E01: Winter Is Coming");
         }
@@ -60,13 +60,13 @@
             episode!.NumberAbsolute.Should().Be(1U);
             episode!.Title.Should().Be("Winter Is Coming");
 
-            episode!.Ids.Should().NotBeNull();
-            episode!.Ids!.Trakt.Should().Be(73640U);
-            episode!.Ids!.TVDB.Should().Be(3254641U);
-            episode!.Ids!.IMDB.Should().Be("tt1480055");
-            episode!.Ids!.TMDB.Should().Be(63056U);
-            episode!.Ids!.HasAnyID.Should().BeTrue();
-            episode!.Ids!.BestID.Should().Be("73640");
+            episode!.IDs.Should().NotBeNull();
+            episode!.IDs!.Trakt.Should().Be(73640U);
+            episode!.IDs!.TVDB.Should().Be(3254641U);
+            episode!.IDs!.IMDB.Should().Be("tt1480055");
+            episode!.IDs!.TMDB.Should().Be(63056U);
+            episode!.IDs!.HasAnyID.Should().BeTrue();
+            episode!.IDs!.BestID.Should().Be("73640");
 
             episode!.ToString().Should().Be("S01E01: Winter Is Coming");
 
@@ -102,13 +102,13 @@
             episode!.NumberAbsolute.Should().BeNull();
             episode!.Title.Should().Be("Winter Is Coming");
 
-            episode!.Ids.Should().NotBeNull();
-            episode!.Ids!.Trakt.Should().Be(73640U);
-            episode!.Ids!.TVDB.Should().Be(3254641U);
-            episode!.Ids!.IMDB.Should().Be("tt1480055");
-            episode!.Ids!.TMDB.Should().Be(63056U);
-            episode!.Ids!.HasAnyID.Should().BeTrue();
-            episode!.Ids!.BestID.Should().Be("73640");
+            episode!.IDs.Should().NotBeNull();
+            episode!.IDs!.Trakt.Should().Be(73640U);
+            episode!.IDs!.TVDB.Should().Be(3254641U);
+            episode!.IDs!.IMDB.Should().Be("tt1480055");
+            episode!.IDs!.TMDB.Should().Be(63056U);
+            episode!.IDs!.HasAnyID.Should().BeTrue();
+            episode!.IDs!.BestID.Should().Be("73640");
 
             episode!.ToString().Should().Be("S01E01: Winter Is Coming");
 

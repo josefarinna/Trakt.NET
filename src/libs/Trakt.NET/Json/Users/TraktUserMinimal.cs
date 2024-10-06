@@ -21,7 +21,8 @@ namespace TraktNET
         [JsonPropertyName("vip_ep")]
         public bool? VIPEP { get; set; }
 
-        /// <summary>The collection of IDs for the user. See also <seealso cref="TraktUserIds" />.</summary>
-        public TraktUserIds? Ids { get; set; }
+        /// <summary>The collection of IDs for the user. See also <seealso cref="TraktUserIDs" />.</summary>
+        [JsonPropertyName("ids")]
+        public TraktUserIDs? IDs { get; set; }
     }
 }

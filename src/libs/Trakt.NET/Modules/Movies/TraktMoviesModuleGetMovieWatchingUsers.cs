@@ -3,7 +3,7 @@
     public sealed partial class TraktMoviesModule
     {
         /// <summary>Gets all users watching a <see cref="TraktMovie" /> with the specified Trakt-ID or -Slug.</summary>
-        /// <param name="traktMovieIdOrSlug">The movie's Trakt-ID or -Slug.</param>
+        /// <param name="traktMovieIDOrSlug">The movie's Trakt-ID or -Slug.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the users.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -25,12 +25,12 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        public Task<TraktListResponse<TraktUser>> GetMovieWatchingUsersAsync(string traktMovieIdOrSlug, TraktExtendedInfo? extendedInfo = null,
+        public Task<TraktListResponse<TraktUser>> GetMovieWatchingUsersAsync(string traktMovieIDOrSlug, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
-            => GetMovieWatchingUsersImplAsync(traktMovieIdOrSlug, extendedInfo, cancellationToken);
+            => GetMovieWatchingUsersImplAsync(traktMovieIDOrSlug, extendedInfo, cancellationToken);
 
         /// <summary>Gets all users watching a <see cref="TraktMovie" /> with the specified Trakt-ID.</summary>
-        /// <param name="traktMovieId">The movie's Trakt-ID.</param>
+        /// <param name="traktMovieID">The movie's Trakt-ID.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the users.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -52,12 +52,12 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        public Task<TraktListResponse<TraktUser>> GetMovieWatchingUsersAsync(uint traktMovieId, TraktExtendedInfo? extendedInfo = null,
+        public Task<TraktListResponse<TraktUser>> GetMovieWatchingUsersAsync(uint traktMovieID, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
-            => GetMovieWatchingUsersImplAsync(traktMovieId.ToInvariantCultureString(), extendedInfo, cancellationToken);
+            => GetMovieWatchingUsersImplAsync(traktMovieID.ToInvariantCultureString(), extendedInfo, cancellationToken);
 
-        /// <summary>Gets all users watching a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIds" />.</summary>
-        /// <param name="movieIds">The movie's ids. See also <seealso cref="TraktMovieIds" />.</param>
+        /// <summary>Gets all users watching a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.</summary>
+        /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the users.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -79,19 +79,19 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIds" /> has not set any ids.</exception>
-        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIds" /> is null.</exception>
-        public Task<TraktListResponse<TraktUser>> GetMovieWatchingUsersAsync(TraktMovieIds movieIds, TraktExtendedInfo? extendedInfo = null,
+        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any IDs.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIDs" /> is null.</exception>
+        public Task<TraktListResponse<TraktUser>> GetMovieWatchingUsersAsync(TraktMovieIDs movieIDs, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(movieIds);
+            ArgumentValidator.ThrowIfNull(movieIDs);
 
-            if (!movieIds.HasAnyID)
+            if (!movieIDs.HasAnyID)
             {
-                throw new ArgumentException($"{nameof(movieIds)} has not any ids set", nameof(movieIds));
+                throw new ArgumentException($"{nameof(movieIDs)} has not any IDs set", nameof(movieIDs));
             }
 
-            return GetMovieWatchingUsersImplAsync(movieIds.BestID, extendedInfo, cancellationToken);
+            return GetMovieWatchingUsersImplAsync(movieIDs.BestID, extendedInfo, cancellationToken);
         }
     }
 }

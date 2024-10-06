@@ -9,7 +9,7 @@
 
             movie.Title.Should().BeNull();
             movie.Year.Should().BeNull();
-            movie.Ids.Should().BeNull();
+            movie.IDs.Should().BeNull();
             movie.Tagline.Should().BeNull();
             movie.Overview.Should().BeNull();
             movie.Released.Should().BeNull();
@@ -41,12 +41,12 @@
             movie!.Title.Should().Be("Guardians of the Galaxy Volume 3");
             movie!.Year.Should().Be(2023U);
 
-            movie!.Ids!.Trakt.Should().Be(293990U);
-            movie!.Ids!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
-            movie!.Ids!.IMDB.Should().Be("tt6791350");
-            movie!.Ids!.TMDB.Should().Be(447365U);
-            movie!.Ids!.HasAnyID.Should().BeTrue();
-            movie!.Ids!.BestID.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movie!.IDs!.Trakt.Should().Be(293990U);
+            movie!.IDs!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movie!.IDs!.IMDB.Should().Be("tt6791350");
+            movie!.IDs!.TMDB.Should().Be(447365U);
+            movie!.IDs!.HasAnyID.Should().BeTrue();
+            movie!.IDs!.BestID.Should().Be("guardians-of-the-galaxy-volume-3-2023");
 
             movie!.ToString().Should().Be("Guardians of the Galaxy Volume 3 (2023)");
         }
@@ -61,12 +61,12 @@
             movie!.Title.Should().Be("Guardians of the Galaxy Volume 3");
             movie!.Year.Should().Be(2023U);
 
-            movie!.Ids!.Trakt.Should().Be(293990U);
-            movie!.Ids!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
-            movie!.Ids!.IMDB.Should().Be("tt6791350");
-            movie!.Ids!.TMDB.Should().Be(447365U);
-            movie!.Ids!.HasAnyID.Should().BeTrue();
-            movie!.Ids!.BestID.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movie!.IDs!.Trakt.Should().Be(293990U);
+            movie!.IDs!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movie!.IDs!.IMDB.Should().Be("tt6791350");
+            movie!.IDs!.TMDB.Should().Be(447365U);
+            movie!.IDs!.HasAnyID.Should().BeTrue();
+            movie!.IDs!.BestID.Should().Be("guardians-of-the-galaxy-volume-3-2023");
 
             movie!.ToString().Should().Be("Guardians of the Galaxy Volume 3 (2023)");
 

@@ -6,9 +6,9 @@ namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
     [JsonSerializable(typeof(TraktPerson))]
-    [JsonSerializable(typeof(TraktPersonIds))]
+    [JsonSerializable(typeof(TraktPersonIDs))]
     [JsonSerializable(typeof(TraktPersonMinimal))]
-    [JsonSerializable(typeof(TraktPersonSocialIds))]
+    [JsonSerializable(typeof(TraktPersonSocialIDs))]
     public sealed partial class PeopleJsonSerializerContext : JsonSerializerContext
     {
     }

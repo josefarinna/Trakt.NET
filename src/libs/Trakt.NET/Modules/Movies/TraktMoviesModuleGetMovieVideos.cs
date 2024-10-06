@@ -46,8 +46,8 @@
         public Task<TraktListResponse<TraktVideo>> GetMovieVideosAsync(uint traktMovieID, CancellationToken cancellationToken = default)
             => GetMovieVideosImplAsync(traktMovieID.ToInvariantCultureString(), cancellationToken);
 
-        /// <summary>Gets all videos for a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIds" />.</summary>
-        /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIds" />.</param>
+        /// <summary>Gets all videos for a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.</summary>
+        /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -65,15 +65,15 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any ids.</exception>
+        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any IDs.</exception>
         /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIDs" /> is null.</exception>
-        public Task<TraktListResponse<TraktVideo>> GetMovieVideosAsync(TraktMovieIds movieIDs, CancellationToken cancellationToken = default)
+        public Task<TraktListResponse<TraktVideo>> GetMovieVideosAsync(TraktMovieIDs movieIDs, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(movieIDs);
 
             if (!movieIDs.HasAnyID)
             {
-                throw new ArgumentException($"{nameof(movieIDs)} has not any ids set", nameof(movieIDs));
+                throw new ArgumentException($"{nameof(movieIDs)} has not any IDs set", nameof(movieIDs));
             }
 
             return GetMovieVideosImplAsync(movieIDs.BestID, cancellationToken);

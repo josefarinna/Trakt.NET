@@ -47,13 +47,13 @@ namespace TraktNET.MoviesModule
 
             updatedMovie.Title.Should().Be("Second Life");
             updatedMovie.Year.Should().Be(2024U);
-            updatedMovie.Ids!.Slug.Should().Be("second-life-2024-1110139");
+            updatedMovie.IDs!.Slug.Should().Be("second-life-2024-1110139");
 
             updatedMovie = updatedMovies[1];
 
             updatedMovie.Title.Should().Be("Milk & Serial");
             updatedMovie.Year.Should().Be(2024U);
-            updatedMovie.Ids!.Slug.Should().Be("milk-serial-2024");
+            updatedMovie.IDs!.Slug.Should().Be("milk-serial-2024");
         }
 
         [Theory]
@@ -95,13 +95,13 @@ namespace TraktNET.MoviesModule
 
             updatedMovie.Title.Should().Be("Second Life");
             updatedMovie.Year.Should().Be(2024U);
-            updatedMovie.Ids!.Slug.Should().Be("second-life-2024-1110139");
+            updatedMovie.IDs!.Slug.Should().Be("second-life-2024-1110139");
 
             updatedMovie = updatedMovies[1];
 
             updatedMovie.Title.Should().Be("Milk & Serial");
             updatedMovie.Year.Should().Be(2024U);
-            updatedMovie.Ids!.Slug.Should().Be("milk-serial-2024");
+            updatedMovie.IDs!.Slug.Should().Be("milk-serial-2024");
         }
 
         [Fact]

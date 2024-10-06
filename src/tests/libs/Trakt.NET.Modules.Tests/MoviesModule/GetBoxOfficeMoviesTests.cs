@@ -32,13 +32,13 @@ namespace TraktNET.MoviesModule
 
             boxOfficeMovie.Title.Should().Be("Beetlejuice Beetlejuice");
             boxOfficeMovie.Year.Should().Be(2024U);
-            boxOfficeMovie.Ids!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
+            boxOfficeMovie.IDs!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
 
             boxOfficeMovie = boxOfficeMovies[1];
 
             boxOfficeMovie.Title.Should().Be("Speak No Evil");
             boxOfficeMovie.Year.Should().Be(2024U);
-            boxOfficeMovie.Ids!.Slug.Should().Be("speak-no-evil-2024");
+            boxOfficeMovie.IDs!.Slug.Should().Be("speak-no-evil-2024");
         }
 
         [Theory]

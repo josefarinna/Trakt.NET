@@ -11,7 +11,7 @@ namespace TraktNET.MoviesModule
         [InlineData(null, $"{GetMovieUri}/293990", "Movies\\movie_minimal.json")]
         [InlineData(TraktExtendedInfo.None, $"{GetMovieUri}/293990", "Movies\\movie_minimal.json")]
         [InlineData(TraktExtendedInfo.Full, $"{GetMovieUri}/293990?extended=full", "Movies\\movie.json")]
-        public async Task TestGetMovieWithId(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        public async Task TestGetMovieWithID(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
@@ -30,7 +30,7 @@ namespace TraktNET.MoviesModule
 
             movie.Title.Should().Be("Guardians of the Galaxy Volume 3");
             movie.Year.Should().Be(2023U);
-            movie.Ids!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movie.IDs!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
         }
 
         [Theory]
@@ -56,19 +56,19 @@ namespace TraktNET.MoviesModule
 
             movie.Title.Should().Be("Guardians of the Galaxy Volume 3");
             movie.Year.Should().Be(2023U);
-            movie.Ids!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movie.IDs!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
         }
 
         [Theory]
         [InlineData(null, GetMovieUriWithSlug, "Movies\\movie_minimal.json")]
         [InlineData(TraktExtendedInfo.None, GetMovieUriWithSlug, "Movies\\movie_minimal.json")]
         [InlineData(TraktExtendedInfo.Full, $"{GetMovieUriWithSlug}?extended=full", "Movies\\movie.json")]
-        public async Task TestGetMovieWithIds(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        public async Task TestGetMovieWithIDs(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIds, extendedInfo);
+            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIDs, extendedInfo);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -82,7 +82,7 @@ namespace TraktNET.MoviesModule
 
             movie.Title.Should().Be("Guardians of the Galaxy Volume 3");
             movie.Year.Should().Be(2023U);
-            movie.Ids!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movie.IDs!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
         }
 
         [Theory]
@@ -111,7 +111,7 @@ namespace TraktNET.MoviesModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetMovieWithIdThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetMovieWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieUri}/293990", statusCode);
 
@@ -193,13 +193,13 @@ namespace TraktNET.MoviesModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetMovieWithIdsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetMovieWithIDsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetMovieUriWithSlug, statusCode);
 
             try
             {
-                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIds);
+                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIDs);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -209,19 +209,19 @@ namespace TraktNET.MoviesModule
         }
 
         [Fact]
-        public async Task TestGetMovieWithIdsThrowsArgumentException()
+        public async Task TestGetMovieWithIDsThrowsArgumentException()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movie_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieUriWithSlug, responseContent);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktResponse<TraktMovie>>> act = () => client.Movies.GetMovieAsync(default(TraktMovieIds));
+            Func<Task<TraktResponse<TraktMovie>>> act = () => client.Movies.GetMovieAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.Should().ThrowAsync<ArgumentException>();
 
-            var movieIds = new TraktMovieIds();
+            var movieIDs = new TraktMovieIDs();
 
-            act = () => client.Movies.GetMovieAsync(movieIds);
+            act = () => client.Movies.GetMovieAsync(movieIDs);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

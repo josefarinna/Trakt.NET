@@ -12,7 +12,7 @@
             user.Name.Should().BeNull();
             user.VIP.Should().BeNull();
             user.VIPEP.Should().BeNull();
-            user.Ids.Should().BeNull();
+            user.IDs.Should().BeNull();
             user.JoinedAt.Should().BeNull();
             user.Location.Should().BeNull();
             user.About.Should().BeNull();
@@ -37,11 +37,11 @@
             user!.VIP.Should().BeTrue();
             user!.VIPEP.Should().BeFalse();
 
-            user!.Ids.Should().NotBeNull();
-            user!.Ids!.Slug.Should().Be("ixxus");
-            user!.Ids!.UUID.Should().Be("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
-            user!.Ids!.HasAnyID.Should().BeTrue();
-            user!.Ids!.BestID.Should().Be("ixxus");
+            user!.IDs.Should().NotBeNull();
+            user!.IDs!.Slug.Should().Be("ixxus");
+            user!.IDs!.UUID.Should().Be("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
+            user!.IDs!.HasAnyID.Should().BeTrue();
+            user!.IDs!.BestID.Should().Be("ixxus");
         }
 
         [Fact]
@@ -57,11 +57,11 @@
             user!.VIP.Should().BeTrue();
             user!.VIPEP.Should().BeFalse();
 
-            user!.Ids.Should().NotBeNull();
-            user!.Ids!.Slug.Should().Be("ixxus");
-            user!.Ids!.UUID.Should().Be("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
-            user!.Ids!.HasAnyID.Should().BeTrue();
-            user!.Ids!.BestID.Should().Be("ixxus");
+            user!.IDs.Should().NotBeNull();
+            user!.IDs!.Slug.Should().Be("ixxus");
+            user!.IDs!.UUID.Should().Be("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
+            user!.IDs!.HasAnyID.Should().BeTrue();
+            user!.IDs!.BestID.Should().Be("ixxus");
 
             user!.JoinedAt.Should().Be(TestUtility.ParseUTCDateTime("2015-02-18T12:54:39.000Z"));
             user!.Location.Should().Be("Germany");

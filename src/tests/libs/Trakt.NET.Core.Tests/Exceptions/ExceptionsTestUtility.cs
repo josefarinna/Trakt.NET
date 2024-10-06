@@ -13,10 +13,10 @@ namespace TraktNET.Exceptions
         internal const string TestResponseContent = "response content";
 
         internal static Task<ExceptionParameters> CreateMockExceptionParametersAsync(HttpStatusCode statusCode, HttpMethod httpMethod,
-            string? objectId = null, uint? seasonNumber = null, uint? episodeNumber = null)
+            string? objectID = null, uint? seasonNumber = null, uint? episodeNumber = null)
         {
             var requestMessage = new MockRequest(httpMethod, new Uri(TestUri, UriKind.Relative),
-                                                 objectId ?? string.Empty, seasonNumber ?? 0, episodeNumber ?? 0);
+                                                 objectID ?? string.Empty, seasonNumber ?? 0, episodeNumber ?? 0);
 
             var responseMessage = new HttpResponseMessage
             {

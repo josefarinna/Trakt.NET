@@ -57,7 +57,7 @@ namespace TraktNET
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
                 .WithHeaders(new Dictionary<string, string>
                 {
-                    { TraktApiHeaderKey, TestConstants.ClientId },
+                    { TraktApiHeaderKey, TestConstants.ClientID },
                     { TraktApiVersionHeaderKey, "2" }
                 })
                 .Respond(_ => response);
@@ -89,7 +89,7 @@ namespace TraktNET
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
                 .WithHeaders(new Dictionary<string, string>
                 {
-                    { TraktApiHeaderKey, TestConstants.ClientId },
+                    { TraktApiHeaderKey, TestConstants.ClientID },
                     { TraktApiVersionHeaderKey, "2" }
                 })
                 .Respond(_ => response);
@@ -105,7 +105,7 @@ namespace TraktNET
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
                 .WithHeaders(new Dictionary<string, string>
                 {
-                    { TraktApiHeaderKey, TestConstants.ClientId },
+                    { TraktApiHeaderKey, TestConstants.ClientID },
                     { TraktApiVersionHeaderKey, "2" }
                 })
                 .Respond(statusCode);
@@ -137,7 +137,7 @@ namespace TraktNET
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
                 .WithHeaders(new Dictionary<string, string>
                 {
-                    { TraktApiHeaderKey, TestConstants.ClientId },
+                    { TraktApiHeaderKey, TestConstants.ClientID },
                     { TraktApiVersionHeaderKey, "2" },
                     { TraktApiAuthorizationHeaderKey, $"Bearer {TestConstants.MockAuthorization.AccessToken}" }
                 })
@@ -154,7 +154,7 @@ namespace TraktNET
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
                 .WithHeaders(new Dictionary<string, string>
                 {
-                    { TraktApiHeaderKey, TestConstants.ClientId },
+                    { TraktApiHeaderKey, TestConstants.ClientID },
                     { TraktApiVersionHeaderKey, "2" },
                     { TraktApiAuthorizationHeaderKey, $"Bearer {TestConstants.MockAuthorization.AccessToken}" }
                 })

@@ -9,7 +9,7 @@
 
             updatedMovie.Title.Should().BeNull();
             updatedMovie.Year.Should().BeNull();
-            updatedMovie.Ids.Should().BeNull();
+            updatedMovie.IDs.Should().BeNull();
             updatedMovie.Tagline.Should().BeNull();
             updatedMovie.Overview.Should().BeNull();
             updatedMovie.Released.Should().BeNull();
@@ -43,12 +43,12 @@
             updatedMovie!.Title.Should().Be("Second Life");
             updatedMovie!.Year.Should().Be(2024U);
 
-            updatedMovie!.Ids!.Trakt.Should().Be(1110139U);
-            updatedMovie!.Ids!.Slug.Should().Be("second-life-2024-1110139");
-            updatedMovie!.Ids!.IMDB.Should().Be("tt33111253");
-            updatedMovie!.Ids!.TMDB.Should().Be(1329643U);
-            updatedMovie!.Ids!.HasAnyID.Should().BeTrue();
-            updatedMovie!.Ids!.BestID.Should().Be("second-life-2024-1110139");
+            updatedMovie!.IDs!.Trakt.Should().Be(1110139U);
+            updatedMovie!.IDs!.Slug.Should().Be("second-life-2024-1110139");
+            updatedMovie!.IDs!.IMDB.Should().Be("tt33111253");
+            updatedMovie!.IDs!.TMDB.Should().Be(1329643U);
+            updatedMovie!.IDs!.HasAnyID.Should().BeTrue();
+            updatedMovie!.IDs!.BestID.Should().Be("second-life-2024-1110139");
 
             updatedMovie!.ToString().Should().Be("Second Life (2024)");
         }
@@ -65,12 +65,12 @@
             updatedMovie!.Title.Should().Be("Second Life");
             updatedMovie!.Year.Should().Be(2024U);
 
-            updatedMovie!.Ids!.Trakt.Should().Be(1110139U);
-            updatedMovie!.Ids!.Slug.Should().Be("second-life-2024-1110139");
-            updatedMovie!.Ids!.IMDB.Should().Be("tt33111253");
-            updatedMovie!.Ids!.TMDB.Should().Be(1329643U);
-            updatedMovie!.Ids!.HasAnyID.Should().BeTrue();
-            updatedMovie!.Ids!.BestID.Should().Be("second-life-2024-1110139");
+            updatedMovie!.IDs!.Trakt.Should().Be(1110139U);
+            updatedMovie!.IDs!.Slug.Should().Be("second-life-2024-1110139");
+            updatedMovie!.IDs!.IMDB.Should().Be("tt33111253");
+            updatedMovie!.IDs!.TMDB.Should().Be(1329643U);
+            updatedMovie!.IDs!.HasAnyID.Should().BeTrue();
+            updatedMovie!.IDs!.BestID.Should().Be("second-life-2024-1110139");
 
             updatedMovie!.ToString().Should().Be("Second Life (2024)");
 
@@ -114,12 +114,12 @@
             updatedMovie.Title.Should().Be("Second Life");
             updatedMovie.Year.Should().Be(2024U);
 
-            updatedMovie.Ids!.Trakt.Should().Be(1110139U);
-            updatedMovie.Ids!.Slug.Should().Be("second-life-2024-1110139");
-            updatedMovie.Ids!.IMDB.Should().Be("tt33111253");
-            updatedMovie.Ids!.TMDB.Should().Be(1329643U);
-            updatedMovie.Ids!.HasAnyID.Should().BeTrue();
-            updatedMovie.Ids!.BestID.Should().Be("second-life-2024-1110139");
+            updatedMovie.IDs!.Trakt.Should().Be(1110139U);
+            updatedMovie.IDs!.Slug.Should().Be("second-life-2024-1110139");
+            updatedMovie.IDs!.IMDB.Should().Be("tt33111253");
+            updatedMovie.IDs!.TMDB.Should().Be(1329643U);
+            updatedMovie.IDs!.HasAnyID.Should().BeTrue();
+            updatedMovie.IDs!.BestID.Should().Be("second-life-2024-1110139");
 
             updatedMovie.ToString().Should().Be("Second Life (2024)");
 
@@ -134,12 +134,12 @@
             updatedMovie.Title.Should().Be("Milk & Serial");
             updatedMovie.Year.Should().Be(2024U);
 
-            updatedMovie.Ids!.Trakt.Should().Be(957899U);
-            updatedMovie.Ids!.Slug.Should().Be("milk-serial-2024");
-            updatedMovie.Ids!.IMDB.Should().Be("tt22075376");
-            updatedMovie.Ids!.TMDB.Should().Be(1187782U);
-            updatedMovie.Ids!.HasAnyID.Should().BeTrue();
-            updatedMovie.Ids!.BestID.Should().Be("milk-serial-2024");
+            updatedMovie.IDs!.Trakt.Should().Be(957899U);
+            updatedMovie.IDs!.Slug.Should().Be("milk-serial-2024");
+            updatedMovie.IDs!.IMDB.Should().Be("tt22075376");
+            updatedMovie.IDs!.TMDB.Should().Be(1187782U);
+            updatedMovie.IDs!.HasAnyID.Should().BeTrue();
+            updatedMovie.IDs!.BestID.Should().Be("milk-serial-2024");
 
             updatedMovie.ToString().Should().Be("Milk & Serial (2024)");
         }
@@ -160,12 +160,12 @@
             updatedMovie.Title.Should().Be("Second Life");
             updatedMovie.Year.Should().Be(2024U);
 
-            updatedMovie.Ids!.Trakt.Should().Be(1110139U);
-            updatedMovie.Ids!.Slug.Should().Be("second-life-2024-1110139");
-            updatedMovie.Ids!.IMDB.Should().Be("tt33111253");
-            updatedMovie.Ids!.TMDB.Should().Be(1329643U);
-            updatedMovie.Ids!.HasAnyID.Should().BeTrue();
-            updatedMovie.Ids!.BestID.Should().Be("second-life-2024-1110139");
+            updatedMovie.IDs!.Trakt.Should().Be(1110139U);
+            updatedMovie.IDs!.Slug.Should().Be("second-life-2024-1110139");
+            updatedMovie.IDs!.IMDB.Should().Be("tt33111253");
+            updatedMovie.IDs!.TMDB.Should().Be(1329643U);
+            updatedMovie.IDs!.HasAnyID.Should().BeTrue();
+            updatedMovie.IDs!.BestID.Should().Be("second-life-2024-1110139");
 
             updatedMovie.ToString().Should().Be("Second Life (2024)");
 
@@ -203,12 +203,12 @@
             updatedMovie.Title.Should().Be("Milk & Serial");
             updatedMovie.Year.Should().Be(2024U);
 
-            updatedMovie.Ids!.Trakt.Should().Be(957899U);
-            updatedMovie.Ids!.Slug.Should().Be("milk-serial-2024");
-            updatedMovie.Ids!.IMDB.Should().Be("tt22075376");
-            updatedMovie.Ids!.TMDB.Should().Be(1187782U);
-            updatedMovie.Ids!.HasAnyID.Should().BeTrue();
-            updatedMovie.Ids!.BestID.Should().Be("milk-serial-2024");
+            updatedMovie.IDs!.Trakt.Should().Be(957899U);
+            updatedMovie.IDs!.Slug.Should().Be("milk-serial-2024");
+            updatedMovie.IDs!.IMDB.Should().Be("tt22075376");
+            updatedMovie.IDs!.TMDB.Should().Be(1187782U);
+            updatedMovie.IDs!.HasAnyID.Should().BeTrue();
+            updatedMovie.IDs!.BestID.Should().Be("milk-serial-2024");
 
             updatedMovie.ToString().Should().Be("Milk & Serial (2024)");
 

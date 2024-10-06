@@ -45,13 +45,13 @@ namespace TraktNET.MoviesModule
 
             popularMovie.Title.Should().Be("Deadpool");
             popularMovie.Year.Should().Be(2016U);
-            popularMovie.Ids!.Slug.Should().Be("deadpool-2016");
+            popularMovie.IDs!.Slug.Should().Be("deadpool-2016");
 
             popularMovie = popularMovies[1];
 
             popularMovie.Title.Should().Be("Guardians of the Galaxy");
             popularMovie.Year.Should().Be(2014U);
-            popularMovie.Ids!.Slug.Should().Be("guardians-of-the-galaxy-2014");
+            popularMovie.IDs!.Slug.Should().Be("guardians-of-the-galaxy-2014");
         }
 
         [Theory]
@@ -93,13 +93,13 @@ namespace TraktNET.MoviesModule
 
             popularMovie.Title.Should().Be("Deadpool");
             popularMovie.Year.Should().Be(2016U);
-            popularMovie.Ids!.Slug.Should().Be("deadpool-2016");
+            popularMovie.IDs!.Slug.Should().Be("deadpool-2016");
 
             popularMovie = popularMovies[1];
 
             popularMovie.Title.Should().Be("Guardians of the Galaxy");
             popularMovie.Year.Should().Be(2014U);
-            popularMovie.Ids!.Slug.Should().Be("guardians-of-the-galaxy-2014");
+            popularMovie.IDs!.Slug.Should().Be("guardians-of-the-galaxy-2014");
         }
 
         [Fact]

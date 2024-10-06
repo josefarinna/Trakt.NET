@@ -10,7 +10,7 @@ namespace TraktNET.Exceptions
         public async Task TestTraktApiListNotFoundExceptionCreate()
         {
             ExceptionParameters parameters = await ExceptionsTestUtility.CreateMockExceptionParametersAsync(
-                Constants.StatusCodes.NotFound, HttpMethod.Get, objectId: "listId");
+                Constants.StatusCodes.NotFound, HttpMethod.Get, objectID: "listID");
 
             var exception = new TraktApiListNotFoundException(parameters);
 
@@ -25,7 +25,7 @@ namespace TraktNET.Exceptions
             exception.ContentHeaders.Should().NotBeNull();
             exception.Message.Should().Be("Trakt API request failed. List Not Found - method exists, but no record found");
 
-            exception.ListID.Should().Be("listId");
+            exception.ListID.Should().Be("listID");
         }
     }
 }

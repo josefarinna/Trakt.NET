@@ -22,11 +22,11 @@
 
             crewMember!.Person.Should().NotBeNull();
             crewMember!.Person!.Name.Should().Be("John Murphy");
-            crewMember!.Person!.Ids.Should().NotBeNull();
-            crewMember!.Person!.Ids!.Trakt.Should().Be(1005U);
-            crewMember!.Person!.Ids!.Slug.Should().Be("john-murphy");
-            crewMember!.Person!.Ids!.IMDB.Should().Be("nm0614373");
-            crewMember!.Person!.Ids!.TMDB.Should().Be(960U);
+            crewMember!.Person!.IDs.Should().NotBeNull();
+            crewMember!.Person!.IDs!.Trakt.Should().Be(1005U);
+            crewMember!.Person!.IDs!.Slug.Should().Be("john-murphy");
+            crewMember!.Person!.IDs!.IMDB.Should().Be("nm0614373");
+            crewMember!.Person!.IDs!.TMDB.Should().Be(960U);
         }
     }
 }

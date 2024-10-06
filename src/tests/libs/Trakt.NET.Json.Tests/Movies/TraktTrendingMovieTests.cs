@@ -10,7 +10,7 @@
             trendingMovie.Watchers.Should().BeNull();
             trendingMovie.Title.Should().BeNull();
             trendingMovie.Year.Should().BeNull();
-            trendingMovie.Ids.Should().BeNull();
+            trendingMovie.IDs.Should().BeNull();
             trendingMovie.Tagline.Should().BeNull();
             trendingMovie.Overview.Should().BeNull();
             trendingMovie.Released.Should().BeNull();
@@ -44,12 +44,12 @@
             trendingMovie!.Title.Should().Be("Deadpool & Wolverine");
             trendingMovie!.Year.Should().Be(2024U);
 
-            trendingMovie!.Ids!.Trakt.Should().Be(395672U);
-            trendingMovie!.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
-            trendingMovie!.Ids!.IMDB.Should().Be("tt6263850");
-            trendingMovie!.Ids!.TMDB.Should().Be(533535U);
-            trendingMovie!.Ids!.HasAnyID.Should().BeTrue();
-            trendingMovie!.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+            trendingMovie!.IDs!.Trakt.Should().Be(395672U);
+            trendingMovie!.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
+            trendingMovie!.IDs!.IMDB.Should().Be("tt6263850");
+            trendingMovie!.IDs!.TMDB.Should().Be(533535U);
+            trendingMovie!.IDs!.HasAnyID.Should().BeTrue();
+            trendingMovie!.IDs!.BestID.Should().Be("deadpool-wolverine-2024");
 
             trendingMovie!.ToString().Should().Be("Deadpool & Wolverine (2024)");
         }
@@ -66,12 +66,12 @@
             trendingMovie!.Title.Should().Be("Deadpool & Wolverine");
             trendingMovie!.Year.Should().Be(2024U);
 
-            trendingMovie!.Ids!.Trakt.Should().Be(395672U);
-            trendingMovie!.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
-            trendingMovie!.Ids!.IMDB.Should().Be("tt6263850");
-            trendingMovie!.Ids!.TMDB.Should().Be(533535U);
-            trendingMovie!.Ids!.HasAnyID.Should().BeTrue();
-            trendingMovie!.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+            trendingMovie!.IDs!.Trakt.Should().Be(395672U);
+            trendingMovie!.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
+            trendingMovie!.IDs!.IMDB.Should().Be("tt6263850");
+            trendingMovie!.IDs!.TMDB.Should().Be(533535U);
+            trendingMovie!.IDs!.HasAnyID.Should().BeTrue();
+            trendingMovie!.IDs!.BestID.Should().Be("deadpool-wolverine-2024");
 
             trendingMovie!.ToString().Should().Be("Deadpool & Wolverine (2024)");
 
@@ -125,12 +125,12 @@
             trendingMovie.Title.Should().Be("Deadpool & Wolverine");
             trendingMovie.Year.Should().Be(2024U);
 
-            trendingMovie.Ids!.Trakt.Should().Be(395672U);
-            trendingMovie.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
-            trendingMovie.Ids!.IMDB.Should().Be("tt6263850");
-            trendingMovie.Ids!.TMDB.Should().Be(533535U);
-            trendingMovie.Ids!.HasAnyID.Should().BeTrue();
-            trendingMovie.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+            trendingMovie.IDs!.Trakt.Should().Be(395672U);
+            trendingMovie.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
+            trendingMovie.IDs!.IMDB.Should().Be("tt6263850");
+            trendingMovie.IDs!.TMDB.Should().Be(533535U);
+            trendingMovie.IDs!.HasAnyID.Should().BeTrue();
+            trendingMovie.IDs!.BestID.Should().Be("deadpool-wolverine-2024");
 
             trendingMovie.ToString().Should().Be("Deadpool & Wolverine (2024)");
 
@@ -145,12 +145,12 @@
             trendingMovie.Title.Should().Be("Kingdom of the Planet of the Apes");
             trendingMovie.Year.Should().Be(2024U);
 
-            trendingMovie.Ids!.Trakt.Should().Be(488280U);
-            trendingMovie.Ids!.Slug.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
-            trendingMovie.Ids!.IMDB.Should().Be("tt11389872");
-            trendingMovie.Ids!.TMDB.Should().Be(653346U);
-            trendingMovie.Ids!.HasAnyID.Should().BeTrue();
-            trendingMovie.Ids!.BestID.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
+            trendingMovie.IDs!.Trakt.Should().Be(488280U);
+            trendingMovie.IDs!.Slug.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
+            trendingMovie.IDs!.IMDB.Should().Be("tt11389872");
+            trendingMovie.IDs!.TMDB.Should().Be(653346U);
+            trendingMovie.IDs!.HasAnyID.Should().BeTrue();
+            trendingMovie.IDs!.BestID.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
 
             trendingMovie.ToString().Should().Be("Kingdom of the Planet of the Apes (2024)");
         }
@@ -171,12 +171,12 @@
             trendingMovie.Title.Should().Be("Deadpool & Wolverine");
             trendingMovie.Year.Should().Be(2024U);
 
-            trendingMovie.Ids!.Trakt.Should().Be(395672U);
-            trendingMovie.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
-            trendingMovie.Ids!.IMDB.Should().Be("tt6263850");
-            trendingMovie.Ids!.TMDB.Should().Be(533535U);
-            trendingMovie.Ids!.HasAnyID.Should().BeTrue();
-            trendingMovie.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+            trendingMovie.IDs!.Trakt.Should().Be(395672U);
+            trendingMovie.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
+            trendingMovie.IDs!.IMDB.Should().Be("tt6263850");
+            trendingMovie.IDs!.TMDB.Should().Be(533535U);
+            trendingMovie.IDs!.HasAnyID.Should().BeTrue();
+            trendingMovie.IDs!.BestID.Should().Be("deadpool-wolverine-2024");
 
             trendingMovie.ToString().Should().Be("Deadpool & Wolverine (2024)");
 
@@ -224,12 +224,12 @@
             trendingMovie.Title.Should().Be("Kingdom of the Planet of the Apes");
             trendingMovie.Year.Should().Be(2024U);
 
-            trendingMovie.Ids!.Trakt.Should().Be(488280U);
-            trendingMovie.Ids!.Slug.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
-            trendingMovie.Ids!.IMDB.Should().Be("tt11389872");
-            trendingMovie.Ids!.TMDB.Should().Be(653346U);
-            trendingMovie.Ids!.HasAnyID.Should().BeTrue();
-            trendingMovie.Ids!.BestID.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
+            trendingMovie.IDs!.Trakt.Should().Be(488280U);
+            trendingMovie.IDs!.Slug.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
+            trendingMovie.IDs!.IMDB.Should().Be("tt11389872");
+            trendingMovie.IDs!.TMDB.Should().Be(653346U);
+            trendingMovie.IDs!.HasAnyID.Should().BeTrue();
+            trendingMovie.IDs!.BestID.Should().Be("kingdom-of-the-planet-of-the-apes-2024");
 
             trendingMovie.ToString().Should().Be("Kingdom of the Planet of the Apes (2024)");
 

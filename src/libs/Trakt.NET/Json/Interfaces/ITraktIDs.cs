@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>A collection of IDs for various web services.</summary>
-    public interface ITraktIds
+    public interface ITraktIDs
     {
         /// <summary>Returns, whether any ID has been set.</summary>
         bool HasAnyID { get; }

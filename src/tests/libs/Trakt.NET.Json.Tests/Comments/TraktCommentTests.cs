@@ -45,8 +45,8 @@
             comment!.User.Should().NotBeNull();
             comment!.User!.Username.Should().Be("user1");
             comment!.User!.Private.Should().BeTrue();
-            comment!.User!.Ids.Should().NotBeNull();
-            comment!.User!.Ids!.Slug.Should().Be("user1");
+            comment!.User!.IDs.Should().NotBeNull();
+            comment!.User!.IDs!.Slug.Should().Be("user1");
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <summary>A Trakt movie.</summary>
     public record class TraktMovieMinimal
@@ -11,9 +13,10 @@
 
         /// <summary>
         /// The collection of IDs for the movie for various web services.
-        /// See also <seealso cref="TraktMovieIds" />.
+        /// See also <seealso cref="TraktMovieIDs" />.
         /// </summary>
-        public TraktMovieIds? Ids { get; set; }
+        [JsonPropertyName("ids")]
+        public TraktMovieIDs? IDs { get; set; }
 
         /// <summary>Gets a string representation of the movie.</summary>
         /// <returns>A string representation of the movie.</returns>

@@ -112,11 +112,11 @@ namespace TraktNET
 
             if (responseHeaders.TryGetValues(Constants.ResponseHeaders.HEADER_ITEM_ID, out values))
             {
-                string itemIdValue = values.First();
+                string itemIDValue = values.First();
 
-                if (uint.TryParse(itemIdValue, out uint itemId))
+                if (uint.TryParse(itemIDValue, out uint itemID))
                 {
-                    headers.ItemID = itemId;
+                    headers.ItemID = itemID;
                 }
             }
 

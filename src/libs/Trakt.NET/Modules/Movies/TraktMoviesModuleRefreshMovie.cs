@@ -6,7 +6,7 @@
         /// Refreshs a <see cref="TraktMovie" /> with the specified Trakt-ID or -Slug.
         /// <para>Queues a movie for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</para>
         /// </summary>
-        /// <param name="traktMovieIdOrSlug">The movie's Trakt-ID or -Slug.</param>
+        /// <param name="traktMovieIDOrSlug">The movie's Trakt-ID or -Slug.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -21,14 +21,14 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        public Task<TraktResponse> RefreshMovieAsync(string traktMovieIdOrSlug, CancellationToken cancellationToken = default)
-            => RefreshMovieImplAsync(traktMovieIdOrSlug, cancellationToken);
+        public Task<TraktResponse> RefreshMovieAsync(string traktMovieIDOrSlug, CancellationToken cancellationToken = default)
+            => RefreshMovieImplAsync(traktMovieIDOrSlug, cancellationToken);
 
         /// <summary>
         /// Refreshs a <see cref="TraktMovie" /> with the specified Trakt-ID.
         /// <para>Queues a movie for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</para>
         /// </summary>
-        /// <param name="traktMovieId">The movie's Trakt-ID.</param>
+        /// <param name="traktMovieID">The movie's Trakt-ID.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -43,14 +43,14 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        public Task<TraktResponse> RefreshMovieAsync(uint traktMovieId, CancellationToken cancellationToken = default)
-            => RefreshMovieImplAsync(traktMovieId.ToInvariantCultureString(), cancellationToken);
+        public Task<TraktResponse> RefreshMovieAsync(uint traktMovieID, CancellationToken cancellationToken = default)
+            => RefreshMovieImplAsync(traktMovieID.ToInvariantCultureString(), cancellationToken);
 
         /// <summary>
-        /// Refreshs a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIds" />.
+        /// Refreshs a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.
         /// <para>Queues a movie for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</para>
         /// </summary>
-        /// <param name="movieIds">The movie's ids. See also <seealso cref="TraktMovieIds" />.</param>
+        /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -65,18 +65,18 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIds" /> has not set any ids.</exception>
-        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIds" /> is null.</exception>
-        public Task<TraktResponse> RefreshMovieAsync(TraktMovieIds movieIds, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any IDs.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIDs" /> is null.</exception>
+        public Task<TraktResponse> RefreshMovieAsync(TraktMovieIDs movieIDs, CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(movieIds);
+            ArgumentValidator.ThrowIfNull(movieIDs);
 
-            if (!movieIds.HasAnyID)
+            if (!movieIDs.HasAnyID)
             {
-                throw new ArgumentException($"{nameof(movieIds)} has not any ids set", nameof(movieIds));
+                throw new ArgumentException($"{nameof(movieIDs)} has not any IDs set", nameof(movieIDs));
             }
 
-            return RefreshMovieImplAsync(movieIds.BestID, cancellationToken);
+            return RefreshMovieImplAsync(movieIDs.BestID, cancellationToken);
         }
     }
 }

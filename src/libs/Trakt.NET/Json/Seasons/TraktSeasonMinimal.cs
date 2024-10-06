@@ -1,4 +1,6 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <summary>A Trakt season.</summary>
     public record class TraktSeasonMinimal
@@ -8,8 +10,9 @@
 
         /// <summary>
         /// The collection of IDs for the season for various web services.
-        /// See also <seealso cref="TraktSeasonIds" />.
+        /// See also <seealso cref="TraktSeasonIDs" />.
         /// </summary>
-        public TraktSeasonIds? Ids { get; set; }
+        [JsonPropertyName("ids")]
+        public TraktSeasonIDs? IDs { get; set; }
     }
 }

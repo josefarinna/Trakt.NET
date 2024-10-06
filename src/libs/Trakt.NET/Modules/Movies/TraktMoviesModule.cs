@@ -501,7 +501,7 @@ namespace TraktNET
         public Task<TraktPagedResponse<uint>> GetRecentlyUpdatedMovieTraktIDsAsync(DateTime? startDate = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
         {
-            var request = new RecentlyUpdatedMovieIdsGetRequest
+            var request = new RecentlyUpdatedMovieIDsGetRequest
             {
                 Page = page,
                 Limit = limit,
@@ -509,7 +509,7 @@ namespace TraktNET
             };
 
             return RequestHandler.ExecutePagedListRequestAsync<uint>(_context, request, (uint? page, uint? limit)
-                => new RecentlyUpdatedMovieIdsGetRequest
+                => new RecentlyUpdatedMovieIDsGetRequest
                 {
                     Page = page,
                     Limit = limit,

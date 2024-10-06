@@ -4,12 +4,12 @@ using System.Net.Http;
 
 namespace TraktNET
 {
-    internal sealed class MockRequest(HttpMethod method, Uri? requestUri, string objectId, uint seasonNumber, uint episodeNumber)
+    internal sealed class MockRequest(HttpMethod method, Uri? requestUri, string objectID, uint seasonNumber, uint episodeNumber)
         : RequestBase(method, requestUri)
     {
         internal override TraktOAuthRequirement OAuthRequirement => throw new NotImplementedException();
 
-        internal override string ObjectId => objectId;
+        internal override string ObjectID => objectID;
 
         internal override uint SeasonNr => seasonNumber;
 

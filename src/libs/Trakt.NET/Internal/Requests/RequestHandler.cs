@@ -100,7 +100,7 @@ namespace TraktNET
             const string AuthenticationScheme = "Bearer";
 
             request.Headers.Add(Constants.Request.Headers.APIVersionHeaderKey, $"{Constants.API.Version}");
-            request.Headers.Add(Constants.Request.Headers.APIClientIdHeaderKey, context.ClientID);
+            request.Headers.Add(Constants.Request.Headers.APIClientIDHeaderKey, context.ClientID);
 
             TraktOAuthRequirement oauthRequirement = request.OAuthRequirement;
 

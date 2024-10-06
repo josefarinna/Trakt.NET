@@ -10,7 +10,7 @@ namespace TraktNET.Exceptions
         public async Task TestTraktApiPersonNotFoundExceptionCreate()
         {
             ExceptionParameters parameters = await ExceptionsTestUtility.CreateMockExceptionParametersAsync(
-                Constants.StatusCodes.NotFound, HttpMethod.Get, objectId: "personId");
+                Constants.StatusCodes.NotFound, HttpMethod.Get, objectID: "personID");
 
             var exception = new TraktApiPersonNotFoundException(parameters);
 
@@ -25,7 +25,7 @@ namespace TraktNET.Exceptions
             exception.ContentHeaders.Should().NotBeNull();
             exception.Message.Should().Be("Trakt API request failed. Person Not Found - method exists, but no record found");
 
-            exception.PersonID.Should().Be("personId");
+            exception.PersonID.Should().Be("personID");
         }
     }
 }

@@ -1,13 +1,16 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <inheritdoc />
     public record class TraktPerson : TraktPersonMinimal
     {
         /// <summary>
         /// The collection of social IDs for the person for various web services.
-        /// See also <seealso cref="TraktPersonSocialIds" />.
+        /// See also <seealso cref="TraktPersonSocialIDs" />.
         /// </summary>
-        public TraktPersonSocialIds? SocialIds { get; set; }
+        [JsonPropertyName("social_ids")]
+        public TraktPersonSocialIDs? SocialIDs { get; set; }
 
         /// <summary>The biography of the person.</summary>
         public string? Biography { get; set; }

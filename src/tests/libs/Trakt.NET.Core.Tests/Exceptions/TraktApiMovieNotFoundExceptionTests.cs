@@ -10,7 +10,7 @@ namespace TraktNET.Exceptions
         public async Task TestTraktApiMovieNotFoundExceptionCreate()
         {
             ExceptionParameters parameters = await ExceptionsTestUtility.CreateMockExceptionParametersAsync(
-                Constants.StatusCodes.NotFound, HttpMethod.Get, objectId: "movieId");
+                Constants.StatusCodes.NotFound, HttpMethod.Get, objectID: "movieID");
 
             var exception = new TraktApiMovieNotFoundException(parameters);
 
@@ -25,7 +25,7 @@ namespace TraktNET.Exceptions
             exception.ContentHeaders.Should().NotBeNull();
             exception.Message.Should().Be("Trakt API request failed. Movie Not Found - method exists, but no record found");
 
-            exception.MovieID.Should().Be("movieId");
+            exception.MovieID.Should().Be("movieID");
         }
     }
 }

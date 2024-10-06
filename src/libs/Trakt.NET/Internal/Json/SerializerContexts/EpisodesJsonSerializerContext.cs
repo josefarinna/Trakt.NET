@@ -6,7 +6,7 @@ namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
     [JsonSerializable(typeof(TraktEpisode))]
-    [JsonSerializable(typeof(TraktEpisodeIds))]
+    [JsonSerializable(typeof(TraktEpisodeIDs))]
     [JsonSerializable(typeof(TraktEpisodeMinimal))]
     [JsonSerializable(typeof(TraktEpisodeTranslation))]
     public sealed partial class EpisodesJsonSerializerContext : JsonSerializerContext

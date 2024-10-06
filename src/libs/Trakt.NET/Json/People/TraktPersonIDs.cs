@@ -1,9 +1,10 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Globalization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
-    /// <summary>A collection of IDs for various web services, including the Trakt ID, for a <see cref="TraktMovie" />.</summary>
-    public record class TraktMovieIds : ITraktIds
+    /// <summary>A collection of IDs for various web services, including the Trakt ID, for a Trakt person.</summary>
+    public record class TraktPersonIDs : ITraktIDs
     {
         /// <summary>The Trakt numeric ID.</summary>
         public uint? Trakt { get; set; }
@@ -35,13 +36,13 @@ namespace TraktNET
                     return Slug!;
 
                 if (Trakt.HasValue && Trakt.Value > 0)
-                    return Trakt.Value.ToInvariantCultureString();
+                    return Trakt.Value.ToString(CultureInfo.InvariantCulture);
 
                 if (!string.IsNullOrWhiteSpace(IMDB))
                     return IMDB!;
 
                 if (TMDB.HasValue && TMDB.Value > 0)
-                    return TMDB.Value.ToInvariantCultureString();
+                    return TMDB.Value.ToString(CultureInfo.InvariantCulture);
 
                 return string.Empty;
             }

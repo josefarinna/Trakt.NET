@@ -7,7 +7,7 @@ namespace TraktNET
     [ExcludeFromCodeCoverage]
     [JsonSerializable(typeof(TraktShow))]
     [JsonSerializable(typeof(TraktShowAirs))]
-    [JsonSerializable(typeof(TraktShowIds))]
+    [JsonSerializable(typeof(TraktShowIDs))]
     [JsonSerializable(typeof(TraktShowMinimal))]
     public sealed partial class ShowsJsonSerializerContext : JsonSerializerContext
     {

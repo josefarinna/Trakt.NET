@@ -50,8 +50,8 @@
             CancellationToken cancellationToken = default)
             => GetMovieTranslationsImplAsync(traktMovieID.ToInvariantCultureString(), language, cancellationToken);
 
-        /// <summary>Gets all translations for a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIds" />.</summary>
-        /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIds" />.</param>
+        /// <summary>Gets all translations for a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.</summary>
+        /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
         /// <param name="language">A two character language code.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
@@ -70,16 +70,16 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any ids.</exception>
+        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any IDs.</exception>
         /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIDs" /> is null.</exception>
-        public Task<TraktListResponse<TraktMovieTranslation>> GetMovieTranslationsAsync(TraktMovieIds movieIDs, string? language = null,
+        public Task<TraktListResponse<TraktMovieTranslation>> GetMovieTranslationsAsync(TraktMovieIDs movieIDs, string? language = null,
             CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(movieIDs);
 
             if (!movieIDs.HasAnyID)
             {
-                throw new ArgumentException($"{nameof(movieIDs)} has not any ids set", nameof(movieIDs));
+                throw new ArgumentException($"{nameof(movieIDs)} has not any IDs set", nameof(movieIDs));
             }
 
             return GetMovieTranslationsImplAsync(movieIDs.BestID, language, cancellationToken);

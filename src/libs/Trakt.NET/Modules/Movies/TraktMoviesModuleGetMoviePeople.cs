@@ -56,8 +56,8 @@
             CancellationToken cancellationToken = default)
             => GetMoviePeopleImplAsync(traktMovieID.ToInvariantCultureString(), extendedInfo, cancellationToken);
 
-        /// <summary>Gets all people for a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIds" />.</summary>
-        /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIds" />.</param>
+        /// <summary>Gets all people for a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.</summary>
+        /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the people.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -79,16 +79,16 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any ids.</exception>
+        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any IDs.</exception>
         /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIDs" /> is null.</exception>
-        public Task<TraktResponse<TraktCastAndCrew>> GetMoviePeopleAsync(TraktMovieIds movieIDs, TraktExtendedInfo? extendedInfo = null,
+        public Task<TraktResponse<TraktCastAndCrew>> GetMoviePeopleAsync(TraktMovieIDs movieIDs, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(movieIDs);
 
             if (!movieIDs.HasAnyID)
             {
-                throw new ArgumentException($"{nameof(movieIDs)} has not any ids set", nameof(movieIDs));
+                throw new ArgumentException($"{nameof(movieIDs)} has not any IDs set", nameof(movieIDs));
             }
 
             return GetMoviePeopleImplAsync(movieIDs.BestID, extendedInfo, cancellationToken);

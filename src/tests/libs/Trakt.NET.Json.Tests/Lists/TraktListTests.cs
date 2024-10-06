@@ -59,8 +59,8 @@
             list!.User!.Private.Should().BeFalse();
             list!.User!.VIP.Should().BeFalse();
             list!.User!.VIPEP.Should().BeTrue();
-            list!.User!.Ids.Should().NotBeNull();
-            list!.User!.Ids!.Slug.Should().Be("donxy");
+            list!.User!.IDs.Should().NotBeNull();
+            list!.User!.IDs!.Slug.Should().Be("donxy");
         }
     }
 }

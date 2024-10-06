@@ -1,4 +1,6 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <summary>A Trakt person.</summary>
     public record class TraktPersonMinimal
@@ -8,8 +10,9 @@
 
         /// <summary>
         /// The collection of IDs for the person for various web services.
-        /// See also <seealso cref="TraktPersonIds" />.
+        /// See also <seealso cref="TraktPersonIDs" />.
         /// </summary>
-        public TraktPersonIds? Ids { get; set; }
+        [JsonPropertyName("ids")]
+        public TraktPersonIDs? IDs { get; set; }
     }
 }

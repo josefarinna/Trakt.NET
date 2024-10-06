@@ -7,7 +7,7 @@ namespace TraktNET
     [ExcludeFromCodeCoverage]
     [JsonSerializable(typeof(TraktUser))]
     [JsonSerializable(typeof(IReadOnlyList<TraktUser>))]
-    [JsonSerializable(typeof(TraktUserIds))]
+    [JsonSerializable(typeof(TraktUserIDs))]
     [JsonSerializable(typeof(TraktUserImages))]
     [JsonSerializable(typeof(TraktUserImagesAvatar))]
     [JsonSerializable(typeof(TraktUserMinimal))]

@@ -10,7 +10,7 @@ namespace TraktNET
         private const string LanguagesName = "languages";
         private const string CountriesName = "countries";
         private const string RuntimesName = "runtimes";
-        private const string StudioIdsName = "studio_ids";
+        private const string StudioIDsName = "studio_ids";
         private const string RatingsName = "ratings";
         private const string VotesName = "votes";
         private const string TMDBRatingsName = "tmdb_ratings";
@@ -21,7 +21,7 @@ namespace TraktNET
         private const string RottenTomatoesUserMetersName = "rt_user_meters";
         private const string MetascoresName = "metascores";
         private const string CertificationsName = "certifications";
-        private const string NetworkIdsName = "network_ids";
+        private const string NetworkIDsName = "network_ids";
         private const string StatusName = "status";
         private const string EpisodeTypesName = "episode_types";
 
@@ -60,9 +60,9 @@ namespace TraktNET
 
             AddRange(values, Runtimes, RuntimesName);
 
-            if (StudioIds != null && StudioIds.Length > 0)
+            if (StudioIDs != null && StudioIDs.Length > 0)
             {
-                values.Add($"{StudioIdsName}={string.Join(",", StudioIds)}");
+                values.Add($"{StudioIDsName}={string.Join(",", StudioIDs)}");
             }
 
             AddRange(values, Ratings, RatingsName);
@@ -80,9 +80,9 @@ namespace TraktNET
                 values.Add($"{CertificationsName}={string.Join(",", Certifications)}");
             }
 
-            if (NetworkIds != null && NetworkIds.Length > 0)
+            if (NetworkIDs != null && NetworkIDs.Length > 0)
             {
-                values.Add($"{NetworkIdsName}={string.Join(",", NetworkIds)}");
+                values.Add($"{NetworkIDsName}={string.Join(",", NetworkIDs)}");
             }
 
             if (Status != null && Status.Length > 0)

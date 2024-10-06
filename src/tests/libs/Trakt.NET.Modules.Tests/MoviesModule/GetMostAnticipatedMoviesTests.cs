@@ -45,13 +45,13 @@ namespace TraktNET.MoviesModule
 
             anticipatedMovie.Title.Should().Be("Avatar: Fire and Ash");
             anticipatedMovie.Year.Should().Be(2025U);
-            anticipatedMovie.Ids!.Slug.Should().Be("avatar-fire-and-ash-2025");
+            anticipatedMovie.IDs!.Slug.Should().Be("avatar-fire-and-ash-2025");
 
             anticipatedMovie = anticipatedMovies[1];
 
             anticipatedMovie.Title.Should().Be("Blade");
             anticipatedMovie.Year.Should().Be(2025U);
-            anticipatedMovie.Ids!.Slug.Should().Be("blade-2025");
+            anticipatedMovie.IDs!.Slug.Should().Be("blade-2025");
         }
 
         [Theory]
@@ -93,13 +93,13 @@ namespace TraktNET.MoviesModule
 
             anticipatedMovie.Title.Should().Be("Avatar: Fire and Ash");
             anticipatedMovie.Year.Should().Be(2025U);
-            anticipatedMovie.Ids!.Slug.Should().Be("avatar-fire-and-ash-2025");
+            anticipatedMovie.IDs!.Slug.Should().Be("avatar-fire-and-ash-2025");
 
             anticipatedMovie = anticipatedMovies[1];
 
             anticipatedMovie.Title.Should().Be("Blade");
             anticipatedMovie.Year.Should().Be(2025U);
-            anticipatedMovie.Ids!.Slug.Should().Be("blade-2025");
+            anticipatedMovie.IDs!.Slug.Should().Be("blade-2025");
         }
 
         [Fact]

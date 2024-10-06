@@ -39,18 +39,18 @@ namespace TraktNET
 
         /// <summary>
         /// The collection of IDs of the movie for various web services.
-        /// See also <seealso cref="TraktMovieIds" />.
+        /// See also <seealso cref="TraktMovieIDs" />.
         /// </summary>
         [JsonIgnore]
-        public TraktMovieIds? Ids
+        public TraktMovieIDs? IDs
         {
-            get => Movie?.Ids;
+            get => Movie?.IDs;
 
             set
             {
                 if (Movie != null)
                 {
-                    Movie.Ids = value;
+                    Movie.IDs = value;
                 }
             }
         }

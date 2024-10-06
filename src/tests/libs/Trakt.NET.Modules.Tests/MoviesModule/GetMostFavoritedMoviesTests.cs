@@ -69,13 +69,13 @@ namespace TraktNET.MoviesModule
 
             favoritedMovie.Title.Should().Be("Deadpool & Wolverine");
             favoritedMovie.Year.Should().Be(2024U);
-            favoritedMovie.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
+            favoritedMovie.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
 
             favoritedMovie = favoritedMovies[1];
 
             favoritedMovie.Title.Should().Be("A Quiet Place: Day One");
             favoritedMovie.Year.Should().Be(2024U);
-            favoritedMovie.Ids!.Slug.Should().Be("a-quiet-place-day-one-2024");
+            favoritedMovie.IDs!.Slug.Should().Be("a-quiet-place-day-one-2024");
         }
 
         [Theory]
@@ -141,13 +141,13 @@ namespace TraktNET.MoviesModule
 
             favoritedMovie.Title.Should().Be("Deadpool & Wolverine");
             favoritedMovie.Year.Should().Be(2024U);
-            favoritedMovie.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
+            favoritedMovie.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
 
             favoritedMovie = favoritedMovies[1];
 
             favoritedMovie.Title.Should().Be("A Quiet Place: Day One");
             favoritedMovie.Year.Should().Be(2024U);
-            favoritedMovie.Ids!.Slug.Should().Be("a-quiet-place-day-one-2024");
+            favoritedMovie.IDs!.Slug.Should().Be("a-quiet-place-day-one-2024");
         }
 
         [Fact]

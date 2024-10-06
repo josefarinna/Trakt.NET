@@ -192,7 +192,7 @@
     }
 
     [TraktGetRequest("shows/updates/id", SupportsPagination = true)]
-    internal sealed partial class RecentlyUpdatedShowIdsGetRequest
+    internal sealed partial class RecentlyUpdatedShowIDsGetRequest
     {
         [TraktRequestParameter(UseCacheEfficientDateTime = true)]
         internal DateTime? StartDate { get; set; }

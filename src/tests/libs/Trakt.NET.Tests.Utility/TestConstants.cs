@@ -2,7 +2,7 @@
 {
     public static class TestConstants
     {
-        public const string ClientId = "traktClientId";
+        public const string ClientID = "traktClientID";
         public const string ClientSecret = "traktClientSecret";
         public const string MockAccessToken = "mockAccessToken";
 
@@ -20,7 +20,7 @@
 
             public const string MovieSlug = "guardians-of-the-galaxy-volume-3-2023";
 
-            public static readonly TraktMovieIds MovieIds = new()
+            public static readonly TraktMovieIDs MovieIDs = new()
             {
                 Trakt = 293990,
                 Slug = "guardians-of-the-galaxy-volume-3-2023",

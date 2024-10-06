@@ -10,7 +10,7 @@
             mostFavoritedMovie.UserCount.Should().BeNull();
             mostFavoritedMovie.Title.Should().BeNull();
             mostFavoritedMovie.Year.Should().BeNull();
-            mostFavoritedMovie.Ids.Should().BeNull();
+            mostFavoritedMovie.IDs.Should().BeNull();
             mostFavoritedMovie.Tagline.Should().BeNull();
             mostFavoritedMovie.Overview.Should().BeNull();
             mostFavoritedMovie.Released.Should().BeNull();
@@ -44,12 +44,12 @@
             mostFavoritedMovie!.Title.Should().Be("Deadpool & Wolverine");
             mostFavoritedMovie!.Year.Should().Be(2024U);
 
-            mostFavoritedMovie!.Ids!.Trakt.Should().Be(395672U);
-            mostFavoritedMovie!.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
-            mostFavoritedMovie!.Ids!.IMDB.Should().Be("tt6263850");
-            mostFavoritedMovie!.Ids!.TMDB.Should().Be(533535U);
-            mostFavoritedMovie!.Ids!.HasAnyID.Should().BeTrue();
-            mostFavoritedMovie!.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+            mostFavoritedMovie!.IDs!.Trakt.Should().Be(395672U);
+            mostFavoritedMovie!.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
+            mostFavoritedMovie!.IDs!.IMDB.Should().Be("tt6263850");
+            mostFavoritedMovie!.IDs!.TMDB.Should().Be(533535U);
+            mostFavoritedMovie!.IDs!.HasAnyID.Should().BeTrue();
+            mostFavoritedMovie!.IDs!.BestID.Should().Be("deadpool-wolverine-2024");
 
             mostFavoritedMovie!.ToString().Should().Be("Deadpool & Wolverine (2024)");
         }
@@ -66,12 +66,12 @@
             mostFavoritedMovie!.Title.Should().Be("Deadpool & Wolverine");
             mostFavoritedMovie!.Year.Should().Be(2024U);
 
-            mostFavoritedMovie!.Ids!.Trakt.Should().Be(395672U);
-            mostFavoritedMovie!.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
-            mostFavoritedMovie!.Ids!.IMDB.Should().Be("tt6263850");
-            mostFavoritedMovie!.Ids!.TMDB.Should().Be(533535U);
-            mostFavoritedMovie!.Ids!.HasAnyID.Should().BeTrue();
-            mostFavoritedMovie!.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+            mostFavoritedMovie!.IDs!.Trakt.Should().Be(395672U);
+            mostFavoritedMovie!.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
+            mostFavoritedMovie!.IDs!.IMDB.Should().Be("tt6263850");
+            mostFavoritedMovie!.IDs!.TMDB.Should().Be(533535U);
+            mostFavoritedMovie!.IDs!.HasAnyID.Should().BeTrue();
+            mostFavoritedMovie!.IDs!.BestID.Should().Be("deadpool-wolverine-2024");
 
             mostFavoritedMovie!.ToString().Should().Be("Deadpool & Wolverine (2024)");
 
@@ -125,12 +125,12 @@
             mostFavoritedMovie.Title.Should().Be("Deadpool & Wolverine");
             mostFavoritedMovie.Year.Should().Be(2024U);
 
-            mostFavoritedMovie.Ids!.Trakt.Should().Be(395672U);
-            mostFavoritedMovie.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
-            mostFavoritedMovie.Ids!.IMDB.Should().Be("tt6263850");
-            mostFavoritedMovie.Ids!.TMDB.Should().Be(533535U);
-            mostFavoritedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostFavoritedMovie.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+            mostFavoritedMovie.IDs!.Trakt.Should().Be(395672U);
+            mostFavoritedMovie.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
+            mostFavoritedMovie.IDs!.IMDB.Should().Be("tt6263850");
+            mostFavoritedMovie.IDs!.TMDB.Should().Be(533535U);
+            mostFavoritedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostFavoritedMovie.IDs!.BestID.Should().Be("deadpool-wolverine-2024");
 
             mostFavoritedMovie.ToString().Should().Be("Deadpool & Wolverine (2024)");
 
@@ -145,12 +145,12 @@
             mostFavoritedMovie.Title.Should().Be("A Quiet Place: Day One");
             mostFavoritedMovie.Year.Should().Be(2024U);
 
-            mostFavoritedMovie.Ids!.Trakt.Should().Be(600962U);
-            mostFavoritedMovie.Ids!.Slug.Should().Be("a-quiet-place-day-one-2024");
-            mostFavoritedMovie.Ids!.IMDB.Should().Be("tt13433802");
-            mostFavoritedMovie.Ids!.TMDB.Should().Be(762441U);
-            mostFavoritedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostFavoritedMovie.Ids!.BestID.Should().Be("a-quiet-place-day-one-2024");
+            mostFavoritedMovie.IDs!.Trakt.Should().Be(600962U);
+            mostFavoritedMovie.IDs!.Slug.Should().Be("a-quiet-place-day-one-2024");
+            mostFavoritedMovie.IDs!.IMDB.Should().Be("tt13433802");
+            mostFavoritedMovie.IDs!.TMDB.Should().Be(762441U);
+            mostFavoritedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostFavoritedMovie.IDs!.BestID.Should().Be("a-quiet-place-day-one-2024");
 
             mostFavoritedMovie.ToString().Should().Be("A Quiet Place: Day One (2024)");
         }
@@ -171,12 +171,12 @@
             mostFavoritedMovie.Title.Should().Be("Deadpool & Wolverine");
             mostFavoritedMovie.Year.Should().Be(2024U);
 
-            mostFavoritedMovie.Ids!.Trakt.Should().Be(395672U);
-            mostFavoritedMovie.Ids!.Slug.Should().Be("deadpool-wolverine-2024");
-            mostFavoritedMovie.Ids!.IMDB.Should().Be("tt6263850");
-            mostFavoritedMovie.Ids!.TMDB.Should().Be(533535U);
-            mostFavoritedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostFavoritedMovie.Ids!.BestID.Should().Be("deadpool-wolverine-2024");
+            mostFavoritedMovie.IDs!.Trakt.Should().Be(395672U);
+            mostFavoritedMovie.IDs!.Slug.Should().Be("deadpool-wolverine-2024");
+            mostFavoritedMovie.IDs!.IMDB.Should().Be("tt6263850");
+            mostFavoritedMovie.IDs!.TMDB.Should().Be(533535U);
+            mostFavoritedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostFavoritedMovie.IDs!.BestID.Should().Be("deadpool-wolverine-2024");
 
             mostFavoritedMovie.ToString().Should().Be("Deadpool & Wolverine (2024)");
 
@@ -224,12 +224,12 @@
             mostFavoritedMovie.Title.Should().Be("A Quiet Place: Day One");
             mostFavoritedMovie.Year.Should().Be(2024U);
 
-            mostFavoritedMovie.Ids!.Trakt.Should().Be(600962U);
-            mostFavoritedMovie.Ids!.Slug.Should().Be("a-quiet-place-day-one-2024");
-            mostFavoritedMovie.Ids!.IMDB.Should().Be("tt13433802");
-            mostFavoritedMovie.Ids!.TMDB.Should().Be(762441U);
-            mostFavoritedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostFavoritedMovie.Ids!.BestID.Should().Be("a-quiet-place-day-one-2024");
+            mostFavoritedMovie.IDs!.Trakt.Should().Be(600962U);
+            mostFavoritedMovie.IDs!.Slug.Should().Be("a-quiet-place-day-one-2024");
+            mostFavoritedMovie.IDs!.IMDB.Should().Be("tt13433802");
+            mostFavoritedMovie.IDs!.TMDB.Should().Be(762441U);
+            mostFavoritedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostFavoritedMovie.IDs!.BestID.Should().Be("a-quiet-place-day-one-2024");
 
             mostFavoritedMovie.ToString().Should().Be("A Quiet Place: Day One (2024)");
 

@@ -25,7 +25,7 @@ namespace TraktNET
 
         internal required TraktRequestObjectType RequestObjectType { get; init; }
 
-        internal required string ObjectId { get; init; }
+        internal required string ObjectID { get; init; }
 
         internal required uint SeasonNr { get; init; }
 
@@ -70,7 +70,7 @@ namespace TraktNET
 #endif
                 Flags = request.Flags,
                 RequestObjectType = request.RequestObjectType,
-                ObjectId = request.ObjectId,
+                ObjectID = request.ObjectID,
                 SeasonNr = request.SeasonNr,
                 EpisodeNr = request.EpisodeNr,
                 IsInAuthorizationPolling = isInAuthorizationPolling

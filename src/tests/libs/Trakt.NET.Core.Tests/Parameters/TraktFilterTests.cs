@@ -14,7 +14,7 @@
             filter.Languages.Should().BeNull();
             filter.Countries.Should().BeNull();
             filter.Runtimes.Should().BeNull();
-            filter.StudioIds.Should().BeNull();
+            filter.StudioIDs.Should().BeNull();
             filter.Ratings.Should().BeNull();
             filter.Votes.Should().BeNull();
             filter.TMDBRatings.Should().BeNull();
@@ -25,7 +25,7 @@
             filter.RottenTomatoesUserMeters.Should().BeNull();
             filter.Metascores.Should().BeNull();
             filter.Certifications.Should().BeNull();
-            filter.NetworkIds.Should().BeNull();
+            filter.NetworkIDs.Should().BeNull();
             filter.Status.Should().BeNull();
             filter.EpisodeTypes.Should().BeNull();
         }
@@ -158,18 +158,18 @@
         }
 
         [Fact]
-        public void TestTraktFilterToStringStudioIds()
+        public void TestTraktFilterToStringStudioIDs()
         {
             var filter = new TraktFilter
             {
-                StudioIds = [7, 8, 9]
+                StudioIDs = [7, 8, 9]
             };
 
             filter.ToString().Should().Be("studio_ids=7,8,9");
 
             filter = new TraktFilter
             {
-                StudioIds = []
+                StudioIDs = []
             };
 
             filter.ToString().Should().NotBeNull().And.BeEmpty();
@@ -356,11 +356,11 @@
         }
 
         [Fact]
-        public void TestTraktFilterToStringNetworkIds()
+        public void TestTraktFilterToStringNetworkIDs()
         {
             var filter = new TraktFilter
             {
-                NetworkIds = [7, 8, 9]
+                NetworkIDs = [7, 8, 9]
             };
 
             filter.ToString().Should().Be("network_ids=7,8,9");
@@ -427,7 +427,7 @@
                 Languages = ["en", "de"],
                 Countries = ["us", "de"],
                 Runtimes = new Range<uint>(70, 90),
-                StudioIds = [7, 8, 9],
+                StudioIDs = [7, 8, 9],
                 Ratings = new Range<uint>(70, 90),
                 Votes = new Range<uint>(2000, 5000),
                 TMDBRatings = new Range<float>(5.5f, 10.0f),
@@ -438,7 +438,7 @@
                 RottenTomatoesUserMeters = new Range<uint>(70, 90),
                 Metascores = new Range<float>(5.5f, 10.0f),
                 Certifications = ["R", "tv-pg"],
-                NetworkIds = [7, 8, 9],
+                NetworkIDs = [7, 8, 9],
                 Status = [TraktShowStatus.Ended, TraktShowStatus.Planned],
                 EpisodeTypes = [TraktEpisodeType.SeriesPremiere, TraktEpisodeType.SeasonPremiere]
             };

@@ -48,13 +48,13 @@ namespace TraktNET.MoviesModule
 
             relatedMovie.Title.Should().Be("Avengers: Endgame");
             relatedMovie.Year.Should().Be(2019U);
-            relatedMovie.Ids!.Slug.Should().Be("avengers-endgame-2019");
+            relatedMovie.IDs!.Slug.Should().Be("avengers-endgame-2019");
 
             relatedMovie = relatedMovies[1];
 
             relatedMovie.Title.Should().Be("Thor: Ragnarok");
             relatedMovie.Year.Should().Be(2017U);
-            relatedMovie.Ids!.Slug.Should().Be("thor-ragnarok-2017");
+            relatedMovie.IDs!.Slug.Should().Be("thor-ragnarok-2017");
         }
 
         [Theory]
@@ -96,13 +96,13 @@ namespace TraktNET.MoviesModule
 
             relatedMovie.Title.Should().Be("Avengers: Endgame");
             relatedMovie.Year.Should().Be(2019U);
-            relatedMovie.Ids!.Slug.Should().Be("avengers-endgame-2019");
+            relatedMovie.IDs!.Slug.Should().Be("avengers-endgame-2019");
 
             relatedMovie = relatedMovies[1];
 
             relatedMovie.Title.Should().Be("Thor: Ragnarok");
             relatedMovie.Year.Should().Be(2017U);
-            relatedMovie.Ids!.Slug.Should().Be("thor-ragnarok-2017");
+            relatedMovie.IDs!.Slug.Should().Be("thor-ragnarok-2017");
         }
 
         [Theory]
@@ -123,7 +123,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, extendedInfo, page, limit);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIDs, extendedInfo, page, limit);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -144,13 +144,13 @@ namespace TraktNET.MoviesModule
 
             relatedMovie.Title.Should().Be("Avengers: Endgame");
             relatedMovie.Year.Should().Be(2019U);
-            relatedMovie.Ids!.Slug.Should().Be("avengers-endgame-2019");
+            relatedMovie.IDs!.Slug.Should().Be("avengers-endgame-2019");
 
             relatedMovie = relatedMovies[1];
 
             relatedMovie.Title.Should().Be("Thor: Ragnarok");
             relatedMovie.Year.Should().Be(2017U);
-            relatedMovie.Ids!.Slug.Should().Be("thor-ragnarok-2017");
+            relatedMovie.IDs!.Slug.Should().Be("thor-ragnarok-2017");
         }
 
         [Fact]
@@ -523,7 +523,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 2);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIDs, page: 2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -547,7 +547,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 1);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIDs, page: 1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -571,7 +571,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 3, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 2);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIDs, page: 2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -595,7 +595,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 1, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 1);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIDs, page: 1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -619,7 +619,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 2);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIDs, page: 2);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -662,7 +662,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movierelatedmovies.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieRelatedMoviesUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds, page: 1);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIDs, page: 1);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -813,7 +813,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIds);
+                await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIDs);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -829,11 +829,11 @@ namespace TraktNET.MoviesModule
             TraktClient client = ModuleTestUtility.GetClient(GetMovieRelatedMoviesUriWithSlug, responseContent);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktPagedResponse<TraktMovie>>> act = () => client.Movies.GetMovieRelatedMoviesAsync(default(TraktMovieIds));
+            Func<Task<TraktPagedResponse<TraktMovie>>> act = () => client.Movies.GetMovieRelatedMoviesAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.Should().ThrowAsync<ArgumentException>();
 
-            var movieIDs = new TraktMovieIds();
+            var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMovieRelatedMoviesAsync(movieIDs);
             await act.Should().ThrowAsync<ArgumentException>();

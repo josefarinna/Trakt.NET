@@ -9,7 +9,7 @@
 
             show.Title.Should().BeNull();
             show.Year.Should().BeNull();
-            show.Ids.Should().BeNull();
+            show.IDs.Should().BeNull();
             show.Tagline.Should().BeNull();
             show.Overview.Should().BeNull();
             show.FirstAired.Should().BeNull();
@@ -44,14 +44,14 @@
             show!.Title.Should().Be("Game of Thrones");
             show!.Year.Should().Be(2011U);
 
-            show!.Ids.Should().NotBeNull();
-            show!.Ids!.Trakt.Should().Be(1390U);
-            show!.Ids!.Slug.Should().Be("game-of-thrones");
-            show!.Ids!.TVDB.Should().Be(121361U);
-            show!.Ids!.IMDB.Should().Be("tt0944947");
-            show!.Ids!.TMDB.Should().Be(1399U);
-            show!.Ids!.HasAnyID.Should().BeTrue();
-            show!.Ids!.BestID.Should().Be("game-of-thrones");
+            show!.IDs.Should().NotBeNull();
+            show!.IDs!.Trakt.Should().Be(1390U);
+            show!.IDs!.Slug.Should().Be("game-of-thrones");
+            show!.IDs!.TVDB.Should().Be(121361U);
+            show!.IDs!.IMDB.Should().Be("tt0944947");
+            show!.IDs!.TMDB.Should().Be(1399U);
+            show!.IDs!.HasAnyID.Should().BeTrue();
+            show!.IDs!.BestID.Should().Be("game-of-thrones");
 
             show!.ToString().Should().Be("Game of Thrones (2011)");
         }
@@ -66,14 +66,14 @@
             show!.Title.Should().Be("Game of Thrones");
             show!.Year.Should().Be(2011U);
 
-            show!.Ids.Should().NotBeNull();
-            show!.Ids!.Trakt.Should().Be(1390U);
-            show!.Ids!.Slug.Should().Be("game-of-thrones");
-            show!.Ids!.TVDB.Should().Be(121361U);
-            show!.Ids!.IMDB.Should().Be("tt0944947");
-            show!.Ids!.TMDB.Should().Be(1399U);
-            show!.Ids!.HasAnyID.Should().BeTrue();
-            show!.Ids!.BestID.Should().Be("game-of-thrones");
+            show!.IDs.Should().NotBeNull();
+            show!.IDs!.Trakt.Should().Be(1390U);
+            show!.IDs!.Slug.Should().Be("game-of-thrones");
+            show!.IDs!.TVDB.Should().Be(121361U);
+            show!.IDs!.IMDB.Should().Be("tt0944947");
+            show!.IDs!.TMDB.Should().Be(1399U);
+            show!.IDs!.HasAnyID.Should().BeTrue();
+            show!.IDs!.BestID.Should().Be("game-of-thrones");
 
             show!.ToString().Should().Be("Game of Thrones (2011)");
 

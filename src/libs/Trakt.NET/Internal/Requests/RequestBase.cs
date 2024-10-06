@@ -8,7 +8,7 @@
 
         internal RequestFlags Flags { get; set; }
 
-        internal virtual string ObjectId => string.Empty;
+        internal virtual string ObjectID => string.Empty;
 
         internal virtual uint SeasonNr => 0;
 

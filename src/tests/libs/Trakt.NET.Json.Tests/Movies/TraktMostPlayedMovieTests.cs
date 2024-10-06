@@ -12,7 +12,7 @@
             mostPlayedMovie.CollectedCount.Should().BeNull();
             mostPlayedMovie.Title.Should().BeNull();
             mostPlayedMovie.Year.Should().BeNull();
-            mostPlayedMovie.Ids.Should().BeNull();
+            mostPlayedMovie.IDs.Should().BeNull();
             mostPlayedMovie.Tagline.Should().BeNull();
             mostPlayedMovie.Overview.Should().BeNull();
             mostPlayedMovie.Released.Should().BeNull();
@@ -48,12 +48,12 @@
             mostPlayedMovie!.Title.Should().Be("The Hunt for Red October");
             mostPlayedMovie!.Year.Should().Be(1990U);
 
-            mostPlayedMovie!.Ids!.Trakt.Should().Be(1111U);
-            mostPlayedMovie!.Ids!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostPlayedMovie!.Ids!.IMDB.Should().Be("tt0099810");
-            mostPlayedMovie!.Ids!.TMDB.Should().Be(1669U);
-            mostPlayedMovie!.Ids!.HasAnyID.Should().BeTrue();
-            mostPlayedMovie!.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostPlayedMovie!.IDs!.Trakt.Should().Be(1111U);
+            mostPlayedMovie!.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
+            mostPlayedMovie!.IDs!.IMDB.Should().Be("tt0099810");
+            mostPlayedMovie!.IDs!.TMDB.Should().Be(1669U);
+            mostPlayedMovie!.IDs!.HasAnyID.Should().BeTrue();
+            mostPlayedMovie!.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
             mostPlayedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
         }
@@ -72,12 +72,12 @@
             mostPlayedMovie!.Title.Should().Be("The Hunt for Red October");
             mostPlayedMovie!.Year.Should().Be(1990U);
 
-            mostPlayedMovie!.Ids!.Trakt.Should().Be(1111U);
-            mostPlayedMovie!.Ids!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostPlayedMovie!.Ids!.IMDB.Should().Be("tt0099810");
-            mostPlayedMovie!.Ids!.TMDB.Should().Be(1669U);
-            mostPlayedMovie!.Ids!.HasAnyID.Should().BeTrue();
-            mostPlayedMovie!.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostPlayedMovie!.IDs!.Trakt.Should().Be(1111U);
+            mostPlayedMovie!.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
+            mostPlayedMovie!.IDs!.IMDB.Should().Be("tt0099810");
+            mostPlayedMovie!.IDs!.TMDB.Should().Be(1669U);
+            mostPlayedMovie!.IDs!.HasAnyID.Should().BeTrue();
+            mostPlayedMovie!.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
             mostPlayedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
 
@@ -134,12 +134,12 @@
             mostPlayedMovie.Title.Should().Be("The Hunt for Red October");
             mostPlayedMovie.Year.Should().Be(1990U);
 
-            mostPlayedMovie.Ids!.Trakt.Should().Be(1111U);
-            mostPlayedMovie.Ids!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostPlayedMovie.Ids!.IMDB.Should().Be("tt0099810");
-            mostPlayedMovie.Ids!.TMDB.Should().Be(1669U);
-            mostPlayedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostPlayedMovie.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostPlayedMovie.IDs!.Trakt.Should().Be(1111U);
+            mostPlayedMovie.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
+            mostPlayedMovie.IDs!.IMDB.Should().Be("tt0099810");
+            mostPlayedMovie.IDs!.TMDB.Should().Be(1669U);
+            mostPlayedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostPlayedMovie.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
             mostPlayedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
 
@@ -156,12 +156,12 @@
             mostPlayedMovie.Title.Should().Be("Rebel Ridge");
             mostPlayedMovie.Year.Should().Be(2024U);
 
-            mostPlayedMovie.Ids!.Trakt.Should().Be(483193U);
-            mostPlayedMovie.Ids!.Slug.Should().Be("rebel-ridge-2024");
-            mostPlayedMovie.Ids!.IMDB.Should().Be("tt11301886");
-            mostPlayedMovie.Ids!.TMDB.Should().Be(646097U);
-            mostPlayedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostPlayedMovie.Ids!.BestID.Should().Be("rebel-ridge-2024");
+            mostPlayedMovie.IDs!.Trakt.Should().Be(483193U);
+            mostPlayedMovie.IDs!.Slug.Should().Be("rebel-ridge-2024");
+            mostPlayedMovie.IDs!.IMDB.Should().Be("tt11301886");
+            mostPlayedMovie.IDs!.TMDB.Should().Be(646097U);
+            mostPlayedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostPlayedMovie.IDs!.BestID.Should().Be("rebel-ridge-2024");
 
             mostPlayedMovie.ToString().Should().Be("Rebel Ridge (2024)");
         }
@@ -184,12 +184,12 @@
             mostPlayedMovie.Title.Should().Be("The Hunt for Red October");
             mostPlayedMovie.Year.Should().Be(1990U);
 
-            mostPlayedMovie.Ids!.Trakt.Should().Be(1111U);
-            mostPlayedMovie.Ids!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostPlayedMovie.Ids!.IMDB.Should().Be("tt0099810");
-            mostPlayedMovie.Ids!.TMDB.Should().Be(1669U);
-            mostPlayedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostPlayedMovie.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostPlayedMovie.IDs!.Trakt.Should().Be(1111U);
+            mostPlayedMovie.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
+            mostPlayedMovie.IDs!.IMDB.Should().Be("tt0099810");
+            mostPlayedMovie.IDs!.TMDB.Should().Be(1669U);
+            mostPlayedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostPlayedMovie.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
             mostPlayedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
 
@@ -240,12 +240,12 @@
             mostPlayedMovie.Title.Should().Be("Rebel Ridge");
             mostPlayedMovie.Year.Should().Be(2024U);
 
-            mostPlayedMovie.Ids!.Trakt.Should().Be(483193U);
-            mostPlayedMovie.Ids!.Slug.Should().Be("rebel-ridge-2024");
-            mostPlayedMovie.Ids!.IMDB.Should().Be("tt11301886");
-            mostPlayedMovie.Ids!.TMDB.Should().Be(646097U);
-            mostPlayedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostPlayedMovie.Ids!.BestID.Should().Be("rebel-ridge-2024");
+            mostPlayedMovie.IDs!.Trakt.Should().Be(483193U);
+            mostPlayedMovie.IDs!.Slug.Should().Be("rebel-ridge-2024");
+            mostPlayedMovie.IDs!.IMDB.Should().Be("tt11301886");
+            mostPlayedMovie.IDs!.TMDB.Should().Be(646097U);
+            mostPlayedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostPlayedMovie.IDs!.BestID.Should().Be("rebel-ridge-2024");
 
             mostPlayedMovie.ToString().Should().Be("Rebel Ridge (2024)");
 

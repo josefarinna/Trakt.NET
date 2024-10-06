@@ -5,7 +5,7 @@ namespace TraktNET
 {
     public static class HttpClientFactoryExtensions
     {
-        private const string ConfigurationKeyClientId = "TraktNET:ClientId";
+        private const string ConfigurationKeyClientID = "TraktNET:ClientID";
         private const string ConfigurationKeyClientSecret = "TraktNET:ClientSecret";
         private const string ConfigurationKeySandbox = "TraktNET:Sandbox";
 
@@ -40,7 +40,7 @@ namespace TraktNET
         /// </param>
         /// <returns>A <see cref="IHttpClientBuilder" /> instance.</returns>
         /// <remarks>
-        /// The value for the client ID in the <paramref name="configuration" /> must be saved with the key "TraktNET:ClientId"
+        /// The value for the client ID in the <paramref name="configuration" /> must be saved with the key "TraktNET:ClientID"
         /// in the configuration root.
         /// <para />
         /// The value for the client secret in the <paramref name="configuration" /> must be saved with the key "TraktNET:ClientSecret"
@@ -53,7 +53,7 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(configuration);
 
-            string clientId = configuration[ConfigurationKeyClientId] ?? string.Empty;
+            string clientID = configuration[ConfigurationKeyClientID] ?? string.Empty;
             string clientSecret = configuration[ConfigurationKeyClientSecret] ?? string.Empty;
             string sandboxValue = configuration[ConfigurationKeySandbox] ?? string.Empty;
             bool useSandbox = false;
@@ -63,7 +63,7 @@ namespace TraktNET
                 useSandbox = sandbox;
             }
 
-            return useSandbox ? services.AddTraktSandboxClient(clientId, clientSecret) : services.AddTraktClient(clientId, clientSecret);
+            return useSandbox ? services.AddTraktSandboxClient(clientID, clientSecret) : services.AddTraktClient(clientID, clientSecret);
         }
 
         /// <summary>
@@ -91,12 +91,12 @@ namespace TraktNET
         /// </example>
         /// </summary>
         /// <param name="services">The services collection to which the <see cref="TraktClient" /> is added.</param>
-        /// <param name="clientId">The value for the <see cref="TraktClient.ClientID" />.</param>
+        /// <param name="clientID">The value for the <see cref="TraktClient.ClientID" />.</param>
         /// <param name="clientSecret">The value for the <see cref="TraktClient.ClientSecret" />.</param>
         /// <returns>A <see cref="IHttpClientBuilder" /> instance.</returns>
-        public static IHttpClientBuilder AddTraktClient(this IServiceCollection services, string clientId, string clientSecret)
+        public static IHttpClientBuilder AddTraktClient(this IServiceCollection services, string clientID, string clientSecret)
         {
-            var context = TraktContext.Create(clientId, clientSecret);
+            var context = TraktContext.Create(clientID, clientSecret);
             return services.AddTraktHttpClient(context).AddTypedClient(context);
         }
 
@@ -127,12 +127,12 @@ namespace TraktNET
         /// </example>
         /// </summary>
         /// <param name="services">The services collection to which the <see cref="TraktClient" /> is added.</param>
-        /// <param name="clientId">The value for the <see cref="TraktClient.ClientID" />.</param>
+        /// <param name="clientID">The value for the <see cref="TraktClient.ClientID" />.</param>
         /// <param name="clientSecret">The value for the <see cref="TraktClient.ClientSecret" />.</param>
         /// <returns>A <see cref="IHttpClientBuilder" /> instance.</returns>
-        public static IHttpClientBuilder AddTraktSandboxClient(this IServiceCollection services, string clientId, string clientSecret)
+        public static IHttpClientBuilder AddTraktSandboxClient(this IServiceCollection services, string clientID, string clientSecret)
         {
-            var context = TraktContext.CreateForSandbox(clientId, clientSecret);
+            var context = TraktContext.CreateForSandbox(clientID, clientSecret);
             return services.AddTraktHttpClient(context).AddTypedClient(context);
         }
 

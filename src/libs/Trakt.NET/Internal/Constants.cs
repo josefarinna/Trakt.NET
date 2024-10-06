@@ -24,7 +24,7 @@ namespace TraktNET
             {
                 internal const string APIVersionHeaderKey = "trakt-api-version";
 
-                internal const string APIClientIdHeaderKey = "trakt-api-key";
+                internal const string APIClientIDHeaderKey = "trakt-api-key";
             }
         }
 
@@ -147,7 +147,7 @@ namespace TraktNET
                     new TraktReleaseTypeJsonConverter(),
                     new TraktScrobbleActionTypeJsonConverter(),
                     new TraktSearchFieldJsonConverter(),
-                    new TraktSearchIdTypeJsonConverter(),
+                    new TraktSearchIDTypeJsonConverter(),
                     new TraktSearchResultTypeJsonConverter(),
                     new TraktShowStatusJsonConverter(),
                     new TraktSortByJsonConverter(),

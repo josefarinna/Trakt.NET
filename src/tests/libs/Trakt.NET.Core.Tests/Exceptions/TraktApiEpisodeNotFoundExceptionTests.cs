@@ -10,7 +10,7 @@ namespace TraktNET.Exceptions
         public async Task TestTraktApiEpisodeNotFoundExceptionCreate()
         {
             ExceptionParameters parameters = await ExceptionsTestUtility.CreateMockExceptionParametersAsync(
-                Constants.StatusCodes.NotFound, HttpMethod.Get, objectId: "showId", seasonNumber: 1, episodeNumber: 1);
+                Constants.StatusCodes.NotFound, HttpMethod.Get, objectID: "showID", seasonNumber: 1, episodeNumber: 1);
 
             var exception = new TraktApiEpisodeNotFoundException(parameters);
 
@@ -25,7 +25,7 @@ namespace TraktNET.Exceptions
             exception.ContentHeaders.Should().NotBeNull();
             exception.Message.Should().Be("Trakt API request failed. Episode Not Found - method exists, but no record found");
 
-            exception.ShowID.Should().Be("showId");
+            exception.ShowID.Should().Be("showID");
             exception.SeasonNumber.Should().Be(1U);
             exception.EpisodeNumber.Should().Be(1U);
         }

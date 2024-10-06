@@ -10,7 +10,7 @@
             boxOfficeMovie.Revenue.Should().BeNull();
             boxOfficeMovie.Title.Should().BeNull();
             boxOfficeMovie.Year.Should().BeNull();
-            boxOfficeMovie.Ids.Should().BeNull();
+            boxOfficeMovie.IDs.Should().BeNull();
             boxOfficeMovie.Tagline.Should().BeNull();
             boxOfficeMovie.Overview.Should().BeNull();
             boxOfficeMovie.Released.Should().BeNull();
@@ -44,12 +44,12 @@
             boxOfficeMovie!.Title.Should().Be("Beetlejuice Beetlejuice");
             boxOfficeMovie!.Year.Should().Be(2024U);
 
-            boxOfficeMovie!.Ids!.Trakt.Should().Be(734869U);
-            boxOfficeMovie!.Ids!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
-            boxOfficeMovie!.Ids!.IMDB.Should().Be("tt2049403");
-            boxOfficeMovie!.Ids!.TMDB.Should().Be(917496U);
-            boxOfficeMovie!.Ids!.HasAnyID.Should().BeTrue();
-            boxOfficeMovie!.Ids!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
+            boxOfficeMovie!.IDs!.Trakt.Should().Be(734869U);
+            boxOfficeMovie!.IDs!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
+            boxOfficeMovie!.IDs!.IMDB.Should().Be("tt2049403");
+            boxOfficeMovie!.IDs!.TMDB.Should().Be(917496U);
+            boxOfficeMovie!.IDs!.HasAnyID.Should().BeTrue();
+            boxOfficeMovie!.IDs!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
 
             boxOfficeMovie!.ToString().Should().Be("Beetlejuice Beetlejuice (2024)");
         }
@@ -66,12 +66,12 @@
             boxOfficeMovie!.Title.Should().Be("Beetlejuice Beetlejuice");
             boxOfficeMovie!.Year.Should().Be(2024U);
 
-            boxOfficeMovie!.Ids!.Trakt.Should().Be(734869U);
-            boxOfficeMovie!.Ids!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
-            boxOfficeMovie!.Ids!.IMDB.Should().Be("tt2049403");
-            boxOfficeMovie!.Ids!.TMDB.Should().Be(917496U);
-            boxOfficeMovie!.Ids!.HasAnyID.Should().BeTrue();
-            boxOfficeMovie!.Ids!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
+            boxOfficeMovie!.IDs!.Trakt.Should().Be(734869U);
+            boxOfficeMovie!.IDs!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
+            boxOfficeMovie!.IDs!.IMDB.Should().Be("tt2049403");
+            boxOfficeMovie!.IDs!.TMDB.Should().Be(917496U);
+            boxOfficeMovie!.IDs!.HasAnyID.Should().BeTrue();
+            boxOfficeMovie!.IDs!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
 
             boxOfficeMovie!.ToString().Should().Be("Beetlejuice Beetlejuice (2024)");
 
@@ -123,12 +123,12 @@
             boxOfficeMovie.Title.Should().Be("Beetlejuice Beetlejuice");
             boxOfficeMovie.Year.Should().Be(2024U);
 
-            boxOfficeMovie.Ids!.Trakt.Should().Be(734869U);
-            boxOfficeMovie.Ids!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
-            boxOfficeMovie.Ids!.IMDB.Should().Be("tt2049403");
-            boxOfficeMovie.Ids!.TMDB.Should().Be(917496U);
-            boxOfficeMovie.Ids!.HasAnyID.Should().BeTrue();
-            boxOfficeMovie.Ids!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
+            boxOfficeMovie.IDs!.Trakt.Should().Be(734869U);
+            boxOfficeMovie.IDs!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
+            boxOfficeMovie.IDs!.IMDB.Should().Be("tt2049403");
+            boxOfficeMovie.IDs!.TMDB.Should().Be(917496U);
+            boxOfficeMovie.IDs!.HasAnyID.Should().BeTrue();
+            boxOfficeMovie.IDs!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
 
             boxOfficeMovie.ToString().Should().Be("Beetlejuice Beetlejuice (2024)");
 
@@ -143,12 +143,12 @@
             boxOfficeMovie.Title.Should().Be("Speak No Evil");
             boxOfficeMovie.Year.Should().Be(2024U);
 
-            boxOfficeMovie.Ids!.Trakt.Should().Be(896755U);
-            boxOfficeMovie.Ids!.Slug.Should().Be("speak-no-evil-2024");
-            boxOfficeMovie.Ids!.IMDB.Should().Be("tt27534307");
-            boxOfficeMovie.Ids!.TMDB.Should().Be(1114513U);
-            boxOfficeMovie.Ids!.HasAnyID.Should().BeTrue();
-            boxOfficeMovie.Ids!.BestID.Should().Be("speak-no-evil-2024");
+            boxOfficeMovie.IDs!.Trakt.Should().Be(896755U);
+            boxOfficeMovie.IDs!.Slug.Should().Be("speak-no-evil-2024");
+            boxOfficeMovie.IDs!.IMDB.Should().Be("tt27534307");
+            boxOfficeMovie.IDs!.TMDB.Should().Be(1114513U);
+            boxOfficeMovie.IDs!.HasAnyID.Should().BeTrue();
+            boxOfficeMovie.IDs!.BestID.Should().Be("speak-no-evil-2024");
 
             boxOfficeMovie.ToString().Should().Be("Speak No Evil (2024)");
         }
@@ -169,12 +169,12 @@
             boxOfficeMovie.Title.Should().Be("Beetlejuice Beetlejuice");
             boxOfficeMovie.Year.Should().Be(2024U);
 
-            boxOfficeMovie.Ids!.Trakt.Should().Be(734869U);
-            boxOfficeMovie.Ids!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
-            boxOfficeMovie.Ids!.IMDB.Should().Be("tt2049403");
-            boxOfficeMovie.Ids!.TMDB.Should().Be(917496U);
-            boxOfficeMovie.Ids!.HasAnyID.Should().BeTrue();
-            boxOfficeMovie.Ids!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
+            boxOfficeMovie.IDs!.Trakt.Should().Be(734869U);
+            boxOfficeMovie.IDs!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
+            boxOfficeMovie.IDs!.IMDB.Should().Be("tt2049403");
+            boxOfficeMovie.IDs!.TMDB.Should().Be(917496U);
+            boxOfficeMovie.IDs!.HasAnyID.Should().BeTrue();
+            boxOfficeMovie.IDs!.BestID.Should().Be("beetlejuice-beetlejuice-2024");
 
             boxOfficeMovie.ToString().Should().Be("Beetlejuice Beetlejuice (2024)");
 
@@ -220,12 +220,12 @@
             boxOfficeMovie.Title.Should().Be("Speak No Evil");
             boxOfficeMovie.Year.Should().Be(2024U);
 
-            boxOfficeMovie.Ids!.Trakt.Should().Be(896755U);
-            boxOfficeMovie.Ids!.Slug.Should().Be("speak-no-evil-2024");
-            boxOfficeMovie.Ids!.IMDB.Should().Be("tt27534307");
-            boxOfficeMovie.Ids!.TMDB.Should().Be(1114513U);
-            boxOfficeMovie.Ids!.HasAnyID.Should().BeTrue();
-            boxOfficeMovie.Ids!.BestID.Should().Be("speak-no-evil-2024");
+            boxOfficeMovie.IDs!.Trakt.Should().Be(896755U);
+            boxOfficeMovie.IDs!.Slug.Should().Be("speak-no-evil-2024");
+            boxOfficeMovie.IDs!.IMDB.Should().Be("tt27534307");
+            boxOfficeMovie.IDs!.TMDB.Should().Be(1114513U);
+            boxOfficeMovie.IDs!.HasAnyID.Should().BeTrue();
+            boxOfficeMovie.IDs!.BestID.Should().Be("speak-no-evil-2024");
 
             boxOfficeMovie.ToString().Should().Be("Speak No Evil (2024)");
 

@@ -12,7 +12,7 @@
             mostCollectedMovie.CollectedCount.Should().BeNull();
             mostCollectedMovie.Title.Should().BeNull();
             mostCollectedMovie.Year.Should().BeNull();
-            mostCollectedMovie.Ids.Should().BeNull();
+            mostCollectedMovie.IDs.Should().BeNull();
             mostCollectedMovie.Tagline.Should().BeNull();
             mostCollectedMovie.Overview.Should().BeNull();
             mostCollectedMovie.Released.Should().BeNull();
@@ -48,12 +48,12 @@
             mostCollectedMovie!.Title.Should().Be("The Hunt for Red October");
             mostCollectedMovie!.Year.Should().Be(1990U);
 
-            mostCollectedMovie!.Ids!.Trakt.Should().Be(1111U);
-            mostCollectedMovie!.Ids!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostCollectedMovie!.Ids!.IMDB.Should().Be("tt0099810");
-            mostCollectedMovie!.Ids!.TMDB.Should().Be(1669U);
-            mostCollectedMovie!.Ids!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie!.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie!.IDs!.Trakt.Should().Be(1111U);
+            mostCollectedMovie!.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie!.IDs!.IMDB.Should().Be("tt0099810");
+            mostCollectedMovie!.IDs!.TMDB.Should().Be(1669U);
+            mostCollectedMovie!.IDs!.HasAnyID.Should().BeTrue();
+            mostCollectedMovie!.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
             mostCollectedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
         }
@@ -72,12 +72,12 @@
             mostCollectedMovie!.Title.Should().Be("The Hunt for Red October");
             mostCollectedMovie!.Year.Should().Be(1990U);
 
-            mostCollectedMovie!.Ids!.Trakt.Should().Be(1111U);
-            mostCollectedMovie!.Ids!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostCollectedMovie!.Ids!.IMDB.Should().Be("tt0099810");
-            mostCollectedMovie!.Ids!.TMDB.Should().Be(1669U);
-            mostCollectedMovie!.Ids!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie!.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie!.IDs!.Trakt.Should().Be(1111U);
+            mostCollectedMovie!.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie!.IDs!.IMDB.Should().Be("tt0099810");
+            mostCollectedMovie!.IDs!.TMDB.Should().Be(1669U);
+            mostCollectedMovie!.IDs!.HasAnyID.Should().BeTrue();
+            mostCollectedMovie!.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
             mostCollectedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
 
@@ -134,12 +134,12 @@
             mostCollectedMovie.Title.Should().Be("The Hunt for Red October");
             mostCollectedMovie.Year.Should().Be(1990U);
 
-            mostCollectedMovie.Ids!.Trakt.Should().Be(1111U);
-            mostCollectedMovie.Ids!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostCollectedMovie.Ids!.IMDB.Should().Be("tt0099810");
-            mostCollectedMovie.Ids!.TMDB.Should().Be(1669U);
-            mostCollectedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie.IDs!.Trakt.Should().Be(1111U);
+            mostCollectedMovie.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie.IDs!.IMDB.Should().Be("tt0099810");
+            mostCollectedMovie.IDs!.TMDB.Should().Be(1669U);
+            mostCollectedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostCollectedMovie.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
             mostCollectedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
 
@@ -156,12 +156,12 @@
             mostCollectedMovie.Title.Should().Be("Rebel Ridge");
             mostCollectedMovie.Year.Should().Be(2024U);
 
-            mostCollectedMovie.Ids!.Trakt.Should().Be(483193U);
-            mostCollectedMovie.Ids!.Slug.Should().Be("rebel-ridge-2024");
-            mostCollectedMovie.Ids!.IMDB.Should().Be("tt11301886");
-            mostCollectedMovie.Ids!.TMDB.Should().Be(646097U);
-            mostCollectedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie.Ids!.BestID.Should().Be("rebel-ridge-2024");
+            mostCollectedMovie.IDs!.Trakt.Should().Be(483193U);
+            mostCollectedMovie.IDs!.Slug.Should().Be("rebel-ridge-2024");
+            mostCollectedMovie.IDs!.IMDB.Should().Be("tt11301886");
+            mostCollectedMovie.IDs!.TMDB.Should().Be(646097U);
+            mostCollectedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostCollectedMovie.IDs!.BestID.Should().Be("rebel-ridge-2024");
 
             mostCollectedMovie.ToString().Should().Be("Rebel Ridge (2024)");
         }
@@ -184,12 +184,12 @@
             mostCollectedMovie.Title.Should().Be("The Hunt for Red October");
             mostCollectedMovie.Year.Should().Be(1990U);
 
-            mostCollectedMovie.Ids!.Trakt.Should().Be(1111U);
-            mostCollectedMovie.Ids!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostCollectedMovie.Ids!.IMDB.Should().Be("tt0099810");
-            mostCollectedMovie.Ids!.TMDB.Should().Be(1669U);
-            mostCollectedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie.Ids!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie.IDs!.Trakt.Should().Be(1111U);
+            mostCollectedMovie.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie.IDs!.IMDB.Should().Be("tt0099810");
+            mostCollectedMovie.IDs!.TMDB.Should().Be(1669U);
+            mostCollectedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostCollectedMovie.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
 
             mostCollectedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
 
@@ -240,12 +240,12 @@
             mostCollectedMovie.Title.Should().Be("Rebel Ridge");
             mostCollectedMovie.Year.Should().Be(2024U);
 
-            mostCollectedMovie.Ids!.Trakt.Should().Be(483193U);
-            mostCollectedMovie.Ids!.Slug.Should().Be("rebel-ridge-2024");
-            mostCollectedMovie.Ids!.IMDB.Should().Be("tt11301886");
-            mostCollectedMovie.Ids!.TMDB.Should().Be(646097U);
-            mostCollectedMovie.Ids!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie.Ids!.BestID.Should().Be("rebel-ridge-2024");
+            mostCollectedMovie.IDs!.Trakt.Should().Be(483193U);
+            mostCollectedMovie.IDs!.Slug.Should().Be("rebel-ridge-2024");
+            mostCollectedMovie.IDs!.IMDB.Should().Be("tt11301886");
+            mostCollectedMovie.IDs!.TMDB.Should().Be(646097U);
+            mostCollectedMovie.IDs!.HasAnyID.Should().BeTrue();
+            mostCollectedMovie.IDs!.BestID.Should().Be("rebel-ridge-2024");
 
             mostCollectedMovie.ToString().Should().Be("Rebel Ridge (2024)");
 

@@ -3,7 +3,7 @@
 namespace TraktNET
 {
     /// <summary>A collection of IDs for a Trakt user.</summary>
-    public record class TraktUserIds : ITraktIds
+    public record class TraktUserIDs : ITraktIDs
     {
         /// <summary>The Trakt slug.</summary>
         public string? Slug { get; set; }

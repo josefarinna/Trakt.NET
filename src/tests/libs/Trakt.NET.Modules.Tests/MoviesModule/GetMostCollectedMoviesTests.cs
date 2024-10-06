@@ -69,13 +69,13 @@ namespace TraktNET.MoviesModule
 
             collectedMovie.Title.Should().Be("The Hunt for Red October");
             collectedMovie.Year.Should().Be(1990U);
-            collectedMovie.Ids!.Slug.Should().Be("the-hunt-for-red-october-1990");
+            collectedMovie.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
 
             collectedMovie = collectedMovies[1];
 
             collectedMovie.Title.Should().Be("Rebel Ridge");
             collectedMovie.Year.Should().Be(2024U);
-            collectedMovie.Ids!.Slug.Should().Be("rebel-ridge-2024");
+            collectedMovie.IDs!.Slug.Should().Be("rebel-ridge-2024");
         }
 
         [Theory]
@@ -141,13 +141,13 @@ namespace TraktNET.MoviesModule
 
             collectedMovie.Title.Should().Be("The Hunt for Red October");
             collectedMovie.Year.Should().Be(1990U);
-            collectedMovie.Ids!.Slug.Should().Be("the-hunt-for-red-october-1990");
+            collectedMovie.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
 
             collectedMovie = collectedMovies[1];
 
             collectedMovie.Title.Should().Be("Rebel Ridge");
             collectedMovie.Year.Should().Be(2024U);
-            collectedMovie.Ids!.Slug.Should().Be("rebel-ridge-2024");
+            collectedMovie.IDs!.Slug.Should().Be("rebel-ridge-2024");
         }
 
         [Fact]
