@@ -76,7 +76,6 @@ jobs:
         with:
           dotnet-version: |
             ${{ env.DOTNET_VERSION_STABLE }}
-            ${{ env.DOTNET_VERSION_PREVIEW }}
 
       - name: Restore dependencies
         run: dotnet restore

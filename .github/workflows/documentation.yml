@@ -44,7 +44,6 @@ jobs:
         with:
           dotnet-version: |
             ${{ env.DOTNET_VERSION_STABLE }}
-            ${{ env.DOTNET_VERSION_PREVIEW }}
 
       - name: Setup DocFX
         run: dotnet tool update -g docfx

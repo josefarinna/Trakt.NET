@@ -7,15 +7,15 @@
     <!-- NET (Framework | Standard) Targets -->
     <LibraryNETFrameworkTargets>net472;net481</LibraryNETFrameworkTargets>
     <LibraryNETStandardTargets>netstandard2.0;netstandard2.1</LibraryNETStandardTargets>
-    <LibraryCommonNETTargets>net6.0;net7.0;net8.0</LibraryCommonNETTargets>
-    <LibraryCommonNETPreviewTargets>net9.0</LibraryCommonNETPreviewTargets>
+    <LibraryCommonNETTargets>net6.0;net7.0;net8.0;net9.0</LibraryCommonNETTargets>
+    <LibraryCommonNETPreviewTargets></LibraryCommonNETPreviewTargets>
 
-    <LibraryTargetFrameworks>$(LibraryNETStandardTargets);net5.0;$(LibraryCommonNETTargets);$(LibraryCommonNETPreviewTargets)</LibraryTargetFrameworks>
-    <HttpClientFactoryLibraryTargetFrameworks>$(LibraryNETStandardTargets);$(LibraryCommonNETTargets);$(LibraryCommonNETPreviewTargets)</HttpClientFactoryLibraryTargetFrameworks>
-    <TestTargetFrameworks>$(LibraryNETFrameworkTargets);$(LibraryCommonNETTargets);$(LibraryCommonNETPreviewTargets)</TestTargetFrameworks>
+    <LibraryTargetFrameworks>$(LibraryNETStandardTargets);net5.0;$(LibraryCommonNETTargets)</LibraryTargetFrameworks>
+    <HttpClientFactoryLibraryTargetFrameworks>$(LibraryNETStandardTargets);$(LibraryCommonNETTargets)</HttpClientFactoryLibraryTargetFrameworks>
+    <TestTargetFrameworks>$(LibraryNETFrameworkTargets);$(LibraryCommonNETTargets)</TestTargetFrameworks>
 
     <!-- These tests use Verify packages which only support these .NET versions >= 6. -->
-    <SourceGenerationTestTargetFrameworks>$(LibraryCommonNETTargets)</SourceGenerationTestTargetFrameworks>
+    <SourceGenerationTestTargetFrameworks>net6.0;net7.0;net8.0</SourceGenerationTestTargetFrameworks>
 
     <IsTestProject>$(MSBuildProjectName.EndsWith('Tests'))</IsTestProject>
     <IsTestUtilityProject>$(MSBuildProjectName.EndsWith('Tests.Utility'))</IsTestUtilityProject>

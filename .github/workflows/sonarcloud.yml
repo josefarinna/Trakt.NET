@@ -34,7 +34,6 @@ jobs:
         with:
           dotnet-version: |
             ${{ env.DOTNET_VERSION_STABLE }}
-            ${{ env.DOTNET_VERSION_PREVIEW }}
 
       - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
