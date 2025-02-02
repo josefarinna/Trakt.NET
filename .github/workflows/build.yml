@@ -75,7 +75,8 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
-            ${{ env.DOTNET_VERSION_STABLE }}
+            ${{ env.DOTNET_VERSION_CURRENT_STABLE }}
+            ${{ env.DOTNET_8_VERSION_STABLE }}
 
       - name: Restore dependencies
         run: dotnet restore
