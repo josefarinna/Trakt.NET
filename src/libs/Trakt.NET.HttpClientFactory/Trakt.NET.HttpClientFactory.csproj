@@ -6,9 +6,14 @@
     <TargetFrameworks>$(HttpClientFactoryLibraryTargetFrameworks)</TargetFrameworks>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="('$(TargetFramework)' != 'net6.0') AND ('$(TargetFramework)' != 'net7.0')">
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
     <PackageReference Include="Microsoft.Extensions.Http" />
+  </ItemGroup>
+
+  <ItemGroup Condition="('$(TargetFramework)' == 'net6.0') OR ('$(TargetFramework)' == 'net7.0')">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" VersionOverride="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" VersionOverride="8.0.1" />
   </ItemGroup>
 
   <ItemGroup>
