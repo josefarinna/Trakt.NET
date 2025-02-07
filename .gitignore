@@ -250,3 +250,6 @@ _site/
 
 # Tests Verify Snapshot Files
 *.received.*
+
+# Test Coverage Reports
+*.opencover.xml
