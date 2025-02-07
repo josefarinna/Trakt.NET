@@ -5,28 +5,28 @@
         [Fact]
         public void TestTraktFavoriteObjectTypeToJson()
         {
-            TraktFavoriteObjectType.Unspecified.ToJson().Should().BeNull();
-            TraktFavoriteObjectType.Movie.ToJson().Should().Be("movie");
-            TraktFavoriteObjectType.Show.ToJson().Should().Be("show");
+            TraktFavoriteObjectType.Unspecified.ToJson().ShouldBeNull();
+            TraktFavoriteObjectType.Movie.ToJson().ShouldBe("movie");
+            TraktFavoriteObjectType.Show.ToJson().ShouldBe("show");
         }
 
         [Fact]
         public void TestTraktFavoriteObjectTypeFromJson()
         {
-            "unspecified".ToTraktFavoriteObjectType().Should().Be(TraktFavoriteObjectType.Unspecified);
-            "movie".ToTraktFavoriteObjectType().Should().Be(TraktFavoriteObjectType.Movie);
-            "show".ToTraktFavoriteObjectType().Should().Be(TraktFavoriteObjectType.Show);
+            "unspecified".ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Unspecified);
+            "movie".ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Movie);
+            "show".ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Show);
 
             string? nullValue = null;
-            nullValue.ToTraktFavoriteObjectType().Should().Be(TraktFavoriteObjectType.Unspecified);
+            nullValue.ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Unspecified);
         }
 
         [Fact]
         public void TestTraktFavoriteObjectTypeDisplayName()
         {
-            TraktFavoriteObjectType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktFavoriteObjectType.Movie.DisplayName().Should().Be("Movie");
-            TraktFavoriteObjectType.Show.DisplayName().Should().Be("Show");
+            TraktFavoriteObjectType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktFavoriteObjectType.Movie.DisplayName().ShouldBe("Movie");
+            TraktFavoriteObjectType.Show.DisplayName().ShouldBe("Show");
         }
     }
 }

@@ -17,18 +17,18 @@ namespace TraktNET.MoviesModule
 
             TraktResponse<TraktMovieStatistics> response = await client.Movies.GetMovieStatisticsAsync(TestConstants.Movies.MovieID);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
 
             TraktMovieStatistics movieStatistics = response.Content!;
 
-            movieStatistics.Watchers.Should().Be(164943U);
-            movieStatistics.Plays.Should().Be(219925U);
+            movieStatistics.Watchers.ShouldBe(164943U);
+            movieStatistics.Plays.ShouldBe(219925U);
         }
 
         [Fact]
@@ -39,18 +39,18 @@ namespace TraktNET.MoviesModule
 
             TraktResponse<TraktMovieStatistics> response = await client.Movies.GetMovieStatisticsAsync(TestConstants.Movies.MovieSlug);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
 
             TraktMovieStatistics movieStatistics = response.Content!;
 
-            movieStatistics.Watchers.Should().Be(164943U);
-            movieStatistics.Plays.Should().Be(219925U);
+            movieStatistics.Watchers.ShouldBe(164943U);
+            movieStatistics.Plays.ShouldBe(219925U);
         }
 
         [Fact]
@@ -61,18 +61,18 @@ namespace TraktNET.MoviesModule
 
             TraktResponse<TraktMovieStatistics> response = await client.Movies.GetMovieStatisticsAsync(TestConstants.Movies.MovieIDs);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
 
             TraktMovieStatistics movieStatistics = response.Content!;
 
-            movieStatistics.Watchers.Should().Be(164943U);
-            movieStatistics.Plays.Should().Be(219925U);
+            movieStatistics.Watchers.ShouldBe(164943U);
+            movieStatistics.Plays.ShouldBe(219925U);
         }
 
         [Theory]
@@ -112,7 +112,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -153,7 +153,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -194,7 +194,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -207,12 +207,12 @@ namespace TraktNET.MoviesModule
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktResponse<TraktMovieStatistics>>> act = () => client.Movies.GetMovieStatisticsAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMovieStatisticsAsync(movieIDs);
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

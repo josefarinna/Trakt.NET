@@ -7,11 +7,11 @@
         {
             var listIDs = new TraktListIDs();
 
-            listIDs.Trakt.Should().BeNull();
-            listIDs.Slug.Should().BeNull();
+            listIDs.Trakt.ShouldBeNull();
+            listIDs.Slug.ShouldBeNull();
 
-            listIDs.HasAnyID.Should().BeFalse();
-            listIDs.BestID.Should().BeEmpty();
+            listIDs.HasAnyID.ShouldBe(false);
+            listIDs.BestID.ShouldBeEmpty();
         }
 
         [Fact]
@@ -19,13 +19,13 @@
         {
             TraktListIDs? listIDs = await TestUtility.DeserializeJsonAsync<TraktListIDs>("Lists\\listids.json");
 
-            listIDs.Should().NotBeNull();
+            listIDs.ShouldNotBeNull();
 
-            listIDs!.Trakt.Should().Be(1248149U);
-            listIDs!.Slug.Should().Be("marvel-cinematic-universe");
+            listIDs!.Trakt.ShouldBe(1248149U);
+            listIDs!.Slug.ShouldBe("marvel-cinematic-universe");
 
-            listIDs!.HasAnyID.Should().BeTrue();
-            listIDs!.BestID.Should().Be("marvel-cinematic-universe");
+            listIDs!.HasAnyID.ShouldBe(true);
+            listIDs!.BestID.ShouldBe("marvel-cinematic-universe");
         }
     }
 }

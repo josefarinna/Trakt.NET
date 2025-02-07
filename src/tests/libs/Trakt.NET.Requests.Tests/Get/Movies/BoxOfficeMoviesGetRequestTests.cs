@@ -20,28 +20,28 @@ namespace TraktNET.GetRequests.Movies
             };
 
             boxOfficeMoviesGetRequest.BuildUri();
-            boxOfficeMoviesGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            boxOfficeMoviesGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestBoxOfficeMoviesGetRequestHasValidOAuthRequirement()
         {
             var boxOfficeMoviesGetRequest = new BoxOfficeMoviesGetRequest();
-            boxOfficeMoviesGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            boxOfficeMoviesGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestBoxOfficeMoviesGetRequestIsGetRequest()
         {
             var boxOfficeMoviesGetRequest = new BoxOfficeMoviesGetRequest();
-            boxOfficeMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
+            boxOfficeMoviesGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestBoxOfficeMoviesGetRequestHasCorrectRequestObjectType()
         {
             var boxOfficeMoviesGetRequest = new BoxOfficeMoviesGetRequest();
-            boxOfficeMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+            boxOfficeMoviesGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     }
 }

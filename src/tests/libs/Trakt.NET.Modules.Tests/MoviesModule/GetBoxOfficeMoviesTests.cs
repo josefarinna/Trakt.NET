@@ -17,28 +17,28 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktBoxOfficeMovie> response = await client.Movies.GetBoxOfficeMoviesAsync(extendedInfo);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktBoxOfficeMovie> boxOfficeMovies = response.Content!;
 
             TraktBoxOfficeMovie boxOfficeMovie = boxOfficeMovies[0];
 
-            boxOfficeMovie.Title.Should().Be("Beetlejuice Beetlejuice");
-            boxOfficeMovie.Year.Should().Be(2024U);
-            boxOfficeMovie.IDs!.Slug.Should().Be("beetlejuice-beetlejuice-2024");
+            boxOfficeMovie.Title.ShouldBe("Beetlejuice Beetlejuice");
+            boxOfficeMovie.Year.ShouldBe(2024U);
+            boxOfficeMovie.IDs!.Slug.ShouldBe("beetlejuice-beetlejuice-2024");
 
             boxOfficeMovie = boxOfficeMovies[1];
 
-            boxOfficeMovie.Title.Should().Be("Speak No Evil");
-            boxOfficeMovie.Year.Should().Be(2024U);
-            boxOfficeMovie.IDs!.Slug.Should().Be("speak-no-evil-2024");
+            boxOfficeMovie.Title.ShouldBe("Speak No Evil");
+            boxOfficeMovie.Year.ShouldBe(2024U);
+            boxOfficeMovie.IDs!.Slug.ShouldBe("speak-no-evil-2024");
         }
 
         [Theory]
@@ -77,7 +77,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
     }

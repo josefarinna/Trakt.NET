@@ -15,28 +15,28 @@ namespace TraktNET.GetRequests.Shows
             var showCertificationsGetRequest = new ShowCertificationsGetRequest { Id = ShowID };
 
             showCertificationsGetRequest.BuildUri();
-            showCertificationsGetRequest.RequestUri.Should().Be(new Uri(URIPath, UriKind.Relative));
+            showCertificationsGetRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowCertificationsGetRequestHasValidOAuthRequirement()
         {
             var showCertificationsGetRequest = new ShowCertificationsGetRequest { Id = ShowID };
-            showCertificationsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            showCertificationsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestShowCertificationsGetRequestIsGetRequest()
         {
             var showCertificationsGetRequest = new ShowCertificationsGetRequest { Id = ShowID };
-            showCertificationsGetRequest.Method.Should().Be(HttpMethod.Get);
+            showCertificationsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowCertificationsGetRequestHasCorrectRequestObjectType()
         {
             var showCertificationsGetRequest = new ShowCertificationsGetRequest { Id = ShowID };
-            showCertificationsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showCertificationsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -45,17 +45,17 @@ namespace TraktNET.GetRequests.Shows
             var showCertificationsGetRequest = new ShowCertificationsGetRequest { Id = string.Empty };
 
             Action act = () => showCertificationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showCertificationsGetRequest = new ShowCertificationsGetRequest { Id = "  " };
 
             act = () => showCertificationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showCertificationsGetRequest = new ShowCertificationsGetRequest { Id = "id with spaces" };
 
             act = () => showCertificationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

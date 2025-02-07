@@ -5,31 +5,31 @@
         [Fact]
         public void TestTraktAccessScopeToJson()
         {
-            TraktAccessScope.Unspecified.ToJson().Should().BeNull();
-            TraktAccessScope.Private.ToJson().Should().Be("private");
-            TraktAccessScope.Friends.ToJson().Should().Be("friends");
-            TraktAccessScope.Public.ToJson().Should().Be("public");
+            TraktAccessScope.Unspecified.ToJson().ShouldBeNull();
+            TraktAccessScope.Private.ToJson().ShouldBe("private");
+            TraktAccessScope.Friends.ToJson().ShouldBe("friends");
+            TraktAccessScope.Public.ToJson().ShouldBe("public");
         }
 
         [Fact]
         public void TestTraktAccessScopeFromJson()
         {
-            "unspecified".ToTraktAccessScope().Should().Be(TraktAccessScope.Unspecified);
-            "private".ToTraktAccessScope().Should().Be(TraktAccessScope.Private);
-            "friends".ToTraktAccessScope().Should().Be(TraktAccessScope.Friends);
-            "public".ToTraktAccessScope().Should().Be(TraktAccessScope.Public);
+            "unspecified".ToTraktAccessScope().ShouldBe(TraktAccessScope.Unspecified);
+            "private".ToTraktAccessScope().ShouldBe(TraktAccessScope.Private);
+            "friends".ToTraktAccessScope().ShouldBe(TraktAccessScope.Friends);
+            "public".ToTraktAccessScope().ShouldBe(TraktAccessScope.Public);
 
             string? nullValue = null;
-            nullValue.ToTraktAccessScope().Should().Be(TraktAccessScope.Unspecified);
+            nullValue.ToTraktAccessScope().ShouldBe(TraktAccessScope.Unspecified);
         }
 
         [Fact]
         public void TestTraktAccessScopeDisplayName()
         {
-            TraktAccessScope.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktAccessScope.Private.DisplayName().Should().Be("Private");
-            TraktAccessScope.Friends.DisplayName().Should().Be("Friends");
-            TraktAccessScope.Public.DisplayName().Should().Be("Public");
+            TraktAccessScope.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktAccessScope.Private.DisplayName().ShouldBe("Private");
+            TraktAccessScope.Friends.DisplayName().ShouldBe("Friends");
+            TraktAccessScope.Public.DisplayName().ShouldBe("Public");
         }
     }
 }

@@ -7,14 +7,14 @@
         {
             var showIDs = new TraktShowIDs();
 
-            showIDs.Trakt.Should().BeNull();
-            showIDs.Slug.Should().BeNull();
-            showIDs.TVDB.Should().BeNull();
-            showIDs.IMDB.Should().BeNull();
-            showIDs.TMDB.Should().BeNull();
+            showIDs.Trakt.ShouldBeNull();
+            showIDs.Slug.ShouldBeNull();
+            showIDs.TVDB.ShouldBeNull();
+            showIDs.IMDB.ShouldBeNull();
+            showIDs.TMDB.ShouldBeNull();
 
-            showIDs.HasAnyID.Should().BeFalse();
-            showIDs.BestID.Should().BeEmpty();
+            showIDs.HasAnyID.ShouldBe(false);
+            showIDs.BestID.ShouldBeEmpty();
         }
 
         [Fact]
@@ -22,16 +22,16 @@
         {
             TraktShowIDs? showIDs = await TestUtility.DeserializeJsonAsync<TraktShowIDs>("Shows\\showids.json");
 
-            showIDs.Should().NotBeNull();
+            showIDs.ShouldNotBeNull();
 
-            showIDs!.Trakt.Should().Be(1390U);
-            showIDs!.Slug.Should().Be("game-of-thrones");
-            showIDs!.TVDB.Should().Be(121361U);
-            showIDs!.IMDB.Should().Be("tt0944947");
-            showIDs!.TMDB.Should().Be(1399U);
+            showIDs!.Trakt.ShouldBe(1390U);
+            showIDs!.Slug.ShouldBe("game-of-thrones");
+            showIDs!.TVDB.ShouldBe(121361U);
+            showIDs!.IMDB.ShouldBe("tt0944947");
+            showIDs!.TMDB.ShouldBe(1399U);
 
-            showIDs!.HasAnyID.Should().BeTrue();
-            showIDs!.BestID.Should().Be("game-of-thrones");
+            showIDs!.HasAnyID.ShouldBe(true);
+            showIDs!.BestID.ShouldBe("game-of-thrones");
         }
     }
 }

@@ -7,14 +7,14 @@
         {
             var movieStatistics = new TraktMovieStatistics();
 
-            movieStatistics.Watchers.Should().BeNull();
-            movieStatistics.Plays.Should().BeNull();
-            movieStatistics.Collectors.Should().BeNull();
-            movieStatistics.Comments.Should().BeNull();
-            movieStatistics.Lists.Should().BeNull();
-            movieStatistics.Votes.Should().BeNull();
-            movieStatistics.Favorited.Should().BeNull();
-            movieStatistics.Recommended.Should().BeNull();
+            movieStatistics.Watchers.ShouldBeNull();
+            movieStatistics.Plays.ShouldBeNull();
+            movieStatistics.Collectors.ShouldBeNull();
+            movieStatistics.Comments.ShouldBeNull();
+            movieStatistics.Lists.ShouldBeNull();
+            movieStatistics.Votes.ShouldBeNull();
+            movieStatistics.Favorited.ShouldBeNull();
+            movieStatistics.Recommended.ShouldBeNull();
         }
 
         [Fact]
@@ -22,16 +22,16 @@
         {
             TraktMovieStatistics? movieStatistics = await TestUtility.DeserializeJsonAsync<TraktMovieStatistics>("Movies\\moviestatistics.json");
 
-            movieStatistics.Should().NotBeNull();
+            movieStatistics.ShouldNotBeNull();
 
-            movieStatistics!.Watchers.Should().Be(164943U);
-            movieStatistics!.Plays.Should().Be(219925U);
-            movieStatistics!.Collectors.Should().Be(66444U);
-            movieStatistics!.Comments.Should().Be(177U);
-            movieStatistics!.Lists.Should().Be(51079U);
-            movieStatistics!.Votes.Should().Be(18906U);
-            movieStatistics!.Favorited.Should().Be(773U);
-            movieStatistics!.Recommended.Should().Be(773U);
+            movieStatistics!.Watchers.ShouldBe(164943U);
+            movieStatistics!.Plays.ShouldBe(219925U);
+            movieStatistics!.Collectors.ShouldBe(66444U);
+            movieStatistics!.Comments.ShouldBe(177U);
+            movieStatistics!.Lists.ShouldBe(51079U);
+            movieStatistics!.Votes.ShouldBe(18906U);
+            movieStatistics!.Favorited.ShouldBe(773U);
+            movieStatistics!.Recommended.ShouldBe(773U);
         }
     }
 }

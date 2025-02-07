@@ -5,58 +5,58 @@
         [Fact]
         public void TestTraktSortByToJson()
         {
-            TraktSortBy.Unspecified.ToJson().Should().BeNull();
-            TraktSortBy.Rank.ToJson().Should().Be("rank");
-            TraktSortBy.Added.ToJson().Should().Be("added");
-            TraktSortBy.Title.ToJson().Should().Be("title");
-            TraktSortBy.Released.ToJson().Should().Be("released");
-            TraktSortBy.Runtime.ToJson().Should().Be("runtime");
-            TraktSortBy.Popularity.ToJson().Should().Be("popularity");
-            TraktSortBy.Percentage.ToJson().Should().Be("percentage");
-            TraktSortBy.Votes.ToJson().Should().Be("votes");
-            TraktSortBy.MyRating.ToJson().Should().Be("my_rating");
-            TraktSortBy.Random.ToJson().Should().Be("random");
-            TraktSortBy.Watched.ToJson().Should().Be("watched");
-            TraktSortBy.Collected.ToJson().Should().Be("collected");
+            TraktSortBy.Unspecified.ToJson().ShouldBeNull();
+            TraktSortBy.Rank.ToJson().ShouldBe("rank");
+            TraktSortBy.Added.ToJson().ShouldBe("added");
+            TraktSortBy.Title.ToJson().ShouldBe("title");
+            TraktSortBy.Released.ToJson().ShouldBe("released");
+            TraktSortBy.Runtime.ToJson().ShouldBe("runtime");
+            TraktSortBy.Popularity.ToJson().ShouldBe("popularity");
+            TraktSortBy.Percentage.ToJson().ShouldBe("percentage");
+            TraktSortBy.Votes.ToJson().ShouldBe("votes");
+            TraktSortBy.MyRating.ToJson().ShouldBe("my_rating");
+            TraktSortBy.Random.ToJson().ShouldBe("random");
+            TraktSortBy.Watched.ToJson().ShouldBe("watched");
+            TraktSortBy.Collected.ToJson().ShouldBe("collected");
         }
 
         [Fact]
         public void TestTraktSortByFromJson()
         {
-            "unspecified".ToTraktSortBy().Should().Be(TraktSortBy.Unspecified);
-            "rank".ToTraktSortBy().Should().Be(TraktSortBy.Rank);
-            "added".ToTraktSortBy().Should().Be(TraktSortBy.Added);
-            "title".ToTraktSortBy().Should().Be(TraktSortBy.Title);
-            "released".ToTraktSortBy().Should().Be(TraktSortBy.Released);
-            "runtime".ToTraktSortBy().Should().Be(TraktSortBy.Runtime);
-            "popularity".ToTraktSortBy().Should().Be(TraktSortBy.Popularity);
-            "percentage".ToTraktSortBy().Should().Be(TraktSortBy.Percentage);
-            "votes".ToTraktSortBy().Should().Be(TraktSortBy.Votes);
-            "my_rating".ToTraktSortBy().Should().Be(TraktSortBy.MyRating);
-            "random".ToTraktSortBy().Should().Be(TraktSortBy.Random);
-            "watched".ToTraktSortBy().Should().Be(TraktSortBy.Watched);
-            "collected".ToTraktSortBy().Should().Be(TraktSortBy.Collected);
+            "unspecified".ToTraktSortBy().ShouldBe(TraktSortBy.Unspecified);
+            "rank".ToTraktSortBy().ShouldBe(TraktSortBy.Rank);
+            "added".ToTraktSortBy().ShouldBe(TraktSortBy.Added);
+            "title".ToTraktSortBy().ShouldBe(TraktSortBy.Title);
+            "released".ToTraktSortBy().ShouldBe(TraktSortBy.Released);
+            "runtime".ToTraktSortBy().ShouldBe(TraktSortBy.Runtime);
+            "popularity".ToTraktSortBy().ShouldBe(TraktSortBy.Popularity);
+            "percentage".ToTraktSortBy().ShouldBe(TraktSortBy.Percentage);
+            "votes".ToTraktSortBy().ShouldBe(TraktSortBy.Votes);
+            "my_rating".ToTraktSortBy().ShouldBe(TraktSortBy.MyRating);
+            "random".ToTraktSortBy().ShouldBe(TraktSortBy.Random);
+            "watched".ToTraktSortBy().ShouldBe(TraktSortBy.Watched);
+            "collected".ToTraktSortBy().ShouldBe(TraktSortBy.Collected);
 
             string? nullValue = null;
-            nullValue.ToTraktSortBy().Should().Be(TraktSortBy.Unspecified);
+            nullValue.ToTraktSortBy().ShouldBe(TraktSortBy.Unspecified);
         }
 
         [Fact]
         public void TestTraktSortByDisplayName()
         {
-            TraktSortBy.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktSortBy.Rank.DisplayName().Should().Be("Rank");
-            TraktSortBy.Added.DisplayName().Should().Be("Added");
-            TraktSortBy.Title.DisplayName().Should().Be("Title");
-            TraktSortBy.Released.DisplayName().Should().Be("Released");
-            TraktSortBy.Runtime.DisplayName().Should().Be("Runtime");
-            TraktSortBy.Popularity.DisplayName().Should().Be("Popularity");
-            TraktSortBy.Percentage.DisplayName().Should().Be("Percentage");
-            TraktSortBy.Votes.DisplayName().Should().Be("Votes");
-            TraktSortBy.MyRating.DisplayName().Should().Be("My Rating");
-            TraktSortBy.Random.DisplayName().Should().Be("Random");
-            TraktSortBy.Watched.DisplayName().Should().Be("Watched");
-            TraktSortBy.Collected.DisplayName().Should().Be("Collected");
+            TraktSortBy.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktSortBy.Rank.DisplayName().ShouldBe("Rank");
+            TraktSortBy.Added.DisplayName().ShouldBe("Added");
+            TraktSortBy.Title.DisplayName().ShouldBe("Title");
+            TraktSortBy.Released.DisplayName().ShouldBe("Released");
+            TraktSortBy.Runtime.DisplayName().ShouldBe("Runtime");
+            TraktSortBy.Popularity.DisplayName().ShouldBe("Popularity");
+            TraktSortBy.Percentage.DisplayName().ShouldBe("Percentage");
+            TraktSortBy.Votes.DisplayName().ShouldBe("Votes");
+            TraktSortBy.MyRating.DisplayName().ShouldBe("My Rating");
+            TraktSortBy.Random.DisplayName().ShouldBe("Random");
+            TraktSortBy.Watched.DisplayName().ShouldBe("Watched");
+            TraktSortBy.Collected.DisplayName().ShouldBe("Collected");
         }
     }
 }

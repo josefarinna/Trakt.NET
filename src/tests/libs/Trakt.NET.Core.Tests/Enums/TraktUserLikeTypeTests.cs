@@ -5,28 +5,28 @@
         [Fact]
         public void TestTraktUserLikeTypeToJson()
         {
-            TraktUserLikeType.Unspecified.ToJson().Should().BeNull();
-            TraktUserLikeType.Comment.ToJson().Should().Be("comment");
-            TraktUserLikeType.List.ToJson().Should().Be("list");
+            TraktUserLikeType.Unspecified.ToJson().ShouldBeNull();
+            TraktUserLikeType.Comment.ToJson().ShouldBe("comment");
+            TraktUserLikeType.List.ToJson().ShouldBe("list");
         }
 
         [Fact]
         public void TestTraktUserLikeTypeFromJson()
         {
-            "unspecified".ToTraktUserLikeType().Should().Be(TraktUserLikeType.Unspecified);
-            "comment".ToTraktUserLikeType().Should().Be(TraktUserLikeType.Comment);
-            "list".ToTraktUserLikeType().Should().Be(TraktUserLikeType.List);
+            "unspecified".ToTraktUserLikeType().ShouldBe(TraktUserLikeType.Unspecified);
+            "comment".ToTraktUserLikeType().ShouldBe(TraktUserLikeType.Comment);
+            "list".ToTraktUserLikeType().ShouldBe(TraktUserLikeType.List);
 
             string? nullValue = null;
-            nullValue.ToTraktUserLikeType().Should().Be(TraktUserLikeType.Unspecified);
+            nullValue.ToTraktUserLikeType().ShouldBe(TraktUserLikeType.Unspecified);
         }
 
         [Fact]
         public void TestTraktUserLikeTypeDisplayName()
         {
-            TraktUserLikeType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktUserLikeType.Comment.DisplayName().Should().Be("Comment");
-            TraktUserLikeType.List.DisplayName().Should().Be("List");
+            TraktUserLikeType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktUserLikeType.Comment.DisplayName().ShouldBe("Comment");
+            TraktUserLikeType.List.DisplayName().ShouldBe("List");
         }
     }
 }

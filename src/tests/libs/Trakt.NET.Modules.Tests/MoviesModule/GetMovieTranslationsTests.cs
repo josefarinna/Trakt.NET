@@ -20,26 +20,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktMovieTranslation> response = await client.Movies.GetMovieTranslationsAsync(TestConstants.Movies.MovieID, language);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktMovieTranslation> movieTranslations = response.Content!;
 
             TraktMovieTranslation movieTranslation = movieTranslations[0];
 
-            movieTranslation.Title.Should().Be("Guardians of the Galaxy Vol. 3");
-            movieTranslation.Tagline.Should().Be("Ho donaran tot.");
+            movieTranslation.Title.ShouldBe("Guardians of the Galaxy Vol. 3");
+            movieTranslation.Tagline.ShouldBe("Ho donaran tot.");
 
             movieTranslation = movieTranslations[1];
 
-            movieTranslation.Title.Should().Be("Strážci Galaxie: Volume 3");
-            movieTranslation.Tagline.Should().Be("Ještě jednou a s citem");
+            movieTranslation.Title.ShouldBe("Strážci Galaxie: Volume 3");
+            movieTranslation.Tagline.ShouldBe("Ještě jednou a s citem");
         }
 
         [Theory]
@@ -53,26 +53,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktMovieTranslation> response = await client.Movies.GetMovieTranslationsAsync(TestConstants.Movies.MovieSlug, language);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktMovieTranslation> movieTranslations = response.Content!;
 
             TraktMovieTranslation movieTranslation = movieTranslations[0];
 
-            movieTranslation.Title.Should().Be("Guardians of the Galaxy Vol. 3");
-            movieTranslation.Tagline.Should().Be("Ho donaran tot.");
+            movieTranslation.Title.ShouldBe("Guardians of the Galaxy Vol. 3");
+            movieTranslation.Tagline.ShouldBe("Ho donaran tot.");
 
             movieTranslation = movieTranslations[1];
 
-            movieTranslation.Title.Should().Be("Strážci Galaxie: Volume 3");
-            movieTranslation.Tagline.Should().Be("Ještě jednou a s citem");
+            movieTranslation.Title.ShouldBe("Strážci Galaxie: Volume 3");
+            movieTranslation.Tagline.ShouldBe("Ještě jednou a s citem");
         }
 
         [Theory]
@@ -86,26 +86,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktMovieTranslation> response = await client.Movies.GetMovieTranslationsAsync(TestConstants.Movies.MovieIDs, language);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktMovieTranslation> movieTranslations = response.Content!;
 
             TraktMovieTranslation movieTranslation = movieTranslations[0];
 
-            movieTranslation.Title.Should().Be("Guardians of the Galaxy Vol. 3");
-            movieTranslation.Tagline.Should().Be("Ho donaran tot.");
+            movieTranslation.Title.ShouldBe("Guardians of the Galaxy Vol. 3");
+            movieTranslation.Tagline.ShouldBe("Ho donaran tot.");
 
             movieTranslation = movieTranslations[1];
 
-            movieTranslation.Title.Should().Be("Strážci Galaxie: Volume 3");
-            movieTranslation.Tagline.Should().Be("Ještě jednou a s citem");
+            movieTranslation.Title.ShouldBe("Strážci Galaxie: Volume 3");
+            movieTranslation.Tagline.ShouldBe("Ještě jednou a s citem");
         }
 
         [Theory]
@@ -145,7 +145,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -186,7 +186,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -227,7 +227,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -240,12 +240,12 @@ namespace TraktNET.MoviesModule
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktListResponse<TraktMovieTranslation>>> act = () => client.Movies.GetMovieTranslationsAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMovieTranslationsAsync(movieIDs);
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

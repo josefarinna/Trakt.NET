@@ -14,16 +14,16 @@ namespace TraktNET.Exceptions
 
             var exception = TraktApiException.Create(parameters);
 
-            exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(Constants.StatusCodes.ServiceUnavailableCloudflareError520);
-            exception.ReasonPhrase.Should().Be("Service Unavailable - Cloudflare error - Status Code 520");
-            exception.HttpMethod.Should().Be(HttpMethod.Get);
-            exception.RequestMessage.Should().NotBeNull();
-            exception.RequestUri.Should().Be(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
-            exception.ResponseContent.Should().Be(ExceptionsTestUtility.TestResponseContent);
-            exception.Headers.Should().NotBeNull();
-            exception.ContentHeaders.Should().NotBeNull();
-            exception.Message.Should().Be("Trakt API request failed. Service Unavailable - Cloudflare error - Status Code 520");
+            exception.ShouldNotBeNull();
+            exception.StatusCode.ShouldBe(Constants.StatusCodes.ServiceUnavailableCloudflareError520);
+            exception.ReasonPhrase.ShouldBe("Service Unavailable - Cloudflare error - Status Code 520");
+            exception.HttpMethod.ShouldBe(HttpMethod.Get);
+            exception.RequestMessage.ShouldNotBeNull();
+            exception.RequestUri.ShouldBe(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
+            exception.ResponseContent.ShouldBe(ExceptionsTestUtility.TestResponseContent);
+            exception.Headers.ShouldNotBeNull();
+            exception.ContentHeaders.ShouldNotBeNull();
+            exception.Message.ShouldBe("Trakt API request failed. Service Unavailable - Cloudflare error - Status Code 520");
         }
 
         [Fact]
@@ -34,16 +34,16 @@ namespace TraktNET.Exceptions
 
             var exception = TraktApiException.Create(parameters);
 
-            exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(Constants.StatusCodes.ServiceUnavailableCloudflareError521);
-            exception.ReasonPhrase.Should().Be("Service Unavailable - Cloudflare error - Status Code 521");
-            exception.HttpMethod.Should().Be(HttpMethod.Get);
-            exception.RequestMessage.Should().NotBeNull();
-            exception.RequestUri.Should().Be(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
-            exception.ResponseContent.Should().Be(ExceptionsTestUtility.TestResponseContent);
-            exception.Headers.Should().NotBeNull();
-            exception.ContentHeaders.Should().NotBeNull();
-            exception.Message.Should().Be("Trakt API request failed. Service Unavailable - Cloudflare error - Status Code 521");
+            exception.ShouldNotBeNull();
+            exception.StatusCode.ShouldBe(Constants.StatusCodes.ServiceUnavailableCloudflareError521);
+            exception.ReasonPhrase.ShouldBe("Service Unavailable - Cloudflare error - Status Code 521");
+            exception.HttpMethod.ShouldBe(HttpMethod.Get);
+            exception.RequestMessage.ShouldNotBeNull();
+            exception.RequestUri.ShouldBe(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
+            exception.ResponseContent.ShouldBe(ExceptionsTestUtility.TestResponseContent);
+            exception.Headers.ShouldNotBeNull();
+            exception.ContentHeaders.ShouldNotBeNull();
+            exception.Message.ShouldBe("Trakt API request failed. Service Unavailable - Cloudflare error - Status Code 521");
         }
 
         [Fact]
@@ -54,16 +54,16 @@ namespace TraktNET.Exceptions
 
             var exception = TraktApiException.Create(parameters);
 
-            exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(Constants.StatusCodes.ServiceUnavailableCloudflareError522);
-            exception.ReasonPhrase.Should().Be("Service Unavailable - Cloudflare error - Status Code 522");
-            exception.HttpMethod.Should().Be(HttpMethod.Get);
-            exception.RequestMessage.Should().NotBeNull();
-            exception.RequestUri.Should().Be(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
-            exception.ResponseContent.Should().Be(ExceptionsTestUtility.TestResponseContent);
-            exception.Headers.Should().NotBeNull();
-            exception.ContentHeaders.Should().NotBeNull();
-            exception.Message.Should().Be("Trakt API request failed. Service Unavailable - Cloudflare error - Status Code 522");
+            exception.ShouldNotBeNull();
+            exception.StatusCode.ShouldBe(Constants.StatusCodes.ServiceUnavailableCloudflareError522);
+            exception.ReasonPhrase.ShouldBe("Service Unavailable - Cloudflare error - Status Code 522");
+            exception.HttpMethod.ShouldBe(HttpMethod.Get);
+            exception.RequestMessage.ShouldNotBeNull();
+            exception.RequestUri.ShouldBe(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
+            exception.ResponseContent.ShouldBe(ExceptionsTestUtility.TestResponseContent);
+            exception.Headers.ShouldNotBeNull();
+            exception.ContentHeaders.ShouldNotBeNull();
+            exception.Message.ShouldBe("Trakt API request failed. Service Unavailable - Cloudflare error - Status Code 522");
         }
     }
 }

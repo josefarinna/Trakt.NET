@@ -14,16 +14,16 @@ namespace TraktNET.Exceptions
             
             var exception = TraktApiException.Create(parameters);
 
-            exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(Constants.StatusCodes.ServiceUnavailableBadGateway);
-            exception.ReasonPhrase.Should().Be("Service Unavailable - server overloaded (try again in 30s) - Bad Gateway");
-            exception.HttpMethod.Should().Be(HttpMethod.Get);
-            exception.RequestMessage.Should().NotBeNull();
-            exception.RequestUri.Should().Be(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
-            exception.ResponseContent.Should().Be(ExceptionsTestUtility.TestResponseContent);
-            exception.Headers.Should().NotBeNull();
-            exception.ContentHeaders.Should().NotBeNull();
-            exception.Message.Should().Be("Trakt API request failed. Service Unavailable - server overloaded (try again in 30s) - Bad Gateway");
+            exception.ShouldNotBeNull();
+            exception.StatusCode.ShouldBe(Constants.StatusCodes.ServiceUnavailableBadGateway);
+            exception.ReasonPhrase.ShouldBe("Service Unavailable - server overloaded (try again in 30s) - Bad Gateway");
+            exception.HttpMethod.ShouldBe(HttpMethod.Get);
+            exception.RequestMessage.ShouldNotBeNull();
+            exception.RequestUri.ShouldBe(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
+            exception.ResponseContent.ShouldBe(ExceptionsTestUtility.TestResponseContent);
+            exception.Headers.ShouldNotBeNull();
+            exception.ContentHeaders.ShouldNotBeNull();
+            exception.Message.ShouldBe("Trakt API request failed. Service Unavailable - server overloaded (try again in 30s) - Bad Gateway");
         }
     }
 }

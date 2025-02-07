@@ -7,9 +7,9 @@
         {
             var certification = new TraktCertification();
 
-            certification.Name.Should().BeNull();
-            certification.Slug.Should().BeNull();
-            certification.Description.Should().BeNull();
+            certification.Name.ShouldBeNull();
+            certification.Slug.ShouldBeNull();
+            certification.Description.ShouldBeNull();
         }
 
         [Fact]
@@ -17,11 +17,11 @@
         {
             TraktCertification? certification = await TestUtility.DeserializeJsonAsync<TraktCertification>("Certifications\\certification.json");
 
-            certification.Should().NotBeNull();
+            certification.ShouldNotBeNull();
 
-            certification!.Name.Should().Be("G");
-            certification!.Slug.Should().Be("g");
-            certification!.Description.Should().Be("All Ages");
+            certification!.Name.ShouldBe("G");
+            certification!.Slug.ShouldBe("g");
+            certification!.Description.ShouldBe("All Ages");
         }
     }
 }

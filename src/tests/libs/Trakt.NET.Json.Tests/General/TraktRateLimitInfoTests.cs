@@ -7,11 +7,11 @@
         {
             var rateLimitInfo = new TraktRateLimitInfo();
 
-            rateLimitInfo.Name.Should().BeNull();
-            rateLimitInfo.Period.Should().BeNull();
-            rateLimitInfo.Limit.Should().BeNull();
-            rateLimitInfo.Remaining.Should().BeNull();
-            rateLimitInfo.Until.Should().BeNull();
+            rateLimitInfo.Name.ShouldBeNull();
+            rateLimitInfo.Period.ShouldBeNull();
+            rateLimitInfo.Limit.ShouldBeNull();
+            rateLimitInfo.Remaining.ShouldBeNull();
+            rateLimitInfo.Until.ShouldBeNull();
         }
 
         [Fact]
@@ -19,13 +19,13 @@
         {
             TraktRateLimitInfo? rateLimitInfo = await TestUtility.DeserializeJsonAsync<TraktRateLimitInfo>("General\\ratelimitinfo.json");
 
-            rateLimitInfo.Should().NotBeNull();
+            rateLimitInfo.ShouldNotBeNull();
 
-            rateLimitInfo!.Name.Should().Be("UNAUTHED_API_GET_LIMIT");
-            rateLimitInfo!.Period.Should().Be(300U);
-            rateLimitInfo!.Limit.Should().Be(1000U);
-            rateLimitInfo!.Remaining.Should().Be(500U);
-            rateLimitInfo!.Until.Should().Be(TestUtility.ParseUTCDateTime("2024-08-04T00:24:00Z"));
+            rateLimitInfo!.Name.ShouldBe("UNAUTHED_API_GET_LIMIT");
+            rateLimitInfo!.Period.ShouldBe(300U);
+            rateLimitInfo!.Limit.ShouldBe(1000U);
+            rateLimitInfo!.Remaining.ShouldBe(500U);
+            rateLimitInfo!.Until.ShouldBe(TestUtility.ParseUTCDateTime("2024-08-04T00:24:00Z"));
         }
     }
 }

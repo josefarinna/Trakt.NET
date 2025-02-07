@@ -20,24 +20,24 @@ namespace TraktNET.MoviesModule
 
             TraktResponse<TraktCastAndCrew> response = await client.Movies.GetMoviePeopleAsync(TestConstants.Movies.MovieID, extendedInfo);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
 
             TraktCastAndCrew moviePeople = response.Content!;
 
-            moviePeople.Cast.Should().NotBeNull();
-            moviePeople.Cast![0].Person.Should().NotBeNull();
-            moviePeople.Cast[0].Person!.Name.Should().Be("Chris Pratt");
+            moviePeople.Cast.ShouldNotBeNull();
+            moviePeople.Cast![0].Person.ShouldNotBeNull();
+            moviePeople.Cast[0].Person!.Name.ShouldBe("Chris Pratt");
 
-            moviePeople.Crew.Should().NotBeNull();
-            moviePeople.Crew!.Directing.Should().NotBeNull();
-            moviePeople.Crew.Directing![0].Person.Should().NotBeNull();
-            moviePeople.Crew.Directing![0].Person!.Name.Should().Be("Kera Dacy");
+            moviePeople.Crew.ShouldNotBeNull();
+            moviePeople.Crew!.Directing.ShouldNotBeNull();
+            moviePeople.Crew.Directing![0].Person.ShouldNotBeNull();
+            moviePeople.Crew.Directing![0].Person!.Name.ShouldBe("Kera Dacy");
         }
 
         [Theory]
@@ -51,24 +51,24 @@ namespace TraktNET.MoviesModule
 
             TraktResponse<TraktCastAndCrew> response = await client.Movies.GetMoviePeopleAsync(TestConstants.Movies.MovieSlug, extendedInfo);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
 
             TraktCastAndCrew moviePeople = response.Content!;
 
-            moviePeople.Cast.Should().NotBeNull();
-            moviePeople.Cast![0].Person.Should().NotBeNull();
-            moviePeople.Cast[0].Person!.Name.Should().Be("Chris Pratt");
+            moviePeople.Cast.ShouldNotBeNull();
+            moviePeople.Cast![0].Person.ShouldNotBeNull();
+            moviePeople.Cast[0].Person!.Name.ShouldBe("Chris Pratt");
 
-            moviePeople.Crew.Should().NotBeNull();
-            moviePeople.Crew!.Directing.Should().NotBeNull();
-            moviePeople.Crew.Directing![0].Person.Should().NotBeNull();
-            moviePeople.Crew.Directing![0].Person!.Name.Should().Be("Kera Dacy");
+            moviePeople.Crew.ShouldNotBeNull();
+            moviePeople.Crew!.Directing.ShouldNotBeNull();
+            moviePeople.Crew.Directing![0].Person.ShouldNotBeNull();
+            moviePeople.Crew.Directing![0].Person!.Name.ShouldBe("Kera Dacy");
         }
 
         [Theory]
@@ -82,24 +82,24 @@ namespace TraktNET.MoviesModule
 
             TraktResponse<TraktCastAndCrew> response = await client.Movies.GetMoviePeopleAsync(TestConstants.Movies.MovieIDs, extendedInfo);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
 
             TraktCastAndCrew moviePeople = response.Content!;
 
-            moviePeople.Cast.Should().NotBeNull();
-            moviePeople.Cast![0].Person.Should().NotBeNull();
-            moviePeople.Cast[0].Person!.Name.Should().Be("Chris Pratt");
+            moviePeople.Cast.ShouldNotBeNull();
+            moviePeople.Cast![0].Person.ShouldNotBeNull();
+            moviePeople.Cast[0].Person!.Name.ShouldBe("Chris Pratt");
 
-            moviePeople.Crew.Should().NotBeNull();
-            moviePeople.Crew!.Directing.Should().NotBeNull();
-            moviePeople.Crew.Directing![0].Person.Should().NotBeNull();
-            moviePeople.Crew.Directing![0].Person!.Name.Should().Be("Kera Dacy");
+            moviePeople.Crew.ShouldNotBeNull();
+            moviePeople.Crew!.Directing.ShouldNotBeNull();
+            moviePeople.Crew.Directing![0].Person.ShouldNotBeNull();
+            moviePeople.Crew.Directing![0].Person!.Name.ShouldBe("Kera Dacy");
         }
 
         [Theory]
@@ -139,7 +139,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -180,7 +180,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -221,7 +221,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -234,12 +234,12 @@ namespace TraktNET.MoviesModule
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktResponse<TraktCastAndCrew>>> act = () => client.Movies.GetMoviePeopleAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMoviePeopleAsync(movieIDs);
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

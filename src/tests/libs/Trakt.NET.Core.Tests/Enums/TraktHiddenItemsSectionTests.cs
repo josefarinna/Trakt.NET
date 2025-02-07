@@ -5,40 +5,40 @@
         [Fact]
         public void TestTraktHiddenItemsSectionToJson()
         {
-            TraktHiddenItemsSection.Unspecified.ToJson().Should().BeNull();
-            TraktHiddenItemsSection.Calendar.ToJson().Should().Be("calendar");
-            TraktHiddenItemsSection.ProgressWatched.ToJson().Should().Be("progress_watched");
-            TraktHiddenItemsSection.ProgressCollected.ToJson().Should().Be("progress_collected");
-            TraktHiddenItemsSection.Recommendations.ToJson().Should().Be("recommendations");
-            TraktHiddenItemsSection.ProgressWatchedReset.ToJson().Should().Be("progress_watched_reset");
-            TraktHiddenItemsSection.Comments.ToJson().Should().Be("comments");
+            TraktHiddenItemsSection.Unspecified.ToJson().ShouldBeNull();
+            TraktHiddenItemsSection.Calendar.ToJson().ShouldBe("calendar");
+            TraktHiddenItemsSection.ProgressWatched.ToJson().ShouldBe("progress_watched");
+            TraktHiddenItemsSection.ProgressCollected.ToJson().ShouldBe("progress_collected");
+            TraktHiddenItemsSection.Recommendations.ToJson().ShouldBe("recommendations");
+            TraktHiddenItemsSection.ProgressWatchedReset.ToJson().ShouldBe("progress_watched_reset");
+            TraktHiddenItemsSection.Comments.ToJson().ShouldBe("comments");
         }
 
         [Fact]
         public void TestTraktHiddenItemsSectionFromJson()
         {
-            "unspecified".ToTraktHiddenItemsSection().Should().Be(TraktHiddenItemsSection.Unspecified);
-            "calendar".ToTraktHiddenItemsSection().Should().Be(TraktHiddenItemsSection.Calendar);
-            "progress_watched".ToTraktHiddenItemsSection().Should().Be(TraktHiddenItemsSection.ProgressWatched);
-            "progress_collected".ToTraktHiddenItemsSection().Should().Be(TraktHiddenItemsSection.ProgressCollected);
-            "recommendations".ToTraktHiddenItemsSection().Should().Be(TraktHiddenItemsSection.Recommendations);
-            "progress_watched_reset".ToTraktHiddenItemsSection().Should().Be(TraktHiddenItemsSection.ProgressWatchedReset);
-            "comments".ToTraktHiddenItemsSection().Should().Be(TraktHiddenItemsSection.Comments);
+            "unspecified".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Unspecified);
+            "calendar".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Calendar);
+            "progress_watched".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.ProgressWatched);
+            "progress_collected".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.ProgressCollected);
+            "recommendations".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Recommendations);
+            "progress_watched_reset".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.ProgressWatchedReset);
+            "comments".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Comments);
 
             string? nullValue = null;
-            nullValue.ToTraktHiddenItemsSection().Should().Be(TraktHiddenItemsSection.Unspecified);
+            nullValue.ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Unspecified);
         }
 
         [Fact]
         public void TestTraktHiddenItemsSectionDisplayName()
         {
-            TraktHiddenItemsSection.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktHiddenItemsSection.Calendar.DisplayName().Should().Be("Calendar");
-            TraktHiddenItemsSection.ProgressWatched.DisplayName().Should().Be("Progress Watched");
-            TraktHiddenItemsSection.ProgressCollected.DisplayName().Should().Be("Progress Collected");
-            TraktHiddenItemsSection.Recommendations.DisplayName().Should().Be("Recommendations");
-            TraktHiddenItemsSection.ProgressWatchedReset.DisplayName().Should().Be("Progress Watched Reset");
-            TraktHiddenItemsSection.Comments.DisplayName().Should().Be("Comments");
+            TraktHiddenItemsSection.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktHiddenItemsSection.Calendar.DisplayName().ShouldBe("Calendar");
+            TraktHiddenItemsSection.ProgressWatched.DisplayName().ShouldBe("Progress Watched");
+            TraktHiddenItemsSection.ProgressCollected.DisplayName().ShouldBe("Progress Collected");
+            TraktHiddenItemsSection.Recommendations.DisplayName().ShouldBe("Recommendations");
+            TraktHiddenItemsSection.ProgressWatchedReset.DisplayName().ShouldBe("Progress Watched Reset");
+            TraktHiddenItemsSection.Comments.DisplayName().ShouldBe("Comments");
         }
     }
 }

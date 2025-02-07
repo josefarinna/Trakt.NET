@@ -5,37 +5,37 @@
         [Fact]
         public void TestTraktTimePeriodToJson()
         {
-            TraktTimePeriod.Unspecified.ToJson().Should().BeNull();
-            TraktTimePeriod.Daily.ToJson().Should().Be("daily");
-            TraktTimePeriod.Weekly.ToJson().Should().Be("weekly");
-            TraktTimePeriod.Monthly.ToJson().Should().Be("monthly");
-            TraktTimePeriod.Yearly.ToJson().Should().Be("yearly");
-            TraktTimePeriod.All.ToJson().Should().Be("all");
+            TraktTimePeriod.Unspecified.ToJson().ShouldBeNull();
+            TraktTimePeriod.Daily.ToJson().ShouldBe("daily");
+            TraktTimePeriod.Weekly.ToJson().ShouldBe("weekly");
+            TraktTimePeriod.Monthly.ToJson().ShouldBe("monthly");
+            TraktTimePeriod.Yearly.ToJson().ShouldBe("yearly");
+            TraktTimePeriod.All.ToJson().ShouldBe("all");
         }
 
         [Fact]
         public void TestTraktTimePeriodFromJson()
         {
-            "unspecified".ToTraktTimePeriod().Should().Be(TraktTimePeriod.Unspecified);
-            "daily".ToTraktTimePeriod().Should().Be(TraktTimePeriod.Daily);
-            "weekly".ToTraktTimePeriod().Should().Be(TraktTimePeriod.Weekly);
-            "monthly".ToTraktTimePeriod().Should().Be(TraktTimePeriod.Monthly);
-            "yearly".ToTraktTimePeriod().Should().Be(TraktTimePeriod.Yearly);
-            "all".ToTraktTimePeriod().Should().Be(TraktTimePeriod.All);
+            "unspecified".ToTraktTimePeriod().ShouldBe(TraktTimePeriod.Unspecified);
+            "daily".ToTraktTimePeriod().ShouldBe(TraktTimePeriod.Daily);
+            "weekly".ToTraktTimePeriod().ShouldBe(TraktTimePeriod.Weekly);
+            "monthly".ToTraktTimePeriod().ShouldBe(TraktTimePeriod.Monthly);
+            "yearly".ToTraktTimePeriod().ShouldBe(TraktTimePeriod.Yearly);
+            "all".ToTraktTimePeriod().ShouldBe(TraktTimePeriod.All);
 
             string? nullValue = null;
-            nullValue.ToTraktTimePeriod().Should().Be(TraktTimePeriod.Unspecified);
+            nullValue.ToTraktTimePeriod().ShouldBe(TraktTimePeriod.Unspecified);
         }
 
         [Fact]
         public void TestTraktTimePeriodDisplayName()
         {
-            TraktTimePeriod.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktTimePeriod.Daily.DisplayName().Should().Be("Daily");
-            TraktTimePeriod.Weekly.DisplayName().Should().Be("Weekly");
-            TraktTimePeriod.Monthly.DisplayName().Should().Be("Monthly");
-            TraktTimePeriod.Yearly.DisplayName().Should().Be("Yearly");
-            TraktTimePeriod.All.DisplayName().Should().Be("All");
+            TraktTimePeriod.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktTimePeriod.Daily.DisplayName().ShouldBe("Daily");
+            TraktTimePeriod.Weekly.DisplayName().ShouldBe("Weekly");
+            TraktTimePeriod.Monthly.DisplayName().ShouldBe("Monthly");
+            TraktTimePeriod.Yearly.DisplayName().ShouldBe("Yearly");
+            TraktTimePeriod.All.DisplayName().ShouldBe("All");
         }
     }
 }

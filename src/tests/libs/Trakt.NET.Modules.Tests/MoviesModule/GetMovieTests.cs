@@ -18,19 +18,19 @@ namespace TraktNET.MoviesModule
 
             TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieID, extendedInfo);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
 
             TraktMovie movie = response.Content!;
 
-            movie.Title.Should().Be("Guardians of the Galaxy Volume 3");
-            movie.Year.Should().Be(2023U);
-            movie.IDs!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movie.Title.ShouldBe("Guardians of the Galaxy Volume 3");
+            movie.Year.ShouldBe(2023U);
+            movie.IDs!.Slug.ShouldBe("guardians-of-the-galaxy-volume-3-2023");
         }
 
         [Theory]
@@ -44,19 +44,19 @@ namespace TraktNET.MoviesModule
 
             TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieSlug, extendedInfo);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
 
             TraktMovie movie = response.Content!;
 
-            movie.Title.Should().Be("Guardians of the Galaxy Volume 3");
-            movie.Year.Should().Be(2023U);
-            movie.IDs!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movie.Title.ShouldBe("Guardians of the Galaxy Volume 3");
+            movie.Year.ShouldBe(2023U);
+            movie.IDs!.Slug.ShouldBe("guardians-of-the-galaxy-volume-3-2023");
         }
 
         [Theory]
@@ -70,19 +70,19 @@ namespace TraktNET.MoviesModule
 
             TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIDs, extendedInfo);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
 
             TraktMovie movie = response.Content!;
 
-            movie.Title.Should().Be("Guardians of the Galaxy Volume 3");
-            movie.Year.Should().Be(2023U);
-            movie.IDs!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movie.Title.ShouldBe("Guardians of the Galaxy Volume 3");
+            movie.Year.ShouldBe(2023U);
+            movie.IDs!.Slug.ShouldBe("guardians-of-the-galaxy-volume-3-2023");
         }
 
         [Theory]
@@ -122,7 +122,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -163,7 +163,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -204,7 +204,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -217,12 +217,12 @@ namespace TraktNET.MoviesModule
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktResponse<TraktMovie>>> act = () => client.Movies.GetMovieAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMovieAsync(movieIDs);
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

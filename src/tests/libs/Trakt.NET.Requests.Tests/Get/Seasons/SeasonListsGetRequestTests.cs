@@ -71,7 +71,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             seasonListsGetRequest.BuildUri();
-            seasonListsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            seasonListsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
@@ -83,7 +83,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonListsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            seasonListsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
@@ -95,7 +95,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonListsGetRequest.Method.Should().Be(HttpMethod.Get);
+            seasonListsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
@@ -107,7 +107,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonListsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Season);
+            seasonListsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Season);
         }
 
         [Fact]
@@ -120,7 +120,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             Action act = () => seasonListsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonListsGetRequest = new SeasonListsGetRequest
             {
@@ -129,7 +129,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonListsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonListsGetRequest = new SeasonListsGetRequest
             {
@@ -138,7 +138,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonListsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonListsGetRequest = new SeasonListsGetRequest
             {
@@ -147,7 +147,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonListsGetRequest.Validate();
-            act.Should().NotThrow();
+            act.ShouldNotThrow();
         }
     }
 }

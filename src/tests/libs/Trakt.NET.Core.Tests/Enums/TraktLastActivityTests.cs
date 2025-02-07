@@ -5,31 +5,31 @@
         [Fact]
         public void TestTraktLastActivityToJson()
         {
-            TraktLastActivity.Unspecified.ToJson().Should().BeNull();
-            TraktLastActivity.Collected.ToJson().Should().Be("collected");
-            TraktLastActivity.Aired.ToJson().Should().Be("aired");
-            TraktLastActivity.Watched.ToJson().Should().Be("watched");
+            TraktLastActivity.Unspecified.ToJson().ShouldBeNull();
+            TraktLastActivity.Collected.ToJson().ShouldBe("collected");
+            TraktLastActivity.Aired.ToJson().ShouldBe("aired");
+            TraktLastActivity.Watched.ToJson().ShouldBe("watched");
         }
 
         [Fact]
         public void TestTraktLastActivityFromJson()
         {
-            "unspecified".ToTraktLastActivity().Should().Be(TraktLastActivity.Unspecified);
-            "collected".ToTraktLastActivity().Should().Be(TraktLastActivity.Collected);
-            "aired".ToTraktLastActivity().Should().Be(TraktLastActivity.Aired);
-            "watched".ToTraktLastActivity().Should().Be(TraktLastActivity.Watched);
+            "unspecified".ToTraktLastActivity().ShouldBe(TraktLastActivity.Unspecified);
+            "collected".ToTraktLastActivity().ShouldBe(TraktLastActivity.Collected);
+            "aired".ToTraktLastActivity().ShouldBe(TraktLastActivity.Aired);
+            "watched".ToTraktLastActivity().ShouldBe(TraktLastActivity.Watched);
 
             string? nullValue = null;
-            nullValue.ToTraktLastActivity().Should().Be(TraktLastActivity.Unspecified);
+            nullValue.ToTraktLastActivity().ShouldBe(TraktLastActivity.Unspecified);
         }
 
         [Fact]
         public void TestTraktLastActivityDisplayName()
         {
-            TraktLastActivity.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktLastActivity.Collected.DisplayName().Should().Be("Collected");
-            TraktLastActivity.Aired.DisplayName().Should().Be("Aired");
-            TraktLastActivity.Watched.DisplayName().Should().Be("Watched");
+            TraktLastActivity.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktLastActivity.Collected.DisplayName().ShouldBe("Collected");
+            TraktLastActivity.Aired.DisplayName().ShouldBe("Aired");
+            TraktLastActivity.Watched.DisplayName().ShouldBe("Watched");
         }
     }
 }

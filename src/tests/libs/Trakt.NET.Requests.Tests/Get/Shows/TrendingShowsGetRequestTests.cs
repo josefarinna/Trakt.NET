@@ -31,28 +31,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             trendingShowsGetRequest.BuildUri();
-            trendingShowsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            trendingShowsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestTrendingShowsGetRequestHasValidOAuthRequirement()
         {
             var trendingShowsGetRequest = new TrendingShowsGetRequest();
-            trendingShowsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            trendingShowsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestTrendingShowsGetRequestIsGetRequest()
         {
             var trendingShowsGetRequest = new TrendingShowsGetRequest();
-            trendingShowsGetRequest.Method.Should().Be(HttpMethod.Get);
+            trendingShowsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestTrendingShowsGetRequestHasCorrectRequestObjectType()
         {
             var trendingShowsGetRequest = new TrendingShowsGetRequest();
-            trendingShowsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+            trendingShowsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     }
 }

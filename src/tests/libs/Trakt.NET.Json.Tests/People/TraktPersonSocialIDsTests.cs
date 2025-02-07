@@ -7,10 +7,10 @@
         {
             var personSocialIDs = new TraktPersonSocialIDs();
 
-            personSocialIDs.Twitter.Should().BeNull();
-            personSocialIDs.Facebook.Should().BeNull();
-            personSocialIDs.Instagram.Should().BeNull();
-            personSocialIDs.Wikipedia.Should().BeNull();
+            personSocialIDs.Twitter.ShouldBeNull();
+            personSocialIDs.Facebook.ShouldBeNull();
+            personSocialIDs.Instagram.ShouldBeNull();
+            personSocialIDs.Wikipedia.ShouldBeNull();
         }
 
         [Fact]
@@ -18,12 +18,12 @@
         {
             TraktPersonSocialIDs? personSocialIDs = await TestUtility.DeserializeJsonAsync<TraktPersonSocialIDs>("People\\personsocialids.json");
 
-            personSocialIDs.Should().NotBeNull();
+            personSocialIDs.ShouldNotBeNull();
 
-            personSocialIDs!.Twitter.Should().Be("BryanCranston");
-            personSocialIDs!.Facebook.Should().Be("thebryancranston");
-            personSocialIDs!.Instagram.Should().Be("bryancranston");
-            personSocialIDs!.Wikipedia.Should().Be("test-data");
+            personSocialIDs!.Twitter.ShouldBe("BryanCranston");
+            personSocialIDs!.Facebook.ShouldBe("thebryancranston");
+            personSocialIDs!.Instagram.ShouldBe("bryancranston");
+            personSocialIDs!.Wikipedia.ShouldBe("test-data");
         }
     }
 }

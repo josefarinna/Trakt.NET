@@ -53,28 +53,28 @@ namespace TraktNET.GetRequests.Movies
             };
 
             movieCommentsGetRequest.BuildUri();
-            movieCommentsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            movieCommentsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestMovieCommentsGetRequestHasValidOAuthRequirement()
         {
             var movieCommentsGetRequest = new MovieCommentsGetRequest { Id = MovieID };
-            movieCommentsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.Optional);
+            movieCommentsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Optional);
         }
 
         [Fact]
         public void TestMovieCommentsGetRequestIsGetRequest()
         {
             var movieCommentsGetRequest = new MovieCommentsGetRequest { Id = MovieID };
-            movieCommentsGetRequest.Method.Should().Be(HttpMethod.Get);
+            movieCommentsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestMovieCommentsGetRequestHasCorrectRequestObjectType()
         {
             var movieCommentsGetRequest = new MovieCommentsGetRequest { Id = MovieID };
-            movieCommentsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Movie);
+            movieCommentsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Movie);
         }
 
         [Fact]
@@ -83,17 +83,17 @@ namespace TraktNET.GetRequests.Movies
             var movieCommentsGetRequest = new MovieCommentsGetRequest { Id = string.Empty };
 
             Action act = () => movieCommentsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             movieCommentsGetRequest = new MovieCommentsGetRequest { Id = "  " };
 
             act = () => movieCommentsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             movieCommentsGetRequest = new MovieCommentsGetRequest { Id = "id with spaces" };
 
             act = () => movieCommentsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

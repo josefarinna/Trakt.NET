@@ -7,31 +7,31 @@
         {
             var mostCollectedMovie = new TraktMostCollectedMovie();
 
-            mostCollectedMovie.WatcherCount.Should().BeNull();
-            mostCollectedMovie.PlayCount.Should().BeNull();
-            mostCollectedMovie.CollectedCount.Should().BeNull();
-            mostCollectedMovie.Title.Should().BeNull();
-            mostCollectedMovie.Year.Should().BeNull();
-            mostCollectedMovie.IDs.Should().BeNull();
-            mostCollectedMovie.Tagline.Should().BeNull();
-            mostCollectedMovie.Overview.Should().BeNull();
-            mostCollectedMovie.Released.Should().BeNull();
-            mostCollectedMovie.Runtime.Should().BeNull();
-            mostCollectedMovie.Country.Should().BeNull();
-            mostCollectedMovie.Trailer.Should().BeNull();
-            mostCollectedMovie.Homepage.Should().BeNull();
-            mostCollectedMovie.Status.Should().BeNull();
-            mostCollectedMovie.Rating.Should().BeNull();
-            mostCollectedMovie.Votes.Should().BeNull();
-            mostCollectedMovie.CommentCount.Should().BeNull();
-            mostCollectedMovie.UpdatedAt.Should().BeNull();
-            mostCollectedMovie.Language.Should().BeNull();
-            mostCollectedMovie.Languages.Should().BeNull();
-            mostCollectedMovie.AvailableTranslations.Should().BeNull();
-            mostCollectedMovie.Genres.Should().BeNull();
-            mostCollectedMovie.Certification.Should().BeNull();
+            mostCollectedMovie.WatcherCount.ShouldBeNull();
+            mostCollectedMovie.PlayCount.ShouldBeNull();
+            mostCollectedMovie.CollectedCount.ShouldBeNull();
+            mostCollectedMovie.Title.ShouldBeNull();
+            mostCollectedMovie.Year.ShouldBeNull();
+            mostCollectedMovie.IDs.ShouldBeNull();
+            mostCollectedMovie.Tagline.ShouldBeNull();
+            mostCollectedMovie.Overview.ShouldBeNull();
+            mostCollectedMovie.Released.ShouldBeNull();
+            mostCollectedMovie.Runtime.ShouldBeNull();
+            mostCollectedMovie.Country.ShouldBeNull();
+            mostCollectedMovie.Trailer.ShouldBeNull();
+            mostCollectedMovie.Homepage.ShouldBeNull();
+            mostCollectedMovie.Status.ShouldBeNull();
+            mostCollectedMovie.Rating.ShouldBeNull();
+            mostCollectedMovie.Votes.ShouldBeNull();
+            mostCollectedMovie.CommentCount.ShouldBeNull();
+            mostCollectedMovie.UpdatedAt.ShouldBeNull();
+            mostCollectedMovie.Language.ShouldBeNull();
+            mostCollectedMovie.Languages.ShouldBeNull();
+            mostCollectedMovie.AvailableTranslations.ShouldBeNull();
+            mostCollectedMovie.Genres.ShouldBeNull();
+            mostCollectedMovie.Certification.ShouldBeNull();
 
-            mostCollectedMovie.ToString().Should().BeEmpty();
+            mostCollectedMovie.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -39,23 +39,23 @@
         {
             TraktMostCollectedMovie? mostCollectedMovie = await TestUtility.DeserializeJsonAsync<TraktMostCollectedMovie>("Movies\\mostpwcmovie_minimal.json");
 
-            mostCollectedMovie.Should().NotBeNull();
+            mostCollectedMovie.ShouldNotBeNull();
 
-            mostCollectedMovie!.WatcherCount.Should().Be(10606U);
-            mostCollectedMovie!.PlayCount.Should().Be(14142U);
-            mostCollectedMovie!.CollectedCount.Should().Be(107U);
+            mostCollectedMovie!.WatcherCount.ShouldBe(10606U);
+            mostCollectedMovie!.PlayCount.ShouldBe(14142U);
+            mostCollectedMovie!.CollectedCount.ShouldBe(107U);
 
-            mostCollectedMovie!.Title.Should().Be("The Hunt for Red October");
-            mostCollectedMovie!.Year.Should().Be(1990U);
+            mostCollectedMovie!.Title.ShouldBe("The Hunt for Red October");
+            mostCollectedMovie!.Year.ShouldBe(1990U);
 
-            mostCollectedMovie!.IDs!.Trakt.Should().Be(1111U);
-            mostCollectedMovie!.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostCollectedMovie!.IDs!.IMDB.Should().Be("tt0099810");
-            mostCollectedMovie!.IDs!.TMDB.Should().Be(1669U);
-            mostCollectedMovie!.IDs!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie!.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie!.IDs!.Trakt.ShouldBe(1111U);
+            mostCollectedMovie!.IDs!.Slug.ShouldBe("the-hunt-for-red-october-1990");
+            mostCollectedMovie!.IDs!.IMDB.ShouldBe("tt0099810");
+            mostCollectedMovie!.IDs!.TMDB.ShouldBe(1669U);
+            mostCollectedMovie!.IDs!.HasAnyID.ShouldBe(true);
+            mostCollectedMovie!.IDs!.BestID.ShouldBe("the-hunt-for-red-october-1990");
 
-            mostCollectedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
+            mostCollectedMovie!.ToString().ShouldBe("The Hunt for Red October (1990)");
         }
 
         [Fact]
@@ -63,57 +63,63 @@
         {
             TraktMostCollectedMovie? mostCollectedMovie = await TestUtility.DeserializeJsonAsync<TraktMostCollectedMovie>("Movies\\mostpwcmovie.json");
 
-            mostCollectedMovie.Should().NotBeNull();
+            mostCollectedMovie.ShouldNotBeNull();
 
-            mostCollectedMovie!.WatcherCount.Should().Be(10606U);
-            mostCollectedMovie!.PlayCount.Should().Be(14142U);
-            mostCollectedMovie!.CollectedCount.Should().Be(107U);
+            mostCollectedMovie!.WatcherCount.ShouldBe(10606U);
+            mostCollectedMovie!.PlayCount.ShouldBe(14142U);
+            mostCollectedMovie!.CollectedCount.ShouldBe(107U);
 
-            mostCollectedMovie!.Title.Should().Be("The Hunt for Red October");
-            mostCollectedMovie!.Year.Should().Be(1990U);
+            mostCollectedMovie!.Title.ShouldBe("The Hunt for Red October");
+            mostCollectedMovie!.Year.ShouldBe(1990U);
 
-            mostCollectedMovie!.IDs!.Trakt.Should().Be(1111U);
-            mostCollectedMovie!.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostCollectedMovie!.IDs!.IMDB.Should().Be("tt0099810");
-            mostCollectedMovie!.IDs!.TMDB.Should().Be(1669U);
-            mostCollectedMovie!.IDs!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie!.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie!.IDs!.Trakt.ShouldBe(1111U);
+            mostCollectedMovie!.IDs!.Slug.ShouldBe("the-hunt-for-red-october-1990");
+            mostCollectedMovie!.IDs!.IMDB.ShouldBe("tt0099810");
+            mostCollectedMovie!.IDs!.TMDB.ShouldBe(1669U);
+            mostCollectedMovie!.IDs!.HasAnyID.ShouldBe(true);
+            mostCollectedMovie!.IDs!.BestID.ShouldBe("the-hunt-for-red-october-1990");
 
-            mostCollectedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
+            mostCollectedMovie!.ToString().ShouldBe("The Hunt for Red October (1990)");
 
-            mostCollectedMovie!.Tagline.Should().Be("Invisible. Silent. Stolen.");
+            mostCollectedMovie!.Tagline.ShouldBe("Invisible. Silent. Stolen.");
 
-            mostCollectedMovie!.Overview.Should().Be("A new technologically-superior Soviet nuclear sub, the Red October, is heading for the U.S. "
+            mostCollectedMovie!.Overview.ShouldBe("A new technologically-superior Soviet nuclear sub, the Red October, is heading for the U.S. "
                 + "coast under the command of Captain Marko Ramius.");
 
 #if NET7_0_OR_GREATER
-            mostCollectedMovie!.Released.Should().Be(TestUtility.ParseDate("1990-03-02"));
+            mostCollectedMovie!.Released.ShouldBe(TestUtility.ParseDate("1990-03-02"));
 #else
-            mostCollectedMovie!.Released.Should().Be(TestUtility.ParseUTCDateTime("1990-03-02T00:00:00.000Z"));
+            mostCollectedMovie!.Released.ShouldBe(TestUtility.ParseUTCDateTime("1990-03-02T00:00:00.000Z"));
 #endif
-            mostCollectedMovie!.Runtime.Should().Be(135U);
-            mostCollectedMovie!.Country.Should().Be("us");
-            mostCollectedMovie!.Trailer.Should().Be("https://youtube.com/watch?v=NSiAsQMBSRA");
-            mostCollectedMovie!.Homepage.Should().Be("http://www.paramount.com/movies/hunt-red-october");
-            mostCollectedMovie!.Status.Should().Be(TraktMovieStatus.Released);
-            mostCollectedMovie!.Rating.Should().Be(7.9446390086206895f);
-            mostCollectedMovie!.Votes.Should().Be(7424U);
-            mostCollectedMovie!.CommentCount.Should().Be(22U);
-            mostCollectedMovie!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-15T08:06:36.000Z"));
-            mostCollectedMovie!.Language.Should().Be("en");
-            mostCollectedMovie!.Languages.Should().NotBeNull().And.HaveCount(2).And.BeEquivalentTo(["en", "ru"]);
+            mostCollectedMovie!.Runtime.ShouldBe(135U);
+            mostCollectedMovie!.Country.ShouldBe("us");
+            mostCollectedMovie!.Trailer.ShouldBe("https://youtube.com/watch?v=NSiAsQMBSRA");
+            mostCollectedMovie!.Homepage.ShouldBe("http://www.paramount.com/movies/hunt-red-october");
+            mostCollectedMovie!.Status.ShouldBe(TraktMovieStatus.Released);
+            mostCollectedMovie!.Rating.ShouldBe(7.9446390086206895f);
+            mostCollectedMovie!.Votes.ShouldBe(7424U);
+            mostCollectedMovie!.CommentCount.ShouldBe(22U);
+            mostCollectedMovie!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-15T08:06:36.000Z"));
+            mostCollectedMovie!.Language.ShouldBe("en");
+            mostCollectedMovie!.Languages.ShouldNotBeNull();
+            mostCollectedMovie!.Languages!.Count.ShouldBe(2);
+            mostCollectedMovie!.Languages!.ShouldBe(["en", "ru"], Case.Sensitive);
 
-            mostCollectedMovie!.AvailableTranslations.Should().NotBeNull().And.HaveCount(39).And.BeEquivalentTo([
+            mostCollectedMovie!.AvailableTranslations.ShouldNotBeNull();
+            mostCollectedMovie!.AvailableTranslations!.Count.ShouldBe(39);
+            mostCollectedMovie!.AvailableTranslations!.ShouldBe([
                 "ar", "bg", "ca", "cs", "da", "de", "el", "en", "es", "et", "fa", "fi", "fr", "he", "hi", "hr",
                 "hu", "id", "it", "ja", "ko", "lt", "lv", "ms", "nb", "nl", "nn", "no", "pl", "pt", "ro", "ru",
                 "sk", "sv", "th", "tr", "uk", "vi", "zh"
-            ]);
+            ], Case.Sensitive);
 
-            mostCollectedMovie!.Genres.Should().NotBeNull().And.HaveCount(3).And.BeEquivalentTo([
+            mostCollectedMovie!.Genres.ShouldNotBeNull();
+            mostCollectedMovie!.Genres!.Count.ShouldBe(3);
+            mostCollectedMovie!.Genres!.ShouldBe([
                 "action", "adventure", "thriller"
-            ]);
+            ], Case.Sensitive);
 
-            mostCollectedMovie!.Certification.Should().Be("PG-13");
+            mostCollectedMovie!.Certification.ShouldBe("PG-13");
         }
 
         [Fact]
@@ -121,49 +127,50 @@
         {
             IReadOnlyList<TraktMostCollectedMovie>? mostCollectedMovies = await TestUtility.DeserializeJsonListAsync<TraktMostCollectedMovie>("Movies\\mostpwcmovies_minimal.json");
 
-            mostCollectedMovies.Should().NotBeNull().And.HaveCount(2);
+            mostCollectedMovies.ShouldNotBeNull();
+            mostCollectedMovies!.Count.ShouldBe(2);
 
             TraktMostCollectedMovie mostCollectedMovie = mostCollectedMovies![0];
 
-            mostCollectedMovie.Should().NotBeNull();
+            mostCollectedMovie.ShouldNotBeNull();
 
-            mostCollectedMovie.WatcherCount.Should().Be(10606U);
-            mostCollectedMovie.PlayCount.Should().Be(14142U);
-            mostCollectedMovie.CollectedCount.Should().Be(107U);
+            mostCollectedMovie.WatcherCount.ShouldBe(10606U);
+            mostCollectedMovie.PlayCount.ShouldBe(14142U);
+            mostCollectedMovie.CollectedCount.ShouldBe(107U);
 
-            mostCollectedMovie.Title.Should().Be("The Hunt for Red October");
-            mostCollectedMovie.Year.Should().Be(1990U);
+            mostCollectedMovie.Title.ShouldBe("The Hunt for Red October");
+            mostCollectedMovie.Year.ShouldBe(1990U);
 
-            mostCollectedMovie.IDs!.Trakt.Should().Be(1111U);
-            mostCollectedMovie.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostCollectedMovie.IDs!.IMDB.Should().Be("tt0099810");
-            mostCollectedMovie.IDs!.TMDB.Should().Be(1669U);
-            mostCollectedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie.IDs!.Trakt.ShouldBe(1111U);
+            mostCollectedMovie.IDs!.Slug.ShouldBe("the-hunt-for-red-october-1990");
+            mostCollectedMovie.IDs!.IMDB.ShouldBe("tt0099810");
+            mostCollectedMovie.IDs!.TMDB.ShouldBe(1669U);
+            mostCollectedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostCollectedMovie.IDs!.BestID.ShouldBe("the-hunt-for-red-october-1990");
 
-            mostCollectedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
+            mostCollectedMovie.ToString().ShouldBe("The Hunt for Red October (1990)");
 
             // --------------------------------------------------------------------------------------------
 
             mostCollectedMovie = mostCollectedMovies![1];
 
-            mostCollectedMovie.Should().NotBeNull();
+            mostCollectedMovie.ShouldNotBeNull();
 
-            mostCollectedMovie.WatcherCount.Should().Be(9076U);
-            mostCollectedMovie.PlayCount.Should().Be(12102U);
-            mostCollectedMovie.CollectedCount.Should().Be(3533U);
+            mostCollectedMovie.WatcherCount.ShouldBe(9076U);
+            mostCollectedMovie.PlayCount.ShouldBe(12102U);
+            mostCollectedMovie.CollectedCount.ShouldBe(3533U);
 
-            mostCollectedMovie.Title.Should().Be("Rebel Ridge");
-            mostCollectedMovie.Year.Should().Be(2024U);
+            mostCollectedMovie.Title.ShouldBe("Rebel Ridge");
+            mostCollectedMovie.Year.ShouldBe(2024U);
 
-            mostCollectedMovie.IDs!.Trakt.Should().Be(483193U);
-            mostCollectedMovie.IDs!.Slug.Should().Be("rebel-ridge-2024");
-            mostCollectedMovie.IDs!.IMDB.Should().Be("tt11301886");
-            mostCollectedMovie.IDs!.TMDB.Should().Be(646097U);
-            mostCollectedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie.IDs!.BestID.Should().Be("rebel-ridge-2024");
+            mostCollectedMovie.IDs!.Trakt.ShouldBe(483193U);
+            mostCollectedMovie.IDs!.Slug.ShouldBe("rebel-ridge-2024");
+            mostCollectedMovie.IDs!.IMDB.ShouldBe("tt11301886");
+            mostCollectedMovie.IDs!.TMDB.ShouldBe(646097U);
+            mostCollectedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostCollectedMovie.IDs!.BestID.ShouldBe("rebel-ridge-2024");
 
-            mostCollectedMovie.ToString().Should().Be("Rebel Ridge (2024)");
+            mostCollectedMovie.ToString().ShouldBe("Rebel Ridge (2024)");
         }
 
         [Fact]
@@ -171,117 +178,130 @@
         {
             IReadOnlyList<TraktMostCollectedMovie>? mostCollectedMovies = await TestUtility.DeserializeJsonListAsync<TraktMostCollectedMovie>("Movies\\mostpwcmovies.json");
 
-            mostCollectedMovies.Should().NotBeNull().And.HaveCount(2);
+            mostCollectedMovies.ShouldNotBeNull();
+            mostCollectedMovies!.Count.ShouldBe(2);
 
             TraktMostCollectedMovie mostCollectedMovie = mostCollectedMovies![0];
 
-            mostCollectedMovie.Should().NotBeNull();
+            mostCollectedMovie.ShouldNotBeNull();
 
-            mostCollectedMovie.WatcherCount.Should().Be(10606U);
-            mostCollectedMovie.PlayCount.Should().Be(14142U);
-            mostCollectedMovie.CollectedCount.Should().Be(107U);
+            mostCollectedMovie.WatcherCount.ShouldBe(10606U);
+            mostCollectedMovie.PlayCount.ShouldBe(14142U);
+            mostCollectedMovie.CollectedCount.ShouldBe(107U);
 
-            mostCollectedMovie.Title.Should().Be("The Hunt for Red October");
-            mostCollectedMovie.Year.Should().Be(1990U);
+            mostCollectedMovie.Title.ShouldBe("The Hunt for Red October");
+            mostCollectedMovie.Year.ShouldBe(1990U);
 
-            mostCollectedMovie.IDs!.Trakt.Should().Be(1111U);
-            mostCollectedMovie.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostCollectedMovie.IDs!.IMDB.Should().Be("tt0099810");
-            mostCollectedMovie.IDs!.TMDB.Should().Be(1669U);
-            mostCollectedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostCollectedMovie.IDs!.Trakt.ShouldBe(1111U);
+            mostCollectedMovie.IDs!.Slug.ShouldBe("the-hunt-for-red-october-1990");
+            mostCollectedMovie.IDs!.IMDB.ShouldBe("tt0099810");
+            mostCollectedMovie.IDs!.TMDB.ShouldBe(1669U);
+            mostCollectedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostCollectedMovie.IDs!.BestID.ShouldBe("the-hunt-for-red-october-1990");
 
-            mostCollectedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
+            mostCollectedMovie.ToString().ShouldBe("The Hunt for Red October (1990)");
 
-            mostCollectedMovie.Tagline.Should().Be("Invisible. Silent. Stolen.");
+            mostCollectedMovie.Tagline.ShouldBe("Invisible. Silent. Stolen.");
 
-            mostCollectedMovie.Overview.Should().Be("A new technologically-superior Soviet nuclear sub, the Red October, is heading for the U.S. "
+            mostCollectedMovie.Overview.ShouldBe("A new technologically-superior Soviet nuclear sub, the Red October, is heading for the U.S. "
                 + "coast under the command of Captain Marko Ramius.");
 
 #if NET7_0_OR_GREATER
-            mostCollectedMovie.Released.Should().Be(TestUtility.ParseDate("1990-03-02"));
+            mostCollectedMovie.Released.ShouldBe(TestUtility.ParseDate("1990-03-02"));
 #else
-            mostCollectedMovie.Released.Should().Be(TestUtility.ParseUTCDateTime("1990-03-02T00:00:00.000Z"));
+            mostCollectedMovie.Released.ShouldBe(TestUtility.ParseUTCDateTime("1990-03-02T00:00:00.000Z"));
 #endif
-            mostCollectedMovie.Runtime.Should().Be(135U);
-            mostCollectedMovie.Country.Should().Be("us");
-            mostCollectedMovie.Trailer.Should().Be("https://youtube.com/watch?v=NSiAsQMBSRA");
-            mostCollectedMovie.Homepage.Should().Be("http://www.paramount.com/movies/hunt-red-october");
-            mostCollectedMovie.Status.Should().Be(TraktMovieStatus.Released);
-            mostCollectedMovie.Rating.Should().Be(7.9446390086206895f);
-            mostCollectedMovie.Votes.Should().Be(7424U);
-            mostCollectedMovie.CommentCount.Should().Be(22U);
-            mostCollectedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-15T08:06:36.000Z"));
-            mostCollectedMovie.Language.Should().Be("en");
-            mostCollectedMovie.Languages.Should().NotBeNull().And.HaveCount(2).And.BeEquivalentTo(["en", "ru"]);
+            mostCollectedMovie.Runtime.ShouldBe(135U);
+            mostCollectedMovie.Country.ShouldBe("us");
+            mostCollectedMovie.Trailer.ShouldBe("https://youtube.com/watch?v=NSiAsQMBSRA");
+            mostCollectedMovie.Homepage.ShouldBe("http://www.paramount.com/movies/hunt-red-october");
+            mostCollectedMovie.Status.ShouldBe(TraktMovieStatus.Released);
+            mostCollectedMovie.Rating.ShouldBe(7.9446390086206895f);
+            mostCollectedMovie.Votes.ShouldBe(7424U);
+            mostCollectedMovie.CommentCount.ShouldBe(22U);
+            mostCollectedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-15T08:06:36.000Z"));
+            mostCollectedMovie.Language.ShouldBe("en");
+            mostCollectedMovie.Languages.ShouldNotBeNull();
+            mostCollectedMovie.Languages!.Count.ShouldBe(2);
+            mostCollectedMovie.Languages!.ShouldBe(["en", "ru"], Case.Sensitive);
 
-            mostCollectedMovie.AvailableTranslations.Should().NotBeNull().And.HaveCount(39).And.BeEquivalentTo([
+            mostCollectedMovie!.AvailableTranslations.ShouldNotBeNull();
+            mostCollectedMovie!.AvailableTranslations!.Count.ShouldBe(39);
+            mostCollectedMovie!.AvailableTranslations!.ShouldBe([
                 "ar", "bg", "ca", "cs", "da", "de", "el", "en", "es", "et", "fa", "fi", "fr", "he", "hi", "hr",
                 "hu", "id", "it", "ja", "ko", "lt", "lv", "ms", "nb", "nl", "nn", "no", "pl", "pt", "ro", "ru",
                 "sk", "sv", "th", "tr", "uk", "vi", "zh"
-            ]);
+            ], Case.Sensitive);
 
-            mostCollectedMovie.Genres.Should().NotBeNull().And.HaveCount(3).And.BeEquivalentTo([
+            mostCollectedMovie.Genres.ShouldNotBeNull();
+            mostCollectedMovie.Genres!.Count.ShouldBe(3);
+            mostCollectedMovie.Genres!.ShouldBe([
                 "action", "adventure", "thriller"
-            ]);
+            ], Case.Sensitive);
 
-            mostCollectedMovie.Certification.Should().Be("PG-13");
+            mostCollectedMovie.Certification.ShouldBe("PG-13");
 
             // --------------------------------------------------------------------------------------------
 
             mostCollectedMovie = mostCollectedMovies![1];
 
-            mostCollectedMovie.Should().NotBeNull();
+            mostCollectedMovie.ShouldNotBeNull();
 
-            mostCollectedMovie.WatcherCount.Should().Be(9076U);
-            mostCollectedMovie.PlayCount.Should().Be(12102U);
-            mostCollectedMovie.CollectedCount.Should().Be(3533U);
+            mostCollectedMovie.WatcherCount.ShouldBe(9076U);
+            mostCollectedMovie.PlayCount.ShouldBe(12102U);
+            mostCollectedMovie.CollectedCount.ShouldBe(3533U);
 
-            mostCollectedMovie.Title.Should().Be("Rebel Ridge");
-            mostCollectedMovie.Year.Should().Be(2024U);
+            mostCollectedMovie.Title.ShouldBe("Rebel Ridge");
+            mostCollectedMovie.Year.ShouldBe(2024U);
 
-            mostCollectedMovie.IDs!.Trakt.Should().Be(483193U);
-            mostCollectedMovie.IDs!.Slug.Should().Be("rebel-ridge-2024");
-            mostCollectedMovie.IDs!.IMDB.Should().Be("tt11301886");
-            mostCollectedMovie.IDs!.TMDB.Should().Be(646097U);
-            mostCollectedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostCollectedMovie.IDs!.BestID.Should().Be("rebel-ridge-2024");
+            mostCollectedMovie.IDs!.Trakt.ShouldBe(483193U);
+            mostCollectedMovie.IDs!.Slug.ShouldBe("rebel-ridge-2024");
+            mostCollectedMovie.IDs!.IMDB.ShouldBe("tt11301886");
+            mostCollectedMovie.IDs!.TMDB.ShouldBe(646097U);
+            mostCollectedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostCollectedMovie.IDs!.BestID.ShouldBe("rebel-ridge-2024");
 
-            mostCollectedMovie.ToString().Should().Be("Rebel Ridge (2024)");
+            mostCollectedMovie.ToString().ShouldBe("Rebel Ridge (2024)");
 
-            mostCollectedMovie.Tagline.Should().Be("Their laws. His rules.");
+            mostCollectedMovie.Tagline.ShouldBe("Their laws. His rules.");
 
-            mostCollectedMovie.Overview.Should().Be("A former Marine confronts corruption in a small town when local law enforcement unjustly "
+            mostCollectedMovie.Overview.ShouldBe("A former Marine confronts corruption in a small town when local law enforcement unjustly "
                 + "seizes the bag of cash he needs to post his cousin's bail.");
 
 #if NET7_0_OR_GREATER
-            mostCollectedMovie!.Released.Should().Be(TestUtility.ParseDate("2024-09-06"));
+            mostCollectedMovie!.Released.ShouldBe(TestUtility.ParseDate("2024-09-06"));
 #else
-            mostCollectedMovie!.Released.Should().Be(TestUtility.ParseUTCDateTime("2024-09-06T00:00:00.000Z"));
+            mostCollectedMovie!.Released.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-06T00:00:00.000Z"));
 #endif
-            mostCollectedMovie.Runtime.Should().Be(132U);
-            mostCollectedMovie.Country.Should().Be("us");
-            mostCollectedMovie.Trailer.Should().Be("https://youtube.com/watch?v=gF3gZicntIw");
-            mostCollectedMovie.Homepage.Should().Be("http://www.netflix.com/title/81157729");
-            mostCollectedMovie.Status.Should().Be(TraktMovieStatus.Released);
-            mostCollectedMovie.Rating.Should().Be(7.067648663393344f);
-            mostCollectedMovie.Votes.Should().Be(1833U);
-            mostCollectedMovie.CommentCount.Should().Be(27U);
-            mostCollectedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-15T08:05:18.000Z"));
-            mostCollectedMovie.Language.Should().Be("en");
-            mostCollectedMovie.Languages.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["en"]);
+            mostCollectedMovie.Runtime.ShouldBe(132U);
+            mostCollectedMovie.Country.ShouldBe("us");
+            mostCollectedMovie.Trailer.ShouldBe("https://youtube.com/watch?v=gF3gZicntIw");
+            mostCollectedMovie.Homepage.ShouldBe("http://www.netflix.com/title/81157729");
+            mostCollectedMovie.Status.ShouldBe(TraktMovieStatus.Released);
+            mostCollectedMovie.Rating.ShouldBe(7.067648663393344f);
+            mostCollectedMovie.Votes.ShouldBe(1833U);
+            mostCollectedMovie.CommentCount.ShouldBe(27U);
+            mostCollectedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-15T08:05:18.000Z"));
+            mostCollectedMovie.Language.ShouldBe("en");
+            mostCollectedMovie.Languages.ShouldNotBeNull();
+            mostCollectedMovie.Languages!.Count.ShouldBe(1);
+            mostCollectedMovie.Languages!.ShouldBe(["en"], Case.Sensitive);
 
-            mostCollectedMovie.AvailableTranslations.Should().NotBeNull().And.HaveCount(34).And.BeEquivalentTo([
+            mostCollectedMovie!.AvailableTranslations.ShouldNotBeNull();
+            mostCollectedMovie!.AvailableTranslations!.Count.ShouldBe(34);
+            mostCollectedMovie!.AvailableTranslations!.ShouldBe([
                 "ar", "bg", "cs", "da", "de", "el", "en", "es", "fa", "fi", "fr", "he", "hi", "hr", "hu", "id",
                 "it", "ja", "ka", "ko", "nl", "no", "pl", "pt", "ro", "ru", "sl", "sv", "th", "tl", "tr", "uk",
                 "vi", "zh"
-            ]);
+            ], Case.Sensitive);
 
-            mostCollectedMovie.Genres.Should().NotBeNull().And.HaveCount(3).And.BeEquivalentTo([
+            mostCollectedMovie.Genres.ShouldNotBeNull();
+            mostCollectedMovie.Genres!.Count.ShouldBe(3);
+            mostCollectedMovie.Genres!.ShouldBe([
                 "thriller", "crime", "action"
-            ]);
+            ], Case.Sensitive);
 
-            mostCollectedMovie.Certification.Should().Be("R");
+            mostCollectedMovie.Certification.ShouldBe("R");
         }
     }
 }

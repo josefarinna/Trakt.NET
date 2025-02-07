@@ -23,28 +23,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             showTranslationsGetRequest.BuildUri();
-            showTranslationsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            showTranslationsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowTranslationsGetRequestHasValidOAuthRequirement()
         {
             var showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = ShowID };
-            showTranslationsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            showTranslationsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestShowTranslationsGetRequestIsGetRequest()
         {
             var showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = ShowID };
-            showTranslationsGetRequest.Method.Should().Be(HttpMethod.Get);
+            showTranslationsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowTranslationsGetRequestHasCorrectRequestObjectType()
         {
             var showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = ShowID };
-            showTranslationsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showTranslationsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -53,17 +53,17 @@ namespace TraktNET.GetRequests.Shows
             var showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = string.Empty };
 
             Action act = () => showTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = "  " };
 
             act = () => showTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = "id with spaces" };
 
             act = () => showTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

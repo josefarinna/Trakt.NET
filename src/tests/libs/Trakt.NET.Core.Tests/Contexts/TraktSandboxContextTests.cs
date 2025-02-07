@@ -10,10 +10,10 @@
         {
             var context = new TraktSandboxContext(ClientID, ClientSecret);
 
-            context.ID.Should().NotBeNullOrEmpty();
-            context.ClientID.Should().Be(ClientID);
-            context.ClientSecret.Should().Be(ClientSecret);
-            context.Authorization.Should().BeNull();
+            context.ID.ShouldNotBeNullOrEmpty();
+            context.ClientID.ShouldBe(ClientID);
+            context.ClientSecret.ShouldBe(ClientSecret);
+            context.Authorization.ShouldBeNull();
         }
 
         [Fact]
@@ -21,7 +21,7 @@
         {
             var context = new TraktSandboxContext(ClientID, ClientSecret);
 
-            context.BaseUri.AbsoluteUri.Should().Be("https://api-staging.trakt.tv/");
+            context.BaseUri.AbsoluteUri.ShouldBe("https://api-staging.trakt.tv/");
         }
 
         [Fact]
@@ -29,33 +29,33 @@
         {
             var context = new TraktSandboxContext(ClientID, ClientSecret);
 
-            context.BaseAuthorizationUri.AbsoluteUri.Should().Be("https://staging.trakt.tv/");
+            context.BaseAuthorizationUri.AbsoluteUri.ShouldBe("https://staging.trakt.tv/");
         }
 
         [Fact]
         public void TestTraktSandboxContextInvalidClientID()
         {
             Action act = () => _ = new TraktSandboxContext(string.Empty, ClientSecret);
-            act.Should().Throw<ArgumentException>();
+            act.ShouldThrow<ArgumentException>();
 
             act = () => _ = new TraktSandboxContext("    ", ClientSecret);
-            act.Should().Throw<ArgumentException>();
+            act.ShouldThrow<ArgumentException>();
 
             act = () => _ = new TraktSandboxContext(" id ", ClientSecret);
-            act.Should().Throw<ArgumentException>();
+            act.ShouldThrow<ArgumentException>();
         }
 
         [Fact]
         public void TestTraktSandboxContextInvalidClientSecret()
         {
             Action act = () => _ = new TraktSandboxContext(ClientID, string.Empty);
-            act.Should().Throw<ArgumentException>();
+            act.ShouldThrow<ArgumentException>();
 
             act = () => _ = new TraktSandboxContext(ClientID, "        ");
-            act.Should().Throw<ArgumentException>();
+            act.ShouldThrow<ArgumentException>();
 
             act = () => _ = new TraktSandboxContext(ClientID, " secret ");
-            act.Should().Throw<ArgumentException>();
+            act.ShouldThrow<ArgumentException>();
         }
     }
 }

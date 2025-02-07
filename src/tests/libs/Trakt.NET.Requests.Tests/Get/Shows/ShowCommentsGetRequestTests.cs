@@ -53,28 +53,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             showCommentsGetRequest.BuildUri();
-            showCommentsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            showCommentsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowCommentsGetRequestHasValidOAuthRequirement()
         {
             var showCommentsGetRequest = new ShowCommentsGetRequest { Id = ShowID };
-            showCommentsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.Optional);
+            showCommentsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Optional);
         }
 
         [Fact]
         public void TestShowCommentsGetRequestIsGetRequest()
         {
             var showCommentsGetRequest = new ShowCommentsGetRequest { Id = ShowID };
-            showCommentsGetRequest.Method.Should().Be(HttpMethod.Get);
+            showCommentsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowCommentsGetRequestHasCorrectRequestObjectType()
         {
             var showCommentsGetRequest = new ShowCommentsGetRequest { Id = ShowID };
-            showCommentsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showCommentsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -83,17 +83,17 @@ namespace TraktNET.GetRequests.Shows
             var showCommentsGetRequest = new ShowCommentsGetRequest { Id = string.Empty };
 
             Action act = () => showCommentsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showCommentsGetRequest = new ShowCommentsGetRequest { Id = "  " };
 
             act = () => showCommentsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showCommentsGetRequest = new ShowCommentsGetRequest { Id = "id with spaces" };
 
             act = () => showCommentsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

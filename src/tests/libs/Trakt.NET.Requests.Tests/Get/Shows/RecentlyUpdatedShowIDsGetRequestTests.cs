@@ -26,7 +26,7 @@ namespace TraktNET.GetRequests.Shows
             };
 
             recentlyUpdatedShowIDsGetRequest.BuildUri();
-            recentlyUpdatedShowIDsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            recentlyUpdatedShowIDsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Theory]
@@ -44,28 +44,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             recentlyUpdatedShowIDsGetRequest.BuildUri();
-            recentlyUpdatedShowIDsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            recentlyUpdatedShowIDsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestRecentlyUpdatedShowIDsGetRequestHasValidOAuthRequirement()
         {
             var recentlyUpdatedShowIDsGetRequest = new RecentlyUpdatedShowIDsGetRequest();
-            recentlyUpdatedShowIDsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            recentlyUpdatedShowIDsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestRecentlyUpdatedShowIDsGetRequestIsGetRequest()
         {
             var recentlyUpdatedShowIDsGetRequest = new RecentlyUpdatedShowIDsGetRequest();
-            recentlyUpdatedShowIDsGetRequest.Method.Should().Be(HttpMethod.Get);
+            recentlyUpdatedShowIDsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestRecentlyUpdatedShowIDsGetRequestHasCorrectRequestObjectType()
         {
             var recentlyUpdatedShowIDsGetRequest = new RecentlyUpdatedShowIDsGetRequest();
-            recentlyUpdatedShowIDsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+            recentlyUpdatedShowIDsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     }
 }

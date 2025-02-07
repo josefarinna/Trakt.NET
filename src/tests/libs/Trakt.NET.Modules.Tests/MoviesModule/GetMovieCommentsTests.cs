@@ -53,26 +53,26 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, commentSortOrder, extendedInfo, page, limit);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(page ?? 1U);
-            response.Limit.Should().Be(limit ?? 10U);
-            response.PageCount.Should().Be(1U);
-            response.ItemCount.Should().Be(2U);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(page ?? 1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.PageCount.ShouldBe(1U);
+            response.ItemCount.ShouldBe(2U);
 
             IReadOnlyList<TraktComment> movieComments = response.Content!;
 
             TraktComment movieComment = movieComments[0];
-            movieComment.Comment.Should().Be("Comment content 1.");
+            movieComment.Comment.ShouldBe("Comment content 1.");
 
             movieComment = movieComments[1];
-            movieComment.Comment.Should().Be("Comment content 2.");
+            movieComment.Comment.ShouldBe("Comment content 2.");
         }
 
         [Theory]
@@ -119,26 +119,26 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, commentSortOrder, extendedInfo, page, limit);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(page ?? 1U);
-            response.Limit.Should().Be(limit ?? 10U);
-            response.PageCount.Should().Be(1U);
-            response.ItemCount.Should().Be(2U);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(page ?? 1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.PageCount.ShouldBe(1U);
+            response.ItemCount.ShouldBe(2U);
 
             IReadOnlyList<TraktComment> movieComments = response.Content!;
 
             TraktComment movieComment = movieComments[0];
-            movieComment.Comment.Should().Be("Comment content 1.");
+            movieComment.Comment.ShouldBe("Comment content 1.");
 
             movieComment = movieComments[1];
-            movieComment.Comment.Should().Be("Comment content 2.");
+            movieComment.Comment.ShouldBe("Comment content 2.");
         }
 
         [Theory]
@@ -185,26 +185,26 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, commentSortOrder, extendedInfo, page, limit);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(page ?? 1U);
-            response.Limit.Should().Be(limit ?? 10U);
-            response.PageCount.Should().Be(1U);
-            response.ItemCount.Should().Be(2U);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(page ?? 1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.PageCount.ShouldBe(1U);
+            response.ItemCount.ShouldBe(2U);
 
             IReadOnlyList<TraktComment> movieComments = response.Content!;
 
             TraktComment movieComment = movieComments[0];
-            movieComment.Comment.Should().Be("Comment content 1.");
+            movieComment.Comment.ShouldBe("Comment content 1.");
 
             movieComment = movieComments[1];
-            movieComment.Comment.Should().Be("Comment content 2.");
+            movieComment.Comment.ShouldBe("Comment content 2.");
         }
 
         [Theory]
@@ -251,26 +251,26 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, commentSortOrder, extendedInfo, page, limit);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(page ?? 1U);
-            response.Limit.Should().Be(limit ?? 10U);
-            response.PageCount.Should().Be(1U);
-            response.ItemCount.Should().Be(2U);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(page ?? 1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.PageCount.ShouldBe(1U);
+            response.ItemCount.ShouldBe(2U);
 
             IReadOnlyList<TraktComment> movieComments = response.Content!;
 
             TraktComment movieComment = movieComments[0];
-            movieComment.Comment.Should().Be("Comment content 1.");
+            movieComment.Comment.ShouldBe("Comment content 1.");
 
             movieComment = movieComments[1];
-            movieComment.Comment.Should().Be("Comment content 2.");
+            movieComment.Comment.ShouldBe("Comment content 2.");
         }
 
         [Theory]
@@ -317,26 +317,26 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, commentSortOrder, extendedInfo, page, limit);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(page ?? 1U);
-            response.Limit.Should().Be(limit ?? 10U);
-            response.PageCount.Should().Be(1U);
-            response.ItemCount.Should().Be(2U);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(page ?? 1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.PageCount.ShouldBe(1U);
+            response.ItemCount.ShouldBe(2U);
 
             IReadOnlyList<TraktComment> movieComments = response.Content!;
 
             TraktComment movieComment = movieComments[0];
-            movieComment.Comment.Should().Be("Comment content 1.");
+            movieComment.Comment.ShouldBe("Comment content 1.");
 
             movieComment = movieComments[1];
-            movieComment.Comment.Should().Be("Comment content 2.");
+            movieComment.Comment.ShouldBe("Comment content 2.");
         }
 
         [Theory]
@@ -383,26 +383,26 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, commentSortOrder, extendedInfo, page, limit);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(page ?? 1U);
-            response.Limit.Should().Be(limit ?? 10U);
-            response.PageCount.Should().Be(1U);
-            response.ItemCount.Should().Be(2U);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(page ?? 1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.PageCount.ShouldBe(1U);
+            response.ItemCount.ShouldBe(2U);
 
             IReadOnlyList<TraktComment> movieComments = response.Content!;
 
             TraktComment movieComment = movieComments[0];
-            movieComment.Comment.Should().Be("Comment content 1.");
+            movieComment.Comment.ShouldBe("Comment content 1.");
 
             movieComment = movieComments[1];
-            movieComment.Comment.Should().Be("Comment content 2.");
+            movieComment.Comment.ShouldBe("Comment content 2.");
         }
 
         [Fact]
@@ -413,20 +413,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 2);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(false);
         }
 
         [Fact]
@@ -437,20 +437,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 1);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(true);
         }
 
         [Fact]
@@ -461,20 +461,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 2);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(3U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(3U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(true);
         }
 
         [Fact]
@@ -485,20 +485,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 1);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(1U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(1U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(false);
         }
 
         [Fact]
@@ -509,39 +509,39 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 2);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(false);
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUri}?page=1", responseContent, 1, 2, 10, 2);
 
             response = await response.GetPreviousPageAsync();
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(true);
         }
 
         [Fact]
@@ -552,39 +552,39 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 1);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(true);
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUri}?page=2", responseContent, 2, 2, 10, 2);
 
             response = await response.GetNextPageAsync();
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(false);
         }
 
         [Fact]
@@ -595,20 +595,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 2);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(false);
         }
 
         [Fact]
@@ -619,20 +619,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 1);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(true);
         }
 
         [Fact]
@@ -643,20 +643,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 2);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(3U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(3U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(true);
         }
 
         [Fact]
@@ -667,20 +667,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 1);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(1U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(1U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(false);
         }
 
         [Fact]
@@ -691,39 +691,39 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 2);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(false);
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
 
             response = await response.GetPreviousPageAsync();
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(true);
         }
 
         [Fact]
@@ -734,39 +734,39 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 1);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(true);
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
 
             response = await response.GetNextPageAsync();
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(false);
         }
 
         [Fact]
@@ -777,20 +777,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 2);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(false);
         }
 
         [Fact]
@@ -801,20 +801,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 1);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(true);
         }
 
         [Fact]
@@ -825,20 +825,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 2);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(3U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(3U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(true);
         }
 
         [Fact]
@@ -849,20 +849,20 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 1);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(1U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(1U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(false);
         }
 
         [Fact]
@@ -873,39 +873,39 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 2);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(false);
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
 
             response = await response.GetPreviousPageAsync();
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(true);
         }
 
         [Fact]
@@ -916,39 +916,39 @@ namespace TraktNET.MoviesModule
 
             TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 1);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(1U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeFalse();
-            response.HasNextPage.Should().BeTrue();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(false);
+            response.HasNextPage.ShouldBe(true);
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
 
             response = await response.GetNextPageAsync();
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
-            response.Page.Should().Be(2U);
-            response.Limit.Should().Be(10U);
-            response.PageCount.Should().Be(2U);
-            response.ItemCount.Should().Be(2U);
-            response.HasPreviousPage.Should().BeTrue();
-            response.HasNextPage.Should().BeFalse();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+            response.PageCount.ShouldBe(2U);
+            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBe(true);
+            response.HasNextPage.ShouldBe(false);
         }
 
         [Theory]
@@ -988,7 +988,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -1029,7 +1029,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -1070,7 +1070,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -1083,12 +1083,12 @@ namespace TraktNET.MoviesModule
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktPagedResponse<TraktComment>>> act = () => client.Movies.GetMovieCommentsAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMovieCommentsAsync(movieIDs);
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

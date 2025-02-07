@@ -18,23 +18,23 @@ namespace TraktNET.Exceptions
 
             var exception = TraktApiException.Create(parameters);
 
-            exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(Constants.StatusCodes.AccountLimitExceeded);
-            exception.ReasonPhrase.Should().Be("Account Limit Exceeded - list count, item count, etc");
-            exception.HttpMethod.Should().Be(HttpMethod.Get);
-            exception.RequestMessage.Should().NotBeNull();
-            exception.RequestUri.Should().Be(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
-            exception.ResponseContent.Should().Be(ExceptionsTestUtility.TestResponseContent);
-            exception.Headers.Should().NotBeNull();
-            exception.ContentHeaders.Should().NotBeNull();
-            exception.Message.Should().Be("Trakt API request failed. Account Limit Exceeded - list count, item count, etc");
+            exception.ShouldNotBeNull();
+            exception.StatusCode.ShouldBe(Constants.StatusCodes.AccountLimitExceeded);
+            exception.ReasonPhrase.ShouldBe("Account Limit Exceeded - list count, item count, etc");
+            exception.HttpMethod.ShouldBe(HttpMethod.Get);
+            exception.RequestMessage.ShouldNotBeNull();
+            exception.RequestUri.ShouldBe(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
+            exception.ResponseContent.ShouldBe(ExceptionsTestUtility.TestResponseContent);
+            exception.Headers.ShouldNotBeNull();
+            exception.ContentHeaders.ShouldNotBeNull();
+            exception.Message.ShouldBe("Trakt API request failed. Account Limit Exceeded - list count, item count, etc");
 
             var accountLimitException = exception as TraktApiAccountLimitException;
 
-            accountLimitException.Should().NotBeNull();
-            accountLimitException!.UpgradeURL.Should().Be("upgrade/url");
-            accountLimitException!.IsVIPUser.Should().BeTrue();
-            accountLimitException!.AccountLimit.Should().Be(1000U);
+            accountLimitException.ShouldNotBeNull();
+            accountLimitException!.UpgradeURL.ShouldBe("upgrade/url");
+            accountLimitException!.IsVIPUser.ShouldBe(true);
+            accountLimitException!.AccountLimit.ShouldBe(1000U);
         }
     }
 }

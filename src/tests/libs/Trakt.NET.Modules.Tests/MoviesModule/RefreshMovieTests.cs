@@ -16,10 +16,10 @@ namespace TraktNET.MoviesModule
 
             TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieID);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
         }
 
         [Fact]
@@ -29,10 +29,10 @@ namespace TraktNET.MoviesModule
 
             TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieSlug);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
         }
 
         [Fact]
@@ -42,10 +42,10 @@ namespace TraktNET.MoviesModule
 
             TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieIDs);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
         }
 
         [Theory]
@@ -85,7 +85,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -126,7 +126,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -167,7 +167,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -179,12 +179,12 @@ namespace TraktNET.MoviesModule
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktResponse>> act = () => client.Movies.RefreshMovieAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.RefreshMovieAsync(movieIDs);
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

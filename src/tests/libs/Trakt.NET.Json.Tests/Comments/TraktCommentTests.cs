@@ -7,17 +7,17 @@
         {
             var comment = new TraktComment();
 
-            comment.ID.Should().BeNull();
-            comment.ParentID.Should().BeNull();
-            comment.Comment.Should().BeNull();
-            comment.Spoiler.Should().BeNull();
-            comment.Review.Should().BeNull();
-            comment.Replies.Should().BeNull();
-            comment.Likes.Should().BeNull();
-            comment.CreatedAt.Should().BeNull();
-            comment.UpdatedAt.Should().BeNull();
-            comment.UserStats.Should().BeNull();
-            comment.User.Should().BeNull();
+            comment.ID.ShouldBeNull();
+            comment.ParentID.ShouldBeNull();
+            comment.Comment.ShouldBeNull();
+            comment.Spoiler.ShouldBeNull();
+            comment.Review.ShouldBeNull();
+            comment.Replies.ShouldBeNull();
+            comment.Likes.ShouldBeNull();
+            comment.CreatedAt.ShouldBeNull();
+            comment.UpdatedAt.ShouldBeNull();
+            comment.UserStats.ShouldBeNull();
+            comment.User.ShouldBeNull();
         }
 
         [Fact]
@@ -25,28 +25,28 @@
         {
             TraktComment? comment = await TestUtility.DeserializeJsonAsync<TraktComment>("Comments\\comment.json");
 
-            comment.Should().NotBeNull();
+            comment.ShouldNotBeNull();
 
-            comment!.ID.Should().Be(7149524U);
-            comment!.ParentID.Should().Be(0U);
-            comment!.Comment.Should().Be("Comment content.");
-            comment!.Spoiler.Should().BeFalse();
-            comment!.Review.Should().BeFalse();
-            comment!.Replies.Should().Be(0U);
-            comment!.Likes.Should().Be(0U);
-            comment!.CreatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-10-04T16:25:36.000Z"));
-            comment!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-10-04T16:25:36.000Z"));
+            comment!.ID.ShouldBe(7149524U);
+            comment!.ParentID.ShouldBe(0U);
+            comment!.Comment.ShouldBe("Comment content.");
+            comment!.Spoiler.ShouldBe(false);
+            comment!.Review.ShouldBe(false);
+            comment!.Replies.ShouldBe(0U);
+            comment!.Likes.ShouldBe(0U);
+            comment!.CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-10-04T16:25:36.000Z"));
+            comment!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-10-04T16:25:36.000Z"));
 
-            comment!.UserStats.Should().NotBeNull();
-            comment!.UserStats!.Rating.Should().Be(9U);
-            comment!.UserStats!.PlayCount.Should().Be(3U);
-            comment!.UserStats!.CompletedCount.Should().Be(1U);
+            comment!.UserStats.ShouldNotBeNull();
+            comment!.UserStats!.Rating.ShouldBe(9U);
+            comment!.UserStats!.PlayCount.ShouldBe(3U);
+            comment!.UserStats!.CompletedCount.ShouldBe(1U);
 
-            comment!.User.Should().NotBeNull();
-            comment!.User!.Username.Should().Be("user1");
-            comment!.User!.Private.Should().BeTrue();
-            comment!.User!.IDs.Should().NotBeNull();
-            comment!.User!.IDs!.Slug.Should().Be("user1");
+            comment!.User.ShouldNotBeNull();
+            comment!.User!.Username.ShouldBe("user1");
+            comment!.User!.Private.ShouldBe(true);
+            comment!.User!.IDs.ShouldNotBeNull();
+            comment!.User!.IDs!.Slug.ShouldBe("user1");
         }
     }
 }

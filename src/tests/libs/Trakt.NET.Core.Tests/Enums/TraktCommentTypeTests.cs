@@ -5,31 +5,31 @@
         [Fact]
         public void TestTraktCommentTypeToJson()
         {
-            TraktCommentType.Unspecified.ToJson().Should().BeNull();
-            TraktCommentType.Review.ToJson().Should().Be("reviews");
-            TraktCommentType.Shout.ToJson().Should().Be("shouts");
-            TraktCommentType.All.ToJson().Should().Be("all");
+            TraktCommentType.Unspecified.ToJson().ShouldBeNull();
+            TraktCommentType.Review.ToJson().ShouldBe("reviews");
+            TraktCommentType.Shout.ToJson().ShouldBe("shouts");
+            TraktCommentType.All.ToJson().ShouldBe("all");
         }
 
         [Fact]
         public void TestTraktCommentTypeFromJson()
         {
-            "unspecified".ToTraktCommentType().Should().Be(TraktCommentType.Unspecified);
-            "reviews".ToTraktCommentType().Should().Be(TraktCommentType.Review);
-            "shouts".ToTraktCommentType().Should().Be(TraktCommentType.Shout);
-            "all".ToTraktCommentType().Should().Be(TraktCommentType.All);
+            "unspecified".ToTraktCommentType().ShouldBe(TraktCommentType.Unspecified);
+            "reviews".ToTraktCommentType().ShouldBe(TraktCommentType.Review);
+            "shouts".ToTraktCommentType().ShouldBe(TraktCommentType.Shout);
+            "all".ToTraktCommentType().ShouldBe(TraktCommentType.All);
 
             string? nullValue = null;
-            nullValue.ToTraktCommentType().Should().Be(TraktCommentType.Unspecified);
+            nullValue.ToTraktCommentType().ShouldBe(TraktCommentType.Unspecified);
         }
 
         [Fact]
         public void TestTraktCommentTypeDisplayName()
         {
-            TraktCommentType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktCommentType.Review.DisplayName().Should().Be("Review");
-            TraktCommentType.Shout.DisplayName().Should().Be("Shout");
-            TraktCommentType.All.DisplayName().Should().Be("All");
+            TraktCommentType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktCommentType.Review.DisplayName().ShouldBe("Review");
+            TraktCommentType.Shout.DisplayName().ShouldBe("Shout");
+            TraktCommentType.All.DisplayName().ShouldBe("All");
         }
     }
 }

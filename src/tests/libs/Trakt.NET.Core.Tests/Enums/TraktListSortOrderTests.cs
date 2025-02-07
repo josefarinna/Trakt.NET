@@ -5,40 +5,40 @@
         [Fact]
         public void TestTraktListSortOrderToJson()
         {
-            TraktListSortOrder.Unspecified.ToJson().Should().BeNull();
-            TraktListSortOrder.Popular.ToJson().Should().Be("popular");
-            TraktListSortOrder.Likes.ToJson().Should().Be("likes");
-            TraktListSortOrder.Comments.ToJson().Should().Be("comments");
-            TraktListSortOrder.Items.ToJson().Should().Be("items");
-            TraktListSortOrder.Added.ToJson().Should().Be("added");
-            TraktListSortOrder.Updated.ToJson().Should().Be("updated");
+            TraktListSortOrder.Unspecified.ToJson().ShouldBeNull();
+            TraktListSortOrder.Popular.ToJson().ShouldBe("popular");
+            TraktListSortOrder.Likes.ToJson().ShouldBe("likes");
+            TraktListSortOrder.Comments.ToJson().ShouldBe("comments");
+            TraktListSortOrder.Items.ToJson().ShouldBe("items");
+            TraktListSortOrder.Added.ToJson().ShouldBe("added");
+            TraktListSortOrder.Updated.ToJson().ShouldBe("updated");
         }
 
         [Fact]
         public void TestTraktListSortOrderFromJson()
         {
-            "unspecified".ToTraktListSortOrder().Should().Be(TraktListSortOrder.Unspecified);
-            "popular".ToTraktListSortOrder().Should().Be(TraktListSortOrder.Popular);
-            "likes".ToTraktListSortOrder().Should().Be(TraktListSortOrder.Likes);
-            "comments".ToTraktListSortOrder().Should().Be(TraktListSortOrder.Comments);
-            "items".ToTraktListSortOrder().Should().Be(TraktListSortOrder.Items);
-            "added".ToTraktListSortOrder().Should().Be(TraktListSortOrder.Added);
-            "updated".ToTraktListSortOrder().Should().Be(TraktListSortOrder.Updated);
+            "unspecified".ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Unspecified);
+            "popular".ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Popular);
+            "likes".ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Likes);
+            "comments".ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Comments);
+            "items".ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Items);
+            "added".ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Added);
+            "updated".ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Updated);
 
             string? nullValue = null;
-            nullValue.ToTraktListSortOrder().Should().Be(TraktListSortOrder.Unspecified);
+            nullValue.ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Unspecified);
         }
 
         [Fact]
         public void TestTraktListSortOrderDisplayName()
         {
-            TraktListSortOrder.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktListSortOrder.Popular.DisplayName().Should().Be("Popular");
-            TraktListSortOrder.Likes.DisplayName().Should().Be("Likes");
-            TraktListSortOrder.Comments.DisplayName().Should().Be("Comments");
-            TraktListSortOrder.Items.DisplayName().Should().Be("Items");
-            TraktListSortOrder.Added.DisplayName().Should().Be("Added");
-            TraktListSortOrder.Updated.DisplayName().Should().Be("Updated");
+            TraktListSortOrder.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktListSortOrder.Popular.DisplayName().ShouldBe("Popular");
+            TraktListSortOrder.Likes.DisplayName().ShouldBe("Likes");
+            TraktListSortOrder.Comments.DisplayName().ShouldBe("Comments");
+            TraktListSortOrder.Items.DisplayName().ShouldBe("Items");
+            TraktListSortOrder.Added.DisplayName().ShouldBe("Added");
+            TraktListSortOrder.Updated.DisplayName().ShouldBe("Updated");
         }
     }
 }

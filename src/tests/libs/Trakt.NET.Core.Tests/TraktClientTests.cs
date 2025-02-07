@@ -7,8 +7,8 @@
         {
             var client = new TraktClient(TestConstants.ClientID, TestConstants.ClientSecret);
 
-            client.ClientID.Should().Be(TestConstants.ClientID);
-            client.ClientSecret.Should().Be(TestConstants.ClientSecret);
+            client.ClientID.ShouldBe(TestConstants.ClientID);
+            client.ClientSecret.ShouldBe(TestConstants.ClientSecret);
         }
 
         [Fact]
@@ -16,8 +16,8 @@
         {
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
 
-            client.ClientID.Should().Be(TestConstants.ClientID);
-            client.ClientSecret.Should().Be(TestConstants.ClientSecret);
+            client.ClientID.ShouldBe(TestConstants.ClientID);
+            client.ClientSecret.ShouldBe(TestConstants.ClientSecret);
         }
 
         [Fact]
@@ -25,8 +25,8 @@
         {
             var client = TraktClient.CreateForSandbox(TestConstants.ClientID, TestConstants.ClientSecret);
 
-            client.ClientID.Should().Be(TestConstants.ClientID);
-            client.ClientSecret.Should().Be(TestConstants.ClientSecret);
+            client.ClientID.ShouldBe(TestConstants.ClientID);
+            client.ClientSecret.ShouldBe(TestConstants.ClientSecret);
         }
     }
 }

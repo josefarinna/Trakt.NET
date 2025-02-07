@@ -25,7 +25,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             episodeTranslationsGetRequest.BuildUri();
-            episodeTranslationsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            episodeTranslationsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace TraktNET.GetRequests.Episodes
                 EpisodeNumber = 1
             };
 
-            episodeTranslationsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            episodeTranslationsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace TraktNET.GetRequests.Episodes
                 EpisodeNumber = 1
             };
 
-            episodeTranslationsGetRequest.Method.Should().Be(HttpMethod.Get);
+            episodeTranslationsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
@@ -64,7 +64,7 @@ namespace TraktNET.GetRequests.Episodes
                 EpisodeNumber = 1
             };
 
-            episodeTranslationsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Episode);
+            episodeTranslationsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Episode);
         }
 
         [Fact]
@@ -78,7 +78,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             Action act = () => episodeTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             episodeTranslationsGetRequest = new EpisodeTranslationsGetRequest
             {
@@ -88,7 +88,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             act = () => episodeTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             episodeTranslationsGetRequest = new EpisodeTranslationsGetRequest
             {
@@ -98,7 +98,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             act = () => episodeTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             episodeTranslationsGetRequest = new EpisodeTranslationsGetRequest
             {
@@ -108,7 +108,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             act = () => episodeTranslationsGetRequest.Validate();
-            act.Should().NotThrow();
+            act.ShouldNotThrow();
 
             episodeTranslationsGetRequest = new EpisodeTranslationsGetRequest
             {
@@ -118,7 +118,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             act = () => episodeTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

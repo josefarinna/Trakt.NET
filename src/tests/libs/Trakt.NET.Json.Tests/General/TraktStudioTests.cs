@@ -7,9 +7,9 @@
         {
             var studio = new TraktStudio();
 
-            studio.Name.Should().BeNull();
-            studio.Country.Should().BeNull();
-            studio.IDs.Should().BeNull();
+            studio.Name.ShouldBeNull();
+            studio.Country.ShouldBeNull();
+            studio.IDs.ShouldBeNull();
         }
 
         [Fact]
@@ -17,16 +17,16 @@
         {
             TraktStudio? studio = await TestUtility.DeserializeJsonAsync<TraktStudio>("General\\studio.json");
 
-            studio.Should().NotBeNull();
+            studio.ShouldNotBeNull();
 
-            studio!.Name.Should().Be("Marvel Studios");
-            studio!.Country.Should().Be("us");
+            studio!.Name.ShouldBe("Marvel Studios");
+            studio!.Country.ShouldBe("us");
 
-            studio!.IDs!.Trakt.Should().Be(181U);
-            studio!.IDs!.Slug.Should().Be("marvel-studios");
-            studio!.IDs!.TMDB.Should().Be(420U);
-            studio!.IDs!.HasAnyID.Should().BeTrue();
-            studio!.IDs!.BestID.Should().Be("marvel-studios");
+            studio!.IDs!.Trakt.ShouldBe(181U);
+            studio!.IDs!.Slug.ShouldBe("marvel-studios");
+            studio!.IDs!.TMDB.ShouldBe(420U);
+            studio!.IDs!.HasAnyID.ShouldBe(true);
+            studio!.IDs!.BestID.ShouldBe("marvel-studios");
         }
     }
 }

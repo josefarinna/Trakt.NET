@@ -7,12 +7,12 @@
         {
             var episodeTranslation = new TraktEpisodeTranslation();
 
-            episodeTranslation.Title.Should().BeNull();
-            episodeTranslation.Overview.Should().BeNull();
-            episodeTranslation.Language.Should().BeNull();
-            episodeTranslation.Country.Should().BeNull();
+            episodeTranslation.Title.ShouldBeNull();
+            episodeTranslation.Overview.ShouldBeNull();
+            episodeTranslation.Language.ShouldBeNull();
+            episodeTranslation.Country.ShouldBeNull();
 
-            episodeTranslation.ToString().Should().Be("no title set");
+            episodeTranslation.ToString().ShouldBe("no title set");
         }
 
         [Fact]
@@ -20,14 +20,14 @@
         {
             TraktEpisodeTranslation? episodeTranslation = await TestUtility.DeserializeJsonAsync<TraktEpisodeTranslation>("Episodes\\episodetranslation.json");
 
-            episodeTranslation.Should().NotBeNull();
+            episodeTranslation.ShouldNotBeNull();
 
-            episodeTranslation!.Title.Should().Be("Winter Is Coming");
-            episodeTranslation!.Overview.Should().Be("Jon Arryn, the Hand of the King, is dead.");
-            episodeTranslation!.Language.Should().Be("en");
-            episodeTranslation!.Country.Should().Be("us");
+            episodeTranslation!.Title.ShouldBe("Winter Is Coming");
+            episodeTranslation!.Overview.ShouldBe("Jon Arryn, the Hand of the King, is dead.");
+            episodeTranslation!.Language.ShouldBe("en");
+            episodeTranslation!.Country.ShouldBe("us");
 
-            episodeTranslation!.ToString().Should().Be("en-US=Winter Is Coming");
+            episodeTranslation!.ToString().ShouldBe("en-US=Winter Is Coming");
         }
     }
 }

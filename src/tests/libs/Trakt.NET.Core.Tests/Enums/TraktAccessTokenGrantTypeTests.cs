@@ -5,28 +5,28 @@
         [Fact]
         public void TestTraktAccessTokenGrantTypeToJson()
         {
-            TraktAccessTokenGrantType.Unspecified.ToJson().Should().BeNull();
-            TraktAccessTokenGrantType.AuthorizationCode.ToJson().Should().Be("authorization_code");
-            TraktAccessTokenGrantType.RefreshToken.ToJson().Should().Be("refresh_token");
+            TraktAccessTokenGrantType.Unspecified.ToJson().ShouldBeNull();
+            TraktAccessTokenGrantType.AuthorizationCode.ToJson().ShouldBe("authorization_code");
+            TraktAccessTokenGrantType.RefreshToken.ToJson().ShouldBe("refresh_token");
         }
 
         [Fact]
         public void TestTraktAccessTokenGrantTypeFromJson()
         {
-            "unspecified".ToTraktAccessTokenGrantType().Should().Be(TraktAccessTokenGrantType.Unspecified);
-            "authorization_code".ToTraktAccessTokenGrantType().Should().Be(TraktAccessTokenGrantType.AuthorizationCode);
-            "refresh_token".ToTraktAccessTokenGrantType().Should().Be(TraktAccessTokenGrantType.RefreshToken);
+            "unspecified".ToTraktAccessTokenGrantType().ShouldBe(TraktAccessTokenGrantType.Unspecified);
+            "authorization_code".ToTraktAccessTokenGrantType().ShouldBe(TraktAccessTokenGrantType.AuthorizationCode);
+            "refresh_token".ToTraktAccessTokenGrantType().ShouldBe(TraktAccessTokenGrantType.RefreshToken);
 
             string? nullValue = null;
-            nullValue.ToTraktAccessTokenGrantType().Should().Be(TraktAccessTokenGrantType.Unspecified);
+            nullValue.ToTraktAccessTokenGrantType().ShouldBe(TraktAccessTokenGrantType.Unspecified);
         }
 
         [Fact]
         public void TestTraktAccessTokenGrantTypeDisplayName()
         {
-            TraktAccessTokenGrantType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktAccessTokenGrantType.AuthorizationCode.DisplayName().Should().Be("Authorization Code");
-            TraktAccessTokenGrantType.RefreshToken.DisplayName().Should().Be("Refresh Token");
+            TraktAccessTokenGrantType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktAccessTokenGrantType.AuthorizationCode.DisplayName().ShouldBe("Authorization Code");
+            TraktAccessTokenGrantType.RefreshToken.DisplayName().ShouldBe("Refresh Token");
         }
     }
 }

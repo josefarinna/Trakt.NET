@@ -7,31 +7,31 @@
         {
             var show = new TraktShow();
 
-            show.Title.Should().BeNull();
-            show.Year.Should().BeNull();
-            show.IDs.Should().BeNull();
-            show.Tagline.Should().BeNull();
-            show.Overview.Should().BeNull();
-            show.FirstAired.Should().BeNull();
-            show.UpdatedAt.Should().BeNull();
-            show.Airs.Should().BeNull();
-            show.Runtime.Should().BeNull();
-            show.Certification.Should().BeNull();
-            show.Network.Should().BeNull();
-            show.Country.Should().BeNull();
-            show.Trailer.Should().BeNull();
-            show.Homepage.Should().BeNull();
-            show.Rating.Should().BeNull();
-            show.Votes.Should().BeNull();
-            show.CommentCount.Should().BeNull();
-            show.Language.Should().BeNull();
-            show.Languages.Should().BeNull();
-            show.AvailableTranslations.Should().BeNull();
-            show.Genres.Should().BeNull();
-            show.AiredEpisodes.Should().BeNull();
-            show.Status.Should().BeNull();
+            show.Title.ShouldBeNull();
+            show.Year.ShouldBeNull();
+            show.IDs.ShouldBeNull();
+            show.Tagline.ShouldBeNull();
+            show.Overview.ShouldBeNull();
+            show.FirstAired.ShouldBeNull();
+            show.UpdatedAt.ShouldBeNull();
+            show.Airs.ShouldBeNull();
+            show.Runtime.ShouldBeNull();
+            show.Certification.ShouldBeNull();
+            show.Network.ShouldBeNull();
+            show.Country.ShouldBeNull();
+            show.Trailer.ShouldBeNull();
+            show.Homepage.ShouldBeNull();
+            show.Rating.ShouldBeNull();
+            show.Votes.ShouldBeNull();
+            show.CommentCount.ShouldBeNull();
+            show.Language.ShouldBeNull();
+            show.Languages.ShouldBeNull();
+            show.AvailableTranslations.ShouldBeNull();
+            show.Genres.ShouldBeNull();
+            show.AiredEpisodes.ShouldBeNull();
+            show.Status.ShouldBeNull();
 
-            show.ToString().Should().BeEmpty();
+            show.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -39,21 +39,21 @@
         {
             TraktShowMinimal? show = await TestUtility.DeserializeJsonAsync<TraktShowMinimal>("Shows\\show_minimal.json");
 
-            show.Should().NotBeNull();
+            show.ShouldNotBeNull();
 
-            show!.Title.Should().Be("Game of Thrones");
-            show!.Year.Should().Be(2011U);
+            show!.Title.ShouldBe("Game of Thrones");
+            show!.Year.ShouldBe(2011U);
 
-            show!.IDs.Should().NotBeNull();
-            show!.IDs!.Trakt.Should().Be(1390U);
-            show!.IDs!.Slug.Should().Be("game-of-thrones");
-            show!.IDs!.TVDB.Should().Be(121361U);
-            show!.IDs!.IMDB.Should().Be("tt0944947");
-            show!.IDs!.TMDB.Should().Be(1399U);
-            show!.IDs!.HasAnyID.Should().BeTrue();
-            show!.IDs!.BestID.Should().Be("game-of-thrones");
+            show!.IDs.ShouldNotBeNull();
+            show!.IDs!.Trakt.ShouldBe(1390U);
+            show!.IDs!.Slug.ShouldBe("game-of-thrones");
+            show!.IDs!.TVDB.ShouldBe(121361U);
+            show!.IDs!.IMDB.ShouldBe("tt0944947");
+            show!.IDs!.TMDB.ShouldBe(1399U);
+            show!.IDs!.HasAnyID.ShouldBe(true);
+            show!.IDs!.BestID.ShouldBe("game-of-thrones");
 
-            show!.ToString().Should().Be("Game of Thrones (2011)");
+            show!.ToString().ShouldBe("Game of Thrones (2011)");
         }
 
         [Fact]
@@ -61,61 +61,67 @@
         {
             TraktShow? show = await TestUtility.DeserializeJsonAsync<TraktShow>("Shows\\show.json");
 
-            show.Should().NotBeNull();
+            show.ShouldNotBeNull();
 
-            show!.Title.Should().Be("Game of Thrones");
-            show!.Year.Should().Be(2011U);
+            show!.Title.ShouldBe("Game of Thrones");
+            show!.Year.ShouldBe(2011U);
 
-            show!.IDs.Should().NotBeNull();
-            show!.IDs!.Trakt.Should().Be(1390U);
-            show!.IDs!.Slug.Should().Be("game-of-thrones");
-            show!.IDs!.TVDB.Should().Be(121361U);
-            show!.IDs!.IMDB.Should().Be("tt0944947");
-            show!.IDs!.TMDB.Should().Be(1399U);
-            show!.IDs!.HasAnyID.Should().BeTrue();
-            show!.IDs!.BestID.Should().Be("game-of-thrones");
+            show!.IDs.ShouldNotBeNull();
+            show!.IDs!.Trakt.ShouldBe(1390U);
+            show!.IDs!.Slug.ShouldBe("game-of-thrones");
+            show!.IDs!.TVDB.ShouldBe(121361U);
+            show!.IDs!.IMDB.ShouldBe("tt0944947");
+            show!.IDs!.TMDB.ShouldBe(1399U);
+            show!.IDs!.HasAnyID.ShouldBe(true);
+            show!.IDs!.BestID.ShouldBe("game-of-thrones");
 
-            show!.ToString().Should().Be("Game of Thrones (2011)");
+            show!.ToString().ShouldBe("Game of Thrones (2011)");
 
-            show!.Tagline.Should().Be("Winter is coming.");
-            show!.Overview.Should().Be("Seven noble families fight for control of the mythical land of Westeros.");
-            show!.FirstAired.Should().Be(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
-            show!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-03-23T06:26:48.000Z"));
+            show!.Tagline.ShouldBe("Winter is coming.");
+            show!.Overview.ShouldBe("Seven noble families fight for control of the mythical land of Westeros.");
+            show!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
+            show!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:26:48.000Z"));
 
-            show!.Airs.Should().NotBeNull();
-            show!.Airs!.Day.Should().Be(TraktDayOfWeek.Sunday);
+            show!.Airs.ShouldNotBeNull();
+            show!.Airs!.Day.ShouldBe(TraktDayOfWeek.Sunday);
 #if NET7_0_OR_GREATER
-            show!.Airs!.Time.Should().Be(TestUtility.ParseTime("21:00"));
+            show!.Airs!.Time.ShouldBe(TestUtility.ParseTime("21:00"));
 #else
-            show!.Airs!.Time.Should().Be("21:00");
+            show!.Airs!.Time.ShouldBe("21:00");
 #endif
-            show!.Airs!.Timezone.Should().Be("America/New_York");
+            show!.Airs!.Timezone.ShouldBe("America/New_York");
 
-            show!.Runtime.Should().Be(57U);
-            show!.Certification.Should().Be("TV-MA");
-            show!.Network.Should().Be("HBO");
-            show!.Country.Should().Be("us");
-            show!.Trailer.Should().Be("https://youtube.com/watch?v=KPLWWIOCOOQ");
-            show!.Homepage.Should().Be("http://www.hbo.com/game-of-thrones");
-            show!.Rating.Should().Be(8.933884809616755f);
-            show!.Votes.Should().Be(129108U);
-            show!.CommentCount.Should().Be(414U);
-            show!.Language.Should().Be("en");
-            show!.Languages.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["en"]);
+            show!.Runtime.ShouldBe(57U);
+            show!.Certification.ShouldBe("TV-MA");
+            show!.Network.ShouldBe("HBO");
+            show!.Country.ShouldBe("us");
+            show!.Trailer.ShouldBe("https://youtube.com/watch?v=KPLWWIOCOOQ");
+            show!.Homepage.ShouldBe("http://www.hbo.com/game-of-thrones");
+            show!.Rating.ShouldBe(8.933884809616755f);
+            show!.Votes.ShouldBe(129108U);
+            show!.CommentCount.ShouldBe(414U);
+            show!.Language.ShouldBe("en");
+            show!.Languages.ShouldNotBeNull();
+            show!.Languages!.Count.ShouldBe(1);
+            show!.Languages!.ShouldBe(["en"], Case.Sensitive);
 
-            show!.AvailableTranslations.Should().NotBeNull().And.HaveCount(48).And.BeEquivalentTo([
+            show!.AvailableTranslations.ShouldNotBeNull();
+            show!.AvailableTranslations!.Count.ShouldBe(48);
+            show!.AvailableTranslations!.ShouldBe([
                 "ar", "be", "bg", "bs", "ca", "cs", "da", "de", "el", "en", "eo", "es", "et", "fa", "fi",
                 "fr", "he", "hr", "hu", "id", "is", "it", "ja", "ka", "ko", "lb", "lt", "lv", "ml", "nl",
                 "no", "pl", "pt", "ro", "ru", "sk", "sl", "so", "sr", "sv", "ta", "th", "tr", "tw", "uk",
                 "uz", "vi", "zh"
-            ]);
+            ], Case.Sensitive);
 
-            show!.Genres.Should().NotBeNull().And.HaveCount(4).And.BeEquivalentTo([
+            show!.Genres.ShouldNotBeNull();
+            show!.Genres!.Count.ShouldBe(4);
+            show!.Genres!.ShouldBe([
                 "fantasy", "drama", "action", "adventure"
-            ]);
+            ], Case.Sensitive);
 
-            show!.AiredEpisodes.Should().Be(73U);
-            show!.Status.Should().Be(TraktShowStatus.Ended);
+            show!.AiredEpisodes.ShouldBe(73U);
+            show!.Status.ShouldBe(TraktShowStatus.Ended);
         }
     }
 }

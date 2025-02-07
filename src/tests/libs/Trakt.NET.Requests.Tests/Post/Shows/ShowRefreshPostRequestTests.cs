@@ -18,28 +18,28 @@ namespace TraktNET.PostRequests.Shows
             };
 
             showRefreshPostRequest.BuildUri();
-            showRefreshPostRequest.RequestUri.Should().Be(new Uri(URIPath, UriKind.Relative));
+            showRefreshPostRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowRefreshPostRequestHasValidOAuthRequirement()
         {
             var showRefreshPostRequest = new ShowRefreshPostRequest { Id = ShowID };
-            showRefreshPostRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.Required);
+            showRefreshPostRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestShowRefreshPostRequestIsPostRequest()
         {
             var showRefreshPostRequest = new ShowRefreshPostRequest { Id = ShowID };
-            showRefreshPostRequest.Method.Should().Be(HttpMethod.Post);
+            showRefreshPostRequest.Method.ShouldBe(HttpMethod.Post);
         }
 
         [Fact]
         public void TestShowRefreshPostRequestHasCorrectRequestObjectType()
         {
             var showRefreshPostRequest = new ShowRefreshPostRequest { Id = ShowID };
-            showRefreshPostRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showRefreshPostRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -48,17 +48,17 @@ namespace TraktNET.PostRequests.Shows
             var showRefreshPostRequest = new ShowRefreshPostRequest { Id = string.Empty };
 
             Action act = () => showRefreshPostRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showRefreshPostRequest = new ShowRefreshPostRequest { Id = "  " };
 
             act = () => showRefreshPostRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showRefreshPostRequest = new ShowRefreshPostRequest { Id = "id with spaces" };
 
             act = () => showRefreshPostRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

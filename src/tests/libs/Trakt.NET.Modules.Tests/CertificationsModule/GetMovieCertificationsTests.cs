@@ -14,25 +14,25 @@ namespace TraktNET.CertificationsModule
 
             TraktResponse<TraktCertifications> response = await client.Certifications.GetMovieCertificationsAsync();
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
 
             TraktCertifications certifications = response.Content!;
 
             TraktCertification certification = certifications!.US![0];
 
-            certification.Should().NotBeNull();
-            certification.Name.Should().Be("G");
+            certification.ShouldNotBeNull();
+            certification.Name.ShouldBe("G");
 
             certification = certifications!.US![1];
 
-            certification.Should().NotBeNull();
-            certification.Name.Should().Be("PG");
+            certification.ShouldNotBeNull();
+            certification.Name.ShouldBe("PG");
         }
 
         [Theory]
@@ -71,7 +71,7 @@ namespace TraktNET.CertificationsModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
     }

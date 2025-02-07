@@ -7,7 +7,7 @@
         {
             var checkinErrorResponse = new TraktCheckinErrorResponse();
 
-            checkinErrorResponse.ExpiresAt.Should().BeNull();
+            checkinErrorResponse.ExpiresAt.ShouldBeNull();
         }
 
         [Fact]
@@ -15,9 +15,9 @@
         {
             TraktCheckinErrorResponse? checkinErrorResponse = await TestUtility.DeserializeJsonAsync<TraktCheckinErrorResponse>("Checkin\\errorresponse.json");
 
-            checkinErrorResponse.Should().NotBeNull();
+            checkinErrorResponse.ShouldNotBeNull();
 
-            checkinErrorResponse!.ExpiresAt.Should().Be(TestUtility.ParseUTCDateTime("2024-08-04T22:21:29.000Z"));
+            checkinErrorResponse!.ExpiresAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-08-04T22:21:29.000Z"));
         }
     }
 }

@@ -5,34 +5,34 @@
         [Fact]
         public void TestTraktMediaHDRToJson()
         {
-            TraktMediaHDR.Unspecified.ToJson().Should().BeNull();
-            TraktMediaHDR.DolbyVision.ToJson().Should().Be("dolby_vision");
-            TraktMediaHDR.HDR10.ToJson().Should().Be("hdr10");
-            TraktMediaHDR.HDR10Plus.ToJson().Should().Be("hdr10_plus");
-            TraktMediaHDR.HLG.ToJson().Should().Be("hlg");
+            TraktMediaHDR.Unspecified.ToJson().ShouldBeNull();
+            TraktMediaHDR.DolbyVision.ToJson().ShouldBe("dolby_vision");
+            TraktMediaHDR.HDR10.ToJson().ShouldBe("hdr10");
+            TraktMediaHDR.HDR10Plus.ToJson().ShouldBe("hdr10_plus");
+            TraktMediaHDR.HLG.ToJson().ShouldBe("hlg");
         }
 
         [Fact]
         public void TestTraktMediaHDRFromJson()
         {
-            "unspecified".ToTraktMediaHDR().Should().Be(TraktMediaHDR.Unspecified);
-            "dolby_vision".ToTraktMediaHDR().Should().Be(TraktMediaHDR.DolbyVision);
-            "hdr10".ToTraktMediaHDR().Should().Be(TraktMediaHDR.HDR10);
-            "hdr10_plus".ToTraktMediaHDR().Should().Be(TraktMediaHDR.HDR10Plus);
-            "hlg".ToTraktMediaHDR().Should().Be(TraktMediaHDR.HLG);
+            "unspecified".ToTraktMediaHDR().ShouldBe(TraktMediaHDR.Unspecified);
+            "dolby_vision".ToTraktMediaHDR().ShouldBe(TraktMediaHDR.DolbyVision);
+            "hdr10".ToTraktMediaHDR().ShouldBe(TraktMediaHDR.HDR10);
+            "hdr10_plus".ToTraktMediaHDR().ShouldBe(TraktMediaHDR.HDR10Plus);
+            "hlg".ToTraktMediaHDR().ShouldBe(TraktMediaHDR.HLG);
 
             string? nullValue = null;
-            nullValue.ToTraktMediaHDR().Should().Be(TraktMediaHDR.Unspecified);
+            nullValue.ToTraktMediaHDR().ShouldBe(TraktMediaHDR.Unspecified);
         }
 
         [Fact]
         public void TestTraktMediaHDRDisplayName()
         {
-            TraktMediaHDR.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktMediaHDR.DolbyVision.DisplayName().Should().Be("Dolby Vision");
-            TraktMediaHDR.HDR10.DisplayName().Should().Be("HDR10");
-            TraktMediaHDR.HDR10Plus.DisplayName().Should().Be("HDR10 Plus");
-            TraktMediaHDR.HLG.DisplayName().Should().Be("HLG");
+            TraktMediaHDR.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktMediaHDR.DolbyVision.DisplayName().ShouldBe("Dolby Vision");
+            TraktMediaHDR.HDR10.DisplayName().ShouldBe("HDR10");
+            TraktMediaHDR.HDR10Plus.DisplayName().ShouldBe("HDR10 Plus");
+            TraktMediaHDR.HLG.DisplayName().ShouldBe("HLG");
         }
     }
 }

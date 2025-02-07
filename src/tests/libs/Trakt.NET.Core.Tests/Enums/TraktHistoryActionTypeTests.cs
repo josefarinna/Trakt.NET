@@ -5,31 +5,31 @@
         [Fact]
         public void TestTraktHistoryActionTypeToJson()
         {
-            TraktHistoryActionType.Unspecified.ToJson().Should().BeNull();
-            TraktHistoryActionType.Scrobble.ToJson().Should().Be("scrobble");
-            TraktHistoryActionType.Checkin.ToJson().Should().Be("checkin");
-            TraktHistoryActionType.Watch.ToJson().Should().Be("watch");
+            TraktHistoryActionType.Unspecified.ToJson().ShouldBeNull();
+            TraktHistoryActionType.Scrobble.ToJson().ShouldBe("scrobble");
+            TraktHistoryActionType.Checkin.ToJson().ShouldBe("checkin");
+            TraktHistoryActionType.Watch.ToJson().ShouldBe("watch");
         }
 
         [Fact]
         public void TestTraktHistoryActionTypeFromJson()
         {
-            "unspecified".ToTraktHistoryActionType().Should().Be(TraktHistoryActionType.Unspecified);
-            "scrobble".ToTraktHistoryActionType().Should().Be(TraktHistoryActionType.Scrobble);
-            "checkin".ToTraktHistoryActionType().Should().Be(TraktHistoryActionType.Checkin);
-            "watch".ToTraktHistoryActionType().Should().Be(TraktHistoryActionType.Watch);
+            "unspecified".ToTraktHistoryActionType().ShouldBe(TraktHistoryActionType.Unspecified);
+            "scrobble".ToTraktHistoryActionType().ShouldBe(TraktHistoryActionType.Scrobble);
+            "checkin".ToTraktHistoryActionType().ShouldBe(TraktHistoryActionType.Checkin);
+            "watch".ToTraktHistoryActionType().ShouldBe(TraktHistoryActionType.Watch);
 
             string? nullValue = null;
-            nullValue.ToTraktHistoryActionType().Should().Be(TraktHistoryActionType.Unspecified);
+            nullValue.ToTraktHistoryActionType().ShouldBe(TraktHistoryActionType.Unspecified);
         }
 
         [Fact]
         public void TestTraktHistoryActionTypeDisplayName()
         {
-            TraktHistoryActionType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktHistoryActionType.Scrobble.DisplayName().Should().Be("Scrobble");
-            TraktHistoryActionType.Checkin.DisplayName().Should().Be("Checkin");
-            TraktHistoryActionType.Watch.DisplayName().Should().Be("Watch");
+            TraktHistoryActionType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktHistoryActionType.Scrobble.DisplayName().ShouldBe("Scrobble");
+            TraktHistoryActionType.Checkin.DisplayName().ShouldBe("Checkin");
+            TraktHistoryActionType.Watch.DisplayName().ShouldBe("Watch");
         }
     }
 }

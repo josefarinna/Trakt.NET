@@ -5,37 +5,37 @@
         [Fact]
         public void TestTraktRatingsItemTypeToJson()
         {
-            TraktRatingsItemType.Unspecified.ToJson().Should().BeNull();
-            TraktRatingsItemType.Movie.ToJson().Should().Be("movie");
-            TraktRatingsItemType.Show.ToJson().Should().Be("show");
-            TraktRatingsItemType.Season.ToJson().Should().Be("season");
-            TraktRatingsItemType.Episode.ToJson().Should().Be("episode");
-            TraktRatingsItemType.All.ToJson().Should().Be("all");
+            TraktRatingsItemType.Unspecified.ToJson().ShouldBeNull();
+            TraktRatingsItemType.Movie.ToJson().ShouldBe("movie");
+            TraktRatingsItemType.Show.ToJson().ShouldBe("show");
+            TraktRatingsItemType.Season.ToJson().ShouldBe("season");
+            TraktRatingsItemType.Episode.ToJson().ShouldBe("episode");
+            TraktRatingsItemType.All.ToJson().ShouldBe("all");
         }
 
         [Fact]
         public void TestTraktRatingsItemTypeFromJson()
         {
-            "unspecified".ToTraktRatingsItemType().Should().Be(TraktRatingsItemType.Unspecified);
-            "movie".ToTraktRatingsItemType().Should().Be(TraktRatingsItemType.Movie);
-            "show".ToTraktRatingsItemType().Should().Be(TraktRatingsItemType.Show);
-            "season".ToTraktRatingsItemType().Should().Be(TraktRatingsItemType.Season);
-            "episode".ToTraktRatingsItemType().Should().Be(TraktRatingsItemType.Episode);
-            "all".ToTraktRatingsItemType().Should().Be(TraktRatingsItemType.All);
+            "unspecified".ToTraktRatingsItemType().ShouldBe(TraktRatingsItemType.Unspecified);
+            "movie".ToTraktRatingsItemType().ShouldBe(TraktRatingsItemType.Movie);
+            "show".ToTraktRatingsItemType().ShouldBe(TraktRatingsItemType.Show);
+            "season".ToTraktRatingsItemType().ShouldBe(TraktRatingsItemType.Season);
+            "episode".ToTraktRatingsItemType().ShouldBe(TraktRatingsItemType.Episode);
+            "all".ToTraktRatingsItemType().ShouldBe(TraktRatingsItemType.All);
 
             string? nullValue = null;
-            nullValue.ToTraktRatingsItemType().Should().Be(TraktRatingsItemType.Unspecified);
+            nullValue.ToTraktRatingsItemType().ShouldBe(TraktRatingsItemType.Unspecified);
         }
 
         [Fact]
         public void TestTraktRatingsItemTypeDisplayName()
         {
-            TraktRatingsItemType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktRatingsItemType.Movie.DisplayName().Should().Be("Movie");
-            TraktRatingsItemType.Show.DisplayName().Should().Be("Show");
-            TraktRatingsItemType.Season.DisplayName().Should().Be("Season");
-            TraktRatingsItemType.Episode.DisplayName().Should().Be("Episode");
-            TraktRatingsItemType.All.DisplayName().Should().Be("All");
+            TraktRatingsItemType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktRatingsItemType.Movie.DisplayName().ShouldBe("Movie");
+            TraktRatingsItemType.Show.DisplayName().ShouldBe("Show");
+            TraktRatingsItemType.Season.DisplayName().ShouldBe("Season");
+            TraktRatingsItemType.Episode.DisplayName().ShouldBe("Episode");
+            TraktRatingsItemType.All.DisplayName().ShouldBe("All");
         }
     }
 }

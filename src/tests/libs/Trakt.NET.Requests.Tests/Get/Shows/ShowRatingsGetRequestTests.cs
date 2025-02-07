@@ -15,28 +15,28 @@ namespace TraktNET.GetRequests.Shows
             var showRatingsGetRequest = new ShowRatingsGetRequest { Id = ShowID };
 
             showRatingsGetRequest.BuildUri();
-            showRatingsGetRequest.RequestUri.Should().Be(new Uri(URIPath, UriKind.Relative));
+            showRatingsGetRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowRatingsGetRequestHasValidOAuthRequirement()
         {
             var showRatingsGetRequest = new ShowRatingsGetRequest { Id = ShowID };
-            showRatingsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            showRatingsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestShowRatingsGetRequestIsGetRequest()
         {
             var showRatingsGetRequest = new ShowRatingsGetRequest { Id = ShowID };
-            showRatingsGetRequest.Method.Should().Be(HttpMethod.Get);
+            showRatingsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowRatingsGetRequestHasCorrectRequestObjectType()
         {
             var showRatingsGetRequest = new ShowRatingsGetRequest { Id = ShowID };
-            showRatingsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showRatingsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -45,17 +45,17 @@ namespace TraktNET.GetRequests.Shows
             var showRatingsGetRequest = new ShowRatingsGetRequest { Id = string.Empty };
 
             Action act = () => showRatingsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showRatingsGetRequest = new ShowRatingsGetRequest { Id = "  " };
 
             act = () => showRatingsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showRatingsGetRequest = new ShowRatingsGetRequest { Id = "id with spaces" };
 
             act = () => showRatingsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

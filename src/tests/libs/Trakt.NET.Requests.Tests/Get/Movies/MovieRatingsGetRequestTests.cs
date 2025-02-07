@@ -15,28 +15,28 @@ namespace TraktNET.GetRequests.Movies
             var movieRatingsGetRequest = new MovieRatingsGetRequest { Id = MovieID };
 
             movieRatingsGetRequest.BuildUri();
-            movieRatingsGetRequest.RequestUri.Should().Be(new Uri(URIPath, UriKind.Relative));
+            movieRatingsGetRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestMovieRatingsGetRequestHasValidOAuthRequirement()
         {
             var movieRatingsGetRequest = new MovieRatingsGetRequest { Id = MovieID };
-            movieRatingsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            movieRatingsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestMovieRatingsGetRequestIsGetRequest()
         {
             var movieRatingsGetRequest = new MovieRatingsGetRequest { Id = MovieID };
-            movieRatingsGetRequest.Method.Should().Be(HttpMethod.Get);
+            movieRatingsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestMovieRatingsGetRequestHasCorrectRequestObjectType()
         {
             var movieRatingsGetRequest = new MovieRatingsGetRequest { Id = MovieID };
-            movieRatingsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Movie);
+            movieRatingsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Movie);
         }
 
         [Fact]
@@ -45,17 +45,17 @@ namespace TraktNET.GetRequests.Movies
             var movieRatingsGetRequest = new MovieRatingsGetRequest { Id = string.Empty };
 
             Action act = () => movieRatingsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             movieRatingsGetRequest = new MovieRatingsGetRequest { Id = "  " };
 
             act = () => movieRatingsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             movieRatingsGetRequest = new MovieRatingsGetRequest { Id = "id with spaces" };
 
             act = () => movieRatingsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

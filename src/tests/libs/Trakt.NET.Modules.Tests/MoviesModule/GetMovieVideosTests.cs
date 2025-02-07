@@ -17,26 +17,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieID);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktVideo> movieVideos = response.Content!;
 
             TraktVideo movieVideo = movieVideos[0];
 
-            movieVideo.Title.Should().Be("Disney+ Promo");
-            movieVideo.Url.Should().Be("https://youtube.com/watch?v=3RLT34SwtQc");
+            movieVideo.Title.ShouldBe("Disney+ Promo");
+            movieVideo.Url.ShouldBe("https://youtube.com/watch?v=3RLT34SwtQc");
 
             movieVideo = movieVideos[1];
 
-            movieVideo.Title.Should().Be("Now Streaming on Disney+");
-            movieVideo.Url.Should().Be("https://youtube.com/watch?v=D3NpwOB69Ys");
+            movieVideo.Title.ShouldBe("Now Streaming on Disney+");
+            movieVideo.Url.ShouldBe("https://youtube.com/watch?v=D3NpwOB69Ys");
         }
 
         [Fact]
@@ -47,26 +47,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieSlug);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktVideo> movieVideos = response.Content!;
 
             TraktVideo movieVideo = movieVideos[0];
 
-            movieVideo.Title.Should().Be("Disney+ Promo");
-            movieVideo.Url.Should().Be("https://youtube.com/watch?v=3RLT34SwtQc");
+            movieVideo.Title.ShouldBe("Disney+ Promo");
+            movieVideo.Url.ShouldBe("https://youtube.com/watch?v=3RLT34SwtQc");
 
             movieVideo = movieVideos[1];
 
-            movieVideo.Title.Should().Be("Now Streaming on Disney+");
-            movieVideo.Url.Should().Be("https://youtube.com/watch?v=D3NpwOB69Ys");
+            movieVideo.Title.ShouldBe("Now Streaming on Disney+");
+            movieVideo.Url.ShouldBe("https://youtube.com/watch?v=D3NpwOB69Ys");
         }
 
         [Fact]
@@ -77,26 +77,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieIDs);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktVideo> movieVideos = response.Content!;
 
             TraktVideo movieVideo = movieVideos[0];
 
-            movieVideo.Title.Should().Be("Disney+ Promo");
-            movieVideo.Url.Should().Be("https://youtube.com/watch?v=3RLT34SwtQc");
+            movieVideo.Title.ShouldBe("Disney+ Promo");
+            movieVideo.Url.ShouldBe("https://youtube.com/watch?v=3RLT34SwtQc");
 
             movieVideo = movieVideos[1];
 
-            movieVideo.Title.Should().Be("Now Streaming on Disney+");
-            movieVideo.Url.Should().Be("https://youtube.com/watch?v=D3NpwOB69Ys");
+            movieVideo.Title.ShouldBe("Now Streaming on Disney+");
+            movieVideo.Url.ShouldBe("https://youtube.com/watch?v=D3NpwOB69Ys");
         }
 
         [Theory]
@@ -136,7 +136,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -177,7 +177,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -218,7 +218,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -231,12 +231,12 @@ namespace TraktNET.MoviesModule
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Movies.GetMovieVideosAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMovieVideosAsync(movieIDs);
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

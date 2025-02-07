@@ -7,28 +7,28 @@
         {
             var updatedMovie = new TraktUpdatedMovie();
 
-            updatedMovie.Title.Should().BeNull();
-            updatedMovie.Year.Should().BeNull();
-            updatedMovie.IDs.Should().BeNull();
-            updatedMovie.Tagline.Should().BeNull();
-            updatedMovie.Overview.Should().BeNull();
-            updatedMovie.Released.Should().BeNull();
-            updatedMovie.Runtime.Should().BeNull();
-            updatedMovie.Country.Should().BeNull();
-            updatedMovie.Trailer.Should().BeNull();
-            updatedMovie.Homepage.Should().BeNull();
-            updatedMovie.Status.Should().BeNull();
-            updatedMovie.Rating.Should().BeNull();
-            updatedMovie.Votes.Should().BeNull();
-            updatedMovie.CommentCount.Should().BeNull();
-            updatedMovie.UpdatedAt.Should().BeNull();
-            updatedMovie.Language.Should().BeNull();
-            updatedMovie.Languages.Should().BeNull();
-            updatedMovie.AvailableTranslations.Should().BeNull();
-            updatedMovie.Genres.Should().BeNull();
-            updatedMovie.Certification.Should().BeNull();
+            updatedMovie.Title.ShouldBeNull();
+            updatedMovie.Year.ShouldBeNull();
+            updatedMovie.IDs.ShouldBeNull();
+            updatedMovie.Tagline.ShouldBeNull();
+            updatedMovie.Overview.ShouldBeNull();
+            updatedMovie.Released.ShouldBeNull();
+            updatedMovie.Runtime.ShouldBeNull();
+            updatedMovie.Country.ShouldBeNull();
+            updatedMovie.Trailer.ShouldBeNull();
+            updatedMovie.Homepage.ShouldBeNull();
+            updatedMovie.Status.ShouldBeNull();
+            updatedMovie.Rating.ShouldBeNull();
+            updatedMovie.Votes.ShouldBeNull();
+            updatedMovie.CommentCount.ShouldBeNull();
+            updatedMovie.UpdatedAt.ShouldBeNull();
+            updatedMovie.Language.ShouldBeNull();
+            updatedMovie.Languages.ShouldBeNull();
+            updatedMovie.AvailableTranslations.ShouldBeNull();
+            updatedMovie.Genres.ShouldBeNull();
+            updatedMovie.Certification.ShouldBeNull();
 
-            updatedMovie.ToString().Should().BeEmpty();
+            updatedMovie.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -36,21 +36,21 @@
         {
             TraktUpdatedMovie? updatedMovie = await TestUtility.DeserializeJsonAsync<TraktUpdatedMovie>("Movies\\updatedmovie_minimal.json");
 
-            updatedMovie.Should().NotBeNull();
+            updatedMovie.ShouldNotBeNull();
 
-            updatedMovie!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
+            updatedMovie!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
 
-            updatedMovie!.Title.Should().Be("Second Life");
-            updatedMovie!.Year.Should().Be(2024U);
+            updatedMovie!.Title.ShouldBe("Second Life");
+            updatedMovie!.Year.ShouldBe(2024U);
 
-            updatedMovie!.IDs!.Trakt.Should().Be(1110139U);
-            updatedMovie!.IDs!.Slug.Should().Be("second-life-2024-1110139");
-            updatedMovie!.IDs!.IMDB.Should().Be("tt33111253");
-            updatedMovie!.IDs!.TMDB.Should().Be(1329643U);
-            updatedMovie!.IDs!.HasAnyID.Should().BeTrue();
-            updatedMovie!.IDs!.BestID.Should().Be("second-life-2024-1110139");
+            updatedMovie!.IDs!.Trakt.ShouldBe(1110139U);
+            updatedMovie!.IDs!.Slug.ShouldBe("second-life-2024-1110139");
+            updatedMovie!.IDs!.IMDB.ShouldBe("tt33111253");
+            updatedMovie!.IDs!.TMDB.ShouldBe(1329643U);
+            updatedMovie!.IDs!.HasAnyID.ShouldBe(true);
+            updatedMovie!.IDs!.BestID.ShouldBe("second-life-2024-1110139");
 
-            updatedMovie!.ToString().Should().Be("Second Life (2024)");
+            updatedMovie!.ToString().ShouldBe("Second Life (2024)");
         }
 
         [Fact]
@@ -58,44 +58,48 @@
         {
             TraktUpdatedMovie? updatedMovie = await TestUtility.DeserializeJsonAsync<TraktUpdatedMovie>("Movies\\updatedmovie.json");
 
-            updatedMovie.Should().NotBeNull();
+            updatedMovie.ShouldNotBeNull();
 
-            updatedMovie!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
+            updatedMovie!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
 
-            updatedMovie!.Title.Should().Be("Second Life");
-            updatedMovie!.Year.Should().Be(2024U);
+            updatedMovie!.Title.ShouldBe("Second Life");
+            updatedMovie!.Year.ShouldBe(2024U);
 
-            updatedMovie!.IDs!.Trakt.Should().Be(1110139U);
-            updatedMovie!.IDs!.Slug.Should().Be("second-life-2024-1110139");
-            updatedMovie!.IDs!.IMDB.Should().Be("tt33111253");
-            updatedMovie!.IDs!.TMDB.Should().Be(1329643U);
-            updatedMovie!.IDs!.HasAnyID.Should().BeTrue();
-            updatedMovie!.IDs!.BestID.Should().Be("second-life-2024-1110139");
+            updatedMovie!.IDs!.Trakt.ShouldBe(1110139U);
+            updatedMovie!.IDs!.Slug.ShouldBe("second-life-2024-1110139");
+            updatedMovie!.IDs!.IMDB.ShouldBe("tt33111253");
+            updatedMovie!.IDs!.TMDB.ShouldBe(1329643U);
+            updatedMovie!.IDs!.HasAnyID.ShouldBe(true);
+            updatedMovie!.IDs!.BestID.ShouldBe("second-life-2024-1110139");
 
-            updatedMovie!.ToString().Should().Be("Second Life (2024)");
+            updatedMovie!.ToString().ShouldBe("Second Life (2024)");
 
-            updatedMovie!.Tagline.Should().BeEmpty();
-            updatedMovie!.Overview.Should().Be("28 years ago, Liang gives birth to a boy named \"Little Bean Jelly\" in prison.");
-            updatedMovie!.Released.Should().BeNull();
-            updatedMovie!.Runtime.Should().Be(90U);
-            updatedMovie!.Country.Should().Be("cn");
-            updatedMovie!.Trailer.Should().Be("https://youtube.com/watch?v=m3SX4GyJn_M");
-            updatedMovie!.Homepage.Should().Be("http://www.iq.com/album/second-life-2024-xxlxrt2rs0");
-            updatedMovie!.Status.Should().Be(TraktMovieStatus.Released);
-            updatedMovie!.Rating.Should().Be(0.0f);
-            updatedMovie!.Votes.Should().Be(0U);
-            updatedMovie!.CommentCount.Should().Be(0U);
-            updatedMovie!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
-            updatedMovie!.Language.Should().Be("zh");
-            updatedMovie!.Languages.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["zh"]);
+            updatedMovie!.Tagline.ShouldBeEmpty();
+            updatedMovie!.Overview.ShouldBe("28 years ago, Liang gives birth to a boy named \"Little Bean Jelly\" in prison.");
+            updatedMovie!.Released.ShouldBeNull();
+            updatedMovie!.Runtime.ShouldBe(90U);
+            updatedMovie!.Country.ShouldBe("cn");
+            updatedMovie!.Trailer.ShouldBe("https://youtube.com/watch?v=m3SX4GyJn_M");
+            updatedMovie!.Homepage.ShouldBe("http://www.iq.com/album/second-life-2024-xxlxrt2rs0");
+            updatedMovie!.Status.ShouldBe(TraktMovieStatus.Released);
+            updatedMovie!.Rating.ShouldBe(0.0f);
+            updatedMovie!.Votes.ShouldBe(0U);
+            updatedMovie!.CommentCount.ShouldBe(0U);
+            updatedMovie!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
+            updatedMovie!.Language.ShouldBe("zh");
+            updatedMovie!.Languages.ShouldNotBeNull();
+            updatedMovie!.Languages!.Count.ShouldBe(1);
+            updatedMovie!.Languages!.ShouldBe(["zh"], Case.Sensitive);
 
-            updatedMovie!.AvailableTranslations.Should().BeEmpty();
+            updatedMovie!.AvailableTranslations.ShouldBeEmpty();
 
-            updatedMovie!.Genres.Should().NotBeNull().And.HaveCount(2).And.BeEquivalentTo([
+            updatedMovie!.Genres.ShouldNotBeNull();
+            updatedMovie!.Genres!.Count.ShouldBe(2);
+            updatedMovie!.Genres!.ShouldBe([
                 "action", "comedy"
-            ]);
+            ], Case.Sensitive);
 
-            updatedMovie!.Certification.Should().BeNull();
+            updatedMovie!.Certification.ShouldBeNull();
         }
 
         [Fact]
@@ -103,45 +107,46 @@
         {
             IReadOnlyList<TraktUpdatedMovie>? updatedMovies = await TestUtility.DeserializeJsonListAsync<TraktUpdatedMovie>("Movies\\updatedmovies_minimal.json");
 
-            updatedMovies.Should().NotBeNull().And.HaveCount(2);
+            updatedMovies.ShouldNotBeNull();
+            updatedMovies!.Count.ShouldBe(2);
 
             TraktUpdatedMovie updatedMovie = updatedMovies![0];
 
-            updatedMovie.Should().NotBeNull();
+            updatedMovie.ShouldNotBeNull();
 
-            updatedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
+            updatedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
 
-            updatedMovie.Title.Should().Be("Second Life");
-            updatedMovie.Year.Should().Be(2024U);
+            updatedMovie.Title.ShouldBe("Second Life");
+            updatedMovie.Year.ShouldBe(2024U);
 
-            updatedMovie.IDs!.Trakt.Should().Be(1110139U);
-            updatedMovie.IDs!.Slug.Should().Be("second-life-2024-1110139");
-            updatedMovie.IDs!.IMDB.Should().Be("tt33111253");
-            updatedMovie.IDs!.TMDB.Should().Be(1329643U);
-            updatedMovie.IDs!.HasAnyID.Should().BeTrue();
-            updatedMovie.IDs!.BestID.Should().Be("second-life-2024-1110139");
+            updatedMovie.IDs!.Trakt.ShouldBe(1110139U);
+            updatedMovie.IDs!.Slug.ShouldBe("second-life-2024-1110139");
+            updatedMovie.IDs!.IMDB.ShouldBe("tt33111253");
+            updatedMovie.IDs!.TMDB.ShouldBe(1329643U);
+            updatedMovie.IDs!.HasAnyID.ShouldBe(true);
+            updatedMovie.IDs!.BestID.ShouldBe("second-life-2024-1110139");
 
-            updatedMovie.ToString().Should().Be("Second Life (2024)");
+            updatedMovie.ToString().ShouldBe("Second Life (2024)");
 
             // --------------------------------------------------------------------------------------------
 
             updatedMovie = updatedMovies![1];
 
-            updatedMovie.Should().NotBeNull();
+            updatedMovie.ShouldNotBeNull();
 
-            updatedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-23T01:58:06.000Z"));
+            updatedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T01:58:06.000Z"));
 
-            updatedMovie.Title.Should().Be("Milk & Serial");
-            updatedMovie.Year.Should().Be(2024U);
+            updatedMovie.Title.ShouldBe("Milk & Serial");
+            updatedMovie.Year.ShouldBe(2024U);
 
-            updatedMovie.IDs!.Trakt.Should().Be(957899U);
-            updatedMovie.IDs!.Slug.Should().Be("milk-serial-2024");
-            updatedMovie.IDs!.IMDB.Should().Be("tt22075376");
-            updatedMovie.IDs!.TMDB.Should().Be(1187782U);
-            updatedMovie.IDs!.HasAnyID.Should().BeTrue();
-            updatedMovie.IDs!.BestID.Should().Be("milk-serial-2024");
+            updatedMovie.IDs!.Trakt.ShouldBe(957899U);
+            updatedMovie.IDs!.Slug.ShouldBe("milk-serial-2024");
+            updatedMovie.IDs!.IMDB.ShouldBe("tt22075376");
+            updatedMovie.IDs!.TMDB.ShouldBe(1187782U);
+            updatedMovie.IDs!.HasAnyID.ShouldBe(true);
+            updatedMovie.IDs!.BestID.ShouldBe("milk-serial-2024");
 
-            updatedMovie.ToString().Should().Be("Milk & Serial (2024)");
+            updatedMovie.ToString().ShouldBe("Milk & Serial (2024)");
         }
 
         [Fact]
@@ -149,98 +154,109 @@
         {
             IReadOnlyList<TraktUpdatedMovie>? updatedMovies = await TestUtility.DeserializeJsonListAsync<TraktUpdatedMovie>("Movies\\updatedmovies.json");
 
-            updatedMovies.Should().NotBeNull().And.HaveCount(2);
+            updatedMovies.ShouldNotBeNull();
+            updatedMovies!.Count.ShouldBe(2);
 
             TraktUpdatedMovie updatedMovie = updatedMovies![0];
 
-            updatedMovie.Should().NotBeNull();
+            updatedMovie.ShouldNotBeNull();
 
-            updatedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
+            updatedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
 
-            updatedMovie.Title.Should().Be("Second Life");
-            updatedMovie.Year.Should().Be(2024U);
+            updatedMovie.Title.ShouldBe("Second Life");
+            updatedMovie.Year.ShouldBe(2024U);
 
-            updatedMovie.IDs!.Trakt.Should().Be(1110139U);
-            updatedMovie.IDs!.Slug.Should().Be("second-life-2024-1110139");
-            updatedMovie.IDs!.IMDB.Should().Be("tt33111253");
-            updatedMovie.IDs!.TMDB.Should().Be(1329643U);
-            updatedMovie.IDs!.HasAnyID.Should().BeTrue();
-            updatedMovie.IDs!.BestID.Should().Be("second-life-2024-1110139");
+            updatedMovie.IDs!.Trakt.ShouldBe(1110139U);
+            updatedMovie.IDs!.Slug.ShouldBe("second-life-2024-1110139");
+            updatedMovie.IDs!.IMDB.ShouldBe("tt33111253");
+            updatedMovie.IDs!.TMDB.ShouldBe(1329643U);
+            updatedMovie.IDs!.HasAnyID.ShouldBe(true);
+            updatedMovie.IDs!.BestID.ShouldBe("second-life-2024-1110139");
 
-            updatedMovie.ToString().Should().Be("Second Life (2024)");
+            updatedMovie.ToString().ShouldBe("Second Life (2024)");
 
-            updatedMovie.Tagline.Should().BeEmpty();
-            updatedMovie.Overview.Should().Be("28 years ago, Liang gives birth to a boy named \"Little Bean Jelly\" in prison.");
-            updatedMovie.Released.Should().BeNull();
-            updatedMovie.Runtime.Should().Be(90U);
-            updatedMovie.Country.Should().Be("cn");
-            updatedMovie.Trailer.Should().Be("https://youtube.com/watch?v=m3SX4GyJn_M");
-            updatedMovie.Homepage.Should().Be("http://www.iq.com/album/second-life-2024-xxlxrt2rs0");
-            updatedMovie.Status.Should().Be(TraktMovieStatus.Released);
-            updatedMovie.Rating.Should().Be(0.0f);
-            updatedMovie.Votes.Should().Be(0U);
-            updatedMovie.CommentCount.Should().Be(0U);
-            updatedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
-            updatedMovie.Language.Should().Be("zh");
-            updatedMovie.Languages.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["zh"]);
+            updatedMovie.Tagline.ShouldBeEmpty();
+            updatedMovie.Overview.ShouldBe("28 years ago, Liang gives birth to a boy named \"Little Bean Jelly\" in prison.");
+            updatedMovie.Released.ShouldBeNull();
+            updatedMovie.Runtime.ShouldBe(90U);
+            updatedMovie.Country.ShouldBe("cn");
+            updatedMovie.Trailer.ShouldBe("https://youtube.com/watch?v=m3SX4GyJn_M");
+            updatedMovie.Homepage.ShouldBe("http://www.iq.com/album/second-life-2024-xxlxrt2rs0");
+            updatedMovie.Status.ShouldBe(TraktMovieStatus.Released);
+            updatedMovie.Rating.ShouldBe(0.0f);
+            updatedMovie.Votes.ShouldBe(0U);
+            updatedMovie.CommentCount.ShouldBe(0U);
+            updatedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T01:16:57.000Z"));
+            updatedMovie.Language.ShouldBe("zh");
+            updatedMovie.Languages.ShouldNotBeNull();
+            updatedMovie.Languages!.Count.ShouldBe(1);
+            updatedMovie.Languages!.ShouldBe(["zh"], Case.Sensitive);
 
-            updatedMovie.AvailableTranslations.Should().BeEmpty();
+            updatedMovie.AvailableTranslations.ShouldBeEmpty();
 
-            updatedMovie.Genres.Should().NotBeNull().And.HaveCount(2).And.BeEquivalentTo([
+            updatedMovie.Genres.ShouldNotBeNull();
+            updatedMovie.Genres!.Count.ShouldBe(2);
+            updatedMovie.Genres!.ShouldBe([
                 "action", "comedy"
-            ]);
+            ], Case.Sensitive);
 
-            updatedMovie.Certification.Should().BeNull();
+            updatedMovie.Certification.ShouldBeNull();
 
             // --------------------------------------------------------------------------------------------
 
             updatedMovie = updatedMovies![1];
 
-            updatedMovie.Should().NotBeNull();
+            updatedMovie.ShouldNotBeNull();
 
-            updatedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-23T01:58:06.000Z"));
+            updatedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T01:58:06.000Z"));
 
-            updatedMovie.Title.Should().Be("Milk & Serial");
-            updatedMovie.Year.Should().Be(2024U);
+            updatedMovie.Title.ShouldBe("Milk & Serial");
+            updatedMovie.Year.ShouldBe(2024U);
 
-            updatedMovie.IDs!.Trakt.Should().Be(957899U);
-            updatedMovie.IDs!.Slug.Should().Be("milk-serial-2024");
-            updatedMovie.IDs!.IMDB.Should().Be("tt22075376");
-            updatedMovie.IDs!.TMDB.Should().Be(1187782U);
-            updatedMovie.IDs!.HasAnyID.Should().BeTrue();
-            updatedMovie.IDs!.BestID.Should().Be("milk-serial-2024");
+            updatedMovie.IDs!.Trakt.ShouldBe(957899U);
+            updatedMovie.IDs!.Slug.ShouldBe("milk-serial-2024");
+            updatedMovie.IDs!.IMDB.ShouldBe("tt22075376");
+            updatedMovie.IDs!.TMDB.ShouldBe(1187782U);
+            updatedMovie.IDs!.HasAnyID.ShouldBe(true);
+            updatedMovie.IDs!.BestID.ShouldBe("milk-serial-2024");
 
-            updatedMovie.ToString().Should().Be("Milk & Serial (2024)");
+            updatedMovie.ToString().ShouldBe("Milk & Serial (2024)");
 
-            updatedMovie.Tagline.Should().BeEmpty();
+            updatedMovie.Tagline.ShouldBeEmpty();
 
-            updatedMovie.Overview.Should().Be("A surprise birthday prank takes a turn for the worse when a popular social media "
+            updatedMovie.Overview.ShouldBe("A surprise birthday prank takes a turn for the worse when a popular social media "
                 + "duo must face the reality of the terrifying aftermath.");
 
 #if NET7_0_OR_GREATER
-            updatedMovie!.Released.Should().Be(TestUtility.ParseDate("2024-08-08"));
+            updatedMovie!.Released.ShouldBe(TestUtility.ParseDate("2024-08-08"));
 #else
-            updatedMovie!.Released.Should().Be(TestUtility.ParseUTCDateTime("2024-08-08T00:00:00.000Z"));
+            updatedMovie!.Released.ShouldBe(TestUtility.ParseUTCDateTime("2024-08-08T00:00:00.000Z"));
 #endif
-            updatedMovie.Runtime.Should().Be(62U);
-            updatedMovie.Country.Should().Be("us");
-            updatedMovie.Trailer.Should().BeNull();
-            updatedMovie.Homepage.Should().BeNull();
-            updatedMovie.Status.Should().Be(TraktMovieStatus.Released);
-            updatedMovie.Rating.Should().Be(6.5641f);
-            updatedMovie.Votes.Should().Be(39U);
-            updatedMovie.CommentCount.Should().Be(3U);
-            updatedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-23T01:58:06.000Z"));
-            updatedMovie.Language.Should().Be("en");
-            updatedMovie.Languages.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["en"]);
+            updatedMovie.Runtime.ShouldBe(62U);
+            updatedMovie.Country.ShouldBe("us");
+            updatedMovie.Trailer.ShouldBeNull();
+            updatedMovie.Homepage.ShouldBeNull();
+            updatedMovie.Status.ShouldBe(TraktMovieStatus.Released);
+            updatedMovie.Rating.ShouldBe(6.5641f);
+            updatedMovie.Votes.ShouldBe(39U);
+            updatedMovie.CommentCount.ShouldBe(3U);
+            updatedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T01:58:06.000Z"));
+            updatedMovie.Language.ShouldBe("en");
+            updatedMovie.Languages.ShouldNotBeNull();
+            updatedMovie.Languages!.Count.ShouldBe(1);
+            updatedMovie.Languages!.ShouldBe(["en"], Case.Sensitive);
 
-            updatedMovie.AvailableTranslations.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["en"]);
+            updatedMovie.AvailableTranslations.ShouldNotBeNull();
+            updatedMovie.AvailableTranslations!.Count.ShouldBe(1);
+            updatedMovie.AvailableTranslations!.ShouldBe(["en"], Case.Sensitive);
 
-            updatedMovie.Genres.Should().NotBeNull().And.HaveCount(2).And.BeEquivalentTo([
+            updatedMovie.Genres.ShouldNotBeNull();
+            updatedMovie.Genres!.Count.ShouldBe(2);
+            updatedMovie.Genres!.ShouldBe([
                 "horror", "thriller"
-            ]);
+            ], Case.Sensitive);
 
-            updatedMovie.Certification.Should().BeNull();
+            updatedMovie.Certification.ShouldBeNull();
         }
     }
 }

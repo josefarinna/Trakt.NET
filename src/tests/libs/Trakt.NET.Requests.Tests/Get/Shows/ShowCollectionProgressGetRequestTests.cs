@@ -37,28 +37,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             showCollectionProgressGetRequest.BuildUri();
-            showCollectionProgressGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            showCollectionProgressGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowCollectionProgressGetRequestHasValidOAuthRequirement()
         {
             var showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = ShowID };
-            showCollectionProgressGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.Required);
+            showCollectionProgressGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestShowCollectionProgressGetRequestIsGetRequest()
         {
             var showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = ShowID };
-            showCollectionProgressGetRequest.Method.Should().Be(HttpMethod.Get);
+            showCollectionProgressGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowCollectionProgressGetRequestHasCorrectRequestObjectType()
         {
             var showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = ShowID };
-            showCollectionProgressGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showCollectionProgressGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -67,17 +67,17 @@ namespace TraktNET.GetRequests.Shows
             var showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = string.Empty };
 
             Action act = () => showCollectionProgressGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = "  " };
 
             act = () => showCollectionProgressGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showCollectionProgressGetRequest = new ShowCollectionProgressGetRequest { Id = "id with spaces" };
 
             act = () => showCollectionProgressGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

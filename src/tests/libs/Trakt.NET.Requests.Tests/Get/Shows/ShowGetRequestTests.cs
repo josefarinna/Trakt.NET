@@ -22,28 +22,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             showGetRequest.BuildUri();
-            showGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            showGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowGetRequestHasValidOAuthRequirement()
         {
             var showGetRequest = new ShowGetRequest { Id = ShowID };
-            showGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            showGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestShowGetRequestIsGetRequest()
         {
             var showGetRequest = new ShowGetRequest { Id = ShowID };
-            showGetRequest.Method.Should().Be(HttpMethod.Get);
+            showGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowGetRequestHasCorrectRequestObjectType()
         {
             var showGetRequest = new ShowGetRequest { Id = ShowID };
-            showGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -52,17 +52,17 @@ namespace TraktNET.GetRequests.Shows
             var showGetRequest = new ShowGetRequest { Id = string.Empty };
 
             Action act = () => showGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showGetRequest = new ShowGetRequest { Id = "  " };
 
             act = () => showGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showGetRequest = new ShowGetRequest { Id = "id with spaces" };
 
             act = () => showGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

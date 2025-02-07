@@ -5,28 +5,28 @@
         [Fact]
         public void TestTraktSyncTypeToJson()
         {
-            TraktSyncType.Unspecified.ToJson().Should().BeNull();
-            TraktSyncType.Movie.ToJson().Should().Be("movie");
-            TraktSyncType.Episode.ToJson().Should().Be("episode");
+            TraktSyncType.Unspecified.ToJson().ShouldBeNull();
+            TraktSyncType.Movie.ToJson().ShouldBe("movie");
+            TraktSyncType.Episode.ToJson().ShouldBe("episode");
         }
 
         [Fact]
         public void TestTraktSyncTypeFromJson()
         {
-            "unspecified".ToTraktSyncType().Should().Be(TraktSyncType.Unspecified);
-            "movie".ToTraktSyncType().Should().Be(TraktSyncType.Movie);
-            "episode".ToTraktSyncType().Should().Be(TraktSyncType.Episode);
+            "unspecified".ToTraktSyncType().ShouldBe(TraktSyncType.Unspecified);
+            "movie".ToTraktSyncType().ShouldBe(TraktSyncType.Movie);
+            "episode".ToTraktSyncType().ShouldBe(TraktSyncType.Episode);
 
             string? nullValue = null;
-            nullValue.ToTraktSyncType().Should().Be(TraktSyncType.Unspecified);
+            nullValue.ToTraktSyncType().ShouldBe(TraktSyncType.Unspecified);
         }
 
         [Fact]
         public void TestTraktSyncTypeDisplayName()
         {
-            TraktSyncType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktSyncType.Movie.DisplayName().Should().Be("Movie");
-            TraktSyncType.Episode.DisplayName().Should().Be("Episode");
+            TraktSyncType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktSyncType.Movie.DisplayName().ShouldBe("Movie");
+            TraktSyncType.Episode.DisplayName().ShouldBe("Episode");
         }
     }
 }

@@ -22,28 +22,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             showWatchingGetRequest.BuildUri();
-            showWatchingGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            showWatchingGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowWatchingGetRequestHasValidOAuthRequirement()
         {
             var showWatchingGetRequest = new ShowWatchingGetRequest { Id = ShowID };
-            showWatchingGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            showWatchingGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestShowWatchingGetRequestIsGetRequest()
         {
             var showWatchingGetRequest = new ShowWatchingGetRequest { Id = ShowID };
-            showWatchingGetRequest.Method.Should().Be(HttpMethod.Get);
+            showWatchingGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowWatchingGetRequestHasCorrectRequestObjectType()
         {
             var showWatchingGetRequest = new ShowWatchingGetRequest { Id = ShowID };
-            showWatchingGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showWatchingGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -52,17 +52,17 @@ namespace TraktNET.GetRequests.Shows
             var showWatchingGetRequest = new ShowWatchingGetRequest { Id = string.Empty };
 
             Action act = () => showWatchingGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showWatchingGetRequest = new ShowWatchingGetRequest { Id = "  " };
 
             act = () => showWatchingGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showWatchingGetRequest = new ShowWatchingGetRequest { Id = "id with spaces" };
 
             act = () => showWatchingGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

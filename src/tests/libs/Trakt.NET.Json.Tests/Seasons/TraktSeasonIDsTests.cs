@@ -7,12 +7,12 @@
         {
             var seasonIDs = new TraktSeasonIDs();
 
-            seasonIDs.Trakt.Should().BeNull();
-            seasonIDs.TVDB.Should().BeNull();
-            seasonIDs.TMDB.Should().BeNull();
+            seasonIDs.Trakt.ShouldBeNull();
+            seasonIDs.TVDB.ShouldBeNull();
+            seasonIDs.TMDB.ShouldBeNull();
 
-            seasonIDs.HasAnyID.Should().BeFalse();
-            seasonIDs.BestID.Should().BeEmpty();
+            seasonIDs.HasAnyID.ShouldBe(false);
+            seasonIDs.BestID.ShouldBeEmpty();
         }
 
         [Fact]
@@ -20,14 +20,14 @@
         {
             TraktSeasonIDs? seasonIDs = await TestUtility.DeserializeJsonAsync<TraktSeasonIDs>("Seasons\\seasonids.json");
 
-            seasonIDs.Should().NotBeNull();
+            seasonIDs.ShouldNotBeNull();
 
-            seasonIDs!.Trakt.Should().Be(3963U);
-            seasonIDs!.TVDB.Should().Be(364731U);
-            seasonIDs!.TMDB.Should().Be(3624U);
+            seasonIDs!.Trakt.ShouldBe(3963U);
+            seasonIDs!.TVDB.ShouldBe(364731U);
+            seasonIDs!.TMDB.ShouldBe(3624U);
 
-            seasonIDs!.HasAnyID.Should().BeTrue();
-            seasonIDs!.BestID.Should().Be("3963");
+            seasonIDs!.HasAnyID.ShouldBe(true);
+            seasonIDs!.BestID.ShouldBe("3963");
         }
     }
 }

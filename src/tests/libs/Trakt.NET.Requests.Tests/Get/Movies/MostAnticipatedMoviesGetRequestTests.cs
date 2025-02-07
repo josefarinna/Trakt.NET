@@ -31,28 +31,28 @@ namespace TraktNET.GetRequests.Movies
             };
 
             mostAnticipatedMoviesGetRequest.BuildUri();
-            mostAnticipatedMoviesGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            mostAnticipatedMoviesGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestMostAnticipatedMoviesGetRequestHasValidOAuthRequirement()
         {
             var mostAnticipatedMoviesGetRequest = new MostAnticipatedMoviesGetRequest();
-            mostAnticipatedMoviesGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            mostAnticipatedMoviesGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestMostAnticipatedMoviesGetRequestIsGetRequest()
         {
             var mostAnticipatedMoviesGetRequest = new MostAnticipatedMoviesGetRequest();
-            mostAnticipatedMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
+            mostAnticipatedMoviesGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestMostAnticipatedMoviesGetRequestHasCorrectRequestObjectType()
         {
             var mostAnticipatedMoviesGetRequest = new MostAnticipatedMoviesGetRequest();
-            mostAnticipatedMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+            mostAnticipatedMoviesGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     }
 }

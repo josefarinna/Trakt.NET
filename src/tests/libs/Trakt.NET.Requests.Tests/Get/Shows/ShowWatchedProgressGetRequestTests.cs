@@ -37,28 +37,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             showWatchedProgressGetRequest.BuildUri();
-            showWatchedProgressGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            showWatchedProgressGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowWatchedProgressGetRequestHasValidOAuthRequirement()
         {
             var showWatchedProgressGetRequest = new ShowWatchedProgressGetRequest { Id = ShowID };
-            showWatchedProgressGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.Required);
+            showWatchedProgressGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestShowWatchedProgressGetRequestIsGetRequest()
         {
             var showWatchedProgressGetRequest = new ShowWatchedProgressGetRequest { Id = ShowID };
-            showWatchedProgressGetRequest.Method.Should().Be(HttpMethod.Get);
+            showWatchedProgressGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowWatchedProgressGetRequestHasCorrectRequestObjectType()
         {
             var showWatchedProgressGetRequest = new ShowWatchedProgressGetRequest { Id = ShowID };
-            showWatchedProgressGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showWatchedProgressGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -67,17 +67,17 @@ namespace TraktNET.GetRequests.Shows
             var showWatchedProgressGetRequest = new ShowWatchedProgressGetRequest { Id = string.Empty };
 
             Action act = () => showWatchedProgressGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showWatchedProgressGetRequest = new ShowWatchedProgressGetRequest { Id = "  " };
 
             act = () => showWatchedProgressGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showWatchedProgressGetRequest = new ShowWatchedProgressGetRequest { Id = "id with spaces" };
 
             act = () => showWatchedProgressGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

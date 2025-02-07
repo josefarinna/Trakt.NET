@@ -70,28 +70,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             showListsGetRequest.BuildUri();
-            showListsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            showListsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowListsGetRequestHasValidOAuthRequirement()
         {
             var showListsGetRequest = new ShowListsGetRequest { Id = ShowID };
-            showListsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            showListsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestShowListsGetRequestIsGetRequest()
         {
             var showListsGetRequest = new ShowListsGetRequest { Id = ShowID };
-            showListsGetRequest.Method.Should().Be(HttpMethod.Get);
+            showListsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowListsGetRequestHasCorrectRequestObjectType()
         {
             var showListsGetRequest = new ShowListsGetRequest { Id = ShowID };
-            showListsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showListsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -100,17 +100,17 @@ namespace TraktNET.GetRequests.Shows
             var showListsGetRequest = new ShowListsGetRequest { Id = string.Empty };
 
             Action act = () => showListsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showListsGetRequest = new ShowListsGetRequest { Id = "  " };
 
             act = () => showListsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showListsGetRequest = new ShowListsGetRequest { Id = "id with spaces" };
 
             act = () => showListsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.General
+namespace TraktNET.Json.General
 {
     public sealed class TraktRatingTests
     {
@@ -7,10 +7,10 @@
         {
             var rating = new TraktRating();
 
-            rating.Rating.Should().BeNull();
-            rating.Votes.Should().BeNull();
-            rating.Distribution.Should().BeNull();
-            rating.ToString().Should().Be("Empty");
+            rating.Rating.ShouldBeNull();
+            rating.Votes.ShouldBeNull();
+            rating.Distribution.ShouldBeNull();
+            rating.ToString().ShouldBe("Empty");
         }
 
         [Fact]
@@ -18,11 +18,14 @@
         {
             TraktRating? rating = await TestUtility.DeserializeJsonAsync<TraktRating>("General\\rating.json");
 
-            rating.Should().NotBeNull();
+            rating.ShouldNotBeNull();
 
-            rating!.Rating.Should().Be(7.96017f);
-            rating!.Votes.Should().Be(18906U);
-            rating!.Distribution.Should().NotBeNullOrEmpty().And.HaveCount(10).And.BeEquivalentTo(new Dictionary<string, uint>
+            rating!.Rating.ShouldBe(7.96017f);
+            rating!.Votes.ShouldBe(18906U);
+            rating!.Distribution.ShouldNotBeNull();
+            rating!.Distribution!.Count.ShouldBe(10);
+
+            rating!.Distribution!.ShouldBe(new Dictionary<string, uint>
             {
                 { "1", 91 },
                 { "2", 55 },
@@ -36,7 +39,7 @@
                 { "10", 2734 }
             });
 
-            rating!.ToString().Should().Be("7.96017, 18906");
+            rating!.ToString().ShouldBe("7.96017, 18906");
         }
     }
 }

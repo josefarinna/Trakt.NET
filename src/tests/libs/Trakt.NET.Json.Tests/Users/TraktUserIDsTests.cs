@@ -7,11 +7,11 @@
         {
             var userIDs = new TraktUserIDs();
 
-            userIDs.Slug.Should().BeNull();
-            userIDs.UUID.Should().BeNull();
+            userIDs.Slug.ShouldBeNull();
+            userIDs.UUID.ShouldBeNull();
 
-            userIDs.HasAnyID.Should().BeFalse();
-            userIDs.BestID.Should().BeEmpty();
+            userIDs.HasAnyID.ShouldBe(false);
+            userIDs.BestID.ShouldBeEmpty();
         }
 
         [Fact]
@@ -19,13 +19,13 @@
         {
             TraktUserIDs? userIDs = await TestUtility.DeserializeJsonAsync<TraktUserIDs>("Users\\userids.json");
 
-            userIDs.Should().NotBeNull();
+            userIDs.ShouldNotBeNull();
 
-            userIDs!.Slug.Should().Be("ixxus");
-            userIDs!.UUID.Should().Be("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
+            userIDs!.Slug.ShouldBe("ixxus");
+            userIDs!.UUID.ShouldBe("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
 
-            userIDs!.HasAnyID.Should().BeTrue();
-            userIDs!.BestID.Should().Be("ixxus");
+            userIDs!.HasAnyID.ShouldBe(true);
+            userIDs!.BestID.ShouldBe("ixxus");
         }
     }
 }

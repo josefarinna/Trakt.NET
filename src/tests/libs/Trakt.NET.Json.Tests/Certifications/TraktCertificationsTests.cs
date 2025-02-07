@@ -7,7 +7,7 @@
         {
             var certifications = new TraktCertifications();
 
-            certifications.US.Should().BeNull();
+            certifications.US.ShouldBeNull();
         }
 
         [Fact]
@@ -15,23 +15,24 @@
         {
             TraktCertifications? certifications = await TestUtility.DeserializeJsonAsync<TraktCertifications>("Certifications\\certifications.json");
 
-            certifications.Should().NotBeNull();
+            certifications.ShouldNotBeNull();
 
-            certifications!.US.Should().NotBeNull().And.HaveCount(2);
+            certifications!.US.ShouldNotBeNull();
+            certifications!.US!.Count.ShouldBe(2);
 
             TraktCertification certification = certifications!.US![0];
 
-            certification.Should().NotBeNull();
-            certification.Name.Should().Be("G");
-            certification.Slug.Should().Be("g");
-            certification.Description.Should().Be("All Ages");
+            certification.ShouldNotBeNull();
+            certification.Name.ShouldBe("G");
+            certification.Slug.ShouldBe("g");
+            certification.Description.ShouldBe("All Ages");
 
             certification = certifications!.US![1];
 
-            certification.Should().NotBeNull();
-            certification.Name.Should().Be("PG");
-            certification.Slug.Should().Be("pg");
-            certification.Description.Should().Be("Parental Guidance Suggested");
+            certification.ShouldNotBeNull();
+            certification.Name.ShouldBe("PG");
+            certification.Slug.ShouldBe("pg");
+            certification.Description.ShouldBe("Parental Guidance Suggested");
         }
     }
 }

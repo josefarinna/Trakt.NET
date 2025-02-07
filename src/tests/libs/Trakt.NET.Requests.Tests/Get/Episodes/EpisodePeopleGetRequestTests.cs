@@ -24,7 +24,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             episodePeopleGetRequest.BuildUri();
-            episodePeopleGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            episodePeopleGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
@@ -37,7 +37,7 @@ namespace TraktNET.GetRequests.Episodes
                 EpisodeNumber = 1
             };
 
-            episodePeopleGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            episodePeopleGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace TraktNET.GetRequests.Episodes
                 EpisodeNumber = 1
             };
 
-            episodePeopleGetRequest.Method.Should().Be(HttpMethod.Get);
+            episodePeopleGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
@@ -63,7 +63,7 @@ namespace TraktNET.GetRequests.Episodes
                 EpisodeNumber = 1
             };
 
-            episodePeopleGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Episode);
+            episodePeopleGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Episode);
         }
 
         [Fact]
@@ -77,7 +77,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             Action act = () => episodePeopleGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             episodePeopleGetRequest = new EpisodePeopleGetRequest
             {
@@ -87,7 +87,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             act = () => episodePeopleGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             episodePeopleGetRequest = new EpisodePeopleGetRequest
             {
@@ -97,7 +97,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             act = () => episodePeopleGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             episodePeopleGetRequest = new EpisodePeopleGetRequest
             {
@@ -107,7 +107,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             act = () => episodePeopleGetRequest.Validate();
-            act.Should().NotThrow();
+            act.ShouldNotThrow();
 
             episodePeopleGetRequest = new EpisodePeopleGetRequest
             {
@@ -117,7 +117,7 @@ namespace TraktNET.GetRequests.Episodes
             };
 
             act = () => episodePeopleGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

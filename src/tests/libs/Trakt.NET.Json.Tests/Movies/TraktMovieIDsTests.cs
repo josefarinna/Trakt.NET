@@ -7,13 +7,13 @@
         {
             var movieIDs = new TraktMovieIDs();
 
-            movieIDs.Trakt.Should().BeNull();
-            movieIDs.Slug.Should().BeNull();
-            movieIDs.IMDB.Should().BeNull();
-            movieIDs.TMDB.Should().BeNull();
+            movieIDs.Trakt.ShouldBeNull();
+            movieIDs.Slug.ShouldBeNull();
+            movieIDs.IMDB.ShouldBeNull();
+            movieIDs.TMDB.ShouldBeNull();
 
-            movieIDs.HasAnyID.Should().BeFalse();
-            movieIDs.BestID.Should().BeEmpty();
+            movieIDs.HasAnyID.ShouldBe(false);
+            movieIDs.BestID.ShouldBeEmpty();
         }
 
         [Fact]
@@ -21,15 +21,15 @@
         {
             TraktMovieIDs? movieIDs = await TestUtility.DeserializeJsonAsync<TraktMovieIDs>("Movies\\movieids.json");
 
-            movieIDs.Should().NotBeNull();
+            movieIDs.ShouldNotBeNull();
 
-            movieIDs!.Trakt.Should().Be(293990U);
-            movieIDs!.Slug.Should().Be("guardians-of-the-galaxy-volume-3-2023");
-            movieIDs!.IMDB.Should().Be("tt6791350");
-            movieIDs!.TMDB.Should().Be(447365U);
+            movieIDs!.Trakt.ShouldBe(293990U);
+            movieIDs!.Slug.ShouldBe("guardians-of-the-galaxy-volume-3-2023");
+            movieIDs!.IMDB.ShouldBe("tt6791350");
+            movieIDs!.TMDB.ShouldBe(447365U);
 
-            movieIDs!.HasAnyID.Should().BeTrue();
-            movieIDs!.BestID.Should().Be("guardians-of-the-galaxy-volume-3-2023");
+            movieIDs!.HasAnyID.ShouldBe(true);
+            movieIDs!.BestID.ShouldBe("guardians-of-the-galaxy-volume-3-2023");
         }
     }
 }

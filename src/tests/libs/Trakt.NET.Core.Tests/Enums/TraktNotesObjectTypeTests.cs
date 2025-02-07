@@ -5,49 +5,49 @@
         [Fact]
         public void TestTraktNotesObjectTypeToJson()
         {
-            TraktNotesObjectType.Unspecified.ToJson().Should().BeNull();
-            TraktNotesObjectType.All.ToJson().Should().Be("all");
-            TraktNotesObjectType.Movie.ToJson().Should().Be("movie");
-            TraktNotesObjectType.Show.ToJson().Should().Be("show");
-            TraktNotesObjectType.Season.ToJson().Should().Be("season");
-            TraktNotesObjectType.Episode.ToJson().Should().Be("episode");
-            TraktNotesObjectType.Person.ToJson().Should().Be("person");
-            TraktNotesObjectType.History.ToJson().Should().Be("history");
-            TraktNotesObjectType.Collection.ToJson().Should().Be("collection");
-            TraktNotesObjectType.Rating.ToJson().Should().Be("rating");
+            TraktNotesObjectType.Unspecified.ToJson().ShouldBeNull();
+            TraktNotesObjectType.All.ToJson().ShouldBe("all");
+            TraktNotesObjectType.Movie.ToJson().ShouldBe("movie");
+            TraktNotesObjectType.Show.ToJson().ShouldBe("show");
+            TraktNotesObjectType.Season.ToJson().ShouldBe("season");
+            TraktNotesObjectType.Episode.ToJson().ShouldBe("episode");
+            TraktNotesObjectType.Person.ToJson().ShouldBe("person");
+            TraktNotesObjectType.History.ToJson().ShouldBe("history");
+            TraktNotesObjectType.Collection.ToJson().ShouldBe("collection");
+            TraktNotesObjectType.Rating.ToJson().ShouldBe("rating");
         }
 
         [Fact]
         public void TestTraktNotesObjectTypeFromJson()
         {
-            "unspecified".ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.Unspecified);
-            "all".ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.All);
-            "movie".ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.Movie);
-            "show".ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.Show);
-            "season".ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.Season);
-            "episode".ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.Episode);
-            "person".ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.Person);
-            "history".ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.History);
-            "collection".ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.Collection);
-            "rating".ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.Rating);
+            "unspecified".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Unspecified);
+            "all".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.All);
+            "movie".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Movie);
+            "show".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Show);
+            "season".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Season);
+            "episode".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Episode);
+            "person".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Person);
+            "history".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.History);
+            "collection".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Collection);
+            "rating".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Rating);
 
             string? nullValue = null;
-            nullValue.ToTraktNotesObjectType().Should().Be(TraktNotesObjectType.Unspecified);
+            nullValue.ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Unspecified);
         }
 
         [Fact]
         public void TestTraktNotesObjectTypeDisplayName()
         {
-            TraktNotesObjectType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktNotesObjectType.All.DisplayName().Should().Be("All");
-            TraktNotesObjectType.Movie.DisplayName().Should().Be("Movie");
-            TraktNotesObjectType.Show.DisplayName().Should().Be("Show");
-            TraktNotesObjectType.Season.DisplayName().Should().Be("Season");
-            TraktNotesObjectType.Episode.DisplayName().Should().Be("Episode");
-            TraktNotesObjectType.Person.DisplayName().Should().Be("Person");
-            TraktNotesObjectType.History.DisplayName().Should().Be("History");
-            TraktNotesObjectType.Collection.DisplayName().Should().Be("Collection");
-            TraktNotesObjectType.Rating.DisplayName().Should().Be("Rating");
+            TraktNotesObjectType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktNotesObjectType.All.DisplayName().ShouldBe("All");
+            TraktNotesObjectType.Movie.DisplayName().ShouldBe("Movie");
+            TraktNotesObjectType.Show.DisplayName().ShouldBe("Show");
+            TraktNotesObjectType.Season.DisplayName().ShouldBe("Season");
+            TraktNotesObjectType.Episode.DisplayName().ShouldBe("Episode");
+            TraktNotesObjectType.Person.DisplayName().ShouldBe("Person");
+            TraktNotesObjectType.History.DisplayName().ShouldBe("History");
+            TraktNotesObjectType.Collection.DisplayName().ShouldBe("Collection");
+            TraktNotesObjectType.Rating.DisplayName().ShouldBe("Rating");
         }
     }
 }

@@ -22,28 +22,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             showLastEpisodeGetRequest.BuildUri();
-            showLastEpisodeGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            showLastEpisodeGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowLastEpisodeGetRequestHasValidOAuthRequirement()
         {
             var showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = ShowID };
-            showLastEpisodeGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            showLastEpisodeGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestShowLastEpisodeGetRequestIsGetRequest()
         {
             var showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = ShowID };
-            showLastEpisodeGetRequest.Method.Should().Be(HttpMethod.Get);
+            showLastEpisodeGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowLastEpisodeGetRequestHasCorrectRequestObjectType()
         {
             var showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = ShowID };
-            showLastEpisodeGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showLastEpisodeGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -52,17 +52,17 @@ namespace TraktNET.GetRequests.Shows
             var showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = string.Empty };
 
             Action act = () => showLastEpisodeGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = "  " };
 
             act = () => showLastEpisodeGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = "id with spaces" };
 
             act = () => showLastEpisodeGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

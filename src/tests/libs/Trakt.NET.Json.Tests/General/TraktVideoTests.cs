@@ -7,18 +7,18 @@
         {
             var video = new TraktVideo();
 
-            video.Title.Should().BeNull();
-            video.Url.Should().BeNull();
-            video.Site.Should().BeNull();
-            video.Type.Should().BeNull();
-            video.Size.Should().BeNull();
-            video.Official.Should().BeNull();
-            video.PublishedAt.Should().BeNull();
-            video.Country.Should().BeNull();
-            video.Language.Should().BeNull();
+            video.Title.ShouldBeNull();
+            video.Url.ShouldBeNull();
+            video.Site.ShouldBeNull();
+            video.Type.ShouldBeNull();
+            video.Size.ShouldBeNull();
+            video.Official.ShouldBeNull();
+            video.PublishedAt.ShouldBeNull();
+            video.Country.ShouldBeNull();
+            video.Language.ShouldBeNull();
 
-            video.CultureName().Should().BeEmpty();
-            video.ToString().Should().BeEmpty();
+            video.CultureName().ShouldBeEmpty();
+            video.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -26,20 +26,20 @@
         {
             TraktVideo? video = await TestUtility.DeserializeJsonAsync<TraktVideo>("General\\video.json");
 
-            video.Should().NotBeNull();
+            video.ShouldNotBeNull();
 
-            video!.Title.Should().Be("Disney+ Promo");
-            video!.Url.Should().Be("https://youtube.com/watch?v=3RLT34SwtQc");
-            video!.Site.Should().Be("youtube");
-            video!.Type.Should().Be(TraktVideoType.Teaser);
-            video!.Size.Should().Be(1080U);
-            video!.Official.Should().BeTrue();
-            video!.PublishedAt.Should().Be(TestUtility.ParseUTCDateTime("2023-08-03T18:00:02.000Z"));
-            video!.Country.Should().Be("us");
-            video!.Language.Should().Be("en");
+            video!.Title.ShouldBe("Disney+ Promo");
+            video!.Url.ShouldBe("https://youtube.com/watch?v=3RLT34SwtQc");
+            video!.Site.ShouldBe("youtube");
+            video!.Type.ShouldBe(TraktVideoType.Teaser);
+            video!.Size.ShouldBe(1080U);
+            video!.Official.ShouldBe(true);
+            video!.PublishedAt.ShouldBe(TestUtility.ParseUTCDateTime("2023-08-03T18:00:02.000Z"));
+            video!.Country.ShouldBe("us");
+            video!.Language.ShouldBe("en");
 
-            video!.CultureName().Should().Be("en-US");
-            video!.ToString().Should().Be("Teaser: Disney+ Promo");
+            video!.CultureName().ShouldBe("en-US");
+            video!.ToString().ShouldBe("Teaser: Disney+ Promo");
         }
 
         [Fact]
@@ -47,43 +47,44 @@
         {
             IReadOnlyList<TraktVideo>? videos = await TestUtility.DeserializeJsonListAsync<TraktVideo>("General\\videos.json");
 
-            videos.Should().NotBeNull().And.HaveCount(2);
+            videos.ShouldNotBeNull();
+            videos!.Count.ShouldBe(2);
 
             TraktVideo video = videos![0];
 
-            video.Should().NotBeNull();
+            video.ShouldNotBeNull();
 
-            video.Title.Should().Be("Disney+ Promo");
-            video.Url.Should().Be("https://youtube.com/watch?v=3RLT34SwtQc");
-            video.Site.Should().Be("youtube");
-            video.Type.Should().Be(TraktVideoType.Teaser);
-            video.Size.Should().Be(1080U);
-            video.Official.Should().BeTrue();
-            video.PublishedAt.Should().Be(TestUtility.ParseUTCDateTime("2023-08-03T18:00:02.000Z"));
-            video.Country.Should().Be("us");
-            video.Language.Should().Be("en");
+            video.Title.ShouldBe("Disney+ Promo");
+            video.Url.ShouldBe("https://youtube.com/watch?v=3RLT34SwtQc");
+            video.Site.ShouldBe("youtube");
+            video.Type.ShouldBe(TraktVideoType.Teaser);
+            video.Size.ShouldBe(1080U);
+            video.Official.ShouldBe(true);
+            video.PublishedAt.ShouldBe(TestUtility.ParseUTCDateTime("2023-08-03T18:00:02.000Z"));
+            video.Country.ShouldBe("us");
+            video.Language.ShouldBe("en");
 
-            video.CultureName().Should().Be("en-US");
-            video.ToString().Should().Be("Teaser: Disney+ Promo");
+            video.CultureName().ShouldBe("en-US");
+            video.ToString().ShouldBe("Teaser: Disney+ Promo");
 
             // --------------------------------------------------------------------------------------------
 
             video = videos![1];
 
-            video.Should().NotBeNull();
+            video.ShouldNotBeNull();
 
-            video.Title.Should().Be("Now Streaming on Disney+");
-            video.Url.Should().Be("https://youtube.com/watch?v=D3NpwOB69Ys");
-            video.Site.Should().Be("youtube");
-            video.Type.Should().Be(TraktVideoType.Teaser);
-            video.Size.Should().Be(1080U);
-            video.Official.Should().BeTrue();
-            video.PublishedAt.Should().Be(TestUtility.ParseUTCDateTime("2023-08-02T16:00:17.000Z"));
-            video.Country.Should().Be("us");
-            video.Language.Should().Be("en");
+            video.Title.ShouldBe("Now Streaming on Disney+");
+            video.Url.ShouldBe("https://youtube.com/watch?v=D3NpwOB69Ys");
+            video.Site.ShouldBe("youtube");
+            video.Type.ShouldBe(TraktVideoType.Teaser);
+            video.Size.ShouldBe(1080U);
+            video.Official.ShouldBe(true);
+            video.PublishedAt.ShouldBe(TestUtility.ParseUTCDateTime("2023-08-02T16:00:17.000Z"));
+            video.Country.ShouldBe("us");
+            video.Language.ShouldBe("en");
 
-            video.CultureName().Should().Be("en-US");
-            video.ToString().Should().Be("Teaser: Now Streaming on Disney+");
+            video.CultureName().ShouldBe("en-US");
+            video.ToString().ShouldBe("Teaser: Now Streaming on Disney+");
         }
     }
 }

@@ -20,26 +20,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktMovieRelease> response = await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieID, country);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktMovieRelease> movieReleases = response.Content!;
 
             TraktMovieRelease movieRelease = movieReleases[0];
 
-            movieRelease.Country.Should().Be("fr");
-            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
+            movieRelease.Country.ShouldBe("fr");
+            movieRelease.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
 
             movieRelease = movieReleases[1];
 
-            movieRelease.Country.Should().Be("us");
-            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
+            movieRelease.Country.ShouldBe("us");
+            movieRelease.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
         }
 
         [Theory]
@@ -53,26 +53,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktMovieRelease> response = await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieSlug, country);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktMovieRelease> movieReleases = response.Content!;
 
             TraktMovieRelease movieRelease = movieReleases[0];
 
-            movieRelease.Country.Should().Be("fr");
-            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
+            movieRelease.Country.ShouldBe("fr");
+            movieRelease.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
 
             movieRelease = movieReleases[1];
 
-            movieRelease.Country.Should().Be("us");
-            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
+            movieRelease.Country.ShouldBe("us");
+            movieRelease.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
         }
 
         [Theory]
@@ -86,26 +86,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktMovieRelease> response = await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieIDs, country);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktMovieRelease> movieReleases = response.Content!;
 
             TraktMovieRelease movieRelease = movieReleases[0];
 
-            movieRelease.Country.Should().Be("fr");
-            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
+            movieRelease.Country.ShouldBe("fr");
+            movieRelease.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
 
             movieRelease = movieReleases[1];
 
-            movieRelease.Country.Should().Be("us");
-            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
+            movieRelease.Country.ShouldBe("us");
+            movieRelease.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
         }
 
         [Theory]
@@ -145,7 +145,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -186,7 +186,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -227,7 +227,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -240,12 +240,12 @@ namespace TraktNET.MoviesModule
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktListResponse<TraktMovieRelease>>> act = () => client.Movies.GetMovieReleasesAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMovieReleasesAsync(movieIDs);
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

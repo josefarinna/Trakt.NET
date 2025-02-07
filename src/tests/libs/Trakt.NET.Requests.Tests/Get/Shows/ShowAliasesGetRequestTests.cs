@@ -15,28 +15,28 @@ namespace TraktNET.GetRequests.Shows
             var showAliasesGetRequest = new ShowAliasesGetRequest { Id = ShowID };
 
             showAliasesGetRequest.BuildUri();
-            showAliasesGetRequest.RequestUri.Should().Be(new Uri(URIPath, UriKind.Relative));
+            showAliasesGetRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowAliasesGetRequestHasValidOAuthRequirement()
         {
             var showAliasesGetRequest = new ShowAliasesGetRequest { Id = ShowID };
-            showAliasesGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            showAliasesGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestShowAliasesGetRequestIsGetRequest()
         {
             var showAliasesGetRequest = new ShowAliasesGetRequest { Id = ShowID };
-            showAliasesGetRequest.Method.Should().Be(HttpMethod.Get);
+            showAliasesGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowAliasesGetRequestHasCorrectRequestObjectType()
         {
             var showAliasesGetRequest = new ShowAliasesGetRequest { Id = ShowID };
-            showAliasesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showAliasesGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -45,17 +45,17 @@ namespace TraktNET.GetRequests.Shows
             var showAliasesGetRequest = new ShowAliasesGetRequest { Id = string.Empty };
 
             Action act = () => showAliasesGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showAliasesGetRequest = new ShowAliasesGetRequest { Id = "  " };
 
             act = () => showAliasesGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showAliasesGetRequest = new ShowAliasesGetRequest { Id = "id with spaces" };
 
             act = () => showAliasesGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

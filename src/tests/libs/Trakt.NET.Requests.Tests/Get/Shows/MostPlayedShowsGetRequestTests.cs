@@ -51,28 +51,28 @@ namespace TraktNET.GetRequests.Shows
             };
 
             mostPlayedShowsGetRequest.BuildUri();
-            mostPlayedShowsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            mostPlayedShowsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestMostPlayedShowsGetRequestHasValidOAuthRequirement()
         {
             var mostPlayedShowsGetRequest = new MostPlayedShowsGetRequest();
-            mostPlayedShowsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            mostPlayedShowsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestMostPlayedShowsGetRequestIsGetRequest()
         {
             var mostPlayedShowsGetRequest = new MostPlayedShowsGetRequest();
-            mostPlayedShowsGetRequest.Method.Should().Be(HttpMethod.Get);
+            mostPlayedShowsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestMostPlayedShowsGetRequestHasCorrectRequestObjectType()
         {
             var mostPlayedShowsGetRequest = new MostPlayedShowsGetRequest();
-            mostPlayedShowsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+            mostPlayedShowsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     }
 }

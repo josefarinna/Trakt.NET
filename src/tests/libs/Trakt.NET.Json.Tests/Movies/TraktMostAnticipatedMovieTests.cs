@@ -7,29 +7,29 @@
         {
             var mostAnticipatedMovie = new TraktMostAnticipatedMovie();
 
-            mostAnticipatedMovie.ListCount.Should().BeNull();
-            mostAnticipatedMovie.Title.Should().BeNull();
-            mostAnticipatedMovie.Year.Should().BeNull();
-            mostAnticipatedMovie.IDs.Should().BeNull();
-            mostAnticipatedMovie.Tagline.Should().BeNull();
-            mostAnticipatedMovie.Overview.Should().BeNull();
-            mostAnticipatedMovie.Released.Should().BeNull();
-            mostAnticipatedMovie.Runtime.Should().BeNull();
-            mostAnticipatedMovie.Country.Should().BeNull();
-            mostAnticipatedMovie.Trailer.Should().BeNull();
-            mostAnticipatedMovie.Homepage.Should().BeNull();
-            mostAnticipatedMovie.Status.Should().BeNull();
-            mostAnticipatedMovie.Rating.Should().BeNull();
-            mostAnticipatedMovie.Votes.Should().BeNull();
-            mostAnticipatedMovie.CommentCount.Should().BeNull();
-            mostAnticipatedMovie.UpdatedAt.Should().BeNull();
-            mostAnticipatedMovie.Language.Should().BeNull();
-            mostAnticipatedMovie.Languages.Should().BeNull();
-            mostAnticipatedMovie.AvailableTranslations.Should().BeNull();
-            mostAnticipatedMovie.Genres.Should().BeNull();
-            mostAnticipatedMovie.Certification.Should().BeNull();
+            mostAnticipatedMovie.ListCount.ShouldBeNull();
+            mostAnticipatedMovie.Title.ShouldBeNull();
+            mostAnticipatedMovie.Year.ShouldBeNull();
+            mostAnticipatedMovie.IDs.ShouldBeNull();
+            mostAnticipatedMovie.Tagline.ShouldBeNull();
+            mostAnticipatedMovie.Overview.ShouldBeNull();
+            mostAnticipatedMovie.Released.ShouldBeNull();
+            mostAnticipatedMovie.Runtime.ShouldBeNull();
+            mostAnticipatedMovie.Country.ShouldBeNull();
+            mostAnticipatedMovie.Trailer.ShouldBeNull();
+            mostAnticipatedMovie.Homepage.ShouldBeNull();
+            mostAnticipatedMovie.Status.ShouldBeNull();
+            mostAnticipatedMovie.Rating.ShouldBeNull();
+            mostAnticipatedMovie.Votes.ShouldBeNull();
+            mostAnticipatedMovie.CommentCount.ShouldBeNull();
+            mostAnticipatedMovie.UpdatedAt.ShouldBeNull();
+            mostAnticipatedMovie.Language.ShouldBeNull();
+            mostAnticipatedMovie.Languages.ShouldBeNull();
+            mostAnticipatedMovie.AvailableTranslations.ShouldBeNull();
+            mostAnticipatedMovie.Genres.ShouldBeNull();
+            mostAnticipatedMovie.Certification.ShouldBeNull();
 
-            mostAnticipatedMovie.ToString().Should().BeEmpty();
+            mostAnticipatedMovie.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -37,21 +37,21 @@
         {
             TraktMostAnticipatedMovie? mostAnticipatedMovie = await TestUtility.DeserializeJsonAsync<TraktMostAnticipatedMovie>("Movies\\mostanticipatedmovie_minimal.json");
 
-            mostAnticipatedMovie.Should().NotBeNull();
+            mostAnticipatedMovie.ShouldNotBeNull();
 
-            mostAnticipatedMovie!.ListCount.Should().Be(33464U);
+            mostAnticipatedMovie!.ListCount.ShouldBe(33464U);
 
-            mostAnticipatedMovie!.Title.Should().Be("Avatar: Fire and Ash");
-            mostAnticipatedMovie!.Year.Should().Be(2025U);
+            mostAnticipatedMovie!.Title.ShouldBe("Avatar: Fire and Ash");
+            mostAnticipatedMovie!.Year.ShouldBe(2025U);
 
-            mostAnticipatedMovie!.IDs!.Trakt.Should().Be(62544U);
-            mostAnticipatedMovie!.IDs!.Slug.Should().Be("avatar-fire-and-ash-2025");
-            mostAnticipatedMovie!.IDs!.IMDB.Should().Be("tt1757678");
-            mostAnticipatedMovie!.IDs!.TMDB.Should().Be(83533U);
-            mostAnticipatedMovie!.IDs!.HasAnyID.Should().BeTrue();
-            mostAnticipatedMovie!.IDs!.BestID.Should().Be("avatar-fire-and-ash-2025");
+            mostAnticipatedMovie!.IDs!.Trakt.ShouldBe(62544U);
+            mostAnticipatedMovie!.IDs!.Slug.ShouldBe("avatar-fire-and-ash-2025");
+            mostAnticipatedMovie!.IDs!.IMDB.ShouldBe("tt1757678");
+            mostAnticipatedMovie!.IDs!.TMDB.ShouldBe(83533U);
+            mostAnticipatedMovie!.IDs!.HasAnyID.ShouldBe(true);
+            mostAnticipatedMovie!.IDs!.BestID.ShouldBe("avatar-fire-and-ash-2025");
 
-            mostAnticipatedMovie!.ToString().Should().Be("Avatar: Fire and Ash (2025)");
+            mostAnticipatedMovie!.ToString().ShouldBe("Avatar: Fire and Ash (2025)");
         }
 
         [Fact]
@@ -59,53 +59,59 @@
         {
             TraktMostAnticipatedMovie? mostAnticipatedMovie = await TestUtility.DeserializeJsonAsync<TraktMostAnticipatedMovie>("Movies\\mostanticipatedmovie.json");
 
-            mostAnticipatedMovie.Should().NotBeNull();
+            mostAnticipatedMovie.ShouldNotBeNull();
 
-            mostAnticipatedMovie!.ListCount.Should().Be(33464U);
+            mostAnticipatedMovie!.ListCount.ShouldBe(33464U);
 
-            mostAnticipatedMovie!.Title.Should().Be("Avatar: Fire and Ash");
-            mostAnticipatedMovie!.Year.Should().Be(2025U);
+            mostAnticipatedMovie!.Title.ShouldBe("Avatar: Fire and Ash");
+            mostAnticipatedMovie!.Year.ShouldBe(2025U);
 
-            mostAnticipatedMovie!.IDs!.Trakt.Should().Be(62544U);
-            mostAnticipatedMovie!.IDs!.Slug.Should().Be("avatar-fire-and-ash-2025");
-            mostAnticipatedMovie!.IDs!.IMDB.Should().Be("tt1757678");
-            mostAnticipatedMovie!.IDs!.TMDB.Should().Be(83533U);
-            mostAnticipatedMovie!.IDs!.HasAnyID.Should().BeTrue();
-            mostAnticipatedMovie!.IDs!.BestID.Should().Be("avatar-fire-and-ash-2025");
+            mostAnticipatedMovie!.IDs!.Trakt.ShouldBe(62544U);
+            mostAnticipatedMovie!.IDs!.Slug.ShouldBe("avatar-fire-and-ash-2025");
+            mostAnticipatedMovie!.IDs!.IMDB.ShouldBe("tt1757678");
+            mostAnticipatedMovie!.IDs!.TMDB.ShouldBe(83533U);
+            mostAnticipatedMovie!.IDs!.HasAnyID.ShouldBe(true);
+            mostAnticipatedMovie!.IDs!.BestID.ShouldBe("avatar-fire-and-ash-2025");
 
-            mostAnticipatedMovie!.ToString().Should().Be("Avatar: Fire and Ash (2025)");
+            mostAnticipatedMovie!.ToString().ShouldBe("Avatar: Fire and Ash (2025)");
 
-            mostAnticipatedMovie!.Tagline.Should().BeEmpty();
+            mostAnticipatedMovie!.Tagline.ShouldBeEmpty();
 
-            mostAnticipatedMovie!.Overview.Should().Be("In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri "
+            mostAnticipatedMovie!.Overview.ShouldBe("In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri "
                 + "face a new threat on Pandora.");
 
 #if NET7_0_OR_GREATER
-            mostAnticipatedMovie!.Released.Should().Be(TestUtility.ParseDate("2025-12-19"));
+            mostAnticipatedMovie!.Released.ShouldBe(TestUtility.ParseDate("2025-12-19"));
 #else
-            mostAnticipatedMovie!.Released.Should().Be(TestUtility.ParseUTCDateTime("2025-12-19T00:00:00.000Z"));
+            mostAnticipatedMovie!.Released.ShouldBe(TestUtility.ParseUTCDateTime("2025-12-19T00:00:00.000Z"));
 #endif
-            mostAnticipatedMovie!.Runtime.Should().Be(1U);
-            mostAnticipatedMovie!.Country.Should().Be("us");
-            mostAnticipatedMovie!.Trailer.Should().BeNull();
-            mostAnticipatedMovie!.Homepage.Should().Be("http://www.avatar.com/movies");
-            mostAnticipatedMovie!.Status.Should().Be(TraktMovieStatus.PostProduction);
-            mostAnticipatedMovie!.Rating.Should().Be(7.05102f);
-            mostAnticipatedMovie!.Votes.Should().Be(98U);
-            mostAnticipatedMovie!.CommentCount.Should().Be(2U);
-            mostAnticipatedMovie!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-15T08:05:18.000Z"));
-            mostAnticipatedMovie!.Language.Should().Be("en");
-            mostAnticipatedMovie!.Languages.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["en"]);
+            mostAnticipatedMovie!.Runtime.ShouldBe(1U);
+            mostAnticipatedMovie!.Country.ShouldBe("us");
+            mostAnticipatedMovie!.Trailer.ShouldBeNull();
+            mostAnticipatedMovie!.Homepage.ShouldBe("http://www.avatar.com/movies");
+            mostAnticipatedMovie!.Status.ShouldBe(TraktMovieStatus.PostProduction);
+            mostAnticipatedMovie!.Rating.ShouldBe(7.05102f);
+            mostAnticipatedMovie!.Votes.ShouldBe(98U);
+            mostAnticipatedMovie!.CommentCount.ShouldBe(2U);
+            mostAnticipatedMovie!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-15T08:05:18.000Z"));
+            mostAnticipatedMovie!.Language.ShouldBe("en");
+            mostAnticipatedMovie!.Languages.ShouldNotBeNull();
+            mostAnticipatedMovie!.Languages!.Count.ShouldBe(1);
+            mostAnticipatedMovie!.Languages!.ShouldBe(["en"], Case.Sensitive);
 
-            mostAnticipatedMovie!.AvailableTranslations.Should().NotBeNull().And.HaveCount(13).And.BeEquivalentTo([
+            mostAnticipatedMovie!.AvailableTranslations.ShouldNotBeNull();
+            mostAnticipatedMovie!.AvailableTranslations!.Count.ShouldBe(13);
+            mostAnticipatedMovie!.AvailableTranslations!.ShouldBe([
                 "bg", "en", "es", "fr", "he", "ka", "ko", "pl", "pt", "ru", "uk", "vi", "zh"
-            ]);
+            ], Case.Sensitive);
 
-            mostAnticipatedMovie!.Genres.Should().NotBeNull().And.HaveCount(3).And.BeEquivalentTo([
+            mostAnticipatedMovie!.Genres.ShouldNotBeNull();
+            mostAnticipatedMovie!.Genres!.Count.ShouldBe(3);
+            mostAnticipatedMovie!.Genres!.ShouldBe([
                 "adventure", "science-fiction", "fantasy"
-            ]);
+            ], Case.Sensitive);
 
-            mostAnticipatedMovie!.Certification.Should().BeNull();
+            mostAnticipatedMovie!.Certification.ShouldBeNull();
         }
 
         [Fact]
@@ -113,45 +119,46 @@
         {
             IReadOnlyList<TraktMostAnticipatedMovie>? mostAnticipatedMovies = await TestUtility.DeserializeJsonListAsync<TraktMostAnticipatedMovie>("Movies\\mostanticipatedmovies_minimal.json");
 
-            mostAnticipatedMovies.Should().NotBeNull().And.HaveCount(2);
+            mostAnticipatedMovies.ShouldNotBeNull();
+            mostAnticipatedMovies!.Count.ShouldBe(2);
 
             TraktMostAnticipatedMovie mostAnticipatedMovie = mostAnticipatedMovies![0];
 
-            mostAnticipatedMovie.Should().NotBeNull();
+            mostAnticipatedMovie.ShouldNotBeNull();
 
-            mostAnticipatedMovie.ListCount.Should().Be(33464U);
+            mostAnticipatedMovie.ListCount.ShouldBe(33464U);
 
-            mostAnticipatedMovie.Title.Should().Be("Avatar: Fire and Ash");
-            mostAnticipatedMovie.Year.Should().Be(2025U);
+            mostAnticipatedMovie.Title.ShouldBe("Avatar: Fire and Ash");
+            mostAnticipatedMovie.Year.ShouldBe(2025U);
 
-            mostAnticipatedMovie.IDs!.Trakt.Should().Be(62544U);
-            mostAnticipatedMovie.IDs!.Slug.Should().Be("avatar-fire-and-ash-2025");
-            mostAnticipatedMovie.IDs!.IMDB.Should().Be("tt1757678");
-            mostAnticipatedMovie.IDs!.TMDB.Should().Be(83533U);
-            mostAnticipatedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostAnticipatedMovie.IDs!.BestID.Should().Be("avatar-fire-and-ash-2025");
+            mostAnticipatedMovie.IDs!.Trakt.ShouldBe(62544U);
+            mostAnticipatedMovie.IDs!.Slug.ShouldBe("avatar-fire-and-ash-2025");
+            mostAnticipatedMovie.IDs!.IMDB.ShouldBe("tt1757678");
+            mostAnticipatedMovie.IDs!.TMDB.ShouldBe(83533U);
+            mostAnticipatedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostAnticipatedMovie.IDs!.BestID.ShouldBe("avatar-fire-and-ash-2025");
 
-            mostAnticipatedMovie.ToString().Should().Be("Avatar: Fire and Ash (2025)");
+            mostAnticipatedMovie.ToString().ShouldBe("Avatar: Fire and Ash (2025)");
 
             // --------------------------------------------------------------------------------------------
 
             mostAnticipatedMovie = mostAnticipatedMovies![1];
 
-            mostAnticipatedMovie.Should().NotBeNull();
+            mostAnticipatedMovie.ShouldNotBeNull();
 
-            mostAnticipatedMovie.ListCount.Should().Be(23502U);
+            mostAnticipatedMovie.ListCount.ShouldBe(23502U);
 
-            mostAnticipatedMovie.Title.Should().Be("Blade");
-            mostAnticipatedMovie.Year.Should().Be(2025U);
+            mostAnticipatedMovie.Title.ShouldBe("Blade");
+            mostAnticipatedMovie.Year.ShouldBe(2025U);
 
-            mostAnticipatedMovie.IDs!.Trakt.Should().Be(460195U);
-            mostAnticipatedMovie.IDs!.Slug.Should().Be("blade-2025");
-            mostAnticipatedMovie.IDs!.IMDB.Should().Be("tt10671440");
-            mostAnticipatedMovie.IDs!.TMDB.Should().Be(617127U);
-            mostAnticipatedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostAnticipatedMovie.IDs!.BestID.Should().Be("blade-2025");
+            mostAnticipatedMovie.IDs!.Trakt.ShouldBe(460195U);
+            mostAnticipatedMovie.IDs!.Slug.ShouldBe("blade-2025");
+            mostAnticipatedMovie.IDs!.IMDB.ShouldBe("tt10671440");
+            mostAnticipatedMovie.IDs!.TMDB.ShouldBe(617127U);
+            mostAnticipatedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostAnticipatedMovie.IDs!.BestID.ShouldBe("blade-2025");
 
-            mostAnticipatedMovie.ToString().Should().Be("Blade (2025)");
+            mostAnticipatedMovie.ToString().ShouldBe("Blade (2025)");
         }
 
         [Fact]
@@ -159,108 +166,121 @@
         {
             IReadOnlyList<TraktMostAnticipatedMovie>? mostAnticipatedMovies = await TestUtility.DeserializeJsonListAsync<TraktMostAnticipatedMovie>("Movies\\mostanticipatedmovies.json");
 
-            mostAnticipatedMovies.Should().NotBeNull().And.HaveCount(2);
+            mostAnticipatedMovies.ShouldNotBeNull();
+            mostAnticipatedMovies!.Count.ShouldBe(2);
 
             TraktMostAnticipatedMovie mostAnticipatedMovie = mostAnticipatedMovies![0];
 
-            mostAnticipatedMovie.Should().NotBeNull();
+            mostAnticipatedMovie.ShouldNotBeNull();
 
-            mostAnticipatedMovie.ListCount.Should().Be(33464U);
+            mostAnticipatedMovie.ListCount.ShouldBe(33464U);
 
-            mostAnticipatedMovie.Title.Should().Be("Avatar: Fire and Ash");
-            mostAnticipatedMovie.Year.Should().Be(2025U);
+            mostAnticipatedMovie.Title.ShouldBe("Avatar: Fire and Ash");
+            mostAnticipatedMovie.Year.ShouldBe(2025U);
 
-            mostAnticipatedMovie.IDs!.Trakt.Should().Be(62544U);
-            mostAnticipatedMovie.IDs!.Slug.Should().Be("avatar-fire-and-ash-2025");
-            mostAnticipatedMovie.IDs!.IMDB.Should().Be("tt1757678");
-            mostAnticipatedMovie.IDs!.TMDB.Should().Be(83533U);
-            mostAnticipatedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostAnticipatedMovie.IDs!.BestID.Should().Be("avatar-fire-and-ash-2025");
+            mostAnticipatedMovie.IDs!.Trakt.ShouldBe(62544U);
+            mostAnticipatedMovie.IDs!.Slug.ShouldBe("avatar-fire-and-ash-2025");
+            mostAnticipatedMovie.IDs!.IMDB.ShouldBe("tt1757678");
+            mostAnticipatedMovie.IDs!.TMDB.ShouldBe(83533U);
+            mostAnticipatedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostAnticipatedMovie.IDs!.BestID.ShouldBe("avatar-fire-and-ash-2025");
 
-            mostAnticipatedMovie.ToString().Should().Be("Avatar: Fire and Ash (2025)");
+            mostAnticipatedMovie.ToString().ShouldBe("Avatar: Fire and Ash (2025)");
 
-            mostAnticipatedMovie.Tagline.Should().BeEmpty();
+            mostAnticipatedMovie.Tagline.ShouldBeEmpty();
 
-            mostAnticipatedMovie.Overview.Should().Be("In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri "
+            mostAnticipatedMovie.Overview.ShouldBe("In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri "
                 + "face a new threat on Pandora.");
 
 #if NET7_0_OR_GREATER
-            mostAnticipatedMovie.Released.Should().Be(TestUtility.ParseDate("2025-12-19"));
+            mostAnticipatedMovie.Released.ShouldBe(TestUtility.ParseDate("2025-12-19"));
 #else
-            mostAnticipatedMovie.Released.Should().Be(TestUtility.ParseUTCDateTime("2025-12-19T00:00:00.000Z"));
+            mostAnticipatedMovie.Released.ShouldBe(TestUtility.ParseUTCDateTime("2025-12-19T00:00:00.000Z"));
 #endif
-            mostAnticipatedMovie.Runtime.Should().Be(1U);
-            mostAnticipatedMovie.Country.Should().Be("us");
-            mostAnticipatedMovie.Trailer.Should().BeNull();
-            mostAnticipatedMovie.Homepage.Should().Be("http://www.avatar.com/movies");
-            mostAnticipatedMovie.Status.Should().Be(TraktMovieStatus.PostProduction);
-            mostAnticipatedMovie.Rating.Should().Be(7.05102f);
-            mostAnticipatedMovie.Votes.Should().Be(98U);
-            mostAnticipatedMovie.CommentCount.Should().Be(2U);
-            mostAnticipatedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-15T08:05:18.000Z"));
-            mostAnticipatedMovie.Language.Should().Be("en");
-            mostAnticipatedMovie.Languages.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["en"]);
+            mostAnticipatedMovie.Runtime.ShouldBe(1U);
+            mostAnticipatedMovie.Country.ShouldBe("us");
+            mostAnticipatedMovie.Trailer.ShouldBeNull();
+            mostAnticipatedMovie.Homepage.ShouldBe("http://www.avatar.com/movies");
+            mostAnticipatedMovie.Status.ShouldBe(TraktMovieStatus.PostProduction);
+            mostAnticipatedMovie.Rating.ShouldBe(7.05102f);
+            mostAnticipatedMovie.Votes.ShouldBe(98U);
+            mostAnticipatedMovie.CommentCount.ShouldBe(2U);
+            mostAnticipatedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-15T08:05:18.000Z"));
+            mostAnticipatedMovie.Language.ShouldBe("en");
+            mostAnticipatedMovie.Languages.ShouldNotBeNull();
+            mostAnticipatedMovie.Languages!.Count.ShouldBe(1);
+            mostAnticipatedMovie.Languages!.ShouldBe(["en"], Case.Sensitive);
 
-            mostAnticipatedMovie.AvailableTranslations.Should().NotBeNull().And.HaveCount(13).And.BeEquivalentTo([
+            mostAnticipatedMovie.AvailableTranslations.ShouldNotBeNull();
+            mostAnticipatedMovie.AvailableTranslations!.Count.ShouldBe(13);
+            mostAnticipatedMovie.AvailableTranslations!.ShouldBe([
                 "bg", "en", "es", "fr", "he", "ka", "ko", "pl", "pt", "ru", "uk", "vi", "zh"
-            ]);
+            ], Case.Sensitive);
 
-            mostAnticipatedMovie.Genres.Should().NotBeNull().And.HaveCount(3).And.BeEquivalentTo([
+            mostAnticipatedMovie.Genres.ShouldNotBeNull();
+            mostAnticipatedMovie.Genres!.Count.ShouldBe(3);
+            mostAnticipatedMovie.Genres!.ShouldBe([
                 "adventure", "science-fiction", "fantasy"
-            ]);
+            ], Case.Sensitive);
 
-            mostAnticipatedMovie.Certification.Should().BeNull();
+            mostAnticipatedMovie.Certification.ShouldBeNull();
 
             // --------------------------------------------------------------------------------------------
 
             mostAnticipatedMovie = mostAnticipatedMovies![1];
 
-            mostAnticipatedMovie.Should().NotBeNull();
+            mostAnticipatedMovie.ShouldNotBeNull();
 
-            mostAnticipatedMovie.ListCount.Should().Be(23502U);
+            mostAnticipatedMovie.ListCount.ShouldBe(23502U);
 
-            mostAnticipatedMovie.Title.Should().Be("Blade");
-            mostAnticipatedMovie.Year.Should().Be(2025U);
+            mostAnticipatedMovie.Title.ShouldBe("Blade");
+            mostAnticipatedMovie.Year.ShouldBe(2025U);
 
-            mostAnticipatedMovie.IDs!.Trakt.Should().Be(460195U);
-            mostAnticipatedMovie.IDs!.Slug.Should().Be("blade-2025");
-            mostAnticipatedMovie.IDs!.IMDB.Should().Be("tt10671440");
-            mostAnticipatedMovie.IDs!.TMDB.Should().Be(617127U);
-            mostAnticipatedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostAnticipatedMovie.IDs!.BestID.Should().Be("blade-2025");
+            mostAnticipatedMovie.IDs!.Trakt.ShouldBe(460195U);
+            mostAnticipatedMovie.IDs!.Slug.ShouldBe("blade-2025");
+            mostAnticipatedMovie.IDs!.IMDB.ShouldBe("tt10671440");
+            mostAnticipatedMovie.IDs!.TMDB.ShouldBe(617127U);
+            mostAnticipatedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostAnticipatedMovie.IDs!.BestID.ShouldBe("blade-2025");
 
-            mostAnticipatedMovie.ToString().Should().Be("Blade (2025)");
+            mostAnticipatedMovie.ToString().ShouldBe("Blade (2025)");
 
-            mostAnticipatedMovie.Tagline.Should().BeEmpty();
+            mostAnticipatedMovie.Tagline.ShouldBeEmpty();
 
-            mostAnticipatedMovie.Overview.Should().Be("A film set in the Marvel Cinematic Universe (MCU) based on the Marvel Comics character of the same name.");
+            mostAnticipatedMovie.Overview.ShouldBe("A film set in the Marvel Cinematic Universe (MCU) based on the Marvel Comics character of the same name.");
 
 #if NET7_0_OR_GREATER
-            mostAnticipatedMovie!.Released.Should().Be(TestUtility.ParseDate("2025-11-07"));
+            mostAnticipatedMovie!.Released.ShouldBe(TestUtility.ParseDate("2025-11-07"));
 #else
-            mostAnticipatedMovie!.Released.Should().Be(TestUtility.ParseUTCDateTime("2025-11-07T00:00:00.000Z"));
+            mostAnticipatedMovie!.Released.ShouldBe(TestUtility.ParseUTCDateTime("2025-11-07T00:00:00.000Z"));
 #endif
-            mostAnticipatedMovie.Runtime.Should().Be(90U);
-            mostAnticipatedMovie.Country.Should().Be("us");
-            mostAnticipatedMovie.Trailer.Should().BeNull();
-            mostAnticipatedMovie.Homepage.Should().Be("http://www.marvel.com/movies/blade");
-            mostAnticipatedMovie.Status.Should().Be(TraktMovieStatus.Planned);
-            mostAnticipatedMovie.Rating.Should().Be(7.05556f);
-            mostAnticipatedMovie.Votes.Should().Be(36U);
-            mostAnticipatedMovie.CommentCount.Should().Be(10U);
-            mostAnticipatedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-16T08:06:34.000Z"));
-            mostAnticipatedMovie.Language.Should().Be("en");
-            mostAnticipatedMovie.Languages.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["en"]);
+            mostAnticipatedMovie.Runtime.ShouldBe(90U);
+            mostAnticipatedMovie.Country.ShouldBe("us");
+            mostAnticipatedMovie.Trailer.ShouldBeNull();
+            mostAnticipatedMovie.Homepage.ShouldBe("http://www.marvel.com/movies/blade");
+            mostAnticipatedMovie.Status.ShouldBe(TraktMovieStatus.Planned);
+            mostAnticipatedMovie.Rating.ShouldBe(7.05556f);
+            mostAnticipatedMovie.Votes.ShouldBe(36U);
+            mostAnticipatedMovie.CommentCount.ShouldBe(10U);
+            mostAnticipatedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-16T08:06:34.000Z"));
+            mostAnticipatedMovie.Language.ShouldBe("en");
+            mostAnticipatedMovie.Languages.ShouldNotBeNull();
+            mostAnticipatedMovie.Languages!.Count.ShouldBe(1);
+            mostAnticipatedMovie.Languages!.ShouldBe(["en"], Case.Sensitive);
 
-            mostAnticipatedMovie.AvailableTranslations.Should().NotBeNull().And.HaveCount(13).And.BeEquivalentTo([
+            mostAnticipatedMovie.AvailableTranslations.ShouldNotBeNull();
+            mostAnticipatedMovie.AvailableTranslations!.Count.ShouldBe(13);
+            mostAnticipatedMovie.AvailableTranslations!.ShouldBe([
                 "bg", "en", "es", "fa", "he", "hu", "ka", "ko", "pt", "ru", "th", "uk", "zh"
-            ]);
+            ], Case.Sensitive);
 
-            mostAnticipatedMovie.Genres.Should().NotBeNull().And.HaveCount(2).And.BeEquivalentTo([
+            mostAnticipatedMovie.Genres.ShouldNotBeNull();
+            mostAnticipatedMovie.Genres!.Count.ShouldBe(2);
+            mostAnticipatedMovie.Genres!.ShouldBe([
                 "superhero", "fantasy"
-            ]);
+            ], Case.Sensitive);
 
-            mostAnticipatedMovie.Certification.Should().BeNull();
+            mostAnticipatedMovie.Certification.ShouldBeNull();
         }
     }
 }

@@ -5,43 +5,43 @@
         [Fact]
         public void TestTraktDayOfWeekToJson()
         {
-            TraktDayOfWeek.Unspecified.ToJson().Should().BeNull();
-            TraktDayOfWeek.Monday.ToJson().Should().Be("Monday");
-            TraktDayOfWeek.Tuesday.ToJson().Should().Be("Tuesday");
-            TraktDayOfWeek.Wednesday.ToJson().Should().Be("Wednesday");
-            TraktDayOfWeek.Thursday.ToJson().Should().Be("Thursday");
-            TraktDayOfWeek.Friday.ToJson().Should().Be("Friday");
-            TraktDayOfWeek.Saturday.ToJson().Should().Be("Saturday");
-            TraktDayOfWeek.Sunday.ToJson().Should().Be("Sunday");
+            TraktDayOfWeek.Unspecified.ToJson().ShouldBeNull();
+            TraktDayOfWeek.Monday.ToJson().ShouldBe("Monday");
+            TraktDayOfWeek.Tuesday.ToJson().ShouldBe("Tuesday");
+            TraktDayOfWeek.Wednesday.ToJson().ShouldBe("Wednesday");
+            TraktDayOfWeek.Thursday.ToJson().ShouldBe("Thursday");
+            TraktDayOfWeek.Friday.ToJson().ShouldBe("Friday");
+            TraktDayOfWeek.Saturday.ToJson().ShouldBe("Saturday");
+            TraktDayOfWeek.Sunday.ToJson().ShouldBe("Sunday");
         }
 
         [Fact]
         public void TestTraktDayOfWeekFromJson()
         {
-            "unspecified".ToTraktDayOfWeek().Should().Be(TraktDayOfWeek.Unspecified);
-            "Monday".ToTraktDayOfWeek().Should().Be(TraktDayOfWeek.Monday);
-            "Tuesday".ToTraktDayOfWeek().Should().Be(TraktDayOfWeek.Tuesday);
-            "Wednesday".ToTraktDayOfWeek().Should().Be(TraktDayOfWeek.Wednesday);
-            "Thursday".ToTraktDayOfWeek().Should().Be(TraktDayOfWeek.Thursday);
-            "Friday".ToTraktDayOfWeek().Should().Be(TraktDayOfWeek.Friday);
-            "Saturday".ToTraktDayOfWeek().Should().Be(TraktDayOfWeek.Saturday);
-            "Sunday".ToTraktDayOfWeek().Should().Be(TraktDayOfWeek.Sunday);
+            "unspecified".ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Unspecified);
+            "Monday".ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Monday);
+            "Tuesday".ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Tuesday);
+            "Wednesday".ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Wednesday);
+            "Thursday".ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Thursday);
+            "Friday".ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Friday);
+            "Saturday".ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Saturday);
+            "Sunday".ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Sunday);
 
             string? nullValue = null;
-            nullValue.ToTraktDayOfWeek().Should().Be(TraktDayOfWeek.Unspecified);
+            nullValue.ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Unspecified);
         }
 
         [Fact]
         public void TestTraktDayOfWeekDisplayName()
         {
-            TraktDayOfWeek.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktDayOfWeek.Monday.DisplayName().Should().Be("Monday");
-            TraktDayOfWeek.Tuesday.DisplayName().Should().Be("Tuesday");
-            TraktDayOfWeek.Wednesday.DisplayName().Should().Be("Wednesday");
-            TraktDayOfWeek.Thursday.DisplayName().Should().Be("Thursday");
-            TraktDayOfWeek.Friday.DisplayName().Should().Be("Friday");
-            TraktDayOfWeek.Saturday.DisplayName().Should().Be("Saturday");
-            TraktDayOfWeek.Sunday.DisplayName().Should().Be("Sunday");
+            TraktDayOfWeek.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktDayOfWeek.Monday.DisplayName().ShouldBe("Monday");
+            TraktDayOfWeek.Tuesday.DisplayName().ShouldBe("Tuesday");
+            TraktDayOfWeek.Wednesday.DisplayName().ShouldBe("Wednesday");
+            TraktDayOfWeek.Thursday.DisplayName().ShouldBe("Thursday");
+            TraktDayOfWeek.Friday.DisplayName().ShouldBe("Friday");
+            TraktDayOfWeek.Saturday.DisplayName().ShouldBe("Saturday");
+            TraktDayOfWeek.Sunday.DisplayName().ShouldBe("Sunday");
         }
     }
 }

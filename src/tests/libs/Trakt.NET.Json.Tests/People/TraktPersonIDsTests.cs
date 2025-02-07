@@ -7,13 +7,13 @@
         {
             var personIDs = new TraktPersonIDs();
 
-            personIDs.Trakt.Should().BeNull();
-            personIDs.Slug.Should().BeNull();
-            personIDs.IMDB.Should().BeNull();
-            personIDs.TMDB.Should().BeNull();
+            personIDs.Trakt.ShouldBeNull();
+            personIDs.Slug.ShouldBeNull();
+            personIDs.IMDB.ShouldBeNull();
+            personIDs.TMDB.ShouldBeNull();
 
-            personIDs.HasAnyID.Should().BeFalse();
-            personIDs.BestID.Should().BeEmpty();
+            personIDs.HasAnyID.ShouldBe(false);
+            personIDs.BestID.ShouldBeEmpty();
         }
 
         [Fact]
@@ -21,15 +21,15 @@
         {
             TraktPersonIDs? personIDs = await TestUtility.DeserializeJsonAsync<TraktPersonIDs>("People\\personids.json");
 
-            personIDs.Should().NotBeNull();
+            personIDs.ShouldNotBeNull();
 
-            personIDs!.Trakt.Should().Be(297737U);
-            personIDs!.Slug.Should().Be("bryan-cranston");
-            personIDs!.IMDB.Should().Be("nm0186505");
-            personIDs!.TMDB.Should().Be(17419U);
+            personIDs!.Trakt.ShouldBe(297737U);
+            personIDs!.Slug.ShouldBe("bryan-cranston");
+            personIDs!.IMDB.ShouldBe("nm0186505");
+            personIDs!.TMDB.ShouldBe(17419U);
 
-            personIDs!.HasAnyID.Should().BeTrue();
-            personIDs!.BestID.Should().Be("bryan-cranston");
+            personIDs!.HasAnyID.ShouldBe(true);
+            personIDs!.BestID.ShouldBe("bryan-cranston");
         }
     }
 }

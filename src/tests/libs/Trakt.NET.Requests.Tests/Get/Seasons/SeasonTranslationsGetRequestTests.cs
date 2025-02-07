@@ -24,7 +24,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             seasonTranslationsGetRequest.BuildUri();
-            seasonTranslationsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            seasonTranslationsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonTranslationsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            seasonTranslationsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
@@ -48,7 +48,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonTranslationsGetRequest.Method.Should().Be(HttpMethod.Get);
+            seasonTranslationsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonTranslationsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Season);
+            seasonTranslationsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Season);
         }
 
         [Fact]
@@ -73,7 +73,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             Action act = () => seasonTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonTranslationsGetRequest = new SeasonTranslationsGetRequest
             {
@@ -82,7 +82,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonTranslationsGetRequest = new SeasonTranslationsGetRequest
             {
@@ -91,7 +91,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonTranslationsGetRequest = new SeasonTranslationsGetRequest
             {
@@ -100,7 +100,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonTranslationsGetRequest.Validate();
-            act.Should().NotThrow();
+            act.ShouldNotThrow();
         }
     }
 }

@@ -18,28 +18,28 @@ namespace TraktNET.DeleteRequests.Shows
             };
 
             showUndoResetWatchedProgressDeleteRequest.BuildUri();
-            showUndoResetWatchedProgressDeleteRequest.RequestUri.Should().Be(new Uri(URIPath, UriKind.Relative));
+            showUndoResetWatchedProgressDeleteRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowUndoResetWatchedProgressDeleteRequestHasValidOAuthRequirement()
         {
             var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = ShowID };
-            showUndoResetWatchedProgressDeleteRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.Required);
+            showUndoResetWatchedProgressDeleteRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestShowUndoResetWatchedProgressDeleteRequestIsDeleteRequest()
         {
             var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = ShowID };
-            showUndoResetWatchedProgressDeleteRequest.Method.Should().Be(HttpMethod.Delete);
+            showUndoResetWatchedProgressDeleteRequest.Method.ShouldBe(HttpMethod.Delete);
         }
 
         [Fact]
         public void TestShowUndoResetWatchedProgressDeleteRequestHasCorrectRequestObjectType()
         {
             var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = ShowID };
-            showUndoResetWatchedProgressDeleteRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showUndoResetWatchedProgressDeleteRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -48,17 +48,17 @@ namespace TraktNET.DeleteRequests.Shows
             var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = string.Empty };
 
             Action act = () => showUndoResetWatchedProgressDeleteRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = "  " };
 
             act = () => showUndoResetWatchedProgressDeleteRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = "id with spaces" };
 
             act = () => showUndoResetWatchedProgressDeleteRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

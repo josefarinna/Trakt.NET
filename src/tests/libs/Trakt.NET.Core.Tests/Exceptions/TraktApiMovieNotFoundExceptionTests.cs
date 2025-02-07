@@ -14,18 +14,18 @@ namespace TraktNET.Exceptions
 
             var exception = new TraktApiMovieNotFoundException(parameters);
 
-            exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(Constants.StatusCodes.NotFound);
-            exception.ReasonPhrase.Should().Be("Movie Not Found - method exists, but no record found");
-            exception.HttpMethod.Should().Be(HttpMethod.Get);
-            exception.RequestMessage.Should().NotBeNull();
-            exception.RequestUri.Should().Be(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
-            exception.ResponseContent.Should().Be(ExceptionsTestUtility.TestResponseContent);
-            exception.Headers.Should().NotBeNull();
-            exception.ContentHeaders.Should().NotBeNull();
-            exception.Message.Should().Be("Trakt API request failed. Movie Not Found - method exists, but no record found");
+            exception.ShouldNotBeNull();
+            exception.StatusCode.ShouldBe(Constants.StatusCodes.NotFound);
+            exception.ReasonPhrase.ShouldBe("Movie Not Found - method exists, but no record found");
+            exception.HttpMethod.ShouldBe(HttpMethod.Get);
+            exception.RequestMessage.ShouldNotBeNull();
+            exception.RequestUri.ShouldBe(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
+            exception.ResponseContent.ShouldBe(ExceptionsTestUtility.TestResponseContent);
+            exception.Headers.ShouldNotBeNull();
+            exception.ContentHeaders.ShouldNotBeNull();
+            exception.Message.ShouldBe("Trakt API request failed. Movie Not Found - method exists, but no record found");
 
-            exception.MovieID.Should().Be("movieID");
+            exception.MovieID.ShouldBe("movieID");
         }
     }
 }

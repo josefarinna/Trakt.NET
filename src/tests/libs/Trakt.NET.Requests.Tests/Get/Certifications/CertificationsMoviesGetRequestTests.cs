@@ -12,28 +12,28 @@ namespace TraktNET.GetRequests.Certifications
             var certificationsMoviesGetRequest = new CertificationsMoviesGetRequest();
 
             certificationsMoviesGetRequest.BuildUri();
-            certificationsMoviesGetRequest.RequestUri.Should().Be(new Uri("certifications/movies", UriKind.Relative));
+            certificationsMoviesGetRequest.RequestUri.ShouldBe(new Uri("certifications/movies", UriKind.Relative));
         }
 
         [Fact]
         public void TestCertificationsMoviesGetRequestHasValidOAuthRequirement()
         {
             var certificationsMoviesGetRequest = new CertificationsMoviesGetRequest();
-            certificationsMoviesGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            certificationsMoviesGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestCertificationsMoviesGetRequestIsGetRequest()
         {
             var certificationsMoviesGetRequest = new CertificationsMoviesGetRequest();
-            certificationsMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
+            certificationsMoviesGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestCertificationsMoviesGetRequestHasCorrectRequestObjectType()
         {
             var certificationsMoviesGetRequest = new CertificationsMoviesGetRequest();
-            certificationsMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+            certificationsMoviesGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     }
 }

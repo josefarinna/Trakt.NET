@@ -5,37 +5,37 @@
         [Fact]
         public void TestTraktListItemTypeToJson()
         {
-            TraktListItemType.Unspecified.ToJson().Should().BeNull();
-            TraktListItemType.Movie.ToJson().Should().Be("movie");
-            TraktListItemType.Show.ToJson().Should().Be("show");
-            TraktListItemType.Season.ToJson().Should().Be("season");
-            TraktListItemType.Episode.ToJson().Should().Be("episode");
-            TraktListItemType.Person.ToJson().Should().Be("person");
+            TraktListItemType.Unspecified.ToJson().ShouldBeNull();
+            TraktListItemType.Movie.ToJson().ShouldBe("movie");
+            TraktListItemType.Show.ToJson().ShouldBe("show");
+            TraktListItemType.Season.ToJson().ShouldBe("season");
+            TraktListItemType.Episode.ToJson().ShouldBe("episode");
+            TraktListItemType.Person.ToJson().ShouldBe("person");
         }
 
         [Fact]
         public void TestTraktListItemTypeFromJson()
         {
-            "unspecified".ToTraktListItemType().Should().Be(TraktListItemType.Unspecified);
-            "movie".ToTraktListItemType().Should().Be(TraktListItemType.Movie);
-            "show".ToTraktListItemType().Should().Be(TraktListItemType.Show);
-            "season".ToTraktListItemType().Should().Be(TraktListItemType.Season);
-            "episode".ToTraktListItemType().Should().Be(TraktListItemType.Episode);
-            "person".ToTraktListItemType().Should().Be(TraktListItemType.Person);
+            "unspecified".ToTraktListItemType().ShouldBe(TraktListItemType.Unspecified);
+            "movie".ToTraktListItemType().ShouldBe(TraktListItemType.Movie);
+            "show".ToTraktListItemType().ShouldBe(TraktListItemType.Show);
+            "season".ToTraktListItemType().ShouldBe(TraktListItemType.Season);
+            "episode".ToTraktListItemType().ShouldBe(TraktListItemType.Episode);
+            "person".ToTraktListItemType().ShouldBe(TraktListItemType.Person);
 
             string? nullValue = null;
-            nullValue.ToTraktListItemType().Should().Be(TraktListItemType.Unspecified);
+            nullValue.ToTraktListItemType().ShouldBe(TraktListItemType.Unspecified);
         }
 
         [Fact]
         public void TestTraktListItemTypeDisplayName()
         {
-            TraktListItemType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktListItemType.Movie.DisplayName().Should().Be("Movie");
-            TraktListItemType.Show.DisplayName().Should().Be("Show");
-            TraktListItemType.Season.DisplayName().Should().Be("Season");
-            TraktListItemType.Episode.DisplayName().Should().Be("Episode");
-            TraktListItemType.Person.DisplayName().Should().Be("Person");
+            TraktListItemType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktListItemType.Movie.DisplayName().ShouldBe("Movie");
+            TraktListItemType.Show.DisplayName().ShouldBe("Show");
+            TraktListItemType.Season.DisplayName().ShouldBe("Season");
+            TraktListItemType.Episode.DisplayName().ShouldBe("Episode");
+            TraktListItemType.Person.DisplayName().ShouldBe("Person");
         }
     }
 }

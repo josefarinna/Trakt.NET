@@ -54,7 +54,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             seasonCommentsGetRequest.BuildUri();
-            seasonCommentsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            seasonCommentsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
@@ -66,7 +66,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonCommentsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.Optional);
+            seasonCommentsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Optional);
         }
 
         [Fact]
@@ -78,7 +78,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonCommentsGetRequest.Method.Should().Be(HttpMethod.Get);
+            seasonCommentsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
@@ -90,7 +90,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonCommentsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Season);
+            seasonCommentsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Season);
         }
 
         [Fact]
@@ -103,7 +103,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             Action act = () => seasonCommentsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonCommentsGetRequest = new SeasonCommentsGetRequest
             {
@@ -112,7 +112,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonCommentsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonCommentsGetRequest = new SeasonCommentsGetRequest
             {
@@ -121,7 +121,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonCommentsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonCommentsGetRequest = new SeasonCommentsGetRequest
             {
@@ -130,7 +130,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonCommentsGetRequest.Validate();
-            act.Should().NotThrow();
+            act.ShouldNotThrow();
         }
     }
 }

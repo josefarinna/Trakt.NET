@@ -26,7 +26,7 @@ namespace TraktNET.GetRequests.Movies
             };
 
             recentlyUpdatedMovieIDsGetRequest.BuildUri();
-            recentlyUpdatedMovieIDsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            recentlyUpdatedMovieIDsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Theory]
@@ -44,28 +44,28 @@ namespace TraktNET.GetRequests.Movies
             };
 
             recentlyUpdatedMovieIDsGetRequest.BuildUri();
-            recentlyUpdatedMovieIDsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            recentlyUpdatedMovieIDsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestRecentlyUpdatedMovieIDsGetRequestHasValidOAuthRequirement()
         {
             var recentlyUpdatedMovieIDsGetRequest = new RecentlyUpdatedMovieIDsGetRequest();
-            recentlyUpdatedMovieIDsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            recentlyUpdatedMovieIDsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestRecentlyUpdatedMovieIDsGetRequestIsGetRequest()
         {
             var recentlyUpdatedMovieIDsGetRequest = new RecentlyUpdatedMovieIDsGetRequest();
-            recentlyUpdatedMovieIDsGetRequest.Method.Should().Be(HttpMethod.Get);
+            recentlyUpdatedMovieIDsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestRecentlyUpdatedMovieIDsGetRequestHasCorrectRequestObjectType()
         {
             var recentlyUpdatedMovieIDsGetRequest = new RecentlyUpdatedMovieIDsGetRequest();
-            recentlyUpdatedMovieIDsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.None);
+            recentlyUpdatedMovieIDsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     }
 }

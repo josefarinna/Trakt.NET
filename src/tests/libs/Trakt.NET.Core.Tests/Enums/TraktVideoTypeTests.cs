@@ -5,46 +5,46 @@
         [Fact]
         public void TestTraktVideoTypeToJson()
         {
-            TraktVideoType.Unspecified.ToJson().Should().BeNull();
-            TraktVideoType.BehindTheScenes.ToJson().Should().Be("behind the scenes");
-            TraktVideoType.Bloopers.ToJson().Should().Be("bloopers");
-            TraktVideoType.Clip.ToJson().Should().Be("clip");
-            TraktVideoType.Featurette.ToJson().Should().Be("featurette");
-            TraktVideoType.OpeningCredits.ToJson().Should().Be("opening credits");
-            TraktVideoType.Recap.ToJson().Should().Be("recap");
-            TraktVideoType.Teaser.ToJson().Should().Be("teaser");
-            TraktVideoType.Trailer.ToJson().Should().Be("trailer");
+            TraktVideoType.Unspecified.ToJson().ShouldBeNull();
+            TraktVideoType.BehindTheScenes.ToJson().ShouldBe("behind the scenes");
+            TraktVideoType.Bloopers.ToJson().ShouldBe("bloopers");
+            TraktVideoType.Clip.ToJson().ShouldBe("clip");
+            TraktVideoType.Featurette.ToJson().ShouldBe("featurette");
+            TraktVideoType.OpeningCredits.ToJson().ShouldBe("opening credits");
+            TraktVideoType.Recap.ToJson().ShouldBe("recap");
+            TraktVideoType.Teaser.ToJson().ShouldBe("teaser");
+            TraktVideoType.Trailer.ToJson().ShouldBe("trailer");
         }
 
         [Fact]
         public void TestTraktVideoTypeFromJson()
         {
-            "unspecified".ToTraktVideoType().Should().Be(TraktVideoType.Unspecified);
-            "behind the scenes".ToTraktVideoType().Should().Be(TraktVideoType.BehindTheScenes);
-            "bloopers".ToTraktVideoType().Should().Be(TraktVideoType.Bloopers);
-            "clip".ToTraktVideoType().Should().Be(TraktVideoType.Clip);
-            "featurette".ToTraktVideoType().Should().Be(TraktVideoType.Featurette);
-            "opening credits".ToTraktVideoType().Should().Be(TraktVideoType.OpeningCredits);
-            "recap".ToTraktVideoType().Should().Be(TraktVideoType.Recap);
-            "teaser".ToTraktVideoType().Should().Be(TraktVideoType.Teaser);
-            "trailer".ToTraktVideoType().Should().Be(TraktVideoType.Trailer);
+            "unspecified".ToTraktVideoType().ShouldBe(TraktVideoType.Unspecified);
+            "behind the scenes".ToTraktVideoType().ShouldBe(TraktVideoType.BehindTheScenes);
+            "bloopers".ToTraktVideoType().ShouldBe(TraktVideoType.Bloopers);
+            "clip".ToTraktVideoType().ShouldBe(TraktVideoType.Clip);
+            "featurette".ToTraktVideoType().ShouldBe(TraktVideoType.Featurette);
+            "opening credits".ToTraktVideoType().ShouldBe(TraktVideoType.OpeningCredits);
+            "recap".ToTraktVideoType().ShouldBe(TraktVideoType.Recap);
+            "teaser".ToTraktVideoType().ShouldBe(TraktVideoType.Teaser);
+            "trailer".ToTraktVideoType().ShouldBe(TraktVideoType.Trailer);
 
             string? nullValue = null;
-            nullValue.ToTraktVideoType().Should().Be(TraktVideoType.Unspecified);
+            nullValue.ToTraktVideoType().ShouldBe(TraktVideoType.Unspecified);
         }
 
         [Fact]
         public void TestTraktVideoTypeDisplayName()
         {
-            TraktVideoType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktVideoType.BehindTheScenes.DisplayName().Should().Be("Behind The Scenes");
-            TraktVideoType.Bloopers.DisplayName().Should().Be("Bloopers");
-            TraktVideoType.Clip.DisplayName().Should().Be("Clip");
-            TraktVideoType.Featurette.DisplayName().Should().Be("Featurette");
-            TraktVideoType.OpeningCredits.DisplayName().Should().Be("Opening Credits");
-            TraktVideoType.Recap.DisplayName().Should().Be("Recap");
-            TraktVideoType.Teaser.DisplayName().Should().Be("Teaser");
-            TraktVideoType.Trailer.DisplayName().Should().Be("Trailer");
+            TraktVideoType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktVideoType.BehindTheScenes.DisplayName().ShouldBe("Behind The Scenes");
+            TraktVideoType.Bloopers.DisplayName().ShouldBe("Bloopers");
+            TraktVideoType.Clip.DisplayName().ShouldBe("Clip");
+            TraktVideoType.Featurette.DisplayName().ShouldBe("Featurette");
+            TraktVideoType.OpeningCredits.DisplayName().ShouldBe("Opening Credits");
+            TraktVideoType.Recap.DisplayName().ShouldBe("Recap");
+            TraktVideoType.Teaser.DisplayName().ShouldBe("Teaser");
+            TraktVideoType.Trailer.DisplayName().ShouldBe("Trailer");
         }
     }
 }

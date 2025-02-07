@@ -5,37 +5,37 @@
         [Fact]
         public void TestTraktSearchIDTypeToJson()
         {
-            TraktSearchIDType.Unspecified.ToJson().Should().BeNull();
-            TraktSearchIDType.Trakt.ToJson().Should().Be("trakt");
-            TraktSearchIDType.ImDB.ToJson().Should().Be("imdb");
-            TraktSearchIDType.TmDB.ToJson().Should().Be("tmdb");
-            TraktSearchIDType.TvDB.ToJson().Should().Be("tvdb");
-            TraktSearchIDType.TVRage.ToJson().Should().Be("tvrage");
+            TraktSearchIDType.Unspecified.ToJson().ShouldBeNull();
+            TraktSearchIDType.Trakt.ToJson().ShouldBe("trakt");
+            TraktSearchIDType.ImDB.ToJson().ShouldBe("imdb");
+            TraktSearchIDType.TmDB.ToJson().ShouldBe("tmdb");
+            TraktSearchIDType.TvDB.ToJson().ShouldBe("tvdb");
+            TraktSearchIDType.TVRage.ToJson().ShouldBe("tvrage");
         }
 
         [Fact]
         public void TestTraktSearchIDTypeFromJson()
         {
-            "unspecified".ToTraktSearchIDType().Should().Be(TraktSearchIDType.Unspecified);
-            "trakt".ToTraktSearchIDType().Should().Be(TraktSearchIDType.Trakt);
-            "imdb".ToTraktSearchIDType().Should().Be(TraktSearchIDType.ImDB);
-            "tmdb".ToTraktSearchIDType().Should().Be(TraktSearchIDType.TmDB);
-            "tvdb".ToTraktSearchIDType().Should().Be(TraktSearchIDType.TvDB);
-            "tvrage".ToTraktSearchIDType().Should().Be(TraktSearchIDType.TVRage);
+            "unspecified".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.Unspecified);
+            "trakt".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.Trakt);
+            "imdb".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.ImDB);
+            "tmdb".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.TmDB);
+            "tvdb".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.TvDB);
+            "tvrage".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.TVRage);
 
             string? nullValue = null;
-            nullValue.ToTraktSearchIDType().Should().Be(TraktSearchIDType.Unspecified);
+            nullValue.ToTraktSearchIDType().ShouldBe(TraktSearchIDType.Unspecified);
         }
 
         [Fact]
         public void TestTraktSearchIDTypeDisplayName()
         {
-            TraktSearchIDType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktSearchIDType.Trakt.DisplayName().Should().Be("Trakt");
-            TraktSearchIDType.ImDB.DisplayName().Should().Be("Internet Movie Database");
-            TraktSearchIDType.TmDB.DisplayName().Should().Be("The Movie Database");
-            TraktSearchIDType.TvDB.DisplayName().Should().Be("TheTVDB");
-            TraktSearchIDType.TVRage.DisplayName().Should().Be("TVRage");
+            TraktSearchIDType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktSearchIDType.Trakt.DisplayName().ShouldBe("Trakt");
+            TraktSearchIDType.ImDB.DisplayName().ShouldBe("Internet Movie Database");
+            TraktSearchIDType.TmDB.DisplayName().ShouldBe("The Movie Database");
+            TraktSearchIDType.TvDB.DisplayName().ShouldBe("TheTVDB");
+            TraktSearchIDType.TVRage.DisplayName().ShouldBe("TVRage");
         }
     }
 }

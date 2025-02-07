@@ -20,26 +20,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieID, extendedInfo);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktUser> watchingUsers = response.Content!;
 
             TraktUser watchingUser = watchingUsers[0];
 
-            watchingUser.Username.Should().Be("user1");
-            watchingUser.Name.Should().Be("User Name 1");
+            watchingUser.Username.ShouldBe("user1");
+            watchingUser.Name.ShouldBe("User Name 1");
 
             watchingUser = watchingUsers[1];
 
-            watchingUser.Username.Should().Be("user2");
-            watchingUser.Name.Should().Be("User Name 2");
+            watchingUser.Username.ShouldBe("user2");
+            watchingUser.Name.ShouldBe("User Name 2");
         }
 
         [Theory]
@@ -53,26 +53,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieSlug, extendedInfo);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktUser> watchingUsers = response.Content!;
 
             TraktUser watchingUser = watchingUsers[0];
 
-            watchingUser.Username.Should().Be("user1");
-            watchingUser.Name.Should().Be("User Name 1");
+            watchingUser.Username.ShouldBe("user1");
+            watchingUser.Name.ShouldBe("User Name 1");
 
             watchingUser = watchingUsers[1];
 
-            watchingUser.Username.Should().Be("user2");
-            watchingUser.Name.Should().Be("User Name 2");
+            watchingUser.Username.ShouldBe("user2");
+            watchingUser.Name.ShouldBe("User Name 2");
         }
 
         [Theory]
@@ -86,26 +86,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieIDs, extendedInfo);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktUser> watchingUsers = response.Content!;
 
             TraktUser watchingUser = watchingUsers[0];
 
-            watchingUser.Username.Should().Be("user1");
-            watchingUser.Name.Should().Be("User Name 1");
+            watchingUser.Username.ShouldBe("user1");
+            watchingUser.Name.ShouldBe("User Name 1");
 
             watchingUser = watchingUsers[1];
 
-            watchingUser.Username.Should().Be("user2");
-            watchingUser.Name.Should().Be("User Name 2");
+            watchingUser.Username.ShouldBe("user2");
+            watchingUser.Name.ShouldBe("User Name 2");
         }
 
         [Theory]
@@ -145,7 +145,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -186,7 +186,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -227,7 +227,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -240,12 +240,12 @@ namespace TraktNET.MoviesModule
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktListResponse<TraktUser>>> act = () => client.Movies.GetMovieWatchingUsersAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMovieWatchingUsersAsync(movieIDs);
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

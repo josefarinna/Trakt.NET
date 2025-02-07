@@ -5,67 +5,67 @@
         [Fact]
         public void TestTraktMediaAudioToJson()
         {
-            TraktMediaAudio.Unspecified.ToJson().Should().BeNull();
-            TraktMediaAudio.LPCM.ToJson().Should().Be("lpcm");
-            TraktMediaAudio.MP3.ToJson().Should().Be("mp3");
-            TraktMediaAudio.AAC.ToJson().Should().Be("aac");
-            TraktMediaAudio.OGG.ToJson().Should().Be("ogg");
-            TraktMediaAudio.WMA.ToJson().Should().Be("wma");
-            TraktMediaAudio.DTS.ToJson().Should().Be("dts");
-            TraktMediaAudio.DTSMA.ToJson().Should().Be("dts_ma");
-            TraktMediaAudio.DTSX.ToJson().Should().Be("dts_x");
-            TraktMediaAudio.DolbyPrologic.ToJson().Should().Be("dolby_prologic");
-            TraktMediaAudio.DolbyDigital.ToJson().Should().Be("dolby_digital");
-            TraktMediaAudio.DolbyDigitalPlus.ToJson().Should().Be("dolby_digital_plus");
-            TraktMediaAudio.DolbyTrueHD.ToJson().Should().Be("dolby_truehd");
-            TraktMediaAudio.DolbyAtmos.ToJson().Should().Be("dolby_atmos");
-            TraktMediaAudio.DTSHR.ToJson().Should().Be("dts_hr");
-            TraktMediaAudio.AURO3D.ToJson().Should().Be("auro_3d");
+            TraktMediaAudio.Unspecified.ToJson().ShouldBeNull();
+            TraktMediaAudio.LPCM.ToJson().ShouldBe("lpcm");
+            TraktMediaAudio.MP3.ToJson().ShouldBe("mp3");
+            TraktMediaAudio.AAC.ToJson().ShouldBe("aac");
+            TraktMediaAudio.OGG.ToJson().ShouldBe("ogg");
+            TraktMediaAudio.WMA.ToJson().ShouldBe("wma");
+            TraktMediaAudio.DTS.ToJson().ShouldBe("dts");
+            TraktMediaAudio.DTSMA.ToJson().ShouldBe("dts_ma");
+            TraktMediaAudio.DTSX.ToJson().ShouldBe("dts_x");
+            TraktMediaAudio.DolbyPrologic.ToJson().ShouldBe("dolby_prologic");
+            TraktMediaAudio.DolbyDigital.ToJson().ShouldBe("dolby_digital");
+            TraktMediaAudio.DolbyDigitalPlus.ToJson().ShouldBe("dolby_digital_plus");
+            TraktMediaAudio.DolbyTrueHD.ToJson().ShouldBe("dolby_truehd");
+            TraktMediaAudio.DolbyAtmos.ToJson().ShouldBe("dolby_atmos");
+            TraktMediaAudio.DTSHR.ToJson().ShouldBe("dts_hr");
+            TraktMediaAudio.AURO3D.ToJson().ShouldBe("auro_3d");
         }
 
         [Fact]
         public void TestTraktMediaAudioFromJson()
         {
-            "unspecified".ToTraktMediaAudio().Should().Be(TraktMediaAudio.Unspecified);
-            "lpcm".ToTraktMediaAudio().Should().Be(TraktMediaAudio.LPCM);
-            "mp3".ToTraktMediaAudio().Should().Be(TraktMediaAudio.MP3);
-            "aac".ToTraktMediaAudio().Should().Be(TraktMediaAudio.AAC);
-            "ogg".ToTraktMediaAudio().Should().Be(TraktMediaAudio.OGG);
-            "wma".ToTraktMediaAudio().Should().Be(TraktMediaAudio.WMA);
-            "dts".ToTraktMediaAudio().Should().Be(TraktMediaAudio.DTS);
-            "dts_ma".ToTraktMediaAudio().Should().Be(TraktMediaAudio.DTSMA);
-            "dts_x".ToTraktMediaAudio().Should().Be(TraktMediaAudio.DTSX);
-            "dolby_prologic".ToTraktMediaAudio().Should().Be(TraktMediaAudio.DolbyPrologic);
-            "dolby_digital".ToTraktMediaAudio().Should().Be(TraktMediaAudio.DolbyDigital);
-            "dolby_digital_plus".ToTraktMediaAudio().Should().Be(TraktMediaAudio.DolbyDigitalPlus);
-            "dolby_truehd".ToTraktMediaAudio().Should().Be(TraktMediaAudio.DolbyTrueHD);
-            "dolby_atmos".ToTraktMediaAudio().Should().Be(TraktMediaAudio.DolbyAtmos);
-            "dts_hr".ToTraktMediaAudio().Should().Be(TraktMediaAudio.DTSHR);
-            "auro_3d".ToTraktMediaAudio().Should().Be(TraktMediaAudio.AURO3D);
+            "unspecified".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.Unspecified);
+            "lpcm".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.LPCM);
+            "mp3".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.MP3);
+            "aac".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.AAC);
+            "ogg".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.OGG);
+            "wma".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.WMA);
+            "dts".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.DTS);
+            "dts_ma".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.DTSMA);
+            "dts_x".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.DTSX);
+            "dolby_prologic".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.DolbyPrologic);
+            "dolby_digital".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.DolbyDigital);
+            "dolby_digital_plus".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.DolbyDigitalPlus);
+            "dolby_truehd".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.DolbyTrueHD);
+            "dolby_atmos".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.DolbyAtmos);
+            "dts_hr".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.DTSHR);
+            "auro_3d".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.AURO3D);
 
             string? nullValue = null;
-            nullValue.ToTraktMediaAudio().Should().Be(TraktMediaAudio.Unspecified);
+            nullValue.ToTraktMediaAudio().ShouldBe(TraktMediaAudio.Unspecified);
         }
 
         [Fact]
         public void TestTraktMediaAudioDisplayName()
         {
-            TraktMediaAudio.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktMediaAudio.LPCM.DisplayName().Should().Be("LPCM");
-            TraktMediaAudio.MP3.DisplayName().Should().Be("MP3");
-            TraktMediaAudio.AAC.DisplayName().Should().Be("AAC");
-            TraktMediaAudio.OGG.DisplayName().Should().Be("OGG");
-            TraktMediaAudio.WMA.DisplayName().Should().Be("WMA");
-            TraktMediaAudio.DTS.DisplayName().Should().Be("DTS");
-            TraktMediaAudio.DTSMA.DisplayName().Should().Be("DTS Master Audio");
-            TraktMediaAudio.DTSX.DisplayName().Should().Be("DTS X");
-            TraktMediaAudio.DolbyPrologic.DisplayName().Should().Be("Dolby Prologic");
-            TraktMediaAudio.DolbyDigital.DisplayName().Should().Be("Dolby Digital");
-            TraktMediaAudio.DolbyDigitalPlus.DisplayName().Should().Be("Dolby Digital Plus");
-            TraktMediaAudio.DolbyTrueHD.DisplayName().Should().Be("Dolby True HD");
-            TraktMediaAudio.DolbyAtmos.DisplayName().Should().Be("Dolby Atmos");
-            TraktMediaAudio.DTSHR.DisplayName().Should().Be("DTS HR");
-            TraktMediaAudio.AURO3D.DisplayName().Should().Be("AURO 3D");
+            TraktMediaAudio.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktMediaAudio.LPCM.DisplayName().ShouldBe("LPCM");
+            TraktMediaAudio.MP3.DisplayName().ShouldBe("MP3");
+            TraktMediaAudio.AAC.DisplayName().ShouldBe("AAC");
+            TraktMediaAudio.OGG.DisplayName().ShouldBe("OGG");
+            TraktMediaAudio.WMA.DisplayName().ShouldBe("WMA");
+            TraktMediaAudio.DTS.DisplayName().ShouldBe("DTS");
+            TraktMediaAudio.DTSMA.DisplayName().ShouldBe("DTS Master Audio");
+            TraktMediaAudio.DTSX.DisplayName().ShouldBe("DTS X");
+            TraktMediaAudio.DolbyPrologic.DisplayName().ShouldBe("Dolby Prologic");
+            TraktMediaAudio.DolbyDigital.DisplayName().ShouldBe("Dolby Digital");
+            TraktMediaAudio.DolbyDigitalPlus.DisplayName().ShouldBe("Dolby Digital Plus");
+            TraktMediaAudio.DolbyTrueHD.DisplayName().ShouldBe("Dolby True HD");
+            TraktMediaAudio.DolbyAtmos.DisplayName().ShouldBe("Dolby Atmos");
+            TraktMediaAudio.DTSHR.DisplayName().ShouldBe("DTS HR");
+            TraktMediaAudio.AURO3D.DisplayName().ShouldBe("AURO 3D");
         }
     }
 }

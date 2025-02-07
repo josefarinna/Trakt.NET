@@ -5,43 +5,43 @@
         [Fact]
         public void TestTraktEpisodeTypeToJson()
         {
-            TraktEpisodeType.Unspecified.ToJson().Should().BeNull();
-            TraktEpisodeType.Standard.ToJson().Should().Be("standard");
-            TraktEpisodeType.SeriesPremiere.ToJson().Should().Be("series_premiere");
-            TraktEpisodeType.SeasonPremiere.ToJson().Should().Be("season_premiere");
-            TraktEpisodeType.MidSeasonFinale.ToJson().Should().Be("mid_season_finale");
-            TraktEpisodeType.MidSeasonPremiere.ToJson().Should().Be("mid_season_premiere");
-            TraktEpisodeType.SeasonFinale.ToJson().Should().Be("season_finale");
-            TraktEpisodeType.SeriesFinale.ToJson().Should().Be("series_finale");
+            TraktEpisodeType.Unspecified.ToJson().ShouldBeNull();
+            TraktEpisodeType.Standard.ToJson().ShouldBe("standard");
+            TraktEpisodeType.SeriesPremiere.ToJson().ShouldBe("series_premiere");
+            TraktEpisodeType.SeasonPremiere.ToJson().ShouldBe("season_premiere");
+            TraktEpisodeType.MidSeasonFinale.ToJson().ShouldBe("mid_season_finale");
+            TraktEpisodeType.MidSeasonPremiere.ToJson().ShouldBe("mid_season_premiere");
+            TraktEpisodeType.SeasonFinale.ToJson().ShouldBe("season_finale");
+            TraktEpisodeType.SeriesFinale.ToJson().ShouldBe("series_finale");
         }
 
         [Fact]
         public void TestTraktEpisodeTypeFromJson()
         {
-            "unspecified".ToTraktEpisodeType().Should().Be(TraktEpisodeType.Unspecified);
-            "standard".ToTraktEpisodeType().Should().Be(TraktEpisodeType.Standard);
-            "series_premiere".ToTraktEpisodeType().Should().Be(TraktEpisodeType.SeriesPremiere);
-            "season_premiere".ToTraktEpisodeType().Should().Be(TraktEpisodeType.SeasonPremiere);
-            "mid_season_finale".ToTraktEpisodeType().Should().Be(TraktEpisodeType.MidSeasonFinale);
-            "mid_season_premiere".ToTraktEpisodeType().Should().Be(TraktEpisodeType.MidSeasonPremiere);
-            "season_finale".ToTraktEpisodeType().Should().Be(TraktEpisodeType.SeasonFinale);
-            "series_finale".ToTraktEpisodeType().Should().Be(TraktEpisodeType.SeriesFinale);
+            "unspecified".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.Unspecified);
+            "standard".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.Standard);
+            "series_premiere".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.SeriesPremiere);
+            "season_premiere".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.SeasonPremiere);
+            "mid_season_finale".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.MidSeasonFinale);
+            "mid_season_premiere".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.MidSeasonPremiere);
+            "season_finale".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.SeasonFinale);
+            "series_finale".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.SeriesFinale);
 
             string? nullValue = null;
-            nullValue.ToTraktEpisodeType().Should().Be(TraktEpisodeType.Unspecified);
+            nullValue.ToTraktEpisodeType().ShouldBe(TraktEpisodeType.Unspecified);
         }
 
         [Fact]
         public void TestTraktEpisodeTypeDisplayName()
         {
-            TraktEpisodeType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktEpisodeType.Standard.DisplayName().Should().Be("Standard");
-            TraktEpisodeType.SeriesPremiere.DisplayName().Should().Be("Series Premiere");
-            TraktEpisodeType.SeasonPremiere.DisplayName().Should().Be("Season Premiere");
-            TraktEpisodeType.MidSeasonFinale.DisplayName().Should().Be("Mid Season Finale");
-            TraktEpisodeType.MidSeasonPremiere.DisplayName().Should().Be("Mid Season Premiere");
-            TraktEpisodeType.SeasonFinale.DisplayName().Should().Be("Season Finale");
-            TraktEpisodeType.SeriesFinale.DisplayName().Should().Be("Series Finale");
+            TraktEpisodeType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktEpisodeType.Standard.DisplayName().ShouldBe("Standard");
+            TraktEpisodeType.SeriesPremiere.DisplayName().ShouldBe("Series Premiere");
+            TraktEpisodeType.SeasonPremiere.DisplayName().ShouldBe("Season Premiere");
+            TraktEpisodeType.MidSeasonFinale.DisplayName().ShouldBe("Mid Season Finale");
+            TraktEpisodeType.MidSeasonPremiere.DisplayName().ShouldBe("Mid Season Premiere");
+            TraktEpisodeType.SeasonFinale.DisplayName().ShouldBe("Season Finale");
+            TraktEpisodeType.SeriesFinale.DisplayName().ShouldBe("Series Finale");
         }
     }
 }

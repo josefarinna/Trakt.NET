@@ -7,11 +7,11 @@
         {
             var movieRelease = new TraktMovieRelease();
 
-            movieRelease.Country.Should().BeNull();
-            movieRelease.Certification.Should().BeNull();
-            movieRelease.ReleaseDate.Should().BeNull();
-            movieRelease.ReleaseType.Should().BeNull();
-            movieRelease.Note.Should().BeNull();
+            movieRelease.Country.ShouldBeNull();
+            movieRelease.Certification.ShouldBeNull();
+            movieRelease.ReleaseDate.ShouldBeNull();
+            movieRelease.ReleaseType.ShouldBeNull();
+            movieRelease.Note.ShouldBeNull();
         }
 
         [Fact]
@@ -19,19 +19,19 @@
         {
             TraktMovieRelease? movieRelease = await TestUtility.DeserializeJsonAsync<TraktMovieRelease>("Movies\\movierelease.json");
 
-            movieRelease.Should().NotBeNull();
+            movieRelease.ShouldNotBeNull();
 
-            movieRelease!.Country.Should().Be("fr");
-            movieRelease!.Certification.Should().Be("12");
+            movieRelease!.Country.ShouldBe("fr");
+            movieRelease!.Certification.ShouldBe("12");
 
 #if NET7_0_OR_GREATER
-            movieRelease!.ReleaseDate.Should().Be(TestUtility.ParseDate("2023-04-22"));
+            movieRelease!.ReleaseDate.ShouldBe(TestUtility.ParseDate("2023-04-22"));
 #else
-            movieRelease!.ReleaseDate.Should().Be(TestUtility.ParseUTCDateTime("2023-04-22T00:00:00.000Z"));
+            movieRelease!.ReleaseDate.ShouldBe(TestUtility.ParseUTCDateTime("2023-04-22T00:00:00.000Z"));
 #endif
 
-            movieRelease!.ReleaseType.Should().Be(TraktReleaseType.Premiere);
-            movieRelease!.Note.Should().Be("Disneyland Paris");
+            movieRelease!.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
+            movieRelease!.Note.ShouldBe("Disneyland Paris");
         }
 
         [Fact]
@@ -39,41 +39,42 @@
         {
             IReadOnlyList<TraktMovieRelease>? movieReleases = await TestUtility.DeserializeJsonListAsync<TraktMovieRelease>("Movies\\moviereleases.json");
 
-            movieReleases.Should().NotBeNull().And.HaveCount(2);
+            movieReleases.ShouldNotBeNull();
+            movieReleases!.Count.ShouldBe(2);
 
             TraktMovieRelease movieRelease = movieReleases![0];
 
-            movieRelease.Should().NotBeNull();
+            movieRelease.ShouldNotBeNull();
 
-            movieRelease.Country.Should().Be("fr");
-            movieRelease.Certification.Should().Be("12");
+            movieRelease.Country.ShouldBe("fr");
+            movieRelease.Certification.ShouldBe("12");
 
 #if NET7_0_OR_GREATER
-            movieRelease.ReleaseDate.Should().Be(TestUtility.ParseDate("2023-04-22"));
+            movieRelease.ReleaseDate.ShouldBe(TestUtility.ParseDate("2023-04-22"));
 #else
-            movieRelease.ReleaseDate.Should().Be(TestUtility.ParseUTCDateTime("2023-04-22T00:00:00.000Z"));
+            movieRelease.ReleaseDate.ShouldBe(TestUtility.ParseUTCDateTime("2023-04-22T00:00:00.000Z"));
 #endif
 
-            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
-            movieRelease.Note.Should().Be("Disneyland Paris");
+            movieRelease.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
+            movieRelease.Note.ShouldBe("Disneyland Paris");
 
             // --------------------------------------------------------------------------------------------
 
             movieRelease = movieReleases![1];
 
-            movieRelease.Should().NotBeNull();
+            movieRelease.ShouldNotBeNull();
 
-            movieRelease.Country.Should().Be("us");
-            movieRelease.Certification.Should().Be("PG-13");
+            movieRelease.Country.ShouldBe("us");
+            movieRelease.Certification.ShouldBe("PG-13");
 
 #if NET7_0_OR_GREATER
-            movieRelease.ReleaseDate.Should().Be(TestUtility.ParseDate("2023-04-27"));
+            movieRelease.ReleaseDate.ShouldBe(TestUtility.ParseDate("2023-04-27"));
 #else
-            movieRelease.ReleaseDate.Should().Be(TestUtility.ParseUTCDateTime("2023-04-27T00:00:00.000Z"));
+            movieRelease.ReleaseDate.ShouldBe(TestUtility.ParseUTCDateTime("2023-04-27T00:00:00.000Z"));
 #endif
 
-            movieRelease.ReleaseType.Should().Be(TraktReleaseType.Premiere);
-            movieRelease.Note.Should().Be("El Capitan Theatre");
+            movieRelease.ReleaseType.ShouldBe(TraktReleaseType.Premiere);
+            movieRelease.Note.ShouldBe("El Capitan Theatre");
         }
     }
 }

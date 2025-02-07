@@ -5,31 +5,31 @@
         [Fact]
         public void TestTraktScrobbleActionTypeToJson()
         {
-            TraktScrobbleActionType.Unspecified.ToJson().Should().BeNull();
-            TraktScrobbleActionType.Start.ToJson().Should().Be("start");
-            TraktScrobbleActionType.Pause.ToJson().Should().Be("pause");
-            TraktScrobbleActionType.Scrobble.ToJson().Should().Be("scrobble");
+            TraktScrobbleActionType.Unspecified.ToJson().ShouldBeNull();
+            TraktScrobbleActionType.Start.ToJson().ShouldBe("start");
+            TraktScrobbleActionType.Pause.ToJson().ShouldBe("pause");
+            TraktScrobbleActionType.Scrobble.ToJson().ShouldBe("scrobble");
         }
 
         [Fact]
         public void TestTraktScrobbleActionTypeFromJson()
         {
-            "unspecified".ToTraktScrobbleActionType().Should().Be(TraktScrobbleActionType.Unspecified);
-            "start".ToTraktScrobbleActionType().Should().Be(TraktScrobbleActionType.Start);
-            "pause".ToTraktScrobbleActionType().Should().Be(TraktScrobbleActionType.Pause);
-            "scrobble".ToTraktScrobbleActionType().Should().Be(TraktScrobbleActionType.Scrobble);
+            "unspecified".ToTraktScrobbleActionType().ShouldBe(TraktScrobbleActionType.Unspecified);
+            "start".ToTraktScrobbleActionType().ShouldBe(TraktScrobbleActionType.Start);
+            "pause".ToTraktScrobbleActionType().ShouldBe(TraktScrobbleActionType.Pause);
+            "scrobble".ToTraktScrobbleActionType().ShouldBe(TraktScrobbleActionType.Scrobble);
 
             string? nullValue = null;
-            nullValue.ToTraktScrobbleActionType().Should().Be(TraktScrobbleActionType.Unspecified);
+            nullValue.ToTraktScrobbleActionType().ShouldBe(TraktScrobbleActionType.Unspecified);
         }
 
         [Fact]
         public void TestTraktScrobbleActionTypeDisplayName()
         {
-            TraktScrobbleActionType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktScrobbleActionType.Start.DisplayName().Should().Be("Start");
-            TraktScrobbleActionType.Pause.DisplayName().Should().Be("Pause");
-            TraktScrobbleActionType.Scrobble.DisplayName().Should().Be("Scrobble");
+            TraktScrobbleActionType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktScrobbleActionType.Start.DisplayName().ShouldBe("Start");
+            TraktScrobbleActionType.Pause.DisplayName().ShouldBe("Pause");
+            TraktScrobbleActionType.Scrobble.DisplayName().ShouldBe("Scrobble");
         }
     }
 }

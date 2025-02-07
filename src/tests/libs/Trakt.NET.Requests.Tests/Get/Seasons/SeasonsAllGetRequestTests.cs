@@ -22,28 +22,28 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             seasonsAllGetRequest.BuildUri();
-            seasonsAllGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            seasonsAllGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestSeasonsAllGetRequestHasValidOAuthRequirement()
         {
             var seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = ShowID };
-            seasonsAllGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            seasonsAllGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestSeasonsAllGetRequestIsGetRequest()
         {
             var seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = ShowID };
-            seasonsAllGetRequest.Method.Should().Be(HttpMethod.Get);
+            seasonsAllGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestSeasonsAllGetRequestHasCorrectRequestObjectType()
         {
             var seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = ShowID };
-            seasonsAllGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            seasonsAllGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -52,17 +52,17 @@ namespace TraktNET.GetRequests.Seasons
             var seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = string.Empty };
 
             Action act = () => seasonsAllGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = "  " };
 
             act = () => seasonsAllGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = "id with spaces" };
 
             act = () => seasonsAllGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

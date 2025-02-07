@@ -17,26 +17,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieID);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktMovieAlias> movieAliases = response.Content!;
 
             TraktMovieAlias movieAlias = movieAliases[0];
 
-            movieAlias.Title.Should().Be("Les Gardiens de la Galaxie 3");
-            movieAlias.Country.Should().Be("fr");
+            movieAlias.Title.ShouldBe("Les Gardiens de la Galaxie 3");
+            movieAlias.Country.ShouldBe("fr");
 
             movieAlias = movieAliases[1];
 
-            movieAlias.Title.Should().Be("Guardians of the Galaxy Vol. 3");
-            movieAlias.Country.Should().Be("us");
+            movieAlias.Title.ShouldBe("Guardians of the Galaxy Vol. 3");
+            movieAlias.Country.ShouldBe("us");
         }
 
         [Fact]
@@ -47,26 +47,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieSlug);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktMovieAlias> movieAliases = response.Content!;
 
             TraktMovieAlias movieAlias = movieAliases[0];
 
-            movieAlias.Title.Should().Be("Les Gardiens de la Galaxie 3");
-            movieAlias.Country.Should().Be("fr");
+            movieAlias.Title.ShouldBe("Les Gardiens de la Galaxie 3");
+            movieAlias.Country.ShouldBe("fr");
 
             movieAlias = movieAliases[1];
 
-            movieAlias.Title.Should().Be("Guardians of the Galaxy Vol. 3");
-            movieAlias.Country.Should().Be("us");
+            movieAlias.Title.ShouldBe("Guardians of the Galaxy Vol. 3");
+            movieAlias.Country.ShouldBe("us");
         }
 
         [Fact]
@@ -77,26 +77,26 @@ namespace TraktNET.MoviesModule
 
             TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieIDs);
 
-            response.Should().NotBeNull();
-            response.IsSuccess.Should().BeTrue();
-            response.HasValue.Should().BeTrue();
-            response.Content.Should().NotBeNull();
-            response.Headers.Should().NotBeNull();
-            response.TraktHeaders.Should().NotBeNull();
-            response.ContentHeaders.Should().NotBeNull();
-            response.Count.Should().Be(2);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+            response.ContentHeaders.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
 
             IReadOnlyList<TraktMovieAlias> movieAliases = response.Content!;
 
             TraktMovieAlias movieAlias = movieAliases[0];
 
-            movieAlias.Title.Should().Be("Les Gardiens de la Galaxie 3");
-            movieAlias.Country.Should().Be("fr");
+            movieAlias.Title.ShouldBe("Les Gardiens de la Galaxie 3");
+            movieAlias.Country.ShouldBe("fr");
 
             movieAlias = movieAliases[1];
 
-            movieAlias.Title.Should().Be("Guardians of the Galaxy Vol. 3");
-            movieAlias.Country.Should().Be("us");
+            movieAlias.Title.ShouldBe("Guardians of the Galaxy Vol. 3");
+            movieAlias.Country.ShouldBe("us");
         }
 
         [Theory]
@@ -136,7 +136,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -177,7 +177,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -218,7 +218,7 @@ namespace TraktNET.MoviesModule
             }
             catch (Exception exception)
             {
-                (exception.GetType() == exceptionType).Should().BeTrue();
+                (exception.GetType() == exceptionType).ShouldBe(true);
             }
         }
 
@@ -231,12 +231,12 @@ namespace TraktNET.MoviesModule
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktListResponse<TraktMovieAlias>>> act = () => client.Movies.GetMovieAliasesAsync(default(TraktMovieIDs));
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
             act = () => client.Movies.GetMovieAliasesAsync(movieIDs);
-            await act.Should().ThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

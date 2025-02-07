@@ -15,28 +15,28 @@ namespace TraktNET.GetRequests.Shows
             var showStudiosGetRequest = new ShowStudiosGetRequest { Id = ShowID };
 
             showStudiosGetRequest.BuildUri();
-            showStudiosGetRequest.RequestUri.Should().Be(new Uri(URIPath, UriKind.Relative));
+            showStudiosGetRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowStudiosGetRequestHasValidOAuthRequirement()
         {
             var showStudiosGetRequest = new ShowStudiosGetRequest { Id = ShowID };
-            showStudiosGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            showStudiosGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestShowStudiosGetRequestIsGetRequest()
         {
             var showStudiosGetRequest = new ShowStudiosGetRequest { Id = ShowID };
-            showStudiosGetRequest.Method.Should().Be(HttpMethod.Get);
+            showStudiosGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowStudiosGetRequestHasCorrectRequestObjectType()
         {
             var showStudiosGetRequest = new ShowStudiosGetRequest { Id = ShowID };
-            showStudiosGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showStudiosGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -45,17 +45,17 @@ namespace TraktNET.GetRequests.Shows
             var showStudiosGetRequest = new ShowStudiosGetRequest { Id = string.Empty };
 
             Action act = () => showStudiosGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showStudiosGetRequest = new ShowStudiosGetRequest { Id = "  " };
 
             act = () => showStudiosGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showStudiosGetRequest = new ShowStudiosGetRequest { Id = "id with spaces" };
 
             act = () => showStudiosGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

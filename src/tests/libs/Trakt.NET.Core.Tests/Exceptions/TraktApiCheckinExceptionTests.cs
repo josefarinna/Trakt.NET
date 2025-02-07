@@ -21,18 +21,18 @@ namespace TraktNET.Exceptions
 
             var exception = new TraktApiCheckinException(parameters);
 
-            exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(Constants.StatusCodes.Conflict);
-            exception.ReasonPhrase.Should().Be("Checkin is already in progress");
-            exception.HttpMethod.Should().Be(HttpMethod.Get);
-            exception.RequestMessage.Should().NotBeNull();
-            exception.RequestUri.Should().Be(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
-            exception.ResponseContent.Should().Be(ExceptionsTestUtility.TestResponseContent);
-            exception.Headers.Should().NotBeNull();
-            exception.ContentHeaders.Should().NotBeNull();
-            exception.Message.Should().Be("Trakt API request failed. Checkin is already in progress");
+            exception.ShouldNotBeNull();
+            exception.StatusCode.ShouldBe(Constants.StatusCodes.Conflict);
+            exception.ReasonPhrase.ShouldBe("Checkin is already in progress");
+            exception.HttpMethod.ShouldBe(HttpMethod.Get);
+            exception.RequestMessage.ShouldNotBeNull();
+            exception.RequestUri.ShouldBe(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
+            exception.ResponseContent.ShouldBe(ExceptionsTestUtility.TestResponseContent);
+            exception.Headers.ShouldNotBeNull();
+            exception.ContentHeaders.ShouldNotBeNull();
+            exception.Message.ShouldBe("Trakt API request failed. Checkin is already in progress");
 
-            exception.ExpiresAt.Should().Be(ExpiresAt);
+            exception.ExpiresAt.ShouldBe(ExpiresAt);
         }
     }
 }

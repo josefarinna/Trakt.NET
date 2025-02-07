@@ -5,40 +5,40 @@
         [Fact]
         public void TestTraktMovieStatusToJson()
         {
-            TraktMovieStatus.Unspecified.ToJson().Should().BeNull();
-            TraktMovieStatus.Released.ToJson().Should().Be("released");
-            TraktMovieStatus.InProduction.ToJson().Should().Be("in production");
-            TraktMovieStatus.PostProduction.ToJson().Should().Be("post production");
-            TraktMovieStatus.Planned.ToJson().Should().Be("planned");
-            TraktMovieStatus.Rumored.ToJson().Should().Be("rumored");
-            TraktMovieStatus.Canceled.ToJson().Should().Be("canceled");
+            TraktMovieStatus.Unspecified.ToJson().ShouldBeNull();
+            TraktMovieStatus.Released.ToJson().ShouldBe("released");
+            TraktMovieStatus.InProduction.ToJson().ShouldBe("in production");
+            TraktMovieStatus.PostProduction.ToJson().ShouldBe("post production");
+            TraktMovieStatus.Planned.ToJson().ShouldBe("planned");
+            TraktMovieStatus.Rumored.ToJson().ShouldBe("rumored");
+            TraktMovieStatus.Canceled.ToJson().ShouldBe("canceled");
         }
 
         [Fact]
         public void TestTraktMovieStatusFromJson()
         {
-            "unspecified".ToTraktMovieStatus().Should().Be(TraktMovieStatus.Unspecified);
-            "released".ToTraktMovieStatus().Should().Be(TraktMovieStatus.Released);
-            "in production".ToTraktMovieStatus().Should().Be(TraktMovieStatus.InProduction);
-            "post production".ToTraktMovieStatus().Should().Be(TraktMovieStatus.PostProduction);
-            "planned".ToTraktMovieStatus().Should().Be(TraktMovieStatus.Planned);
-            "rumored".ToTraktMovieStatus().Should().Be(TraktMovieStatus.Rumored);
-            "canceled".ToTraktMovieStatus().Should().Be(TraktMovieStatus.Canceled);
+            "unspecified".ToTraktMovieStatus().ShouldBe(TraktMovieStatus.Unspecified);
+            "released".ToTraktMovieStatus().ShouldBe(TraktMovieStatus.Released);
+            "in production".ToTraktMovieStatus().ShouldBe(TraktMovieStatus.InProduction);
+            "post production".ToTraktMovieStatus().ShouldBe(TraktMovieStatus.PostProduction);
+            "planned".ToTraktMovieStatus().ShouldBe(TraktMovieStatus.Planned);
+            "rumored".ToTraktMovieStatus().ShouldBe(TraktMovieStatus.Rumored);
+            "canceled".ToTraktMovieStatus().ShouldBe(TraktMovieStatus.Canceled);
 
             string? nullValue = null;
-            nullValue.ToTraktMovieStatus().Should().Be(TraktMovieStatus.Unspecified);
+            nullValue.ToTraktMovieStatus().ShouldBe(TraktMovieStatus.Unspecified);
         }
 
         [Fact]
         public void TestTraktMovieStatusDisplayName()
         {
-            TraktMovieStatus.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktMovieStatus.Released.DisplayName().Should().Be("Released");
-            TraktMovieStatus.InProduction.DisplayName().Should().Be("In Production");
-            TraktMovieStatus.PostProduction.DisplayName().Should().Be("Post Production");
-            TraktMovieStatus.Planned.DisplayName().Should().Be("Planned");
-            TraktMovieStatus.Rumored.DisplayName().Should().Be("Rumored");
-            TraktMovieStatus.Canceled.DisplayName().Should().Be("Canceled");
+            TraktMovieStatus.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktMovieStatus.Released.DisplayName().ShouldBe("Released");
+            TraktMovieStatus.InProduction.DisplayName().ShouldBe("In Production");
+            TraktMovieStatus.PostProduction.DisplayName().ShouldBe("Post Production");
+            TraktMovieStatus.Planned.DisplayName().ShouldBe("Planned");
+            TraktMovieStatus.Rumored.DisplayName().ShouldBe("Rumored");
+            TraktMovieStatus.Canceled.DisplayName().ShouldBe("Canceled");
         }
     }
 }

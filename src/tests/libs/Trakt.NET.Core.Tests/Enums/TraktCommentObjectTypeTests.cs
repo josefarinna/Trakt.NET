@@ -5,40 +5,40 @@
         [Fact]
         public void TestTraktCommentObjectTypeToJson()
         {
-            TraktCommentObjectType.Unspecified.ToJson().Should().BeNull();
-            TraktCommentObjectType.Movie.ToJson().Should().Be("movie");
-            TraktCommentObjectType.Show.ToJson().Should().Be("show");
-            TraktCommentObjectType.Season.ToJson().Should().Be("season");
-            TraktCommentObjectType.Episode.ToJson().Should().Be("episode");
-            TraktCommentObjectType.List.ToJson().Should().Be("list");
-            TraktCommentObjectType.All.ToJson().Should().Be("all");
+            TraktCommentObjectType.Unspecified.ToJson().ShouldBeNull();
+            TraktCommentObjectType.Movie.ToJson().ShouldBe("movie");
+            TraktCommentObjectType.Show.ToJson().ShouldBe("show");
+            TraktCommentObjectType.Season.ToJson().ShouldBe("season");
+            TraktCommentObjectType.Episode.ToJson().ShouldBe("episode");
+            TraktCommentObjectType.List.ToJson().ShouldBe("list");
+            TraktCommentObjectType.All.ToJson().ShouldBe("all");
         }
 
         [Fact]
         public void TestTraktCommentObjectTypeFromJson()
         {
-            "unspecified".ToTraktCommentObjectType().Should().Be(TraktCommentObjectType.Unspecified);
-            "movie".ToTraktCommentObjectType().Should().Be(TraktCommentObjectType.Movie);
-            "show".ToTraktCommentObjectType().Should().Be(TraktCommentObjectType.Show);
-            "season".ToTraktCommentObjectType().Should().Be(TraktCommentObjectType.Season);
-            "episode".ToTraktCommentObjectType().Should().Be(TraktCommentObjectType.Episode);
-            "list".ToTraktCommentObjectType().Should().Be(TraktCommentObjectType.List);
-            "all".ToTraktCommentObjectType().Should().Be(TraktCommentObjectType.All);
+            "unspecified".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.Unspecified);
+            "movie".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.Movie);
+            "show".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.Show);
+            "season".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.Season);
+            "episode".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.Episode);
+            "list".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.List);
+            "all".ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.All);
 
             string? nullValue = null;
-            nullValue.ToTraktCommentObjectType().Should().Be(TraktCommentObjectType.Unspecified);
+            nullValue.ToTraktCommentObjectType().ShouldBe(TraktCommentObjectType.Unspecified);
         }
 
         [Fact]
         public void TestTraktCommentObjectTypeDisplayName()
         {
-            TraktCommentObjectType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktCommentObjectType.Movie.DisplayName().Should().Be("Movie");
-            TraktCommentObjectType.Show.DisplayName().Should().Be("Show");
-            TraktCommentObjectType.Season.DisplayName().Should().Be("Season");
-            TraktCommentObjectType.Episode.DisplayName().Should().Be("Episode");
-            TraktCommentObjectType.List.DisplayName().Should().Be("List");
-            TraktCommentObjectType.All.DisplayName().Should().Be("All");
+            TraktCommentObjectType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktCommentObjectType.Movie.DisplayName().ShouldBe("Movie");
+            TraktCommentObjectType.Show.DisplayName().ShouldBe("Show");
+            TraktCommentObjectType.Season.DisplayName().ShouldBe("Season");
+            TraktCommentObjectType.Episode.DisplayName().ShouldBe("Episode");
+            TraktCommentObjectType.List.DisplayName().ShouldBe("List");
+            TraktCommentObjectType.All.DisplayName().ShouldBe("All");
         }
     }
 }

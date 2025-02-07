@@ -5,46 +5,46 @@
         [Fact]
         public void TestTraktCommentSortOrderToJson()
         {
-            TraktCommentSortOrder.Unspecified.ToJson().Should().BeNull();
-            TraktCommentSortOrder.Newest.ToJson().Should().Be("newest");
-            TraktCommentSortOrder.Oldest.ToJson().Should().Be("oldest");
-            TraktCommentSortOrder.Likes.ToJson().Should().Be("likes");
-            TraktCommentSortOrder.Replies.ToJson().Should().Be("replies");
-            TraktCommentSortOrder.Highest.ToJson().Should().Be("highest");
-            TraktCommentSortOrder.Lowest.ToJson().Should().Be("lowest");
-            TraktCommentSortOrder.Plays.ToJson().Should().Be("plays");
-            TraktCommentSortOrder.Watched.ToJson().Should().Be("watched");
+            TraktCommentSortOrder.Unspecified.ToJson().ShouldBeNull();
+            TraktCommentSortOrder.Newest.ToJson().ShouldBe("newest");
+            TraktCommentSortOrder.Oldest.ToJson().ShouldBe("oldest");
+            TraktCommentSortOrder.Likes.ToJson().ShouldBe("likes");
+            TraktCommentSortOrder.Replies.ToJson().ShouldBe("replies");
+            TraktCommentSortOrder.Highest.ToJson().ShouldBe("highest");
+            TraktCommentSortOrder.Lowest.ToJson().ShouldBe("lowest");
+            TraktCommentSortOrder.Plays.ToJson().ShouldBe("plays");
+            TraktCommentSortOrder.Watched.ToJson().ShouldBe("watched");
         }
 
         [Fact]
         public void TestTraktCommentSortOrderFromJson()
         {
-            "unspecified".ToTraktCommentSortOrder().Should().Be(TraktCommentSortOrder.Unspecified);
-            "newest".ToTraktCommentSortOrder().Should().Be(TraktCommentSortOrder.Newest);
-            "oldest".ToTraktCommentSortOrder().Should().Be(TraktCommentSortOrder.Oldest);
-            "likes".ToTraktCommentSortOrder().Should().Be(TraktCommentSortOrder.Likes);
-            "replies".ToTraktCommentSortOrder().Should().Be(TraktCommentSortOrder.Replies);
-            "highest".ToTraktCommentSortOrder().Should().Be(TraktCommentSortOrder.Highest);
-            "lowest".ToTraktCommentSortOrder().Should().Be(TraktCommentSortOrder.Lowest);
-            "plays".ToTraktCommentSortOrder().Should().Be(TraktCommentSortOrder.Plays);
-            "watched".ToTraktCommentSortOrder().Should().Be(TraktCommentSortOrder.Watched);
+            "unspecified".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Unspecified);
+            "newest".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Newest);
+            "oldest".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Oldest);
+            "likes".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Likes);
+            "replies".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Replies);
+            "highest".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Highest);
+            "lowest".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Lowest);
+            "plays".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Plays);
+            "watched".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Watched);
 
             string? nullValue = null;
-            nullValue.ToTraktCommentSortOrder().Should().Be(TraktCommentSortOrder.Unspecified);
+            nullValue.ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Unspecified);
         }
 
         [Fact]
         public void TestTraktCommentSortOrderDisplayName()
         {
-            TraktCommentSortOrder.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktCommentSortOrder.Newest.DisplayName().Should().Be("Newest");
-            TraktCommentSortOrder.Oldest.DisplayName().Should().Be("Oldest");
-            TraktCommentSortOrder.Likes.DisplayName().Should().Be("Likes");
-            TraktCommentSortOrder.Replies.DisplayName().Should().Be("Replies");
-            TraktCommentSortOrder.Highest.DisplayName().Should().Be("Highest");
-            TraktCommentSortOrder.Lowest.DisplayName().Should().Be("Lowest");
-            TraktCommentSortOrder.Plays.DisplayName().Should().Be("Plays");
-            TraktCommentSortOrder.Watched.DisplayName().Should().Be("Watched");
+            TraktCommentSortOrder.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktCommentSortOrder.Newest.DisplayName().ShouldBe("Newest");
+            TraktCommentSortOrder.Oldest.DisplayName().ShouldBe("Oldest");
+            TraktCommentSortOrder.Likes.DisplayName().ShouldBe("Likes");
+            TraktCommentSortOrder.Replies.DisplayName().ShouldBe("Replies");
+            TraktCommentSortOrder.Highest.DisplayName().ShouldBe("Highest");
+            TraktCommentSortOrder.Lowest.DisplayName().ShouldBe("Lowest");
+            TraktCommentSortOrder.Plays.DisplayName().ShouldBe("Plays");
+            TraktCommentSortOrder.Watched.DisplayName().ShouldBe("Watched");
         }
     }
 }

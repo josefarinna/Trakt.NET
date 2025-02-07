@@ -5,25 +5,25 @@
         [Fact]
         public void TestTraktAccessTokenTypeToJson()
         {
-            TraktAccessTokenType.Unspecified.ToJson().Should().BeNull();
-            TraktAccessTokenType.Bearer.ToJson().Should().Be("bearer");
+            TraktAccessTokenType.Unspecified.ToJson().ShouldBeNull();
+            TraktAccessTokenType.Bearer.ToJson().ShouldBe("bearer");
         }
 
         [Fact]
         public void TestTraktAccessTokenTypeFromJson()
         {
-            "unspecified".ToTraktAccessTokenType().Should().Be(TraktAccessTokenType.Unspecified);
-            "bearer".ToTraktAccessTokenType().Should().Be(TraktAccessTokenType.Bearer);
+            "unspecified".ToTraktAccessTokenType().ShouldBe(TraktAccessTokenType.Unspecified);
+            "bearer".ToTraktAccessTokenType().ShouldBe(TraktAccessTokenType.Bearer);
 
             string? nullValue = null;
-            nullValue.ToTraktAccessTokenType().Should().Be(TraktAccessTokenType.Unspecified);
+            nullValue.ToTraktAccessTokenType().ShouldBe(TraktAccessTokenType.Unspecified);
         }
 
         [Fact]
         public void TestTraktAccessTokenTypeDisplayName()
         {
-            TraktAccessTokenType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktAccessTokenType.Bearer.DisplayName().Should().Be("Bearer");
+            TraktAccessTokenType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktAccessTokenType.Bearer.DisplayName().ShouldBe("Bearer");
         }
     }
 }

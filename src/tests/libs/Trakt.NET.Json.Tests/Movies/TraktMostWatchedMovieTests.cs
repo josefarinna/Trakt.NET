@@ -7,31 +7,31 @@
         {
             var mostWatchedMovie = new TraktMostWatchedMovie();
 
-            mostWatchedMovie.WatcherCount.Should().BeNull();
-            mostWatchedMovie.PlayCount.Should().BeNull();
-            mostWatchedMovie.CollectedCount.Should().BeNull();
-            mostWatchedMovie.Title.Should().BeNull();
-            mostWatchedMovie.Year.Should().BeNull();
-            mostWatchedMovie.IDs.Should().BeNull();
-            mostWatchedMovie.Tagline.Should().BeNull();
-            mostWatchedMovie.Overview.Should().BeNull();
-            mostWatchedMovie.Released.Should().BeNull();
-            mostWatchedMovie.Runtime.Should().BeNull();
-            mostWatchedMovie.Country.Should().BeNull();
-            mostWatchedMovie.Trailer.Should().BeNull();
-            mostWatchedMovie.Homepage.Should().BeNull();
-            mostWatchedMovie.Status.Should().BeNull();
-            mostWatchedMovie.Rating.Should().BeNull();
-            mostWatchedMovie.Votes.Should().BeNull();
-            mostWatchedMovie.CommentCount.Should().BeNull();
-            mostWatchedMovie.UpdatedAt.Should().BeNull();
-            mostWatchedMovie.Language.Should().BeNull();
-            mostWatchedMovie.Languages.Should().BeNull();
-            mostWatchedMovie.AvailableTranslations.Should().BeNull();
-            mostWatchedMovie.Genres.Should().BeNull();
-            mostWatchedMovie.Certification.Should().BeNull();
+            mostWatchedMovie.WatcherCount.ShouldBeNull();
+            mostWatchedMovie.PlayCount.ShouldBeNull();
+            mostWatchedMovie.CollectedCount.ShouldBeNull();
+            mostWatchedMovie.Title.ShouldBeNull();
+            mostWatchedMovie.Year.ShouldBeNull();
+            mostWatchedMovie.IDs.ShouldBeNull();
+            mostWatchedMovie.Tagline.ShouldBeNull();
+            mostWatchedMovie.Overview.ShouldBeNull();
+            mostWatchedMovie.Released.ShouldBeNull();
+            mostWatchedMovie.Runtime.ShouldBeNull();
+            mostWatchedMovie.Country.ShouldBeNull();
+            mostWatchedMovie.Trailer.ShouldBeNull();
+            mostWatchedMovie.Homepage.ShouldBeNull();
+            mostWatchedMovie.Status.ShouldBeNull();
+            mostWatchedMovie.Rating.ShouldBeNull();
+            mostWatchedMovie.Votes.ShouldBeNull();
+            mostWatchedMovie.CommentCount.ShouldBeNull();
+            mostWatchedMovie.UpdatedAt.ShouldBeNull();
+            mostWatchedMovie.Language.ShouldBeNull();
+            mostWatchedMovie.Languages.ShouldBeNull();
+            mostWatchedMovie.AvailableTranslations.ShouldBeNull();
+            mostWatchedMovie.Genres.ShouldBeNull();
+            mostWatchedMovie.Certification.ShouldBeNull();
 
-            mostWatchedMovie.ToString().Should().BeEmpty();
+            mostWatchedMovie.ToString().ShouldBeEmpty();
         }
 
         [Fact]
@@ -39,23 +39,23 @@
         {
             TraktMostWatchedMovie? mostWatchedMovie = await TestUtility.DeserializeJsonAsync<TraktMostWatchedMovie>("Movies\\mostpwcmovie_minimal.json");
 
-            mostWatchedMovie.Should().NotBeNull();
+            mostWatchedMovie.ShouldNotBeNull();
 
-            mostWatchedMovie!.WatcherCount.Should().Be(10606U);
-            mostWatchedMovie!.PlayCount.Should().Be(14142U);
-            mostWatchedMovie!.CollectedCount.Should().Be(107U);
+            mostWatchedMovie!.WatcherCount.ShouldBe(10606U);
+            mostWatchedMovie!.PlayCount.ShouldBe(14142U);
+            mostWatchedMovie!.CollectedCount.ShouldBe(107U);
 
-            mostWatchedMovie!.Title.Should().Be("The Hunt for Red October");
-            mostWatchedMovie!.Year.Should().Be(1990U);
+            mostWatchedMovie!.Title.ShouldBe("The Hunt for Red October");
+            mostWatchedMovie!.Year.ShouldBe(1990U);
 
-            mostWatchedMovie!.IDs!.Trakt.Should().Be(1111U);
-            mostWatchedMovie!.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostWatchedMovie!.IDs!.IMDB.Should().Be("tt0099810");
-            mostWatchedMovie!.IDs!.TMDB.Should().Be(1669U);
-            mostWatchedMovie!.IDs!.HasAnyID.Should().BeTrue();
-            mostWatchedMovie!.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostWatchedMovie!.IDs!.Trakt.ShouldBe(1111U);
+            mostWatchedMovie!.IDs!.Slug.ShouldBe("the-hunt-for-red-october-1990");
+            mostWatchedMovie!.IDs!.IMDB.ShouldBe("tt0099810");
+            mostWatchedMovie!.IDs!.TMDB.ShouldBe(1669U);
+            mostWatchedMovie!.IDs!.HasAnyID.ShouldBe(true);
+            mostWatchedMovie!.IDs!.BestID.ShouldBe("the-hunt-for-red-october-1990");
 
-            mostWatchedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
+            mostWatchedMovie!.ToString().ShouldBe("The Hunt for Red October (1990)");
         }
 
         [Fact]
@@ -63,57 +63,63 @@
         {
             TraktMostWatchedMovie? mostWatchedMovie = await TestUtility.DeserializeJsonAsync<TraktMostWatchedMovie>("Movies\\mostpwcmovie.json");
 
-            mostWatchedMovie.Should().NotBeNull();
+            mostWatchedMovie.ShouldNotBeNull();
 
-            mostWatchedMovie!.WatcherCount.Should().Be(10606U);
-            mostWatchedMovie!.PlayCount.Should().Be(14142U);
-            mostWatchedMovie!.CollectedCount.Should().Be(107U);
+            mostWatchedMovie!.WatcherCount.ShouldBe(10606U);
+            mostWatchedMovie!.PlayCount.ShouldBe(14142U);
+            mostWatchedMovie!.CollectedCount.ShouldBe(107U);
 
-            mostWatchedMovie!.Title.Should().Be("The Hunt for Red October");
-            mostWatchedMovie!.Year.Should().Be(1990U);
+            mostWatchedMovie!.Title.ShouldBe("The Hunt for Red October");
+            mostWatchedMovie!.Year.ShouldBe(1990U);
 
-            mostWatchedMovie!.IDs!.Trakt.Should().Be(1111U);
-            mostWatchedMovie!.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostWatchedMovie!.IDs!.IMDB.Should().Be("tt0099810");
-            mostWatchedMovie!.IDs!.TMDB.Should().Be(1669U);
-            mostWatchedMovie!.IDs!.HasAnyID.Should().BeTrue();
-            mostWatchedMovie!.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostWatchedMovie!.IDs!.Trakt.ShouldBe(1111U);
+            mostWatchedMovie!.IDs!.Slug.ShouldBe("the-hunt-for-red-october-1990");
+            mostWatchedMovie!.IDs!.IMDB.ShouldBe("tt0099810");
+            mostWatchedMovie!.IDs!.TMDB.ShouldBe(1669U);
+            mostWatchedMovie!.IDs!.HasAnyID.ShouldBe(true);
+            mostWatchedMovie!.IDs!.BestID.ShouldBe("the-hunt-for-red-october-1990");
 
-            mostWatchedMovie!.ToString().Should().Be("The Hunt for Red October (1990)");
+            mostWatchedMovie!.ToString().ShouldBe("The Hunt for Red October (1990)");
 
-            mostWatchedMovie!.Tagline.Should().Be("Invisible. Silent. Stolen.");
+            mostWatchedMovie!.Tagline.ShouldBe("Invisible. Silent. Stolen.");
 
-            mostWatchedMovie!.Overview.Should().Be("A new technologically-superior Soviet nuclear sub, the Red October, is heading for the U.S. "
+            mostWatchedMovie!.Overview.ShouldBe("A new technologically-superior Soviet nuclear sub, the Red October, is heading for the U.S. "
                 + "coast under the command of Captain Marko Ramius.");
 
 #if NET7_0_OR_GREATER
-            mostWatchedMovie!.Released.Should().Be(TestUtility.ParseDate("1990-03-02"));
+            mostWatchedMovie!.Released.ShouldBe(TestUtility.ParseDate("1990-03-02"));
 #else
-            mostWatchedMovie!.Released.Should().Be(TestUtility.ParseUTCDateTime("1990-03-02T00:00:00.000Z"));
+            mostWatchedMovie!.Released.ShouldBe(TestUtility.ParseUTCDateTime("1990-03-02T00:00:00.000Z"));
 #endif
-            mostWatchedMovie!.Runtime.Should().Be(135U);
-            mostWatchedMovie!.Country.Should().Be("us");
-            mostWatchedMovie!.Trailer.Should().Be("https://youtube.com/watch?v=NSiAsQMBSRA");
-            mostWatchedMovie!.Homepage.Should().Be("http://www.paramount.com/movies/hunt-red-october");
-            mostWatchedMovie!.Status.Should().Be(TraktMovieStatus.Released);
-            mostWatchedMovie!.Rating.Should().Be(7.9446390086206895f);
-            mostWatchedMovie!.Votes.Should().Be(7424U);
-            mostWatchedMovie!.CommentCount.Should().Be(22U);
-            mostWatchedMovie!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-15T08:06:36.000Z"));
-            mostWatchedMovie!.Language.Should().Be("en");
-            mostWatchedMovie!.Languages.Should().NotBeNull().And.HaveCount(2).And.BeEquivalentTo(["en", "ru"]);
+            mostWatchedMovie!.Runtime.ShouldBe(135U);
+            mostWatchedMovie!.Country.ShouldBe("us");
+            mostWatchedMovie!.Trailer.ShouldBe("https://youtube.com/watch?v=NSiAsQMBSRA");
+            mostWatchedMovie!.Homepage.ShouldBe("http://www.paramount.com/movies/hunt-red-october");
+            mostWatchedMovie!.Status.ShouldBe(TraktMovieStatus.Released);
+            mostWatchedMovie!.Rating.ShouldBe(7.9446390086206895f);
+            mostWatchedMovie!.Votes.ShouldBe(7424U);
+            mostWatchedMovie!.CommentCount.ShouldBe(22U);
+            mostWatchedMovie!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-15T08:06:36.000Z"));
+            mostWatchedMovie!.Language.ShouldBe("en");
+            mostWatchedMovie!.Languages.ShouldNotBeNull();
+            mostWatchedMovie!.Languages!.Count.ShouldBe(2);
+            mostWatchedMovie!.Languages!.ShouldBe(["en", "ru"], Case.Sensitive);
 
-            mostWatchedMovie!.AvailableTranslations.Should().NotBeNull().And.HaveCount(39).And.BeEquivalentTo([
+            mostWatchedMovie!.AvailableTranslations.ShouldNotBeNull();
+            mostWatchedMovie!.AvailableTranslations!.Count.ShouldBe(39);
+            mostWatchedMovie!.AvailableTranslations!.ShouldBe([
                 "ar", "bg", "ca", "cs", "da", "de", "el", "en", "es", "et", "fa", "fi", "fr", "he", "hi", "hr",
                 "hu", "id", "it", "ja", "ko", "lt", "lv", "ms", "nb", "nl", "nn", "no", "pl", "pt", "ro", "ru",
                 "sk", "sv", "th", "tr", "uk", "vi", "zh"
-            ]);
+            ], Case.Sensitive);
 
-            mostWatchedMovie!.Genres.Should().NotBeNull().And.HaveCount(3).And.BeEquivalentTo([
+            mostWatchedMovie!.Genres.ShouldNotBeNull();
+            mostWatchedMovie!.Genres!.Count.ShouldBe(3);
+            mostWatchedMovie!.Genres!.ShouldBe([
                 "action", "adventure", "thriller"
-            ]);
+            ], Case.Sensitive);
 
-            mostWatchedMovie!.Certification.Should().Be("PG-13");
+            mostWatchedMovie!.Certification.ShouldBe("PG-13");
         }
 
         [Fact]
@@ -121,49 +127,50 @@
         {
             IReadOnlyList<TraktMostWatchedMovie>? mostWatchedMovies = await TestUtility.DeserializeJsonListAsync<TraktMostWatchedMovie>("Movies\\mostpwcmovies_minimal.json");
 
-            mostWatchedMovies.Should().NotBeNull().And.HaveCount(2);
+            mostWatchedMovies.ShouldNotBeNull();
+            mostWatchedMovies!.Count.ShouldBe(2);
 
             TraktMostWatchedMovie mostWatchedMovie = mostWatchedMovies![0];
 
-            mostWatchedMovie.Should().NotBeNull();
+            mostWatchedMovie.ShouldNotBeNull();
 
-            mostWatchedMovie.WatcherCount.Should().Be(10606U);
-            mostWatchedMovie.PlayCount.Should().Be(14142U);
-            mostWatchedMovie.CollectedCount.Should().Be(107U);
+            mostWatchedMovie.WatcherCount.ShouldBe(10606U);
+            mostWatchedMovie.PlayCount.ShouldBe(14142U);
+            mostWatchedMovie.CollectedCount.ShouldBe(107U);
 
-            mostWatchedMovie.Title.Should().Be("The Hunt for Red October");
-            mostWatchedMovie.Year.Should().Be(1990U);
+            mostWatchedMovie.Title.ShouldBe("The Hunt for Red October");
+            mostWatchedMovie.Year.ShouldBe(1990U);
 
-            mostWatchedMovie.IDs!.Trakt.Should().Be(1111U);
-            mostWatchedMovie.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostWatchedMovie.IDs!.IMDB.Should().Be("tt0099810");
-            mostWatchedMovie.IDs!.TMDB.Should().Be(1669U);
-            mostWatchedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostWatchedMovie.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostWatchedMovie.IDs!.Trakt.ShouldBe(1111U);
+            mostWatchedMovie.IDs!.Slug.ShouldBe("the-hunt-for-red-october-1990");
+            mostWatchedMovie.IDs!.IMDB.ShouldBe("tt0099810");
+            mostWatchedMovie.IDs!.TMDB.ShouldBe(1669U);
+            mostWatchedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostWatchedMovie.IDs!.BestID.ShouldBe("the-hunt-for-red-october-1990");
 
-            mostWatchedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
+            mostWatchedMovie.ToString().ShouldBe("The Hunt for Red October (1990)");
 
             // --------------------------------------------------------------------------------------------
 
             mostWatchedMovie = mostWatchedMovies![1];
 
-            mostWatchedMovie.Should().NotBeNull();
+            mostWatchedMovie.ShouldNotBeNull();
 
-            mostWatchedMovie.WatcherCount.Should().Be(9076U);
-            mostWatchedMovie.PlayCount.Should().Be(12102U);
-            mostWatchedMovie.CollectedCount.Should().Be(3533U);
+            mostWatchedMovie.WatcherCount.ShouldBe(9076U);
+            mostWatchedMovie.PlayCount.ShouldBe(12102U);
+            mostWatchedMovie.CollectedCount.ShouldBe(3533U);
 
-            mostWatchedMovie.Title.Should().Be("Rebel Ridge");
-            mostWatchedMovie.Year.Should().Be(2024U);
+            mostWatchedMovie.Title.ShouldBe("Rebel Ridge");
+            mostWatchedMovie.Year.ShouldBe(2024U);
 
-            mostWatchedMovie.IDs!.Trakt.Should().Be(483193U);
-            mostWatchedMovie.IDs!.Slug.Should().Be("rebel-ridge-2024");
-            mostWatchedMovie.IDs!.IMDB.Should().Be("tt11301886");
-            mostWatchedMovie.IDs!.TMDB.Should().Be(646097U);
-            mostWatchedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostWatchedMovie.IDs!.BestID.Should().Be("rebel-ridge-2024");
+            mostWatchedMovie.IDs!.Trakt.ShouldBe(483193U);
+            mostWatchedMovie.IDs!.Slug.ShouldBe("rebel-ridge-2024");
+            mostWatchedMovie.IDs!.IMDB.ShouldBe("tt11301886");
+            mostWatchedMovie.IDs!.TMDB.ShouldBe(646097U);
+            mostWatchedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostWatchedMovie.IDs!.BestID.ShouldBe("rebel-ridge-2024");
 
-            mostWatchedMovie.ToString().Should().Be("Rebel Ridge (2024)");
+            mostWatchedMovie.ToString().ShouldBe("Rebel Ridge (2024)");
         }
 
         [Fact]
@@ -171,117 +178,130 @@
         {
             IReadOnlyList<TraktMostWatchedMovie>? mostWatchedMovies = await TestUtility.DeserializeJsonListAsync<TraktMostWatchedMovie>("Movies\\mostpwcmovies.json");
 
-            mostWatchedMovies.Should().NotBeNull().And.HaveCount(2);
+            mostWatchedMovies.ShouldNotBeNull();
+            mostWatchedMovies!.Count.ShouldBe(2);
 
             TraktMostWatchedMovie mostWatchedMovie = mostWatchedMovies![0];
 
-            mostWatchedMovie.Should().NotBeNull();
+            mostWatchedMovie.ShouldNotBeNull();
 
-            mostWatchedMovie.WatcherCount.Should().Be(10606U);
-            mostWatchedMovie.PlayCount.Should().Be(14142U);
-            mostWatchedMovie.CollectedCount.Should().Be(107U);
+            mostWatchedMovie.WatcherCount.ShouldBe(10606U);
+            mostWatchedMovie.PlayCount.ShouldBe(14142U);
+            mostWatchedMovie.CollectedCount.ShouldBe(107U);
 
-            mostWatchedMovie.Title.Should().Be("The Hunt for Red October");
-            mostWatchedMovie.Year.Should().Be(1990U);
+            mostWatchedMovie.Title.ShouldBe("The Hunt for Red October");
+            mostWatchedMovie.Year.ShouldBe(1990U);
 
-            mostWatchedMovie.IDs!.Trakt.Should().Be(1111U);
-            mostWatchedMovie.IDs!.Slug.Should().Be("the-hunt-for-red-october-1990");
-            mostWatchedMovie.IDs!.IMDB.Should().Be("tt0099810");
-            mostWatchedMovie.IDs!.TMDB.Should().Be(1669U);
-            mostWatchedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostWatchedMovie.IDs!.BestID.Should().Be("the-hunt-for-red-october-1990");
+            mostWatchedMovie.IDs!.Trakt.ShouldBe(1111U);
+            mostWatchedMovie.IDs!.Slug.ShouldBe("the-hunt-for-red-october-1990");
+            mostWatchedMovie.IDs!.IMDB.ShouldBe("tt0099810");
+            mostWatchedMovie.IDs!.TMDB.ShouldBe(1669U);
+            mostWatchedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostWatchedMovie.IDs!.BestID.ShouldBe("the-hunt-for-red-october-1990");
 
-            mostWatchedMovie.ToString().Should().Be("The Hunt for Red October (1990)");
+            mostWatchedMovie.ToString().ShouldBe("The Hunt for Red October (1990)");
 
-            mostWatchedMovie.Tagline.Should().Be("Invisible. Silent. Stolen.");
+            mostWatchedMovie.Tagline.ShouldBe("Invisible. Silent. Stolen.");
 
-            mostWatchedMovie.Overview.Should().Be("A new technologically-superior Soviet nuclear sub, the Red October, is heading for the U.S. "
+            mostWatchedMovie.Overview.ShouldBe("A new technologically-superior Soviet nuclear sub, the Red October, is heading for the U.S. "
                 + "coast under the command of Captain Marko Ramius.");
 
 #if NET7_0_OR_GREATER
-            mostWatchedMovie.Released.Should().Be(TestUtility.ParseDate("1990-03-02"));
+            mostWatchedMovie.Released.ShouldBe(TestUtility.ParseDate("1990-03-02"));
 #else
-            mostWatchedMovie.Released.Should().Be(TestUtility.ParseUTCDateTime("1990-03-02T00:00:00.000Z"));
+            mostWatchedMovie.Released.ShouldBe(TestUtility.ParseUTCDateTime("1990-03-02T00:00:00.000Z"));
 #endif
-            mostWatchedMovie.Runtime.Should().Be(135U);
-            mostWatchedMovie.Country.Should().Be("us");
-            mostWatchedMovie.Trailer.Should().Be("https://youtube.com/watch?v=NSiAsQMBSRA");
-            mostWatchedMovie.Homepage.Should().Be("http://www.paramount.com/movies/hunt-red-october");
-            mostWatchedMovie.Status.Should().Be(TraktMovieStatus.Released);
-            mostWatchedMovie.Rating.Should().Be(7.9446390086206895f);
-            mostWatchedMovie.Votes.Should().Be(7424U);
-            mostWatchedMovie.CommentCount.Should().Be(22U);
-            mostWatchedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-15T08:06:36.000Z"));
-            mostWatchedMovie.Language.Should().Be("en");
-            mostWatchedMovie.Languages.Should().NotBeNull().And.HaveCount(2).And.BeEquivalentTo(["en", "ru"]);
+            mostWatchedMovie.Runtime.ShouldBe(135U);
+            mostWatchedMovie.Country.ShouldBe("us");
+            mostWatchedMovie.Trailer.ShouldBe("https://youtube.com/watch?v=NSiAsQMBSRA");
+            mostWatchedMovie.Homepage.ShouldBe("http://www.paramount.com/movies/hunt-red-october");
+            mostWatchedMovie.Status.ShouldBe(TraktMovieStatus.Released);
+            mostWatchedMovie.Rating.ShouldBe(7.9446390086206895f);
+            mostWatchedMovie.Votes.ShouldBe(7424U);
+            mostWatchedMovie.CommentCount.ShouldBe(22U);
+            mostWatchedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-15T08:06:36.000Z"));
+            mostWatchedMovie.Language.ShouldBe("en");
+            mostWatchedMovie.Languages.ShouldNotBeNull();
+            mostWatchedMovie.Languages!.Count.ShouldBe(2);
+            mostWatchedMovie.Languages!.ShouldBe(["en", "ru"], Case.Sensitive);
 
-            mostWatchedMovie.AvailableTranslations.Should().NotBeNull().And.HaveCount(39).And.BeEquivalentTo([
+            mostWatchedMovie!.AvailableTranslations.ShouldNotBeNull();
+            mostWatchedMovie!.AvailableTranslations!.Count.ShouldBe(39);
+            mostWatchedMovie!.AvailableTranslations!.ShouldBe([
                 "ar", "bg", "ca", "cs", "da", "de", "el", "en", "es", "et", "fa", "fi", "fr", "he", "hi", "hr",
                 "hu", "id", "it", "ja", "ko", "lt", "lv", "ms", "nb", "nl", "nn", "no", "pl", "pt", "ro", "ru",
                 "sk", "sv", "th", "tr", "uk", "vi", "zh"
-            ]);
+            ], Case.Sensitive);
 
-            mostWatchedMovie.Genres.Should().NotBeNull().And.HaveCount(3).And.BeEquivalentTo([
+            mostWatchedMovie.Genres.ShouldNotBeNull();
+            mostWatchedMovie.Genres!.Count.ShouldBe(3);
+            mostWatchedMovie.Genres!.ShouldBe([
                 "action", "adventure", "thriller"
-            ]);
+            ], Case.Sensitive);
 
-            mostWatchedMovie.Certification.Should().Be("PG-13");
+            mostWatchedMovie.Certification.ShouldBe("PG-13");
 
             // --------------------------------------------------------------------------------------------
 
             mostWatchedMovie = mostWatchedMovies![1];
 
-            mostWatchedMovie.Should().NotBeNull();
+            mostWatchedMovie.ShouldNotBeNull();
 
-            mostWatchedMovie.WatcherCount.Should().Be(9076U);
-            mostWatchedMovie.PlayCount.Should().Be(12102U);
-            mostWatchedMovie.CollectedCount.Should().Be(3533U);
+            mostWatchedMovie.WatcherCount.ShouldBe(9076U);
+            mostWatchedMovie.PlayCount.ShouldBe(12102U);
+            mostWatchedMovie.CollectedCount.ShouldBe(3533U);
 
-            mostWatchedMovie.Title.Should().Be("Rebel Ridge");
-            mostWatchedMovie.Year.Should().Be(2024U);
+            mostWatchedMovie.Title.ShouldBe("Rebel Ridge");
+            mostWatchedMovie.Year.ShouldBe(2024U);
 
-            mostWatchedMovie.IDs!.Trakt.Should().Be(483193U);
-            mostWatchedMovie.IDs!.Slug.Should().Be("rebel-ridge-2024");
-            mostWatchedMovie.IDs!.IMDB.Should().Be("tt11301886");
-            mostWatchedMovie.IDs!.TMDB.Should().Be(646097U);
-            mostWatchedMovie.IDs!.HasAnyID.Should().BeTrue();
-            mostWatchedMovie.IDs!.BestID.Should().Be("rebel-ridge-2024");
+            mostWatchedMovie.IDs!.Trakt.ShouldBe(483193U);
+            mostWatchedMovie.IDs!.Slug.ShouldBe("rebel-ridge-2024");
+            mostWatchedMovie.IDs!.IMDB.ShouldBe("tt11301886");
+            mostWatchedMovie.IDs!.TMDB.ShouldBe(646097U);
+            mostWatchedMovie.IDs!.HasAnyID.ShouldBe(true);
+            mostWatchedMovie.IDs!.BestID.ShouldBe("rebel-ridge-2024");
 
-            mostWatchedMovie.ToString().Should().Be("Rebel Ridge (2024)");
+            mostWatchedMovie.ToString().ShouldBe("Rebel Ridge (2024)");
 
-            mostWatchedMovie.Tagline.Should().Be("Their laws. His rules.");
+            mostWatchedMovie.Tagline.ShouldBe("Their laws. His rules.");
 
-            mostWatchedMovie.Overview.Should().Be("A former Marine confronts corruption in a small town when local law enforcement unjustly "
+            mostWatchedMovie.Overview.ShouldBe("A former Marine confronts corruption in a small town when local law enforcement unjustly "
                 + "seizes the bag of cash he needs to post his cousin's bail.");
 
 #if NET7_0_OR_GREATER
-            mostWatchedMovie!.Released.Should().Be(TestUtility.ParseDate("2024-09-06"));
+            mostWatchedMovie!.Released.ShouldBe(TestUtility.ParseDate("2024-09-06"));
 #else
-            mostWatchedMovie!.Released.Should().Be(TestUtility.ParseUTCDateTime("2024-09-06T00:00:00.000Z"));
+            mostWatchedMovie!.Released.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-06T00:00:00.000Z"));
 #endif
-            mostWatchedMovie.Runtime.Should().Be(132U);
-            mostWatchedMovie.Country.Should().Be("us");
-            mostWatchedMovie.Trailer.Should().Be("https://youtube.com/watch?v=gF3gZicntIw");
-            mostWatchedMovie.Homepage.Should().Be("http://www.netflix.com/title/81157729");
-            mostWatchedMovie.Status.Should().Be(TraktMovieStatus.Released);
-            mostWatchedMovie.Rating.Should().Be(7.067648663393344f);
-            mostWatchedMovie.Votes.Should().Be(1833U);
-            mostWatchedMovie.CommentCount.Should().Be(27U);
-            mostWatchedMovie.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-09-15T08:05:18.000Z"));
-            mostWatchedMovie.Language.Should().Be("en");
-            mostWatchedMovie.Languages.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["en"]);
+            mostWatchedMovie.Runtime.ShouldBe(132U);
+            mostWatchedMovie.Country.ShouldBe("us");
+            mostWatchedMovie.Trailer.ShouldBe("https://youtube.com/watch?v=gF3gZicntIw");
+            mostWatchedMovie.Homepage.ShouldBe("http://www.netflix.com/title/81157729");
+            mostWatchedMovie.Status.ShouldBe(TraktMovieStatus.Released);
+            mostWatchedMovie.Rating.ShouldBe(7.067648663393344f);
+            mostWatchedMovie.Votes.ShouldBe(1833U);
+            mostWatchedMovie.CommentCount.ShouldBe(27U);
+            mostWatchedMovie.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-15T08:05:18.000Z"));
+            mostWatchedMovie.Language.ShouldBe("en");
+            mostWatchedMovie.Languages.ShouldNotBeNull();
+            mostWatchedMovie.Languages!.Count.ShouldBe(1);
+            mostWatchedMovie.Languages!.ShouldBe(["en"], Case.Sensitive);
 
-            mostWatchedMovie.AvailableTranslations.Should().NotBeNull().And.HaveCount(34).And.BeEquivalentTo([
+            mostWatchedMovie!.AvailableTranslations.ShouldNotBeNull();
+            mostWatchedMovie!.AvailableTranslations!.Count.ShouldBe(34);
+            mostWatchedMovie!.AvailableTranslations!.ShouldBe([
                 "ar", "bg", "cs", "da", "de", "el", "en", "es", "fa", "fi", "fr", "he", "hi", "hr", "hu", "id",
                 "it", "ja", "ka", "ko", "nl", "no", "pl", "pt", "ro", "ru", "sl", "sv", "th", "tl", "tr", "uk",
                 "vi", "zh"
-            ]);
+            ], Case.Sensitive);
 
-            mostWatchedMovie.Genres.Should().NotBeNull().And.HaveCount(3).And.BeEquivalentTo([
+            mostWatchedMovie.Genres.ShouldNotBeNull();
+            mostWatchedMovie.Genres!.Count.ShouldBe(3);
+            mostWatchedMovie.Genres!.ShouldBe([
                 "thriller", "crime", "action"
-            ]);
+            ], Case.Sensitive);
 
-            mostWatchedMovie.Certification.Should().Be("R");
+            mostWatchedMovie.Certification.ShouldBe("R");
         }
     }
 }

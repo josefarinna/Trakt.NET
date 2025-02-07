@@ -5,34 +5,34 @@
         [Fact]
         public void TestTraktFilterSectionToJson()
         {
-            TraktFilterSection.Unspecified.ToJson().Should().BeNull();
-            TraktFilterSection.Movies.ToJson().Should().Be("movies");
-            TraktFilterSection.Shows.ToJson().Should().Be("shows");
-            TraktFilterSection.Calendars.ToJson().Should().Be("calendars");
-            TraktFilterSection.Search.ToJson().Should().Be("search");
+            TraktFilterSection.Unspecified.ToJson().ShouldBeNull();
+            TraktFilterSection.Movies.ToJson().ShouldBe("movies");
+            TraktFilterSection.Shows.ToJson().ShouldBe("shows");
+            TraktFilterSection.Calendars.ToJson().ShouldBe("calendars");
+            TraktFilterSection.Search.ToJson().ShouldBe("search");
         }
 
         [Fact]
         public void TestTraktFilterSectionFromJson()
         {
-            "unspecified".ToTraktFilterSection().Should().Be(TraktFilterSection.Unspecified);
-            "movies".ToTraktFilterSection().Should().Be(TraktFilterSection.Movies);
-            "shows".ToTraktFilterSection().Should().Be(TraktFilterSection.Shows);
-            "calendars".ToTraktFilterSection().Should().Be(TraktFilterSection.Calendars);
-            "search".ToTraktFilterSection().Should().Be(TraktFilterSection.Search);
+            "unspecified".ToTraktFilterSection().ShouldBe(TraktFilterSection.Unspecified);
+            "movies".ToTraktFilterSection().ShouldBe(TraktFilterSection.Movies);
+            "shows".ToTraktFilterSection().ShouldBe(TraktFilterSection.Shows);
+            "calendars".ToTraktFilterSection().ShouldBe(TraktFilterSection.Calendars);
+            "search".ToTraktFilterSection().ShouldBe(TraktFilterSection.Search);
 
             string? nullValue = null;
-            nullValue.ToTraktFilterSection().Should().Be(TraktFilterSection.Unspecified);
+            nullValue.ToTraktFilterSection().ShouldBe(TraktFilterSection.Unspecified);
         }
 
         [Fact]
         public void TestTraktFilterSectionDisplayName()
         {
-            TraktFilterSection.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktFilterSection.Movies.DisplayName().Should().Be("Movies");
-            TraktFilterSection.Shows.DisplayName().Should().Be("Shows");
-            TraktFilterSection.Calendars.DisplayName().Should().Be("Calendars");
-            TraktFilterSection.Search.DisplayName().Should().Be("Search");
+            TraktFilterSection.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktFilterSection.Movies.DisplayName().ShouldBe("Movies");
+            TraktFilterSection.Shows.DisplayName().ShouldBe("Shows");
+            TraktFilterSection.Calendars.DisplayName().ShouldBe("Calendars");
+            TraktFilterSection.Search.DisplayName().ShouldBe("Search");
         }
     }
 }

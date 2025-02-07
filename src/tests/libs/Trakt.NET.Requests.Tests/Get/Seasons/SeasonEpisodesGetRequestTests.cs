@@ -30,7 +30,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             seasonEpisodesGetRequest.BuildUri();
-            seasonEpisodesGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            seasonEpisodesGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonEpisodesGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            seasonEpisodesGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonEpisodesGetRequest.Method.Should().Be(HttpMethod.Get);
+            seasonEpisodesGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
@@ -66,7 +66,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonEpisodesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Season);
+            seasonEpisodesGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Season);
         }
 
         [Fact]
@@ -79,7 +79,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             Action act = () => seasonEpisodesGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonEpisodesGetRequest = new SeasonEpisodesGetRequest
             {
@@ -88,7 +88,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonEpisodesGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonEpisodesGetRequest = new SeasonEpisodesGetRequest
             {
@@ -97,7 +97,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonEpisodesGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonEpisodesGetRequest = new SeasonEpisodesGetRequest
             {
@@ -106,7 +106,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonEpisodesGetRequest.Validate();
-            act.Should().NotThrow();
+            act.ShouldNotThrow();
         }
     }
 }

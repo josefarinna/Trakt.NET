@@ -7,13 +7,13 @@ namespace TraktNET.Json.Episodes
         {
             var episodeIDs = new TraktEpisodeIDs();
 
-            episodeIDs.Trakt.Should().BeNull();
-            episodeIDs.TVDB.Should().BeNull();
-            episodeIDs.IMDB.Should().BeNull();
-            episodeIDs.TMDB.Should().BeNull();
+            episodeIDs.Trakt.ShouldBeNull();
+            episodeIDs.TVDB.ShouldBeNull();
+            episodeIDs.IMDB.ShouldBeNull();
+            episodeIDs.TMDB.ShouldBeNull();
 
-            episodeIDs.HasAnyID.Should().BeFalse();
-            episodeIDs.BestID.Should().BeEmpty();
+            episodeIDs.HasAnyID.ShouldBe(false);
+            episodeIDs.BestID.ShouldBeEmpty();
         }
 
         [Fact]
@@ -21,15 +21,15 @@ namespace TraktNET.Json.Episodes
         {
             TraktEpisodeIDs? episodeIDs = await TestUtility.DeserializeJsonAsync<TraktEpisodeIDs>("Episodes\\episodeids.json");
 
-            episodeIDs.Should().NotBeNull();
+            episodeIDs.ShouldNotBeNull();
 
-            episodeIDs!.Trakt.Should().Be(73640U);
-            episodeIDs!.TVDB.Should().Be(3254641U);
-            episodeIDs!.IMDB.Should().Be("tt1480055");
-            episodeIDs!.TMDB.Should().Be(63056U);
+            episodeIDs!.Trakt.ShouldBe(73640U);
+            episodeIDs!.TVDB.ShouldBe(3254641U);
+            episodeIDs!.IMDB.ShouldBe("tt1480055");
+            episodeIDs!.TMDB.ShouldBe(63056U);
 
-            episodeIDs!.HasAnyID.Should().BeTrue();
-            episodeIDs!.BestID.Should().Be("73640");
+            episodeIDs!.HasAnyID.ShouldBe(true);
+            episodeIDs!.BestID.ShouldBe("73640");
         }
     }
 }

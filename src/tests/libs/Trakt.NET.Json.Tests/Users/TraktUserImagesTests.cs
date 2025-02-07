@@ -7,7 +7,7 @@
         {
             var userImages = new TraktUserImages();
 
-            userImages.Avatar.Should().BeNull();
+            userImages.Avatar.ShouldBeNull();
         }
 
         [Fact]
@@ -15,10 +15,10 @@
         {
             TraktUserImages? userImages = await TestUtility.DeserializeJsonAsync<TraktUserImages>("Users\\userimages.json");
 
-            userImages.Should().NotBeNull();
+            userImages.ShouldNotBeNull();
 
-            userImages!.Avatar.Should().NotBeNull();
-            userImages!.Avatar!.Full.Should().Be("https://walter.trakt.tv/images/users/000/894/246/avatars/large/754b7e3761.png");
+            userImages!.Avatar.ShouldNotBeNull();
+            userImages!.Avatar!.Full.ShouldBe("https://walter.trakt.tv/images/users/000/894/246/avatars/large/754b7e3761.png");
         }
     }
 }

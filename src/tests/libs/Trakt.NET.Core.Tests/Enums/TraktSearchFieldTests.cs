@@ -5,49 +5,49 @@
         [Fact]
         public void TestTraktSearchFieldToJson()
         {
-            TraktSearchField.Unspecified.ToJson().Should().BeNull();
-            TraktSearchField.Title.ToJson().Should().Be("title");
-            TraktSearchField.Tagline.ToJson().Should().Be("tagline");
-            TraktSearchField.Overview.ToJson().Should().Be("overview");
-            TraktSearchField.People.ToJson().Should().Be("people");
-            TraktSearchField.Translations.ToJson().Should().Be("translations");
-            TraktSearchField.Aliases.ToJson().Should().Be("aliases");
-            TraktSearchField.Name.ToJson().Should().Be("name");
-            TraktSearchField.Biography.ToJson().Should().Be("biography");
-            TraktSearchField.Description.ToJson().Should().Be("description");
+            TraktSearchField.Unspecified.ToJson().ShouldBeNull();
+            TraktSearchField.Title.ToJson().ShouldBe("title");
+            TraktSearchField.Tagline.ToJson().ShouldBe("tagline");
+            TraktSearchField.Overview.ToJson().ShouldBe("overview");
+            TraktSearchField.People.ToJson().ShouldBe("people");
+            TraktSearchField.Translations.ToJson().ShouldBe("translations");
+            TraktSearchField.Aliases.ToJson().ShouldBe("aliases");
+            TraktSearchField.Name.ToJson().ShouldBe("name");
+            TraktSearchField.Biography.ToJson().ShouldBe("biography");
+            TraktSearchField.Description.ToJson().ShouldBe("description");
         }
 
         [Fact]
         public void TestTraktSearchFieldFromJson()
         {
-            "unspecified".ToTraktSearchField().Should().Be(TraktSearchField.Unspecified);
-            "title".ToTraktSearchField().Should().Be(TraktSearchField.Title);
-            "tagline".ToTraktSearchField().Should().Be(TraktSearchField.Tagline);
-            "overview".ToTraktSearchField().Should().Be(TraktSearchField.Overview);
-            "people".ToTraktSearchField().Should().Be(TraktSearchField.People);
-            "translations".ToTraktSearchField().Should().Be(TraktSearchField.Translations);
-            "aliases".ToTraktSearchField().Should().Be(TraktSearchField.Aliases);
-            "name".ToTraktSearchField().Should().Be(TraktSearchField.Name);
-            "biography".ToTraktSearchField().Should().Be(TraktSearchField.Biography);
-            "description".ToTraktSearchField().Should().Be(TraktSearchField.Description);
+            "unspecified".ToTraktSearchField().ShouldBe(TraktSearchField.Unspecified);
+            "title".ToTraktSearchField().ShouldBe(TraktSearchField.Title);
+            "tagline".ToTraktSearchField().ShouldBe(TraktSearchField.Tagline);
+            "overview".ToTraktSearchField().ShouldBe(TraktSearchField.Overview);
+            "people".ToTraktSearchField().ShouldBe(TraktSearchField.People);
+            "translations".ToTraktSearchField().ShouldBe(TraktSearchField.Translations);
+            "aliases".ToTraktSearchField().ShouldBe(TraktSearchField.Aliases);
+            "name".ToTraktSearchField().ShouldBe(TraktSearchField.Name);
+            "biography".ToTraktSearchField().ShouldBe(TraktSearchField.Biography);
+            "description".ToTraktSearchField().ShouldBe(TraktSearchField.Description);
 
             string? nullValue = null;
-            nullValue.ToTraktSearchField().Should().Be(TraktSearchField.Unspecified);
+            nullValue.ToTraktSearchField().ShouldBe(TraktSearchField.Unspecified);
         }
 
         [Fact]
         public void TestTraktSearchFieldDisplayName()
         {
-            TraktSearchField.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktSearchField.Title.DisplayName().Should().Be("Title");
-            TraktSearchField.Tagline.DisplayName().Should().Be("Tagline");
-            TraktSearchField.Overview.DisplayName().Should().Be("Overview");
-            TraktSearchField.People.DisplayName().Should().Be("People");
-            TraktSearchField.Translations.DisplayName().Should().Be("Translations");
-            TraktSearchField.Aliases.DisplayName().Should().Be("Aliases");
-            TraktSearchField.Name.DisplayName().Should().Be("Name");
-            TraktSearchField.Biography.DisplayName().Should().Be("Biography");
-            TraktSearchField.Description.DisplayName().Should().Be("Description");
+            TraktSearchField.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktSearchField.Title.DisplayName().ShouldBe("Title");
+            TraktSearchField.Tagline.DisplayName().ShouldBe("Tagline");
+            TraktSearchField.Overview.DisplayName().ShouldBe("Overview");
+            TraktSearchField.People.DisplayName().ShouldBe("People");
+            TraktSearchField.Translations.DisplayName().ShouldBe("Translations");
+            TraktSearchField.Aliases.DisplayName().ShouldBe("Aliases");
+            TraktSearchField.Name.DisplayName().ShouldBe("Name");
+            TraktSearchField.Biography.DisplayName().ShouldBe("Biography");
+            TraktSearchField.Description.DisplayName().ShouldBe("Description");
         }
     }
 }

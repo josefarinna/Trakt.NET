@@ -5,43 +5,43 @@
         [Fact]
         public void TestTraktReleaseTypeToJson()
         {
-            TraktReleaseType.Unspecified.ToJson().Should().BeNull();
-            TraktReleaseType.Unknown.ToJson().Should().Be("unknown");
-            TraktReleaseType.Premiere.ToJson().Should().Be("premiere");
-            TraktReleaseType.Limited.ToJson().Should().Be("limited");
-            TraktReleaseType.Theatrical.ToJson().Should().Be("theatrical");
-            TraktReleaseType.Digital.ToJson().Should().Be("digital");
-            TraktReleaseType.Physical.ToJson().Should().Be("physical");
-            TraktReleaseType.TV.ToJson().Should().Be("tv");
+            TraktReleaseType.Unspecified.ToJson().ShouldBeNull();
+            TraktReleaseType.Unknown.ToJson().ShouldBe("unknown");
+            TraktReleaseType.Premiere.ToJson().ShouldBe("premiere");
+            TraktReleaseType.Limited.ToJson().ShouldBe("limited");
+            TraktReleaseType.Theatrical.ToJson().ShouldBe("theatrical");
+            TraktReleaseType.Digital.ToJson().ShouldBe("digital");
+            TraktReleaseType.Physical.ToJson().ShouldBe("physical");
+            TraktReleaseType.TV.ToJson().ShouldBe("tv");
         }
 
         [Fact]
         public void TestTraktReleaseTypeFromJson()
         {
-            "unspecified".ToTraktReleaseType().Should().Be(TraktReleaseType.Unspecified);
-            "unknown".ToTraktReleaseType().Should().Be(TraktReleaseType.Unknown);
-            "premiere".ToTraktReleaseType().Should().Be(TraktReleaseType.Premiere);
-            "limited".ToTraktReleaseType().Should().Be(TraktReleaseType.Limited);
-            "theatrical".ToTraktReleaseType().Should().Be(TraktReleaseType.Theatrical);
-            "digital".ToTraktReleaseType().Should().Be(TraktReleaseType.Digital);
-            "physical".ToTraktReleaseType().Should().Be(TraktReleaseType.Physical);
-            "tv".ToTraktReleaseType().Should().Be(TraktReleaseType.TV);
+            "unspecified".ToTraktReleaseType().ShouldBe(TraktReleaseType.Unspecified);
+            "unknown".ToTraktReleaseType().ShouldBe(TraktReleaseType.Unknown);
+            "premiere".ToTraktReleaseType().ShouldBe(TraktReleaseType.Premiere);
+            "limited".ToTraktReleaseType().ShouldBe(TraktReleaseType.Limited);
+            "theatrical".ToTraktReleaseType().ShouldBe(TraktReleaseType.Theatrical);
+            "digital".ToTraktReleaseType().ShouldBe(TraktReleaseType.Digital);
+            "physical".ToTraktReleaseType().ShouldBe(TraktReleaseType.Physical);
+            "tv".ToTraktReleaseType().ShouldBe(TraktReleaseType.TV);
 
             string? nullValue = null;
-            nullValue.ToTraktReleaseType().Should().Be(TraktReleaseType.Unspecified);
+            nullValue.ToTraktReleaseType().ShouldBe(TraktReleaseType.Unspecified);
         }
 
         [Fact]
         public void TestTraktReleaseTypeDisplayName()
         {
-            TraktReleaseType.Unspecified.DisplayName().Should().Be("Unspecified");
-            TraktReleaseType.Unknown.DisplayName().Should().Be("Unknown");
-            TraktReleaseType.Premiere.DisplayName().Should().Be("Premiere");
-            TraktReleaseType.Limited.DisplayName().Should().Be("Limited");
-            TraktReleaseType.Theatrical.DisplayName().Should().Be("Theatrical");
-            TraktReleaseType.Digital.DisplayName().Should().Be("Digital");
-            TraktReleaseType.Physical.DisplayName().Should().Be("Physical");
-            TraktReleaseType.TV.DisplayName().Should().Be("TV");
+            TraktReleaseType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktReleaseType.Unknown.DisplayName().ShouldBe("Unknown");
+            TraktReleaseType.Premiere.DisplayName().ShouldBe("Premiere");
+            TraktReleaseType.Limited.DisplayName().ShouldBe("Limited");
+            TraktReleaseType.Theatrical.DisplayName().ShouldBe("Theatrical");
+            TraktReleaseType.Digital.DisplayName().ShouldBe("Digital");
+            TraktReleaseType.Physical.DisplayName().ShouldBe("Physical");
+            TraktReleaseType.TV.DisplayName().ShouldBe("TV");
         }
     }
 }

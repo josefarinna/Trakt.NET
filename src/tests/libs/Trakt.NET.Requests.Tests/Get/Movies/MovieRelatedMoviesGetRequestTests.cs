@@ -33,28 +33,28 @@ namespace TraktNET.GetRequests.Movies
             };
 
             movieRelatedMoviesGetRequest.BuildUri();
-            movieRelatedMoviesGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            movieRelatedMoviesGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestMovieRelatedMoviesGetRequestHasValidOAuthRequirement()
         {
             var movieRelatedMoviesGetRequest = new MovieRelatedMoviesGetRequest { Id = MovieID };
-            movieRelatedMoviesGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            movieRelatedMoviesGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestMovieRelatedMoviesGetRequestIsGetRequest()
         {
             var movieRelatedMoviesGetRequest = new MovieRelatedMoviesGetRequest { Id = MovieID };
-            movieRelatedMoviesGetRequest.Method.Should().Be(HttpMethod.Get);
+            movieRelatedMoviesGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestMovieRelatedMoviesGetRequestHasCorrectRequestObjectType()
         {
             var movieRelatedMoviesGetRequest = new MovieRelatedMoviesGetRequest { Id = MovieID };
-            movieRelatedMoviesGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Movie);
+            movieRelatedMoviesGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Movie);
         }
 
         [Fact]
@@ -63,17 +63,17 @@ namespace TraktNET.GetRequests.Movies
             var movieRelatedMoviesGetRequest = new MovieRelatedMoviesGetRequest { Id = string.Empty };
 
             Action act = () => movieRelatedMoviesGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             movieRelatedMoviesGetRequest = new MovieRelatedMoviesGetRequest { Id = "  " };
 
             act = () => movieRelatedMoviesGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             movieRelatedMoviesGetRequest = new MovieRelatedMoviesGetRequest { Id = "id with spaces" };
 
             act = () => movieRelatedMoviesGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

@@ -7,22 +7,22 @@
         {
             var list = new TraktList();
 
-            list.Name.Should().BeNull();
-            list.Description.Should().BeNull();
-            list.Privacy.Should().BeNull();
-            list.ShareLink.Should().BeNull();
-            list.Type.Should().BeNull();
-            list.DisplayNumbers.Should().BeNull();
-            list.AllowComments.Should().BeNull();
-            list.SortBy.Should().BeNull();
-            list.SortHow.Should().BeNull();
-            list.CreatedAt.Should().BeNull();
-            list.UpdatedAt.Should().BeNull();
-            list.ItemCount.Should().BeNull();
-            list.CommentCount.Should().BeNull();
-            list.Likes.Should().BeNull();
-            list.IDs.Should().BeNull();
-            list.User.Should().BeNull();
+            list.Name.ShouldBeNull();
+            list.Description.ShouldBeNull();
+            list.Privacy.ShouldBeNull();
+            list.ShareLink.ShouldBeNull();
+            list.Type.ShouldBeNull();
+            list.DisplayNumbers.ShouldBeNull();
+            list.AllowComments.ShouldBeNull();
+            list.SortBy.ShouldBeNull();
+            list.SortHow.ShouldBeNull();
+            list.CreatedAt.ShouldBeNull();
+            list.UpdatedAt.ShouldBeNull();
+            list.ItemCount.ShouldBeNull();
+            list.CommentCount.ShouldBeNull();
+            list.Likes.ShouldBeNull();
+            list.IDs.ShouldBeNull();
+            list.User.ShouldBeNull();
         }
 
         [Fact]
@@ -30,37 +30,37 @@
         {
             TraktList? list = await TestUtility.DeserializeJsonAsync<TraktList>("Lists\\list.json");
 
-            list.Should().NotBeNull();
+            list.ShouldNotBeNull();
 
-            list!.Name.Should().Be("MARVEL Cinematic Universe");
-            list!.Description.Should().Be("MCU Shows and Movies in chronological order.");
-            list!.Privacy.Should().Be(TraktListPrivacy.Public);
-            list!.ShareLink.Should().Be("https://trakt.tv/lists/1248149");
-            list!.Type.Should().Be(TraktListType.Personal);
-            list!.DisplayNumbers.Should().BeTrue();
-            list!.AllowComments.Should().BeTrue();
-            list!.SortBy.Should().Be(TraktSortBy.Rank);
-            list!.SortHow.Should().Be(TraktSortHow.Ascending);
-            list!.CreatedAt.Should().Be(TestUtility.ParseUTCDateTime("2015-07-16T14:59:57.000Z"));
-            list!.UpdatedAt.Should().Be(TestUtility.ParseUTCDateTime("2024-10-04T06:47:38.000Z"));
-            list!.ItemCount.Should().Be(218U);
-            list!.CommentCount.Should().Be(33U);
-            list!.Likes.Should().Be(4668U);
+            list!.Name.ShouldBe("MARVEL Cinematic Universe");
+            list!.Description.ShouldBe("MCU Shows and Movies in chronological order.");
+            list!.Privacy.ShouldBe(TraktListPrivacy.Public);
+            list!.ShareLink.ShouldBe("https://trakt.tv/lists/1248149");
+            list!.Type.ShouldBe(TraktListType.Personal);
+            list!.DisplayNumbers.ShouldBe(true);
+            list!.AllowComments.ShouldBe(true);
+            list!.SortBy.ShouldBe(TraktSortBy.Rank);
+            list!.SortHow.ShouldBe(TraktSortHow.Ascending);
+            list!.CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-07-16T14:59:57.000Z"));
+            list!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-10-04T06:47:38.000Z"));
+            list!.ItemCount.ShouldBe(218U);
+            list!.CommentCount.ShouldBe(33U);
+            list!.Likes.ShouldBe(4668U);
 
-            list!.IDs.Should().NotBeNull();
-            list!.IDs!.Trakt.Should().Be(1248149U);
-            list!.IDs!.Slug.Should().Be("marvel-cinematic-universe");
-            list!.IDs!.HasAnyID.Should().BeTrue();
-            list!.IDs!.BestID.Should().Be("marvel-cinematic-universe");
+            list!.IDs.ShouldNotBeNull();
+            list!.IDs!.Trakt.ShouldBe(1248149U);
+            list!.IDs!.Slug.ShouldBe("marvel-cinematic-universe");
+            list!.IDs!.HasAnyID.ShouldBe(true);
+            list!.IDs!.BestID.ShouldBe("marvel-cinematic-universe");
 
-            list!.User.Should().NotBeNull();
-            list!.User!.Username.Should().Be("Donxy");
-            list!.User!.Name.Should().Be("Donxy");
-            list!.User!.Private.Should().BeFalse();
-            list!.User!.VIP.Should().BeFalse();
-            list!.User!.VIPEP.Should().BeTrue();
-            list!.User!.IDs.Should().NotBeNull();
-            list!.User!.IDs!.Slug.Should().Be("donxy");
+            list!.User.ShouldNotBeNull();
+            list!.User!.Username.ShouldBe("Donxy");
+            list!.User!.Name.ShouldBe("Donxy");
+            list!.User!.Private.ShouldBe(false);
+            list!.User!.VIP.ShouldBe(false);
+            list!.User!.VIPEP.ShouldBe(true);
+            list!.User!.IDs.ShouldNotBeNull();
+            list!.User!.IDs!.Slug.ShouldBe("donxy");
         }
     }
 }

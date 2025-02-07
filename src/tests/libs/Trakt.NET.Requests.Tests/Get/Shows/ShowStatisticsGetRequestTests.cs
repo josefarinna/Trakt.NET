@@ -15,28 +15,28 @@ namespace TraktNET.GetRequests.Shows
             var showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = ShowID };
 
             showStatisticsGetRequest.BuildUri();
-            showStatisticsGetRequest.RequestUri.Should().Be(new Uri(URIPath, UriKind.Relative));
+            showStatisticsGetRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestShowStatisticsGetRequestHasValidOAuthRequirement()
         {
             var showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = ShowID };
-            showStatisticsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            showStatisticsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestShowStatisticsGetRequestIsGetRequest()
         {
             var showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = ShowID };
-            showStatisticsGetRequest.Method.Should().Be(HttpMethod.Get);
+            showStatisticsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestShowStatisticsGetRequestHasCorrectRequestObjectType()
         {
             var showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = ShowID };
-            showStatisticsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Show);
+            showStatisticsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
         }
 
         [Fact]
@@ -45,17 +45,17 @@ namespace TraktNET.GetRequests.Shows
             var showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = string.Empty };
 
             Action act = () => showStatisticsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = "  " };
 
             act = () => showStatisticsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = "id with spaces" };
 
             act = () => showStatisticsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

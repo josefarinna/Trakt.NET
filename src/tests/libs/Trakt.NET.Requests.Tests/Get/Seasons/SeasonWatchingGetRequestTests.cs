@@ -23,7 +23,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             seasonWatchingGetRequest.BuildUri();
-            seasonWatchingGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            seasonWatchingGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonWatchingGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            seasonWatchingGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonWatchingGetRequest.Method.Should().Be(HttpMethod.Get);
+            seasonWatchingGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1
             };
 
-            seasonWatchingGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Season);
+            seasonWatchingGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Season);
         }
 
         [Fact]
@@ -72,7 +72,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             Action act = () => seasonWatchingGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonWatchingGetRequest = new SeasonWatchingGetRequest
             {
@@ -81,7 +81,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonWatchingGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonWatchingGetRequest = new SeasonWatchingGetRequest
             {
@@ -90,7 +90,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonWatchingGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             seasonWatchingGetRequest = new SeasonWatchingGetRequest
             {
@@ -99,7 +99,7 @@ namespace TraktNET.GetRequests.Seasons
             };
 
             act = () => seasonWatchingGetRequest.Validate();
-            act.Should().NotThrow();
+            act.ShouldNotThrow();
         }
     }
 }

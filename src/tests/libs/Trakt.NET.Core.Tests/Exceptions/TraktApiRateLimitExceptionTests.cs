@@ -27,26 +27,26 @@ namespace TraktNET.Exceptions
 
             var exception = TraktApiException.Create(parameters);
 
-            exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(Constants.StatusCodes.RateLimitExceeded);
-            exception.HttpMethod.Should().Be(HttpMethod.Get);
-            exception.RequestMessage.Should().NotBeNull();
-            exception.RequestUri.Should().Be(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
-            exception.ResponseContent.Should().Be(ExceptionsTestUtility.TestResponseContent);
-            exception.Headers.Should().NotBeNull();
-            exception.ContentHeaders.Should().NotBeNull();
-            exception.Message.Should().Be("Trakt API request failed. Rate Limit Exceeded");
+            exception.ShouldNotBeNull();
+            exception.StatusCode.ShouldBe(Constants.StatusCodes.RateLimitExceeded);
+            exception.HttpMethod.ShouldBe(HttpMethod.Get);
+            exception.RequestMessage.ShouldNotBeNull();
+            exception.RequestUri.ShouldBe(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
+            exception.ResponseContent.ShouldBe(ExceptionsTestUtility.TestResponseContent);
+            exception.Headers.ShouldNotBeNull();
+            exception.ContentHeaders.ShouldNotBeNull();
+            exception.Message.ShouldBe("Trakt API request failed. Rate Limit Exceeded");
 
             var rateLimitException = exception as TraktApiRateLimitException;
 
-            rateLimitException.Should().NotBeNull();
-            rateLimitException!.RateLimitInfo.Should().NotBeNull();
-            rateLimitException!.RateLimitInfo!.Name.Should().Be("UNAUTHED_API_GET_LIMIT");
-            rateLimitException!.RateLimitInfo!.Period.Should().Be(300U);
-            rateLimitException!.RateLimitInfo!.Limit.Should().Be(1000U);
-            rateLimitException!.RateLimitInfo!.Remaining.Should().Be(500U);
-            rateLimitException!.RateLimitInfo!.Until.Should().Be(Until);
-            rateLimitException!.RetryAfter.Should().Be(1000U);
+            rateLimitException.ShouldNotBeNull();
+            rateLimitException!.RateLimitInfo.ShouldNotBeNull();
+            rateLimitException!.RateLimitInfo!.Name.ShouldBe("UNAUTHED_API_GET_LIMIT");
+            rateLimitException!.RateLimitInfo!.Period.ShouldBe(300U);
+            rateLimitException!.RateLimitInfo!.Limit.ShouldBe(1000U);
+            rateLimitException!.RateLimitInfo!.Remaining.ShouldBe(500U);
+            rateLimitException!.RateLimitInfo!.Until.ShouldBe(Until);
+            rateLimitException!.RetryAfter.ShouldBe(1000U);
         }
     }
 }

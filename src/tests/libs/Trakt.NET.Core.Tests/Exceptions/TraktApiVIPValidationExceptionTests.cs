@@ -16,21 +16,21 @@ namespace TraktNET.Exceptions
 
             var exception = TraktApiException.Create(parameters);
 
-            exception.Should().NotBeNull();
-            exception.StatusCode.Should().Be(Constants.StatusCodes.VIPValidationError);
-            exception.ReasonPhrase.Should().Be("VIP Only - user must upgrade to VIP");
-            exception.HttpMethod.Should().Be(HttpMethod.Get);
-            exception.RequestMessage.Should().NotBeNull();
-            exception.RequestUri.Should().Be(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
-            exception.ResponseContent.Should().Be(ExceptionsTestUtility.TestResponseContent);
-            exception.Headers.Should().NotBeNull();
-            exception.ContentHeaders.Should().NotBeNull();
-            exception.Message.Should().Be("Trakt API request failed. VIP Only - user must upgrade to VIP");
+            exception.ShouldNotBeNull();
+            exception.StatusCode.ShouldBe(Constants.StatusCodes.VIPValidationError);
+            exception.ReasonPhrase.ShouldBe("VIP Only - user must upgrade to VIP");
+            exception.HttpMethod.ShouldBe(HttpMethod.Get);
+            exception.RequestMessage.ShouldNotBeNull();
+            exception.RequestUri.ShouldBe(new Uri(ExceptionsTestUtility.TestUri, UriKind.Relative));
+            exception.ResponseContent.ShouldBe(ExceptionsTestUtility.TestResponseContent);
+            exception.Headers.ShouldNotBeNull();
+            exception.ContentHeaders.ShouldNotBeNull();
+            exception.Message.ShouldBe("Trakt API request failed. VIP Only - user must upgrade to VIP");
 
             var vipValidationException = exception as TraktApiVIPValidationException;
 
-            vipValidationException.Should().NotBeNull();
-            vipValidationException!.UpgradeURL.Should().Be("upgrade/url");
+            vipValidationException.ShouldNotBeNull();
+            vipValidationException!.UpgradeURL.ShouldBe("upgrade/url");
         }
     }
 }

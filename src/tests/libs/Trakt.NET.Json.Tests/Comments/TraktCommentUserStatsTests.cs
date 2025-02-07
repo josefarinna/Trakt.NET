@@ -7,9 +7,9 @@
         {
             var commentUserStats = new TraktCommentUserStats();
 
-            commentUserStats.Rating.Should().BeNull();
-            commentUserStats.PlayCount.Should().BeNull();
-            commentUserStats.CompletedCount.Should().BeNull();
+            commentUserStats.Rating.ShouldBeNull();
+            commentUserStats.PlayCount.ShouldBeNull();
+            commentUserStats.CompletedCount.ShouldBeNull();
         }
 
         [Fact]
@@ -17,11 +17,11 @@
         {
             TraktCommentUserStats? commentUserStats = await TestUtility.DeserializeJsonAsync<TraktCommentUserStats>("Comments\\commentuserstats.json");
 
-            commentUserStats.Should().NotBeNull();
+            commentUserStats.ShouldNotBeNull();
 
-            commentUserStats!.Rating.Should().Be(9U);
-            commentUserStats!.PlayCount.Should().Be(3U);
-            commentUserStats!.CompletedCount.Should().Be(1U);
+            commentUserStats!.Rating.ShouldBe(9U);
+            commentUserStats!.PlayCount.ShouldBe(3U);
+            commentUserStats!.CompletedCount.ShouldBe(1U);
         }
     }
 }

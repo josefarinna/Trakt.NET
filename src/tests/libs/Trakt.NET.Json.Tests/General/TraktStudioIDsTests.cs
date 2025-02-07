@@ -7,12 +7,12 @@
         {
             var studioIDs = new TraktStudioIDs();
 
-            studioIDs.Trakt.Should().BeNull();
-            studioIDs.Slug.Should().BeNull();
-            studioIDs.TMDB.Should().BeNull();
+            studioIDs.Trakt.ShouldBeNull();
+            studioIDs.Slug.ShouldBeNull();
+            studioIDs.TMDB.ShouldBeNull();
 
-            studioIDs.HasAnyID.Should().BeFalse();
-            studioIDs.BestID.Should().BeEmpty();
+            studioIDs.HasAnyID.ShouldBe(false);
+            studioIDs.BestID.ShouldBeEmpty();
         }
 
         [Fact]
@@ -20,14 +20,14 @@
         {
             TraktStudioIDs? studioIDs = await TestUtility.DeserializeJsonAsync<TraktStudioIDs>("General\\studioids.json");
 
-            studioIDs.Should().NotBeNull();
+            studioIDs.ShouldNotBeNull();
 
-            studioIDs!.Trakt.Should().Be(181U);
-            studioIDs!.Slug.Should().Be("marvel-studios");
-            studioIDs!.TMDB.Should().Be(420U);
+            studioIDs!.Trakt.ShouldBe(181U);
+            studioIDs!.Slug.ShouldBe("marvel-studios");
+            studioIDs!.TMDB.ShouldBe(420U);
 
-            studioIDs!.HasAnyID.Should().BeTrue();
-            studioIDs!.BestID.Should().Be("marvel-studios");
+            studioIDs!.HasAnyID.ShouldBe(true);
+            studioIDs!.BestID.ShouldBe("marvel-studios");
         }
     }
 }

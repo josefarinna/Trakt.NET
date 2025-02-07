@@ -7,8 +7,8 @@
         {
             var crewMember = new TraktCrewMember();
 
-            crewMember.Jobs.Should().BeNull();
-            crewMember.Person.Should().BeNull();
+            crewMember.Jobs.ShouldBeNull();
+            crewMember.Person.ShouldBeNull();
         }
 
         [Fact]
@@ -16,17 +16,19 @@
         {
             TraktCrewMember? crewMember = await TestUtility.DeserializeJsonAsync<TraktCrewMember>("General\\crewmember.json");
 
-            crewMember.Should().NotBeNull();
+            crewMember.ShouldNotBeNull();
 
-            crewMember!.Jobs.Should().NotBeNull().And.HaveCount(1).And.BeEquivalentTo(["Original Music Composer"]);
+            crewMember!.Jobs.ShouldNotBeNull();
+            crewMember!.Jobs!.Count.ShouldBe(1);
+            crewMember!.Jobs!.ShouldBe(["Original Music Composer"], Case.Sensitive);
 
-            crewMember!.Person.Should().NotBeNull();
-            crewMember!.Person!.Name.Should().Be("John Murphy");
-            crewMember!.Person!.IDs.Should().NotBeNull();
-            crewMember!.Person!.IDs!.Trakt.Should().Be(1005U);
-            crewMember!.Person!.IDs!.Slug.Should().Be("john-murphy");
-            crewMember!.Person!.IDs!.IMDB.Should().Be("nm0614373");
-            crewMember!.Person!.IDs!.TMDB.Should().Be(960U);
+            crewMember!.Person.ShouldNotBeNull();
+            crewMember!.Person!.Name.ShouldBe("John Murphy");
+            crewMember!.Person!.IDs.ShouldNotBeNull();
+            crewMember!.Person!.IDs!.Trakt.ShouldBe(1005U);
+            crewMember!.Person!.IDs!.Slug.ShouldBe("john-murphy");
+            crewMember!.Person!.IDs!.IMDB.ShouldBe("nm0614373");
+            crewMember!.Person!.IDs!.TMDB.ShouldBe(960U);
         }
     }
 }

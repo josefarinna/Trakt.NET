@@ -23,28 +23,28 @@ namespace TraktNET.GetRequests.Movies
             };
 
             movieTranslationsGetRequest.BuildUri();
-            movieTranslationsGetRequest.RequestUri.Should().Be(new Uri(expectedURIPath, UriKind.Relative));
+            movieTranslationsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
         public void TestMovieTranslationsGetRequestHasValidOAuthRequirement()
         {
             var movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = MovieID };
-            movieTranslationsGetRequest.OAuthRequirement.Should().Be(TraktOAuthRequirement.NotRequired);
+            movieTranslationsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestMovieTranslationsGetRequestIsGetRequest()
         {
             var movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = MovieID };
-            movieTranslationsGetRequest.Method.Should().Be(HttpMethod.Get);
+            movieTranslationsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestMovieTranslationsGetRequestHasCorrectRequestObjectType()
         {
             var movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = MovieID };
-            movieTranslationsGetRequest.RequestObjectType.Should().Be(TraktRequestObjectType.Movie);
+            movieTranslationsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Movie);
         }
 
         [Fact]
@@ -53,17 +53,17 @@ namespace TraktNET.GetRequests.Movies
             var movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = string.Empty };
 
             Action act = () => movieTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = "  " };
 
             act = () => movieTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
 
             movieTranslationsGetRequest = new MovieTranslationsGetRequest { Id = "id with spaces" };
 
             act = () => movieTranslationsGetRequest.Validate();
-            act.Should().Throw<TraktRequestValidationException>();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }
