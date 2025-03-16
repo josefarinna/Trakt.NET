@@ -4,14 +4,7 @@ Trakt.NET
 ===
 
 [![NuGet Package](https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v1.4.0-blue.svg?style=flat)](https://www.nuget.org/packages/Trakt.NET/1.4.0)
-
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/Pull%20Requests-Welcome-blue.svg?style=flat)](https://github.com/henrikfroehling/Trakt.NET/blob/develop/CONTRIBUTING.md)
-
-[![CI-Build](https://github.com/henrikfroehling/Trakt.NET/actions/workflows/ci.yml/badge.svg)](https://github.com/henrikfroehling/Trakt.NET/actions/workflows/ci.yml)
-[![Code Scan](https://github.com/henrikfroehling/Trakt.NET/actions/workflows/code-scan.yml/badge.svg)](https://github.com/henrikfroehling/Trakt.NET/actions/workflows/code-scan.yml)
-[![Static Analysis](https://github.com/henrikfroehling/Trakt.NET/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/henrikfroehling/Trakt.NET/actions/workflows/sonarcloud.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=henrikfroehling_Trakt.NET&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=henrikfroehling_Trakt.NET)
 [![codecov](https://codecov.io/gh/henrikfroehling/Trakt.NET/branch/develop/graph/badge.svg?token=U2B0KXA0QC)](https://codecov.io/gh/henrikfroehling/Trakt.NET)
 
 ### Overview
@@ -102,14 +95,6 @@ Year: 2023
 ### Examples
 
 [https://henrikfroehling.github.io/Trakt.NET/examples/index.html](https://henrikfroehling.github.io/Trakt.NET/examples/index.html)
-
-### Discussions and Issues
-Do you have a question or suggestion? [Start a discussion](https://github.com/henrikfroehling/Trakt.NET/discussions)
-
-Or do you want to report a bug? [Create an issue](https://github.com/henrikfroehling/Trakt.NET/issues/new/choose)
-
-### Contributions are welcome
-Do want to contribute? [See how you can contribute](https://github.com/henrikfroehling/Trakt.NET/blob/develop/CONTRIBUTING.md)
 
 ### License
 
