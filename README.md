@@ -1,4 +1,4 @@
-# This project is no longer under development.
+# This library is no longer under development.
 
 Trakt.NET
 ===
