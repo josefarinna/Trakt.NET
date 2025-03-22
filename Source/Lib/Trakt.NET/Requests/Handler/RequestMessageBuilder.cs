@@ -120,6 +120,8 @@
             if (UseAPIClientIdHeader)
                 requestMessage.Headers.Add(Constants.APIClientIdHeaderKey, _clientId);
 
+            requestMessage.Headers.Add("User-Agent", "PostmanRuntime/7.43.2");
+
             AuthorizationRequirement authorizationRequirement = Request.AuthorizationRequirement;
 
             if (authorizationRequirement == AuthorizationRequirement.OptionalButMightBeRequired && !_forceAuthorization)
