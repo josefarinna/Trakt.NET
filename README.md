@@ -1,4 +1,5 @@
-# This library is no longer under development.
+# This library is a fork of Trakt.NET, which is not under development anymore.
+This version adds an User Agent Header to not get flagged as bot traffic.
 
 Trakt.NET
 ===
