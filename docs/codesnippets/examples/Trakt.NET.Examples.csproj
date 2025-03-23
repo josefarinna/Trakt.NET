@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Source\Lib\Trakt.NET\Trakt.NET.csproj" />
+    <ProjectReference Include="..\..\..\Source\Lib\Trakt.NET\Trakt.NET.UserAgentFix.csproj" />
   </ItemGroup>
 
 </Project>
