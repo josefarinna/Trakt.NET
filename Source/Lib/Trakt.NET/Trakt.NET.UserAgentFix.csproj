@@ -19,7 +19,7 @@
     <Company>Henrik Fröhling</Company>
     <DefaultLanguage>en-US</DefaultLanguage>
     <PackageProjectUrl>https://henrikfroehling.github.io/Trakt.NET</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/FelixSmtt/Trakt.NET</RepositoryUrl>
+    <RepositoryUrl>https://github.com/FelixSmtt/Trakt.NET.UserAgentFix</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageTags>trakt rest api dotnet</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
