@@ -46,16 +46,19 @@
         /// A custom <see cref="HttpClient" /> provider, which can be used to provide a <see cref="HttpClient" /> with a custom <see cref="HttpMessageHandler" />.
         /// If not set, a default implementation (<see cref="Requests.Handler.HttpClientProvider" />) will be used.
         /// </param>
-        public TraktClient(string clientId, IHttpClientProvider httpClientProvider = default) : this(httpClientProvider)
+        /// <param name="userAgent">The User Agent that will be used in all API requests.</param>
+        public TraktClient(string clientId, IHttpClientProvider httpClientProvider = default, string userAgent = "PostmanRuntime/7.43.2") : this(httpClientProvider)
         {
             ClientId = clientId;
+            UserAgent = userAgent;
         }
 
         /// <summary>Initializes a new instance of the <see cref="TraktClient" /> class.</summary>
         /// <param name="clientId">The Trakt Client Id. See <seealso cref="ClientId" />.</param>
         /// <param name="clientSecret">The Trakt Client Secret. See <seealso cref="ClientSecret" />.</param>
         /// <param name="httpClientProvider"></param>
-        public TraktClient(string clientId, string clientSecret, IHttpClientProvider httpClientProvider = default) : this(clientId, httpClientProvider)
+        /// <param name="userAgent">The User Agent that will be used in all API requests.</param>
+        public TraktClient(string clientId, string clientSecret, IHttpClientProvider httpClientProvider = default, string userAgent = "PostmanRuntime/7.43.2") : this(clientId, httpClientProvider, userAgent)
         {
             ClientSecret = clientSecret;
         }
@@ -75,6 +78,8 @@
             get => Authentication.ClientSecret;
             set => Authentication.ClientSecret = value;
         }
+
+        public string UserAgent { get; set; }
 
         /// <summary>Gets or sets the Trakt Authorization information. See also <seealso cref="ITraktAuthorization" />.</summary>
         public ITraktAuthorization Authorization

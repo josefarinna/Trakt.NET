@@ -1,6 +1,8 @@
 # This library is a fork of Trakt.NET, which is not under development anymore.
 This version adds an User Agent Header to not get flagged as bot traffic.
 
+The user agent can be changed in the constructor of the TraktClient class.
+
 Trakt.NET
 ===
 

@@ -446,7 +446,7 @@
         }
 
         private RequestMessageBuilder CreateRequestMessageBuilder(IRequest request = null, IRequestBody requestBody = null)
-            => new RequestMessageBuilder(_client.ClientId, _client.Configuration.ApiVersion, _client.Configuration.BaseUrl,
+            => new RequestMessageBuilder(_client.ClientId, _client.UserAgent, _client.Configuration.ApiVersion, _client.Configuration.BaseUrl,
                                          _client.Authentication.Authorization.AccessToken, _client.Authentication.IsAuthorized,
                                          _client.Configuration.ForceAuthorization)
                {

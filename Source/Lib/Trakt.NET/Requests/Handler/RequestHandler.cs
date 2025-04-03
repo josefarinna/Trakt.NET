@@ -19,6 +19,7 @@
         private readonly bool _throwsResponseExceptions;
         private readonly IHttpClientProvider _httpClientProvider;
         private readonly string _clientId;
+        private readonly string _userAgent;
         private readonly int _apiVersion;
         private readonly string _baseUrl;
         private readonly string _accessToken;
@@ -30,6 +31,7 @@
             _throwsResponseExceptions = client.Configuration.ThrowResponseExceptions;
             _httpClientProvider = client.HttpClientProvider;
             _clientId = client.ClientId;
+            _userAgent = client.UserAgent;
             _apiVersion = client.Configuration.ApiVersion;
             _baseUrl = client.Configuration.BaseUrl;
             _accessToken = client.Authentication.Authorization.AccessToken;
@@ -292,7 +294,7 @@
         }
 
         private RequestMessageBuilder CreateRequestMessageBuilder(IRequest request = null, IRequestBody requestBody = null)
-            => new RequestMessageBuilder(_clientId, _apiVersion, _baseUrl, _accessToken, _isAuthorized, _forceAuthorization)
+            => new RequestMessageBuilder(_clientId, _userAgent, _apiVersion, _baseUrl, _accessToken, _isAuthorized, _forceAuthorization)
                {
                     Request = request,
                     RequestBody = requestBody

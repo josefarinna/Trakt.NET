@@ -21,6 +21,7 @@
         private const string EPISODE_KEY = "episode";
 
         private readonly string _clientId;
+        private readonly string _userAgent;
         private readonly int _apiVersion;
         private readonly string _baseUrl;
         private readonly string _accessToken;
@@ -35,9 +36,10 @@
 
         internal IRequestBody RequestBody { get; set; }
 
-        internal RequestMessageBuilder(string clientId, int apiVersion, string baseUrl, string accessToken, bool isAuthorized, bool forceAuthorization)
+        internal RequestMessageBuilder(string clientId, string userAgent, int apiVersion, string baseUrl, string accessToken, bool isAuthorized, bool forceAuthorization)
         {
             _clientId = clientId;
+            _userAgent = userAgent;
             _apiVersion = apiVersion;
             _baseUrl = baseUrl;
             _accessToken = accessToken;
@@ -120,7 +122,7 @@
             if (UseAPIClientIdHeader)
                 requestMessage.Headers.Add(Constants.APIClientIdHeaderKey, _clientId);
 
-            requestMessage.Headers.Add("User-Agent", "PostmanRuntime/7.43.2");
+            requestMessage.Headers.Add("User-Agent", _userAgent);
 
             AuthorizationRequirement authorizationRequirement = Request.AuthorizationRequirement;
 
