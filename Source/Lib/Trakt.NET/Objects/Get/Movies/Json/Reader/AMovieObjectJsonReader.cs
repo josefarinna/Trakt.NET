@@ -102,6 +102,10 @@ namespace TraktNet.Objects.Get.Movies.Json.Reader
                 case JsonProperties.PROPERTY_NAME_STATUS:
                     movie.Status = await JsonReaderHelper.ReadEnumerationValueAsync<TraktMovieStatus>(jsonReader, cancellationToken);
                     break;
+                case JsonProperties.PROPERTY_NAME_IMAGES:
+                    var imagesObjectReader = new MovieImageObjectJsonReader();
+                    movie.Images = await imagesObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
+                    break;
                 default:
                     await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                     break;

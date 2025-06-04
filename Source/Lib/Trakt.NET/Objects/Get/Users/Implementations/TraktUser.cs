@@ -11,6 +11,9 @@
         /// <summary>Gets or sets the user's privacy status.</summary>
         public bool? IsPrivate { get; set; }
 
+        /// <summary>Gets or sets the user's deleted status.</summary>
+        public bool? IsDeleted { get; set; }
+
         /// <summary>Gets or sets the collection of ids for the user. See also <seealso cref="ITraktUserIds" />.<para>Nullable</para></summary>
         public ITraktUserIds Ids { get; set; }
 

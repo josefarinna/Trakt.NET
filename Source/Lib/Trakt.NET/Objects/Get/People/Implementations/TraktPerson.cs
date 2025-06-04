@@ -64,5 +64,8 @@
 
         /// <summary>Gets or sets when the person was lastly updated.<para>Nullable</para></summary>
         public DateTime? UpdatedAt { get; set; }
+
+        /// <summary>Gets or sets the images for the person. See also <seealso cref="ITraktPersonImage" />.<para>Nullable</para></summary>
+        public ITraktPersonImage Images { get; set; }
     }
 }

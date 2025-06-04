@@ -293,5 +293,17 @@ namespace TraktNet.Objects.Get.Shows
                     Show.CommentCount = value;
             }
         }
+
+        /// <summary>Gets or sets the images for the show.<para>Nullable</para></summary>
+        public ITraktShowImage Images
+        {
+            get { return Show.Images; }
+
+            set
+            {
+                if (Show != null)
+                    Show.Images = value;
+            }
+        }
     }
 }

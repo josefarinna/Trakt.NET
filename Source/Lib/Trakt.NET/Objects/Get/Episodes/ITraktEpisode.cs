@@ -70,5 +70,8 @@
 
         /// <summary>Gets or sets the episode type. See also <seealso cref="TraktEpisodeType" />.<para>Nullable</para></summary>
         TraktEpisodeType EpisodeType { get; set; }
+
+        /// <summary>Gets or sets the images for the episode. See also <seealso cref="ITraktEpisodeImage" />.<para>Nullable</para></summary>
+        ITraktEpisodeImage Images { get; set; }
     }
 }

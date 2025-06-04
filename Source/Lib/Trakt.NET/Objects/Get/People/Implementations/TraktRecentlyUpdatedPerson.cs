@@ -134,5 +134,16 @@ namespace TraktNet.Objects.Get.People
                     Person.UpdatedAt = value;
             }
         }
+
+        public ITraktPersonImage Images
+        {
+            get => Person?.Images;
+
+            set
+            {
+                if (Person != null)
+                    Person.Images = value;
+            }
+        }
     }
 }

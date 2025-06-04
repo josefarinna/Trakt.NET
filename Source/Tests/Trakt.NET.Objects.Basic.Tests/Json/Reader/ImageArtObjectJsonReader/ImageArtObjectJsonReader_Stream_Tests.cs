@@ -1,0 +1,63 @@
+﻿namespace TraktNet.Objects.Basic.Tests.Json.Reader
+{
+    using FluentAssertions;
+    using System;
+    using System.IO;
+    using System.Threading.Tasks;
+    using Trakt.NET.Tests.Utility;
+    using Trakt.NET.Tests.Utility.Traits;
+    using TraktNet.Objects.Basic.Json.Reader;
+    using Xunit;
+
+    [TestCategory("Objects.Basic.JsonReader")]
+    public partial class ImageArtObjectJsonReader_Tests
+    {
+        [Fact]
+        public async Task Test_ImageArtObjectJsonReader_ReadObject_From_Stream_Complete()
+        {
+            var traktJsonReader = new ImageArtObjectJsonReader();
+
+            using (var stream = JSON_COMPLETE.ToStream())
+            {
+                var traktImage = await traktJsonReader.ReadObjectAsync(stream);
+
+                traktImage.Should().NotBeNull();
+                traktImage.Full.Should().Be("https://walter.trakt.us/images/shows/000/060/300/logos/original/ab151d1043.png");
+            }
+        }
+
+        [Fact]
+        public async Task Test_ImageArtObjectJsonReader_ReadObject_From_Stream_Not_Valid()
+        {
+            var traktJsonReader = new ImageArtObjectJsonReader();
+
+            using (var stream = JSON_NOT_VALID.ToStream())
+            {
+                var traktImage = await traktJsonReader.ReadObjectAsync(stream);
+
+                traktImage.Should().NotBeNull();
+                traktImage.Full.Should().BeNull();
+            }
+        }
+
+        [Fact]
+        public async Task Test_ImageArtObjectJsonReader_ReadObject_From_Stream_Null()
+        {
+            var traktJsonReader = new ImageArtObjectJsonReader();
+            Func<Task<ITraktImageArt>> traktImage = () => traktJsonReader.ReadObjectAsync(default(Stream));
+            await traktImage.Should().ThrowAsync<ArgumentNullException>();
+        }
+
+        [Fact]
+        public async Task Test_ImageArtObjectJsonReader_ReadObject_From_Stream_Empty()
+        {
+            var traktJsonReader = new ImageArtObjectJsonReader();
+
+            using (var stream = string.Empty.ToStream())
+            {
+                var traktImage = await traktJsonReader.ReadObjectAsync(stream);
+                traktImage.Should().BeNull();
+            }
+        }
+    }
+}

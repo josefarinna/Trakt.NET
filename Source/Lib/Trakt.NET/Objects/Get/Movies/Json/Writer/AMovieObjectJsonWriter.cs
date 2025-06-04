@@ -132,6 +132,13 @@ namespace TraktNet.Objects.Get.Movies.Json.Writer
                 await jsonWriter.WritePropertyNameAsync(JsonProperties.PROPERTY_NAME_STATUS, cancellationToken).ConfigureAwait(false);
                 await jsonWriter.WriteValueAsync(obj.Status.ObjectName, cancellationToken).ConfigureAwait(false);
             }
+
+            if (obj.Images != null)
+            {
+                var imageJsonWriter = new MovieImageObjectJsonWriter();
+                await jsonWriter.WritePropertyNameAsync(JsonProperties.PROPERTY_NAME_IMAGES, cancellationToken).ConfigureAwait(false);
+                await imageJsonWriter.WriteObjectAsync(jsonWriter, obj.Images, cancellationToken).ConfigureAwait(false);
+            }
         }
     }
 }

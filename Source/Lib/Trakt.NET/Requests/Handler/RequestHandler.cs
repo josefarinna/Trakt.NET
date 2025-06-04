@@ -172,7 +172,7 @@
             {
                 HttpResponseMessage responseMessage = await ExecuteRequestAsync(requestMessage, false, cancellationToken).ConfigureAwait(false);
                 DebugAsserter.AssertResponseMessageIsNotNull(responseMessage);
-                DebugAsserter.AssertHttpResponseCodeIsExpected(responseMessage.StatusCode, HttpStatusCode.NoContent, HttpStatusCode.Created, DebugAsserter.NO_CONTENT_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
+                DebugAsserter.AssertHttpResponseCodeIsExpected(responseMessage.StatusCode, requestMessage.Method, DebugAsserter.NO_CONTENT_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
                 return new TraktNoContentResponse { IsSuccess = true };
             }
             catch (Exception ex)
@@ -190,7 +190,8 @@
             {
                 HttpResponseMessage responseMessage = await ExecuteRequestAsync(requestMessage, isCheckinRequest, cancellationToken).ConfigureAwait(false);
                 DebugAsserter.AssertResponseMessageIsNotNull(responseMessage);
-                DebugAsserter.AssertHttpResponseCodeIsNotExpected(responseMessage.StatusCode, HttpStatusCode.NoContent, HttpStatusCode.Created, DebugAsserter.SINGLE_ITEM_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
+                var algo = requestMessage.Method == HttpMethod.Get;
+                DebugAsserter.AssertHttpResponseCodeIsExpected(responseMessage.StatusCode, requestMessage.Method, DebugAsserter.SINGLE_ITEM_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
                 TResponseContentType contentObject = await ReadContentObjectAsync<TResponseContentType>(asyncStream, responseMessage, cancellationToken).ConfigureAwait(false);
                 bool hasValue = !EqualityComparer<TResponseContentType>.Default.Equals(contentObject, default);
 
@@ -221,7 +222,7 @@
             {
                 HttpResponseMessage responseMessage = await ExecuteRequestAsync(requestMessage, false, cancellationToken).ConfigureAwait(false);
                 DebugAsserter.AssertResponseMessageIsNotNull(responseMessage);
-                DebugAsserter.AssertHttpResponseCodeIsNotExpected(responseMessage.StatusCode, HttpStatusCode.NoContent, HttpStatusCode.Created, DebugAsserter.LIST_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
+                DebugAsserter.AssertHttpResponseCodeIsExpected(responseMessage.StatusCode,requestMessage.Method, DebugAsserter.LIST_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
                 IList<TResponseContentType> contentObjects = await ReadContentListAsync<TResponseContentType>(asyncStream, responseMessage, cancellationToken).ConfigureAwait(false);
 
                 var response = new TraktListResponse<TResponseContentType>
@@ -251,7 +252,7 @@
             {
                 HttpResponseMessage responseMessage = await ExecuteRequestAsync(requestMessage, false, cancellationToken).ConfigureAwait(false);
                 DebugAsserter.AssertResponseMessageIsNotNull(responseMessage);
-                DebugAsserter.AssertHttpResponseCodeIsNotExpected(responseMessage.StatusCode, HttpStatusCode.NoContent, HttpStatusCode.Created, DebugAsserter.PAGED_LIST_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
+                DebugAsserter.AssertHttpResponseCodeIsExpected(responseMessage.StatusCode, requestMessage.Method, DebugAsserter.PAGED_LIST_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
                 IList<TResponseContentType> contentObjects = await ReadContentListAsync<TResponseContentType>(false, responseMessage, cancellationToken).ConfigureAwait(false);
 
                 var response = new TraktPagedResponse<TResponseContentType>

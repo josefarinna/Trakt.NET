@@ -1,0 +1,40 @@
+﻿namespace TraktNet.Objects.Basic.Tests.Json.Writer
+{
+    using FluentAssertions;
+    using System;
+    using System.IO;
+    using System.Threading.Tasks;
+    using Trakt.NET.Tests.Utility.Traits;
+    using TraktNet.Objects.Basic;
+    using TraktNet.Objects.Basic.Json.Writer;
+    using Xunit;
+
+    [TestCategory("Objects.Basic.JsonWriter")]
+    public partial class ImageArtObjectJsonWriter_Tests
+    {
+        [Fact]
+        public async Task Test_ImageArtObjectJsonWriter_WriteObject_StringWriter_Exceptions()
+        {
+            var traktJsonWriter = new ImageArtObjectJsonWriter();
+            ITraktImageArt traktImage = new TraktImageArt();
+            Func<Task<string>> action = () => traktJsonWriter.WriteObjectAsync(default(StringWriter), traktImage);
+            await action.Should().ThrowAsync<ArgumentNullException>();
+        }
+
+        [Fact]
+        public async Task Test_ImageArtObjectJsonWriter_WriteObject_StringWriter_Complete()
+        {
+            ITraktImageArt traktImage = new TraktImageArt
+            {
+                Full = "fullPath"
+            };
+
+            using (var stringWriter = new StringWriter())
+            {
+                var traktJsonWriter = new ImageArtObjectJsonWriter();
+                string json = await traktJsonWriter.WriteObjectAsync(stringWriter, traktImage);
+                json.Should().Be(@"{""full"":""fullPath""}");
+            }
+        }
+    }
+}

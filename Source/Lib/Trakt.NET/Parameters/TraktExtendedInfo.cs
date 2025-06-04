@@ -24,6 +24,7 @@
             GuestStars = false;
             Comments = false;
             Vip = false;
+            Images = false;
         }
 
         /// <summary>
@@ -91,8 +92,19 @@
         /// </summary>
         public bool Vip { get; set; }
 
+        /// <summary>
+        /// Gets or sets, whether images information should be retrieved.
+        /// <para>
+        /// for example supported by <see cref="Modules.TraktShowsModule.GetShowAsync(string, TraktExtendedInfo, CancellationToken)" /> and
+        /// <see cref="Modules.TraktUsersModule.GetWatchedShowsAsync(string, TraktExtendedInfo, CancellationToken)" />.
+        /// Will be ignored otherwise.
+        /// </para>
+        /// <para>See also <see cref="SetImages()" /> and <see cref="ResetImages()" />.</para>
+        /// </summary>
+        public bool Images { get; set; }
+
         /// <summary>Returns, whether any flag is enabled.</summary>
-        public bool HasAnySet => Metadata || Full || NoSeasons || Episodes || GuestStars || Comments || Vip;
+        public bool HasAnySet => Metadata || Full || NoSeasons || Episodes || GuestStars || Comments || Vip || Images;
 
         /// <summary>
         /// Enables the metadata information flag.
@@ -248,6 +260,28 @@
             return this;
         }
 
+        /// <summary>
+        /// Enables the images information flag.
+        /// <para>See also <see cref="Images" />.</para>
+        /// </summary>
+        /// <returns>The current <see cref="TraktExtendedInfo" /> instance.</returns>
+        public TraktExtendedInfo SetImages()
+        {
+            Images = true;
+            return this;
+        }
+
+        /// <summary>
+        /// Disables the images information flag.
+        /// <para>See also <see cref="Images" />.</para>
+        /// </summary>
+        /// <returns>The current <see cref="TraktExtendedInfo" /> instance.</returns>
+        public TraktExtendedInfo ResetImages()
+        {
+            Images = false;
+            return this;
+        }
+
         /// <summary>Disables all flags.</summary>
         /// <returns>The current <see cref="TraktExtendedInfo" /> instance.</returns>
         public TraktExtendedInfo Reset()
@@ -259,6 +293,7 @@
             GuestStars = false;
             Comments = false;
             Vip = false;
+            Images = false;
             return this;
         }
 
@@ -291,6 +326,9 @@
 
             if (Vip)
                 options.Add("vip");
+
+            if (Images)
+                options.Add("images");
 
             return options;
         }

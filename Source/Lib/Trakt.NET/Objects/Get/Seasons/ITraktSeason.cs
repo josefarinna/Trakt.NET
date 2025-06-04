@@ -62,5 +62,8 @@
 
         /// <summary>Gets or sets the comment count of the season.<para>Nullable</para></summary>
         int? CommentCount { get; set; }
+
+        /// <summary>Gets or sets the images for the season. See also <seealso cref="ITraktSeasonImage" />.<para>Nullable</para></summary>
+        ITraktSeasonImage Images { get; set; }
     }
 }

@@ -302,6 +302,18 @@
             }
         }
 
+        /// <summary>Gets or sets the images for the show.<para>Nullable</para></summary>
+        public ITraktShowImage Images
+        {
+            get { return Show.Images; }
+
+            set
+            {
+                if (Show != null)
+                    Show.Images = value;
+            }
+        }
+
         /// <summary>Gets or sets the season number in which the episode was aired.</summary>
         public int? SeasonNumber
         {

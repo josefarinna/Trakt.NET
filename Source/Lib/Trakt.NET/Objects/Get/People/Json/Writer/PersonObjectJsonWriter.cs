@@ -81,6 +81,13 @@
                 await jsonWriter.WriteValueAsync(obj.UpdatedAt.Value.ToTraktLongDateTimeString(), cancellationToken).ConfigureAwait(false);
             }
 
+            if (obj.Images != null)
+            {
+                var imageJsonWriter = new PersonImageObjectJsonWriter();
+                await jsonWriter.WritePropertyNameAsync(JsonProperties.PROPERTY_NAME_IMAGES, cancellationToken).ConfigureAwait(false);
+                await imageJsonWriter.WriteObjectAsync(jsonWriter, obj.Images, cancellationToken).ConfigureAwait(false);
+            }
+
             await jsonWriter.WriteEndObjectAsync(cancellationToken).ConfigureAwait(false);
         }
     }

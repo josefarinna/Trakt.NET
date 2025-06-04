@@ -24,6 +24,7 @@ namespace TraktNet.Objects.Json
         internal const string PROPERTY_NAME_AUDIO_CHANNELS = "audio_channels";
         internal const string PROPERTY_NAME_AVAILABLE_TRANSLATIONS = "available_translations";
         internal const string PROPERTY_NAME_AVATAR = "avatar";
+        internal const string PROPERTY_NAME_BANNER = "banner";
         internal const string PROPERTY_NAME_BIOGRAPHY = "biography";
         internal const string PROPERTY_NAME_BIRTHDAY = "birthday";
         internal const string PROPERTY_NAME_BIRTHPLACE = "birthplace";
@@ -32,6 +33,7 @@ namespace TraktNet.Objects.Json
         internal const string PROPERTY_NAME_CAST = "cast";
         internal const string PROPERTY_NAME_CERTIFICATION = "certification";
         internal const string PROPERTY_NAME_CHARACTERS = "characters";
+        internal const string PROPERTY_NAME_CLEARART = "clearart";
         internal const string PROPERTY_NAME_CODE = "code";
         internal const string PROPERTY_NAME_COLLABORATIONS = "collaborations";
         internal const string PROPERTY_NAME_COLLECTED = "collected";
@@ -74,6 +76,7 @@ namespace TraktNet.Objects.Json
         internal const string PROPERTY_NAME_EXPIRES_AT = "expires_at";
         internal const string PROPERTY_NAME_EXPIRES_IN = "expires_in";
         internal const string PROPERTY_NAME_FACEBOOK = "facebook";
+        internal const string PROPERTY_NAME_FANART = "fanart";
         internal const string PROPERTY_NAME_FAVORITED_AT = "favorited_at";
         internal const string PROPERTY_NAME_FAVORITED_BY = "favorited_by";
         internal const string PROPERTY_NAME_FAVORITES = "favorites";
@@ -90,6 +93,7 @@ namespace TraktNet.Objects.Json
         internal const string PROPERTY_NAME_GOOGLE = "google";
         internal const string PROPERTY_NAME_GUEST_STARS = "guest_stars";
         internal const string PROPERTY_NAME_HDR = "hdr";
+        internal const string PROPERTY_NAME_HEADSHOT = "headshot";
         internal const string PROPERTY_NAME_HIDDEN_AT = "hidden_at";
         internal const string PROPERTY_NAME_HIDDEN_SEASONS = "hidden_seasons";
         internal const string PROPERTY_NAME_HOMEPAGE = "homepage";
@@ -120,6 +124,7 @@ namespace TraktNet.Objects.Json
         internal const string PROPERTY_NAME_LISTED_AT = "listed_at";
         internal const string PROPERTY_NAME_LISTS = "lists";
         internal const string PROPERTY_NAME_LOCATION = "location";
+        internal const string PROPERTY_NAME_LOGO = "logo";
         internal const string PROPERTY_NAME_MASTODON = "mastodon";
         internal const string PROPERTY_NAME_MEDIA_TYPE = "media_type";
         internal const string PROPERTY_NAME_MEDIUM = "medium";
@@ -147,6 +152,7 @@ namespace TraktNet.Objects.Json
         internal const string PROPERTY_NAME_PERSON = "person";
         internal const string PROPERTY_NAME_PLAY_COUNT = "play_count";
         internal const string PROPERTY_NAME_PLAYS = "plays";
+        internal const string PROPERTY_NAME_POSTER = "poster";
         internal const string PROPERTY_NAME_PRIVACY = "privacy";
         internal const string PROPERTY_NAME_PRIVATE = "private";
         internal const string PROPERTY_NAME_PRODUCTION = "production";
@@ -173,6 +179,7 @@ namespace TraktNet.Objects.Json
         internal const string PROPERTY_NAME_REVIEW = "review";
         internal const string PROPERTY_NAME_RUNTIME = "runtime";
         internal const string PROPERTY_NAME_SAVED_FILTERS = "saved_filters";
+        internal const string PROPERTY_NAME_SCREENSHOT = "screenshot";
         internal const string PROPERTY_NAME_SCOPE = "scope";
         internal const string PROPERTY_NAME_SCORE = "score";
         internal const string PROPERTY_NAME_SECTION = "section";
@@ -196,6 +203,7 @@ namespace TraktNet.Objects.Json
         internal const string PROPERTY_NAME_STARTED_AT = "started_at";
         internal const string PROPERTY_NAME_STATUS = "status";
         internal const string PROPERTY_NAME_TAGLINE = "tagline";
+        internal const string PROPERTY_NAME_THUMB = "thumb";
         internal const string PROPERTY_NAME_TIME = "time";
         internal const string PROPERTY_NAME_TIME_24HR = "time_24hr";
         internal const string PROPERTY_NAME_TIMEZONE = "timezone";

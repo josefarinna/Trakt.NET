@@ -30,6 +30,9 @@
                         case JsonProperties.PROPERTY_NAME_PRIVATE:
                             traktUser.IsPrivate = await jsonReader.ReadAsBooleanAsync(cancellationToken);
                             break;
+                        case JsonProperties.PROPERTY_NAME_DELETED:
+                            traktUser.IsDeleted = await jsonReader.ReadAsBooleanAsync(cancellationToken);
+                            break;
                         case JsonProperties.PROPERTY_NAME_IDS:
                             traktUser.Ids = await idsReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

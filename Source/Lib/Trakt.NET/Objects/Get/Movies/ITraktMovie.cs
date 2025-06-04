@@ -68,5 +68,7 @@
         /// <summary>Gets or sets the movie's current status. See also <seealso cref="TraktMovieStatus" />.<para>Nullable</para></summary>
         TraktMovieStatus Status { get; set; }
 
+        /// <summary>Gets or sets the images for the movie. See also <seealso cref="ITraktMovieImage" />.<para>Nullable</para></summary>
+        ITraktMovieImage Images { get; set; }
     }
 }

@@ -25,6 +25,12 @@
                 await jsonWriter.WriteValueAsync(obj.IsPrivate, cancellationToken).ConfigureAwait(false);
             }
 
+            if (obj.IsDeleted.HasValue)
+            {
+                await jsonWriter.WritePropertyNameAsync(JsonProperties.PROPERTY_NAME_DELETED, cancellationToken).ConfigureAwait(false);
+                await jsonWriter.WriteValueAsync(obj.IsDeleted, cancellationToken).ConfigureAwait(false);
+            }
+
             if (obj.Ids != null)
             {
                 var userIdsObjectJsonWriter = new UserIdsObjectJsonWriter();

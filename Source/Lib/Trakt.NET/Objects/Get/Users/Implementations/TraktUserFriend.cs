@@ -39,6 +39,18 @@
             }
         }
 
+        /// <summary>Gets or sets the user's deleted status.</summary>
+        public bool? IsDeleted
+        {
+            get { return User?.IsDeleted; }
+
+            set
+            {
+                if (User != null)
+                    User.IsDeleted = value;
+            }
+        }
+
         /// <summary>Gets or sets the collection of ids for the user. See also <seealso cref="ITraktUserIds" />.<para>Nullable</para></summary>
         public ITraktUserIds Ids
         {

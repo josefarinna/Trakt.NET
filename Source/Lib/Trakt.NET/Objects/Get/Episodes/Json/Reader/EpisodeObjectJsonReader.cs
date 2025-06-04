@@ -81,6 +81,10 @@
                         case JsonProperties.PROPERTY_NAME_EPISODE_TYPE:
                             traktEpisode.EpisodeType = await JsonReaderHelper.ReadEnumerationValueAsync<TraktEpisodeType>(jsonReader, cancellationToken);
                             break;
+                        case JsonProperties.PROPERTY_NAME_IMAGES:
+                            var imagesObjectReader = new EpisodeImageObjectJsonReader();
+                            traktEpisode.Images = await imagesObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
+                            break;
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

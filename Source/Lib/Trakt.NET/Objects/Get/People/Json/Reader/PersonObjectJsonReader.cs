@@ -75,6 +75,10 @@
 
                                 break;
                             }
+                        case JsonProperties.PROPERTY_NAME_IMAGES:
+                            var imagesObjectReader = new PersonImageObjectJsonReader();
+                            traktPerson.Images = await imagesObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
+                            break;
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

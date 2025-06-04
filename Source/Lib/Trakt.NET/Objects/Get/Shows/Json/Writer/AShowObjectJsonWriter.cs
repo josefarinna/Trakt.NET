@@ -158,6 +158,13 @@ namespace TraktNet.Objects.Get.Shows.Json.Writer
                 await jsonWriter.WritePropertyNameAsync(JsonProperties.PROPERTY_NAME_COMMENT_COUNT, cancellationToken).ConfigureAwait(false);
                 await jsonWriter.WriteValueAsync(obj.CommentCount, cancellationToken).ConfigureAwait(false);
             }
+
+            if (obj.Images != null)
+            {
+                var imageJsonWriter = new ShowImageObjectJsonWriter();
+                await jsonWriter.WritePropertyNameAsync(JsonProperties.PROPERTY_NAME_IMAGES, cancellationToken).ConfigureAwait(false);
+                await imageJsonWriter.WriteObjectAsync(jsonWriter, obj.Images, cancellationToken).ConfigureAwait(false);
+            }
         }
     }
 }

@@ -245,5 +245,17 @@
                     Movie.Status = value;
             }
         }
+
+        /// <summary>Gets or sets the collection of images for the movie. See also <seealso cref="ITraktMovieImage" />.<para>Nullable</para></summary>
+        public ITraktMovieImage Images
+        {
+            get { return Movie?.Images; }
+
+            set
+            {
+                if (Movie != null)
+                    Movie.Images = value;
+            }
+        }
     }
 }

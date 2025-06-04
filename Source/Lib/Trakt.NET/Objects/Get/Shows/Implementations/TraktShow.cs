@@ -80,5 +80,8 @@
 
         /// <summary>Gets or sets the comment count of the show.<para>Nullable</para></summary>
         public int? CommentCount { get; set; }
+
+        /// <summary>Gets or sets the collection of images for the show. See also <seealso cref="ITraktShowImage" />.<para>Nullable</para></summary>
+        public ITraktShowImage Images { get; set; }
     }
 }

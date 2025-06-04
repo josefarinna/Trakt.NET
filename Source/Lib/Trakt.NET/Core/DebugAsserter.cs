@@ -1,6 +1,7 @@
 ﻿namespace TraktNet.Core
 {
     using Objects.Json;
+    using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
     using System.Net;
@@ -19,11 +20,27 @@
         internal static void AssertHttpResponseCodeIsExpected(HttpStatusCode actualStatusCode, HttpStatusCode expectedStatusCode, string assertionMessage)
             => Debug.Assert(actualStatusCode == expectedStatusCode, assertionMessage);
 
-        internal static void AssertHttpResponseCodeIsExpected(HttpStatusCode actualStatusCode, HttpStatusCode expectedStatusCode1, HttpStatusCode expectedStatusCode2, string assertionMessage)
-            => Debug.Assert(actualStatusCode == expectedStatusCode1 || actualStatusCode == expectedStatusCode2, assertionMessage);
-
-        internal static void AssertHttpResponseCodeIsNotExpected(HttpStatusCode actualStatusCode, HttpStatusCode expectedStatusCode1, HttpStatusCode expectedStatusCode2, string assertionMessage)
-            => Debug.Assert(actualStatusCode != expectedStatusCode1 && actualStatusCode != expectedStatusCode2, assertionMessage);
+        internal static void AssertHttpResponseCodeIsExpected(HttpStatusCode actualStatusCode, HttpMethod method, string assertionMessage)
+        {
+#if DEBUG
+            IList<HttpStatusCode> expectedStatusCodes = [];
+            switch (method.ToString())
+            {
+                case "GET":
+                case "PUT":
+                    expectedStatusCodes = [HttpStatusCode.OK];
+                    break;
+                case "POST":
+                    expectedStatusCodes = [HttpStatusCode.Created];
+                    break;
+                case "DELETE":
+                    expectedStatusCodes = [HttpStatusCode.OK, HttpStatusCode.NoContent];
+                    break;
+            }
+            ;
+            Debug.Assert(expectedStatusCodes.Contains(actualStatusCode), assertionMessage);
+#endif
+        }
 
         internal static void AssertResponseContentStreamIsNotNull(Stream stream)
             => Debug.Assert(stream != null, "precondition for deserializing response content failed: stream is null");

@@ -154,7 +154,7 @@
             s_jsonIOFactories.Add(typeof(ITraktError), new ErrorJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktGenre), new GenreJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktIds), new IdsJsonIOFactory());
-            s_jsonIOFactories.Add(typeof(ITraktImage), new ImageJsonIOFactory());
+            s_jsonIOFactories.Add(typeof(ITraktImageArt), new ImageArtJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktLanguage), new LanguageJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktMetadata), new MetadataJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktNetwork), new NetworkJsonIOFactory());
@@ -210,6 +210,7 @@
             s_jsonIOFactories.Add(typeof(ITraktEpisodeTranslation), new EpisodeTranslationJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktEpisodeCollectionProgress), new EpisodeCollectionProgressJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktEpisodeWatchedProgress), new EpisodeWatchedProgressJsonIOFactory());
+            s_jsonIOFactories.Add(typeof(ITraktEpisodeImage), new EpisodeImageJsonIOFactory());
 
             // history objects
             s_jsonIOFactories.Add(typeof(ITraktHistoryItem), new HistoryItemJsonIOFactory());
@@ -234,6 +235,7 @@
             s_jsonIOFactories.Add(typeof(ITraktMovieTranslation), new MovieTranslationJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktRecentlyUpdatedMovie), new RecentlyUpdatedMovieJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktTrendingMovie), new TrendingMovieJsonIOFactory());
+            s_jsonIOFactories.Add(typeof(ITraktMovieImage), new MovieImageJsonIOFactory());
 
             // notes objects
             s_jsonIOFactories.Add(typeof(ITraktNote), new NoteJsonIOFactory());
@@ -248,6 +250,7 @@
             s_jsonIOFactories.Add(typeof(ITraktPersonIds), new PersonIdsJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktPersonSocialIds), new PersonSocialIdsJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktRecentlyUpdatedPerson), new RecentlyUpdatedPersonJsonIOFactory());
+            s_jsonIOFactories.Add(typeof(ITraktPersonImage), new PersonImageJsonIOFactory());
 
             // people credit objects
             s_jsonIOFactories.Add(typeof(ITraktPersonMovieCredits), new PersonMovieCreditsJsonIOFactory());
@@ -281,6 +284,7 @@
             s_jsonIOFactories.Add(typeof(ITraktSeasonCollectionProgress), new SeasonCollectionProgressJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktSeasonTranslation), new SeasonTranslationJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktSeasonWatchedProgress), new SeasonWatchedProgressJsonIOFactory());
+            s_jsonIOFactories.Add(typeof(ITraktSeasonImage), new SeasonImageJsonIOFactory());
 
             // scrobble post objects
             s_jsonIOFactories.Add(typeof(ITraktEpisodeScrobblePost), new EpisodeScrobblePostJsonIOFactory());
@@ -308,6 +312,7 @@
             s_jsonIOFactories.Add(typeof(ITraktShowTranslation), new ShowTranslationJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktShowWatchedProgress), new ShowWatchedProgressJsonIOFactory());
             s_jsonIOFactories.Add(typeof(ITraktTrendingShow), new TrendingShowJsonIOFactory());
+            s_jsonIOFactories.Add(typeof(ITraktShowImage), new ShowImageJsonIOFactory());
 
             // sync activities objects
             s_jsonIOFactories.Add(typeof(ITraktSyncAccountLastActivities), new SyncAccountLastActivitiesJsonIOFactory());

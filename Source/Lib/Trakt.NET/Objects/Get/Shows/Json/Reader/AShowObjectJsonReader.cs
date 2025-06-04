@@ -117,6 +117,10 @@ namespace TraktNet.Objects.Get.Shows.Json.Reader
                 case JsonProperties.PROPERTY_NAME_COMMENT_COUNT:
                     show.CommentCount = await jsonReader.ReadAsInt32Async(cancellationToken);
                     break;
+                case JsonProperties.PROPERTY_NAME_IMAGES:
+                    var imagesObjectReader = new ShowImageObjectJsonReader();
+                    show.Images = await imagesObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
+                    break;
                 default:
                     await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                     break;
