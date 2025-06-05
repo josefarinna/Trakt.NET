@@ -37,7 +37,6 @@
                     expectedStatusCodes = [HttpStatusCode.OK, HttpStatusCode.NoContent];
                     break;
             }
-            ;
             Debug.Assert(expectedStatusCodes.Contains(actualStatusCode), assertionMessage);
 #endif
         }
