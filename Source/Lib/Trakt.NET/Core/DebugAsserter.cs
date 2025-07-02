@@ -31,7 +31,7 @@
                     expectedStatusCodes = [HttpStatusCode.OK];
                     break;
                 case "POST":
-                    expectedStatusCodes = [HttpStatusCode.Created];
+                    expectedStatusCodes = [HttpStatusCode.OK, HttpStatusCode.Created];
                     break;
                 case "DELETE":
                     expectedStatusCodes = [HttpStatusCode.OK, HttpStatusCode.NoContent];

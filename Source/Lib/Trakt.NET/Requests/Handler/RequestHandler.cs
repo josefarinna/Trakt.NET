@@ -190,7 +190,6 @@
             {
                 HttpResponseMessage responseMessage = await ExecuteRequestAsync(requestMessage, isCheckinRequest, cancellationToken).ConfigureAwait(false);
                 DebugAsserter.AssertResponseMessageIsNotNull(responseMessage);
-                var algo = requestMessage.Method == HttpMethod.Get;
                 DebugAsserter.AssertHttpResponseCodeIsExpected(responseMessage.StatusCode, requestMessage.Method, DebugAsserter.SINGLE_ITEM_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
                 TResponseContentType contentObject = await ReadContentObjectAsync<TResponseContentType>(asyncStream, responseMessage, cancellationToken).ConfigureAwait(false);
                 bool hasValue = !EqualityComparer<TResponseContentType>.Default.Equals(contentObject, default);

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Product>Trakt.NET.UserAgentFix</Product>
+    <Product>Trakt.NET.Ex</Product>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>TraktNet</RootNamespace>
     <GenerateDocumentationFile Condition="'$(Configuration)' == 'Release'">true</GenerateDocumentationFile>
@@ -13,18 +13,18 @@
     <DebugType>embedded</DebugType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
 
-    <Title>Trakt.NET.UserAgentFix</Title>
+    <Title>Trakt.NET.Ex</Title>
     <Description>A .NET wrapper library with which developers can build .NET applications that integrate with the Trakt.tv API and access its features and data.</Description>
-    <Authors>Henrik Fröhling, Felix Schmitt</Authors>
+    <Authors>Henrik Fröhling, Felix Schmitt, José Fariña</Authors>
     <Company>Henrik Fröhling</Company>
     <DefaultLanguage>en-US</DefaultLanguage>
     <PackageProjectUrl>https://henrikfroehling.github.io/Trakt.NET</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/FelixSmtt/Trakt.NET.UserAgentFix</RepositoryUrl>
+    <RepositoryUrl>https://github.com/josefarinna/Trakt.NET</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageTags>trakt rest api dotnet</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <PackageReleaseNotes>https://github.com/FelixSmtt/Trakt.NET/blob/v1.4.0/Changelogs/v1.4.0.md</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/josefarinna/Trakt.NET/blob/v1.4.0/Changelogs/v1.4.0.md</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>$(AssemblyName)</PackageId>
     <Version>1.7.0</Version>
@@ -45,10 +45,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="9.0.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.139" PrivateAssets="all" />
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.7.115" PrivateAssets="all" />
   </ItemGroup>
 
   <Target Name="AddCommitHashToAssemblyAttributes" BeforeTargets="GetAssemblyAttributes">
