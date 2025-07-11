@@ -1,12 +1,10 @@
 # This library is a fork of Trakt.NET, which is not under development anymore.
-This version adds an User Agent Header to not get flagged as bot traffic.
-
-The user agent can be changed in the constructor of the TraktClient class.
+This version adds an support to fetch images for the different trakt objects that supports it.
 
 Trakt.NET
 ===
 
-[![NuGet Package](https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v1.4.0-blue.svg?style=flat)](https://www.nuget.org/packages/Trakt.NET/1.4.0)
+[![NuGet Package](https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v1.7.1-blue.svg?style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex/1.7.1)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/henrikfroehling/Trakt.NET/branch/develop/graph/badge.svg?token=U2B0KXA0QC)](https://codecov.io/gh/henrikfroehling/Trakt.NET)
 

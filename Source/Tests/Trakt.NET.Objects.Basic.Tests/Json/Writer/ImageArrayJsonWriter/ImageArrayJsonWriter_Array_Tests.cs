@@ -15,7 +15,7 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonWriter_WriteArray_Array_Exceptions()
         {
-            var traktJsonWriter = new ArrayJsonWriter<ITraktImageArt>();
+            var traktJsonWriter = new ArrayJsonWriter<ITraktImage>();
             Func<Task> action = () => traktJsonWriter.WriteArrayAsync(default);
             await action.Should().ThrowAsync<ArgumentNullException>();
         }
@@ -23,8 +23,8 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonWriter_WriteArray_Array_Empty()
         {
-            IEnumerable<ITraktImageArt> traktImage = new List<TraktImageArt>();
-            var traktJsonWriter = new ArrayJsonWriter<ITraktImageArt>();
+            IEnumerable<ITraktImage> traktImage = new List<TraktImage>();
+            var traktJsonWriter = new ArrayJsonWriter<ITraktImage>();
             string json = await traktJsonWriter.WriteArrayAsync(traktImage);
             json.Should().Be("[]");
         }
@@ -32,15 +32,15 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonWriter_WriteArray_Array_SingleObject()
         {
-            IEnumerable<ITraktImageArt> traktImage = new List<ITraktImageArt>
+            IEnumerable<ITraktImage> traktImage = new List<ITraktImage>
             {
-                new TraktImageArt
+                new TraktImage
                 {
                     Full = "fullPath 1"
                 }
             };
 
-            var traktJsonWriter = new ArrayJsonWriter<ITraktImageArt>();
+            var traktJsonWriter = new ArrayJsonWriter<ITraktImage>();
             string json = await traktJsonWriter.WriteArrayAsync(traktImage);
             json.Should().Be(@"[{""full"":""fullPath 1""}]");
         }
@@ -48,19 +48,19 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonWriter_WriteArray_Array_Complete()
         {
-            IEnumerable<ITraktImageArt> traktImage = new List<ITraktImageArt>
+            IEnumerable<ITraktImage> traktImage = new List<ITraktImage>
             {
-                new TraktImageArt
+                new TraktImage
                 {
                     Full = "fullPath 1"
                 },
-                new TraktImageArt
+                new TraktImage
                 {
                     Full = "fullPath 2"
                 }
             };
 
-            var traktJsonWriter = new ArrayJsonWriter<ITraktImageArt>();
+            var traktJsonWriter = new ArrayJsonWriter<ITraktImage>();
             string json = await traktJsonWriter.WriteArrayAsync(traktImage);
             json.Should().Be(@"[{""full"":""fullPath 1""},{""full"":""fullPath 2""}]");
         }

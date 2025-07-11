@@ -18,11 +18,11 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonReader_ReadArray_From_Stream_Empty_Array()
         {
-            var jsonReader = new ArrayJsonReader<ITraktImageArt>();
+            var jsonReader = new ArrayJsonReader<ITraktImage>();
 
             using (var stream = JSON_EMPTY_ARRAY.ToStream())
             {
-                IList<ITraktImageArt> traktImages = await jsonReader.ReadArrayAsync(stream);
+                IList<ITraktImage> traktImages = await jsonReader.ReadArrayAsync(stream);
                 traktImages.Should().NotBeNull().And.BeEmpty();
             }
         }
@@ -30,14 +30,14 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonReader_ReadArray_From_Stream_Complete()
         {
-            var jsonReader = new ArrayJsonReader<ITraktImageArt>();
+            var jsonReader = new ArrayJsonReader<ITraktImage>();
 
             using (var stream = JSON_COMPLETE.ToStream())
             {
-                IList<ITraktImageArt> traktImages = await jsonReader.ReadArrayAsync(stream);
+                IList<ITraktImage> traktImages = await jsonReader.ReadArrayAsync(stream);
 
                 traktImages.Should().NotBeNull();
-                ITraktImageArt[] images = traktImages.ToArray();
+                ITraktImage[] images = traktImages.ToArray();
 
                 images[0].Should().NotBeNull();
                 images[0].Full.Should().Be("https://walter.trakt.us/images/shows/000/060/300/logos/original/ab151d1043.png");
@@ -50,14 +50,14 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonReader_ReadArray_From_Stream_Incomplete_1()
         {
-            var jsonReader = new ArrayJsonReader<ITraktImageArt>();
+            var jsonReader = new ArrayJsonReader<ITraktImage>();
 
             using (var stream = JSON_INCOMPLETE_1.ToStream())
             {
-                IList<ITraktImageArt> traktImages = await jsonReader.ReadArrayAsync(stream);
+                IList<ITraktImage> traktImages = await jsonReader.ReadArrayAsync(stream);
 
                 traktImages.Should().NotBeNull();
-                ITraktImageArt[] images = traktImages.ToArray();
+                ITraktImage[] images = traktImages.ToArray();
 
                 images[0].Should().NotBeNull();
                 images[0].Full.Should().Be("https://walter.trakt.us/images/shows/000/060/300/logos/original/ab151d1043.png");
@@ -70,14 +70,14 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonReader_ReadArray_From_Stream_Incomplete_2()
         {
-            var jsonReader = new ArrayJsonReader<ITraktImageArt>();
+            var jsonReader = new ArrayJsonReader<ITraktImage>();
 
             using (var stream = JSON_INCOMPLETE_2.ToStream())
             {
-                IList<ITraktImageArt> traktImages = await jsonReader.ReadArrayAsync(stream);
+                IList<ITraktImage> traktImages = await jsonReader.ReadArrayAsync(stream);
 
                 traktImages.Should().NotBeNull();
-                ITraktImageArt[] images = traktImages.ToArray();
+                ITraktImage[] images = traktImages.ToArray();
 
                 images[0].Should().NotBeNull();
                 images[0].Full.Should().BeNull();
@@ -90,14 +90,14 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonReader_ReadArray_From_Stream_Not_Valid_1()
         {
-            var jsonReader = new ArrayJsonReader<ITraktImageArt>();
+            var jsonReader = new ArrayJsonReader<ITraktImage>();
 
             using (var stream = JSON_NOT_VALID_1.ToStream())
             {
-                IList<ITraktImageArt> traktImages = await jsonReader.ReadArrayAsync(stream);
+                IList<ITraktImage> traktImages = await jsonReader.ReadArrayAsync(stream);
 
                 traktImages.Should().NotBeNull();
-                ITraktImageArt[] images = traktImages.ToArray();
+                ITraktImage[] images = traktImages.ToArray();
 
                 images[0].Should().NotBeNull();
                 images[0].Full.Should().BeNull();
@@ -110,14 +110,14 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonReader_ReadArray_From_Stream_Not_Valid_2()
         {
-            var jsonReader = new ArrayJsonReader<ITraktImageArt>();
+            var jsonReader = new ArrayJsonReader<ITraktImage>();
 
             using (var stream = JSON_NOT_VALID_2.ToStream())
             {
-                IList<ITraktImageArt> traktImages = await jsonReader.ReadArrayAsync(stream);
+                IList<ITraktImage> traktImages = await jsonReader.ReadArrayAsync(stream);
 
                 traktImages.Should().NotBeNull();
-                ITraktImageArt[] images = traktImages.ToArray();
+                ITraktImage[] images = traktImages.ToArray();
 
                 images[0].Should().NotBeNull();
                 images[0].Full.Should().Be("https://walter.trakt.us/images/shows/000/060/300/logos/original/ab151d1043.png");
@@ -130,14 +130,14 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonReader_ReadArray_From_Stream_Not_Valid_3()
         {
-            var jsonReader = new ArrayJsonReader<ITraktImageArt>();
+            var jsonReader = new ArrayJsonReader<ITraktImage>();
 
             using (var stream = JSON_NOT_VALID_3.ToStream())
             {
-                IList<ITraktImageArt> traktImages = await jsonReader.ReadArrayAsync(stream);
+                IList<ITraktImage> traktImages = await jsonReader.ReadArrayAsync(stream);
 
                 traktImages.Should().NotBeNull();
-                ITraktImageArt[] images = traktImages.ToArray();
+                ITraktImage[] images = traktImages.ToArray();
 
                 images[0].Should().NotBeNull();
                 images[0].Full.Should().BeNull();
@@ -150,19 +150,19 @@
         [Fact]
         public async Task Test_ImageArtArrayJsonReader_ReadArray_From_Stream_Null()
         {
-            var jsonReader = new ArrayJsonReader<ITraktImageArt>();
-            Func<Task<IList<ITraktImageArt>>> traktImages = () => jsonReader.ReadArrayAsync(default(Stream));
+            var jsonReader = new ArrayJsonReader<ITraktImage>();
+            Func<Task<IList<ITraktImage>>> traktImages = () => jsonReader.ReadArrayAsync(default(Stream));
             await traktImages.Should().ThrowAsync<ArgumentNullException>();
         }
 
         [Fact]
         public async Task Test_ImageArtArrayJsonReader_ReadArray_From_Stream_Empty()
         {
-            var jsonReader = new ArrayJsonReader<ITraktImageArt>();
+            var jsonReader = new ArrayJsonReader<ITraktImage>();
 
             using (var stream = string.Empty.ToStream())
             {
-                IList<ITraktImageArt> traktImages = await jsonReader.ReadArrayAsync(stream);
+                IList<ITraktImage> traktImages = await jsonReader.ReadArrayAsync(stream);
                 traktImages.Should().BeNull();
             }
         }

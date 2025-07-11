@@ -14,7 +14,7 @@
         [Fact]
         public async Task Test_ImageArtObjectJsonWriter_WriteObject_Object_Exceptions()
         {
-            var traktJsonWriter = new ImageArtObjectJsonWriter();
+            var traktJsonWriter = new ImageObjectJsonWriter();
             Func<Task<string>> action = () => traktJsonWriter.WriteObjectAsync(default);
             await action.Should().ThrowAsync<ArgumentNullException>();
         }
@@ -22,12 +22,12 @@
         [Fact]
         public async Task Test_ImageArtObjectJsonWriter_WriteObject_Object_Complete()
         {
-            ITraktImageArt traktImage = new TraktImageArt
+            ITraktImage traktImage = new TraktImage
             {
                 Full = "fullPath"
             };
 
-            var traktJsonWriter = new ImageArtObjectJsonWriter();
+            var traktJsonWriter = new ImageObjectJsonWriter();
             string json = await traktJsonWriter.WriteObjectAsync(traktImage);
             json.Should().Be(@"{""full"":""fullPath""}");
         }

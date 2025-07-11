@@ -13,7 +13,7 @@
         [Fact]
         public async Task Test_ImageArtObjectJsonReader_ReadObject_From_Json_String_Complete()
         {
-            var jsonReader = new ImageArtObjectJsonReader();
+            var jsonReader = new ImageObjectJsonReader();
 
             var traktImage = await jsonReader.ReadObjectAsync(JSON_COMPLETE);
 
@@ -24,7 +24,7 @@
         [Fact]
         public async Task Test_ImageArtObjectJsonReader_ReadObject_From_Json_String_Not_Valid()
         {
-            var jsonReader = new ImageArtObjectJsonReader();
+            var jsonReader = new ImageObjectJsonReader();
 
             var traktImage = await jsonReader.ReadObjectAsync(JSON_NOT_VALID);
 
@@ -35,15 +35,15 @@
         [Fact]
         public async Task Test_ImageArtObjectJsonReader_ReadObject_From_Json_String_Null()
         {
-            var jsonReader = new ImageArtObjectJsonReader();
-            Func<Task<ITraktImageArt>> traktImage = () => jsonReader.ReadObjectAsync(default(string));
+            var jsonReader = new ImageObjectJsonReader();
+            Func<Task<ITraktImage>> traktImage = () => jsonReader.ReadObjectAsync(default(string));
             await traktImage.Should().ThrowAsync<ArgumentNullException>();
         }
 
         [Fact]
         public async Task Test_ImageArtObjectJsonReader_ReadObject_From_Json_String_Empty()
         {
-            var jsonReader = new ImageArtObjectJsonReader();
+            var jsonReader = new ImageObjectJsonReader();
 
             var traktImage = await jsonReader.ReadObjectAsync(string.Empty);
             traktImage.Should().BeNull();

@@ -5,15 +5,15 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    internal class ImageArtObjectJsonReader : AObjectJsonReader<ITraktImageArt>
+    internal class ImageObjectJsonReader : AObjectJsonReader<ITraktImage>
     {
-        public override async Task<ITraktImageArt> ReadObjectAsync(JsonTextReader jsonReader, CancellationToken cancellationToken = default)
+        public override async Task<ITraktImage> ReadObjectAsync(JsonTextReader jsonReader, CancellationToken cancellationToken = default)
         {
             CheckJsonTextReader(jsonReader);
 
             if (await jsonReader.ReadAsync(cancellationToken) && jsonReader.TokenType == JsonToken.StartObject)
             {
-                ITraktImageArt traktImage = new TraktImageArt();
+                ITraktImage traktImage = new TraktImage();
 
                 while (await jsonReader.ReadAsync(cancellationToken) && jsonReader.TokenType == JsonToken.PropertyName)
                 {
@@ -33,7 +33,7 @@
                 return traktImage;
             }
 
-            return await Task.FromResult(default(ITraktImageArt));
+            return await Task.FromResult(default(ITraktImage));
         }
     }
 }
