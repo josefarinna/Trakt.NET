@@ -82,7 +82,7 @@
         public void Test_TraktSyncFavoritesPost_Validate()
         {
             ITraktSyncFavoritesPost syncFavoritesPost = new TraktSyncFavoritesPost();
-            
+
             // movies = null, shows = null
             Action act = () => syncFavoritesPost.Validate();
             act.Should().Throw<TraktPostValidationException>();

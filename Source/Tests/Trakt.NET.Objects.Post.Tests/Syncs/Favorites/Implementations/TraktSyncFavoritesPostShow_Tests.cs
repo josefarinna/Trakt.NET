@@ -8,7 +8,7 @@
     using Xunit;
 
     [Trait("Category", "Objects.Post.Syncs.Favorites.Implementations")]
-    public class  TraktSyncFavoritesPostShow_Tests
+    public class TraktSyncFavoritesPostShow_Tests
     {
         [Fact]
         public void Test_TraktSyncFavoritesPostShow_Default_Constructor()

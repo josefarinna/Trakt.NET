@@ -56,7 +56,7 @@
                     IgnoreCompleteValidation = true
                 }
             };
-            
+
             act.Should().NotThrow();
         }
     }

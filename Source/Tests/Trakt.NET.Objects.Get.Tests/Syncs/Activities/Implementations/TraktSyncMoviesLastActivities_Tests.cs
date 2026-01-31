@@ -15,7 +15,7 @@
         public void Test_TraktSyncMoviesLastActivities_Default_Constructor()
         {
             var moviesLastActivities = new TraktSyncMoviesLastActivities();
-            
+
             moviesLastActivities.WatchedAt.Should().BeNull();
             moviesLastActivities.CollectedAt.Should().BeNull();
             moviesLastActivities.RatedAt.Should().BeNull();

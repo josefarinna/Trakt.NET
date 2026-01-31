@@ -24,7 +24,7 @@
 
             TraktClient client = TestUtility.GetOAuthMockClient(RESET_SHOW_WATCHED_PROGRESS_URI,
                 postJson, RESET_WATCHED_PROGRESS_POST_RESPONSE_JSON);
-            
+
             TraktResponse<ITraktShowResetWatchedProgressPost> response = await client.Shows.ResetShowWatchedProgressAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
@@ -42,7 +42,7 @@
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched/reset",
                 postJson, RESET_WATCHED_PROGRESS_POST_RESPONSE_JSON);
-            
+
             TraktResponse<ITraktShowResetWatchedProgressPost> response = await client.Shows.ResetShowWatchedProgressAsync(TRAKT_SHOD_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
@@ -65,7 +65,7 @@
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched/reset",
                 postJson, RESET_WATCHED_PROGRESS_POST_RESPONSE_JSON);
-            
+
             TraktResponse<ITraktShowResetWatchedProgressPost> response = await client.Shows.ResetShowWatchedProgressAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
@@ -88,7 +88,7 @@
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{SHOW_SLUG}/progress/watched/reset",
                 postJson, RESET_WATCHED_PROGRESS_POST_RESPONSE_JSON);
-            
+
             TraktResponse<ITraktShowResetWatchedProgressPost> response = await client.Shows.ResetShowWatchedProgressAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
@@ -112,7 +112,7 @@
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched/reset",
                 postJson, RESET_WATCHED_PROGRESS_POST_RESPONSE_JSON);
-            
+
             TraktResponse<ITraktShowResetWatchedProgressPost> response = await client.Shows.ResetShowWatchedProgressAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
@@ -157,7 +157,7 @@
 
             TraktClient client = TestUtility.GetOAuthMockClient(RESET_SHOW_WATCHED_PROGRESS_URI,
                 postJson, RESET_WATCHED_PROGRESS_POST_RESPONSE_JSON);
-            
+
             TraktResponse<ITraktShowResetWatchedProgressPost> response = await client.Shows.ResetShowWatchedProgressAsync(SHOW_ID, RESET_WATCHED_PROGRESS_AT, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();

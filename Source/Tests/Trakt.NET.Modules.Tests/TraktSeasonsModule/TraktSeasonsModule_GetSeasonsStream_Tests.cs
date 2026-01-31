@@ -7,10 +7,10 @@
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
     using TraktNet.Exceptions;
-    using TraktNet.Objects.Get.Episodes;
-    using TraktNet.Responses;
     using TraktNet.Extensions;
+    using TraktNet.Objects.Get.Episodes;
     using TraktNet.Parameters;
+    using TraktNet.Responses;
     using Xunit;
 
     [Trait("Category", "Modules.Seasons")]
@@ -32,7 +32,8 @@
 
             int returnedSeasons = 0;
 
-            await foreach (TraktListResponse<ITraktEpisode> response in responses) {
+            await foreach (TraktListResponse<ITraktEpisode> response in responses)
+            {
                 response.Should().NotBeNull();
                 response.IsSuccess.Should().BeTrue();
                 response.HasValue.Should().BeTrue();

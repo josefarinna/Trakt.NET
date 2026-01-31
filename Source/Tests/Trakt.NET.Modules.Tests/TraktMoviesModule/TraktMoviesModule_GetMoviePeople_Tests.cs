@@ -188,7 +188,7 @@
                 (exception.GetType() == exceptionType).Should().BeTrue();
             }
         }
-        
+
         [Fact]
         public async Task Test_TraktMoviesModule_GetMoviePeople_Throws_ArgumentExceptions()
         {

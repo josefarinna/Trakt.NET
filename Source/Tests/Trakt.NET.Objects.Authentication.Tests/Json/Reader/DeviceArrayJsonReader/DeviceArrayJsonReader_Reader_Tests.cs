@@ -177,7 +177,7 @@
         public async Task Test_DeviceArrayJsonReader_ReadObject_From_JsonReader_Null()
         {
             var objectJsonReader = new ArrayJsonReader<ITraktDevice>();
-            Func<Task<IList<ITraktDevice>>> traktDevices = () =>objectJsonReader.ReadArrayAsync(default(JsonTextReader));
+            Func<Task<IList<ITraktDevice>>> traktDevices = () => objectJsonReader.ReadArrayAsync(default(JsonTextReader));
             await traktDevices.Should().ThrowAsync<ArgumentNullException>();
         }
 

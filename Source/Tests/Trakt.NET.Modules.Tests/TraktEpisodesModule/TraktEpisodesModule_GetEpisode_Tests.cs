@@ -52,7 +52,7 @@
         {
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/seasons/{SEASON_NR}/episodes/{EPISODE_NR}",
                 EPISODE_SUMMARY_FULL_JSON);
-            
+
             TraktResponse<ITraktEpisode> response = await client.Episodes.GetEpisodeAsync(TRAKT_SHOD_ID, SEASON_NR, EPISODE_NR);
 
             response.Should().NotBeNull();

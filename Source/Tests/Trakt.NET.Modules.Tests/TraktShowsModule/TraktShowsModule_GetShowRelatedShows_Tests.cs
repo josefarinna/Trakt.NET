@@ -41,7 +41,7 @@
         {
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/related",
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
-            
+
             TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TRAKT_SHOD_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
@@ -64,7 +64,7 @@
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/related",
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
-            
+
             TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
@@ -87,7 +87,7 @@
 
             TraktClient client = TestUtility.GetMockClient($"shows/{SHOW_SLUG}/related",
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
-            
+
             TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
@@ -111,7 +111,7 @@
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/related",
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
-            
+
             TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
@@ -427,7 +427,7 @@
                 SHOW_RELATED_SHOWS_JSON, 1, RELATED_SHOWS_LIMIT, 2, ITEM_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -468,7 +468,7 @@
                 SHOW_RELATED_SHOWS_JSON, 2, RELATED_SHOWS_LIMIT, 2, ITEM_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

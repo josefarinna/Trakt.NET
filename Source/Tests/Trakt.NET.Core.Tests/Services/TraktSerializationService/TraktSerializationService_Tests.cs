@@ -215,7 +215,7 @@
             act = () => TraktSerializationService.DeserializeAsync(string.Empty);
             await act.Should().ThrowAsync<ArgumentException>();
         }
-        
+
         [Fact]
         public async Task Test_TraktSerializationService_SerializeAsync_ITraktEpisode()
         {

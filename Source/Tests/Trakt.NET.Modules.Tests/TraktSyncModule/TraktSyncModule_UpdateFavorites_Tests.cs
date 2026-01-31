@@ -63,10 +63,13 @@
         {
             TraktClient client = TestUtility.GetOAuthMockClient(UPDATE_FAVORITES_URI, statusCode);
 
-            try {
+            try
+            {
                 await client.Sync.UpdateFavoritesAsync(NewDescription, NewSortBy, NewSortHow);
                 Assert.False(true);
-            } catch (Exception exception) {
+            }
+            catch (Exception exception)
+            {
                 (exception.GetType() == exceptionType).Should().BeTrue();
             }
         }

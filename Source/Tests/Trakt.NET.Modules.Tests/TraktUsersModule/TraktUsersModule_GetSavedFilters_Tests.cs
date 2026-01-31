@@ -295,7 +295,7 @@
                 SAVED_FILTERS_JSON, 1, SAVED_FILTERS_LIMIT, 2, SAVED_FILTERS_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -338,7 +338,7 @@
                 SAVED_FILTERS_JSON, 2, SAVED_FILTERS_LIMIT, 2, SAVED_FILTERS_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

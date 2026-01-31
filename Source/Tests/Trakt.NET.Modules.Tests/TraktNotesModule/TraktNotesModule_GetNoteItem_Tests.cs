@@ -34,7 +34,7 @@
             var extendedInfo = new TraktExtendedInfo { Full = true };
 
             TraktClient client = TestUtility.GetMockClient($"{GET_NOTE_ITEM_URI}?extended={extendedInfo}", NOTE_ITEM_POST_RESPONSE_JSON);
-            TraktResponse <ITraktNoteItem> response = await client.Notes.GetNoteItemAsync(NOTE_ID, extendedInfo);
+            TraktResponse<ITraktNoteItem> response = await client.Notes.GetNoteItemAsync(NOTE_ID, extendedInfo);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

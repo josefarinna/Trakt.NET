@@ -35,7 +35,7 @@
 
             int commentsReturned = 0;
 
-            await foreach(TraktResponse<ITraktComment> response in responses)
+            await foreach (TraktResponse<ITraktComment> response in responses)
             {
                 response.Should().NotBeNull();
                 response.IsSuccess.Should().BeTrue();
@@ -116,7 +116,8 @@
             try
             {
                 IAsyncEnumerable<TraktResponse<ITraktComment>> responses = client.Comments.GetCommentsStreamAsync(parameters);
-                await foreach(TraktResponse<ITraktComment> response in responses) {
+                await foreach (TraktResponse<ITraktComment> response in responses)
+                {
 
                 }
                 Assert.False(true);

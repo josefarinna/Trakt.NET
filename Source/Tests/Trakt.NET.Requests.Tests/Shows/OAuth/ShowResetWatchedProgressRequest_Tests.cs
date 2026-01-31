@@ -55,7 +55,7 @@
 
             // request body is null
             request = new ShowResetWatchedProgressRequest { Id = "id" };
-            
+
             act = () => request.Validate();
             act.Should().Throw<TraktRequestValidationException>();
         }

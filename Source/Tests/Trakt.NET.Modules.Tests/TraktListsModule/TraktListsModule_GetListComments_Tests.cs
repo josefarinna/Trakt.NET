@@ -547,7 +547,7 @@
                 LIST_COMMENTS_JSON, 1, LIST_COMMENTS_LIMIT, 2, LIST_COMMENTS_ITEM_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -587,7 +587,7 @@
                 LIST_COMMENTS_JSON, 2, LIST_COMMENTS_LIMIT, 2, LIST_COMMENTS_ITEM_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

@@ -72,7 +72,7 @@
         public void Test_TraktFilter_CalendarFilterBuilder_WithGenres_GetParameters()
         {
             ITraktCalendarFilter filter = TraktFilter.NewCalendarFilter()
-                .WithGenres(new List<string> { "action",  "drama"})
+                .WithGenres(new List<string> { "action", "drama" })
                 .Build();
 
             IDictionary<string, object> parameters = filter.GetParameters();

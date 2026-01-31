@@ -54,7 +54,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppVersion()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppVersion = APP_VERSION
@@ -91,7 +91,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppVersion_And_AppDate()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppVersion = APP_VERSION,
@@ -129,7 +129,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppVersion_And_Message()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppVersion = APP_VERSION,
@@ -167,7 +167,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppVersion_And_Sharing()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppVersion = APP_VERSION,
@@ -205,7 +205,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppVersion_And_FoursquareVenueId()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppVersion = APP_VERSION,
@@ -243,7 +243,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppVersion_And_FoursquareVenueName()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppVersion = APP_VERSION,
@@ -281,7 +281,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppDate()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppDate = APP_BUILD_DATE.ToTraktDateString()
@@ -318,7 +318,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppDate_And_Message()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppDate = APP_BUILD_DATE.ToTraktDateString(),
@@ -356,7 +356,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppDate_And_Sharing()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppDate = APP_BUILD_DATE.ToTraktDateString(),
@@ -394,7 +394,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppDate_And_FoursquareVenueId()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppDate = APP_BUILD_DATE.ToTraktDateString(),
@@ -432,7 +432,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_AppDate_And_FoursquareVenueName()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppDate = APP_BUILD_DATE.ToTraktDateString(),
@@ -470,7 +470,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_Message()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 Message = MESSAGE
@@ -507,7 +507,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_Message_And_Sharing()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 Message = MESSAGE,
@@ -545,7 +545,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_Message_And_FoursquareVenueId()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 Message = MESSAGE,
@@ -583,7 +583,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_Message_And_FoursquareVenueName()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 Message = MESSAGE,
@@ -621,7 +621,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_Sharing()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 Sharing = SHARING
@@ -658,7 +658,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_Sharing_And_FoursquareVenueId()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 Sharing = SHARING,
@@ -696,7 +696,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_Sharing_And_FoursquareVenueName()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 Sharing = SHARING,
@@ -734,7 +734,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_FoursquareVenueId()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 FoursquareVenueId = FOURSQUARE_VENUE_ID
@@ -771,7 +771,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_FoursquareVenueId_And_FoursquareVenueName()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 FoursquareVenueId = FOURSQUARE_VENUE_ID,
@@ -809,7 +809,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_With_FoursquareVenueName()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 FoursquareVenueName = FOURSQUARE_VENUE_NAME
@@ -846,7 +846,7 @@
         [Fact]
         public async Task Test_TraktCheckinsModule_CheckIntoMovie_Complete()
         {
-            ITraktMovieCheckinPost movieCheckinPost  = new TraktMovieCheckinPost
+            ITraktMovieCheckinPost movieCheckinPost = new TraktMovieCheckinPost
             {
                 Movie = Movie,
                 AppVersion = APP_VERSION,

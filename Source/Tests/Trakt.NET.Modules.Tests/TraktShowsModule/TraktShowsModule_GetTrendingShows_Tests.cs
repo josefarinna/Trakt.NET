@@ -505,7 +505,7 @@
                 TRENDING_SHOWS_JSON, 1, LIMIT, 2, ITEM_COUNT, USER_COUNT);
 
             response = await response.GetPreviousPageAsync(cancellationToken: TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -548,7 +548,7 @@
                 TRENDING_SHOWS_JSON, 2, LIMIT, 2, ITEM_COUNT, USER_COUNT);
 
             response = await response.GetNextPageAsync(cancellationToken: TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

@@ -230,13 +230,13 @@
                 .Build();
 
             act.Should().Throw<ArgumentOutOfRangeException>();
-            
+
             act = () => TraktFilter.NewCalendarFilter()
                 .WithRatings(101, 70)
                 .Build();
 
             act.Should().Throw<ArgumentOutOfRangeException>();
-            
+
             act = () => TraktFilter.NewCalendarFilter()
                 .WithRatings(90, 101)
                 .Build();

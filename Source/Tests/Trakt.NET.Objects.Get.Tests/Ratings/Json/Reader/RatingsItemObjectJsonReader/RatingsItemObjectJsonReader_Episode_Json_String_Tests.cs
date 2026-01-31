@@ -316,7 +316,7 @@
             traktRatingItem.Movie.Should().BeNull();
             traktRatingItem.Season.Should().BeNull();
         }
-        
+
         [Fact]
         public async Task Test_RatingsItemObjectJsonReader_Episode_ReadObject_From_Json_String_Not_Valid_1()
         {

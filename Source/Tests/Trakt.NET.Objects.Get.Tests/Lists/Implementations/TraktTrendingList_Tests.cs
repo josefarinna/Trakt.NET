@@ -32,7 +32,7 @@
 
             trendingList.LikeCount.Should().Be(5);
             trendingList.CommentCount.Should().Be(5);
-            
+
             trendingList.List.Should().NotBeNull();
             trendingList.List.Name.Should().Be("Incredible Thoughts");
             trendingList.List.Description.Should().Be("How could my brain conceive them?");

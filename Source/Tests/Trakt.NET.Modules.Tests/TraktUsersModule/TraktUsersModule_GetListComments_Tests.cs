@@ -41,7 +41,7 @@
         {
             TraktClient client = TestUtility.GetMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/comments",
                 LIST_COMMENTS_JSON, 1, 10, 1, LIST_COMMENTS_ITEM_COUNT);
-            
+
             TraktPagedResponse<ITraktComment> response = await client.Users.GetListCommentsAsync(USERNAME, TRAKT_LIST_ID);
 
             response.Should().NotBeNull();
@@ -64,7 +64,7 @@
 
             TraktClient client = TestUtility.GetMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/comments",
                 LIST_COMMENTS_JSON, 1, 10, 1, LIST_COMMENTS_ITEM_COUNT);
-            
+
             TraktPagedResponse<ITraktComment> response = await client.Users.GetListCommentsAsync(USERNAME, listIds);
 
             response.Should().NotBeNull();
@@ -87,7 +87,7 @@
 
             TraktClient client = TestUtility.GetMockClient($"users/{USERNAME}/lists/{LIST_SLUG}/comments",
                 LIST_COMMENTS_JSON, 1, 10, 1, LIST_COMMENTS_ITEM_COUNT);
-            
+
             TraktPagedResponse<ITraktComment> response = await client.Users.GetListCommentsAsync(USERNAME, listIds);
 
             response.Should().NotBeNull();
@@ -111,7 +111,7 @@
 
             TraktClient client = TestUtility.GetMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/comments",
                 LIST_COMMENTS_JSON, 1, 10, 1, LIST_COMMENTS_ITEM_COUNT);
-            
+
             TraktPagedResponse<ITraktComment> response = await client.Users.GetListCommentsAsync(USERNAME, listIds);
 
             response.Should().NotBeNull();
@@ -466,7 +466,7 @@
                 LIST_COMMENTS_JSON, 1, LIST_COMMENTS_LIMIT, 2, LIST_COMMENTS_ITEM_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -507,7 +507,7 @@
                 LIST_COMMENTS_JSON, 2, LIST_COMMENTS_LIMIT, 2, LIST_COMMENTS_ITEM_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

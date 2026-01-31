@@ -3,9 +3,8 @@ namespace TraktNet.Objects.Get.Tests.People.Json.Writer
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-
-    using TraktNet.Extensions;
     using TraktNet.Enums;
+    using TraktNet.Extensions;
     using TraktNet.Objects.Get.People;
     using TraktNet.Objects.Get.People.Json.Writer;
     using Xunit;

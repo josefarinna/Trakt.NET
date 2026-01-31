@@ -18,7 +18,7 @@
         {
             var jsonReader = new UserImagesObjectJsonReader();
 
-            using (var stream =  JSON_COMPLETE.ToStream())
+            using (var stream = JSON_COMPLETE.ToStream())
             {
                 var userImages = await jsonReader.ReadObjectAsync(stream);
 
@@ -33,7 +33,7 @@
         {
             var jsonReader = new UserImagesObjectJsonReader();
 
-            using (var stream =  JSON_NOT_VALID.ToStream())
+            using (var stream = JSON_NOT_VALID.ToStream())
             {
                 var userImages = await jsonReader.ReadObjectAsync(stream);
 

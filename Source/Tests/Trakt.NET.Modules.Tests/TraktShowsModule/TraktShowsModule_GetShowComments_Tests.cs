@@ -527,7 +527,7 @@
                 SHOW_COMMENTS_JSON, 1, LIMIT, 2, ITEM_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -568,7 +568,7 @@
                 SHOW_COMMENTS_JSON, 2, LIMIT, 2, ITEM_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

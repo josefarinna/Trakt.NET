@@ -49,7 +49,7 @@
         public async Task Test_CollectionMovieObjectJsonReader_ReadObject_From_Stream_Incomplete_1()
         {
             var jsonReader = new CollectionMovieObjectJsonReader();
-            
+
             using (var stream = JSON_INCOMPLETE_1.ToStream())
             {
                 var traktCollectionMovie = await jsonReader.ReadObjectAsync(stream);

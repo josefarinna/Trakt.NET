@@ -37,7 +37,7 @@
             syncFavoritesPostResponse.Existing.Should().NotBeNull();
             syncFavoritesPostResponse.Existing.Movies.Should().Be(3);
             syncFavoritesPostResponse.Existing.Shows.Should().Be(4);
-            
+
             syncFavoritesPostResponse.NotFound.Should().NotBeNull();
 
             syncFavoritesPostResponse.NotFound.Movies.Should().NotBeNull().And.HaveCount(1);

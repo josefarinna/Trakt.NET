@@ -21,7 +21,7 @@
                 .Build();
 
             act.Should().Throw<ArgumentNullException>();
-            
+
             act = () => TraktPost.NewSyncWatchlistPost()
                 .WithShowAndSeasons(TraktPost_Tests_Common_Data.SHOW_1, default(PostSeasons))
                 .Build();

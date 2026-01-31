@@ -8,10 +8,10 @@
     using Trakt.NET.Tests.Utility;
     using TraktNet.Enums;
     using TraktNet.Exceptions;
-    using TraktNet.Objects.Get.Shows;
-    using TraktNet.Responses;
     using TraktNet.Extensions;
+    using TraktNet.Objects.Get.Shows;
     using TraktNet.Parameters;
+    using TraktNet.Responses;
     using Xunit;
 
     [Trait("Category", "Modules.Shows")]

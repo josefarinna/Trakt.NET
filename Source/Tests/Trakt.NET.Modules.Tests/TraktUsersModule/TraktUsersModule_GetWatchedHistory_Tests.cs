@@ -2138,7 +2138,7 @@
                 HISTORY_JSON, 1, HISTORY_LIMIT, 2, HISTORY_ITEM_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -2184,7 +2184,7 @@
                 HISTORY_JSON, 2, HISTORY_LIMIT, 2, HISTORY_ITEM_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

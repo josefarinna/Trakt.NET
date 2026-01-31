@@ -76,7 +76,7 @@
 
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/items",
                 postJson, CUSTOM_LIST_ITEMS_POST_RESPONSE_JSON);
-            
+
             TraktResponse<ITraktUserPersonalListItemsPostResponse> response =
                 await client.Users.AddPersonalListItemsAsync(USERNAME, TRAKT_LIST_ID, AddPersonalListItemsPost);
 
@@ -226,7 +226,7 @@
 
             Func<Task<TraktResponse<ITraktUserPersonalListItemsPostResponse>>> act =
                 () => client.Users.AddPersonalListItemsAsync(USERNAME, default(ITraktListIds), AddPersonalListItemsPost);
-            
+
             await act.Should().ThrowAsync<ArgumentNullException>();
 
             act = () => client.Users.AddPersonalListItemsAsync(USERNAME, default(ITraktList), AddPersonalListItemsPost);

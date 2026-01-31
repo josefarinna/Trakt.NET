@@ -7,10 +7,10 @@
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
     using TraktNet.Exceptions;
-    using TraktNet.Objects.Get.Movies;
-    using TraktNet.Responses;
     using TraktNet.Extensions;
+    using TraktNet.Objects.Get.Movies;
     using TraktNet.Parameters;
+    using TraktNet.Responses;
     using Xunit;
 
     [Trait("Category", "Modules.Movies")]
@@ -31,7 +31,7 @@
             IAsyncEnumerable<TraktResponse<ITraktMovie>> responses = client.Movies.GetMoviesStreamAsync(parameters);
 
             int returnedMovies = 0;
-            await foreach(TraktResponse<ITraktMovie> response in responses)
+            await foreach (TraktResponse<ITraktMovie> response in responses)
             {
                 response.Should().NotBeNull();
                 response.IsSuccess.Should().BeTrue();

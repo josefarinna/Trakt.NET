@@ -338,7 +338,7 @@
 
             using var reader = new StringReader(JSON_MOVIE_NOT_VALID_6);
             using var jsonReader = new JsonTextReader(reader);
-     
+
             ITraktFavorite traktFavorite = await traktJsonReader.ReadObjectAsync(jsonReader);
 
             traktFavorite.Should().NotBeNull();
@@ -358,7 +358,7 @@
 
             using var reader = new StringReader(JSON_MOVIE_NOT_VALID_7);
             using var jsonReader = new JsonTextReader(reader);
-     
+
             ITraktFavorite traktFavorite = await traktJsonReader.ReadObjectAsync(jsonReader);
 
             traktFavorite.Should().NotBeNull();

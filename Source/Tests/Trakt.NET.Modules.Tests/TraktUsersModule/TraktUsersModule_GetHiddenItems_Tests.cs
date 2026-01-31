@@ -445,7 +445,7 @@
                 HIDDEN_ITEMS_JSON, 1, HIDDEN_ITEMS_LIMIT, 2, HIDDEN_ITEMS_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -488,7 +488,7 @@
                 HIDDEN_ITEMS_JSON, 2, HIDDEN_ITEMS_LIMIT, 2, HIDDEN_ITEMS_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

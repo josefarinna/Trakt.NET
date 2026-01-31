@@ -315,7 +315,7 @@
                 PLAYBACK_PROGRESS_JSON, 1, PLAYBACK_PROGRESS_LIMIT, 2, PLAYBACK_PROGRESS_ITEM_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -360,7 +360,7 @@
                 PLAYBACK_PROGRESS_JSON, 2, PLAYBACK_PROGRESS_LIMIT, 2, PLAYBACK_PROGRESS_ITEM_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

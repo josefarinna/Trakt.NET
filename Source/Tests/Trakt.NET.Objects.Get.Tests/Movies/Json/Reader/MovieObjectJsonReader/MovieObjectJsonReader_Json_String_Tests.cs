@@ -773,7 +773,7 @@
             traktMovie.Ids.Should().BeNull();
             traktMovie.Tagline.Should().BeNull();
             traktMovie.Overview.Should().BeNull();
-            traktMovie.Released.Should().Be(DateTime.Parse("2015-12-18"));            
+            traktMovie.Released.Should().Be(DateTime.Parse("2015-12-18"));
             traktMovie.Runtime.Should().BeNull();
             traktMovie.Trailer.Should().BeNull();
             traktMovie.Homepage.Should().BeNull();

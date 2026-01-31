@@ -7,10 +7,10 @@
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
     using TraktNet.Exceptions;
-    using TraktNet.Objects.Get.Episodes;
-    using TraktNet.Responses;
     using TraktNet.Extensions;
+    using TraktNet.Objects.Get.Episodes;
     using TraktNet.Parameters;
+    using TraktNet.Responses;
     using Xunit;
 
     [Trait("Category", "Modules.Episodes")]

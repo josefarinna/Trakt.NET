@@ -617,7 +617,7 @@
                 USER_FAVORITES_JSON, 1, FAVORITES_LIMIT, 2, FAVORITES_ITEM_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -660,7 +660,7 @@
                 USER_FAVORITES_JSON, 2, FAVORITES_LIMIT, 2, FAVORITES_ITEM_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

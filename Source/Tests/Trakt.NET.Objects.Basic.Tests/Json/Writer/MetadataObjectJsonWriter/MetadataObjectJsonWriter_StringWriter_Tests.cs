@@ -91,7 +91,7 @@
         {
             ITraktMetadata traktMetadata = new TraktMetadata
             {
-                HDR  = TraktMediaHDR.DolbyVision
+                HDR = TraktMediaHDR.DolbyVision
             };
 
             using (var stringWriter = new StringWriter())

@@ -2251,7 +2251,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, LIMIT, 2, TEXT_QUERY_ITEM_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -2294,7 +2294,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 2, LIMIT, 2, TEXT_QUERY_ITEM_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

@@ -395,7 +395,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                 RECENTLY_UPDATED_PEOPLE_JSON, 1, LIMIT, 2, UPDATED_PEOPLE_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -434,7 +434,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                 RECENTLY_UPDATED_PEOPLE_JSON, 2, LIMIT, 2, UPDATED_PEOPLE_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

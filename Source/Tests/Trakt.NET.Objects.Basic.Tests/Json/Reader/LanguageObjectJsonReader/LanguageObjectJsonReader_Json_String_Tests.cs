@@ -91,6 +91,6 @@
             var jsonReader = new LanguageObjectJsonReader();
             ITraktLanguage traktLanguage = await jsonReader.ReadObjectAsync(string.Empty);
             traktLanguage.Should().BeNull();
-        }   
+        }
     }
 }

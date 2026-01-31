@@ -62,7 +62,7 @@
             playbackProgressItem.Show.Should().BeNull();
             playbackProgressItem.Episode.Should().BeNull();
         }
-        
+
         [Fact]
         public async Task Test_TraktSyncPlaybackProgressItem_With_Type_Episode_From_Minimal_Json()
         {

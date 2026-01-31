@@ -441,7 +441,7 @@
                 RECENTLY_UPDATED_SHOWS_JSON, 1, LIMIT, 2, ITEM_COUNT);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -482,7 +482,7 @@
                 RECENTLY_UPDATED_SHOWS_JSON, 2, LIMIT, 2, ITEM_COUNT);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();

@@ -59,10 +59,13 @@
         {
             TraktClient client = TestUtility.GetOAuthMockClient(UPDATE_WATCHLIST_URI, statusCode);
 
-            try {
+            try
+            {
                 await client.Sync.UpdateWatchlistAsync(NewDescription, NewSortBy, NewSortHow);
                 Assert.False(true);
-            } catch (Exception exception) {
+            }
+            catch (Exception exception)
+            {
                 (exception.GetType() == exceptionType).Should().BeTrue();
             }
         }

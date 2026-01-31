@@ -571,7 +571,7 @@
                 sortBy: WATCHLIST_SORT_BY, sortHow: WATCHLIST_SORT_HOW);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
@@ -617,7 +617,7 @@
                 sortBy: WATCHLIST_SORT_BY, sortHow: WATCHLIST_SORT_HOW);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
-            
+
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
             response.HasValue.Should().BeTrue();
