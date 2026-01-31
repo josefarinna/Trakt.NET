@@ -2,10 +2,10 @@
 {
     using Enums;
     using Extensions;
-    using Objects.Get.Syncs.Playback;
-    using System.Collections.Generic;
     using Interfaces;
+    using Objects.Get.Syncs.Playback;
     using System;
+    using System.Collections.Generic;
 
     internal sealed class SyncPlaybackProgressRequest : ASyncGetRequest<ITraktSyncPlaybackProgressItem>, ISupportsPagination
     {

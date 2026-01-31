@@ -27,14 +27,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_LIKED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktUserLikeItem.LikedAt = value.Second;
+                            if (value.First)
+                                traktUserLikeItem.LikedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_TYPE:
                             traktUserLikeItem.Type = await JsonReaderHelper.ReadEnumerationValueAsync<TraktUserLikeType>(jsonReader, cancellationToken);
                             break;

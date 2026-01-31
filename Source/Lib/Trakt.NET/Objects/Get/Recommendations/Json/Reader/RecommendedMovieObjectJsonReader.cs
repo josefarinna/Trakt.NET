@@ -9,7 +9,7 @@ namespace TraktNet.Objects.Get.Recommendations.Json.Reader
     internal class RecommendedMovieObjectJsonReader : AMovieObjectJsonReader<ITraktRecommendedMovie>
     {
         protected override ITraktRecommendedMovie CreateMovieObject() => new TraktRecommendedMovie();
-        
+
         protected override async Task ReadPropertyAsync(JsonTextReader jsonReader, ITraktRecommendedMovie movie, string propertyName, CancellationToken cancellationToken = default)
         {
             switch (propertyName)

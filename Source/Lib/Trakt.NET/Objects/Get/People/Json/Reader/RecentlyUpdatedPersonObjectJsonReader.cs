@@ -23,14 +23,14 @@ namespace TraktNet.Objects.Get.People.Json.Reader
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_UPDATED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktRecentlyUpdatedPerson.RecentlyUpdatedAt = value.Second;
+                            if (value.First)
+                                traktRecentlyUpdatedPerson.RecentlyUpdatedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_PERSON:
                             traktRecentlyUpdatedPerson.Person = await movieObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

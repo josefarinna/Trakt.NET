@@ -26,14 +26,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_WATCHED_AT:
-                            {
-                                Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    syncHistoryPostMovie.WatchedAt = value.Second;
+                            if (value.First)
+                                syncHistoryPostMovie.WatchedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_TITLE:
                             syncHistoryPostMovie.Title = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;

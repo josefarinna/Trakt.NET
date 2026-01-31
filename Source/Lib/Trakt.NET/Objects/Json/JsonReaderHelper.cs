@@ -82,7 +82,7 @@
                         var dateTime = DateTime.Parse(jsonReader.Value.ToString());
                         return new Pair<bool, DateTime>(true, dateTime);
                     }
-                    catch(Exception)
+                    catch (Exception)
                     {
                         return new Pair<bool, DateTime>(false, default);
                     }

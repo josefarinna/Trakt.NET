@@ -27,26 +27,26 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_ID:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    movieScrobbleResponse.Id = value.Second;
+                            if (value.First)
+                                movieScrobbleResponse.Id = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_ACTION:
                             movieScrobbleResponse.Action = await JsonReaderHelper.ReadEnumerationValueAsync<TraktScrobbleActionType>(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_PROGRESS:
-                            {
-                                var value = await JsonReaderHelper.ReadFloatValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadFloatValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    movieScrobbleResponse.Progress = value.Second;
+                            if (value.First)
+                                movieScrobbleResponse.Progress = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SHARING:
                             movieScrobbleResponse.Sharing = await sharingReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

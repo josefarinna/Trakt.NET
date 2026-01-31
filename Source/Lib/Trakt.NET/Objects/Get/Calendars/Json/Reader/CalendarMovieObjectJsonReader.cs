@@ -24,14 +24,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_RELEASED:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktCalendarMovie.CalendarRelease = value.Second;
+                            if (value.First)
+                                traktCalendarMovie.CalendarRelease = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_MOVIE:
                             traktCalendarMovie.Movie = await movieObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

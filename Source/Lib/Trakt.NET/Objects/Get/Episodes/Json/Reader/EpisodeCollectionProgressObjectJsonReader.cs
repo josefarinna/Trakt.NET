@@ -28,14 +28,14 @@
                             traktEpisodeCollectionProgress.Completed = await jsonReader.ReadAsBooleanAsync(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_COLLECTED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktEpisodeCollectionProgress.CollectedAt = value.Second;
+                            if (value.First)
+                                traktEpisodeCollectionProgress.CollectedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

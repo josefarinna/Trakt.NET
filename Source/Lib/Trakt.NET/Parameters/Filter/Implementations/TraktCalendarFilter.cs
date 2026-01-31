@@ -12,7 +12,7 @@
             get => _calendarRatingsFilter.Ratings;
             internal set => _calendarRatingsFilter.Ratings = value;
         }
-        
+
         public Range<uint>? Votes
         {
             get => _calendarRatingsFilter.Votes;

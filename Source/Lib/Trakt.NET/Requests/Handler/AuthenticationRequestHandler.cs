@@ -449,11 +449,11 @@
             => new RequestMessageBuilder(_client.ClientId, _client.UserAgent, _client.Configuration.ApiVersion, _client.Configuration.BaseUrl,
                                          _client.Authentication.Authorization.AccessToken, _client.Authentication.IsAuthorized,
                                          _client.Configuration.ForceAuthorization)
-               {
-                    UseAPIVersionHeader = false,
-                    UseAPIClientIdHeader = false,
-                    Request = request,
-                    RequestBody = requestBody
-               };
+            {
+                UseAPIVersionHeader = false,
+                UseAPIClientIdHeader = false,
+                Request = request,
+                RequestBody = requestBody
+            };
     }
 }

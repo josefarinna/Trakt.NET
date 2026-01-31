@@ -108,7 +108,7 @@ namespace TraktNet.PostBuilder
                     break;
                 case State.EpisodeIds:
                     Debug.Assert(_episodeIds != null);
-                    
+
                     episodeCheckinPost.Episode = new TraktEpisode
                     {
                         Ids = _episodeIds

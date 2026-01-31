@@ -29,32 +29,32 @@
                             traktWatchedShow.Plays = await jsonReader.ReadAsInt32Async(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_LAST_WATCHED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktWatchedShow.LastWatchedAt = value.Second;
+                            if (value.First)
+                                traktWatchedShow.LastWatchedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_LAST_UPDATED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktWatchedShow.LastUpdatedAt = value.Second;
+                            if (value.First)
+                                traktWatchedShow.LastUpdatedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_RESET_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktWatchedShow.ResetAt = value.Second;
+                            if (value.First)
+                                traktWatchedShow.ResetAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SHOW:
                             traktWatchedShow.Show = await showObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

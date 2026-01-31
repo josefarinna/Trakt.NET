@@ -30,7 +30,7 @@
         /// <param name="movie">A collected <see cref="ITraktMovie"/>.</param>
         /// <param name="collectedAt">The UTC datetime when the <paramref name="movie"/> was collected.</param>
         public CollectedMovie(ITraktMovie movie, DateTime collectedAt)
-            : base(movie, collectedAt) 
+            : base(movie, collectedAt)
         { }
     }
 
@@ -41,7 +41,7 @@
         /// <param name="movieIds">A collected <see cref="ITraktMovieIds"/>.</param>
         /// <param name="collectedAt">The UTC datetime when the <paramref name="movieIds"/> was collected.</param>
         public CollectedMovieIds(ITraktMovieIds movieIds, DateTime collectedAt)
-            : base(movieIds, collectedAt) 
+            : base(movieIds, collectedAt)
         { }
     }
 
@@ -52,7 +52,7 @@
         /// <param name="show">A collected <see cref="ITraktShow"/>.</param>
         /// <param name="collectedAt">The UTC datetime when the <paramref name="show"/> was collected.</param>
         public CollectedShow(ITraktShow show, DateTime collectedAt)
-            : base(show, collectedAt) 
+            : base(show, collectedAt)
         { }
     }
 
@@ -63,7 +63,7 @@
         /// <param name="showIds">A collected <see cref="ITraktShowIds"/>.</param>
         /// <param name="collectedAt">The UTC datetime when the <paramref name="showIds"/> was collected.</param>
         public CollectedShowIds(ITraktShowIds showIds, DateTime collectedAt)
-            : base(showIds, collectedAt) 
+            : base(showIds, collectedAt)
         { }
     }
 
@@ -74,7 +74,7 @@
         /// <param name="season">A collected <see cref="ITraktSeason"/>.</param>
         /// <param name="collectedAt">The UTC datetime when the <paramref name="season"/> was collected.</param>
         public CollectedSeason(ITraktSeason season, DateTime collectedAt)
-            : base(season, collectedAt) 
+            : base(season, collectedAt)
         { }
     }
 
@@ -85,7 +85,7 @@
         /// <param name="seasonIds">A collected <see cref="ITraktSeasonIds"/>.</param>
         /// <param name="collectedAt">The UTC datetime when the <paramref name="seasonIds"/> was collected.</param>
         public CollectedSeasonIds(ITraktSeasonIds seasonIds, DateTime collectedAt)
-            : base(seasonIds, collectedAt) 
+            : base(seasonIds, collectedAt)
         { }
     }
 
@@ -96,7 +96,7 @@
         /// <param name="episode">A collected <see cref="ITraktEpisode"/>.</param>
         /// <param name="collectedAt">The UTC datetime when the <paramref name="episode"/> was collected.</param>
         public CollectedEpisode(ITraktEpisode episode, DateTime collectedAt)
-            : base(episode, collectedAt) 
+            : base(episode, collectedAt)
         { }
     }
 
@@ -107,7 +107,7 @@
         /// <param name="episodeIds">A collected <see cref="ITraktEpisodeIds"/>.</param>
         /// <param name="collectedAt">The UTC datetime when the <paramref name="episodeIds"/> was collected.</param>
         public CollectedEpisodeIds(ITraktEpisodeIds episodeIds, DateTime collectedAt)
-            : base(episodeIds, collectedAt) 
+            : base(episodeIds, collectedAt)
         { }
     }
 
@@ -126,7 +126,7 @@
         /// <param name="movie">A <see cref="ITraktMovie"/>.</param>
         /// <param name="metadata">The <see cref="ITraktMetadata"/> for the <paramref name="movie"/>.</param>
         public MovieWithMetadata(ITraktMovie movie, ITraktMetadata metadata)
-            : base(movie, metadata) 
+            : base(movie, metadata)
         { }
     }
 
@@ -137,7 +137,7 @@
         /// <param name="movieIds">A <see cref="ITraktMovieIds"/>.</param>
         /// <param name="metadata">The <see cref="ITraktMetadata"/> for the <paramref name="movieIds"/>.</param>
         public MovieIdsWithMetadata(ITraktMovieIds movieIds, ITraktMetadata metadata)
-            : base(movieIds, metadata) 
+            : base(movieIds, metadata)
         { }
     }
 
@@ -148,7 +148,7 @@
         /// <param name="show">A <see cref="ITraktShow"/>.</param>
         /// <param name="metadata">The <see cref="ITraktMetadata"/> for the <paramref name="show"/>.</param>
         public ShowWithMetadata(ITraktShow show, ITraktMetadata metadata)
-            : base(show, metadata) 
+            : base(show, metadata)
         { }
     }
 
@@ -170,7 +170,7 @@
         /// <param name="season">A <see cref="ITraktSeason"/>.</param>
         /// <param name="metadata">The <see cref="ITraktMetadata"/> for the <paramref name="season"/>.</param>
         public SeasonWithMetadata(ITraktSeason season, ITraktMetadata metadata)
-            : base(season, metadata) 
+            : base(season, metadata)
         { }
     }
 
@@ -181,7 +181,7 @@
         /// <param name="seasonIds">A <see cref="ITraktSeasonIds"/>.</param>
         /// <param name="metadata">The <see cref="ITraktMetadata"/> for the <paramref name="seasonIds"/>.</param>
         public SeasonIdsWithMetadata(ITraktSeasonIds seasonIds, ITraktMetadata metadata)
-            : base(seasonIds, metadata) 
+            : base(seasonIds, metadata)
         { }
     }
 
@@ -192,7 +192,7 @@
         /// <param name="episode">A <see cref="ITraktEpisode"/>.</param>
         /// <param name="metadata">The <see cref="ITraktMetadata"/> for the <paramref name="episode"/>.</param>
         public EpisodeWithMetadata(ITraktEpisode episode, ITraktMetadata metadata)
-            : base(episode, metadata) 
+            : base(episode, metadata)
         { }
     }
 

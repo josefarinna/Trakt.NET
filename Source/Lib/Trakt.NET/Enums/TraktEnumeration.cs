@@ -48,7 +48,7 @@
         /// <returns>An indication of their relative values.</returns>
         public int CompareTo(TraktEnumeration other) => Value.CompareTo(other.Value);
 
-        public static bool operator==(TraktEnumeration left, TraktEnumeration right)
+        public static bool operator ==(TraktEnumeration left, TraktEnumeration right)
         {
             if (left is null)
                 return right is null;

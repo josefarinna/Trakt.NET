@@ -22,44 +22,44 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_TRAKT:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktEpisodeIds.Trakt = value.Second;
+                            if (value.First)
+                                traktEpisodeIds.Trakt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_TVDB:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktEpisodeIds.Tvdb = value.Second;
+                            if (value.First)
+                                traktEpisodeIds.Tvdb = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_IMDB:
                             traktEpisodeIds.Imdb = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_TMDB:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktEpisodeIds.Tmdb = value.Second;
+                            if (value.First)
+                                traktEpisodeIds.Tmdb = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_TVRAGE:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktEpisodeIds.TvRage = value.Second;
+                            if (value.First)
+                                traktEpisodeIds.TvRage = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

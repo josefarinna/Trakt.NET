@@ -39,14 +39,14 @@
                             syncRatingsPostShow.Rating = await jsonReader.ReadAsInt32Async(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_RATED_AT:
-                            {
-                                Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    syncRatingsPostShow.RatedAt = value.Second;
+                            if (value.First)
+                                syncRatingsPostShow.RatedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SEASONS:
                             syncRatingsPostShow.Seasons = await seasonArrayJsonReader.ReadArrayAsync(jsonReader, cancellationToken);
                             break;

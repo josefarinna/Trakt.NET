@@ -2,7 +2,6 @@
 {
     using FluentAssertions;
     using System.Threading.Tasks;
-
     using TraktNet.Objects.Post.Basic;
     using TraktNet.Objects.Post.Basic.Json.Reader;
     using Xunit;

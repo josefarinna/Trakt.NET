@@ -29,23 +29,23 @@
                             syncRatingsPostEpisode.Ids = await episodeIdsObjectJsonReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_RATING:
-                            {
-                                Pair<bool, int> value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, int> value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    syncRatingsPostEpisode.Rating = value.Second;
+                            if (value.First)
+                                syncRatingsPostEpisode.Rating = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_RATED_AT:
-                            {
-                                Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    syncRatingsPostEpisode.RatedAt = value.Second;
+                            if (value.First)
+                                syncRatingsPostEpisode.RatedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

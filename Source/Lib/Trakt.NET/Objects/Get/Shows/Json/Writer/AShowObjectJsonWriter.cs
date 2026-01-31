@@ -44,7 +44,8 @@ namespace TraktNet.Objects.Get.Shows.Json.Writer
                 await jsonWriter.WriteValueAsync(obj.Overview, cancellationToken).ConfigureAwait(false);
             }
 
-            if (!string.IsNullOrEmpty(obj.Tagline)) {
+            if (!string.IsNullOrEmpty(obj.Tagline))
+            {
                 await jsonWriter.WritePropertyNameAsync(JsonProperties.PROPERTY_NAME_TAGLINE, cancellationToken).ConfigureAwait(false);
                 await jsonWriter.WriteValueAsync(obj.Tagline, cancellationToken).ConfigureAwait(false);
             }

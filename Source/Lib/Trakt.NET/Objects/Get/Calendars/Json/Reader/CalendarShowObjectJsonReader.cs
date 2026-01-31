@@ -27,14 +27,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_FIRST_AIRED:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktCalendarShow.FirstAiredInCalendar = value.Second;
+                            if (value.First)
+                                traktCalendarShow.FirstAiredInCalendar = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SHOW:
                             traktCalendarShow.Show = await showObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

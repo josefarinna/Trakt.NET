@@ -26,23 +26,23 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_ID:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    checkinMovieResponse.Id = value.Second;
+                            if (value.First)
+                                checkinMovieResponse.Id = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_WATCHED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    checkinMovieResponse.WatchedAt = value.Second;
+                            if (value.First)
+                                checkinMovieResponse.WatchedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SHARING:
                             checkinMovieResponse.Sharing = await sharingReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

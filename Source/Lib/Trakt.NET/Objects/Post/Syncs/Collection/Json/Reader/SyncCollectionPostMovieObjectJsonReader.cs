@@ -27,14 +27,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_COLLECTED_AT:
-                            {
-                                Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktSyncCollectionPostMovie.CollectedAt = value.Second;
+                            if (value.First)
+                                traktSyncCollectionPostMovie.CollectedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_TITLE:
                             traktSyncCollectionPostMovie.Title = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;

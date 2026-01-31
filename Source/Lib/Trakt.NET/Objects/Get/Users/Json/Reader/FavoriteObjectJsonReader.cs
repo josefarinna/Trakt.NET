@@ -25,26 +25,26 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_ID:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktFavorite.Id = value.Second;
+                            if (value.First)
+                                traktFavorite.Id = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_RANK:
                             traktFavorite.Rank = await jsonReader.ReadAsInt32Async(cancellationToken).ConfigureAwait(false);
                             break;
                         case JsonProperties.PROPERTY_NAME_LISTED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken).ConfigureAwait(false);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken).ConfigureAwait(false);
 
-                                if (value.First)
-                                    traktFavorite.ListedAt = value.Second;
+                            if (value.First)
+                                traktFavorite.ListedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_TYPE:
                             traktFavorite.Type = await JsonReaderHelper.ReadEnumerationValueAsync<TraktFavoriteObjectType>(jsonReader, cancellationToken).ConfigureAwait(false);
                             break;
@@ -52,17 +52,17 @@
                             traktFavorite.Notes = await jsonReader.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
                             break;
                         case JsonProperties.PROPERTY_NAME_MOVIE:
-                            {
-                                var movieObjectReader = new MovieObjectJsonReader();
-                                traktFavorite.Movie = await movieObjectReader.ReadObjectAsync(jsonReader, cancellationToken).ConfigureAwait(false);
-                                break;
-                            }
+                        {
+                            var movieObjectReader = new MovieObjectJsonReader();
+                            traktFavorite.Movie = await movieObjectReader.ReadObjectAsync(jsonReader, cancellationToken).ConfigureAwait(false);
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SHOW:
-                            {
-                                var showObjectReader = new ShowObjectJsonReader();
-                                traktFavorite.Show = await showObjectReader.ReadObjectAsync(jsonReader, cancellationToken).ConfigureAwait(false);
-                                break;
-                            }
+                        {
+                            var showObjectReader = new ShowObjectJsonReader();
+                            traktFavorite.Show = await showObjectReader.ReadObjectAsync(jsonReader, cancellationToken).ConfigureAwait(false);
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken).ConfigureAwait(false);
                             break;

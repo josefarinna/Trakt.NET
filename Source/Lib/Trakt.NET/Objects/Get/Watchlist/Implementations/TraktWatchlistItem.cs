@@ -21,7 +21,7 @@
 
         /// <summary>Gets or sets the watchlist item notes.</summary>
         public string Notes { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the object type, which this watchlist item contains.
         /// See also <seealso cref="TraktSyncItemType" />.

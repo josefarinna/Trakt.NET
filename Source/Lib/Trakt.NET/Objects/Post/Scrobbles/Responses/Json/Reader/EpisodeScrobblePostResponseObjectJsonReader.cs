@@ -29,26 +29,26 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_ID:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    episodeScrobbleResponse.Id = value.Second;
+                            if (value.First)
+                                episodeScrobbleResponse.Id = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_ACTION:
                             episodeScrobbleResponse.Action = await JsonReaderHelper.ReadEnumerationValueAsync<TraktScrobbleActionType>(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_PROGRESS:
-                            {
-                                var value = await JsonReaderHelper.ReadFloatValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadFloatValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    episodeScrobbleResponse.Progress = value.Second;
+                            if (value.First)
+                                episodeScrobbleResponse.Progress = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SHARING:
                             episodeScrobbleResponse.Sharing = await sharingReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

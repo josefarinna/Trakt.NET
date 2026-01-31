@@ -13,7 +13,7 @@ namespace TraktNet.Objects.Basic
         public uint? Tmdb { get; set; }
 
         /// <summary>Returns, whether any id has been set.</summary>
-        public bool HasAnyId => Trakt > 0 || !string.IsNullOrEmpty(Slug) || Tmdb.HasValue && Tmdb.Value > 0;
+        public bool HasAnyId => Trakt > 0 || !string.IsNullOrEmpty(Slug) || (Tmdb.HasValue && Tmdb.Value > 0);
 
         /// <summary>Gets the most reliable id from those that have been set.</summary>
         /// <returns>The id as a string or an empty string, if no id is set.</returns>

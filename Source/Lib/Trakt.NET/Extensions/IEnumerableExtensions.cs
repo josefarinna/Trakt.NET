@@ -12,7 +12,7 @@
         /// <returns>An IAsyncEnumerable of the results from the tasks.</returns>
         public static async IAsyncEnumerable<TSource> StreamFinishedTaskResultsAsync<TSource>(this List<Task<TSource>> source)
         {
-            if(source is null || !source.Any())
+            if (source is null || !source.Any())
                 yield break;
 
             while (source.Count > 0)

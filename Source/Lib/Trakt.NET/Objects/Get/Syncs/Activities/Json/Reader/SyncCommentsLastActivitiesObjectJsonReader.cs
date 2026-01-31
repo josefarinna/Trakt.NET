@@ -22,23 +22,23 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_LIKED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    commentsLastActivities.LikedAt = value.Second;
+                            if (value.First)
+                                commentsLastActivities.LikedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_BLOCKED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    commentsLastActivities.BlockedAt = value.Second;
+                            if (value.First)
+                                commentsLastActivities.BlockedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

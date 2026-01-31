@@ -24,14 +24,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_NUMBER:
-                            {
-                                Pair<bool, int> value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, int> value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    syncWatchlistPostShowSeason.Number = value.Second;
+                            if (value.First)
+                                syncWatchlistPostShowSeason.Number = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_EPISODES:
                             syncWatchlistPostShowSeason.Episodes = await episodeArrayJsonReader.ReadArrayAsync(jsonReader, cancellationToken);
                             break;

@@ -24,41 +24,41 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_ID:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktCommentPostResponse.Id = value.Second;
+                            if (value.First)
+                                traktCommentPostResponse.Id = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_PARENT_ID:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktCommentPostResponse.ParentId = value.Second;
+                            if (value.First)
+                                traktCommentPostResponse.ParentId = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_CREATED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktCommentPostResponse.CreatedAt = value.Second;
+                            if (value.First)
+                                traktCommentPostResponse.CreatedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_UPDATED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktCommentPostResponse.UpdatedAt = value.Second;
+                            if (value.First)
+                                traktCommentPostResponse.UpdatedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_COMMENT:
                             traktCommentPostResponse.Comment = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;
@@ -75,23 +75,23 @@
                             traktCommentPostResponse.Likes = await jsonReader.ReadAsInt32Async(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_USER_STATS:
-                            {
-                                var userStatsReader = new CommentUserStatsObjectJsonReader();
-                                traktCommentPostResponse.UserStats = await userStatsReader.ReadObjectAsync(jsonReader, cancellationToken);
-                                break;
-                            }
+                        {
+                            var userStatsReader = new CommentUserStatsObjectJsonReader();
+                            traktCommentPostResponse.UserStats = await userStatsReader.ReadObjectAsync(jsonReader, cancellationToken);
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_USER:
-                            {
-                                var userReader = new UserObjectJsonReader();
-                                traktCommentPostResponse.User = await userReader.ReadObjectAsync(jsonReader, cancellationToken);
-                                break;
-                            }
+                        {
+                            var userReader = new UserObjectJsonReader();
+                            traktCommentPostResponse.User = await userReader.ReadObjectAsync(jsonReader, cancellationToken);
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SHARING:
-                            {
-                                var sharingReader = new ConnectionsObjectJsonReader();
-                                traktCommentPostResponse.Sharing = await sharingReader.ReadObjectAsync(jsonReader, cancellationToken);
-                                break;
-                            }
+                        {
+                            var sharingReader = new ConnectionsObjectJsonReader();
+                            traktCommentPostResponse.Sharing = await sharingReader.ReadObjectAsync(jsonReader, cancellationToken);
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

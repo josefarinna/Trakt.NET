@@ -35,26 +35,26 @@
                             traktAuthorization.Scope = await JsonReaderHelper.ReadEnumerationValueAsync<TraktAccessScope>(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_EXPIRES_IN:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktAuthorization.ExpiresInSeconds = value.Second;
+                            if (value.First)
+                                traktAuthorization.ExpiresInSeconds = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_TOKEN_TYPE:
                             traktAuthorization.TokenType = await JsonReaderHelper.ReadEnumerationValueAsync<TraktAccessTokenType>(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_CREATED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktAuthorization.CreatedAtTimestamp = value.Second;
+                            if (value.First)
+                                traktAuthorization.CreatedAtTimestamp = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_IGNORE_EXPIRATION:
                             if (CompleteDeserialization)
                             {

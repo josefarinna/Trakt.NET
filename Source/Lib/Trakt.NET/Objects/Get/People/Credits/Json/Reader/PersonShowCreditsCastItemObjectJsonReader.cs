@@ -28,14 +28,14 @@
                             showCreditsCastItem.Characters = await JsonReaderHelper.ReadStringArrayAsync(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_EPISODE_COUNT:
-                            {
-                                var value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    showCreditsCastItem.EpisodeCount = value.Second;
+                            if (value.First)
+                                showCreditsCastItem.EpisodeCount = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SERIES_REGULAR:
                             showCreditsCastItem.SeriesRegular = await jsonReader.ReadAsBooleanAsync(cancellationToken);
                             break;

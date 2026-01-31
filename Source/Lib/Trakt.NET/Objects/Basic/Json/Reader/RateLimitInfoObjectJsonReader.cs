@@ -34,14 +34,14 @@
                             traktRateLimitInfo.Remaining = await jsonReader.ReadAsInt32Async(cancellationToken).ConfigureAwait(false);
                             break;
                         case JsonProperties.PROPERTY_NAME_UNTIL:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken).ConfigureAwait(false);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken).ConfigureAwait(false);
 
-                                if (value.First)
-                                    traktRateLimitInfo.Until = value.Second;
+                            if (value.First)
+                                traktRateLimitInfo.Until = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken).ConfigureAwait(false);
                             break;

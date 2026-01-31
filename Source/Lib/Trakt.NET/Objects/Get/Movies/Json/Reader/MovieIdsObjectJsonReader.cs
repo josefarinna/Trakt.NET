@@ -22,14 +22,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_TRAKT:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktMovieIds.Trakt = value.Second;
+                            if (value.First)
+                                traktMovieIds.Trakt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SLUG:
                             traktMovieIds.Slug = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;
@@ -37,14 +37,14 @@
                             traktMovieIds.Imdb = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_TMDB:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktMovieIds.Tmdb = value.Second;
+                            if (value.First)
+                                traktMovieIds.Tmdb = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

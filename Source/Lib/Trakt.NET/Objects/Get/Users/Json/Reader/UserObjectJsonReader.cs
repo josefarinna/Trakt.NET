@@ -46,14 +46,14 @@
                             traktUser.IsVIP_EP = await jsonReader.ReadAsBooleanAsync(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_JOINED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktUser.JoinedAt = value.Second;
+                            if (value.First)
+                                traktUser.JoinedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_LOCATION:
                             traktUser.Location = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;

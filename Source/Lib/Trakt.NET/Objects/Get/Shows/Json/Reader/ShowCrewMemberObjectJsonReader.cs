@@ -27,14 +27,14 @@
                             traktShowCrewMember.Jobs = await JsonReaderHelper.ReadStringArrayAsync(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_EPISODE_COUNT:
-                            {
-                                var value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktShowCrewMember.EpisodeCount = value.Second;
+                            if (value.First)
+                                traktShowCrewMember.EpisodeCount = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_PERSON:
                             traktShowCrewMember.Person = await personReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

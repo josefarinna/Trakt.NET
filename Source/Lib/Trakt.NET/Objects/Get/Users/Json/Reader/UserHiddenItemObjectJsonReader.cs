@@ -30,14 +30,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_HIDDEN_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktUserHiddenItem.HiddenAt = value.Second;
+                            if (value.First)
+                                traktUserHiddenItem.HiddenAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_TYPE:
                             traktUserHiddenItem.Type = await JsonReaderHelper.ReadEnumerationValueAsync<TraktHiddenItemType>(jsonReader, cancellationToken);
                             break;

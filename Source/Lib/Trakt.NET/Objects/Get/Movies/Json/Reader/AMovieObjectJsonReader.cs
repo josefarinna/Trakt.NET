@@ -49,14 +49,14 @@ namespace TraktNet.Objects.Get.Movies.Json.Reader
                     movie.Overview = await jsonReader.ReadAsStringAsync(cancellationToken);
                     break;
                 case JsonProperties.PROPERTY_NAME_RELEASED:
-                    {
-                        var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                {
+                    var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                        if (value.First)
-                            movie.Released = value.Second;
+                    if (value.First)
+                        movie.Released = value.Second;
 
-                        break;
-                    }
+                    break;
+                }
                 case JsonProperties.PROPERTY_NAME_RUNTIME:
                     movie.Runtime = await jsonReader.ReadAsInt32Async(cancellationToken);
                     break;
@@ -73,14 +73,14 @@ namespace TraktNet.Objects.Get.Movies.Json.Reader
                     movie.Votes = await jsonReader.ReadAsInt32Async(cancellationToken);
                     break;
                 case JsonProperties.PROPERTY_NAME_UPDATED_AT:
-                    {
-                        var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                {
+                    var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                        if (value.First)
-                            movie.UpdatedAt = value.Second;
+                    if (value.First)
+                        movie.UpdatedAt = value.Second;
 
-                        break;
-                    }
+                    break;
+                }
                 case JsonProperties.PROPERTY_NAME_LANGUAGE:
                     movie.LanguageCode = await jsonReader.ReadAsStringAsync(cancellationToken);
                     break;

@@ -22,14 +22,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_EXPIRES_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    checkinErrorResponse.ExpiresAt = value.Second;
+                            if (value.First)
+                                checkinErrorResponse.ExpiresAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

@@ -56,7 +56,7 @@
         public TResponseContentType this[int index]
         {
             get => Value != null ? Value[index] : default;
-            
+
             set
             {
                 if (Value != null)

@@ -22,7 +22,7 @@
             CheckObjects(objects);
             CheckStringWriter(writer);
             using (var jsonWriter = new JsonTextWriter(writer))
-            await WriteArrayAsync(jsonWriter, objects, cancellationToken).ConfigureAwait(false);
+                await WriteArrayAsync(jsonWriter, objects, cancellationToken).ConfigureAwait(false);
             return writer.ToString();
         }
 

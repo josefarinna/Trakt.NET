@@ -12,13 +12,16 @@
         {
             CheckJsonTextReader(jsonReader);
 
-            if (await jsonReader.ReadAsync(cancellationToken) && jsonReader.TokenType == JsonToken.StartObject) {
+            if (await jsonReader.ReadAsync(cancellationToken) && jsonReader.TokenType == JsonToken.StartObject)
+            {
                 ITraktUpdateListPost updateListPost = new TraktUpdateListPost();
 
-                while (await jsonReader.ReadAsync(cancellationToken) && jsonReader.TokenType == JsonToken.PropertyName) {
+                while (await jsonReader.ReadAsync(cancellationToken) && jsonReader.TokenType == JsonToken.PropertyName)
+                {
                     string propertyName = jsonReader.Value.ToString();
 
-                    switch (propertyName) {
+                    switch (propertyName)
+                    {
                         case JsonProperties.PROPERTY_NAME_DESCRIPTION:
                             updateListPost.Description = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;

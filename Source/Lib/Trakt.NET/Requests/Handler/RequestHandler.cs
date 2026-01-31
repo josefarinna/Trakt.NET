@@ -9,7 +9,6 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Net;
     using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
@@ -221,7 +220,7 @@
             {
                 HttpResponseMessage responseMessage = await ExecuteRequestAsync(requestMessage, false, cancellationToken).ConfigureAwait(false);
                 DebugAsserter.AssertResponseMessageIsNotNull(responseMessage);
-                DebugAsserter.AssertHttpResponseCodeIsExpected(responseMessage.StatusCode,requestMessage.Method, DebugAsserter.LIST_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
+                DebugAsserter.AssertHttpResponseCodeIsExpected(responseMessage.StatusCode, requestMessage.Method, DebugAsserter.LIST_RESPONSE_PRECONDITION_INVALID_STATUS_CODE);
                 IList<TResponseContentType> contentObjects = await ReadContentListAsync<TResponseContentType>(asyncStream, responseMessage, cancellationToken).ConfigureAwait(false);
 
                 var response = new TraktListResponse<TResponseContentType>
@@ -295,10 +294,10 @@
 
         private RequestMessageBuilder CreateRequestMessageBuilder(IRequest request = null, IRequestBody requestBody = null)
             => new RequestMessageBuilder(_clientId, _userAgent, _apiVersion, _baseUrl, _accessToken, _isAuthorized, _forceAuthorization)
-               {
-                    Request = request,
-                    RequestBody = requestBody
-               };
+            {
+                Request = request,
+                RequestBody = requestBody
+            };
 
         private IArrayJsonReader<TResponseContentType> CreateArrayReader<TResponseContentType>()
         {

@@ -23,14 +23,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_ID:
-                            {
-                                var value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktUserSavedFilter.Id = value.Second;
+                            if (value.First)
+                                traktUserSavedFilter.Id = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_RANK:
                             traktUserSavedFilter.Rank = await jsonReader.ReadAsInt32Async(cancellationToken).ConfigureAwait(false);
                             break;
@@ -47,14 +47,14 @@
                             traktUserSavedFilter.Query = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_UPDATED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktUserSavedFilter.UpdatedAt = value.Second;
+                            if (value.First)
+                                traktUserSavedFilter.UpdatedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

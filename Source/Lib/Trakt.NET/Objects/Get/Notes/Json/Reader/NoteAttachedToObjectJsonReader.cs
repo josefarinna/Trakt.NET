@@ -26,14 +26,14 @@
                             userNoteAttachedTo.Type = await JsonReaderHelper.ReadEnumerationValueAsync<TraktNotesObjectType>(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_ID:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedLongValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    userNoteAttachedTo.Id = value.Second;
+                            if (value.First)
+                                userNoteAttachedTo.Id = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

@@ -34,23 +34,23 @@
                             traktPerson.Biography = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_BIRTHDAY:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktPerson.Birthday = value.Second;
+                            if (value.First)
+                                traktPerson.Birthday = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_DEATH:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktPerson.Death = value.Second;
+                            if (value.First)
+                                traktPerson.Death = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_BIRTHPLACE:
                             traktPerson.Birthplace = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;
@@ -67,14 +67,14 @@
                             traktPerson.SocialIds = await socialIdsObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_UPDATED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktPerson.UpdatedAt = value.Second;
+                            if (value.First)
+                                traktPerson.UpdatedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_IMAGES:
                             var imagesObjectReader = new PersonImageObjectJsonReader();
                             traktPerson.Images = await imagesObjectReader.ReadObjectAsync(jsonReader, cancellationToken);

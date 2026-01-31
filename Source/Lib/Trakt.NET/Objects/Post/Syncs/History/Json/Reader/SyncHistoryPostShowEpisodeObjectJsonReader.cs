@@ -24,23 +24,23 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_WATCHED_AT:
-                            {
-                                Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    syncHistoryPostShowEpisode.WatchedAt = value.Second;
+                            if (value.First)
+                                syncHistoryPostShowEpisode.WatchedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_NUMBER:
-                            {
-                                Pair<bool, int> value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, int> value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    syncHistoryPostShowEpisode.Number = value.Second;
+                            if (value.First)
+                                syncHistoryPostShowEpisode.Number = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

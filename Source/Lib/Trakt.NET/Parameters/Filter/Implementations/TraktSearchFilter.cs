@@ -24,19 +24,19 @@
             get => _searchRatingsFilter.TMDBRatings;
             internal set => _searchRatingsFilter.TMDBRatings = value;
         }
-        
+
         public Range<uint>? TMDBVotes
         {
             get => _searchRatingsFilter.TMDBVotes;
             internal set => _searchRatingsFilter.TMDBVotes = value;
         }
-        
+
         public Range<float>? IMDBRatings
         {
             get => _searchRatingsFilter.IMDBRatings;
             internal set => _searchRatingsFilter.IMDBRatings = value;
         }
-        
+
         public Range<uint>? IMDBVotes
         {
             get => _searchRatingsFilter.IMDBVotes;

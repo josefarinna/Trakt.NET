@@ -26,7 +26,7 @@
                 var seasonReader = new SeasonObjectJsonReader();
                 var episodeReader = new EpisodeObjectJsonReader();
                 var personReader = new PersonObjectJsonReader();
-             
+
                 ITraktNotePost notePost = new TraktNotePost();
 
                 while (await jsonReader.ReadAsync(cancellationToken) && jsonReader.TokenType == JsonToken.PropertyName)

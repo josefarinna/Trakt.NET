@@ -25,14 +25,14 @@
                             commentUpdatePost.Comment = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_SPOILER:
-                            {
-                                bool? value = await jsonReader.ReadAsBooleanAsync(cancellationToken);
+                        {
+                            bool? value = await jsonReader.ReadAsBooleanAsync(cancellationToken);
 
-                                if (value.HasValue)
-                                    commentUpdatePost.Spoiler = value.Value;
+                            if (value.HasValue)
+                                commentUpdatePost.Spoiler = value.Value;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

@@ -36,14 +36,14 @@
                             traktSearchResult.Type = await JsonReaderHelper.ReadEnumerationValueAsync<TraktSearchResultType>(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_SCORE:
-                            {
-                                var value = await JsonReaderHelper.ReadFloatValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadFloatValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktSearchResult.Score = value.Second;
+                            if (value.First)
+                                traktSearchResult.Score = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_MOVIE:
                             traktSearchResult.Movie = await movieObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

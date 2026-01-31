@@ -22,23 +22,23 @@ namespace TraktNet.Objects.Basic.Json.Reader
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_TRAKT:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktNetworkIds.Trakt = value.Second;
+                            if (value.First)
+                                traktNetworkIds.Trakt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_TMDB:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktNetworkIds.Tmdb = value.Second;
+                            if (value.First)
+                                traktNetworkIds.Tmdb = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

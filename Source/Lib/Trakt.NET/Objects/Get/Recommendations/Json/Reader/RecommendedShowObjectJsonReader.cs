@@ -9,7 +9,7 @@ namespace TraktNet.Objects.Get.Recommendations.Json.Reader
     internal class RecommendedShowObjectJsonReader : AShowObjectJsonReader<ITraktRecommendedShow>
     {
         protected override ITraktRecommendedShow CreateShowObject() => new TraktRecommendedShow();
-        
+
         protected override async Task ReadPropertyAsync(JsonTextReader jsonReader, ITraktRecommendedShow show, string propertyName, CancellationToken cancellationToken = default)
         {
             switch (propertyName)

@@ -27,14 +27,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_PROGRESS:
-                            {
-                                Pair<bool, float> value = await JsonReaderHelper.ReadFloatValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, float> value = await JsonReaderHelper.ReadFloatValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    episodeScrobblePost.Progress = value.Second;
+                            if (value.First)
+                                episodeScrobblePost.Progress = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_APP_VERSION:
                             episodeScrobblePost.AppVersion = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;

@@ -24,14 +24,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_LIKED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken).ConfigureAwait(false);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken).ConfigureAwait(false);
 
-                                if (value.First)
-                                    traktCommentLike.LikedAt = value.Second;
+                            if (value.First)
+                                traktCommentLike.LikedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_USER:
                             traktCommentLike.User = await userObjectJsonReader.ReadObjectAsync(jsonReader, cancellationToken).ConfigureAwait(false);
                             break;

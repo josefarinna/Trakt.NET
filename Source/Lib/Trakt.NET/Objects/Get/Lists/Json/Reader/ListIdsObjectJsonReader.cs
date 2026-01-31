@@ -22,14 +22,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_TRAKT:
-                            {
-                                var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadUnsignedIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktListIds.Trakt = value.Second;
+                            if (value.First)
+                                traktListIds.Trakt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SLUG:
                             traktListIds.Slug = jsonReader.ReadAsString();
                             break;

@@ -24,14 +24,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_APPROVED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    userFollowUserPostResponse.ApprovedAt = value.Second;
+                            if (value.First)
+                                userFollowUserPostResponse.ApprovedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_USER:
                             userFollowUserPostResponse.User = await userObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

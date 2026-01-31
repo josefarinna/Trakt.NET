@@ -9,11 +9,11 @@
           where TFilterBuilder : ITraktFilterBuilder<TFilter, TFilterBuilder>
     {
         internal Range<float>? TMBDRatings { get; private set; }
-        
+
         internal Range<uint>? TMDBVotes { get; private set; }
-        
+
         internal Range<float>? IMDBRatings { get; private set; }
-        
+
         internal Range<uint>? IMDBVotes { get; private set; }
 
         protected ACommonRatingsFilterBuilder(TFilterBuilder filterBuilder) : base(filterBuilder)

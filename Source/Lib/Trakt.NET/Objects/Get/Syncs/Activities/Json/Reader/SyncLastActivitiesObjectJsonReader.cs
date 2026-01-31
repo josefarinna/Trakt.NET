@@ -36,14 +36,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_ALL:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    lastActivities.All = value.Second;
+                            if (value.First)
+                                lastActivities.All = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_MOVIES:
                             lastActivities.Movies = await moviesLastActivitiesReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

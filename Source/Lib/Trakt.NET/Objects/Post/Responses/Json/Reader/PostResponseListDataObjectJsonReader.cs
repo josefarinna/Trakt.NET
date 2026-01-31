@@ -23,14 +23,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_UPDATED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    postResponseListData.UpdatedAt = value.Second;
+                            if (value.First)
+                                postResponseListData.UpdatedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_ITEM_COUNT:
                             postResponseListData.ItemCount = await jsonReader.ReadAsInt32Async(cancellationToken);
                             break;

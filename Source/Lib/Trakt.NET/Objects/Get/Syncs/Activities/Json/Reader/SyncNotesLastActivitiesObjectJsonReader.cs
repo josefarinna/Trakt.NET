@@ -5,7 +5,7 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    internal class SyncNotesLastActivitiesObjectJsonReader :AObjectJsonReader<ITraktSyncNotesLastActivities>
+    internal class SyncNotesLastActivitiesObjectJsonReader : AObjectJsonReader<ITraktSyncNotesLastActivities>
     {
         public override async Task<ITraktSyncNotesLastActivities> ReadObjectAsync(JsonTextReader jsonReader, CancellationToken cancellationToken = default)
         {
@@ -22,14 +22,14 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_UPDATED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    notesLastActivities.UpdatedAt = value.Second;
+                            if (value.First)
+                                notesLastActivities.UpdatedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         default:
                             await JsonReaderHelper.ReadAndIgnoreInvalidContentAsync(jsonReader, cancellationToken);
                             break;

@@ -7,7 +7,7 @@
         : ACommonRatingsFilterBuilder<ITraktMovieFilter, ITraktMovieFilterBuilder>, ITraktMovieRatingsFilterBuilder
     {
         internal Range<float>? RottenTomatoesMeter { get; private set; }
-        
+
         internal Range<float>? Metascores { get; private set; }
 
         internal MovieRatingsFilterBuilder(ITraktMovieFilterBuilder filterBuilder) : base(filterBuilder)

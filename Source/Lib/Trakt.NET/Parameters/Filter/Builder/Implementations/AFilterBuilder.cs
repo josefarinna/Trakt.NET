@@ -237,7 +237,7 @@
         }
 
         public abstract TFilter Build();
-        
+
         protected abstract TFilterBuilder GetBuilder();
     }
 }

@@ -26,23 +26,23 @@
                     switch (propertyName)
                     {
                         case JsonProperties.PROPERTY_NAME_NUMBER:
-                            {
-                                Pair<bool, int> value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, int> value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktSyncCollectionPostShowSeason.Number = value.Second;
+                            if (value.First)
+                                traktSyncCollectionPostShowSeason.Number = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_COLLECTED_AT:
-                            {
-                                Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            Pair<bool, DateTime> value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktSyncCollectionPostShowSeason.CollectedAt = value.Second;
+                            if (value.First)
+                                traktSyncCollectionPostShowSeason.CollectedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_MEDIA_TYPE:
                             traktSyncCollectionPostShowSeason.MediaType = await JsonReaderHelper.ReadEnumerationValueAsync<TraktMediaType>(jsonReader, cancellationToken);
                             break;

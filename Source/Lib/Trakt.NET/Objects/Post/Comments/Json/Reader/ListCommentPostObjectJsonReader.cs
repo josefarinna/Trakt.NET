@@ -29,14 +29,14 @@
                             listCommentPost.Comment = await jsonReader.ReadAsStringAsync(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_SPOILER:
-                            {
-                                bool? value = await jsonReader.ReadAsBooleanAsync(cancellationToken);
+                        {
+                            bool? value = await jsonReader.ReadAsBooleanAsync(cancellationToken);
 
-                                if (value.HasValue)
-                                    listCommentPost.Spoiler = value.Value;
+                            if (value.HasValue)
+                                listCommentPost.Spoiler = value.Value;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_SHARING:
                             listCommentPost.Sharing = await sharingReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

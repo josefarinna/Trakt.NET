@@ -8,9 +8,9 @@
         where TFilterBuilder : ITraktFilterBuilder<TFilter, TFilterBuilder>
     {
         protected readonly TFilterBuilder _filterBuilder;
-        
+
         internal Range<uint>? Ratings { get; private set; }
-        
+
         internal Range<uint>? Votes { get; private set; }
 
         protected ABasicRatingsFilterBuilder(TFilterBuilder filterBuilder)

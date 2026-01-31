@@ -46,7 +46,7 @@
         private readonly Lazy<List<EpisodeIdsWithMetadata>> _episodeIdsWithMetadata;
         private readonly Lazy<List<CollectedEpisodeWithMetadata>> _episodesWithMetadataCollected;
         private readonly Lazy<List<CollectedEpisodeIdsWithMetadata>> _episodeIdsWithMetadataCollectedAt;
-        
+
         internal SyncCollectionPostBuilder()
         {
             _movies = new Lazy<List<ITraktMovie>>();
@@ -227,7 +227,7 @@
                 if (movie != null)
                     _movies.Value.Add(movie);
             }
-            
+
             return this;
         }
 

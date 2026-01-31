@@ -27,14 +27,14 @@
                             traktShowCastMember.Characters = await JsonReaderHelper.ReadStringArrayAsync(jsonReader, cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_EPISODE_COUNT:
-                            {
-                                var value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadIntegerValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktShowCastMember.EpisodeCount = value.Second;
+                            if (value.First)
+                                traktShowCastMember.EpisodeCount = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_PERSON:
                             traktShowCastMember.Person = await personReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

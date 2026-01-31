@@ -16,7 +16,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>A list of TSource instances.</returns>
-        public static async Task<List<TSource>> ToListAsync<TSource>(this IAsyncEnumerable<TSource>  source, CancellationToken cancellationToken = default)
+        public static async Task<List<TSource>> ToListAsync<TSource>(this IAsyncEnumerable<TSource> source, CancellationToken cancellationToken = default)
         {
             if (source is null)
                 return new List<TSource>();

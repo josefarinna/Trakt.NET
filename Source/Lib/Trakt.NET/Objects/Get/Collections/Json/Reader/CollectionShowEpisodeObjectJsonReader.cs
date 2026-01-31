@@ -28,14 +28,14 @@
                             traktCollectionShowEpisode.Number = await jsonReader.ReadAsInt32Async(cancellationToken);
                             break;
                         case JsonProperties.PROPERTY_NAME_COLLECTED_AT:
-                            {
-                                var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
+                        {
+                            var value = await JsonReaderHelper.ReadDateTimeValueAsync(jsonReader, cancellationToken);
 
-                                if (value.First)
-                                    traktCollectionShowEpisode.CollectedAt = value.Second;
+                            if (value.First)
+                                traktCollectionShowEpisode.CollectedAt = value.Second;
 
-                                break;
-                            }
+                            break;
+                        }
                         case JsonProperties.PROPERTY_NAME_METADATA:
                             traktCollectionShowEpisode.Metadata = await metadataObjectReader.ReadObjectAsync(jsonReader, cancellationToken);
                             break;

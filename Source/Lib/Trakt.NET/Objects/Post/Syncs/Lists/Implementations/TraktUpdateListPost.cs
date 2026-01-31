@@ -30,7 +30,8 @@
             bool hasNoSortBy = SortBy == null || SortBy == TraktSortBy.Unspecified;
             bool hasNoSortHow = SortHow == null || SortHow == TraktSortHow.Unspecified;
 
-            if (hasNoDescription && hasNoSortBy && hasNoSortHow) {
+            if (hasNoDescription && hasNoSortBy && hasNoSortHow)
+            {
                 throw new TraktPostValidationException("no list update values set");
             }
         }

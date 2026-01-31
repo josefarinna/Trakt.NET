@@ -1,9 +1,9 @@
 ﻿namespace TraktNet.Objects.Get.People.Json.Factories
 {
     using Objects.Json;
+    using TraktNet.Objects.Get.People;
     using TraktNet.Objects.Get.People.Json.Reader;
     using TraktNet.Objects.Get.People.Json.Writer;
-    using TraktNet.Objects.Get.People;
 
     internal class PersonImageJsonIOFactory : IJsonIOFactory<ITraktPersonImage>
     {
