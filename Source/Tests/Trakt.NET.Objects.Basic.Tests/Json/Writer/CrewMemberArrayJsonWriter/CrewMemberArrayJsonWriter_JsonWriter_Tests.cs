@@ -6,13 +6,13 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Basic;
     using TraktNet.Objects.Get.People;
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Basic.JsonWriter")]
+    [Trait("Category", "Objects.Basic.JsonWriter")]
     public partial class CrewMemberArrayJsonWriter_Tests
     {
         [Fact]

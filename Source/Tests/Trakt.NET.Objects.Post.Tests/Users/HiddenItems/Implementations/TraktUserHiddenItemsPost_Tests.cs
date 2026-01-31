@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Users;
     using TraktNet.Objects.Post.Users.HiddenItems;
     using Xunit;
 
-    [TestCategory("Objects.Post.Users.HiddenItems.Implementations")]
+    [Trait("Category", "Objects.Post.Users.HiddenItems.Implementations")]
     public class TraktUserHiddenItemsPost_Tests
     {
         [Fact]

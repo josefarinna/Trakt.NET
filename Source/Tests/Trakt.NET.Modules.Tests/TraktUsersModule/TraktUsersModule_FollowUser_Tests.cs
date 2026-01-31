@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Users.Responses;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string FOLLOW_USER_URI = $"users/{USERNAME}/follow";

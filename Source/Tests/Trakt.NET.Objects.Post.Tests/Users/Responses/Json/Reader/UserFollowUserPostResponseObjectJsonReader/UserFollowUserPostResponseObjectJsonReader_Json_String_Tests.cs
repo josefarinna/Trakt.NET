@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Users.Responses;
     using TraktNet.Objects.Post.Users.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Users.Responses.JsonReader")]
+    [Trait("Category", "Objects.Post.Users.Responses.JsonReader")]
     public partial class UserFollowUserPostResponseObjectJsonReader_Tests
     {
         [Fact]

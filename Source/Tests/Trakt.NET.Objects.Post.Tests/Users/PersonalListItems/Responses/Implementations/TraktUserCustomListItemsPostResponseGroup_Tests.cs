@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Users.PersonalListItems.Responses;
     using TraktNet.Objects.Post.Users.PersonalListItems.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Users.PersonalListItems.Responses.Implementations")]
+    [Trait("Category", "Objects.Post.Users.PersonalListItems.Responses.Implementations")]
     public class TraktUserPersonalListItemsPostResponseGroup_Tests
     {
         [Fact]

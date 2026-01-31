@@ -4,13 +4,13 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Parameters;
     using TraktNet.Requests.Movies;
     using Xunit;
 
-    [TestCategory("Requests.Movies")]
+    [Trait("Category", "Requests.Movies")]
     public class MovieRelatedMoviesRequest_Tests
     {
         [Fact]

@@ -5,7 +5,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Basic;
@@ -13,7 +12,7 @@
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Search")]
+    [Trait("Category", "Modules.Search")]
     public partial class TraktSearchModule_Tests
     {
         [Fact]
@@ -81,7 +80,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -102,7 +101,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -123,7 +122,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, null, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -144,7 +143,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, null, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -165,7 +164,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, null, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -207,7 +206,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -228,7 +227,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -249,7 +248,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -270,7 +269,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, null, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -291,7 +290,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, null, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -312,7 +311,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, null, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -334,7 +333,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -375,7 +374,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -399,7 +398,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -423,7 +422,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -447,7 +446,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -471,7 +470,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -488,7 +487,7 @@
                 $"{GetIdLookupUri}?type={ID_LOOKUP_RESULT_TYPE.UriName}&extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 SEARCH_ID_LOOKUP_RESULTS_JSON, 1, LIMIT, 2, ID_LOOKUP_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -512,7 +511,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Search.GetIdLookupResultsAsync(ID_LOOKUP_TYPE, LOOKUP_ID, ID_LOOKUP_RESULT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -529,7 +528,7 @@
                 $"{GetIdLookupUri}?type={ID_LOOKUP_RESULT_TYPE.UriName}&extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 SEARCH_ID_LOOKUP_RESULTS_JSON, 2, LIMIT, 2, ID_LOOKUP_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

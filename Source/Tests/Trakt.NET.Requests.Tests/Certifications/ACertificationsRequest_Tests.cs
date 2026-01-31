@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Certifications;
     using Xunit;
 
-    [TestCategory("Requests.Certifications")]
+    [Trait("Category", "Requests.Certifications")]
     public class ACertificationsRequest_Tests
     {
         internal class CertificationsRequestMock : ACertificationsRequest

@@ -1,12 +1,12 @@
 ﻿namespace TraktNet.Requests.Tests.Networks
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Networks;
     using Xunit;
 
-    [TestCategory("Requests.Networks")]
+    [Trait("Category", "Requests.Networks")]
     public class NetworksRequest_Tests
     {
         [Fact]

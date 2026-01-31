@@ -5,12 +5,12 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Comments.Responses;
     using TraktNet.Objects.Post.Comments.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Comments.Responses.JsonReader")]
+    [Trait("Category", "Objects.Post.Comments.Responses.JsonReader")]
     public partial class CommentPostResponseObjectJsonReader_Tests
     {
         [Fact]

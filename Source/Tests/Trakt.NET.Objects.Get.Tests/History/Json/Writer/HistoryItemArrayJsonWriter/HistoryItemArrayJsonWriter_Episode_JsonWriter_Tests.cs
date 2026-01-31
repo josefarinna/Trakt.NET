@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Episodes;
@@ -15,7 +15,7 @@
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Get.History.JsonWriter")]
+    [Trait("Category", "Objects.Get.History.JsonWriter")]
     public partial class HistoryItemArrayJsonWriter_Tests
     {
         private static readonly DateTime WATCHED_AT = DateTime.UtcNow;

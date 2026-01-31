@@ -63,16 +63,9 @@
                     ""overview"": ""Driven by tragedy, billionaire Bruce Wayne dedicates his life to uncovering and defeating the corruption that plagues his home, Gotham City.  Unable to work within the system, he instead creates a new identity, a symbol of fear for the criminal underworld - The Batman."",
                     ""year"": 2005,
                     ""images"": {
-                      ""poster"": {
-                        ""full"": ""https://walter.trakt.us/images/movies/000/000/001/posters/original/9634ffd477.jpg?1406080393"",
-                        ""medium"": ""https://walter.trakt.us/images/movies/000/000/001/posters/medium/9634ffd477.jpg?1406080393"",
-                        ""thumb"": ""https://walter.trakt.us/images/movies/000/000/001/posters/thumb/9634ffd477.jpg?1406080393""
-                      },
-                      ""fanart"": {
-                        ""full"": ""https://walter.trakt.us/images/movies/000/000/001/fanarts/original/7da8cfbe9e.jpg?1406080393"",
-                        ""medium"": ""https://walter.trakt.us/images/movies/000/000/001/fanarts/medium/7da8cfbe9e.jpg?1406080393"",
-                        ""thumb"": ""https://walter.trakt.us/images/movies/000/000/001/fanarts/thumb/7da8cfbe9e.jpg?1406080393""
-                      }
+                      ""poster"": [""https://walter.trakt.us/images/movies/000/000/001/posters/original/9634ffd477.jpg?1406080393""],
+                      ""fanart"": [""https://walter.trakt.us/images/movies/000/000/001/fanarts/original/7da8cfbe9e.jpg?1406080393""],
+                      ""thumb"": [""https://walter.trakt.us/images/movies/000/000/001/fanarts/thumb/7da8cfbe9e.jpg?1406080393""]
                     },
                     ""ids"": {
                       ""trakt"": 1,
@@ -91,16 +84,9 @@
                     ""year"": 2008,
                     ""status"": ""ended"",
                     ""images"": {
-                      ""poster"": {
-                        ""full"": ""https://walter.trakt.us/images/shows/000/000/001/posters/original/7217fe0ea7.jpg?1412271410"",
-                        ""medium"": ""https://walter.trakt.us/images/shows/000/000/001/posters/medium/7217fe0ea7.jpg?1412271410"",
-                        ""thumb"": ""https://walter.trakt.us/images/shows/000/000/001/posters/thumb/7217fe0ea7.jpg?1412271410""
-                      },
-                      ""fanart"": {
-                        ""full"": ""https://walter.trakt.us/images/shows/000/000/001/fanarts/original/2fb47044fd.jpg?1412271412"",
-                        ""medium"": ""https://walter.trakt.us/images/shows/000/000/001/fanarts/medium/2fb47044fd.jpg?1412271412"",
-                        ""thumb"": ""https://walter.trakt.us/images/shows/000/000/001/fanarts/thumb/2fb47044fd.jpg?1412271412""
-                      }
+                      ""poster"": [""https://walter.trakt.us/images/shows/000/000/001/posters/original/7217fe0ea7.jpg?1412271410""],
+                      ""thumb"": [""https://walter.trakt.us/images/shows/000/000/001/posters/thumb/7217fe0ea7.jpg?1412271410""],
+                      ""fanart"": [""https://walter.trakt.us/images/shows/000/000/001/fanarts/original/2fb47044fd.jpg?1412271412""]
                     },
                     ""ids"": {
                       ""trakt"": 1,
@@ -121,11 +107,7 @@
                     ""title"": ""Gray Matter"",
                     ""overview"": ""Walter and Skyler attend a former colleague's party. Jesse tries to free himself from the drugs, while Skyler organizes an intervention."",
                     ""images"": {
-                      ""screenshot"": {
-                        ""full"": ""https://walter.trakt.us/images/episodes/000/000/062/screenshots/original/dbb0a11808.jpg?1412374314"",
-                        ""medium"": ""https://walter.trakt.us/images/episodes/000/000/062/screenshots/medium/dbb0a11808.jpg?1412374314"",
-                        ""thumb"": ""https://walter.trakt.us/images/episodes/000/000/062/screenshots/thumb/dbb0a11808.jpg?1412374314""
-                      }
+                      ""screenshot"": [""https://walter.trakt.us/images/episodes/000/000/062/screenshots/original/dbb0a11808.jpg?1412374314""]
                     },
                     ""ids"": {
                       ""trakt"": 20,
@@ -149,11 +131,8 @@
                   ""person"": {
                     ""name"": ""Bryan Cranston"",
                     ""images"": {
-                      ""headshot"": {
-                        ""full"": ""https://walter.trakt.us/images/people/000/000/001/headshots/original/47aebaace9.jpg?1412273271"",
-                        ""medium"": ""https://walter.trakt.us/images/people/000/000/001/headshots/medium/47aebaace9.jpg?1412273271"",
-                        ""thumb"": ""https://walter.trakt.us/images/people/000/000/001/headshots/thumb/47aebaace9.jpg?1412273271""
-                      }
+                      ""headshot"": [""https://walter.trakt.us/images/people/000/000/001/headshots/original/47aebaace9.jpg?1412273271""],
+                      ""fanart"": [""https://walter.trakt.us/images/people/000/000/001/fanarts/original/47aebaace9.jpg?1412273271""]
                     },
                     ""ids"": {
                       ""trakt"": 1,
@@ -193,16 +172,9 @@
                     ""overview"": ""When an unexpected enemy emerges and threatens global safety and security, Nick Fury, director of the international peacekeeping agency known as S.H.I.E.L.D., finds himself in need of a team to pull the world back from the brink of disaster. Spanning the globe, a daring recruitment effort begins!"",
                     ""year"": 2012,
                     ""images"": {
-                      ""poster"": {
-                        ""full"": ""https://walter.trakt.us/images/movies/000/000/012/posters/original/293ce7103a.jpg?1406080484"",
-                        ""medium"": ""https://walter.trakt.us/images/movies/000/000/012/posters/medium/293ce7103a.jpg?1406080484"",
-                        ""thumb"": ""https://walter.trakt.us/images/movies/000/000/012/posters/thumb/293ce7103a.jpg?1406080484""
-                      },
-                      ""fanart"": {
-                        ""full"": ""https://walter.trakt.us/images/movies/000/000/012/fanarts/original/7d93500475.jpg?1406080485"",
-                        ""medium"": ""https://walter.trakt.us/images/movies/000/000/012/fanarts/medium/7d93500475.jpg?1406080485"",
-                        ""thumb"": ""https://walter.trakt.us/images/movies/000/000/012/fanarts/thumb/7d93500475.jpg?1406080485""
-                      }
+                      ""poster"": [""https://walter.trakt.us/images/movies/000/000/012/posters/original/293ce7103a.jpg?1406080484""],
+                      ""thumb"": [""https://walter.trakt.us/images/movies/000/000/012/posters/thumb/293ce7103a.jpg?1406080484""],
+                      ""fanart"": [""https://walter.trakt.us/images/movies/000/000/012/fanarts/original/7d93500475.jpg?1406080485""]
                     },
                     ""ids"": {
                       ""trakt"": 12,

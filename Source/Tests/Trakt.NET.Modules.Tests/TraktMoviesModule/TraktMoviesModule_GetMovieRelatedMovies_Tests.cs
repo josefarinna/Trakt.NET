@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Movies")]
+    [Trait("Category", "Modules.Movies")]
     public partial class TraktMoviesModule_Tests
     {
         private readonly string GET_MOVIE_RELATED_MOVIES_URI = $"movies/{MOVIE_ID}/related";
@@ -175,7 +174,7 @@
                                                            MOVIE_RELATED_MOVIES_JSON, PAGE, 10, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, null, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -194,7 +193,7 @@
                                                            MOVIE_RELATED_MOVIES_JSON, PAGE, 10, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -213,7 +212,7 @@
                                                            MOVIE_RELATED_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, null, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -232,7 +231,7 @@
                                                            MOVIE_RELATED_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -251,7 +250,7 @@
                                                            MOVIE_RELATED_MOVIES_JSON, PAGE, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, null, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -270,7 +269,7 @@
                                                            MOVIE_RELATED_MOVIES_JSON, PAGE, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -289,7 +288,7 @@
                 MOVIE_RELATED_MOVIES_JSON, 2, LIMIT, 5, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -310,7 +309,7 @@
                 MOVIE_RELATED_MOVIES_JSON, 2, LIMIT, 2, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -331,7 +330,7 @@
                 MOVIE_RELATED_MOVIES_JSON, 1, LIMIT, 2, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -352,7 +351,7 @@
                 MOVIE_RELATED_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -373,7 +372,7 @@
                 MOVIE_RELATED_MOVIES_JSON, 2, LIMIT, 2, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -389,7 +388,7 @@
             TestUtility.ResetMockClient(client, $"{GET_MOVIE_RELATED_MOVIES_URI}?extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 MOVIE_RELATED_MOVIES_JSON, 1, LIMIT, 2, ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -410,7 +409,7 @@
                 MOVIE_RELATED_MOVIES_JSON, 1, LIMIT, 2, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(MOVIE_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -426,7 +425,7 @@
             TestUtility.ResetMockClient(client, $"{GET_MOVIE_RELATED_MOVIES_URI}?extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 MOVIE_RELATED_MOVIES_JSON, 2, LIMIT, 2, ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

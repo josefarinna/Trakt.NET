@@ -4,7 +4,7 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Parameters;
@@ -12,7 +12,7 @@
     using TraktNet.Requests.Search;
     using Xunit;
 
-    [TestCategory("Requests.Search")]
+    [Trait("Category", "Requests.Search")]
     public class SearchTextQueryRequest_Tests
     {
         [Fact]

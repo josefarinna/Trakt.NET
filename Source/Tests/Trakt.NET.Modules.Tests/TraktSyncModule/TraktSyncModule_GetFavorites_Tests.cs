@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Users;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Sync")]
+    [Trait("Category", "Modules.Sync")]
     public partial class TraktSyncModule_Tests
     {
         private readonly string GET_FAVORITES_URI = $"sync/favorites";
@@ -105,7 +104,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, null, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -127,7 +126,7 @@
             var pagedParameters = new TraktPagedParameters(null, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, null, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -149,7 +148,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, null, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -191,7 +190,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -213,7 +212,7 @@
             var pagedParameters = new TraktPagedParameters(null, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -235,7 +234,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -257,7 +256,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, null, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -279,7 +278,7 @@
             var pagedParameters = new TraktPagedParameters(null, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, null, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -301,7 +300,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, null, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -343,7 +342,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(null, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -365,7 +364,7 @@
             var pagedParameters = new TraktPagedParameters(null, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(null, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -387,7 +386,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(null, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -409,7 +408,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(null, null, null, pagedParameters);
+                await client.Sync.GetFavoritesAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -431,7 +430,7 @@
             var pagedParameters = new TraktPagedParameters(null, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(null, null, null, pagedParameters);
+                await client.Sync.GetFavoritesAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -453,7 +452,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(null, null, null, pagedParameters);
+                await client.Sync.GetFavoritesAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -476,7 +475,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -499,7 +498,7 @@
             var pagedParameters = new TraktPagedParameters(2, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -524,7 +523,7 @@
             var pagedParameters = new TraktPagedParameters(2, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -549,7 +548,7 @@
             var pagedParameters = new TraktPagedParameters(1, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -574,7 +573,7 @@
             var pagedParameters = new TraktPagedParameters(1, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -599,7 +598,7 @@
             var pagedParameters = new TraktPagedParameters(2, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -617,7 +616,7 @@
                 $"?extended={EXTENDED_INFO}&page=1&limit={FAVORITES_LIMIT}",
                 FAVORITES_JSON, 1, FAVORITES_LIMIT, 2, FAVORITES_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -642,7 +641,7 @@
             var pagedParameters = new TraktPagedParameters(1, FAVORITES_LIMIT);
 
             TraktPagedResponse<ITraktFavorite> response =
-                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetFavoritesAsync(FAVORITE_TYPE, FAVORITES_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -660,7 +659,7 @@
                 $"?extended={EXTENDED_INFO}&page=2&limit={FAVORITES_LIMIT}",
                 FAVORITES_JSON, 2, FAVORITES_LIMIT, 2, FAVORITES_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

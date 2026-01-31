@@ -3,7 +3,7 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Users;
@@ -11,7 +11,7 @@
     using TraktNet.Requests.Users.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Users.OAuth")]
+    [Trait("Category", "Requests.Users.OAuth")]
     public class UserPersonalListAddRequest_Tests
     {
         [Fact]

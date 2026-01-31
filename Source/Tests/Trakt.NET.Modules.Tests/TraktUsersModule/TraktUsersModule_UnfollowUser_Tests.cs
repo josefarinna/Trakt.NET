@@ -5,12 +5,11 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string UNFOLLOW_USER_URI = $"users/{USERNAME}/follow";
@@ -19,7 +18,7 @@
         public async Task Test_TraktUsersModule_UnfollowUser()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(UNFOLLOW_USER_URI, HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UnfollowUserAsync(USERNAME);
+            TraktNoContentResponse response = await client.Users.UnfollowUserAsync(USERNAME, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -48,7 +47,7 @@
 
             try
             {
-                await client.Users.UnfollowUserAsync(USERNAME);
+                await client.Users.UnfollowUserAsync(USERNAME, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

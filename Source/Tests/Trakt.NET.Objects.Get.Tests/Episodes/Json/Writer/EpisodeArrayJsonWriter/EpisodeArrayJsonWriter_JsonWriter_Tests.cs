@@ -6,13 +6,13 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Episodes;
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Get.Episodes.JsonWriter")]
+    [Trait("Category", "Objects.Get.Episodes.JsonWriter")]
     public partial class EpisodeArrayJsonWriter_Tests
     {
         private static readonly DateTime FIRST_AIRED = DateTime.UtcNow.AddMonths(-1);

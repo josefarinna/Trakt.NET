@@ -5,7 +5,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Syncs.Playback;
@@ -13,7 +12,7 @@
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Sync")]
+    [Trait("Category", "Modules.Sync")]
     public partial class TraktSyncModule_Tests
     {
         private const string GET_PLAYBACK_PROGRESS_URI = "sync/playback";
@@ -102,7 +101,7 @@
 
             var pagedParameters = new TraktPagedParameters(PAGE);
 
-            TraktPagedResponse<ITraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, pagedParameters);
+            TraktPagedResponse<ITraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -123,7 +122,7 @@
 
             var pagedParameters = new TraktPagedParameters(null, PLAYBACK_PROGRESS_LIMIT);
 
-            TraktPagedResponse<ITraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, pagedParameters);
+            TraktPagedResponse<ITraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -144,7 +143,7 @@
 
             var pagedParameters = new TraktPagedParameters(PAGE, PLAYBACK_PROGRESS_LIMIT);
 
-            TraktPagedResponse<ITraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, pagedParameters);
+            TraktPagedResponse<ITraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -168,7 +167,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, PLAYBACK_PROGRESS_LIMIT);
 
             TraktPagedResponse<ITraktSyncPlaybackProgressItem> response =
-                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters);
+                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -192,7 +191,7 @@
             var pagedParameters = new TraktPagedParameters(2, PLAYBACK_PROGRESS_LIMIT);
 
             TraktPagedResponse<ITraktSyncPlaybackProgressItem> response =
-                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters);
+                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -218,7 +217,7 @@
             var pagedParameters = new TraktPagedParameters(2, PLAYBACK_PROGRESS_LIMIT);
 
             TraktPagedResponse<ITraktSyncPlaybackProgressItem> response =
-                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters);
+                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -244,7 +243,7 @@
             var pagedParameters = new TraktPagedParameters(1, PLAYBACK_PROGRESS_LIMIT);
 
             TraktPagedResponse<ITraktSyncPlaybackProgressItem> response =
-                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters);
+                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -270,7 +269,7 @@
             var pagedParameters = new TraktPagedParameters(1, PLAYBACK_PROGRESS_LIMIT);
 
             TraktPagedResponse<ITraktSyncPlaybackProgressItem> response =
-                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters);
+                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -296,7 +295,7 @@
             var pagedParameters = new TraktPagedParameters(2, PLAYBACK_PROGRESS_LIMIT);
 
             TraktPagedResponse<ITraktSyncPlaybackProgressItem> response =
-                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters);
+                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -315,7 +314,7 @@
                 $"&page=1&limit={PLAYBACK_PROGRESS_LIMIT}",
                 PLAYBACK_PROGRESS_JSON, 1, PLAYBACK_PROGRESS_LIMIT, 2, PLAYBACK_PROGRESS_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -341,7 +340,7 @@
             var pagedParameters = new TraktPagedParameters(1, PLAYBACK_PROGRESS_LIMIT);
 
             TraktPagedResponse<ITraktSyncPlaybackProgressItem> response =
-                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters);
+                await client.Sync.GetPlaybackProgressAsync(PLAYBACK_PROGRESS_TYPE, PLAYBACK_PROGRESS_START_AT, PLAYBACK_PROGRESS_END_AT, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -360,7 +359,7 @@
                 $"&page=2&limit={PLAYBACK_PROGRESS_LIMIT}",
                 PLAYBACK_PROGRESS_JSON, 2, PLAYBACK_PROGRESS_LIMIT, 2, PLAYBACK_PROGRESS_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

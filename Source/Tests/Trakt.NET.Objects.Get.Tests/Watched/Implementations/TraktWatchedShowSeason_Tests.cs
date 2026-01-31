@@ -4,12 +4,12 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Watched;
     using TraktNet.Objects.Get.Watched.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Watched.Implementations")]
+    [Trait("Category", "Objects.Get.Watched.Implementations")]
     public class TraktWatchedShowSeason_Tests
     {
         [Fact]

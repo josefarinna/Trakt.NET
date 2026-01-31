@@ -1,11 +1,11 @@
 ﻿namespace TraktNet.Requests.Tests.Certifications
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Certifications;
     using Xunit;
 
-    [TestCategory("Requests.Certifications")]
+    [Trait("Category", "Requests.Certifications")]
     public class MovieCertificationsRequest_Tests
     {
         [Fact]

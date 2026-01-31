@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Objects.Post.Comments;
     using Xunit;
 
-    [TestCategory("PostBuilder")]
+    [Trait("Category", "PostBuilder")]
     public partial class TraktPost_ListCommentPostBuilder_Tests
     {
         [Fact]

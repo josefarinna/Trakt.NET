@@ -5,13 +5,13 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Objects.Get.Lists.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Lists.JsonReader")]
+    [Trait("Category", "Objects.Get.Lists.JsonReader")]
     public partial class TrendingOrPopularListObjectJsonReader_Tests_Json_Data
     {
         [Fact]

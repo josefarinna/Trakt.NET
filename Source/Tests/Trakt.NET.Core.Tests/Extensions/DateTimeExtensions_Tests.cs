@@ -2,11 +2,10 @@
 {
     using FluentAssertions;
     using System;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Extensions;
     using Xunit;
 
-    [TestCategory("Extensions")]
+    [Trait("Category", "Extensions")]
     public class DateTimeExtensions_Tests
     {
         [Fact]

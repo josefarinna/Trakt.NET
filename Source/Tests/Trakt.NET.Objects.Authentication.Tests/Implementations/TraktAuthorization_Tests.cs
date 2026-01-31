@@ -4,13 +4,13 @@
     using System;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Authentication;
     using TraktNet.Objects.Authentication.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Authentication.Implementations")]
+    [Trait("Category", "Objects.Authentication.Implementations")]
     public class TraktAuthorization_Tests
     {
         private static readonly DateTime s_timestampOriginPlusCurrent = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(1506271312);

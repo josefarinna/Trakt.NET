@@ -5,13 +5,12 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private readonly string GET_SHOW_CERTIFICATIONS_URI = $"shows/{SHOW_ID}/certifications";

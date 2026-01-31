@@ -4,12 +4,12 @@
     using Newtonsoft.Json;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Basic.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Basic.JsonReader")]
+    [Trait("Category", "Objects.Basic.JsonReader")]
     public partial class SearchResultObjectJsonReader_Tests
     {
         [Fact]

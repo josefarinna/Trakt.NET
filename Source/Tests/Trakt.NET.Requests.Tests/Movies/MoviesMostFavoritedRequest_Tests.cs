@@ -3,13 +3,13 @@ namespace TraktNet.Requests.Tests.Movies
     using FluentAssertions;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Parameters;
     using TraktNet.Requests.Movies;
     using Xunit;
 
-    [TestCategory("Requests.Movies.Lists")]
+    [Trait("Category", "Requests.Movies.Lists")]
     public class MoviesMostFavoritedRequest_Tests
     {
         [Fact]

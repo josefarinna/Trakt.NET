@@ -4,12 +4,12 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Episodes;
     using TraktNet.Objects.Get.Episodes.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Episodes.Implementations")]
+    [Trait("Category", "Objects.Get.Episodes.Implementations")]
     public class TraktEpisode_Tests
     {
         [Fact]

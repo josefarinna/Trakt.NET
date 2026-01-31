@@ -3,13 +3,13 @@ namespace TraktNet.Objects.Get.Tests.Syncs.Activities.Json.Writer
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Syncs.Activities;
     using TraktNet.Objects.Get.Syncs.Activities.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Get.Syncs.Activities.JsonWriter")]
+    [Trait("Category", "Objects.Get.Syncs.Activities.JsonWriter")]
     public class SyncEpisodesLastActivitiesObjectJsonWriter_Tests
     {
         private readonly DateTime WATCHED_AT = DateTime.UtcNow;

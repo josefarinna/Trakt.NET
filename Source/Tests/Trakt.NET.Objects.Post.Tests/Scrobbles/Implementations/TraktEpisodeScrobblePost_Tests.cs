@@ -2,14 +2,14 @@
 {
     using FluentAssertions;
     using System;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Episodes;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Objects.Post.Scrobbles;
     using Xunit;
 
-    [TestCategory("Objects.Post.Scrobbles.Implementations")]
+    [Trait("Category", "Objects.Post.Scrobbles.Implementations")]
     public class TraktEpisodeScrobblePost_Tests
     {
         [Fact]

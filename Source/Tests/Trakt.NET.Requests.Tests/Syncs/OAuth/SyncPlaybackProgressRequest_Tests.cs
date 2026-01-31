@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Requests.Syncs.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Syncs.OAuth")]
+    [Trait("Category", "Requests.Syncs.OAuth")]
     public class SyncPlaybackProgressRequest_Tests
     {
         [Fact]

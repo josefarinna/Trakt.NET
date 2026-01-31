@@ -4,13 +4,13 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Objects.Get.Lists.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Lists.Implementations")]
+    [Trait("Category", "Objects.Get.Lists.Implementations")]
     public class TraktListItem_Tests
     {
         [Fact]

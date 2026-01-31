@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Comments;
     using TraktNet.Objects.Post.Comments.Responses;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Comments")]
+    [Trait("Category", "Modules.Comments")]
     public partial class TraktCommentsModule_Tests
     {
         private const string POST_LIST_COMMENT_URI = "comments";

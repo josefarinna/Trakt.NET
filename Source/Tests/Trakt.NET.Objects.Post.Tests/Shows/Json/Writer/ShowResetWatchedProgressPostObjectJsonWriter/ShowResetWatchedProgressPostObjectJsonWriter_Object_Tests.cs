@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Extensions;
     using TraktNet.Objects.Post.Shows;
     using TraktNet.Objects.Post.Shows.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Post.Shows.JsonWriter")]
+    [Trait("Category", "Objects.Post.Shows.JsonWriter")]
     public partial class ShowResetWatchedProgressPostObjectJsonWriter_Tests
     {
         [Fact]

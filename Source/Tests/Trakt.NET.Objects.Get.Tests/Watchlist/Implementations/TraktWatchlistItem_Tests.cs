@@ -4,13 +4,13 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.Watchlist;
     using TraktNet.Objects.Get.Watchlist.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Watchlist.Implementations")]
+    [Trait("Category", "Objects.Get.Watchlist.Implementations")]
     public class TraktWatchlistItem_Tests
     {
         [Fact]

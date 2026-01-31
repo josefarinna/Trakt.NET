@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Users;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_FRIENDS_URI = $"users/{USERNAME}/friends";

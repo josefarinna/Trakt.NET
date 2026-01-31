@@ -5,13 +5,13 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.Collections;
     using TraktNet.Objects.Get.Collections.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Collections.JsonReader")]
+    [Trait("Category", "Objects.Get.Collections.JsonReader")]
     public partial class CollectionMovieObjectJsonReader_Tests
     {
         [Fact]

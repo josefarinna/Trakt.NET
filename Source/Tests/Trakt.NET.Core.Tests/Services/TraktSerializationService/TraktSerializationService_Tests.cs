@@ -4,13 +4,12 @@
     using System;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Enums;
     using TraktNet.Objects.Authentication;
     using TraktNet.Services;
     using Xunit;
 
-    [TestCategory("Services")]
+    [Trait("Category", "Services")]
     public partial class TraktSerializationService_Tests
     {
         [Fact]

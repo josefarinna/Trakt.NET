@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private const string GET_TRENDING_SHOWS_URI = "shows/trending";
@@ -25,7 +24,7 @@
                 TRENDING_SHOWS_JSON, 1, 10, 1, ITEM_COUNT, USER_COUNT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync();
+                await client.Shows.GetTrendingShowsAsync(cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -46,7 +45,7 @@
                 TRENDING_SHOWS_JSON, 1, 10, 1, ITEM_COUNT, USER_COUNT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(null, FILTER);
+                await client.Shows.GetTrendingShowsAsync(null, FILTER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -67,7 +66,7 @@
                 TRENDING_SHOWS_JSON, 1, 10, 1, ITEM_COUNT, USER_COUNT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -88,7 +87,7 @@
                 TRENDING_SHOWS_JSON, 1, 10, 1, ITEM_COUNT, USER_COUNT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, FILTER);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, FILTER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -111,7 +110,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(null, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(null, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -134,7 +133,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(null, FILTER, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(null, FILTER, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -157,7 +156,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -180,7 +179,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, FILTER, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, FILTER, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -203,7 +202,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(null, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(null, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -226,7 +225,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(null, FILTER, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(null, FILTER, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -249,7 +248,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -272,7 +271,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, FILTER, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, FILTER, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -295,7 +294,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(null, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(null, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -318,7 +317,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(null, FILTER, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(null, FILTER, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -341,7 +340,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -364,7 +363,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, FILTER, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, FILTER, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -387,7 +386,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -412,7 +411,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -437,7 +436,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -462,7 +461,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -487,7 +486,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -505,7 +504,7 @@
                 $"{GET_TRENDING_SHOWS_URI}?extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 TRENDING_SHOWS_JSON, 1, LIMIT, 2, ITEM_COUNT, USER_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(cancellationToken: TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -530,7 +529,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktTrendingShow> response =
-                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetTrendingShowsAsync(EXTENDED_INFO, null, pagedParameters, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -548,7 +547,7 @@
                 $"{GET_TRENDING_SHOWS_URI}?extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 TRENDING_SHOWS_JSON, 2, LIMIT, 2, ITEM_COUNT, USER_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(cancellationToken: TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -586,7 +585,7 @@
 
             try
             {
-                await client.Shows.GetTrendingShowsAsync();
+                await client.Shows.GetTrendingShowsAsync(cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

@@ -5,7 +5,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Objects.Get.Shows;
@@ -13,7 +12,7 @@
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private readonly string GET_SHOW_LISTS_URI = $"shows/{SHOW_ID}/lists";
@@ -25,7 +24,7 @@
                 SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
             TraktPagedResponse<ITraktList> response =
-                await client.Shows.GetShowListsAsync(SHOW_ID);
+                await client.Shows.GetShowListsAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -43,7 +42,7 @@
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/lists",
                 SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            TraktPagedResponse<ITraktList> response = await client.Shows.GetShowListsAsync(TRAKT_SHOD_ID);
+            TraktPagedResponse<ITraktList> response = await client.Shows.GetShowListsAsync(TRAKT_SHOD_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -66,7 +65,7 @@
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/lists",
                 SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            TraktPagedResponse<ITraktList> response = await client.Shows.GetShowListsAsync(showIds);
+            TraktPagedResponse<ITraktList> response = await client.Shows.GetShowListsAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -89,7 +88,7 @@
             TraktClient client = TestUtility.GetMockClient($"shows/{SHOW_SLUG}/lists",
                 SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            TraktPagedResponse<ITraktList> response = await client.Shows.GetShowListsAsync(showIds);
+            TraktPagedResponse<ITraktList> response = await client.Shows.GetShowListsAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -113,7 +112,7 @@
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/lists",
                 SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            TraktPagedResponse<ITraktList> response = await client.Shows.GetShowListsAsync(showIds);
+            TraktPagedResponse<ITraktList> response = await client.Shows.GetShowListsAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -140,7 +139,7 @@
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/lists",
                 SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            TraktPagedResponse<ITraktList> response = await client.Shows.GetShowListsAsync(show);
+            TraktPagedResponse<ITraktList> response = await client.Shows.GetShowListsAsync(show, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -158,7 +157,7 @@
             TraktClient client = TestUtility.GetMockClient($"{GET_SHOW_LISTS_URI}/{LIST_ITEM_TYPE.UriName}",
                                                            SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -176,7 +175,7 @@
             TraktClient client = TestUtility.GetMockClient(GET_SHOW_LISTS_URI,
                                                            SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, LIST_SORT_ORDER);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, LIST_SORT_ORDER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -194,7 +193,7 @@
             TraktClient client = TestUtility.GetMockClient($"{GET_SHOW_LISTS_URI}?extended={EXTENDED_INFO}",
                                                            SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, EXTENDED_INFO);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -213,7 +212,7 @@
                                                            SHOW_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -232,7 +231,7 @@
                                                            SHOW_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -250,7 +249,7 @@
             TraktClient client = TestUtility.GetMockClient($"{GET_SHOW_LISTS_URI}/{LIST_ITEM_TYPE.UriName}/{LIST_SORT_ORDER.UriName}",
                                                            SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -269,7 +268,7 @@
                 $"{GET_SHOW_LISTS_URI}/{LIST_ITEM_TYPE.UriName}?extended={EXTENDED_INFO}",
                 SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, null, EXTENDED_INFO);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -288,7 +287,7 @@
                                                            SHOW_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, null, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -307,7 +306,7 @@
                                                            SHOW_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, null, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -326,7 +325,7 @@
                                                            SHOW_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, null, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -344,7 +343,7 @@
             TraktClient client = TestUtility.GetMockClient($"{GET_SHOW_LISTS_URI}?extended={EXTENDED_INFO}",
                                                            SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, LIST_SORT_ORDER, EXTENDED_INFO);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, LIST_SORT_ORDER, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -363,7 +362,7 @@
                                                            SHOW_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -382,7 +381,7 @@
                                                            SHOW_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -401,7 +400,7 @@
                                                            SHOW_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -421,7 +420,7 @@
                 SHOW_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, EXTENDED_INFO, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -441,7 +440,7 @@
                 SHOW_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, EXTENDED_INFO, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -461,7 +460,7 @@
                 SHOW_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, EXTENDED_INFO, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -480,7 +479,7 @@
                                                            SHOW_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -499,7 +498,7 @@
                 $"{GET_SHOW_LISTS_URI}/{LIST_ITEM_TYPE.UriName}/{LIST_SORT_ORDER.UriName}?extended={EXTENDED_INFO}",
                 SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, EXTENDED_INFO);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -518,7 +517,7 @@
                                                            SHOW_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -537,7 +536,7 @@
                                                            SHOW_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -557,7 +556,7 @@
                 SHOW_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -578,7 +577,7 @@
                 SHOW_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -599,7 +598,7 @@
                 SHOW_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -620,7 +619,7 @@
                 SHOW_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+            var response = await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -642,7 +641,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktList> response =
-                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -666,7 +665,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktList> response =
-                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -690,7 +689,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktList> response =
-                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -714,7 +713,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktList> response =
-                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -738,7 +737,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktList> response =
-                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -755,7 +754,7 @@
                 $"{GET_SHOW_LISTS_URI}/{LIST_ITEM_TYPE.UriName}/{LIST_SORT_ORDER.UriName}?page=1&limit={LIMIT}",
                 SHOW_LISTS_JSON, 1, LIMIT, 2, LISTS_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -779,7 +778,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktList> response =
-                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+                await client.Shows.GetShowListsAsync(SHOW_ID, LIST_ITEM_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -796,7 +795,7 @@
                 $"{GET_SHOW_LISTS_URI}/{LIST_ITEM_TYPE.UriName}/{LIST_SORT_ORDER.UriName}?page=2&limit={LIMIT}",
                 SHOW_LISTS_JSON, 2, LIMIT, 2, LISTS_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -833,7 +832,7 @@
 
             try
             {
-                await client.Shows.GetShowListsAsync(SHOW_ID);
+                await client.Shows.GetShowListsAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -847,7 +846,7 @@
         {
             TraktClient client = TestUtility.GetMockClient(GET_SHOW_LISTS_URI, SHOW_LISTS_JSON, 1, 10, 1, LISTS_ITEM_COUNT);
 
-            Func<Task<TraktPagedResponse<ITraktList>>> act = () => client.Shows.GetShowListsAsync(default(ITraktShowIds));
+            Func<Task<TraktPagedResponse<ITraktList>>> act = () => client.Shows.GetShowListsAsync(default(ITraktShowIds), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
             act = () => client.Shows.GetShowListsAsync(default(ITraktShow));

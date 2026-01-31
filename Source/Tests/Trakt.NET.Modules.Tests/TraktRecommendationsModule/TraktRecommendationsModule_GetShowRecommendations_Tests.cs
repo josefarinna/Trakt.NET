@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Recommendations;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Recommendations")]
+    [Trait("Category", "Modules.Recommendations")]
     public partial class TraktRecommendationsModule_Tests
     {
         private const string GET_SHOW_RECOMMENDATIONS_URI = "recommendations/shows";
@@ -139,7 +138,7 @@
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
-            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -159,7 +158,7 @@
                 SHOW_RECOMMENDATIONS_JSON, 2, LIMIT, 5, SHOW_RECOMMENDATIONS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -181,7 +180,7 @@
                 SHOW_RECOMMENDATIONS_JSON, 2, LIMIT, 2, SHOW_RECOMMENDATIONS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -203,7 +202,7 @@
                 SHOW_RECOMMENDATIONS_JSON, 1, LIMIT, 2, SHOW_RECOMMENDATIONS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -225,7 +224,7 @@
                 SHOW_RECOMMENDATIONS_JSON, 1, LIMIT, 1, SHOW_RECOMMENDATIONS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -247,7 +246,7 @@
                 SHOW_RECOMMENDATIONS_JSON, 2, LIMIT, 2, SHOW_RECOMMENDATIONS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -264,7 +263,7 @@
                 $"?ignore_collected=true&ignore_watchlisted=true&extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 SHOW_RECOMMENDATIONS_JSON, 1, LIMIT, 2, SHOW_RECOMMENDATIONS_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -286,7 +285,7 @@
                 SHOW_RECOMMENDATIONS_JSON, 1, LIMIT, 2, SHOW_RECOMMENDATIONS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecommendedShow> response = await client.Recommendations.GetShowRecommendationsAsync(true, true, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -303,7 +302,7 @@
                 $"?ignore_collected=true&ignore_watchlisted=true&extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 SHOW_RECOMMENDATIONS_JSON, 2, LIMIT, 2, SHOW_RECOMMENDATIONS_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

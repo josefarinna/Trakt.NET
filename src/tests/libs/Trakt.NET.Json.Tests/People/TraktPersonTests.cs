@@ -59,11 +59,11 @@
 
             person!.Images!.Headshot.ShouldNotBeNull();
             person!.Images!.Headshot!.Count.ShouldBe(1);
-            person!.Images!.Headshot!.ShouldBe([ "walter-r2.trakt.tv/images/people/000/297/737/headshots/thumb/ef96a1e565.jpg.webp" ]);
+            person!.Images!.Headshot!.ShouldBe(["walter-r2.trakt.tv/images/people/000/297/737/headshots/thumb/ef96a1e565.jpg.webp"]);
 
             person!.Images!.Fanart.ShouldNotBeNull();
             person!.Images!.Fanart!.Count.ShouldBe(1);
-            person!.Images!.Fanart!.ShouldBe([ "walter-r2.trakt.tv/images/people/000/297/737/fanarts/medium/ec609f5bcc.jpg.webp" ]);
+            person!.Images!.Fanart!.ShouldBe(["walter-r2.trakt.tv/images/people/000/297/737/fanarts/medium/ec609f5bcc.jpg.webp"]);
         }
 
         [Fact]
@@ -151,11 +151,11 @@
 
             person!.Images!.Headshot.ShouldNotBeNull();
             person!.Images!.Headshot!.Count.ShouldBe(1);
-            person!.Images!.Headshot!.ShouldBe([ "walter-r2.trakt.tv/images/people/000/297/737/headshots/thumb/ef96a1e565.jpg.webp" ]);
+            person!.Images!.Headshot!.ShouldBe(["walter-r2.trakt.tv/images/people/000/297/737/headshots/thumb/ef96a1e565.jpg.webp"]);
 
             person!.Images!.Fanart.ShouldNotBeNull();
             person!.Images!.Fanart!.Count.ShouldBe(1);
-            person!.Images!.Fanart!.ShouldBe([ "walter-r2.trakt.tv/images/people/000/297/737/fanarts/medium/ec609f5bcc.jpg.webp" ]);
+            person!.Images!.Fanart!.ShouldBe(["walter-r2.trakt.tv/images/people/000/297/737/fanarts/medium/ec609f5bcc.jpg.webp"]);
         }
     }
 }

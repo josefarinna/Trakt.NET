@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Objects.Post.Syncs.Favorites;
     using TraktNet.Objects.Post.Syncs.Favorites.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Post.Syncs.Favorites.JsonWriter")]
+    [Trait("Category", "Objects.Post.Syncs.Favorites.JsonWriter")]
     public partial class SyncFavoritesPostMovieObjectJsonWriter_Tests
     {
         [Fact]

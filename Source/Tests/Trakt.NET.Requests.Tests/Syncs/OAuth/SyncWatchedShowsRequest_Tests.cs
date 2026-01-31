@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Parameters;
     using TraktNet.Requests.Syncs.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Syncs.OAuth")]
+    [Trait("Category", "Requests.Syncs.OAuth")]
     public class SyncWatchedShowsRequest_Tests
     {
         [Fact]

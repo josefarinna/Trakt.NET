@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private readonly string GET_SHOW_RELATED_SHOWS_URI = $"shows/{SHOW_ID}/related";
@@ -25,7 +24,7 @@
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -43,7 +42,7 @@
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/related",
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
             
-            TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TRAKT_SHOD_ID);
+            TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TRAKT_SHOD_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -66,7 +65,7 @@
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/related",
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
             
-            TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIds);
+            TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -89,7 +88,7 @@
             TraktClient client = TestUtility.GetMockClient($"shows/{SHOW_SLUG}/related",
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
             
-            TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIds);
+            TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -113,7 +112,7 @@
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/related",
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
             
-            TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIds);
+            TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -140,7 +139,7 @@
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/related",
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
 
-            TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(show);
+            TraktPagedResponse<ITraktShow> response = await client.Shows.GetShowRelatedShowsAsync(show, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -160,7 +159,7 @@
                 SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -182,7 +181,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, null, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -204,7 +203,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -226,7 +225,7 @@
             var pagedParameters = new TraktPagedParameters(null, RELATED_SHOWS_LIMIT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, null, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -248,7 +247,7 @@
             var pagedParameters = new TraktPagedParameters(null, RELATED_SHOWS_LIMIT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -270,7 +269,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, RELATED_SHOWS_LIMIT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, null, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -292,7 +291,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, RELATED_SHOWS_LIMIT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -314,7 +313,7 @@
             var pagedParameters = new TraktPagedParameters(2, RELATED_SHOWS_LIMIT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -338,7 +337,7 @@
             var pagedParameters = new TraktPagedParameters(2, RELATED_SHOWS_LIMIT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -362,7 +361,7 @@
             var pagedParameters = new TraktPagedParameters(1, RELATED_SHOWS_LIMIT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -386,7 +385,7 @@
             var pagedParameters = new TraktPagedParameters(1, RELATED_SHOWS_LIMIT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -410,7 +409,7 @@
             var pagedParameters = new TraktPagedParameters(2, RELATED_SHOWS_LIMIT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -427,7 +426,7 @@
                 $"{GET_SHOW_RELATED_SHOWS_URI}?extended={EXTENDED_INFO}&page=1&limit={RELATED_SHOWS_LIMIT}",
                 SHOW_RELATED_SHOWS_JSON, 1, RELATED_SHOWS_LIMIT, 2, ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -451,7 +450,7 @@
             var pagedParameters = new TraktPagedParameters(1, RELATED_SHOWS_LIMIT);
 
             TraktPagedResponse<ITraktShow> response =
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -468,7 +467,7 @@
                 $"{GET_SHOW_RELATED_SHOWS_URI}?extended={EXTENDED_INFO}&page=2&limit={RELATED_SHOWS_LIMIT}",
                 SHOW_RELATED_SHOWS_JSON, 2, RELATED_SHOWS_LIMIT, 2, ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -505,7 +504,7 @@
 
             try
             {
-                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID);
+                await client.Shows.GetShowRelatedShowsAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -519,16 +518,16 @@
         {
             TraktClient client = TestUtility.GetMockClient(GET_SHOW_RELATED_SHOWS_URI, SHOW_RELATED_SHOWS_JSON, 1, 10, 1, ITEM_COUNT);
 
-            Func<Task<TraktPagedResponse<ITraktShow>>> act = () => client.Shows.GetShowRelatedShowsAsync(default(ITraktShowIds));
+            Func<Task<TraktPagedResponse<ITraktShow>>> act = () => client.Shows.GetShowRelatedShowsAsync(default(ITraktShowIds), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowRelatedShowsAsync(default(ITraktShow));
+            act = () => client.Shows.GetShowRelatedShowsAsync(default(ITraktShow), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowRelatedShowsAsync(new TraktShowIds());
+            act = () => client.Shows.GetShowRelatedShowsAsync(new TraktShowIds(), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Shows.GetShowRelatedShowsAsync(0);
+            act = () => client.Shows.GetShowRelatedShowsAsync(0, cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

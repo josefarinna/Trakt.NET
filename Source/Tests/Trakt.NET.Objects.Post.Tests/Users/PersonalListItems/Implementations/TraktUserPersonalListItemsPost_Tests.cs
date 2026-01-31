@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Users.PersonalListItems;
     using Xunit;
 
-    [TestCategory("Objects.Post.Users.PersonalListItems.Implementations")]
+    [Trait("Category", "Objects.Post.Users.PersonalListItems.Implementations")]
     public class TraktUserPersonalListItemsPost_Tests
     {
         [Fact]

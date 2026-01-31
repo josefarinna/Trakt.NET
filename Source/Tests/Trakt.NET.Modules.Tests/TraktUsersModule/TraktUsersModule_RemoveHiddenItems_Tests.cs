@@ -6,14 +6,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Responses;
     using TraktNet.Objects.Post.Users.HiddenItems.Responses;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         [Fact]
@@ -26,7 +25,7 @@
                 RemoveHiddenItemsUri, postJson, HIDDEN_ITEMS_REMOVE_POST_RESPONSE_JSON);
 
             TraktResponse<ITraktUserHiddenItemsRemovePostResponse> response =
-                await client.Users.RemoveHiddenItemsAsync(HiddenItemsRemovePost, HIDDEN_ITEMS_SECTION);
+                await client.Users.RemoveHiddenItemsAsync(HiddenItemsRemovePost, HIDDEN_ITEMS_SECTION, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -78,7 +77,7 @@
 
             try
             {
-                await client.Users.RemoveHiddenItemsAsync(HiddenItemsRemovePost, HIDDEN_ITEMS_SECTION);
+                await client.Users.RemoveHiddenItemsAsync(HiddenItemsRemovePost, HIDDEN_ITEMS_SECTION, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Extensions;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Movies")]
+    [Trait("Category", "Modules.Movies")]
     public partial class TraktMoviesModule_Tests
     {
         private const string GET_RECENTLY_UPDATED_MOVIE_IDS_URI = "movies/updates/id";
@@ -23,7 +22,7 @@
             TraktClient client = TestUtility.GetMockClient(GET_RECENTLY_UPDATED_MOVIE_IDS_URI,
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 1, 10, 1, UPDATED_IDS_COUNT);
 
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync();
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -44,7 +43,7 @@
                 $"{GET_RECENTLY_UPDATED_MOVIE_IDS_URI}/{startDate}",
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 1, 10, 1, UPDATED_IDS_COUNT);
 
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -64,7 +63,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, PAGE, 10, 1, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(null, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -84,7 +83,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 1, LIMIT, 1, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(null, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -104,7 +103,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, PAGE, LIMIT, 1, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(null, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -126,7 +125,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, PAGE, 10, 1, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -148,7 +147,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 1, LIMIT, 1, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -170,7 +169,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, PAGE, LIMIT, 1, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -192,7 +191,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 2, LIMIT, 5, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -216,7 +215,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 2, LIMIT, 2, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -240,7 +239,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 1, LIMIT, 2, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -264,7 +263,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 1, LIMIT, 1, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -288,7 +287,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 2, LIMIT, 2, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -305,7 +304,7 @@
                 $"{GET_RECENTLY_UPDATED_MOVIE_IDS_URI}/{startDate}?page=1&limit={LIMIT}",
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 1, LIMIT, 2, UPDATED_IDS_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -329,7 +328,7 @@
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 1, LIMIT, 2, UPDATED_IDS_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters);
+            TraktPagedResponse<int> response = await client.Movies.GetRecentlyUpdatedMovieIdsAsync(START_DATE, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -346,7 +345,7 @@
                 $"{GET_RECENTLY_UPDATED_MOVIE_IDS_URI}/{startDate}?page=2&limit={LIMIT}",
                 RECENTLY_UPDATED_MOVIE_IDS_JSON, 2, LIMIT, 2, UPDATED_IDS_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -383,7 +382,7 @@
 
             try
             {
-                await client.Movies.GetRecentlyUpdatedMovieIdsAsync();
+                await client.Movies.GetRecentlyUpdatedMovieIdsAsync(cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

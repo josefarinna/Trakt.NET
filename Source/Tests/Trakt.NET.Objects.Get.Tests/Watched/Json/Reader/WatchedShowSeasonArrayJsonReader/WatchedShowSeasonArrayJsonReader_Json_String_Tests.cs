@@ -5,12 +5,12 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Watched;
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Get.Watched.JsonReader")]
+    [Trait("Category", "Objects.Get.Watched.JsonReader")]
     public partial class WatchedShowSeasonArrayJsonReader_Tests
     {
         [Fact]

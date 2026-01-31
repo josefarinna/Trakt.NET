@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.People;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.People")]
+    [Trait("Category", "Modules.People")]
     public partial class TraktPeopleModule_Tests
     {
         private readonly string GET_PERSON_URI = $"people/{PERSON_ID}";

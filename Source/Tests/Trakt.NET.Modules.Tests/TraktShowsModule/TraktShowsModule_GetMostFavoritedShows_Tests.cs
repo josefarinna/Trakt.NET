@@ -5,14 +5,13 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private const string GET_MOST_FAVORITED_SHOWS_URI = "shows/favorited";
@@ -140,7 +139,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, null, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -161,7 +160,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, null, FILTER, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -182,7 +181,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, null, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -203,7 +202,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, null, FILTER, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -262,7 +261,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -283,7 +282,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, FILTER, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -304,7 +303,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -325,7 +324,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, FILTER, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -346,7 +345,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -367,7 +366,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, FILTER, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -388,7 +387,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -409,7 +408,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, FILTER, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -430,7 +429,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, null, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -451,7 +450,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, null, FILTER, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -472,7 +471,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -493,7 +492,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, FILTER, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(null, EXTENDED_INFO, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -514,7 +513,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -535,7 +534,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, FILTER, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -556,7 +555,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -577,7 +576,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, FILTER, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -599,7 +598,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -623,7 +622,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -647,7 +646,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -671,7 +670,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -695,7 +694,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -712,7 +711,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
                 $"{GET_MOST_FAVORITED_SHOWS_URI}/{TIME_PERIOD.UriName}?extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 MOST_FAVORITED_SHOWS_JSON, 1, LIMIT, 2, MOST_FAVORITED_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -736,7 +735,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktMostFavoritedShow> response =
-                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters);
+                await client.Shows.GetMostFavoritedShowsAsync(TIME_PERIOD, EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -753,7 +752,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
                 $"{GET_MOST_FAVORITED_SHOWS_URI}/{TIME_PERIOD.UriName}?extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 MOST_FAVORITED_SHOWS_JSON, 2, LIMIT, 2, MOST_FAVORITED_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Objects.Get.Shows.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Shows.Implementations")]
+    [Trait("Category", "Objects.Get.Shows.Implementations")]
     public class TraktShow_Tests
     {
         [Fact]

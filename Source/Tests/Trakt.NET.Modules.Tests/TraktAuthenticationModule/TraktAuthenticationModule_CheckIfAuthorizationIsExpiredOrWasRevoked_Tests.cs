@@ -5,7 +5,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Authentication;
@@ -13,7 +12,7 @@
     using TraktNet.Utils;
     using Xunit;
 
-    [TestCategory("Modules.Authentication")]
+    [Trait("Category", "Modules.Authentication")]
     public partial class TraktAuthenticationModule_Tests
     {
         [Fact]
@@ -21,7 +20,7 @@
         {
             TraktClient client = TestUtility.GetOAuthMockClient(CHECK_ACCESS_TOKEN_URI, SYNC_LAST_ACTIVITIES_JSON);
             client.Authorization = MockAuthorization;
-            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync();
+            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.First.Should().BeFalse();
@@ -34,7 +33,7 @@
         public async Task Test_TraktAuthenticationModule_CheckIfAuthorizationIsExpiredOrWasRevoked_With_Authorization_Success()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(CHECK_ACCESS_TOKEN_URI, SYNC_LAST_ACTIVITIES_JSON);
-            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(MockAuthorization);
+            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(MockAuthorization, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.First.Should().BeFalse();
@@ -58,7 +57,7 @@
                 Scope = TraktAccessScope.Public
             };
 
-            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync();
+            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.First.Should().BeTrue();
@@ -82,7 +81,7 @@
                 Scope = TraktAccessScope.Public
             };
 
-            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(authorization);
+            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(authorization, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.First.Should().BeTrue();
@@ -96,7 +95,7 @@
         {
             TraktClient client = TestUtility.GetOAuthMockClient(CHECK_ACCESS_TOKEN_URI, HttpStatusCode.Unauthorized);
             client.Authorization = MockAuthorization;
-            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync();
+            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.First.Should().BeTrue();
@@ -109,7 +108,7 @@
         public async Task Test_TraktAuthenticationModule_CheckIfAuthorizationIsExpiredOrWasRevoked_With_Authorization_Failed_Revoked()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(CHECK_ACCESS_TOKEN_URI, HttpStatusCode.Unauthorized);
-            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(MockAuthorization);
+            Pair<bool, TraktResponse<ITraktAuthorization>> response = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(MockAuthorization, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.First.Should().BeTrue();
@@ -133,7 +132,7 @@
             // Second response for autoRefresh == true
             TestUtility.AddMockExpectationResponse((TestHttpClientProvider)client.HttpClientProvider, GET_AUTHORIZATION_URI, MockAuthorizationRefreshPostContent, authorizationJson);
 
-            Pair<bool, TraktResponse<ITraktAuthorization>> responseValues = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(true);
+            Pair<bool, TraktResponse<ITraktAuthorization>> responseValues = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(true, TestContext.Current.CancellationToken);
             TestUtility.VerifyNoOutstandingExpectations((TestHttpClientProvider)client.HttpClientProvider);
 
             responseValues.Should().NotBeNull();
@@ -183,7 +182,7 @@
             // Second response for autoRefresh == true
             TestUtility.AddMockExpectationResponse((TestHttpClientProvider)client.HttpClientProvider, GET_AUTHORIZATION_URI, MockAuthorizationRefreshPostContent, authorizationJson);
 
-            Pair<bool, TraktResponse<ITraktAuthorization>> responseValues = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(MockAuthorization, true);
+            Pair<bool, TraktResponse<ITraktAuthorization>> responseValues = await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(MockAuthorization, true, TestContext.Current.CancellationToken);
             TestUtility.VerifyNoOutstandingExpectations((TestHttpClientProvider)client.HttpClientProvider);
 
             responseValues.Should().NotBeNull();
@@ -242,7 +241,7 @@
 
             try
             {
-                await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync();
+                await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -273,7 +272,7 @@
 
             try
             {
-                await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(MockAuthorization);
+                await client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(MockAuthorization, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -287,7 +286,7 @@
         {
             TraktClient client = TestUtility.GetAuthenticationMockClient();
 
-            Func<Task<Pair<bool, TraktResponse<ITraktAuthorization>>>> act = () => client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(null);
+            Func<Task<Pair<bool, TraktResponse<ITraktAuthorization>>>> act = () => client.Authentication.CheckIfAuthorizationIsExpiredOrWasRevokedAsync(null, cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
         }
     }

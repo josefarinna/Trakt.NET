@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Seasons")]
+    [Trait("Category", "Modules.Seasons")]
     public partial class TraktSeasonsModule_Tests
     {
         private readonly string GET_SEASON_PEOPLE_URI = $"shows/{SHOW_ID}/seasons/{SEASON_NR}/people";

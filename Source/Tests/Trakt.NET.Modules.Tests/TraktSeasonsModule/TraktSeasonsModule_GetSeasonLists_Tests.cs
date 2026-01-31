@@ -5,7 +5,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Objects.Get.Shows;
@@ -13,7 +12,7 @@
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Seasons")]
+    [Trait("Category", "Modules.Seasons")]
     public partial class TraktSeasonsModule_Tests
     {
         private readonly string GET_SEASON_LISTS_URI = $"shows/{SHOW_ID}/seasons/{SEASON_NR}/lists";
@@ -210,7 +209,7 @@
                                                            SEASON_LISTS_JSON, PAGE, 10, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -229,7 +228,7 @@
                                                            SEASON_LISTS_JSON, 1, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -285,7 +284,7 @@
                                                            SEASON_LISTS_JSON, PAGE, 10, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, null, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -304,7 +303,7 @@
                                                            SEASON_LISTS_JSON, 1, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, null, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -323,7 +322,7 @@
                                                            SEASON_LISTS_JSON, PAGE, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, null, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -360,7 +359,7 @@
                                                            SEASON_LISTS_JSON, PAGE, 10, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -379,7 +378,7 @@
                                                            SEASON_LISTS_JSON, 1, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -398,7 +397,7 @@
                                                            SEASON_LISTS_JSON, PAGE, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -418,7 +417,7 @@
                 SEASON_LISTS_JSON, PAGE, 10, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, EXTENDED_INFO, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -438,7 +437,7 @@
                 SEASON_LISTS_JSON, 1, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, EXTENDED_INFO, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -458,7 +457,7 @@
                 SEASON_LISTS_JSON, PAGE, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, EXTENDED_INFO, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -477,7 +476,7 @@
                                                            SEASON_LISTS_JSON, PAGE, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -515,7 +514,7 @@
                                                            SEASON_LISTS_JSON, PAGE, 10, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -534,7 +533,7 @@
                                                            SEASON_LISTS_JSON, 1, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -554,7 +553,7 @@
                 SEASON_LISTS_JSON, PAGE, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -575,7 +574,7 @@
                 SEASON_LISTS_JSON, PAGE, 10, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -596,7 +595,7 @@
                 SEASON_LISTS_JSON, 1, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -617,7 +616,7 @@
                 SEASON_LISTS_JSON, PAGE, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+            var response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -636,7 +635,7 @@
                 SEASON_LISTS_JSON, 2, LIMIT, 5, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -657,7 +656,7 @@
                 SEASON_LISTS_JSON, 2, LIMIT, 2, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -678,7 +677,7 @@
                 SEASON_LISTS_JSON, 1, LIMIT, 2, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -699,7 +698,7 @@
                 SEASON_LISTS_JSON, 1, LIMIT, 1, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -720,7 +719,7 @@
                 SEASON_LISTS_JSON, 2, LIMIT, 2, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -736,7 +735,7 @@
             TestUtility.ResetMockClient(client, $"{GET_SEASON_LISTS_URI}/{LIST_TYPE.UriName}/{LIST_SORT_ORDER.UriName}?page=1&limit={LIMIT}",
                 SEASON_LISTS_JSON, 1, LIMIT, 2, LIST_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -757,7 +756,7 @@
                 SEASON_LISTS_JSON, 1, LIMIT, 2, LIST_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.Seasons.GetSeasonListsAsync(SHOW_ID, SEASON_NR, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -773,7 +772,7 @@
             TestUtility.ResetMockClient(client, $"{GET_SEASON_LISTS_URI}/{LIST_TYPE.UriName}/{LIST_SORT_ORDER.UriName}?page=2&limit={LIMIT}",
                 SEASON_LISTS_JSON, 2, LIMIT, 2, LIST_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

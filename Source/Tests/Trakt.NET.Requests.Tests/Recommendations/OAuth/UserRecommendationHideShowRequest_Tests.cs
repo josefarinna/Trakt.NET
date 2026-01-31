@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Recommendations.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Recommendations.OAuth")]
+    [Trait("Category", "Requests.Recommendations.OAuth")]
     public class UserRecommendationHideShowRequest_Tests
     {
         [Fact]

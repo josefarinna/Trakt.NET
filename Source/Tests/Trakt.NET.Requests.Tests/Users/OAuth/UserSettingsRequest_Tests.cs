@@ -1,12 +1,12 @@
 ﻿namespace TraktNet.Requests.Tests.Users.OAuth
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Users.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Users.OAuth")]
+    [Trait("Category", "Requests.Users.OAuth")]
     public class UserSettingsRequest_Tests
     {
         [Fact]

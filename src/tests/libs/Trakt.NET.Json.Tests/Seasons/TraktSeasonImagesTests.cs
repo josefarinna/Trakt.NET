@@ -20,11 +20,11 @@ namespace TraktNET.Json.Seasons
 
             seasonImages!.Poster.ShouldNotBeNull();
             seasonImages!.Poster!.Count.ShouldBe(1);
-            seasonImages!.Poster!.ShouldBe([ "walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp" ]);
+            seasonImages!.Poster!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"]);
 
             seasonImages!.Thumb.ShouldNotBeNull();
             seasonImages!.Thumb!.Count.ShouldBe(1);
-            seasonImages!.Thumb!.ShouldBe([ "walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp" ]);
+            seasonImages!.Thumb!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"]);
         }
     }
 }

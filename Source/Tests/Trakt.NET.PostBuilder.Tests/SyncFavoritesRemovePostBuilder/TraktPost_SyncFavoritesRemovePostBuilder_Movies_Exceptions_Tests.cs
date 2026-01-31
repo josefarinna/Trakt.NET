@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Objects.Post.Syncs.Favorites;
     using Xunit;
 
-    [TestCategory("PostBuilder")]
+    [Trait("Category", "PostBuilder")]
     public partial class TraktPost_SyncFavoritesRemovePostBuilder_Tests
     {
         [Fact]

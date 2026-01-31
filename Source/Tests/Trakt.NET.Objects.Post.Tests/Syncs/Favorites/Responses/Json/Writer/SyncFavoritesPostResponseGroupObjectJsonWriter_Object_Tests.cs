@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Syncs.Favorites.Responses;
     using TraktNet.Objects.Post.Syncs.Favorites.Responses.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Post.Syncs.Favorites.Responses.JsonWriter")]
+    [Trait("Category", "Objects.Post.Syncs.Favorites.Responses.JsonWriter")]
     public partial class SyncFavoritesPostResponseGroupObjectJsonWriter_Tests
     {
         [Fact]

@@ -5,7 +5,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Shows;
@@ -13,7 +12,7 @@
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private const string GET_RECENTLY_UPDATED_SHOWS_URI = "shows/updates";
@@ -88,7 +87,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -110,7 +109,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -152,7 +151,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, null, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -174,7 +173,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, null, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -196,7 +195,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(null, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -218,7 +217,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(null, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -240,7 +239,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -262,7 +261,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(null, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -284,7 +283,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, null, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -306,7 +305,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -328,7 +327,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -352,7 +351,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -376,7 +375,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -400,7 +399,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -424,7 +423,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -441,7 +440,7 @@
                 $"{GET_RECENTLY_UPDATED_SHOWS_URI}/{TODAY.ToTraktDateString()}?extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 RECENTLY_UPDATED_SHOWS_JSON, 1, LIMIT, 2, ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -465,7 +464,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktRecentlyUpdatedShow> response =
-                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters);
+                await client.Shows.GetRecentlyUpdatedShowsAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -482,7 +481,7 @@
                 $"{GET_RECENTLY_UPDATED_SHOWS_URI}/{TODAY.ToTraktDateString()}?extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 RECENTLY_UPDATED_SHOWS_JSON, 2, LIMIT, 2, ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

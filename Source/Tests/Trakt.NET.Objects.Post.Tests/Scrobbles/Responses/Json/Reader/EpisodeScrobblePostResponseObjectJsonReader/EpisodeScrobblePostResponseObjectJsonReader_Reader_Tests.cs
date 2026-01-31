@@ -5,13 +5,13 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Post.Scrobbles.Responses;
     using TraktNet.Objects.Post.Scrobbles.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Scrobbles.Responses.JsonReader")]
+    [Trait("Category", "Objects.Post.Scrobbles.Responses.JsonReader")]
     public partial class EpisodeScrobblePostResponseObjectJsonReader_Tests
     {
         [Fact]

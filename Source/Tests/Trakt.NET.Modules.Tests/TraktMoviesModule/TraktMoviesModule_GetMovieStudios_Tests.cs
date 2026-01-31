@@ -5,14 +5,13 @@ namespace TraktNet.Modules.Tests.TraktMoviesModule
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Basic;
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Movies")]
+    [Trait("Category", "Modules.Movies")]
     public partial class TraktMoviesModule_Tests
     {
         private readonly string GET_MOVIE_STUDIOS_URI = $"movies/{MOVIE_ID}/studios";

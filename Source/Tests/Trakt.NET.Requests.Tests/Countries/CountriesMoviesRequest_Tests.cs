@@ -1,12 +1,12 @@
 ﻿namespace TraktNet.Requests.Tests.Countries
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Countries;
     using Xunit;
 
-    [TestCategory("Requests.Countries")]
+    [Trait("Category", "Requests.Countries")]
     public class CountriesMoviesRequest_Tests
     {
         [Fact]

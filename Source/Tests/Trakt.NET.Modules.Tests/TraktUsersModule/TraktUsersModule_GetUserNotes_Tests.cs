@@ -5,14 +5,13 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Notes;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_USER_NOTES_URI = $"users/{USERNAME}/notes";
@@ -23,7 +22,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             TraktClient client = TestUtility.GetMockClient(GET_USER_NOTES_URI,
                 NOTES_ITEMS_JSON, 1, 10, 1, NOTES_ITEM_COUNT);
 
-            TraktPagedResponse<ITraktNoteItem> response = await client.Users.GetUserNotesAsync(USERNAME);
+            TraktPagedResponse<ITraktNoteItem> response = await client.Users.GetUserNotesAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -41,7 +40,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             TraktClient client = TestUtility.GetOAuthMockClient(GET_USER_NOTES_URI, NOTES_ITEMS_JSON, 1, 10, 1, NOTES_ITEM_COUNT);
             client.Configuration.ForceAuthorization = true;
 
-            TraktPagedResponse<ITraktNoteItem> response = await client.Users.GetUserNotesAsync(USERNAME);
+            TraktPagedResponse<ITraktNoteItem> response = await client.Users.GetUserNotesAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -57,7 +56,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
         public async Task Test_TraktUsersModule_GetUserNotes_With_OAuth_Enforced_For_Username_Me()
         {
             TraktClient client = TestUtility.GetOAuthMockClient($"users/me/notes", NOTES_ITEMS_JSON, 1, 10, 1, NOTES_ITEM_COUNT);
-            TraktPagedResponse<ITraktNoteItem> response = await client.Users.GetUserNotesAsync("me");
+            TraktPagedResponse<ITraktNoteItem> response = await client.Users.GetUserNotesAsync("me", cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -75,7 +74,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             TraktClient client = TestUtility.GetMockClient($"{GET_USER_NOTES_URI}/{NOTES_OBJECT_TYPE.UriName}",
                 NOTES_ITEMS_JSON, 1, 10, 1, NOTES_ITEM_COUNT);
 
-            TraktPagedResponse<ITraktNoteItem> response = await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE);
+            TraktPagedResponse<ITraktNoteItem> response = await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -95,7 +94,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
                 NOTES_ITEMS_JSON, 1, 10, 1, NOTES_ITEM_COUNT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -116,7 +115,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, null, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -138,7 +137,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(null, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, null, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -160,7 +159,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(PAGE, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, null, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -179,7 +178,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
                 NOTES_ITEMS_JSON, 1, 10, 1, NOTES_ITEM_COUNT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, null, EXTENDED_INFO);
+                await client.Users.GetUserNotesAsync(USERNAME, null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -200,7 +199,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, null, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -221,7 +220,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(null, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, null, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -243,7 +242,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(PAGE, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, null, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -264,7 +263,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, null, null, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -285,7 +284,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(null, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, null, null, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -306,7 +305,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(PAGE, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, null, null, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -328,7 +327,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(PAGE, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -350,7 +349,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(2, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -374,7 +373,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(2, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -398,7 +397,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(1, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -422,7 +421,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(1, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -446,7 +445,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(2, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -463,7 +462,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
                 $"?extended={EXTENDED_INFO}&page=1&limit={NOTES_ITEM_LIMIT}",
                 NOTES_ITEMS_JSON, 1, NOTES_ITEM_LIMIT, 2, NOTES_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -487,7 +486,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
             var pagedParameters = new TraktPagedParameters(1, NOTES_ITEM_LIMIT);
 
             TraktPagedResponse<ITraktNoteItem> response =
-                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetUserNotesAsync(USERNAME, NOTES_OBJECT_TYPE, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -504,7 +503,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
                 $"?extended={EXTENDED_INFO}&page=2&limit={NOTES_ITEM_LIMIT}",
                 NOTES_ITEMS_JSON, 2, NOTES_ITEM_LIMIT, 2, NOTES_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -543,7 +542,7 @@ namespace TraktNet.Modules.Tests.TraktUsersModule
 
             try
             {
-                await client.Users.GetUserNotesAsync(USERNAME);
+                await client.Users.GetUserNotesAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

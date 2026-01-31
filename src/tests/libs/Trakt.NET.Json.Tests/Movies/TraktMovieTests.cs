@@ -72,27 +72,27 @@
 
             movie!.Images!.Fanart.ShouldNotBeNull();
             movie!.Images!.Fanart!.Count.ShouldBe(1);
-            movie!.Images!.Fanart!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/fanarts/medium/2ea7854adf.jpg.webp" ]);
+            movie!.Images!.Fanart!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/fanarts/medium/2ea7854adf.jpg.webp"]);
 
             movie!.Images!.Poster.ShouldNotBeNull();
             movie!.Images!.Poster!.Count.ShouldBe(1);
-            movie!.Images!.Poster!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/posters/thumb/61ceb0624b.jpg.webp" ]);
+            movie!.Images!.Poster!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/posters/thumb/61ceb0624b.jpg.webp"]);
 
             movie!.Images!.Logo.ShouldNotBeNull();
             movie!.Images!.Logo!.Count.ShouldBe(1);
-            movie!.Images!.Logo!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/logos/medium/9021d3352d.png.webp" ]);
+            movie!.Images!.Logo!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/logos/medium/9021d3352d.png.webp"]);
 
             movie!.Images!.Clearart.ShouldNotBeNull();
             movie!.Images!.Clearart!.Count.ShouldBe(1);
-            movie!.Images!.Clearart!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/cleararts/medium/719bb7c638.png.webp" ]);
+            movie!.Images!.Clearart!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/cleararts/medium/719bb7c638.png.webp"]);
 
             movie!.Images!.Banner.ShouldNotBeNull();
             movie!.Images!.Banner!.Count.ShouldBe(1);
-            movie!.Images!.Banner!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/banners/medium/aadecf57bf.jpg.webp" ]);
+            movie!.Images!.Banner!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/banners/medium/aadecf57bf.jpg.webp"]);
 
             movie!.Images!.Thumb.ShouldNotBeNull();
             movie!.Images!.Thumb!.Count.ShouldBe(1);
-            movie!.Images!.Thumb!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/thumbs/medium/6d944d9545.jpg.webp" ]);
+            movie!.Images!.Thumb!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/thumbs/medium/6d944d9545.jpg.webp"]);
 
             movie!.ToString().ShouldBe("Guardians of the Galaxy Volume 3 (2023)");
         }
@@ -222,27 +222,27 @@
 
             movie!.Images!.Fanart.ShouldNotBeNull();
             movie!.Images!.Fanart!.Count.ShouldBe(1);
-            movie!.Images!.Fanart!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/fanarts/medium/2ea7854adf.jpg.webp" ]);
+            movie!.Images!.Fanart!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/fanarts/medium/2ea7854adf.jpg.webp"]);
 
             movie!.Images!.Poster.ShouldNotBeNull();
             movie!.Images!.Poster!.Count.ShouldBe(1);
-            movie!.Images!.Poster!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/posters/thumb/61ceb0624b.jpg.webp" ]);
+            movie!.Images!.Poster!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/posters/thumb/61ceb0624b.jpg.webp"]);
 
             movie!.Images!.Logo.ShouldNotBeNull();
             movie!.Images!.Logo!.Count.ShouldBe(1);
-            movie!.Images!.Logo!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/logos/medium/9021d3352d.png.webp" ]);
+            movie!.Images!.Logo!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/logos/medium/9021d3352d.png.webp"]);
 
             movie!.Images!.Clearart.ShouldNotBeNull();
             movie!.Images!.Clearart!.Count.ShouldBe(1);
-            movie!.Images!.Clearart!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/cleararts/medium/719bb7c638.png.webp" ]);
+            movie!.Images!.Clearart!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/cleararts/medium/719bb7c638.png.webp"]);
 
             movie!.Images!.Banner.ShouldNotBeNull();
             movie!.Images!.Banner!.Count.ShouldBe(1);
-            movie!.Images!.Banner!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/banners/medium/aadecf57bf.jpg.webp" ]);
+            movie!.Images!.Banner!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/banners/medium/aadecf57bf.jpg.webp"]);
 
             movie!.Images!.Thumb.ShouldNotBeNull();
             movie!.Images!.Thumb!.Count.ShouldBe(1);
-            movie!.Images!.Thumb!.ShouldBe([ "walter-r2.trakt.tv/images/movies/000/293/990/thumbs/medium/6d944d9545.jpg.webp" ]);
+            movie!.Images!.Thumb!.ShouldBe(["walter-r2.trakt.tv/images/movies/000/293/990/thumbs/medium/6d944d9545.jpg.webp"]);
         }
     }
 }

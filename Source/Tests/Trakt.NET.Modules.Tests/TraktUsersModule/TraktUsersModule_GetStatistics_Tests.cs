@@ -6,13 +6,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Users.Statistics;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_STATISTICS_URI = $"users/{USERNAME}/stats";
@@ -21,7 +20,7 @@
         public async Task Test_TraktUsersModule_GetStatistics()
         {
             TraktClient client = TestUtility.GetMockClient(GET_STATISTICS_URI, STATISTICS_JSON);
-            TraktResponse<ITraktUserStatistics> response = await client.Users.GetStatisticsAsync(USERNAME);
+            TraktResponse<ITraktUserStatistics> response = await client.Users.GetStatisticsAsync(USERNAME, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -79,7 +78,7 @@
             TraktClient client = TestUtility.GetOAuthMockClient(GET_STATISTICS_URI, STATISTICS_JSON);
             client.Configuration.ForceAuthorization = true;
 
-            TraktResponse<ITraktUserStatistics> response = await client.Users.GetStatisticsAsync(USERNAME);
+            TraktResponse<ITraktUserStatistics> response = await client.Users.GetStatisticsAsync(USERNAME, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -135,7 +134,7 @@
         public async Task Test_TraktUsersModule_GetStatistics_With_OAuth_Enforced_For_Username_Me()
         {
             TraktClient client = TestUtility.GetOAuthMockClient("users/me/stats", STATISTICS_JSON);
-            TraktResponse<ITraktUserStatistics> response = await client.Users.GetStatisticsAsync("me");
+            TraktResponse<ITraktUserStatistics> response = await client.Users.GetStatisticsAsync("me", TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -210,7 +209,7 @@
 
             try
             {
-                await client.Users.GetStatisticsAsync(USERNAME);
+                await client.Users.GetStatisticsAsync(USERNAME, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

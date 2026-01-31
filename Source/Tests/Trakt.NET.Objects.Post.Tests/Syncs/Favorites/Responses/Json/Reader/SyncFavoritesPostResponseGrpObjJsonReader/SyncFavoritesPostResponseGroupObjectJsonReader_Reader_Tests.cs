@@ -5,12 +5,12 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Syncs.Favorites.Responses;
     using TraktNet.Objects.Post.Syncs.Favorites.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Syncs.Favorites.Responses.JsonReader")]
+    [Trait("Category", "Objects.Post.Syncs.Favorites.Responses.JsonReader")]
     public partial class SyncFavoritesPostResponseGroupObjectJsonReader_Tests
     {
         [Fact]

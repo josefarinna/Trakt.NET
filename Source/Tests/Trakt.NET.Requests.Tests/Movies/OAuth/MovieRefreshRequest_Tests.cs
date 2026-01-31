@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Movies.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Movies")]
+    [Trait("Category", "Requests.Movies")]
     public class MovieRefreshRequest_Tests
     {
         [Fact]

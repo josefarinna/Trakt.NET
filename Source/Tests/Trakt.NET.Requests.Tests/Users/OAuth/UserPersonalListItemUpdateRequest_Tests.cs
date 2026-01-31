@@ -3,14 +3,14 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Basic;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Users.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Users.OAuth")]
+    [Trait("Category", "Requests.Users.OAuth")]
     public class UserPersonalListItemUpdateRequest_Tests
     {
         [Fact]

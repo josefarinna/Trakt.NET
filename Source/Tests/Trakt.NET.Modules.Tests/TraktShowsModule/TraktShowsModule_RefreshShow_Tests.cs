@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private readonly string REFRESH_SHOW_URI = $"shows/{TRAKT_SHOD_ID}/refresh";
@@ -20,7 +19,7 @@
         public async Task Test_TraktShowsModule_RefreshShow()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(REFRESH_SHOW_URI, HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(TRAKT_SHOD_ID);
+            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(TRAKT_SHOD_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -30,7 +29,7 @@
         public async Task Test_TraktShowsModule_RefreshShow_With_TraktID()
         {
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/refresh", HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(TRAKT_SHOD_ID);
+            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(TRAKT_SHOD_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -45,7 +44,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/refresh", HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(showIds);
+            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(showIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -60,7 +59,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{SHOW_SLUG}/refresh", HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(showIds);
+            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(showIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -76,7 +75,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/refresh", HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(showIds);
+            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(showIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -95,7 +94,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/refresh", HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(show);
+            TraktNoContentResponse response = await client.Shows.RefreshShowAsync(show, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -125,7 +124,7 @@
 
             try
             {
-                await client.Shows.RefreshShowAsync(TRAKT_SHOD_ID);
+                await client.Shows.RefreshShowAsync(TRAKT_SHOD_ID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -139,16 +138,16 @@
         {
             TraktClient client = TestUtility.GetOAuthMockClient(REFRESH_SHOW_URI, HttpStatusCode.Created);
 
-            Func<Task<TraktNoContentResponse>> act = () => client.Shows.RefreshShowAsync(default(ITraktShowIds));
+            Func<Task<TraktNoContentResponse>> act = () => client.Shows.RefreshShowAsync(default(ITraktShowIds), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.RefreshShowAsync(default(ITraktShow));
+            act = () => client.Shows.RefreshShowAsync(default(ITraktShow), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.RefreshShowAsync(new TraktShowIds());
+            act = () => client.Shows.RefreshShowAsync(new TraktShowIds(), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Shows.RefreshShowAsync(0);
+            act = () => client.Shows.RefreshShowAsync(0, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

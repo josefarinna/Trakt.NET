@@ -5,12 +5,11 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Sync")]
+    [Trait("Category", "Modules.Sync")]
     public partial class TraktSyncModule_Tests
     {
         private readonly string UPDATE_WATCHLIST_ITEM_URI = $"sync/watchlist/{WATCHLIST_ITEM_ID}";
@@ -20,7 +19,7 @@
         public async Task Test_TraktSyncModule_UpdateWatchlistItem()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(UPDATE_WATCHLIST_ITEM_URI, HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Sync.UpdateWatchlistItemAsync(WATCHLIST_ITEM_ID, NOTES);
+            TraktNoContentResponse response = await client.Sync.UpdateWatchlistItemAsync(WATCHLIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -49,7 +48,7 @@
 
             try
             {
-                await client.Sync.UpdateWatchlistItemAsync(WATCHLIST_ITEM_ID, NOTES);
+                await client.Sync.UpdateWatchlistItemAsync(WATCHLIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

@@ -11,7 +11,7 @@ namespace TraktNET.Exceptions
         {
             ExceptionParameters parameters = await ExceptionsTestUtility.CreateMockExceptionParametersAsync(
                 Constants.StatusCodes.ServiceUnavailableBadGateway, HttpMethod.Get);
-            
+
             var exception = TraktApiException.Create(parameters);
 
             exception.ShouldNotBeNull();

@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Recommendations")]
+    [Trait("Category", "Modules.Recommendations")]
     public partial class TraktRecommendationsModule_Tests
     {
         private readonly string HIDE_SHOW_RECOMMENDATION_URI = $"recommendations/shows/{SHOW_ID}";

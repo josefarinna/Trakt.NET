@@ -4,14 +4,14 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Parameters;
     using TraktNet.Requests.Seasons;
     using Xunit;
 
-    [TestCategory("Requests.Seasons")]
+    [Trait("Category", "Requests.Seasons")]
     public class SeasonListsRequest_Tests
     {
         [Fact]

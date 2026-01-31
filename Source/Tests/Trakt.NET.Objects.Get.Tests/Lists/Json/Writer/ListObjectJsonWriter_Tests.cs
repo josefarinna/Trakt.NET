@@ -3,7 +3,7 @@ namespace TraktNet.Objects.Get.Tests.Lists.Json.Writer
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Lists;
@@ -11,7 +11,7 @@ namespace TraktNet.Objects.Get.Tests.Lists.Json.Writer
     using TraktNet.Objects.Get.Users;
     using Xunit;
 
-    [TestCategory("Objects.Get.Lists.JsonWriter")]
+    [Trait("Category", "Objects.Get.Lists.JsonWriter")]
     public class ListObjectJsonWriter_Tests
     {
         private readonly DateTime CREATED_AT = DateTime.UtcNow;

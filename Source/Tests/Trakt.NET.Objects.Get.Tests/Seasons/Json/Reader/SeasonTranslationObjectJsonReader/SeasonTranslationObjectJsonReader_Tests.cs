@@ -5,12 +5,12 @@ namespace TraktNet.Objects.Get.Tests.Seasons.Json.Reader
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Seasons;
     using TraktNet.Objects.Get.Seasons.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Seasons.JsonReader")]
+    [Trait("Category", "Objects.Get.Seasons.JsonReader")]
     public partial class SeasonTranslationObjectJsonReader_Tests
     {
         [Fact]

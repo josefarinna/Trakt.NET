@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Calendars;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Calendar")]
+    [Trait("Category", "Modules.Calendar")]
     public partial class TraktCalendarModule_Tests
     {
         private const string GET_ALL_DVD_MOVIES_URI = "calendars/all/dvd";

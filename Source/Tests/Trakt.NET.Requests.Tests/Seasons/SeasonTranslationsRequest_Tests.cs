@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Requests.Seasons;
     using Xunit;
 
-    [TestCategory("Requests.Seasons")]
+    [Trait("Category", "Requests.Seasons")]
     public class SeasonTranslationsRequest_Tests
     {
         [Fact]

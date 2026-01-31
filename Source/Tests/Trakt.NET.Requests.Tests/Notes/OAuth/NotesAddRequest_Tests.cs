@@ -1,12 +1,12 @@
 ﻿namespace TraktNet.Requests.Tests.Notes.OAuth
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Notes.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Notes.OAuth")]
+    [Trait("Category", "Requests.Notes.OAuth")]
     public class NotesAddRequest_Tests
     {
         [Fact]

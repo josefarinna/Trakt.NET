@@ -5,14 +5,14 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Users;
     using TraktNet.Objects.Get.Users.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Get.Users.JsonWriter")]
+    [Trait("Category", "Objects.Get.Users.JsonWriter")]
     public class UserSavedFilterObjectJsonWriter_Tests
     {
         private readonly DateTime UPDATED_AT = DateTime.UtcNow;

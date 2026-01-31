@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Basic;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Search")]
+    [Trait("Category", "Modules.Search")]
     public partial class TraktSearchModule_Tests
     {
         [Fact]
@@ -22,7 +21,7 @@
                                                            SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY);
+                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -41,7 +40,7 @@
                                                            SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY);
+                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -61,7 +60,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE);
+                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -81,7 +80,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE);
+                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -101,7 +100,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields);
+                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -121,7 +120,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields);
+                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -140,7 +139,7 @@
                                                            SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null, FILTER);
+                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null, FILTER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -159,7 +158,7 @@
                                                            SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null, FILTER);
+                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null, FILTER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -179,7 +178,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER);
+                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -199,7 +198,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER);
+                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -219,7 +218,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields, FILTER);
+                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields, FILTER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -239,7 +238,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields, FILTER);
+                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields, FILTER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -259,7 +258,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null, FILTER, EXTENDED_INFO);
+                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null, FILTER, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -279,7 +278,7 @@
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, 10, 1, TEXT_QUERY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktSearchResult> response =
-                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null, FILTER, EXTENDED_INFO);
+                await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null, FILTER, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -300,7 +299,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
-                                                             TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER, EXTENDED_INFO);
+                                                             TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -321,7 +320,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, EXTENDED_INFO);
+                                                             FILTER, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -342,7 +341,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, EXTENDED_INFO);
+                                                             FILTER, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -363,7 +362,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, EXTENDED_INFO);
+                                                             FILTER, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -386,7 +385,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -409,7 +408,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -432,7 +431,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -455,7 +454,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -478,7 +477,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -501,7 +500,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -524,7 +523,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -547,7 +546,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -570,7 +569,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -593,7 +592,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -616,7 +615,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -639,7 +638,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -662,7 +661,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -685,7 +684,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -708,7 +707,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -731,7 +730,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -754,7 +753,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -777,7 +776,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -800,7 +799,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -823,7 +822,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -846,7 +845,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -869,7 +868,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -892,7 +891,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -915,7 +914,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -938,7 +937,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -961,7 +960,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -984,7 +983,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1007,7 +1006,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1030,7 +1029,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1053,7 +1052,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, null, pagedParameters);
+                                                             FILTER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1074,7 +1073,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             null, EXTENDED_INFO);
+                                                             null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1095,7 +1094,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             null, EXTENDED_INFO);
+                                                             null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1116,7 +1115,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
-                                                             TEXT_QUERY_SEARCH_FIELD_TITLE, null, EXTENDED_INFO);
+                                                             TEXT_QUERY_SEARCH_FIELD_TITLE, null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1137,7 +1136,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             null, EXTENDED_INFO);
+                                                             null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1158,7 +1157,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
-                                                             TextQuerySearchFields, null, EXTENDED_INFO);
+                                                             TextQuerySearchFields, null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1179,7 +1178,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, EXTENDED_INFO);
+                                                             null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1202,7 +1201,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1225,7 +1224,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1248,7 +1247,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1271,7 +1270,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1294,7 +1293,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1317,7 +1316,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1340,7 +1339,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1363,7 +1362,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1386,7 +1385,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1409,7 +1408,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1432,7 +1431,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1455,7 +1454,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1478,7 +1477,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1501,7 +1500,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null, null,
-                                                             EXTENDED_INFO, pagedParameters);
+                                                             EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1524,7 +1523,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1547,7 +1546,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1570,7 +1569,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1593,7 +1592,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, EXTENDED_INFO, pagedParameters);
+                                                             null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1616,7 +1615,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1639,7 +1638,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1663,7 +1662,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, null,
-                                                             null, pagedParameters);
+                                                             null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1687,7 +1686,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, null,
-                                                             null, pagedParameters);
+                                                             null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1711,7 +1710,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TextQuerySearchFields, null,
-                                                             null, pagedParameters);
+                                                             null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1734,7 +1733,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1757,7 +1756,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1780,7 +1779,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1804,7 +1803,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, null,
-                                                             null, pagedParameters);
+                                                             null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1827,7 +1826,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1851,7 +1850,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TextQuerySearchFields, null, null,
-                                                             pagedParameters);
+                                                             pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1874,7 +1873,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1897,7 +1896,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, null,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1920,7 +1919,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, null,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1944,7 +1943,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, null,
-                                                             null, pagedParameters);
+                                                             null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1967,7 +1966,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1990,7 +1989,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2013,7 +2012,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             null, null, pagedParameters);
+                                                             null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2037,7 +2036,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER,
-                                                             EXTENDED_INFO, pagedParameters);
+                                                             EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2060,7 +2059,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TEXT_QUERY_SEARCH_FIELD_TITLE,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2083,7 +2082,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2106,7 +2105,7 @@
 
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TextQueryTypes, TEXT_QUERY, TextQuerySearchFields,
-                                                             FILTER, EXTENDED_INFO, pagedParameters);
+                                                             FILTER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2130,7 +2129,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER,
-                                                             EXTENDED_INFO, pagedParameters);
+                                                             EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2156,7 +2155,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER,
-                                                             EXTENDED_INFO, pagedParameters);
+                                                             EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2182,7 +2181,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER,
-                                                             EXTENDED_INFO, pagedParameters);
+                                                             EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2208,7 +2207,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER,
-                                                             EXTENDED_INFO, pagedParameters);
+                                                             EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2234,7 +2233,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER,
-                                                             EXTENDED_INFO, pagedParameters);
+                                                             EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2251,7 +2250,7 @@
                 $"{GetTextQueryUri}&fields={TEXT_QUERY_SEARCH_FIELD_TITLE.UriName}&{FILTER}&extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 1, LIMIT, 2, TEXT_QUERY_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2277,7 +2276,7 @@
             TraktPagedResponse<ITraktSearchResult> response =
                 await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY,
                                                              TEXT_QUERY_SEARCH_FIELD_TITLE, FILTER,
-                                                             EXTENDED_INFO, pagedParameters);
+                                                             EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2294,7 +2293,7 @@
                 $"{GetTextQueryUri}&fields={TEXT_QUERY_SEARCH_FIELD_TITLE.UriName}&{FILTER}&extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 SEARCH_TEXT_QUERY_RESULTS_JSON, 2, LIMIT, 2, TEXT_QUERY_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2331,7 +2330,7 @@
 
             try
             {
-                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY);
+                await client.Search.GetTextQueryResultsAsync(TEXT_QUERY_TYPE_MOVIE, TEXT_QUERY, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

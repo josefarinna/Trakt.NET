@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Syncs.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Syncs.OAuth")]
+    [Trait("Category", "Requests.Syncs.OAuth")]
     public class SyncPlaybackDeleteRequest_Tests
     {
         [Fact]

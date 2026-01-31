@@ -3,7 +3,7 @@ namespace TraktNet.Objects.Get.Tests.Users.Json.Writer
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Movies;
@@ -11,7 +11,7 @@ namespace TraktNet.Objects.Get.Tests.Users.Json.Writer
     using TraktNet.Objects.Get.Users.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Get.Users.JsonWriter")]
+    [Trait("Category", "Objects.Get.Users.JsonWriter")]
     public partial class UserHiddenItemObjectJsonWriter_Tests
     {
         private readonly DateTime HIDDEN_AT = DateTime.UtcNow;

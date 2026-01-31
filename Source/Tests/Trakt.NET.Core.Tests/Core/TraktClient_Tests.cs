@@ -1,11 +1,10 @@
 ﻿namespace TraktNet.Core.Tests.Core
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Objects.Authentication;
     using Xunit;
 
-    [TestCategory("Core")]
+    [Trait("Category", "Core")]
     public class TraktClient_Tests
     {
         private const string CLIENT_ID = "CLIENT_ID";

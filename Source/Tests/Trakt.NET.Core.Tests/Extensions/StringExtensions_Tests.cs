@@ -1,11 +1,10 @@
 ﻿namespace TraktNet.Core.Tests.Extensions
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Extensions;
     using Xunit;
 
-    [TestCategory("Extensions")]
+    [Trait("Category", "Extensions")]
     public class StringExtensions_Tests
     {
         [Fact]

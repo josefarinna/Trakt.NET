@@ -1,12 +1,12 @@
 namespace TraktNet.Requests.Tests.Syncs.OAuth
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Syncs.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Syncs.OAuth")]
+    [Trait("Category", "Requests.Syncs.OAuth")]
 
     public class SyncFavoritedItemsReorderRequest_Tests
     {

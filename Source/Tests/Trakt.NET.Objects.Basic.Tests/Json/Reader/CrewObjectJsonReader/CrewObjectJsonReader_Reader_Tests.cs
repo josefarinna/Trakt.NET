@@ -6,11 +6,11 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Basic.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Basic.JsonReader")]
+    [Trait("Category", "Objects.Basic.JsonReader")]
     public partial class CrewObjectJsonReader_Tests
     {
         [Fact]
@@ -21,7 +21,7 @@
             using (var reader = new StringReader(JSON_COMPLETE))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -310,7 +310,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_1))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -576,7 +576,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_2))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -842,7 +842,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_3))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -1108,7 +1108,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_4))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -1374,7 +1374,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_5))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -1640,7 +1640,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_6))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -1906,7 +1906,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_7))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -2172,7 +2172,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_8))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -2438,7 +2438,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_9))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -2704,7 +2704,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_10))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -2970,7 +2970,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_11))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3236,7 +3236,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_12))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3286,7 +3286,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_13))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3337,7 +3337,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_14))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3388,7 +3388,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_15))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3439,7 +3439,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_16))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3490,7 +3490,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_17))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3541,7 +3541,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_18))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3592,7 +3592,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_19))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3643,7 +3643,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_20))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3694,7 +3694,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_21))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3745,7 +3745,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_22))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -3795,7 +3795,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_1))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -4061,7 +4061,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_2))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -4327,7 +4327,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_3))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -4593,7 +4593,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_4))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -4859,7 +4859,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_5))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -5125,7 +5125,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_6))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -5391,7 +5391,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_7))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -5657,7 +5657,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_8))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -5923,7 +5923,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_9))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -6189,7 +6189,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_10))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -6455,7 +6455,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_11))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -6721,7 +6721,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_12))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 traktCrew.Should().NotBeNull();
 
@@ -6743,7 +6743,7 @@
         public async Task Test_CrewObjectJsonReader_ReadObject_From_JsonReader_Null()
         {
             var traktJsonReader = new CrewObjectJsonReader();
-            Func<Task<ITraktCrew>> traktCrew = () => traktJsonReader.ReadObjectAsync(default(JsonTextReader));
+            Func<Task<ITraktCrew>> traktCrew = () => traktJsonReader.ReadObjectAsync(default(JsonTextReader), TestContext.Current.CancellationToken);
             await traktCrew.Should().ThrowAsync<ArgumentNullException>();
         }
 
@@ -6755,7 +6755,7 @@
             using (var reader = new StringReader(string.Empty))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var traktCrew = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
                 traktCrew.Should().BeNull();
             }
         }

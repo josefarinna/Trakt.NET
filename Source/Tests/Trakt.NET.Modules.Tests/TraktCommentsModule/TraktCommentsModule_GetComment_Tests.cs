@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Basic;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Comments")]
+    [Trait("Category", "Modules.Comments")]
     public partial class TraktCommentsModule_Tests
     {
         private readonly string GET_COMMENT_URI = $"comments/{GET_COMMENT_ID}";

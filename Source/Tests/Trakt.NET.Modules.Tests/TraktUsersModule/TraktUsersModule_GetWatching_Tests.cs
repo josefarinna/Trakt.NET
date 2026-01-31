@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Users;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_WATCHING_URI = $"users/{USERNAME}/watching";
@@ -21,7 +20,7 @@
         public async Task Test_TraktUsersModule_GetWatching()
         {
             TraktClient client = TestUtility.GetMockClient(GET_WATCHING_URI, WATCHING_ITEM_MOVIE_JSON);
-            TraktResponse<ITraktUserWatchingItem> response = await client.Users.GetWatchingAsync(USERNAME);
+            TraktResponse<ITraktUserWatchingItem> response = await client.Users.GetWatchingAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -52,7 +51,7 @@
             TraktClient client = TestUtility.GetOAuthMockClient(GET_WATCHING_URI, WATCHING_ITEM_MOVIE_JSON);
             client.Configuration.ForceAuthorization = true;
 
-            TraktResponse<ITraktUserWatchingItem> response = await client.Users.GetWatchingAsync(USERNAME);
+            TraktResponse<ITraktUserWatchingItem> response = await client.Users.GetWatchingAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -81,7 +80,7 @@
         public async Task Test_TraktUsersModule_GetWatching_With_OAuth_Enforced_For_Username_Me()
         {
             TraktClient client = TestUtility.GetOAuthMockClient("users/me/watching", WATCHING_ITEM_MOVIE_JSON);
-            TraktResponse<ITraktUserWatchingItem> response = await client.Users.GetWatchingAsync("me");
+            TraktResponse<ITraktUserWatchingItem> response = await client.Users.GetWatchingAsync("me", cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -113,7 +112,7 @@
                 $"{GET_WATCHING_URI}?extended={EXTENDED_INFO}",
                 WATCHING_ITEM_MOVIE_JSON);
 
-            TraktResponse<ITraktUserWatchingItem> response = await client.Users.GetWatchingAsync(USERNAME, EXTENDED_INFO);
+            TraktResponse<ITraktUserWatchingItem> response = await client.Users.GetWatchingAsync(USERNAME, EXTENDED_INFO, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -161,7 +160,7 @@
 
             try
             {
-                await client.Users.GetWatchingAsync(USERNAME);
+                await client.Users.GetWatchingAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

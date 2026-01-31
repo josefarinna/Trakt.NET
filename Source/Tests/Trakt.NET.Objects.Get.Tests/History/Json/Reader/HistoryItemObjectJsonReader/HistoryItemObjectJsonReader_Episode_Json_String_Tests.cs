@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.History.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.History.JsonReader")]
+    [Trait("Category", "Objects.Get.History.JsonReader")]
     public partial class HistoryItemObjectJsonReader_Tests
     {
         [Fact]

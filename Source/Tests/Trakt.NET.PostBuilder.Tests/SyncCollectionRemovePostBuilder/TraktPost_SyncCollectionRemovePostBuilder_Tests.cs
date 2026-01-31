@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Syncs.Collection;
     using Xunit;
 
-    [TestCategory("PostBuilder")]
+    [Trait("Category", "PostBuilder")]
     public partial class TraktPost_SyncCollectionRemovePostBuilder_Tests
     {
         [Fact]

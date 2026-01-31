@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Watchlist;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Sync")]
+    [Trait("Category", "Modules.Sync")]
     public partial class TraktSyncModule_Tests
     {
         private const string GET_WATCHLIST_URI = "sync/watchlist";
@@ -119,7 +118,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktWatchlistItem> response =
-                await client.Sync.GetWatchlistAsync(WATCHLIST_ITEM_TYPE, WATCHLIST_SORT_ORDER, null, pagedParameters);
+                await client.Sync.GetWatchlistAsync(WATCHLIST_ITEM_TYPE, WATCHLIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -144,7 +143,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktWatchlistItem> response =
-                await client.Sync.GetWatchlistAsync(WATCHLIST_ITEM_TYPE, WATCHLIST_SORT_ORDER, null, pagedParameters);
+                await client.Sync.GetWatchlistAsync(WATCHLIST_ITEM_TYPE, WATCHLIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -192,7 +191,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktWatchlistItem> response =
-                await client.Sync.GetWatchlistAsync(WATCHLIST_ITEM_TYPE, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetWatchlistAsync(WATCHLIST_ITEM_TYPE, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -217,7 +216,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktWatchlistItem> response =
-                await client.Sync.GetWatchlistAsync(WATCHLIST_ITEM_TYPE, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetWatchlistAsync(WATCHLIST_ITEM_TYPE, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -265,7 +264,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktWatchlistItem> response =
-                await client.Sync.GetWatchlistAsync(null, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetWatchlistAsync(null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -290,7 +289,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktWatchlistItem> response =
-                await client.Sync.GetWatchlistAsync(null, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetWatchlistAsync(null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -315,7 +314,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktWatchlistItem> response =
-                await client.Sync.GetWatchlistAsync(null, null, EXTENDED_INFO, pagedParameters);
+                await client.Sync.GetWatchlistAsync(null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -340,7 +339,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktWatchlistItem> response =
-                await client.Sync.GetWatchlistAsync(null, null, null, pagedParameters);
+                await client.Sync.GetWatchlistAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -365,7 +364,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktWatchlistItem> response =
-                await client.Sync.GetWatchlistAsync(null, null, null, pagedParameters);
+                await client.Sync.GetWatchlistAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -390,7 +389,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktWatchlistItem> response =
-                await client.Sync.GetWatchlistAsync(null, null, null, pagedParameters);
+                await client.Sync.GetWatchlistAsync(null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -571,7 +570,7 @@
                 WATCHLIST_JSON, 1, LIMIT, 2, ITEM_COUNT,
                 sortBy: WATCHLIST_SORT_BY, sortHow: WATCHLIST_SORT_HOW);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -617,7 +616,7 @@
                 WATCHLIST_JSON, 2, LIMIT, 2, ITEM_COUNT,
                 sortBy: WATCHLIST_SORT_BY, sortHow: WATCHLIST_SORT_HOW);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

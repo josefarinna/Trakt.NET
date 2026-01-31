@@ -4,10 +4,9 @@
     using System;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using Xunit;
 
-    [TestCategory("Modules.Authentication")]
+    [Trait("Category", "Modules.Authentication")]
     public partial class TraktAuthenticationModule_Tests
     {
         [Fact]

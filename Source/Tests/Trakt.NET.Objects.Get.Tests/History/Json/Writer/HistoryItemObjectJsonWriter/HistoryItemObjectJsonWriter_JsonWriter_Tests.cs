@@ -4,12 +4,12 @@
     using Newtonsoft.Json;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.History;
     using TraktNet.Objects.Get.History.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Get.History.JsonWriter")]
+    [Trait("Category", "Objects.Get.History.JsonWriter")]
     public partial class HistoryItemObjectJsonWriter_Tests
     {
         [Fact]

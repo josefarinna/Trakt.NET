@@ -4,13 +4,13 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Parameters;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Movies;
     using Xunit;
 
-    [TestCategory("Requests.Movies.Lists")]
+    [Trait("Category", "Requests.Movies.Lists")]
     public class AMoviesRequest_1_Tests
     {
         internal class MoviesRequestMock : AMoviesRequest<int>

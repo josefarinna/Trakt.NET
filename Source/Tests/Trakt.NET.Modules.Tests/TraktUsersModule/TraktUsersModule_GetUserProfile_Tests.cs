@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Users;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_USER_PROFILE_URI = $"users/{USERNAME}";
@@ -48,7 +47,7 @@
             TraktClient client = TestUtility.GetOAuthMockClient(GET_USER_PROFILE_URI, PROFILE_JSON);
             client.Configuration.ForceAuthorization = true;
 
-            TraktResponse<ITraktUser> response = await client.Users.GetUserProfileAsync(USERNAME);
+            TraktResponse<ITraktUser> response = await client.Users.GetUserProfileAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -74,7 +73,7 @@
         public async Task Test_TraktUsersModule_GetUserProfile_With_OAuth_Enforced_For_Username_Me()
         {
             TraktClient client = TestUtility.GetOAuthMockClient("users/me", PROFILE_JSON);
-            TraktResponse<ITraktUser> response = await client.Users.GetUserProfileAsync("me");
+            TraktResponse<ITraktUser> response = await client.Users.GetUserProfileAsync("me", cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -103,7 +102,7 @@
                 $"{GET_USER_PROFILE_URI}?extended={EXTENDED_INFO}",
                 PROFILE_JSON);
 
-            TraktResponse<ITraktUser> response = await client.Users.GetUserProfileAsync(USERNAME, EXTENDED_INFO);
+            TraktResponse<ITraktUser> response = await client.Users.GetUserProfileAsync(USERNAME, EXTENDED_INFO, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -148,7 +147,7 @@
 
             try
             {
-                await client.Users.GetUserProfileAsync(USERNAME);
+                await client.Users.GetUserProfileAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

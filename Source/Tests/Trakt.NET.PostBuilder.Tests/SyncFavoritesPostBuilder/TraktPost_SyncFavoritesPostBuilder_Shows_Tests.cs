@@ -3,11 +3,11 @@
     using FluentAssertions;
     using System.Collections.Generic;
     using System.Linq;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Syncs.Favorites;
     using Xunit;
 
-    [TestCategory("PostBuilder")]
+    [Trait("Category", "PostBuilder")]
     public partial class TraktPost_SyncFavoritesPostBuilder_Tests
     {
         [Fact]

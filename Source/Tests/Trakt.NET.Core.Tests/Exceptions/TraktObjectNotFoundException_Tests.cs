@@ -2,11 +2,10 @@
 {
     using FluentAssertions;
     using System.Net;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using Xunit;
 
-    [TestCategory("Exceptions")]
+    [Trait("Category", "Exceptions")]
     public class TraktObjectNotFoundException_Tests
     {
         [Fact]

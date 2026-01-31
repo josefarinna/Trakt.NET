@@ -5,12 +5,12 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Authentication;
     using TraktNet.Objects.Authentication.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Authentication.JsonWriter")]
+    [Trait("Category", "Objects.Authentication.JsonWriter")]
     public partial class DeviceObjectJsonWriter_Tests
     {
         [Fact]

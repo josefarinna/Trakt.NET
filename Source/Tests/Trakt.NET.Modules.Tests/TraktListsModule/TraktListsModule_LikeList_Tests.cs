@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Lists")]
+    [Trait("Category", "Modules.Lists")]
     public partial class TraktListsModule_Tests
     {
         private readonly string LIKE_LIST_URI = $"lists/{LIST_ID}/like";
@@ -20,7 +19,7 @@
         public async Task Test_TraktListsModule_LikeList()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(LIKE_LIST_URI, HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Lists.LikeListAsync(LIST_ID);
+            TraktNoContentResponse response = await client.Lists.LikeListAsync(LIST_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -30,7 +29,7 @@
         public async Task Test_TraktListsModule_LikeList_With_TraktID()
         {
             TraktClient client = TestUtility.GetOAuthMockClient($"lists/{TRAKT_LIST_ID}/like", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Lists.LikeListAsync(TRAKT_LIST_ID);
+            TraktNoContentResponse response = await client.Lists.LikeListAsync(TRAKT_LIST_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -45,7 +44,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"lists/{TRAKT_LIST_ID}/like", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Lists.LikeListAsync(listIds);
+            TraktNoContentResponse response = await client.Lists.LikeListAsync(listIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -60,7 +59,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"lists/{LIST_SLUG}/like", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Lists.LikeListAsync(listIds);
+            TraktNoContentResponse response = await client.Lists.LikeListAsync(listIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -76,7 +75,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"lists/{TRAKT_LIST_ID}/like", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Lists.LikeListAsync(listIds);
+            TraktNoContentResponse response = await client.Lists.LikeListAsync(listIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -95,7 +94,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"lists/{TRAKT_LIST_ID}/like", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Lists.LikeListAsync(list);
+            TraktNoContentResponse response = await client.Lists.LikeListAsync(list, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -124,7 +123,7 @@
 
             try
             {
-                await client.Lists.LikeListAsync(LIST_ID);
+                await client.Lists.LikeListAsync(LIST_ID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -138,16 +137,16 @@
         {
             TraktClient client = TestUtility.GetOAuthMockClient(LIKE_LIST_URI, HttpStatusCode.NoContent);
 
-            Func<Task<TraktNoContentResponse>> act = () => client.Lists.LikeListAsync(default(ITraktListIds));
+            Func<Task<TraktNoContentResponse>> act = () => client.Lists.LikeListAsync(default(ITraktListIds), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Lists.LikeListAsync(default(ITraktList));
+            act = () => client.Lists.LikeListAsync(default(ITraktList), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Lists.LikeListAsync(new TraktListIds());
+            act = () => client.Lists.LikeListAsync(new TraktListIds(), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Lists.LikeListAsync(0);
+            act = () => client.Lists.LikeListAsync(0, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

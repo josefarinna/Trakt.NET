@@ -5,13 +5,12 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private readonly string UNDO_RESET_SHOW_WATCHED_PROGRESS_URI = $"shows/{SHOW_ID}/progress/watched/reset";
@@ -20,7 +19,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
         public async Task Test_TraktShowsModule_UndoResetShowWatchedProgress()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(UNDO_RESET_SHOW_WATCHED_PROGRESS_URI, HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(SHOW_ID);
+            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(SHOW_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -30,7 +29,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
         public async Task Test_TraktShowsModule_UndoResetShowWatchedProgress_With_TraktID()
         {
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched/reset", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(TRAKT_SHOD_ID);
+            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(TRAKT_SHOD_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -45,7 +44,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched/reset", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(showIds);
+            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(showIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -60,7 +59,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{SHOW_SLUG}/progress/watched/reset", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(showIds);
+            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(showIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -76,7 +75,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched/reset", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(showIds);
+            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(showIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -95,7 +94,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched/reset", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(show);
+            TraktNoContentResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(show, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -124,7 +123,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
 
             try
             {
-                await client.Shows.UndoResetShowWatchedProgressAsync(SHOW_ID);
+                await client.Shows.UndoResetShowWatchedProgressAsync(SHOW_ID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -138,16 +137,16 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
         {
             TraktClient client = TestUtility.GetOAuthMockClient(UNDO_RESET_SHOW_WATCHED_PROGRESS_URI, HttpStatusCode.NoContent);
 
-            Func<Task<TraktNoContentResponse>> act = () => client.Shows.UndoResetShowWatchedProgressAsync(default(ITraktShowIds));
+            Func<Task<TraktNoContentResponse>> act = () => client.Shows.UndoResetShowWatchedProgressAsync(default(ITraktShowIds), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.UndoResetShowWatchedProgressAsync(default(ITraktShow));
+            act = () => client.Shows.UndoResetShowWatchedProgressAsync(default(ITraktShow), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.UndoResetShowWatchedProgressAsync(new TraktShowIds());
+            act = () => client.Shows.UndoResetShowWatchedProgressAsync(new TraktShowIds(), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Shows.UndoResetShowWatchedProgressAsync(0);
+            act = () => client.Shows.UndoResetShowWatchedProgressAsync(0, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

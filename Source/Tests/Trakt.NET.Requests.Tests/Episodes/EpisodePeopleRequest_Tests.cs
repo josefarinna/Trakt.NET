@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Parameters;
     using TraktNet.Requests.Episodes;
     using Xunit;
 
-    [TestCategory("Requests.Episodes")]
+    [Trait("Category", "Requests.Episodes")]
     public class EpisodePeopleRequest_Tests
     {
         [Fact]

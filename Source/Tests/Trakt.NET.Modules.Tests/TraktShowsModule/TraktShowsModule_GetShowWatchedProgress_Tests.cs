@@ -6,7 +6,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Episodes;
     using TraktNet.Objects.Get.Seasons;
@@ -14,7 +13,7 @@
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private readonly string GET_SHOW_WATCHED_PROGRESS_URI = $"shows/{SHOW_ID}/progress/watched";
@@ -27,7 +26,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -95,7 +94,7 @@
         public async Task Test_TraktShowsModule_GetShowWatchedProgress_With_TraktID()
         {
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched", SHOW_WATCHED_PROGRESS_JSON);
-            TraktResponse<ITraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(TRAKT_SHOD_ID);
+            TraktResponse<ITraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(TRAKT_SHOD_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -112,7 +111,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched", SHOW_WATCHED_PROGRESS_JSON);
-            TraktResponse<ITraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(showIds);
+            TraktResponse<ITraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -129,7 +128,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{SHOW_SLUG}/progress/watched", SHOW_WATCHED_PROGRESS_JSON);
-            TraktResponse<ITraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(showIds);
+            TraktResponse<ITraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -147,7 +146,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched", SHOW_WATCHED_PROGRESS_JSON);
-            TraktResponse<ITraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(showIds);
+            TraktResponse<ITraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -168,7 +167,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"shows/{TRAKT_SHOD_ID}/progress/watched", SHOW_WATCHED_PROGRESS_JSON);
-            TraktResponse<ITraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(show);
+            TraktResponse<ITraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(show, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -184,7 +183,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, PROGRESS_HIDDEN);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, PROGRESS_HIDDEN, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -256,7 +255,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, PROGRESS_HIDDEN, PROGRESS_SPECIALS);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, PROGRESS_HIDDEN, PROGRESS_SPECIALS, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -328,7 +327,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, PROGRESS_HIDDEN, null, PROGRESS_COUNT_SPECIALS);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, PROGRESS_HIDDEN, null, PROGRESS_COUNT_SPECIALS, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -400,7 +399,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, PROGRESS_HIDDEN, null, null, LAST_ACTIVITY);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, PROGRESS_HIDDEN, null, null, LAST_ACTIVITY, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -472,7 +471,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, null, PROGRESS_SPECIALS);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, null, PROGRESS_SPECIALS, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -544,7 +543,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, null, PROGRESS_SPECIALS, PROGRESS_COUNT_SPECIALS);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, null, PROGRESS_SPECIALS, PROGRESS_COUNT_SPECIALS, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -616,7 +615,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, null, PROGRESS_SPECIALS, null, LAST_ACTIVITY);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, null, PROGRESS_SPECIALS, null, LAST_ACTIVITY, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -688,7 +687,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, null, null, PROGRESS_COUNT_SPECIALS);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, null, null, PROGRESS_COUNT_SPECIALS, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -760,7 +759,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, null, null, null, LAST_ACTIVITY);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, null, null, null, LAST_ACTIVITY, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -832,7 +831,7 @@
                 SHOW_WATCHED_PROGRESS_JSON);
 
             TraktResponse<ITraktShowWatchedProgress> response =
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, PROGRESS_HIDDEN, PROGRESS_SPECIALS, PROGRESS_COUNT_SPECIALS, LAST_ACTIVITY);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, PROGRESS_HIDDEN, PROGRESS_SPECIALS, PROGRESS_COUNT_SPECIALS, LAST_ACTIVITY, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -919,7 +918,7 @@
 
             try
             {
-                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID);
+                await client.Shows.GetShowWatchedProgressAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -933,16 +932,16 @@
         {
             TraktClient client = TestUtility.GetOAuthMockClient(GET_SHOW_WATCHED_PROGRESS_URI, SHOW_WATCHED_PROGRESS_JSON);
 
-            Func<Task<TraktResponse<ITraktShowWatchedProgress>>> act = () => client.Shows.GetShowWatchedProgressAsync(default(ITraktShowIds));
+            Func<Task<TraktResponse<ITraktShowWatchedProgress>>> act = () => client.Shows.GetShowWatchedProgressAsync(default(ITraktShowIds), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowWatchedProgressAsync(default(ITraktShow));
+            act = () => client.Shows.GetShowWatchedProgressAsync(default(ITraktShow), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowWatchedProgressAsync(new TraktShowIds());
+            act = () => client.Shows.GetShowWatchedProgressAsync(new TraktShowIds(), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Shows.GetShowWatchedProgressAsync(0);
+            act = () => client.Shows.GetShowWatchedProgressAsync(0, cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

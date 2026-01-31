@@ -5,12 +5,11 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Comments")]
+    [Trait("Category", "Modules.Comments")]
     public partial class TraktCommentsModule_Tests
     {
         private readonly string LIKE_COMMENT_URI = $"comments/{COMMENT_ID}/like";
@@ -19,7 +18,7 @@
         public async Task Test_TraktCommentsModule_LikeComment()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(LIKE_COMMENT_URI, HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Comments.LikeCommentAsync(COMMENT_ID);
+            TraktNoContentResponse response = await client.Comments.LikeCommentAsync(COMMENT_ID, TestContext.Current.CancellationToken);
             response.IsSuccess.Should().BeTrue();
         }
 
@@ -46,7 +45,7 @@
 
             try
             {
-                await client.Comments.LikeCommentAsync(COMMENT_ID);
+                await client.Comments.LikeCommentAsync(COMMENT_ID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

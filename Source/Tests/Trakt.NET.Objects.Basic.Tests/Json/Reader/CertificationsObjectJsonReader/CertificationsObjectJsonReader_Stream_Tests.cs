@@ -6,11 +6,11 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Basic.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Basic.Stream")]
+    [Trait("Category", "Objects.Basic.Stream")]
     public partial class CertificationsObjectJsonReader_Tests
     {
         [Fact]

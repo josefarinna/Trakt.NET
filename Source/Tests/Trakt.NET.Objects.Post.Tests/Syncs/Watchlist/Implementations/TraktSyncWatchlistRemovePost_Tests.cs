@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Syncs.Watchlist;
     using Xunit;
 
-    [TestCategory("Objects.Post.Syncs.Watchlist.Implementations")]
+    [Trait("Category", "Objects.Post.Syncs.Watchlist.Implementations")]
     public class TraktSyncWatchlistRemovePost_Tests
     {
         [Fact]

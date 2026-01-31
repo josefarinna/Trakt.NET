@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string UPDATE_PERSONAL_LIST_ITEM_URI = $"users/{USERNAME}/lists/{LIST_ID}/items/{LIST_ITEM_ID}";
@@ -21,7 +20,7 @@
         public async Task Test_TraktUsersModule_UpdatePersonalListItem()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(UPDATE_PERSONAL_LIST_ITEM_URI, HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, LIST_ID, LIST_ITEM_ID, NOTES);
+            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, LIST_ID, LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -31,7 +30,7 @@
         public async Task Test_TraktUsersModule_UpdatePersonalListItem_With_TraktID()
         {
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/items/{LIST_ITEM_ID}", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, TRAKT_LIST_ID, LIST_ITEM_ID, NOTES);
+            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, TRAKT_LIST_ID, LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -46,7 +45,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/items/{LIST_ITEM_ID}", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, listIds, LIST_ITEM_ID, NOTES);
+            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, listIds, LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -61,7 +60,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{LIST_SLUG}/items/{LIST_ITEM_ID}", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, listIds, LIST_ITEM_ID, NOTES);
+            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, listIds, LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -77,7 +76,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/items/{LIST_ITEM_ID}", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, listIds, LIST_ITEM_ID, NOTES);
+            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, listIds, LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -96,7 +95,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/items/{LIST_ITEM_ID}", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, list, LIST_ITEM_ID, NOTES);
+            TraktNoContentResponse response = await client.Users.UpdatePersonalListItemAsync(USERNAME, list, LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -125,7 +124,7 @@
 
             try
             {
-                await client.Users.UpdatePersonalListItemAsync(USERNAME, LIST_ID, LIST_ITEM_ID, NOTES);
+                await client.Users.UpdatePersonalListItemAsync(USERNAME, LIST_ID, LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -139,16 +138,16 @@
         {
             TraktClient client = TestUtility.GetOAuthMockClient(UPDATE_PERSONAL_LIST_ITEM_URI, HttpStatusCode.NoContent);
 
-            Func<Task<TraktNoContentResponse>> act = () => client.Users.UpdatePersonalListItemAsync(USERNAME, default(ITraktListIds), LIST_ITEM_ID, NOTES);
+            Func<Task<TraktNoContentResponse>> act = () => client.Users.UpdatePersonalListItemAsync(USERNAME, default(ITraktListIds), LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Users.UpdatePersonalListItemAsync(USERNAME, default(ITraktList), LIST_ITEM_ID, NOTES);
+            act = () => client.Users.UpdatePersonalListItemAsync(USERNAME, default(ITraktList), LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Users.UpdatePersonalListItemAsync(USERNAME, new TraktListIds(), LIST_ITEM_ID, NOTES);
+            act = () => client.Users.UpdatePersonalListItemAsync(USERNAME, new TraktListIds(), LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Users.UpdatePersonalListItemAsync(USERNAME, 0, LIST_ITEM_ID, NOTES);
+            act = () => client.Users.UpdatePersonalListItemAsync(USERNAME, 0, LIST_ITEM_ID, NOTES, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

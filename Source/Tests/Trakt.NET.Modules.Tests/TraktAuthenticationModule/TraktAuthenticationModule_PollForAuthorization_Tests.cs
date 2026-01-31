@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Authentication;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Authentication")]
+    [Trait("Category", "Modules.Authentication")]
     public partial class TraktAuthenticationModule_Tests
     {
         private const string POLL_FOR_AUTHORIZATION_URI = "oauth/device/token";

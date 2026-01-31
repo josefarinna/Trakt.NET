@@ -412,7 +412,7 @@
                 """;
 
             return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests",
-                "SourceGeneration.GetRequestCustomOptionalDateTimeParameter", source, RequestTestType.GetRequest, 
+                "SourceGeneration.GetRequestCustomOptionalDateTimeParameter", source, RequestTestType.GetRequest,
                 nameof(TestGenerateGetRequestWithCustomOptionalDateTimeParameter));
         }
 

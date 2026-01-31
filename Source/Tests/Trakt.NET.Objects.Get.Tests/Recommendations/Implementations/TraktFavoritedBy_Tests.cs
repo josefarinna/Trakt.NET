@@ -3,12 +3,12 @@ namespace TraktNet.Objects.Get.Tests.Recommendations.Implementations
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Recommendations;
     using TraktNet.Objects.Get.Recommendations.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Recommendations.Implementations")]
+    [Trait("Category", "Objects.Get.Recommendations.Implementations")]
     public class TraktFavoritedBy_Tests
     {
         [Fact]

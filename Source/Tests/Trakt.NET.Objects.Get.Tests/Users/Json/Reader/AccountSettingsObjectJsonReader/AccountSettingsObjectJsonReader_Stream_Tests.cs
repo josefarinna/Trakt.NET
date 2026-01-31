@@ -5,13 +5,13 @@
     using System.IO;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.Users;
     using TraktNet.Objects.Get.Users.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Users.JsonReader")]
+    [Trait("Category", "Objects.Get.Users.JsonReader")]
     public partial class AccountSettingsObjectJsonReader_Tests
     {
         [Fact]

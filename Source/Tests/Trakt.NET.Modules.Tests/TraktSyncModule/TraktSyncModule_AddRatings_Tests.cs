@@ -6,13 +6,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Syncs.Ratings.Responses;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Sync")]
+    [Trait("Category", "Modules.Sync")]
     public partial class TraktSyncModule_Tests
     {
         private const string ADD_RATINGS_URI = "sync/ratings";

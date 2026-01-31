@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Checkins.Responses;
     using TraktNet.Objects.Post.Checkins.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Checkins.Responses.Implementations")]
+    [Trait("Category", "Objects.Post.Checkins.Responses.Implementations")]
     public class TraktEpisodeCheckinPostResponse_Tests
     {
         [Fact]

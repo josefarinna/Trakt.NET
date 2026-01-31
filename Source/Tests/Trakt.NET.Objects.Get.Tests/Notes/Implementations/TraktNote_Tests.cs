@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.Notes;
     using TraktNet.Objects.Get.Notes.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Notes.Implementations")]
+    [Trait("Category", "Objects.Get.Notes.Implementations")]
     public class TraktNote_Tests
     {
         [Fact]

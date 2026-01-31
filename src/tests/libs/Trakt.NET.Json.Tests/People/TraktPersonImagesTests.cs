@@ -20,11 +20,11 @@ namespace TraktNET.Json.Persons
 
             personImages!.Headshot.ShouldNotBeNull();
             personImages!.Headshot!.Count.ShouldBe(1);
-            personImages!.Headshot!.ShouldBe([ "walter-r2.trakt.tv/images/people/000/297/737/headshots/thumb/ef96a1e565.jpg.webp" ]);
+            personImages!.Headshot!.ShouldBe(["walter-r2.trakt.tv/images/people/000/297/737/headshots/thumb/ef96a1e565.jpg.webp"]);
 
             personImages!.Fanart.ShouldNotBeNull();
             personImages!.Fanart!.Count.ShouldBe(1);
-            personImages!.Fanart!.ShouldBe([ "walter-r2.trakt.tv/images/people/000/297/737/fanarts/medium/ec609f5bcc.jpg.webp" ]);
+            personImages!.Fanart!.ShouldBe(["walter-r2.trakt.tv/images/people/000/297/737/fanarts/medium/ec609f5bcc.jpg.webp"]);
         }
     }
 }

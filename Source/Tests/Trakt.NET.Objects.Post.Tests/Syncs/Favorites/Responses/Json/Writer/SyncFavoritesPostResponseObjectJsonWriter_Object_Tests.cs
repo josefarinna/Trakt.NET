@@ -4,7 +4,7 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Objects.Post.Syncs.Favorites;
@@ -12,7 +12,7 @@
     using TraktNet.Objects.Post.Syncs.Favorites.Responses.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Post.Syncs.Favorites.Responses.JsonWriter")]
+    [Trait("Category", "Objects.Post.Syncs.Favorites.Responses.JsonWriter")]
     public partial class SyncFavoritesPostResponseObjectJsonWriter_Tests
     {
         [Fact]

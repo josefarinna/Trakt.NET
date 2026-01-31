@@ -4,12 +4,12 @@
     using System;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.Ratings.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Ratings.JsonReader")]
+    [Trait("Category", "Objects.Get.Ratings.JsonReader")]
     public partial class RatingsItemObjectJsonReader_Tests
     {
         [Fact]

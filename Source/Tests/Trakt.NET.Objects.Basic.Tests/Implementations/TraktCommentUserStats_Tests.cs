@@ -2,12 +2,12 @@ namespace TraktNet.Objects.Basic.Tests.Implementations
 {
     using FluentAssertions;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Basic;
     using TraktNet.Objects.Basic.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Basic.Implementations")]
+    [Trait("Category", "Objects.Basic.Implementations")]
     public class TraktCommentUserStats_Tests
     {
         [Fact]

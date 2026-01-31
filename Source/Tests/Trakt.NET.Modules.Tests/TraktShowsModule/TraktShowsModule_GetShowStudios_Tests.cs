@@ -5,14 +5,13 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Basic;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private readonly string GET_SHOW_STUDIOS_URI = $"shows/{SHOW_ID}/studios";
@@ -21,7 +20,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
         public async Task Test_TraktShowsModule_GetShowStudios()
         {
             TraktClient client = TestUtility.GetMockClient(GET_SHOW_STUDIOS_URI, SHOW_STUDIOS_JSON);
-            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(SHOW_ID);
+            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(SHOW_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -33,7 +32,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
         public async Task Test_TraktShowsModule_GetShowStudios_With_TraktID()
         {
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/studios", SHOW_STUDIOS_JSON);
-            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(TRAKT_SHOD_ID);
+            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(TRAKT_SHOD_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -50,7 +49,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/studios", SHOW_STUDIOS_JSON);
-            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(showIds);
+            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(showIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -67,7 +66,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{SHOW_SLUG}/studios", SHOW_STUDIOS_JSON);
-            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(showIds);
+            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(showIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -85,7 +84,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/studios", SHOW_STUDIOS_JSON);
-            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(showIds);
+            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(showIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -106,7 +105,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/studios", SHOW_STUDIOS_JSON);
-            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(show);
+            TraktListResponse<ITraktStudio> response = await client.Shows.GetShowStudiosAsync(show, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -137,7 +136,7 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
 
             try
             {
-                await client.Shows.GetShowStudiosAsync(SHOW_ID);
+                await client.Shows.GetShowStudiosAsync(SHOW_ID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -151,16 +150,16 @@ namespace TraktNet.Modules.Tests.TraktShowsModule
         {
             TraktClient client = TestUtility.GetMockClient(GET_SHOW_STUDIOS_URI, SHOW_STUDIOS_JSON);
 
-            Func<Task<TraktListResponse<ITraktStudio>>> act = () => client.Shows.GetShowStudiosAsync(default(ITraktShowIds));
+            Func<Task<TraktListResponse<ITraktStudio>>> act = () => client.Shows.GetShowStudiosAsync(default(ITraktShowIds), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowStudiosAsync(default(ITraktShow));
+            act = () => client.Shows.GetShowStudiosAsync(default(ITraktShow), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowStudiosAsync(new TraktShowIds());
+            act = () => client.Shows.GetShowStudiosAsync(new TraktShowIds(), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Shows.GetShowStudiosAsync(0);
+            act = () => client.Shows.GetShowStudiosAsync(0, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

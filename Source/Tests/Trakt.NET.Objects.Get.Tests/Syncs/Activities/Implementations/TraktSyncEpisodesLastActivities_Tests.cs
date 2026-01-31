@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Syncs.Activities;
     using TraktNet.Objects.Get.Syncs.Activities.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Syncs.Activities.Implementations")]
+    [Trait("Category", "Objects.Get.Syncs.Activities.Implementations")]
     public class TraktSyncEpisodesLastActivities_Tests
     {
         [Fact]

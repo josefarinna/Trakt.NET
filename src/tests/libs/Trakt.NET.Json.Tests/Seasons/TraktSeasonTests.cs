@@ -60,11 +60,11 @@
 
             season!.Images!.Poster.ShouldNotBeNull();
             season!.Images!.Poster!.Count.ShouldBe(1);
-            season!.Images!.Poster!.ShouldBe([ "walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp" ]);
+            season!.Images!.Poster!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"]);
 
             season!.Images!.Thumb.ShouldNotBeNull();
             season!.Images!.Thumb!.Count.ShouldBe(1);
-            season!.Images!.Thumb!.ShouldBe([ "walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp" ]);
+            season!.Images!.Thumb!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"]);
         }
 
         [Fact]
@@ -128,11 +128,11 @@
 
             season!.Images!.Poster.ShouldNotBeNull();
             season!.Images!.Poster!.Count.ShouldBe(1);
-            season!.Images!.Poster!.ShouldBe([ "walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp" ]);
+            season!.Images!.Poster!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"]);
 
             season!.Images!.Thumb.ShouldNotBeNull();
             season!.Images!.Thumb!.Count.ShouldBe(1);
-            season!.Images!.Thumb!.ShouldBe([ "walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp" ]);
+            season!.Images!.Thumb!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"]);
 
             season!.ToString().ShouldBe("S01: Season 1");
         }
@@ -302,11 +302,11 @@
 
             season!.Images!.Poster.ShouldNotBeNull();
             season!.Images!.Poster!.Count.ShouldBe(1);
-            season!.Images!.Poster!.ShouldBe([ "walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp" ]);
+            season!.Images!.Poster!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"]);
 
             season!.Images!.Thumb.ShouldNotBeNull();
             season!.Images!.Thumb!.Count.ShouldBe(1);
-            season!.Images!.Thumb!.ShouldBe([ "walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp" ]);
+            season!.Images!.Thumb!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"]);
 
             season!.ToString().ShouldBe("S01: Season 1");
 

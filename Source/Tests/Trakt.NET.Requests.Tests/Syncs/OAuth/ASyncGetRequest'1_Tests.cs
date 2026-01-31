@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Syncs.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Syncs.OAuth")]
+    [Trait("Category", "Requests.Syncs.OAuth")]
     public class ASyncGetRequest_1_Tests
     {
         internal class SyncGetRequestMock : ASyncGetRequest<int>

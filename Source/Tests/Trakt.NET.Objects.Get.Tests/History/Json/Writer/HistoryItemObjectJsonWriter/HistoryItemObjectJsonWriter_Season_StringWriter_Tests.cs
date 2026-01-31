@@ -4,7 +4,7 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.History;
@@ -12,7 +12,7 @@
     using TraktNet.Objects.Get.Seasons;
     using Xunit;
 
-    [TestCategory("Objects.Get.History.JsonWriter")]
+    [Trait("Category", "Objects.Get.History.JsonWriter")]
     public partial class HistoryItemObjectJsonWriter_Tests
     {
         [Fact]

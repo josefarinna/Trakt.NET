@@ -71,7 +71,7 @@
 
             episode!.Images!.Screenshot.ShouldNotBeNull();
             episode!.Images!.Screenshot!.Count.ShouldBe(1);
-            episode!.Images!.Screenshot!.ShouldBe([ "walter-r2.trakt.tv/images/episodes/000/073/640/screenshots/medium/66c1ba1793.jpg.webp" ]);
+            episode!.Images!.Screenshot!.ShouldBe(["walter-r2.trakt.tv/images/episodes/000/073/640/screenshots/medium/66c1ba1793.jpg.webp"]);
 
             episode!.ToString().ShouldBe("S01E01: Winter Is Coming");
         }
@@ -165,7 +165,7 @@
 
             episode!.Images!.Screenshot.ShouldNotBeNull();
             episode!.Images!.Screenshot!.Count.ShouldBe(1);
-            episode!.Images!.Screenshot!.ShouldBe([ "walter-r2.trakt.tv/images/episodes/000/073/640/screenshots/medium/66c1ba1793.jpg.webp" ]);
+            episode!.Images!.Screenshot!.ShouldBe(["walter-r2.trakt.tv/images/episodes/000/073/640/screenshots/medium/66c1ba1793.jpg.webp"]);
 
             episode.Translations.ShouldBeNull();
         }

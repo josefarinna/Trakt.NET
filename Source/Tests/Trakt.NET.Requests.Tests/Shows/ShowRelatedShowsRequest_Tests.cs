@@ -4,13 +4,13 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Parameters;
     using TraktNet.Requests.Shows;
     using Xunit;
 
-    [TestCategory("Requests.Shows")]
+    [Trait("Category", "Requests.Shows")]
     public class ShowRelatedShowsRequest_Tests
     {
         [Fact]

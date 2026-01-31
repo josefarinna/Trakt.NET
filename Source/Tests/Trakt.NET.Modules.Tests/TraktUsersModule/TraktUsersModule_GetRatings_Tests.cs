@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Ratings;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_RATINGS_URI = $"users/{USERNAME}/ratings";
@@ -445,7 +444,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, null, null, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -467,7 +466,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, null, null, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -489,7 +488,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, null, null, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -531,7 +530,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, null, null, null, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -553,7 +552,7 @@
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, null, null, null, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -575,7 +574,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, null, null, null, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -600,7 +599,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -625,7 +624,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -652,7 +651,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -679,7 +678,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -706,7 +705,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -733,7 +732,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -751,7 +750,7 @@
                 $"/{BuildRatingsFilterString(ratingsFilter)}?extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 RATINGS_JSON, 1, LIMIT, 2, RATINGS_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -778,7 +777,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktRatingsItem> response =
-                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters);
+                await client.Users.GetRatingsAsync(USERNAME, RATINGS_ITEM_TYPE, ratingsFilter, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -796,7 +795,7 @@
                 $"/{BuildRatingsFilterString(ratingsFilter)}?extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 RATINGS_JSON, 2, LIMIT, 2, RATINGS_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

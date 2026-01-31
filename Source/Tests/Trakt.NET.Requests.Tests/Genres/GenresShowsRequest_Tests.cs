@@ -1,12 +1,12 @@
 ﻿namespace TraktNet.Requests.Tests.Genres
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Genres;
     using Xunit;
 
-    [TestCategory("Requests.Genres")]
+    [Trait("Category", "Requests.Genres")]
     public class GenresShowsRequest_Tests
     {
         [Fact]

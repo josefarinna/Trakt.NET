@@ -5,7 +5,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Basic;
     using TraktNet.Objects.Get.Shows;
@@ -13,7 +12,7 @@
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Episodes")]
+    [Trait("Category", "Modules.Episodes")]
     public partial class TraktEpisodesModule_Tests
     {
         private readonly string GET_EPISODE_COMMENTS_URI = $"shows/{SHOW_ID}/seasons/{SEASON_NR}/episodes/{EPISODE_NR}/comments";
@@ -193,7 +192,7 @@
                                                            EPISODE_COMMENTS_JSON, PAGE, 10, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -212,7 +211,7 @@
                                                            EPISODE_COMMENTS_JSON, 1, LIMIT, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -250,7 +249,7 @@
                                                            EPISODE_COMMENTS_JSON, PAGE, 10, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -269,7 +268,7 @@
                                                            EPISODE_COMMENTS_JSON, 1, LIMIT, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -289,7 +288,7 @@
                 EPISODE_COMMENTS_JSON, PAGE, 10, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -309,7 +308,7 @@
                 EPISODE_COMMENTS_JSON, 1, LIMIT, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -328,7 +327,7 @@
                                                            EPISODE_COMMENTS_JSON, PAGE, LIMIT, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -348,7 +347,7 @@
                 EPISODE_COMMENTS_JSON, 1, LIMIT, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -368,7 +367,7 @@
                 EPISODE_COMMENTS_JSON, 1, LIMIT, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -388,7 +387,7 @@
                 EPISODE_COMMENTS_JSON, PAGE, LIMIT, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -407,7 +406,7 @@
                                                            EPISODE_COMMENTS_JSON, 2, LIMIT, 5, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -428,7 +427,7 @@
                                                            EPISODE_COMMENTS_JSON, 2, LIMIT, 2, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -449,7 +448,7 @@
                                                            EPISODE_COMMENTS_JSON, 1, LIMIT, 2, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -470,7 +469,7 @@
                                                            EPISODE_COMMENTS_JSON, 1, LIMIT, 1, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -491,7 +490,7 @@
                                                            EPISODE_COMMENTS_JSON, 2, LIMIT, 2, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -507,7 +506,7 @@
             TestUtility.ResetMockClient(client, $"{GET_EPISODE_COMMENTS_URI}/{COMMENT_SORT_ORDER.UriName}?page=1&limit={LIMIT}",
                                         EPISODE_COMMENTS_JSON, 1, LIMIT, 2, COMMENTS_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -528,7 +527,7 @@
                                                            EPISODE_COMMENTS_JSON, 1, LIMIT, 2, COMMENTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(SHOW_ID, SEASON_NR, EPISODE_NR, COMMENT_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -544,7 +543,7 @@
             TestUtility.ResetMockClient(client, $"{GET_EPISODE_COMMENTS_URI}/{COMMENT_SORT_ORDER.UriName}?page=2&limit={LIMIT}",
                                         EPISODE_COMMENTS_JSON, 2, LIMIT, 2, COMMENTS_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

@@ -2,13 +2,13 @@
 {
     using FluentAssertions;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Parameters;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Users.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Users.OAuth")]
+    [Trait("Category", "Requests.Users.OAuth")]
     public class UserPendingFollowingRequestsRequest_Tests
     {
         [Fact]

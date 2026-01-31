@@ -19,7 +19,7 @@ namespace TraktNET.Json.Episodes
 
             episodeImages!.Screenshot.ShouldNotBeNull();
             episodeImages!.Screenshot!.Count.ShouldBe(1);
-            episodeImages!.Screenshot!.ShouldBe([ "walter-r2.trakt.tv/images/episodes/000/073/640/screenshots/medium/66c1ba1793.jpg.webp" ]);
+            episodeImages!.Screenshot!.ShouldBe(["walter-r2.trakt.tv/images/episodes/000/073/640/screenshots/medium/66c1ba1793.jpg.webp"]);
         }
     }
 }

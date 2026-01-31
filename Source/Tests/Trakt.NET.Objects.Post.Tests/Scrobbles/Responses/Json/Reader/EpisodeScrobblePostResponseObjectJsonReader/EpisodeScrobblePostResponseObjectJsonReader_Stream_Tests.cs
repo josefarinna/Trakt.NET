@@ -5,13 +5,12 @@
     using System.IO;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Enums;
     using TraktNet.Objects.Post.Scrobbles.Responses;
     using TraktNet.Objects.Post.Scrobbles.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Scrobbles.Responses.JsonReader")]
+    [Trait("Category", "Objects.Post.Scrobbles.Responses.JsonReader")]
     public partial class EpisodeScrobblePostResponseObjectJsonReader_Tests
     {
         [Fact]
@@ -21,7 +20,7 @@
 
             using (var stream = JSON_COMPLETE.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -63,7 +62,7 @@
 
             using (var stream = JSON_INCOMPLETE_1.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(0UL);
@@ -105,7 +104,7 @@
 
             using (var stream = JSON_INCOMPLETE_2.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -147,7 +146,7 @@
 
             using (var stream = JSON_INCOMPLETE_3.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -189,7 +188,7 @@
 
             using (var stream = JSON_INCOMPLETE_4.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -226,7 +225,7 @@
 
             using (var stream = JSON_INCOMPLETE_5.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -259,7 +258,7 @@
 
             using (var stream = JSON_INCOMPLETE_6.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -292,7 +291,7 @@
 
             using (var stream = JSON_INCOMPLETE_7.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -311,7 +310,7 @@
 
             using (var stream = JSON_INCOMPLETE_8.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(0UL);
@@ -330,7 +329,7 @@
 
             using (var stream = JSON_INCOMPLETE_9.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(0UL);
@@ -349,7 +348,7 @@
 
             using (var stream = JSON_INCOMPLETE_10.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(0UL);
@@ -373,7 +372,7 @@
 
             using (var stream = JSON_INCOMPLETE_11.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(0UL);
@@ -401,7 +400,7 @@
 
             using (var stream = JSON_INCOMPLETE_12.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(0UL);
@@ -429,7 +428,7 @@
 
             using (var stream = JSON_NOT_VALID_1.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(0UL);
@@ -471,7 +470,7 @@
 
             using (var stream = JSON_NOT_VALID_2.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -513,7 +512,7 @@
 
             using (var stream = JSON_NOT_VALID_3.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -555,7 +554,7 @@
 
             using (var stream = JSON_NOT_VALID_4.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -592,7 +591,7 @@
 
             using (var stream = JSON_NOT_VALID_5.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -625,7 +624,7 @@
 
             using (var stream = JSON_NOT_VALID_6.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(3373536623UL);
@@ -658,7 +657,7 @@
 
             using (var stream = JSON_NOT_VALID_7.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 episodeScrobbleResponse.Should().NotBeNull();
                 episodeScrobbleResponse.Id.Should().Be(0UL);
@@ -674,7 +673,7 @@
         public async Task Test_EpisodeScrobblePostResponseObjectJsonReader_ReadObject_From_Stream_Null()
         {
             var jsonReader = new EpisodeScrobblePostResponseObjectJsonReader();
-            Func<Task<ITraktEpisodeScrobblePostResponse>> episodeScrobbleResponse = () => jsonReader.ReadObjectAsync(default(Stream));
+            Func<Task<ITraktEpisodeScrobblePostResponse>> episodeScrobbleResponse = () => jsonReader.ReadObjectAsync(default(Stream), TestContext.Current.CancellationToken);
             await episodeScrobbleResponse.Should().ThrowAsync<ArgumentNullException>();
         }
 
@@ -685,7 +684,7 @@
 
             using (var stream = string.Empty.ToStream())
             {
-                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream);
+                var episodeScrobbleResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
                 episodeScrobbleResponse.Should().BeNull();
             }
         }

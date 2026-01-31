@@ -5,12 +5,12 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Watchlist;
     using TraktNet.Objects.Get.Watchlist.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Watchlist.JsonReader")]
+    [Trait("Category", "Objects.Get.Watchlist.JsonReader")]
     public partial class WatchlistItemObjectJsonReader_Tests
     {
         [Fact]

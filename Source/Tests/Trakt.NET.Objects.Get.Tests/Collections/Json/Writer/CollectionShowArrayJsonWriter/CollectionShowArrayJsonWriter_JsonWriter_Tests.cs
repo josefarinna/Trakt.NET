@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Basic;
@@ -15,7 +15,7 @@
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Get.Collections.JsonWriter")]
+    [Trait("Category", "Objects.Get.Collections.JsonWriter")]
     public partial class CollectionShowArrayJsonWriter_Tests
     {
         private readonly DateTime LAST_COLLECTED_AT = DateTime.UtcNow;

@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Objects.Get.Users;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private readonly string GET_SHOW_WATCHING_USERS_URI = $"shows/{SHOW_ID}/watching";
@@ -25,7 +24,7 @@
                 SHOW_WATCHING_USERS_JSON);
 
             TraktListResponse<ITraktUser> response =
-                await client.Shows.GetShowWatchingUsersAsync(SHOW_ID);
+                await client.Shows.GetShowWatchingUsersAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -37,7 +36,7 @@
         public async Task Test_TraktShowsModule_GetShowWatchingUsers_With_TraktID()
         {
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/watching", SHOW_WATCHING_USERS_JSON);
-            TraktListResponse<ITraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TRAKT_SHOD_ID);
+            TraktListResponse<ITraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TRAKT_SHOD_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -54,7 +53,7 @@
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/watching", SHOW_WATCHING_USERS_JSON);
-            TraktListResponse<ITraktUser> response = await client.Shows.GetShowWatchingUsersAsync(showIds);
+            TraktListResponse<ITraktUser> response = await client.Shows.GetShowWatchingUsersAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -71,7 +70,7 @@
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{SHOW_SLUG}/watching", SHOW_WATCHING_USERS_JSON);
-            TraktListResponse<ITraktUser> response = await client.Shows.GetShowWatchingUsersAsync(showIds);
+            TraktListResponse<ITraktUser> response = await client.Shows.GetShowWatchingUsersAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -89,7 +88,7 @@
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/watching", SHOW_WATCHING_USERS_JSON);
-            TraktListResponse<ITraktUser> response = await client.Shows.GetShowWatchingUsersAsync(showIds);
+            TraktListResponse<ITraktUser> response = await client.Shows.GetShowWatchingUsersAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -110,7 +109,7 @@
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/watching", SHOW_WATCHING_USERS_JSON);
-            TraktListResponse<ITraktUser> response = await client.Shows.GetShowWatchingUsersAsync(show);
+            TraktListResponse<ITraktUser> response = await client.Shows.GetShowWatchingUsersAsync(show, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -126,7 +125,7 @@
                 SHOW_WATCHING_USERS_JSON);
 
             TraktListResponse<ITraktUser> response =
-                await client.Shows.GetShowWatchingUsersAsync(SHOW_ID, EXTENDED_INFO);
+                await client.Shows.GetShowWatchingUsersAsync(SHOW_ID, EXTENDED_INFO, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -157,7 +156,7 @@
 
             try
             {
-                await client.Shows.GetShowWatchingUsersAsync(SHOW_ID);
+                await client.Shows.GetShowWatchingUsersAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -171,16 +170,16 @@
         {
             TraktClient client = TestUtility.GetMockClient(GET_SHOW_WATCHING_USERS_URI, SHOW_WATCHING_USERS_JSON);
 
-            Func<Task<TraktListResponse<ITraktUser>>> act = () => client.Shows.GetShowWatchingUsersAsync(default(ITraktShowIds));
+            Func<Task<TraktListResponse<ITraktUser>>> act = () => client.Shows.GetShowWatchingUsersAsync(default(ITraktShowIds), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowWatchingUsersAsync(default(ITraktShow));
+            act = () => client.Shows.GetShowWatchingUsersAsync(default(ITraktShow), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowWatchingUsersAsync(new TraktShowIds());
+            act = () => client.Shows.GetShowWatchingUsersAsync(new TraktShowIds(), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Shows.GetShowWatchingUsersAsync(0);
+            act = () => client.Shows.GetShowWatchingUsersAsync(0, cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

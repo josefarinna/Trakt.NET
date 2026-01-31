@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.People.Credits;
     using TraktNet.Objects.Get.People.Credits.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.People.Credits.Implementations")]
+    [Trait("Category", "Objects.Get.People.Credits.Implementations")]
     public class TraktPersonMovieCreditsCrewItem_Tests
     {
         [Fact]

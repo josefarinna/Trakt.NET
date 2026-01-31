@@ -3,7 +3,7 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Episodes;
@@ -17,7 +17,7 @@
     using TraktNet.Objects.Post.Notes.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Post.Notes.Implementations")]
+    [Trait("Category", "Objects.Post.Notes.Implementations")]
     public class TraktNotePost_Tests
     {
         [Fact]

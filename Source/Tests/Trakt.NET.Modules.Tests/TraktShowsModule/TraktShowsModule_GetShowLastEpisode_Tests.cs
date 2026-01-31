@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Episodes;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private readonly string GET_SHOW_LAST_EPISODE_URI = $"shows/{SHOW_ID}/last_episode";
@@ -21,7 +20,7 @@
         public async Task Test_TraktShowsModule_GetShowLastEpisode()
         {
             TraktClient client = TestUtility.GetMockClient(GET_SHOW_LAST_EPISODE_URI, SHOW_EPISODE_JSON);
-            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(SHOW_ID);
+            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -45,7 +44,7 @@
         public async Task Test_TraktShowsModule_GetShowLastEpisode_With_TraktID()
         {
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/last_episode", SHOW_EPISODE_JSON);
-            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(TRAKT_SHOD_ID);
+            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(TRAKT_SHOD_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -62,7 +61,7 @@
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/last_episode", SHOW_EPISODE_JSON);
-            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(showIds);
+            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -79,7 +78,7 @@
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{SHOW_SLUG}/last_episode", SHOW_EPISODE_JSON);
-            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(showIds);
+            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -97,7 +96,7 @@
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/last_episode", SHOW_EPISODE_JSON);
-            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(showIds);
+            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(showIds, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -118,7 +117,7 @@
             };
 
             TraktClient client = TestUtility.GetMockClient($"shows/{TRAKT_SHOD_ID}/last_episode", SHOW_EPISODE_JSON);
-            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(show);
+            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(show, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -133,7 +132,7 @@
                 $"{GET_SHOW_LAST_EPISODE_URI}?extended={EXTENDED_INFO}",
                 SHOW_EPISODE_JSON);
 
-            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(SHOW_ID, EXTENDED_INFO);
+            TraktResponse<ITraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(SHOW_ID, EXTENDED_INFO, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -183,7 +182,7 @@
 
             try
             {
-                await client.Shows.GetShowLastEpisodeAsync(SHOW_ID);
+                await client.Shows.GetShowLastEpisodeAsync(SHOW_ID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -197,16 +196,16 @@
         {
             TraktClient client = TestUtility.GetMockClient(GET_SHOW_LAST_EPISODE_URI, SHOW_EPISODE_JSON);
 
-            Func<Task<TraktResponse<ITraktEpisode>>> act = () => client.Shows.GetShowLastEpisodeAsync(default(ITraktShowIds));
+            Func<Task<TraktResponse<ITraktEpisode>>> act = () => client.Shows.GetShowLastEpisodeAsync(default(ITraktShowIds), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowLastEpisodeAsync(default(ITraktShow));
+            act = () => client.Shows.GetShowLastEpisodeAsync(default(ITraktShow), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowLastEpisodeAsync(new TraktShowIds());
+            act = () => client.Shows.GetShowLastEpisodeAsync(new TraktShowIds(), cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Shows.GetShowLastEpisodeAsync(0);
+            act = () => client.Shows.GetShowLastEpisodeAsync(0, cancellationToken: TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

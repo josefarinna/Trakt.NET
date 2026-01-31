@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Watched;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_WATCHED_MOVIES_URI = $"users/{USERNAME}/watched/movies";
@@ -20,7 +19,7 @@
         public async Task Test_TraktUsersModule_GetWatchedMovies()
         {
             TraktClient client = TestUtility.GetMockClient(GET_WATCHED_MOVIES_URI, WATCHED_MOVIES_JSON);
-            TraktListResponse<ITraktWatchedMovie> response = await client.Users.GetWatchedMoviesAsync(USERNAME);
+            TraktListResponse<ITraktWatchedMovie> response = await client.Users.GetWatchedMoviesAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -34,7 +33,7 @@
             TraktClient client = TestUtility.GetOAuthMockClient(GET_WATCHED_MOVIES_URI, WATCHED_MOVIES_JSON);
             client.Configuration.ForceAuthorization = true;
 
-            TraktListResponse<ITraktWatchedMovie> response = await client.Users.GetWatchedMoviesAsync(USERNAME);
+            TraktListResponse<ITraktWatchedMovie> response = await client.Users.GetWatchedMoviesAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -46,7 +45,7 @@
         public async Task Test_TraktUsersModule_GetWatchedMovies_With_OAuth_Enforced_For_Username_Me()
         {
             TraktClient client = TestUtility.GetOAuthMockClient("users/me/watched/movies", WATCHED_MOVIES_JSON);
-            TraktListResponse<ITraktWatchedMovie> response = await client.Users.GetWatchedMoviesAsync("me");
+            TraktListResponse<ITraktWatchedMovie> response = await client.Users.GetWatchedMoviesAsync("me", cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -61,7 +60,7 @@
                 $"{GET_WATCHED_MOVIES_URI}?extended={EXTENDED_INFO}",
                 WATCHED_MOVIES_JSON);
 
-            TraktListResponse<ITraktWatchedMovie> response = await client.Users.GetWatchedMoviesAsync(USERNAME, EXTENDED_INFO);
+            TraktListResponse<ITraktWatchedMovie> response = await client.Users.GetWatchedMoviesAsync(USERNAME, EXTENDED_INFO, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -92,7 +91,7 @@
 
             try
             {
-                await client.Users.GetWatchedMoviesAsync(USERNAME);
+                await client.Users.GetWatchedMoviesAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

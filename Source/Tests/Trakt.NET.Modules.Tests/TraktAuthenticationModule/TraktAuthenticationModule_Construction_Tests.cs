@@ -2,11 +2,10 @@
 {
     using FluentAssertions;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Objects.Authentication;
     using Xunit;
 
-    [TestCategory("Modules.Authentication")]
+    [Trait("Category", "Modules.Authentication")]
     public partial class TraktAuthenticationModule_Tests
     {
         [Fact]

@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.People;
     using TraktNet.Objects.Get.People.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.People.Implementations")]
+    [Trait("Category", "Objects.Get.People.Implementations")]
     public class TraktPersonIds_Tests
     {
         [Fact]

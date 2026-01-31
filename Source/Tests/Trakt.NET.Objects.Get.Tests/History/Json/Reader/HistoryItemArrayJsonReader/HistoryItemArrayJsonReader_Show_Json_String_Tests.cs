@@ -4,13 +4,13 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.History;
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Get.History.JsonReader")]
+    [Trait("Category", "Objects.Get.History.JsonReader")]
     public partial class HistoryItemArrayJsonReader_Tests
     {
         [Fact]

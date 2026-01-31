@@ -4,12 +4,12 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Basic;
     using TraktNet.Objects.Post.Basic.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Post.Basic.JsonWriter")]
+    [Trait("Category", "Objects.Post.Basic.JsonWriter")]
     public partial class ListItemsReorderPostObjectJsonWriter_Tests
     {
         [Fact]

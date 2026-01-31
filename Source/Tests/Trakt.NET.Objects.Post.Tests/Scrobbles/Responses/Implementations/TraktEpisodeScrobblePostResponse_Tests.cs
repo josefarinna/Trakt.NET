@@ -2,13 +2,13 @@
 {
     using FluentAssertions;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Post.Scrobbles.Responses;
     using TraktNet.Objects.Post.Scrobbles.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Scrobbles.Responses.Implementations")]
+    [Trait("Category", "Objects.Post.Scrobbles.Responses.Implementations")]
     public class TraktEpisodeScrobblePostResponse_Tests
     {
         [Fact]

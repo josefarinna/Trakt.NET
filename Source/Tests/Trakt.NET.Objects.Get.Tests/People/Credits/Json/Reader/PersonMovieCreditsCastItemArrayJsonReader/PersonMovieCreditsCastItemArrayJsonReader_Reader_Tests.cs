@@ -7,12 +7,12 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.People.Credits;
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Get.People.Credits.JsonReader")]
+    [Trait("Category", "Objects.Get.People.Credits.JsonReader")]
     public partial class PersonMovieCreditsCastItemArrayJsonReader_Tests
     {
         [Fact]

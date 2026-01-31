@@ -5,12 +5,11 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Notes")]
+    [Trait("Category", "Modules.Notes")]
     public partial class TraktNotesModule_Tests
     {
         private string DELETE_NOTE_URI = $"notes/{NOTE_ID}";

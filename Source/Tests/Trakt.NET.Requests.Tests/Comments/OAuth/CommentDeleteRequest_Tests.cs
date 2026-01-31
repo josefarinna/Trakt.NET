@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Comments.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Comments.OAuth")]
+    [Trait("Category", "Requests.Comments.OAuth")]
     public class CommentDeleteRequest_Tests
     {
         [Fact]

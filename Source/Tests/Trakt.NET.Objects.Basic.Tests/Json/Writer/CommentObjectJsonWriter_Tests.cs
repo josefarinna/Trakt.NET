@@ -3,14 +3,14 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Extensions;
     using TraktNet.Objects.Basic;
     using TraktNet.Objects.Basic.Json.Writer;
     using TraktNet.Objects.Get.Users;
     using Xunit;
 
-    [TestCategory("Objects.Basic.JsonWriter")]
+    [Trait("Category", "Objects.Basic.JsonWriter")]
     public partial class CommentObjectJsonWriter_Tests
     {
         private readonly DateTime CREATED_UPDATED_AT = DateTime.UtcNow;

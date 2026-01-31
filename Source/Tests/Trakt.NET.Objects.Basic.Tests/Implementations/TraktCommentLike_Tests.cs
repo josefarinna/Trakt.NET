@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Basic;
     using TraktNet.Objects.Basic.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Basic.Implementations")]
+    [Trait("Category", "Objects.Basic.Implementations")]
     public class TraktCommentLike_Tests
     {
         [Fact]

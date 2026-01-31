@@ -5,12 +5,12 @@
     using System.IO;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Responses;
     using TraktNet.Objects.Post.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Responses.JsonReader")]
+    [Trait("Category", "Objects.Post.Responses.JsonReader")]
     public partial class PostResponseNotFoundSeasonObjectJsonReader_Tests
     {
         [Fact]

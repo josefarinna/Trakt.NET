@@ -6,12 +6,12 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Basic;
     using TraktNet.Objects.Post.Basic.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Basic.JsonReader")]
+    [Trait("Category", "Objects.Post.Basic.JsonReader")]
     public partial class ListItemsReorderPostObjectJsonReader_Tests
     {
         [Fact]

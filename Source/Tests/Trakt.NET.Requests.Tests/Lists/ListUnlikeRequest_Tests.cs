@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Lists;
     using Xunit;
 
-    [TestCategory("Requests.Lists")]
+    [Trait("Category", "Requests.Lists")]
     public class ListUnlikeRequest_Tests
     {
         [Fact]

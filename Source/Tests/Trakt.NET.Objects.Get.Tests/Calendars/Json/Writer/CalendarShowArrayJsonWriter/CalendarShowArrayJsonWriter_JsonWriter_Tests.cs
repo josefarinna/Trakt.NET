@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Calendars;
@@ -15,7 +15,7 @@
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Get.Calendars.JsonWriter")]
+    [Trait("Category", "Objects.Get.Calendars.JsonWriter")]
     public partial class CalendarShowArrayJsonWriter_Tests
     {
         private readonly DateTime UPDATED_AT = DateTime.UtcNow;

@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Objects.Post.Scrobbles;
     using Xunit;
 
-    [TestCategory("PostBuilder")]
+    [Trait("Category", "PostBuilder")]
     public partial class TraktPost_MovieScrobblePostBuilder_Tests
     {
         [Fact]

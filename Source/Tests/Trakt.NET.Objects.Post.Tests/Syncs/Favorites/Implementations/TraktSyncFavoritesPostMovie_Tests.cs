@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Syncs.Favorites;
     using TraktNet.Objects.Post.Syncs.Favorites.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Syncs.Favorites.Implementations")]
+    [Trait("Category", "Objects.Post.Syncs.Favorites.Implementations")]
     public class TraktSyncFavoritesPostMovie_Tests
     {
         [Fact]

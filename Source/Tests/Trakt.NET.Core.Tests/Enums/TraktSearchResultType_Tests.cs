@@ -2,11 +2,10 @@
 {
     using FluentAssertions;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Enums;
     using Xunit;
 
-    [TestCategory("Enums")]
+    [Trait("Category", "Enums")]
     public class TraktSearchResultType_Tests
     {
         [Fact]

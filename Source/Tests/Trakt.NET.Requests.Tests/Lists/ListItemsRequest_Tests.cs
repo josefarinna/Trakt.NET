@@ -4,7 +4,7 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Parameters;
@@ -12,7 +12,7 @@
     using TraktNet.Requests.Lists;
     using Xunit;
 
-    [TestCategory("Requests.Lists")]
+    [Trait("Category", "Requests.Lists")]
     public class ListItemsRequest_Tests
     {
         [Fact]

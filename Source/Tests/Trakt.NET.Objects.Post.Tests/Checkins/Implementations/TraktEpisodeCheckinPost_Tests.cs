@@ -2,14 +2,14 @@
 {
     using FluentAssertions;
     using System;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Episodes;
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Objects.Post.Checkins;
     using Xunit;
 
-    [TestCategory("Objects.Post.Checkins.Implementations")]
+    [Trait("Category", "Objects.Post.Checkins.Implementations")]
     public class TraktEpisodeCheckinPost_Tests
     {
         [Fact]

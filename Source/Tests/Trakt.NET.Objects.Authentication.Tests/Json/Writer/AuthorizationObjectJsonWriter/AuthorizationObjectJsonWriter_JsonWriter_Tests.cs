@@ -5,13 +5,13 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Authentication;
     using TraktNet.Objects.Authentication.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Authentication.JsonWriter")]
+    [Trait("Category", "Objects.Authentication.JsonWriter")]
     public partial class AuthorizationObjectJsonWriter_Tests
     {
         [Fact]

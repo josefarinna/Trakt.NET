@@ -52,6 +52,7 @@
             {
                 httpClientProvider.SetupMockResponse(uri, responseContent);
             }
+
             return new TraktClient(TestConstants.TRAKT_CLIENT_ID, TestConstants.TRAKT_CLIENT_SECRET, httpClientProvider);
         }
 
@@ -101,6 +102,7 @@
             {
                 httpClientProvider.SetupOAuthMockResponse(uri, responseContent, page, limit, pageCount, itemCount, userCount, startDate, endDate, sortBy, sortHow);
             }
+
             return new TraktClient(TestConstants.TRAKT_CLIENT_ID, TestConstants.TRAKT_CLIENT_SECRET, httpClientProvider)
             {
                 Authorization = TestConstants.MOCK_AUTHORIZATION

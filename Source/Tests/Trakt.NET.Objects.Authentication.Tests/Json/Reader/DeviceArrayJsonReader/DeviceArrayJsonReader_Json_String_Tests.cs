@@ -5,12 +5,12 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Authentication;
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Authentication.JsonReader")]
+    [Trait("Category", "Objects.Authentication.JsonReader")]
     public partial class DeviceArrayJsonReader_Tests
     {
         [Fact]

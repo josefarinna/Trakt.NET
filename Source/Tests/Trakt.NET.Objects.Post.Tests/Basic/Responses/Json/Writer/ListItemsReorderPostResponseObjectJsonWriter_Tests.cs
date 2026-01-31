@@ -4,14 +4,14 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Extensions;
     using TraktNet.Objects.Post.Basic.Responses;
     using TraktNet.Objects.Post.Basic.Responses.Json.Writer;
     using TraktNet.Objects.Post.Responses;
     using Xunit;
 
-    [TestCategory("Objects.Post.Basic.Responses.JsonWriter")]
+    [Trait("Category", "Objects.Post.Basic.Responses.JsonWriter")]
     public partial class ListItemsReorderPostResponseObjectJsonWriter_Tests
     {
         private readonly DateTime UPDATED_AT = DateTime.UtcNow;

@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Lists")]
+    [Trait("Category", "Modules.Lists")]
     public partial class TraktListsModule_Tests
     {
         private const string GET_TRENDING_LISTS_URI = "lists/trending";
@@ -59,7 +58,7 @@
                                                            TRENDING_OR_POPULAR_LISTS_JSON, PAGE, 10, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -78,7 +77,7 @@
                                                            TRENDING_OR_POPULAR_LISTS_JSON, 1, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -97,7 +96,7 @@
                                                            TRENDING_OR_POPULAR_LISTS_JSON, PAGE, 10, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -116,7 +115,7 @@
                                                            TRENDING_OR_POPULAR_LISTS_JSON, 1, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -135,7 +134,7 @@
                                                            TRENDING_OR_POPULAR_LISTS_JSON, PAGE, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -155,7 +154,7 @@
                 TRENDING_OR_POPULAR_LISTS_JSON, PAGE, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -174,7 +173,7 @@
                 TRENDING_OR_POPULAR_LISTS_JSON, 2, LIMIT, 5, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -195,7 +194,7 @@
                 TRENDING_OR_POPULAR_LISTS_JSON, 2, LIMIT, 2, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -216,7 +215,7 @@
                 TRENDING_OR_POPULAR_LISTS_JSON, 1, LIMIT, 2, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -237,7 +236,7 @@
                 TRENDING_OR_POPULAR_LISTS_JSON, 1, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -258,7 +257,7 @@
                 TRENDING_OR_POPULAR_LISTS_JSON, 2, LIMIT, 2, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -274,7 +273,7 @@
             TestUtility.ResetMockClient(client, $"{GET_TRENDING_LISTS_URI}?page=1&limit={LIMIT}",
                 TRENDING_OR_POPULAR_LISTS_JSON, 1, LIMIT, 2, ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -295,7 +294,7 @@
                 TRENDING_OR_POPULAR_LISTS_JSON, 1, LIMIT, 2, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters);
+            TraktPagedResponse<ITraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -311,7 +310,7 @@
             TestUtility.ResetMockClient(client, $"{GET_TRENDING_LISTS_URI}?page=2&limit={LIMIT}",
                 TRENDING_OR_POPULAR_LISTS_JSON, 2, LIMIT, 2, ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

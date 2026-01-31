@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_LIST_LIKES_URI = $"users/{USERNAME}/lists/{LIST_ID}/likes";
@@ -191,7 +190,7 @@
 
             var pagedParameters = new TraktPagedParameters(PAGE);
 
-            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters);
+            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -211,7 +210,7 @@
 
             var pagedParameters = new TraktPagedParameters(null, LIST_LIKES_LIMIT);
 
-            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters);
+            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -231,7 +230,7 @@
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIST_LIKES_LIMIT);
 
-            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters);
+            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -250,7 +249,7 @@
                 LIST_LIKES_JSON, 2, LIST_LIKES_LIMIT, 5, LIST_LIKES_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIST_LIKES_LIMIT);
-            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters);
+            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -271,7 +270,7 @@
                 LIST_LIKES_JSON, 2, LIST_LIKES_LIMIT, 2, LIST_LIKES_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIST_LIKES_LIMIT);
-            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters);
+            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -292,7 +291,7 @@
                 LIST_LIKES_JSON, 1, LIST_LIKES_LIMIT, 2, LIST_LIKES_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIST_LIKES_LIMIT);
-            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters);
+            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -313,7 +312,7 @@
                 LIST_LIKES_JSON, 1, LIST_LIKES_LIMIT, 1, LIST_LIKES_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIST_LIKES_LIMIT);
-            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters);
+            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -334,7 +333,7 @@
                 LIST_LIKES_JSON, 2, LIST_LIKES_LIMIT, 2, LIST_LIKES_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIST_LIKES_LIMIT);
-            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters);
+            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -350,7 +349,7 @@
             TestUtility.ResetMockClient(client, $"{GET_LIST_LIKES_URI}?page=1&limit={LIST_LIKES_LIMIT}",
                 LIST_LIKES_JSON, 1, LIST_LIKES_LIMIT, 2, LIST_LIKES_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -371,7 +370,7 @@
                 LIST_LIKES_JSON, 1, LIST_LIKES_LIMIT, 2, LIST_LIKES_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIST_LIKES_LIMIT);
-            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters);
+            TraktPagedResponse<ITraktListLike> response = await client.Users.GetListLikesAsync(USERNAME, LIST_ID, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -387,7 +386,7 @@
             TestUtility.ResetMockClient(client, $"{GET_LIST_LIKES_URI}?page=2&limit={LIST_LIKES_LIMIT}",
                 LIST_LIKES_JSON, 2, LIST_LIKES_LIMIT, 2, LIST_LIKES_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

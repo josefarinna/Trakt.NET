@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Shows;
     using Xunit;
 
-    [TestCategory("Requests.Shows")]
+    [Trait("Category", "Requests.Shows")]
     public class AShowRequest_1_Tests
     {
         internal class ShowRequestMock : AShowRequest<int>

@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Movies")]
+    [Trait("Category", "Modules.Movies")]
     public partial class TraktMoviesModule_Tests
     {
         private const string GET_TRENDING_MOVIES_URI = "movies/trending";
@@ -23,7 +22,7 @@
             TraktClient client = TestUtility.GetMockClient(GET_TRENDING_MOVIES_URI,
                                                            TRENDING_MOVIES_JSON, 1, 10, 1, ITEM_COUNT, USER_COUNT);
 
-            TraktPagedResponse<ITraktTrendingMovie> response = await client.Movies.GetTrendingMoviesAsync();
+            TraktPagedResponse<ITraktTrendingMovie> response = await client.Movies.GetTrendingMoviesAsync(cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -42,7 +41,7 @@
             TraktClient client = TestUtility.GetMockClient($"{GET_TRENDING_MOVIES_URI}?{FILTER}",
                                                            TRENDING_MOVIES_JSON, 1, 10, 1, ITEM_COUNT, USER_COUNT);
 
-            var response = await client.Movies.GetTrendingMoviesAsync(null, FILTER);
+            var response = await client.Movies.GetTrendingMoviesAsync(null, FILTER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -61,7 +60,7 @@
             TraktClient client = TestUtility.GetMockClient($"{GET_TRENDING_MOVIES_URI}?extended={EXTENDED_INFO}",
                                                            TRENDING_MOVIES_JSON, 1, 10, 1, ITEM_COUNT, USER_COUNT);
 
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -80,7 +79,7 @@
             TraktClient client = TestUtility.GetMockClient($"{GET_TRENDING_MOVIES_URI}?extended={EXTENDED_INFO}&{FILTER}",
                                                            TRENDING_MOVIES_JSON, 1, 10, 1, ITEM_COUNT, USER_COUNT);
 
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, FILTER);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, FILTER, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -100,7 +99,7 @@
                                                            TRENDING_MOVIES_JSON, PAGE, 10, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Movies.GetTrendingMoviesAsync(null, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -120,7 +119,7 @@
                                                            TRENDING_MOVIES_JSON, PAGE, 10, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Movies.GetTrendingMoviesAsync(null, FILTER, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -140,7 +139,7 @@
                                                            TRENDING_MOVIES_JSON, PAGE, 10, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -160,7 +159,7 @@
                                                            TRENDING_MOVIES_JSON, PAGE, 10, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -180,7 +179,7 @@
                                                            TRENDING_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(null, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -200,7 +199,7 @@
                                                            TRENDING_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(null, FILTER, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -220,7 +219,7 @@
                                                            TRENDING_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -240,7 +239,7 @@
                                                            TRENDING_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -260,7 +259,7 @@
                                                            TRENDING_MOVIES_JSON, PAGE, LIMIT, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(null, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -280,7 +279,7 @@
                                                            TRENDING_MOVIES_JSON, PAGE, LIMIT, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(null, FILTER, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -300,7 +299,7 @@
                                                            TRENDING_MOVIES_JSON, PAGE, LIMIT, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -320,7 +319,7 @@
                                                            TRENDING_MOVIES_JSON, PAGE, LIMIT, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -340,7 +339,7 @@
                 TRENDING_MOVIES_JSON, 2, LIMIT, 5, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -362,7 +361,7 @@
                 TRENDING_MOVIES_JSON, 2, LIMIT, 2, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -384,7 +383,7 @@
                 TRENDING_MOVIES_JSON, 1, LIMIT, 2, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -406,7 +405,7 @@
                 TRENDING_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -428,7 +427,7 @@
                 TRENDING_MOVIES_JSON, 2, LIMIT, 2, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -445,7 +444,7 @@
             TestUtility.ResetMockClient(client, $"{GET_TRENDING_MOVIES_URI}?extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 TRENDING_MOVIES_JSON, 1, LIMIT, 2, ITEM_COUNT, USER_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -467,7 +466,7 @@
                 TRENDING_MOVIES_JSON, 1, LIMIT, 2, ITEM_COUNT, USER_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            var response = await client.Movies.GetTrendingMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -484,7 +483,7 @@
             TestUtility.ResetMockClient(client, $"{GET_TRENDING_MOVIES_URI}?extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 TRENDING_MOVIES_JSON, 2, LIMIT, 2, ITEM_COUNT, USER_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -522,7 +521,7 @@
 
             try
             {
-                await client.Movies.GetTrendingMoviesAsync();
+                await client.Movies.GetTrendingMoviesAsync(cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

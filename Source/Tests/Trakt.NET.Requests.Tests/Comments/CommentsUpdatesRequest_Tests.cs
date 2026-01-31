@@ -1,11 +1,11 @@
 ﻿namespace TraktNet.Requests.Tests.Comments
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Comments;
     using Xunit;
 
-    [TestCategory("Requests.Comments")]
+    [Trait("Category", "Requests.Comments")]
     public class CommentsUpdatesRequest_Tests
     {
         [Fact]

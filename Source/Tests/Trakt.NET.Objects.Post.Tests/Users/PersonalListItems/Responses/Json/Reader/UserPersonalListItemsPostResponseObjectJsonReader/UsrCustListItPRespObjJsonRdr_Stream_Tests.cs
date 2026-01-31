@@ -6,12 +6,11 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Objects.Post.Users.PersonalListItems.Responses;
     using TraktNet.Objects.Post.Users.PersonalListItems.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Users.PersonalListItems.Responses.JsonReader")]
+    [Trait("Category", "Objects.Post.Users.PersonalListItems.Responses.JsonReader")]
     public partial class UserPersonalListItemsPostResponseObjectJsonReader_Tests
     {
         [Fact]
@@ -21,7 +20,7 @@
 
             using (var stream = JSON_COMPLETE.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -157,7 +156,7 @@
 
             using (var stream = JSON_INCOMPLETE_1.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -288,7 +287,7 @@
 
             using (var stream = JSON_INCOMPLETE_2.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -419,7 +418,7 @@
 
             using (var stream = JSON_INCOMPLETE_3.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -448,7 +447,7 @@
 
             using (var stream = JSON_INCOMPLETE_4.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -471,7 +470,7 @@
 
             using (var stream = JSON_INCOMPLETE_5.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -495,7 +494,7 @@
 
             using (var stream = JSON_INCOMPLETE_6.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -620,7 +619,7 @@
 
             using (var stream = JSON_NOT_VALID_1.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -751,7 +750,7 @@
 
             using (var stream = JSON_NOT_VALID_2.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -882,7 +881,7 @@
 
             using (var stream = JSON_NOT_VALID_3.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -911,7 +910,7 @@
 
             using (var stream = JSON_NOT_VALID_4.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponse.Should().NotBeNull();
 
@@ -925,7 +924,7 @@
         public async Task Test_UserPersonalListItemsPostResponseObjectJsonReader_ReadObject_From_Stream_Null()
         {
             var jsonReader = new UserPersonalListItemsPostResponseObjectJsonReader();
-            Func<Task<ITraktUserPersonalListItemsPostResponse>> personalListItemsPostResponse = () => jsonReader.ReadObjectAsync(default(Stream));
+            Func<Task<ITraktUserPersonalListItemsPostResponse>> personalListItemsPostResponse = () => jsonReader.ReadObjectAsync(default(Stream), TestContext.Current.CancellationToken);
             await personalListItemsPostResponse.Should().ThrowAsync<ArgumentNullException>();
         }
 
@@ -936,7 +935,7 @@
 
             using (var stream = string.Empty.ToStream())
             {
-                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream);
+                var personalListItemsPostResponse = await jsonReader.ReadObjectAsync(stream, TestContext.Current.CancellationToken);
                 personalListItemsPostResponse.Should().BeNull();
             }
         }

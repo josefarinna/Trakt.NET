@@ -6,12 +6,11 @@
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Objects.Post.Users.PersonalListItems.Responses;
     using TraktNet.Objects.Post.Users.PersonalListItems.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Users.PersonalListItems.Responses.JsonReader")]
+    [Trait("Category", "Objects.Post.Users.PersonalListItems.Responses.JsonReader")]
     public partial class UserPersonalListItemsPostResponseNotFoundGroupObjectJsonReader_Tests
     {
         [Fact]
@@ -22,7 +21,7 @@
             using (var reader = new StringReader(JSON_COMPLETE))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().NotBeNull().And.NotBeEmpty().And.HaveCount(2);
@@ -141,7 +140,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_1))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().BeNull();
@@ -244,7 +243,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_2))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().NotBeNull().And.NotBeEmpty().And.HaveCount(2);
@@ -343,7 +342,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_3))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().NotBeNull().And.NotBeEmpty().And.HaveCount(2);
@@ -446,7 +445,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_4))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().NotBeNull().And.NotBeEmpty().And.HaveCount(2);
@@ -547,7 +546,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_5))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().NotBeNull().And.NotBeEmpty().And.HaveCount(2);
@@ -648,7 +647,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_6))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().NotBeNull().And.NotBeEmpty().And.HaveCount(2);
@@ -686,7 +685,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_7))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().BeNull();
@@ -731,7 +730,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_8))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().BeNull();
@@ -772,7 +771,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_9))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().BeNull();
@@ -815,7 +814,7 @@
             using (var reader = new StringReader(JSON_INCOMPLETE_10))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().BeNull();
@@ -855,7 +854,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_1))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().BeNull();
@@ -958,7 +957,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_2))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().NotBeNull().And.NotBeEmpty().And.HaveCount(2);
@@ -1057,7 +1056,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_3))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().NotBeNull().And.NotBeEmpty().And.HaveCount(2);
@@ -1160,7 +1159,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_4))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().NotBeNull().And.NotBeEmpty().And.HaveCount(2);
@@ -1261,7 +1260,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_5))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().NotBeNull().And.NotBeEmpty().And.HaveCount(2);
@@ -1362,7 +1361,7 @@
             using (var reader = new StringReader(JSON_NOT_VALID_6))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
 
                 personalListItemsPostResponseNotFoundGroup.Should().NotBeNull();
                 personalListItemsPostResponseNotFoundGroup.Movies.Should().BeNull();
@@ -1389,7 +1388,7 @@
             using (var reader = new StringReader(string.Empty))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader);
+                var personalListItemsPostResponseNotFoundGroup = await traktJsonReader.ReadObjectAsync(jsonReader, TestContext.Current.CancellationToken);
                 personalListItemsPostResponseNotFoundGroup.Should().BeNull();
             }
         }

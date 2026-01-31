@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Parameters;
     using TraktNet.Requests.Shows;
     using Xunit;
 
-    [TestCategory("Requests.Shows.Lists")]
+    [Trait("Category", "Requests.Shows.Lists")]
     public class ShowsPopularRequest_Tests
     {
         [Fact]

@@ -3,14 +3,14 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Parameters;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.People;
     using Xunit;
 
-    [TestCategory("Requests.People")]
+    [Trait("Category", "Requests.People")]
     public class PersonSummaryRequest_Tests
     {
         [Fact]

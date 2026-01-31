@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Syncs.Favorites;
     using Xunit;
 
-    [TestCategory("Objects.Post.Syncs.Favorites.Implementations")]
+    [Trait("Category", "Objects.Post.Syncs.Favorites.Implementations")]
     public class TraktSyncFavoritesRemovePost_Tests
     {
         [Fact]

@@ -6,14 +6,14 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Episodes;
     using TraktNet.Objects.Get.Seasons;
     using TraktNet.Objects.Get.Seasons.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Get.Seasons.JsonWriter")]
+    [Trait("Category", "Objects.Get.Seasons.JsonWriter")]
     public partial class SeasonObjectJsonWriter_Tests
     {
         private static readonly DateTime FIRST_AIRED = DateTime.UtcNow.AddMonths(-1);

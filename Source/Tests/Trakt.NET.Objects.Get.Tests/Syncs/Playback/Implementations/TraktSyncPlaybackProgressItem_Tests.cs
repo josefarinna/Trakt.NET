@@ -4,13 +4,13 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.Syncs.Playback;
     using TraktNet.Objects.Get.Syncs.Playback.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Syncs.Playback.Implementations")]
+    [Trait("Category", "Objects.Get.Syncs.Playback.Implementations")]
     public class TraktSyncPlaybackProgressItem_Tests
     {
         [Fact]

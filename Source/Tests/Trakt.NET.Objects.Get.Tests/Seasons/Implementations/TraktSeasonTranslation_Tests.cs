@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Seasons;
     using TraktNet.Objects.Get.Seasons.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Seasons.Implementations")]
+    [Trait("Category", "Objects.Get.Seasons.Implementations")]
     public class TraktSeasonTranslation_Tests
     {
         [Fact]

@@ -2,11 +2,10 @@
 {
     using FluentAssertions;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Services;
     using Xunit;
 
-    [TestCategory("Services")]
+    [Trait("Category", "Services")]
     public class TraktLanguageService_Tests
     {
         [Fact]

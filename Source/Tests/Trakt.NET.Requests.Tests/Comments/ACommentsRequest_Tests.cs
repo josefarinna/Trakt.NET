@@ -3,14 +3,14 @@
     using FluentAssertions;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Parameters;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Comments;
     using Xunit;
 
-    [TestCategory("Requests.Comments")]
+    [Trait("Category", "Requests.Comments")]
     public class ACommentsRequest_Tests
     {
         private sealed class CommentsRequestMock : ACommentsRequest

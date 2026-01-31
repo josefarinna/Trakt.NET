@@ -2,13 +2,13 @@
 {
     using FluentAssertions;
     using System;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Objects.Post.Scrobbles;
     using Xunit;
 
-    [TestCategory("Objects.Post.Scrobbles.Implementations")]
+    [Trait("Category", "Objects.Post.Scrobbles.Implementations")]
     public class TraktMovieScrobblePost_Tests
     {
         [Fact]

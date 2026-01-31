@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Users;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private const string GET_SAVED_FILTERS_URI = "users/saved_filters";
@@ -65,7 +64,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(null, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -87,7 +86,7 @@
             var pagedParameters = new TraktPagedParameters(null, SAVED_FILTERS_LIMIT);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(null, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -109,7 +108,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -131,7 +130,7 @@
             var pagedParameters = new TraktPagedParameters(null, SAVED_FILTERS_LIMIT);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -154,7 +153,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, SAVED_FILTERS_LIMIT);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -177,7 +176,7 @@
             var pagedParameters = new TraktPagedParameters(2, SAVED_FILTERS_LIMIT);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -202,7 +201,7 @@
             var pagedParameters = new TraktPagedParameters(2, SAVED_FILTERS_LIMIT);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -227,7 +226,7 @@
             var pagedParameters = new TraktPagedParameters(1, SAVED_FILTERS_LIMIT);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -252,7 +251,7 @@
             var pagedParameters = new TraktPagedParameters(1, SAVED_FILTERS_LIMIT);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -277,7 +276,7 @@
             var pagedParameters = new TraktPagedParameters(2, SAVED_FILTERS_LIMIT);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -295,7 +294,7 @@
                 $"&page=1&limit={SAVED_FILTERS_LIMIT}",
                 SAVED_FILTERS_JSON, 1, SAVED_FILTERS_LIMIT, 2, SAVED_FILTERS_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -320,7 +319,7 @@
             var pagedParameters = new TraktPagedParameters(1, SAVED_FILTERS_LIMIT);
 
             TraktPagedResponse<ITraktUserSavedFilter> response =
-                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters);
+                await client.Users.GetSavedFiltersAsync(FILTER_SECTION, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -338,7 +337,7 @@
                 $"&page=2&limit={SAVED_FILTERS_LIMIT}",
                 SAVED_FILTERS_JSON, 2, SAVED_FILTERS_LIMIT, 2, SAVED_FILTERS_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

@@ -5,12 +5,12 @@
     using System.IO;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Shows;
     using TraktNet.Objects.Post.Shows.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Shows.JsonReader")]
+    [Trait("Category", "Objects.Post.Shows.JsonReader")]
     public partial class ShowResetWatchedProgressPostObjectJsonReader_Tests
     {
         [Fact]

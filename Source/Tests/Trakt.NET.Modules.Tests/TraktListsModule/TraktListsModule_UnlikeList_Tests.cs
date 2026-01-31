@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Lists")]
+    [Trait("Category", "Modules.Lists")]
     public partial class TraktListsModule_Tests
     {
         private readonly string UNLIKE_LIST_URI = $"lists/{LIST_ID}/like";

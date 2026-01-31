@@ -6,13 +6,13 @@
     using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Interfaces;
     using Xunit;
 
-    [TestCategory("Requests.Base")]
+    [Trait("Category", "Requests.Base")]
     public class APutRequest_2_Tests
     {
         internal class RequestBodyMock : IRequestBody

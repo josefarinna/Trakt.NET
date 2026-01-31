@@ -3,11 +3,11 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Parameters;
     using Xunit;
 
-    [TestCategory("Parameters.Filter")]
+    [Trait("Category", "Parameters.Filter")]
     public partial class TraktCalendarFilterBuilder_Tests
     {
         [Fact]

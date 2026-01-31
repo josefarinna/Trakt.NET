@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Authentication;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Authentication")]
+    [Trait("Category", "Modules.Authentication")]
     public partial class TraktAuthenticationModule_Tests
     {
         private const string REVOKE_AUTHORIZATION_URI = "oauth/revoke";

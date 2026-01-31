@@ -5,7 +5,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Objects.Get.People;
@@ -13,7 +12,7 @@
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.People")]
+    [Trait("Category", "Modules.People")]
     public partial class TraktPeopleModule_Tests
     {
         private readonly string GET_PERSON_LISTS_URI = $"people/{PERSON_ID}/lists";
@@ -212,7 +211,7 @@
                                                            PERSON_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -231,7 +230,7 @@
                                                            PERSON_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -287,7 +286,7 @@
                                                            PERSON_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, null, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -306,7 +305,7 @@
                                                            PERSON_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, null, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -325,7 +324,7 @@
                                                            PERSON_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, null, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -362,7 +361,7 @@
                                                            PERSON_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -381,7 +380,7 @@
                                                            PERSON_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -400,7 +399,7 @@
                                                            PERSON_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -420,7 +419,7 @@
                 PERSON_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, EXTENDED_INFO, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -440,7 +439,7 @@
                 PERSON_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, EXTENDED_INFO, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -460,7 +459,7 @@
                 PERSON_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, EXTENDED_INFO, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -479,7 +478,7 @@
                                                            PERSON_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, null, null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -517,7 +516,7 @@
                                                            PERSON_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -536,7 +535,7 @@
                                                            PERSON_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -556,7 +555,7 @@
                 PERSON_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -577,7 +576,7 @@
                 PERSON_LISTS_JSON, PAGE, 10, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -598,7 +597,7 @@
                 PERSON_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -619,7 +618,7 @@
                 PERSON_LISTS_JSON, PAGE, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters);
+            var response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -638,7 +637,7 @@
                 PERSON_LISTS_JSON, 2, LIMIT, 5, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -659,7 +658,7 @@
                 PERSON_LISTS_JSON, 2, LIMIT, 2, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -680,7 +679,7 @@
                 PERSON_LISTS_JSON, 1, LIMIT, 2, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -701,7 +700,7 @@
                 PERSON_LISTS_JSON, 1, LIMIT, 1, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -722,7 +721,7 @@
                 PERSON_LISTS_JSON, 2, LIMIT, 2, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -738,7 +737,7 @@
             TestUtility.ResetMockClient(client, $"{GET_PERSON_LISTS_URI}/{LIST_TYPE.UriName}/{LIST_SORT_ORDER.UriName}?page=1&limit={LIMIT}",
                 PERSON_LISTS_JSON, 1, LIMIT, 2, LISTS_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -759,7 +758,7 @@
                 PERSON_LISTS_JSON, 1, LIMIT, 2, LISTS_ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters);
+            TraktPagedResponse<ITraktList> response = await client.People.GetPersonListsAsync(PERSON_ID, LIST_TYPE, LIST_SORT_ORDER, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -775,7 +774,7 @@
             TestUtility.ResetMockClient(client, $"{GET_PERSON_LISTS_URI}/{LIST_TYPE.UriName}/{LIST_SORT_ORDER.UriName}?page=2&limit={LIMIT}",
                 PERSON_LISTS_JSON, 2, LIMIT, 2, LISTS_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

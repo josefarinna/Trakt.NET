@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.Collections;
     using TraktNet.Objects.Get.Collections.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Collections.Implementations")]
+    [Trait("Category", "Objects.Get.Collections.Implementations")]
     public class TraktCollectionMovie_Tests
     {
         [Fact]

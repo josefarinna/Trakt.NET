@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Watched;
     using TraktNet.Objects.Get.Watched.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Watched.JsonReader")]
+    [Trait("Category", "Objects.Get.Watched.JsonReader")]
     public partial class WatchedMovieObjectJsonReader_Tests
     {
         [Fact]

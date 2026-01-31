@@ -28,10 +28,10 @@
             {
                 case "GET":
                 case "PUT":
-                    expectedStatusCodes = [HttpStatusCode.OK];
+                    expectedStatusCodes = [HttpStatusCode.OK, HttpStatusCode.NoContent];
                     break;
                 case "POST":
-                    expectedStatusCodes = [HttpStatusCode.OK, HttpStatusCode.Created];
+                    expectedStatusCodes = [HttpStatusCode.OK, HttpStatusCode.Created, HttpStatusCode.NoContent];
                     break;
                 case "DELETE":
                     expectedStatusCodes = [HttpStatusCode.OK, HttpStatusCode.NoContent];

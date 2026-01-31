@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.People;
     using TraktNet.Objects.Get.People.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.People.JsonReader")]
+    [Trait("Category", "Objects.Get.People.JsonReader")]
     public partial class PersonSocialIdsObjectJsonReader_Tests
     {
         [Fact]

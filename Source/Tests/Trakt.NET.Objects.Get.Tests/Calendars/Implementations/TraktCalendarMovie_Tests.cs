@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Calendars;
     using TraktNet.Objects.Get.Calendars.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Calendars.Implementations")]
+    [Trait("Category", "Objects.Get.Calendars.Implementations")]
     public class TraktCalendarMovie_Tests
     {
         [Fact]

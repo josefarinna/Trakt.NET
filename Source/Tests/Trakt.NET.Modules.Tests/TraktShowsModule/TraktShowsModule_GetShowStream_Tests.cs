@@ -6,7 +6,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Shows;
@@ -15,7 +14,7 @@
     using TraktNet.Parameters;
     using Xunit;
 
-    [TestCategory("Modules.Shows")]
+    [Trait("Category", "Modules.Shows")]
     public partial class TraktShowsModule_Tests
     {
         private readonly string GET_SHOWS_STREAM_URI = $"shows/{SHOW_ID}";
@@ -30,7 +29,7 @@
             };
             int totalShows = parameters.Count;
             TraktClient client = TestUtility.GetMockClientForMultipleCalls(GET_SHOWS_STREAM_URI, SHOW_JSON, totalShows);
-            IAsyncEnumerable<TraktResponse<ITraktShow>> responses = client.Shows.GetShowsStreamAsync(parameters);
+            IAsyncEnumerable<TraktResponse<ITraktShow>> responses = client.Shows.GetShowsStreamAsync(parameters, TestContext.Current.CancellationToken);
 
             int returnedShows = 0;
             await foreach (TraktResponse<ITraktShow> response in responses)
@@ -66,7 +65,7 @@
             };
             int totalShows = parameters.Count;
             TraktClient client = TestUtility.GetMockClientForMultipleCalls($"{GET_SHOWS_STREAM_URI}?extended={EXTENDED_INFO}", SHOW_JSON, totalShows);
-            IAsyncEnumerable<TraktResponse<ITraktShow>> responses = client.Shows.GetShowsStreamAsync(parameters);
+            IAsyncEnumerable<TraktResponse<ITraktShow>> responses = client.Shows.GetShowsStreamAsync(parameters, TestContext.Current.CancellationToken);
 
             int returnedShows = 0;
             await foreach (TraktResponse<ITraktShow> response in responses)
@@ -117,8 +116,8 @@
         public async Task Test_TraktShowsModule_GetShowStream_WithNullParameters()
         {
             TraktClient client = TestUtility.GetMockClient($"{GET_SHOWS_STREAM_URI}?extended={EXTENDED_INFO}", SHOW_JSON);
-            IAsyncEnumerable<TraktResponse<ITraktShow>> responses = client.Shows.GetShowsStreamAsync(null);
-            (await responses.ToListAsync()).Should().BeEmpty();
+            IAsyncEnumerable<TraktResponse<ITraktShow>> responses = client.Shows.GetShowsStreamAsync(null, TestContext.Current.CancellationToken);
+            (await responses.ToListAsync(TestContext.Current.CancellationToken)).Should().BeEmpty();
         }
 
         [Fact]
@@ -127,8 +126,8 @@
             TraktMultipleObjectsQueryParams parameters = new TraktMultipleObjectsQueryParams();
             int totalShows = parameters.Count;
             TraktClient client = TestUtility.GetMockClient($"{GET_SHOWS_STREAM_URI}?extended={EXTENDED_INFO}", SHOW_JSON);
-            IAsyncEnumerable<TraktResponse<ITraktShow>> responses = client.Shows.GetShowsStreamAsync(parameters);
-            (await responses.ToListAsync()).Should().BeEmpty();
+            IAsyncEnumerable<TraktResponse<ITraktShow>> responses = client.Shows.GetShowsStreamAsync(parameters, TestContext.Current.CancellationToken);
+            (await responses.ToListAsync(TestContext.Current.CancellationToken)).Should().BeEmpty();
         }
 
         [Theory]
@@ -159,8 +158,8 @@
 
             try
             {
-                IAsyncEnumerable<TraktResponse<ITraktShow>> responses = client.Shows.GetShowsStreamAsync(parameters);
-                (await responses.ToListAsync()).Should().NotBeNullOrEmpty();
+                IAsyncEnumerable<TraktResponse<ITraktShow>> responses = client.Shows.GetShowsStreamAsync(parameters, TestContext.Current.CancellationToken);
+                (await responses.ToListAsync(TestContext.Current.CancellationToken)).Should().NotBeNullOrEmpty();
                 Assert.False(true);
             }
             catch (Exception exception)

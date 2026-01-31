@@ -3,12 +3,12 @@ namespace TraktNet.Objects.Get.Tests.Movies.Implementations
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Objects.Get.Movies.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Movies.Implementations")]
+    [Trait("Category", "Objects.Get.Movies.Implementations")]
     public class TraktMostFavoritedMovie_Tests
     {
         [Fact]

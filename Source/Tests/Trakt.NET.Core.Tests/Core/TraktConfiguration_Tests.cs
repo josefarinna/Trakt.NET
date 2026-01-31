@@ -1,10 +1,9 @@
 ﻿namespace TraktNet.Core.Tests.Core
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
     using Xunit;
 
-    [TestCategory("Core")]
+    [Trait("Category", "Core")]
     public class TraktConfiguration_Tests
     {
         [Fact]

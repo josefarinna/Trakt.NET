@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Basic;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Languages")]
+    [Trait("Category", "Modules.Languages")]
     public partial class TraktLanguagesModule_Tests
     {
         private const string LANGUAGES_SHOWS_URI = "languages/shows";

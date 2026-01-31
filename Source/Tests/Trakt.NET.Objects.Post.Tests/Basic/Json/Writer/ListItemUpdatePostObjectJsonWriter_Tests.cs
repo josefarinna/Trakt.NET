@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Basic;
     using TraktNet.Objects.Post.Basic.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Post.Basic.JsonWriter")]
+    [Trait("Category", "Objects.Post.Basic.JsonWriter")]
     public class ListItemUpdatePostObjectJsonWriter_Tests
     {
         [Fact]

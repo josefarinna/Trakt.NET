@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Users;
     using TraktNet.Objects.Get.Users.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Users.Implementations")]
+    [Trait("Category", "Objects.Get.Users.Implementations")]
     public class TraktUserFriend_Tests
     {
         [Fact]

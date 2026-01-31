@@ -4,12 +4,12 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Basic;
     using TraktNet.Objects.Basic.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Basic.JsonWriter")]
+    [Trait("Category", "Objects.Basic.JsonWriter")]
     public partial class ImageArtObjectJsonWriter_Tests
     {
         [Fact]

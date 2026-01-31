@@ -4,12 +4,12 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Basic.Responses;
     using TraktNet.Objects.Post.Basic.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Basic.Responses.Implementations")]
+    [Trait("Category", "Objects.Post.Basic.Responses.Implementations")]
     public class TraktListItemsReorderPostResponse_Tests
     {
         [Fact]

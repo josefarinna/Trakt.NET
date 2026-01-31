@@ -3,13 +3,13 @@ namespace TraktNet.Objects.Get.Tests.People.Implementations
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Get.People;
     using TraktNet.Objects.Get.People.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.People.Implementations")]
+    [Trait("Category", "Objects.Get.People.Implementations")]
     public class TraktRecentlyUpdatedPerson_Tests
     {
         [Fact]

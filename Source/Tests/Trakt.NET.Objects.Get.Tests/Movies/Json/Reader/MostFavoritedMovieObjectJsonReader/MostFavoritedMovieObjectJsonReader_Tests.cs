@@ -5,12 +5,12 @@ namespace TraktNet.Objects.Get.Tests.Movies.Json.Reader
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Objects.Get.Movies.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Movies.JsonReader")]
+    [Trait("Category", "Objects.Get.Movies.JsonReader")]
     public partial class MostFavoritedMovieObjectJsonReader_Tests
     {
         [Fact]

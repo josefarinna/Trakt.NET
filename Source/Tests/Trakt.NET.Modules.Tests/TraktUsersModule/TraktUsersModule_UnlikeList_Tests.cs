@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string UNLIKE_LIST_URI = $"users/{USERNAME}/lists/{LIST_ID}/like";
@@ -20,7 +19,7 @@
         public async Task Test_TraktUsersModule_UnlikeList()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(UNLIKE_LIST_URI, HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, LIST_ID);
+            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, LIST_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -30,7 +29,7 @@
         public async Task Test_TraktUsersModule_UnlikeList_With_TraktID()
         {
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/like", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, TRAKT_LIST_ID);
+            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, TRAKT_LIST_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -45,7 +44,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/like", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, listIds);
+            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, listIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -60,7 +59,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{LIST_SLUG}/like", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, listIds);
+            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, listIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -76,7 +75,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/like", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, listIds);
+            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, listIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -95,7 +94,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"users/{USERNAME}/lists/{TRAKT_LIST_ID}/like", HttpStatusCode.NoContent);
-            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, list);
+            TraktNoContentResponse response = await client.Users.UnlikeListAsync(USERNAME, list, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -124,7 +123,7 @@
 
             try
             {
-                await client.Users.UnlikeListAsync(USERNAME, LIST_ID);
+                await client.Users.UnlikeListAsync(USERNAME, LIST_ID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -138,7 +137,7 @@
         {
             TraktClient client = TestUtility.GetOAuthMockClient(UNLIKE_LIST_URI, HttpStatusCode.NoContent);
 
-            Func<Task<TraktNoContentResponse>> act = () => client.Users.UnlikeListAsync(USERNAME, default(ITraktListIds));
+            Func<Task<TraktNoContentResponse>> act = () => client.Users.UnlikeListAsync(USERNAME, default(ITraktListIds), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
             act = () => client.Users.UnlikeListAsync(USERNAME, default(ITraktList));

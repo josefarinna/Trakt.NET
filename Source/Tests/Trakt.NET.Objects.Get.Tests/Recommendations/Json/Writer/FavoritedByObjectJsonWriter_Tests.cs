@@ -3,13 +3,13 @@ namespace TraktNet.Objects.Get.Tests.Recommendations.Json.Writer
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Recommendations;
     using TraktNet.Objects.Get.Recommendations.Json.Writer;
     using TraktNet.Objects.Get.Users;
     using Xunit;
 
-    [TestCategory("Objects.Get.Recommendations.JsonWriter")]
+    [Trait("Category", "Objects.Get.Recommendations.JsonWriter")]
     public partial class FavoritedByObjectJsonWriter_Tests
     {
         [Fact]

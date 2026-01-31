@@ -5,7 +5,6 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.People;
@@ -13,7 +12,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.People")]
+    [Trait("Category", "Modules.People")]
     public partial class TraktPeopleModule_Tests
     {
         private const string GET_RECENTLY_UPDATED_PEOPLE_URI = "people/updates";
@@ -81,7 +80,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                                                            RECENTLY_UPDATED_PEOPLE_JSON, PAGE, 10, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, null, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -100,7 +99,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                                                            RECENTLY_UPDATED_PEOPLE_JSON, 1, LIMIT, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, null, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -137,7 +136,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                                                            RECENTLY_UPDATED_PEOPLE_JSON, PAGE, 10, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, null, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -156,7 +155,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                                                            RECENTLY_UPDATED_PEOPLE_JSON, 1, LIMIT, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, null, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -175,7 +174,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                                                            RECENTLY_UPDATED_PEOPLE_JSON, PAGE, 10, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -194,7 +193,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                                                            RECENTLY_UPDATED_PEOPLE_JSON, 1, LIMIT, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -213,7 +212,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                                                            RECENTLY_UPDATED_PEOPLE_JSON, PAGE, LIMIT, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, null, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -232,7 +231,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                                                            RECENTLY_UPDATED_PEOPLE_JSON, PAGE, LIMIT, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(null, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -251,7 +250,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                                                            RECENTLY_UPDATED_PEOPLE_JSON, PAGE, LIMIT, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, null, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -270,7 +269,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                                                            RECENTLY_UPDATED_PEOPLE_JSON, PAGE, LIMIT, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -290,7 +289,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                 RECENTLY_UPDATED_PEOPLE_JSON, 2, LIMIT, 5, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -312,7 +311,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                 RECENTLY_UPDATED_PEOPLE_JSON, 2, LIMIT, 2, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -334,7 +333,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                 RECENTLY_UPDATED_PEOPLE_JSON, 1, LIMIT, 2, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -356,7 +355,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                 RECENTLY_UPDATED_PEOPLE_JSON, 1, LIMIT, 1, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -378,7 +377,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                 RECENTLY_UPDATED_PEOPLE_JSON, 2, LIMIT, 2, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -395,7 +394,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                 $"{GET_RECENTLY_UPDATED_PEOPLE_URI}/{TODAY.ToTraktDateString()}?extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 RECENTLY_UPDATED_PEOPLE_JSON, 1, LIMIT, 2, UPDATED_PEOPLE_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -417,7 +416,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                 RECENTLY_UPDATED_PEOPLE_JSON, 1, LIMIT, 2, UPDATED_PEOPLE_COUNT);
 
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
-            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters);
+            TraktPagedResponse<ITraktRecentlyUpdatedPerson> response = await client.People.GetRecentlyUpdatedPeopleAsync(TODAY, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -434,7 +433,7 @@ namespace TraktNet.Modules.Tests.TraktPeopleModule
                 $"{GET_RECENTLY_UPDATED_PEOPLE_URI}/{TODAY.ToTraktDateString()}?extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 RECENTLY_UPDATED_PEOPLE_JSON, 2, LIMIT, 2, UPDATED_PEOPLE_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

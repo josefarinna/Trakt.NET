@@ -4,7 +4,7 @@ namespace TraktNet.Objects.Get.Tests.Recommendations.Json.Writer
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.Movies;
@@ -13,7 +13,7 @@ namespace TraktNet.Objects.Get.Tests.Recommendations.Json.Writer
     using TraktNet.Objects.Get.Users;
     using Xunit;
 
-    [TestCategory("Objects.Get.Recommendations.JsonWriter")]
+    [Trait("Category", "Objects.Get.Recommendations.JsonWriter")]
     public partial class RecommendedMovieObjectJsonWriter_Tests
     {
         private readonly DateTime RELEASED_AT = DateTime.UtcNow.Date;

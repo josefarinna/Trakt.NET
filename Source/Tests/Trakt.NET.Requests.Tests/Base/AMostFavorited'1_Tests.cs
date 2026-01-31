@@ -4,13 +4,13 @@ namespace TraktNet.Requests.Tests.Base
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Parameters;
     using TraktNet.Requests.Base;
     using Xunit;
 
-    [TestCategory("Requests.Base")]
+    [Trait("Category", "Requests.Base")]
     public class AMostFavoritedRequest_1_Tests
     {
         internal class MostFavoritedRequestMock : AMostFavoritedRequest<int>

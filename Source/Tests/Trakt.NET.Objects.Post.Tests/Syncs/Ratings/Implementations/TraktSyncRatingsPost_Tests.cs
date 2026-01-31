@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Syncs.Ratings;
     using Xunit;
 
-    [TestCategory("Objects.Post.Syncs.Ratings.Implementations")]
+    [Trait("Category", "Objects.Post.Syncs.Ratings.Implementations")]
     public class TraktSyncRatingsPost_Tests
     {
         [Fact]

@@ -5,12 +5,12 @@ namespace TraktNet.Objects.Get.Tests.Syncs.Activities.Json.Reader
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Syncs.Activities;
     using TraktNet.Objects.Get.Syncs.Activities.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Syncs.Activities.JsonReader")]
+    [Trait("Category", "Objects.Get.Syncs.Activities.JsonReader")]
     public partial class SyncRecommendationsLastActivitiesObjectJsonReader_Tests
     {
         [Fact]

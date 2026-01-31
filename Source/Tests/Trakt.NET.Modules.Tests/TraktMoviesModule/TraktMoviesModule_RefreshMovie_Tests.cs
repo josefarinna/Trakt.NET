@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Movies")]
+    [Trait("Category", "Modules.Movies")]
     public partial class TraktMoviesModule_Tests
     {
         private readonly string REFRESH_MOVIE_URI = $"movies/{MOVIE_ID}/refresh";
@@ -20,7 +19,7 @@
         public async Task Test_TraktMoviesModule_RefreshMovie()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(REFRESH_MOVIE_URI, HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Movies.RefreshMovieAsync(MOVIE_ID);
+            TraktNoContentResponse response = await client.Movies.RefreshMovieAsync(MOVIE_ID, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -45,7 +44,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"movies/{TRAKT_MOVIE_ID}/refresh", HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Movies.RefreshMovieAsync(movieIds);
+            TraktNoContentResponse response = await client.Movies.RefreshMovieAsync(movieIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -60,7 +59,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"movies/{MOVIE_SLUG}/refresh", HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Movies.RefreshMovieAsync(movieIds);
+            TraktNoContentResponse response = await client.Movies.RefreshMovieAsync(movieIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -76,7 +75,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"movies/{TRAKT_MOVIE_ID}/refresh", HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Movies.RefreshMovieAsync(movieIds);
+            TraktNoContentResponse response = await client.Movies.RefreshMovieAsync(movieIds, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -95,7 +94,7 @@
             };
 
             TraktClient client = TestUtility.GetOAuthMockClient($"movies/{TRAKT_MOVIE_ID}/refresh", HttpStatusCode.Created);
-            TraktNoContentResponse response = await client.Movies.RefreshMovieAsync(movie);
+            TraktNoContentResponse response = await client.Movies.RefreshMovieAsync(movie, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -125,7 +124,7 @@
 
             try
             {
-                await client.Movies.RefreshMovieAsync(MOVIE_ID);
+                await client.Movies.RefreshMovieAsync(MOVIE_ID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -139,16 +138,16 @@
         {
             TraktClient client = TestUtility.GetOAuthMockClient(REFRESH_MOVIE_URI, HttpStatusCode.Created);
 
-            Func<Task<TraktNoContentResponse>> act = () => client.Movies.RefreshMovieAsync(default(ITraktMovieIds));
+            Func<Task<TraktNoContentResponse>> act = () => client.Movies.RefreshMovieAsync(default(ITraktMovieIds), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Movies.RefreshMovieAsync(default(ITraktMovie));
+            act = () => client.Movies.RefreshMovieAsync(default(ITraktMovie), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Movies.RefreshMovieAsync(new TraktMovieIds());
+            act = () => client.Movies.RefreshMovieAsync(new TraktMovieIds(), TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Movies.RefreshMovieAsync(0);
+            act = () => client.Movies.RefreshMovieAsync(0, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

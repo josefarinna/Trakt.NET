@@ -5,11 +5,10 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using Xunit;
 
-    [TestCategory("Modules.Authentication")]
+    [Trait("Category", "Modules.Authentication")]
     public partial class TraktAuthenticationModule_Tests
     {
         // "Fake-Request" is sync/last_activities
@@ -19,7 +18,7 @@
         public async Task Test_TraktAuthenticationModule_CheckIfAccessTokenWasRevokedOrIsNotValid_Success()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(CHECK_ACCESS_TOKEN_URI, SYNC_LAST_ACTIVITIES_JSON);
-            bool response = await client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(TestConstants.MOCK_ACCESS_TOKEN);
+            bool response = await client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(TestConstants.MOCK_ACCESS_TOKEN, TestContext.Current.CancellationToken);
             response.Should().BeFalse();
         }
 
@@ -27,7 +26,7 @@
         public async Task Test_TraktAuthenticationModule_CheckIfAccessTokenWasRevokedOrIsNotValid_Failed()
         {
             TraktClient client = TestUtility.GetOAuthMockClient(CHECK_ACCESS_TOKEN_URI, HttpStatusCode.Unauthorized);
-            bool response = await client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(TestConstants.MOCK_ACCESS_TOKEN);
+            bool response = await client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(TestConstants.MOCK_ACCESS_TOKEN, TestContext.Current.CancellationToken);
             response.Should().BeTrue();
         }
 
@@ -53,7 +52,7 @@
 
             try
             {
-                await client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(TestConstants.MOCK_ACCESS_TOKEN);
+                await client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(TestConstants.MOCK_ACCESS_TOKEN, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -67,13 +66,13 @@
         {
             TraktClient client = TestUtility.GetAuthenticationMockClient();
 
-            Func<Task<bool>> act = () => client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(null);
+            Func<Task<bool>> act = () => client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(null, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(string.Empty);
+            act = () => client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync(string.Empty, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync("access token");
+            act = () => client.Authentication.CheckIfAccessTokenWasRevokedOrIsNotValidAsync("access token", TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

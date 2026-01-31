@@ -6,14 +6,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Basic;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Genres")]
+    [Trait("Category", "Modules.Genres")]
     public partial class TraktGenresModule_Tests
     {
         private const string GENRES_MOVIES_URI = "genres/movies";

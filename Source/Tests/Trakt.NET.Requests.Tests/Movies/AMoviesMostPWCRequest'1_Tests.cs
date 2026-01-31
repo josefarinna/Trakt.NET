@@ -4,14 +4,14 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Parameters;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Movies;
     using Xunit;
 
-    [TestCategory("Requests.Movies.Lists")]
+    [Trait("Category", "Requests.Movies.Lists")]
     public class AMoviesMostPWCRequest_1_Tests
     {
         internal class MoviesMostPWCRequestMock : AMoviesMostPWCRequest<int>

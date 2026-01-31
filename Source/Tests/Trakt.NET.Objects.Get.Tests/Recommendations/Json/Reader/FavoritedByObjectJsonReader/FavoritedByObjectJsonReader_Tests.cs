@@ -5,12 +5,12 @@ namespace TraktNet.Objects.Get.Tests.Recommendations.Json.Reader
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Recommendations;
     using TraktNet.Objects.Get.Recommendations.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Recommendations.JsonReader")]
+    [Trait("Category", "Objects.Get.Recommendations.JsonReader")]
     public partial class FavoritedByObjectJsonReader_Tests
     {
         [Fact]

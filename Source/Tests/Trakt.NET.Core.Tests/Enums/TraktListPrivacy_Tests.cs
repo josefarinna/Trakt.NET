@@ -2,11 +2,10 @@ namespace TraktNet.Core.Tests.Enums
 {
     using FluentAssertions;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Enums;
     using Xunit;
 
-    [TestCategory("Enums")]
+    [Trait("Category", "Enums")]
     public class TraktListPrivacy_Tests
     {
         [Fact]

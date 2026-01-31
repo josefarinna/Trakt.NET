@@ -2,12 +2,12 @@
 {
     using FluentAssertions;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Responses;
     using TraktNet.Objects.Post.Responses.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Responses.Implementations")]
+    [Trait("Category", "Objects.Post.Responses.Implementations")]
     public class TraktPostResponseNotFoundMovie_Tests
     {
         [Fact]

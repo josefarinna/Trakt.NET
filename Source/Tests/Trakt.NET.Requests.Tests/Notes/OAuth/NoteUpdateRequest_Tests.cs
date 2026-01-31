@@ -3,14 +3,14 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Notes;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Notes.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Notes.OAuth")]
+    [Trait("Category", "Requests.Notes.OAuth")]
     public class NoteUpdateRequest_Tests
     {
         [Fact]

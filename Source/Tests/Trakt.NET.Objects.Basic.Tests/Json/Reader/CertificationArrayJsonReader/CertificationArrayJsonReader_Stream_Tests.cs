@@ -7,11 +7,11 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Basic.JsonReader")]
+    [Trait("Category", "Objects.Basic.JsonReader")]
     public partial class CertificationArrayJsonReader_Tests
     {
         [Fact]

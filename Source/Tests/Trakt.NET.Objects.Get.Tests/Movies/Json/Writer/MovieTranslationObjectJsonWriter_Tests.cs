@@ -3,12 +3,12 @@ namespace TraktNet.Objects.Get.Tests.Movies.Json.Writer
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Objects.Get.Movies.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Get.Movies.JsonWriter")]
+    [Trait("Category", "Objects.Get.Movies.JsonWriter")]
     public partial class MovieTranslationObjectJsonWriter_Tests
     {
         [Fact]

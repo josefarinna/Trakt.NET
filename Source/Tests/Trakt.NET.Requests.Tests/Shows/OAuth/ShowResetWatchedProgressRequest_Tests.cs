@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Requests.Shows.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Shows.OAuth")]
+    [Trait("Category", "Requests.Shows.OAuth")]
     public class ShowResetWatchedProgressRequest_Tests
     {
         [Fact]

@@ -3,14 +3,14 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Post.Syncs.Lists;
     using TraktNet.Objects.Post.Syncs.Lists.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Syncs.Lists.Implementations")]
+    [Trait("Category", "Objects.Post.Syncs.Lists.Implementations")]
     public class TraktUpdateListPost_Tests
     {
         [Fact]

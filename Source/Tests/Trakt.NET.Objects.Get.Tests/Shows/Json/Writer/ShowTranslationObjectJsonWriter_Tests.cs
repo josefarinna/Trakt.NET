@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Objects.Get.Shows.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Get.Shows.JsonWriter")]
+    [Trait("Category", "Objects.Get.Shows.JsonWriter")]
     public partial class ShowTranslationObjectJsonWriter_Tests
     {
         [Fact]

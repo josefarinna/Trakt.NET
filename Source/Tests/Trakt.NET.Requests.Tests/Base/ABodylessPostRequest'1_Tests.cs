@@ -4,11 +4,11 @@
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using Xunit;
 
-    [TestCategory("Requests.Base")]
+    [Trait("Category", "Requests.Base")]
     public class ABodylessPostRequest_1_Tests
     {
         internal class BodylessPostRequestMock : ABodylessPostRequest<int>

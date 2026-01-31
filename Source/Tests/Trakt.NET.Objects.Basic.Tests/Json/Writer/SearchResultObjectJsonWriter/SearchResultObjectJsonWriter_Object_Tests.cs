@@ -3,7 +3,7 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Basic;
@@ -16,7 +16,7 @@
     using TraktNet.Objects.Get.Users;
     using Xunit;
 
-    [TestCategory("Objects.Basic.JsonWriter")]
+    [Trait("Category", "Objects.Basic.JsonWriter")]
     public partial class SearchResultObjectJsonWriter_Tests
     {
         [Fact]

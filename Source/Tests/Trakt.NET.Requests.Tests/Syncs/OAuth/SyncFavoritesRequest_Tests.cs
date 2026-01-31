@@ -3,14 +3,14 @@
     using FluentAssertions;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Parameters;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Syncs.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Syncs.OAuth")]
+    [Trait("Category", "Requests.Syncs.OAuth")]
     public class SyncFavoritesRequest_Tests
     {
         [Fact]

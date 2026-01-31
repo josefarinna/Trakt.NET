@@ -4,14 +4,14 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Extensions;
     using TraktNet.Parameters;
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Calendars.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Calendars.OAuth.Shows")]
+    [Trait("Category", "Requests.Calendars.OAuth.Shows")]
     public class CalendarUserSeasonPremieresRequest_Tests
     {
         [Fact]

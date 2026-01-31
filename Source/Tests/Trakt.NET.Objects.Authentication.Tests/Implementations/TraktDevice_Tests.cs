@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Authentication;
     using TraktNet.Objects.Authentication.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Authentication.Implementations")]
+    [Trait("Category", "Objects.Authentication.Implementations")]
     public class TraktDevice_Tests
     {
         [Fact]

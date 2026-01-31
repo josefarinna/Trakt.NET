@@ -1,12 +1,12 @@
 ﻿namespace TraktNet.Requests.Tests.Languages
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Languages;
     using Xunit;
 
-    [TestCategory("Requests.Languages")]
+    [Trait("Category", "Requests.Languages")]
     public class LanguagesShowsRequest_Tests
     {
         [Fact]

@@ -6,13 +6,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Basic;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Networks")]
+    [Trait("Category", "Modules.Networks")]
     public partial class TraktNetworksModule_Tests
     {
         private const string GET_NETWORKS_URI = "networks";

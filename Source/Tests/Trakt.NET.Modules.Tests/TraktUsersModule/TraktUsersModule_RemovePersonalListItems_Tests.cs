@@ -6,7 +6,6 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Lists;
     using TraktNet.Objects.Post.Responses;
@@ -14,7 +13,7 @@
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string REMOVE_PERSONAL_LIST_ITEMS_URI = $"users/{USERNAME}/lists/{LIST_ID}/items/remove";
@@ -29,7 +28,7 @@
                                                                 CUSTOM_LIST_ITEMS_REMOVE_POST_RESPONSE_JSON);
 
             TraktResponse<ITraktUserPersonalListItemsRemovePostResponse> response =
-                await client.Users.RemovePersonalListItemsAsync(USERNAME, LIST_ID, RemovePersonalListItemsPost);
+                await client.Users.RemovePersonalListItemsAsync(USERNAME, LIST_ID, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -72,7 +71,7 @@
                 postJson, CUSTOM_LIST_ITEMS_REMOVE_POST_RESPONSE_JSON);
 
             TraktResponse<ITraktUserPersonalListItemsRemovePostResponse> response =
-                await client.Users.RemovePersonalListItemsAsync(USERNAME, TRAKT_LIST_ID, RemovePersonalListItemsPost);
+                await client.Users.RemovePersonalListItemsAsync(USERNAME, TRAKT_LIST_ID, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -95,7 +94,7 @@
                 postJson, CUSTOM_LIST_ITEMS_REMOVE_POST_RESPONSE_JSON);
 
             TraktResponse<ITraktUserPersonalListItemsRemovePostResponse> response =
-                await client.Users.RemovePersonalListItemsAsync(USERNAME, listIds, RemovePersonalListItemsPost);
+                await client.Users.RemovePersonalListItemsAsync(USERNAME, listIds, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -118,7 +117,7 @@
                 postJson, CUSTOM_LIST_ITEMS_REMOVE_POST_RESPONSE_JSON);
 
             TraktResponse<ITraktUserPersonalListItemsRemovePostResponse> response =
-                await client.Users.RemovePersonalListItemsAsync(USERNAME, listIds, RemovePersonalListItemsPost);
+                await client.Users.RemovePersonalListItemsAsync(USERNAME, listIds, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -142,7 +141,7 @@
                 postJson, CUSTOM_LIST_ITEMS_REMOVE_POST_RESPONSE_JSON);
 
             TraktResponse<ITraktUserPersonalListItemsRemovePostResponse> response =
-                await client.Users.RemovePersonalListItemsAsync(USERNAME, listIds, RemovePersonalListItemsPost);
+                await client.Users.RemovePersonalListItemsAsync(USERNAME, listIds, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -169,7 +168,7 @@
                 postJson, CUSTOM_LIST_ITEMS_REMOVE_POST_RESPONSE_JSON);
 
             TraktResponse<ITraktUserPersonalListItemsRemovePostResponse> response =
-                await client.Users.RemovePersonalListItemsAsync(USERNAME, list, RemovePersonalListItemsPost);
+                await client.Users.RemovePersonalListItemsAsync(USERNAME, list, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -200,7 +199,7 @@
 
             try
             {
-                await client.Users.RemovePersonalListItemsAsync(USERNAME, LIST_ID, RemovePersonalListItemsPost);
+                await client.Users.RemovePersonalListItemsAsync(USERNAME, LIST_ID, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -219,17 +218,17 @@
                 postJson, CUSTOM_LIST_ITEMS_REMOVE_POST_RESPONSE_JSON);
 
             Func<Task<TraktResponse<ITraktUserPersonalListItemsRemovePostResponse>>> act =
-                () => client.Users.RemovePersonalListItemsAsync(USERNAME, default(ITraktListIds), RemovePersonalListItemsPost);
+                () => client.Users.RemovePersonalListItemsAsync(USERNAME, default(ITraktListIds), RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
 
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Users.RemovePersonalListItemsAsync(USERNAME, default(ITraktList), RemovePersonalListItemsPost);
+            act = () => client.Users.RemovePersonalListItemsAsync(USERNAME, default(ITraktList), RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentNullException>();
 
-            act = () => client.Users.RemovePersonalListItemsAsync(USERNAME, new TraktListIds(), RemovePersonalListItemsPost);
+            act = () => client.Users.RemovePersonalListItemsAsync(USERNAME, new TraktListIds(), RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
 
-            act = () => client.Users.RemovePersonalListItemsAsync(USERNAME, 0, RemovePersonalListItemsPost);
+            act = () => client.Users.RemovePersonalListItemsAsync(USERNAME, 0, RemovePersonalListItemsPost, TestContext.Current.CancellationToken);
             await act.Should().ThrowAsync<ArgumentException>();
         }
     }

@@ -2,13 +2,13 @@
 {
     using FluentAssertions;
     using System;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Objects.Post.Comments;
     using Xunit;
 
-    [TestCategory("Objects.Post.Comments.Implementations")]
+    [Trait("Category", "Objects.Post.Comments.Implementations")]
     public class TraktMovieCommentPost_Tests
     {
         [Fact]

@@ -1,12 +1,12 @@
 ﻿namespace TraktNet.Requests.Tests.Checkins.OAuth
 {
     using FluentAssertions;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Checkins.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Checkins.OAuth")]
+    [Trait("Category", "Requests.Checkins.OAuth")]
     public class CheckinsDeleteRequest_Tests
     {
         [Fact]

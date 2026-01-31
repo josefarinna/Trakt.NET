@@ -6,14 +6,14 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Extensions;
     using TraktNet.Objects.Basic;
     using TraktNet.Objects.Get.Users;
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Basic.JsonWriter")]
+    [Trait("Category", "Objects.Basic.JsonWriter")]
     public partial class CommentLikeArrayJsonWriter_Tests
     {
         private readonly DateTime LIKED_AT = DateTime.UtcNow;

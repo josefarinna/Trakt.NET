@@ -4,12 +4,12 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.People.Credits;
     using TraktNet.Objects.Get.People.Credits.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.People.Credits.JsonReader")]
+    [Trait("Category", "Objects.Get.People.Credits.JsonReader")]
     public partial class PersonShowCreditsObjectJsonReader_Tests
     {
         [Fact]

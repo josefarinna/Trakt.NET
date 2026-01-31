@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Shows;
     using TraktNet.Objects.Get.Shows.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Shows.JsonReader")]
+    [Trait("Category", "Objects.Get.Shows.JsonReader")]
     public partial class MostPWCShowObjectJsonReader_Tests
     {
         [Fact]

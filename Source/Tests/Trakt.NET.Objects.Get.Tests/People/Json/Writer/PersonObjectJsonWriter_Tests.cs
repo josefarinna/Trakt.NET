@@ -3,14 +3,14 @@ namespace TraktNet.Objects.Get.Tests.People.Json.Writer
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Get.People;
     using TraktNet.Objects.Get.People.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Get.People.JsonWriter")]
+    [Trait("Category", "Objects.Get.People.JsonWriter")]
     public partial class PersonObjectJsonWriter_Tests
     {
         private readonly DateTime BIRTHDAY_AT = DateTime.UtcNow.Date;

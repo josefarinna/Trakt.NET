@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Post.Shows;
     using TraktNet.Objects.Post.Shows.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Post.Shows.Implementations")]
+    [Trait("Category", "Objects.Post.Shows.Implementations")]
     public class TraktShowResetWatchedProgressPost_Tests
     {
         [Fact]

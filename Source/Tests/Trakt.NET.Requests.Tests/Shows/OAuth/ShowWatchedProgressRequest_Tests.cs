@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System.Collections;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Requests.Shows.OAuth;
     using Xunit;
 
-    [TestCategory("Requests.Shows.OAuth")]
+    [Trait("Category", "Requests.Shows.OAuth")]
     public class ShowWatchedProgressRequest_Tests
     {
         [Fact]

@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.History;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_WATCHED_HISTORY_URI = $"users/{USERNAME}/history";
@@ -24,7 +23,7 @@
                 GET_WATCHED_HISTORY_URI,
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
-            TraktPagedResponse<ITraktHistoryItem> response = await client.Users.GetWatchedHistoryAsync(USERNAME);
+            TraktPagedResponse<ITraktHistoryItem> response = await client.Users.GetWatchedHistoryAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -45,7 +44,7 @@
 
             client.Configuration.ForceAuthorization = true;
 
-            TraktPagedResponse<ITraktHistoryItem> response = await client.Users.GetWatchedHistoryAsync(USERNAME);
+            TraktPagedResponse<ITraktHistoryItem> response = await client.Users.GetWatchedHistoryAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -64,7 +63,7 @@
                 "users/me/history",
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
-            TraktPagedResponse<ITraktHistoryItem> response = await client.Users.GetWatchedHistoryAsync("me");
+            TraktPagedResponse<ITraktHistoryItem> response = await client.Users.GetWatchedHistoryAsync("me", cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -84,7 +83,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -104,7 +103,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -124,7 +123,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -145,7 +144,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT, END_AT);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT, END_AT, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -167,7 +166,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT,
-                                                          END_AT, EXTENDED_INFO);
+                                                          END_AT, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -191,7 +190,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -215,7 +214,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -237,7 +236,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT,
-                                                          null, EXTENDED_INFO);
+                                                          null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -261,7 +260,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -285,7 +284,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -309,7 +308,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -333,7 +332,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT,
-                                                          null, null, pagedParameters);
+                                                          null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -357,7 +356,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT,
-                                                          null, null, pagedParameters);
+                                                          null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -381,7 +380,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, START_AT,
-                                                          null, null, pagedParameters);
+                                                          null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -403,7 +402,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, null,
-                                                          END_AT, EXTENDED_INFO);
+                                                          END_AT, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -427,7 +426,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, null, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -451,7 +450,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, null, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -475,7 +474,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID, null, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -499,7 +498,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID,
-                                                          null, END_AT, null, pagedParameters);
+                                                          null, END_AT, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -523,7 +522,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID,
-                                                          null, END_AT, null, pagedParameters);
+                                                          null, END_AT, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -547,7 +546,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID,
-                                                          null, END_AT, null, pagedParameters);
+                                                          null, END_AT, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -569,7 +568,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT,
-                                                          null, EXTENDED_INFO);
+                                                          null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -593,7 +592,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -617,7 +616,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -641,7 +640,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -661,7 +660,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -684,7 +683,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -707,7 +706,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -731,7 +730,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -753,7 +752,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT,
-                                                          END_AT, EXTENDED_INFO);
+                                                          END_AT, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -777,7 +776,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -801,7 +800,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -825,7 +824,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -845,7 +844,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, END_AT);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, END_AT, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -869,7 +868,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, END_AT,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -893,7 +892,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, END_AT,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -917,7 +916,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, START_AT, END_AT,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -938,7 +937,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null,
-                                                          END_AT, EXTENDED_INFO);
+                                                          END_AT, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -962,7 +961,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -986,7 +985,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1010,7 +1009,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1030,7 +1029,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, END_AT);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, END_AT, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1053,7 +1052,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null,
-                                                          END_AT, null, pagedParameters);
+                                                          END_AT, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1076,7 +1075,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null,
-                                                          END_AT, null, pagedParameters);
+                                                          END_AT, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1100,7 +1099,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, END_AT,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1121,7 +1120,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null,
-                                                          null, null, EXTENDED_INFO);
+                                                          null, null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1144,7 +1143,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1167,7 +1166,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1191,7 +1190,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1214,7 +1213,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1237,7 +1236,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1260,7 +1259,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, null, null, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1281,7 +1280,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT,
-                                                          null, EXTENDED_INFO);
+                                                          null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1304,7 +1303,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1327,7 +1326,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1351,7 +1350,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1371,7 +1370,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1391,7 +1390,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, END_AT, EXTENDED_INFO);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, END_AT, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1415,7 +1414,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1439,7 +1438,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1463,7 +1462,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1483,7 +1482,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, END_AT);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, END_AT, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1506,7 +1505,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, END_AT,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1529,7 +1528,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, END_AT,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1553,7 +1552,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, END_AT,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1576,7 +1575,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1599,7 +1598,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1622,7 +1621,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, START_AT, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1643,7 +1642,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null,
-                                                          END_AT, EXTENDED_INFO);
+                                                          END_AT, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1666,7 +1665,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1689,7 +1688,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1713,7 +1712,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, END_AT,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1733,7 +1732,7 @@
                 HISTORY_JSON, 1, 10, 1, HISTORY_ITEM_COUNT);
 
             TraktPagedResponse<ITraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, END_AT);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, END_AT, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1756,7 +1755,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, END_AT,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1779,7 +1778,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, END_AT,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1802,7 +1801,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, END_AT,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1823,7 +1822,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null,
-                                                          null, EXTENDED_INFO);
+                                                          null, EXTENDED_INFO, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1846,7 +1845,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1869,7 +1868,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1892,7 +1891,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, null,
-                                                          EXTENDED_INFO, pagedParameters);
+                                                          EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1915,7 +1914,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1938,7 +1937,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1961,7 +1960,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, null, null, null, null,
-                                                          null, pagedParameters);
+                                                          null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -1986,7 +1985,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID,
-                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters);
+                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2011,7 +2010,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID,
-                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters);
+                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2038,7 +2037,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID,
-                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters);
+                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2065,7 +2064,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID,
-                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters);
+                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2092,7 +2091,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID,
-                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters);
+                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2119,7 +2118,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID,
-                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters);
+                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2138,7 +2137,7 @@
                 $"&extended={EXTENDED_INFO}&page=1&limit={HISTORY_LIMIT}",
                 HISTORY_JSON, 1, HISTORY_LIMIT, 2, HISTORY_ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2165,7 +2164,7 @@
 
             TraktPagedResponse<ITraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(USERNAME, HISTORY_ITEM_TYPE, HISTORY_ITEM_ID,
-                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters);
+                                                          START_AT, END_AT, EXTENDED_INFO, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2184,7 +2183,7 @@
                 $"&extended={EXTENDED_INFO}&page=2&limit={HISTORY_LIMIT}",
                 HISTORY_JSON, 2, HISTORY_LIMIT, 2, HISTORY_ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -2221,7 +2220,7 @@
 
             try
             {
-                await client.Users.GetWatchedHistoryAsync(USERNAME);
+                await client.Users.GetWatchedHistoryAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

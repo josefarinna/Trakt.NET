@@ -5,13 +5,12 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Watched;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_WATCHED_SHOWS_URI = $"users/{USERNAME}/watched/shows";
@@ -20,7 +19,7 @@
         public async Task Test_TraktUsersModule_GetWatchedShows()
         {
             TraktClient client = TestUtility.GetMockClient(GET_WATCHED_SHOWS_URI, WATCHED_SHOWS_JSON);
-            TraktListResponse<ITraktWatchedShow> response = await client.Users.GetWatchedShowsAsync(USERNAME);
+            TraktListResponse<ITraktWatchedShow> response = await client.Users.GetWatchedShowsAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -34,7 +33,7 @@
             TraktClient client = TestUtility.GetOAuthMockClient(GET_WATCHED_SHOWS_URI, WATCHED_SHOWS_JSON);
             client.Configuration.ForceAuthorization = true;
 
-            TraktListResponse<ITraktWatchedShow> response = await client.Users.GetWatchedShowsAsync(USERNAME);
+            TraktListResponse<ITraktWatchedShow> response = await client.Users.GetWatchedShowsAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -46,7 +45,7 @@
         public async Task Test_TraktUsersModule_GetWatchedShows_With_OAuth_Enforced_For_Username_Me()
         {
             TraktClient client = TestUtility.GetOAuthMockClient("users/me/watched/shows", WATCHED_SHOWS_JSON);
-            TraktListResponse<ITraktWatchedShow> response = await client.Users.GetWatchedShowsAsync("me");
+            TraktListResponse<ITraktWatchedShow> response = await client.Users.GetWatchedShowsAsync("me", cancellationToken: TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -61,7 +60,7 @@
                 $"{GET_WATCHED_SHOWS_URI}?extended={EXTENDED_INFO}",
                 WATCHED_SHOWS_JSON);
 
-            TraktListResponse<ITraktWatchedShow> response = await client.Users.GetWatchedShowsAsync(USERNAME, EXTENDED_INFO);
+            TraktListResponse<ITraktWatchedShow> response = await client.Users.GetWatchedShowsAsync(USERNAME, EXTENDED_INFO, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -92,7 +91,7 @@
 
             try
             {
-                await client.Users.GetWatchedShowsAsync(USERNAME);
+                await client.Users.GetWatchedShowsAsync(USERNAME, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

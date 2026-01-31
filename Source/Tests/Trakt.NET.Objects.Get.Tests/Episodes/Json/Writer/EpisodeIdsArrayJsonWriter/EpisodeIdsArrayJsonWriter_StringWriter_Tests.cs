@@ -5,12 +5,12 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Episodes;
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Get.Episodes.JsonWriter")]
+    [Trait("Category", "Objects.Get.Episodes.JsonWriter")]
     public partial class EpisodeIdsArrayJsonWriter_Tests
     {
         [Fact]

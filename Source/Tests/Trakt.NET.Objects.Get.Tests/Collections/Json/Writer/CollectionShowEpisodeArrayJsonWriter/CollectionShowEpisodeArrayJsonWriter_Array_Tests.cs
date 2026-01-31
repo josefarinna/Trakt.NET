@@ -4,7 +4,7 @@
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Extensions;
     using TraktNet.Objects.Basic;
@@ -12,7 +12,7 @@
     using TraktNet.Objects.Json;
     using Xunit;
 
-    [TestCategory("Objects.Get.Collections.JsonWriter")]
+    [Trait("Category", "Objects.Get.Collections.JsonWriter")]
     public partial class CollectionShowEpisodeArrayJsonWriter_Tests
     {
         [Fact]

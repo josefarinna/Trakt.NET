@@ -5,12 +5,12 @@
     using System;
     using System.IO;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Calendars;
     using TraktNet.Objects.Get.Calendars.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Get.Calendars.JsonReader")]
+    [Trait("Category", "Objects.Get.Calendars.JsonReader")]
     public partial class CalendarMovieObjectJsonReader_Tests
     {
         [Fact]

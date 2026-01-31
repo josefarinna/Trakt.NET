@@ -3,12 +3,12 @@ namespace TraktNet.Objects.Get.Tests.Seasons.Json.Writer
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Seasons;
     using TraktNet.Objects.Get.Seasons.Json.Writer;
     using Xunit;
 
-    [TestCategory("Objects.Get.Seasons.JsonWriter")]
+    [Trait("Category", "Objects.Get.Seasons.JsonWriter")]
     public partial class SeasonTranslationObjectJsonWriter_Tests
     {
         [Fact]

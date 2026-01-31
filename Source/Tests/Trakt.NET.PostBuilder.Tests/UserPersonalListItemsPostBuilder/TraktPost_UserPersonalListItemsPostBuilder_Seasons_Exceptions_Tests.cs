@@ -3,12 +3,12 @@
     using FluentAssertions;
     using System;
     using System.Collections.Generic;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Objects.Get.Seasons;
     using TraktNet.Objects.Post.Users.PersonalListItems;
     using Xunit;
 
-    [TestCategory("PostBuilder")]
+    [Trait("Category", "PostBuilder")]
     public partial class TraktPost_UserPersonalListItemsPostBuilder_Tests
     {
         [Fact]

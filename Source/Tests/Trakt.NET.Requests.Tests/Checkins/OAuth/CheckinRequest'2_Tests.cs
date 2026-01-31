@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System.Threading;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Requests.Base;
     using TraktNet.Requests.Checkins.OAuth;
     using TraktNet.Requests.Interfaces;
     using Xunit;
 
-    [TestCategory("Requests.Checkins.OAuth")]
+    [Trait("Category", "Requests.Checkins.OAuth")]
     public class CheckinRequest_2_Tests
     {
         internal class RequestBodyMock : IRequestBody

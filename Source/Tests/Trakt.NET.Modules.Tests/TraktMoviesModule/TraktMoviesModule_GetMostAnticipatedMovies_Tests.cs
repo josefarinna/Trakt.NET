@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Get.Movies;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Movies")]
+    [Trait("Category", "Modules.Movies")]
     public partial class TraktMoviesModule_Tests
     {
         private const string GET_MOST_ANTICIPATED_MOVIES_URI = "movies/anticipated";
@@ -96,7 +95,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, PAGE, 10, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, null, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -115,7 +114,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, PAGE, 10, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, FILTER, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -134,7 +133,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, PAGE, 10, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -153,7 +152,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, PAGE, 10, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -172,7 +171,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, null, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -191,7 +190,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, FILTER, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -210,7 +209,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -229,7 +228,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, 1, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(null, LIMIT);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -248,7 +247,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, PAGE, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, null, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -267,7 +266,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, PAGE, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, FILTER, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(null, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -286,7 +285,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, PAGE, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -305,7 +304,7 @@
                                                            MOST_ANTICIPATED_MOVIES_JSON, PAGE, LIMIT, 1, ITEM_COUNT);
 
             var pagedParameters = new TraktPagedParameters(PAGE, LIMIT);
-            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters);
+            TraktPagedResponse<ITraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, FILTER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -326,7 +325,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktMostAnticipatedMovie> response =
-                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -349,7 +348,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktMostAnticipatedMovie> response =
-                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -372,7 +371,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktMostAnticipatedMovie> response =
-                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -395,7 +394,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktMostAnticipatedMovie> response =
-                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -418,7 +417,7 @@
             var pagedParameters = new TraktPagedParameters(2, LIMIT);
 
             TraktPagedResponse<ITraktMostAnticipatedMovie> response =
-                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -434,7 +433,7 @@
             TestUtility.ResetMockClient(client, $"{GET_MOST_ANTICIPATED_MOVIES_URI}?extended={EXTENDED_INFO}&page=1&limit={LIMIT}",
                 MOST_ANTICIPATED_MOVIES_JSON, 1, LIMIT, 2, ITEM_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -457,7 +456,7 @@
             var pagedParameters = new TraktPagedParameters(1, LIMIT);
 
             TraktPagedResponse<ITraktMostAnticipatedMovie> response =
-                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters);
+                await client.Movies.GetMostAnticipatedMoviesAsync(EXTENDED_INFO, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -473,7 +472,7 @@
             TestUtility.ResetMockClient(client, $"{GET_MOST_ANTICIPATED_MOVIES_URI}?extended={EXTENDED_INFO}&page=2&limit={LIMIT}",
                 MOST_ANTICIPATED_MOVIES_JSON, 2, LIMIT, 2, ITEM_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
             
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();

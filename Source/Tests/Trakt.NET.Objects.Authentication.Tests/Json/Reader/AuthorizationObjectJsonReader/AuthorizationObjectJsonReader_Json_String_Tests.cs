@@ -3,13 +3,13 @@
     using FluentAssertions;
     using System;
     using System.Threading.Tasks;
-    using Trakt.NET.Tests.Utility.Traits;
+
     using TraktNet.Enums;
     using TraktNet.Objects.Authentication;
     using TraktNet.Objects.Authentication.Json.Reader;
     using Xunit;
 
-    [TestCategory("Objects.Authentication.JsonReader")]
+    [Trait("Category", "Objects.Authentication.JsonReader")]
     public partial class AuthorizationObjectJsonReader_Tests
     {
         [Fact]

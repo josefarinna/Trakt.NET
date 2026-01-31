@@ -5,14 +5,13 @@
     using System.Net;
     using System.Threading.Tasks;
     using Trakt.NET.Tests.Utility;
-    using Trakt.NET.Tests.Utility.Traits;
     using TraktNet.Exceptions;
     using TraktNet.Objects.Basic;
     using TraktNet.Parameters;
     using TraktNet.Responses;
     using Xunit;
 
-    [TestCategory("Modules.Users")]
+    [Trait("Category", "Modules.Users")]
     public partial class TraktUsersModule_Tests
     {
         private readonly string GET_FAVORITES_COMMENTS_URI = $"users/{USERNAME}/favorites/comments";
@@ -105,7 +104,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -127,7 +126,7 @@
             var pagedParameters = new TraktPagedParameters(null, COMMENTS_LIMIT);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -148,7 +147,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, null, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -169,7 +168,7 @@
             var pagedParameters = new TraktPagedParameters(null, COMMENTS_LIMIT);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, null, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -190,7 +189,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, COMMENTS_LIMIT);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, null, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, null, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -212,7 +211,7 @@
             var pagedParameters = new TraktPagedParameters(PAGE, COMMENTS_LIMIT);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -234,7 +233,7 @@
             var pagedParameters = new TraktPagedParameters(2, COMMENTS_LIMIT);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -258,7 +257,7 @@
             var pagedParameters = new TraktPagedParameters(2, COMMENTS_LIMIT);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -282,7 +281,7 @@
             var pagedParameters = new TraktPagedParameters(1, COMMENTS_LIMIT);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -306,7 +305,7 @@
             var pagedParameters = new TraktPagedParameters(1, COMMENTS_LIMIT);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -330,7 +329,7 @@
             var pagedParameters = new TraktPagedParameters(2, COMMENTS_LIMIT);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -347,7 +346,7 @@
                 $"{GET_FAVORITES_COMMENTS_URI}/{COMMENT_SORT_ORDER.UriName}?page=1&limit={COMMENTS_LIMIT}",
                 COMMENTS_JSON, 1, COMMENTS_LIMIT, 2, COMMENTS_COUNT);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -371,7 +370,7 @@
             var pagedParameters = new TraktPagedParameters(1, COMMENTS_LIMIT);
 
             TraktPagedResponse<ITraktComment> response =
-                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters);
+                await client.Users.GetFavoritesCommentsAsync(USERNAME, COMMENT_SORT_ORDER, pagedParameters, TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
@@ -388,7 +387,7 @@
                 $"{GET_FAVORITES_COMMENTS_URI}/{COMMENT_SORT_ORDER.UriName}?page=2&limit={COMMENTS_LIMIT}",
                 COMMENTS_JSON, 2, COMMENTS_LIMIT, 2, COMMENTS_COUNT);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
             response.Should().NotBeNull();
             response.IsSuccess.Should().BeTrue();
