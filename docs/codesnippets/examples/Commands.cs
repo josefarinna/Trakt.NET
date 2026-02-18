@@ -21,7 +21,7 @@ public sealed class ExampleSettings : CommandSettings
 [Description("Run authentication examples.")]
 public sealed class RunAuthExampleCommand : AsyncCommand<ExampleSettings>
 {
-    public override async Task<int> ExecuteAsync(CommandContext context, ExampleSettings settings)
+    public override async Task<int> ExecuteAsync(CommandContext context, ExampleSettings settings, CancellationToken cancellationToken)
     {
         switch (settings.ExampleName)
         {
@@ -42,7 +42,7 @@ public sealed class RunAuthExampleCommand : AsyncCommand<ExampleSettings>
 [Description("Run shows module examples.")]
 public sealed class RunShowsModuleExampleCommand : AsyncCommand<ExampleSettings>
 {
-    public override async Task<int> ExecuteAsync(CommandContext context, ExampleSettings settings)
+    public override async Task<int> ExecuteAsync(CommandContext context, ExampleSettings settings, CancellationToken cancellationToken)
     {
         switch (settings.ExampleName)
         {
@@ -72,7 +72,7 @@ public sealed class RunShowsModuleExampleCommand : AsyncCommand<ExampleSettings>
 [Description("Run filter parameter examples.")]
 public sealed class RunParametersFilterCommand : AsyncCommand<ExampleSettings>
 {
-    public override async Task<int> ExecuteAsync(CommandContext context, ExampleSettings settings)
+    public override async Task<int> ExecuteAsync(CommandContext context, ExampleSettings settings, CancellationToken cancellationToken)
     {
         switch (settings.ExampleName)
         {
@@ -90,7 +90,7 @@ public sealed class RunParametersFilterCommand : AsyncCommand<ExampleSettings>
 [Description("Run post builder parameter examples.")]
 public sealed class RunParametersPostBuilderCommand : AsyncCommand<ExampleSettings>
 {
-    public override async Task<int> ExecuteAsync(CommandContext context, ExampleSettings settings)
+    public override async Task<int> ExecuteAsync(CommandContext context, ExampleSettings settings, CancellationToken cancellationToken)
     {
         switch (settings.ExampleName)
         {
@@ -108,7 +108,7 @@ public sealed class RunParametersPostBuilderCommand : AsyncCommand<ExampleSettin
 [Description("Run serialization examples.")]
 public sealed class RunSerializationCommand : AsyncCommand
 {
-    public override async Task<int> ExecuteAsync(CommandContext context)
+    public override async Task<int> ExecuteAsync(CommandContext context, CancellationToken cancellationToken)
     {
         await SerializationExample.RunAsync();
         return 0;

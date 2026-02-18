@@ -1,14 +1,23 @@
 ﻿{
   Diagnostics: [
     {
-      Id: TRAKTNET1009,
-      Title: Property type is not a Trakt enum type and needs a query name.,
-      Severity: Error,
-      WarningLevel: 0,
-      Location: : (8,25)-(8,32),
-      MessageFormat: TraktRequestQueryAttribute specified without a query name on a property type which is not a Trakt enum.,
+      Location: /*
+        [TraktRequestQuery]
+        internal string? Country { get; set; }
+                         ^^^^^^^
+    }
+*/
+ : (8,25)-(8,32),
       Message: TraktRequestQueryAttribute specified without a query name on a property type which is not a Trakt enum.,
-      Category: Trakt.NET.SourceGeneration.Requests
+      Severity: Error,
+      Descriptor: {
+        Id: TRAKTNET1009,
+        Title: Property type is not a Trakt enum type and needs a query name.,
+        MessageFormat: TraktRequestQueryAttribute specified without a query name on a property type which is not a Trakt enum.,
+        Category: Trakt.NET.SourceGeneration.Requests,
+        DefaultSeverity: Error,
+        IsEnabledByDefault: true
+      }
     }
   ]
 }

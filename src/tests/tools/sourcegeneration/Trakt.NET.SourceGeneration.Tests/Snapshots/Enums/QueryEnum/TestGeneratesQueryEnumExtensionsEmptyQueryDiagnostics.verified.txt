@@ -1,14 +1,23 @@
 ﻿{
   Diagnostics: [
     {
-      Id: TRAKTNET1001,
-      Title: Invalid query name value for Trakt enum.,
-      Severity: Error,
-      WarningLevel: 0,
-      Location: : (5,16)-(5,24),
-      MessageFormat: Query name value for Trakt enum is null or empty.,
+      Location: /*
+    [TraktEnum(QueryName = "", HasQuerySupport = true)]
+    public enum TestEnum
+                ^^^^^^^^
+    {
+*/
+ : (5,16)-(5,24),
       Message: Query name value for Trakt enum is null or empty.,
-      Category: Trakt.NET.SourceGeneration.Enums
+      Severity: Error,
+      Descriptor: {
+        Id: TRAKTNET1001,
+        Title: Invalid query name value for Trakt enum.,
+        MessageFormat: Query name value for Trakt enum is null or empty.,
+        Category: Trakt.NET.SourceGeneration.Enums,
+        DefaultSeverity: Error,
+        IsEnabledByDefault: true
+      }
     }
   ]
 }
