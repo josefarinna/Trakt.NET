@@ -17,7 +17,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieID, extendedInfo);
+            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieID, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -44,7 +44,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieSlug, extendedInfo);
+            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieSlug, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -71,7 +71,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIDs, extendedInfo);
+            TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIDs, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -120,7 +120,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieID);
+                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -161,7 +161,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieSlug);
+                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieSlug, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -202,7 +202,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIDs);
+                await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIDs, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

@@ -14,7 +14,7 @@ namespace TraktNET.MoviesModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{RefreshMovieUriPrefix}/293990/{RefreshMovieUriSuffix}", HttpStatusCode.Created);
 
-            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieID);
+            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -27,7 +27,7 @@ namespace TraktNET.MoviesModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshMovieUriWithSlug, HttpStatusCode.Created);
 
-            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieSlug);
+            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -40,7 +40,7 @@ namespace TraktNET.MoviesModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshMovieUriWithSlug, HttpStatusCode.Created);
 
-            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieIDs);
+            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -80,7 +80,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieID);
+                await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -121,7 +121,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieSlug);
+                await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -162,7 +162,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieIDs);
+                await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -177,13 +177,13 @@ namespace TraktNET.MoviesModule
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshMovieUriWithSlug, HttpStatusCode.Created);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktResponse>> act = () => client.Movies.RefreshMovieAsync(default(TraktMovieIDs));
+            Func<Task<TraktResponse>> act = () => client.Movies.RefreshMovieAsync(default(TraktMovieIDs), TestContext.Current.CancellationToken);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
-            act = () => client.Movies.RefreshMovieAsync(movieIDs);
+            act = () => client.Movies.RefreshMovieAsync(movieIDs, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

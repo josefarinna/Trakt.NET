@@ -5,13 +5,14 @@
   <PropertyGroup>
     <TargetFrameworks>$(TestTargetFrameworks)</TargetFrameworks>
     <IsPackable>false</IsPackable>
-    <OutputType>Library</OutputType>
+    <OutputType Condition="'$(IsTestUtilityProject)' != 'true'">Exe</OutputType>
+    <OutputType Condition="'$(IsTestUtilityProject)' == 'true'">Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(IsTestProject)' == 'true' AND '$(IsTestUtilityProject)' != 'true'">
     <PackageReference Include="Shouldly" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.v3" />
 
     <PackageReference Include="xunit.runner.visualstudio">
       <PrivateAssets>all</PrivateAssets>

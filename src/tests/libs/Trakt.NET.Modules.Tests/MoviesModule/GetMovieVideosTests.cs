@@ -15,7 +15,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movievideos.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieVideosUri, responseContent);
 
-            TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieID);
+            TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -45,7 +45,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movievideos.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieVideosUriWithSlug, responseContent);
 
-            TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieSlug);
+            TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -75,7 +75,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movievideos.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieVideosUriWithSlug, responseContent);
 
-            TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieIDs);
+            TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -131,7 +131,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieID);
+                await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -172,7 +172,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieSlug);
+                await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -213,7 +213,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieIDs);
+                await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -229,13 +229,13 @@ namespace TraktNET.MoviesModule
             TraktClient client = ModuleTestUtility.GetClient(GetMovieVideosUriWithSlug, responseContent);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Movies.GetMovieVideosAsync(default(TraktMovieIDs));
+            Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Movies.GetMovieVideosAsync(default(TraktMovieIDs), TestContext.Current.CancellationToken);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
-            act = () => client.Movies.GetMovieVideosAsync(movieIDs);
+            act = () => client.Movies.GetMovieVideosAsync(movieIDs, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

@@ -18,7 +18,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieID, extendedInfo);
+            TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieID, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -51,7 +51,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieSlug, extendedInfo);
+            TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieSlug, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -84,7 +84,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieIDs, extendedInfo);
+            TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieIDs, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -140,7 +140,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieID);
+                await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -181,7 +181,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieSlug);
+                await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieSlug, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -222,7 +222,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieIDs);
+                await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieIDs, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -238,13 +238,13 @@ namespace TraktNET.MoviesModule
             TraktClient client = ModuleTestUtility.GetClient(GetMovieWatchingUsersUriWithSlug, responseContent);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Movies.GetMovieWatchingUsersAsync(default(TraktMovieIDs));
+            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Movies.GetMovieWatchingUsersAsync(default(TraktMovieIDs), cancellationToken: TestContext.Current.CancellationToken);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
-            act = () => client.Movies.GetMovieWatchingUsersAsync(movieIDs);
+            act = () => client.Movies.GetMovieWatchingUsersAsync(movieIDs, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

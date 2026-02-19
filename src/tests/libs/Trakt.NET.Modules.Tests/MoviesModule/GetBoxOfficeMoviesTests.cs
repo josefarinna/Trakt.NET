@@ -15,7 +15,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktListResponse<TraktBoxOfficeMovie> response = await client.Movies.GetBoxOfficeMoviesAsync(extendedInfo);
+            TraktListResponse<TraktBoxOfficeMovie> response = await client.Movies.GetBoxOfficeMoviesAsync(extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -72,7 +72,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetBoxOfficeMoviesAsync();
+                await client.Movies.GetBoxOfficeMoviesAsync(cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

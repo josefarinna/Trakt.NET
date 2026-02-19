@@ -48,7 +48,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(period, extendedInfo, null, page, limit);
+            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(period, extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -120,7 +120,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(period, extendedInfo, TestConstants.Movies.Filter, page, limit);
+            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(period, extendedInfo, TestConstants.Movies.Filter, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -156,7 +156,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostfavoritedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostFavoritedMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 2);
+            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -180,7 +180,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostfavoritedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostFavoritedMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 1);
+            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -204,7 +204,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostfavoritedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostFavoritedMoviesUri}?page=2", responseContent, 2, 3, 10, 2);
 
-            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 2);
+            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -228,7 +228,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostfavoritedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostFavoritedMoviesUri}?page=1", responseContent, 1, 1, 10, 2);
 
-            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 1);
+            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -252,7 +252,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostfavoritedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostFavoritedMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 2);
+            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -271,7 +271,7 @@ namespace TraktNET.MoviesModule
 
             ModuleTestUtility.SetClient(client, $"{GetMostFavoritedMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -295,7 +295,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostfavoritedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostFavoritedMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 1);
+            TraktPagedResponse<TraktMostFavoritedMovie> response = await client.Movies.GetMostFavoritedMoviesAsync(page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -314,7 +314,7 @@ namespace TraktNET.MoviesModule
 
             ModuleTestUtility.SetClient(client, $"{GetMostFavoritedMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -363,7 +363,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMostFavoritedMoviesAsync();
+                await client.Movies.GetMostFavoritedMoviesAsync(cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

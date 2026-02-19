@@ -51,7 +51,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, commentSortOrder, extendedInfo, page, limit);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -117,7 +117,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, commentSortOrder, extendedInfo, page, limit);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -183,7 +183,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, commentSortOrder, extendedInfo, page, limit);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -249,7 +249,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, commentSortOrder, extendedInfo, page, limit);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -315,7 +315,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, commentSortOrder, extendedInfo, page, limit);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -381,7 +381,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, commentSortOrder, extendedInfo, page, limit);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -411,7 +411,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 2);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -435,7 +435,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 1);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -459,7 +459,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUri}?page=2", responseContent, 2, 3, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 2);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -483,7 +483,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUri}?page=1", responseContent, 1, 1, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 1);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -507,7 +507,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 2);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -526,7 +526,7 @@ namespace TraktNET.MoviesModule
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -550,7 +550,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 1);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -569,7 +569,7 @@ namespace TraktNET.MoviesModule
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -593,7 +593,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 2);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -617,7 +617,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 1);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -641,7 +641,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=2", responseContent, 2, 3, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 2);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -665,7 +665,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=1", responseContent, 1, 1, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 1);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -689,7 +689,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 2);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -708,7 +708,7 @@ namespace TraktNET.MoviesModule
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -732,7 +732,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 1);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -751,7 +751,7 @@ namespace TraktNET.MoviesModule
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -775,7 +775,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 2);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -799,7 +799,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 1);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -823,7 +823,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=2", responseContent, 2, 3, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 2);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -847,7 +847,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=1", responseContent, 1, 1, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 1);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -871,7 +871,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 2);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -890,7 +890,7 @@ namespace TraktNET.MoviesModule
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -914,7 +914,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviecomments.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMovieCommentsUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 1);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -933,7 +933,7 @@ namespace TraktNET.MoviesModule
 
             ModuleTestUtility.SetClient(client, $"{GetMovieCommentsUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -983,7 +983,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID);
+                await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -1024,7 +1024,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug);
+                await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -1065,7 +1065,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs);
+                await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -1081,13 +1081,13 @@ namespace TraktNET.MoviesModule
             TraktClient client = ModuleTestUtility.GetClient(GetMovieCommentsUriWithSlug, responseContent);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktPagedResponse<TraktComment>>> act = () => client.Movies.GetMovieCommentsAsync(default(TraktMovieIDs));
+            Func<Task<TraktPagedResponse<TraktComment>>> act = () => client.Movies.GetMovieCommentsAsync(default(TraktMovieIDs), cancellationToken: TestContext.Current.CancellationToken);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
-            act = () => client.Movies.GetMovieCommentsAsync(movieIDs);
+            act = () => client.Movies.GetMovieCommentsAsync(movieIDs, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

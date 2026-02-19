@@ -15,7 +15,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviestudios.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieStudiosUri, responseContent);
 
-            TraktListResponse<TraktStudio> response = await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieID);
+            TraktListResponse<TraktStudio> response = await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -45,7 +45,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviestudios.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieStudiosUriWithSlug, responseContent);
 
-            TraktListResponse<TraktStudio> response = await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieSlug);
+            TraktListResponse<TraktStudio> response = await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -75,7 +75,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviestudios.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieStudiosUriWithSlug, responseContent);
 
-            TraktListResponse<TraktStudio> response = await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieIDs);
+            TraktListResponse<TraktStudio> response = await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -131,7 +131,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieID);
+                await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -172,7 +172,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieSlug);
+                await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -213,7 +213,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieIDs);
+                await client.Movies.GetMovieStudiosAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -229,13 +229,13 @@ namespace TraktNET.MoviesModule
             TraktClient client = ModuleTestUtility.GetClient(GetMovieStudiosUriWithSlug, responseContent);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktListResponse<TraktStudio>>> act = () => client.Movies.GetMovieStudiosAsync(default(TraktMovieIDs));
+            Func<Task<TraktListResponse<TraktStudio>>> act = () => client.Movies.GetMovieStudiosAsync(default(TraktMovieIDs), TestContext.Current.CancellationToken);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
-            act = () => client.Movies.GetMovieStudiosAsync(movieIDs);
+            act = () => client.Movies.GetMovieStudiosAsync(movieIDs, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

@@ -12,7 +12,7 @@ namespace TraktNET.CertificationsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Certifications\\certifications.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowCertificationsUri, responseContent);
 
-            TraktResponse<TraktCertifications> response = await client.Certifications.GetShowCertificationsAsync();
+            TraktResponse<TraktCertifications> response = await client.Certifications.GetShowCertificationsAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -66,7 +66,7 @@ namespace TraktNET.CertificationsModule
 
             try
             {
-                await client.Certifications.GetShowCertificationsAsync();
+                await client.Certifications.GetShowCertificationsAsync(TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

@@ -13,7 +13,7 @@ namespace TraktNET
 
         /// <inheritdoc />
         [JsonIgnore]
-        public bool HasAnyID => Trakt.HasValue && Trakt.Value > 0 || !string.IsNullOrWhiteSpace(Slug);
+        public bool HasAnyID => (Trakt.HasValue && Trakt.Value > 0) || !string.IsNullOrWhiteSpace(Slug);
 
         /// <inheritdoc />
         [JsonIgnore]

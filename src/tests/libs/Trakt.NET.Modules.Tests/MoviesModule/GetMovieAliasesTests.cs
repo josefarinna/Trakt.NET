@@ -15,7 +15,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviealiases.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieAliasesUri, responseContent);
 
-            TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieID);
+            TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -45,7 +45,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviealiases.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieAliasesUriWithSlug, responseContent);
 
-            TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieSlug);
+            TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -75,7 +75,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviealiases.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieAliasesUriWithSlug, responseContent);
 
-            TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieIDs);
+            TraktListResponse<TraktMovieAlias> response = await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -131,7 +131,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieID);
+                await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -172,7 +172,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieSlug);
+                await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -213,7 +213,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieIDs);
+                await client.Movies.GetMovieAliasesAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -229,13 +229,13 @@ namespace TraktNET.MoviesModule
             TraktClient client = ModuleTestUtility.GetClient(GetMovieAliasesUriWithSlug, responseContent);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktListResponse<TraktMovieAlias>>> act = () => client.Movies.GetMovieAliasesAsync(default(TraktMovieIDs));
+            Func<Task<TraktListResponse<TraktMovieAlias>>> act = () => client.Movies.GetMovieAliasesAsync(default(TraktMovieIDs), TestContext.Current.CancellationToken);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
-            act = () => client.Movies.GetMovieAliasesAsync(movieIDs);
+            act = () => client.Movies.GetMovieAliasesAsync(movieIDs, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

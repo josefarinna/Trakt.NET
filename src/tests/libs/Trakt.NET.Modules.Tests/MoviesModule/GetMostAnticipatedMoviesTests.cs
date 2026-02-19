@@ -24,7 +24,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(extendedInfo, null, page, limit);
+            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -72,7 +72,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(extendedInfo, TestConstants.Movies.Filter, page, limit);
+            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(extendedInfo, TestConstants.Movies.Filter, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -108,7 +108,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostanticipatedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 2);
+            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -132,7 +132,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostanticipatedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 1);
+            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -156,7 +156,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostanticipatedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedMoviesUri}?page=2", responseContent, 2, 3, 10, 2);
 
-            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 2);
+            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -180,7 +180,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostanticipatedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedMoviesUri}?page=1", responseContent, 1, 1, 10, 2);
 
-            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 1);
+            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -204,7 +204,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostanticipatedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 2);
+            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 2, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -223,7 +223,7 @@ namespace TraktNET.MoviesModule
 
             ModuleTestUtility.SetClient(client, $"{GetMostAnticipatedMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            response = await response.GetPreviousPageAsync();
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -247,7 +247,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\mostanticipatedmovies_minimal.json");
             TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedMoviesUri}?page=1", responseContent, 1, 2, 10, 2);
 
-            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 1);
+            TraktPagedResponse<TraktMostAnticipatedMovie> response = await client.Movies.GetMostAnticipatedMoviesAsync(page: 1, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -266,7 +266,7 @@ namespace TraktNET.MoviesModule
 
             ModuleTestUtility.SetClient(client, $"{GetMostAnticipatedMoviesUri}?page=2", responseContent, 2, 2, 10, 2);
 
-            response = await response.GetNextPageAsync();
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -315,7 +315,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMostAnticipatedMoviesAsync();
+                await client.Movies.GetMostAnticipatedMoviesAsync(cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

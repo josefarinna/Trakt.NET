@@ -20,8 +20,8 @@ namespace TraktNET
 
         /// <inheritdoc />
         [JsonIgnore]
-        public bool HasAnyID => Trakt.HasValue && Trakt.Value > 0 || !string.IsNullOrWhiteSpace(Slug)
-            || !string.IsNullOrWhiteSpace(IMDB) || TMDB.HasValue && TMDB.Value > 0;
+        public bool HasAnyID => (Trakt.HasValue && Trakt.Value > 0) || !string.IsNullOrWhiteSpace(Slug)
+            || !string.IsNullOrWhiteSpace(IMDB) || (TMDB.HasValue && TMDB.Value > 0);
 
         /// <inheritdoc />
         [JsonIgnore]

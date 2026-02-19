@@ -728,7 +728,7 @@ namespace TraktNET.SourceGeneration.Requests
         {
             _sourceWriter.WriteLine("internal override void BuildUri()");
 
-            if ((!_hasOptionalPlaceholders && _uriPlaceHolders.Count == 0) && !_hasOptionalParameters && !_hasOptionalQueries)
+            if (!_hasOptionalPlaceholders && _uriPlaceHolders.Count == 0 && !_hasOptionalParameters && !_hasOptionalQueries)
             {
                 _sourceWriter.Indent();
                 _sourceWriter.WriteLine($"=> RequestUri = new Uri(\"{_resolvedUriPath}\", UriKind.Relative);");
