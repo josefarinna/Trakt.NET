@@ -30,12 +30,17 @@
     <PackageVersion Include="Microsoft.Extensions.Http" Version="8.0.1" />
   </ItemGroup>
 
-  <ItemGroup Condition="('$(TargetFramework)' == 'net9.0') OR $(DefineConstants.Contains(TRAKT_NETSTANDARD_TARGET))">
+  <ItemGroup Condition="('$(TargetFramework)' == 'net9.0')">
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.1" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.1" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.1" />
   </ItemGroup>
 
+  <ItemGroup Condition="('$(TargetFramework)' == 'net10.0') OR $(DefineConstants.Contains(TRAKT_NETSTANDARD_TARGET))">
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.3" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.3" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.3" />
+  </ItemGroup>
 
   <!-- Tests Dependencies -->
   <ItemGroup>
