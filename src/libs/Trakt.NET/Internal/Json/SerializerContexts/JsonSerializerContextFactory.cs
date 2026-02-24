@@ -149,10 +149,14 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_episodeJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktEpisode),
+            typeof(TraktEpisodeCollectionProgress),
             typeof(TraktEpisodeIDs),
             typeof(TraktEpisodeImages),
             typeof(TraktEpisodeMinimal),
-            typeof(TraktEpisodeTranslation)
+            typeof(TraktEpisodeProgress),
+            typeof(TraktEpisodeStats),
+            typeof(TraktEpisodeTranslation),
+            typeof(TraktEpisodeWatchedProgress)
         });
 
         private static readonly FrozenSet<Type> s_generalJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -160,6 +164,7 @@ namespace TraktNET
             typeof(uint),
             typeof(TraktCastAndCrew),
             typeof(TraktCastMember),
+            typeof(TraktColors),
             typeof(TraktCrew),
             typeof(TraktCrewMember),
             typeof(TraktRateLimitInfo),
@@ -208,18 +213,40 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_seasonsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktSeason),
+            typeof(TraktSeasonCollectionProgress),
             typeof(TraktSeasonIDs),
             typeof(TraktSeasonImages),
-            typeof(TraktSeasonMinimal)
+            typeof(TraktSeasonMinimal),
+            typeof(TraktSeasonProgress),
+            typeof(TraktSeasonStats),
+            typeof(TraktSeasonWatchedProgress)
         });
 
         private static readonly FrozenSet<Type> s_showsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
+            typeof(TraktCollectionShow),
+            typeof(TraktMostAnticipatedShow),
+            typeof(TraktMostCollectedShow),
+            typeof(TraktMostFavoritedShow),
+            typeof(TraktMostPlayedShow),
+            typeof(TraktMostPWCShow),
+            typeof(TraktMostWatchedShow),
             typeof(TraktShow),
             typeof(TraktShowAirs),
+            typeof(TraktShowAlias),
+            typeof(TraktShowCertification),
+            typeof(TraktShowCollectionProgress),
             typeof(TraktShowIDs),
             typeof(TraktShowImages),
-            typeof(TraktShowMinimal)
+            typeof(TraktShowMinimal),
+            typeof(TraktShowProgress),
+            typeof(TraktShowResetWatchedProgress),
+            typeof(TraktShowStatistics),
+            typeof(TraktShowStats),
+            typeof(TraktShowTranslation),
+            typeof(TraktShowWatchedProgress),
+            typeof(TraktTrendingShow),
+            typeof(TraktUpdatedShow)
         });
 
         private static readonly FrozenSet<Type> s_usersJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -268,16 +295,21 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_episodeJsonTypes = [
             typeof(TraktEpisode),
+            typeof(TraktEpisodeCollectionProgress),
             typeof(TraktEpisodeIDs),
             typeof(TraktEpisodeImages),
             typeof(TraktEpisodeMinimal),
-            typeof(TraktEpisodeTranslation)
+            typeof(TraktEpisodeProgress),
+            typeof(TraktEpisodeStats),
+            typeof(TraktEpisodeTranslation),
+            typeof(TraktEpisodeWatchedProgress)
         ];
 
         private static readonly HashSet<Type> s_generalJsonTypes = [
             typeof(uint),
             typeof(TraktCastAndCrew),
             typeof(TraktCastMember),
+            typeof(TraktColors),
             typeof(TraktCrew),
             typeof(TraktCrewMember),
             typeof(TraktRateLimitInfo),
@@ -322,17 +354,39 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_seasonsJsonTypes = [
             typeof(TraktSeason),
+            typeof(TraktSeasonCollectionProgress),
             typeof(TraktSeasonIDs),
             typeof(TraktSeasonImages),
-            typeof(TraktSeasonMinimal)
+            typeof(TraktSeasonMinimal),
+            typeof(TraktSeasonProgress),
+            typeof(TraktSeasonStats),
+            typeof(TraktSeasonWatchedProgress)
         ];
 
         private static readonly HashSet<Type> s_showsJsonTypes = [
+            typeof(TraktCollectionShow),
+            typeof(TraktMostAnticipatedShow),
+            typeof(TraktMostCollectedShow),
+            typeof(TraktMostFavoritedShow),
+            typeof(TraktMostPlayedShow),
+            typeof(TraktMostPWCShow),
+            typeof(TraktMostWatchedShow),
             typeof(TraktShow),
             typeof(TraktShowAirs),
+            typeof(TraktShowAlias),
+            typeof(TraktShowCertification),
+            typeof(TraktShowCollectionProgress),
             typeof(TraktShowIDs),
             typeof(TraktShowImages),
-            typeof(TraktShowMinimal)
+            typeof(TraktShowMinimal),
+            typeof(TraktShowProgress),
+            typeof(TraktShowResetWatchedProgress),
+            typeof(TraktShowStatistics),
+            typeof(TraktShowStats),
+            typeof(TraktShowTranslation),
+            typeof(TraktShowWatchedProgress),
+            typeof(TraktTrendingShow),
+            typeof(TraktUpdatedShow)
         ];
 
         private static readonly HashSet<Type> s_usersJsonTypes = [

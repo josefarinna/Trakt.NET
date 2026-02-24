@@ -10,6 +10,7 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktCastAndCrew))]
     [JsonSerializable(typeof(IReadOnlyList<TraktCastMember>))]
     [JsonSerializable(typeof(TraktCastMember))]
+    [JsonSerializable(typeof(TraktColors))]
     [JsonSerializable(typeof(TraktCrew))]
     [JsonSerializable(typeof(IReadOnlyList<TraktCrewMember>))]
     [JsonSerializable(typeof(TraktCrewMember))]

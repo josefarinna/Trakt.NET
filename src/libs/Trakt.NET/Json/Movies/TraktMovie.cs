@@ -38,6 +38,9 @@
         /// <summary>The number of votes of the movie.</summary>
         public uint? Votes { get; set; }
 
+        /// <summary>The movie colors. See also <seealso cref="TraktColors" />.</summary>
+        public TraktColors? Colors { get; set; }
+
         /// <summary>The comment count of the movie.</summary>
         public uint? CommentCount { get; set; }
 
@@ -56,8 +59,20 @@
         /// <summary>The collection of Trakt genre slugs of the movie.</summary>
         public List<string>? Genres { get; set; }
 
+        /// <summary>The list of Trakt subgenre slugs of the movie.</summary>
+        public List<string>? Subgenres { get; set; }
+
         /// <summary>The content certification of the movie.</summary>
         public string? Certification { get; set; }
+
+        /// <summary>Extra scene after the credits.</summary>
+        public bool? AfterCredits { get; set; }
+
+        /// <summary>Extra scene during the credits.</summary>
+        public bool? DuringCredits { get; set; }
+
+        /// <summary>The movie original title.</summary>
+        public string? OriginalTitle { get; set; }
 
         /// <summary>Gets a string representation of the movie.</summary>
         /// <returns>A string representation of the movie.</returns>

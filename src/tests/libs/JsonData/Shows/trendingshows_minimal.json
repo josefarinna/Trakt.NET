@@ -1,0 +1,38 @@
+[
+    {
+        "watchers": 8021,
+        "show": {
+            "title": "The Pitt",
+            "year": 2025,
+            "ids": {
+                "trakt": 232884,
+                "slug": "the-pitt",
+                "imdb": "tt31938062",
+                "tmdb": 250307,
+                "plex": {
+                    "guid": "66047594f2781fe94954a721",
+                    "slug": "the-pitt"
+                },
+                "tvdb": 448176
+            }
+        }
+    },
+    {
+        "watchers": 5663,
+        "show": {
+            "title": "The Night Agent",
+            "year": 2023,
+            "ids": {
+                "trakt": 184471,
+                "slug": "the-night-agent",
+                "imdb": "tt13918776",
+                "tmdb": 129552,
+                "plex": {
+                    "guid": "60f9444c9f3e49002d08d6e4",
+                    "slug": "the-night-agent"
+                },
+                "tvdb": 407281
+            }
+        }
+    }
+]

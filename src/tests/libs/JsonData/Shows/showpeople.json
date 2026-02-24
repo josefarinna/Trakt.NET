@@ -1,0 +1,238 @@
+{
+    "cast": [
+        {
+            "character": "Jon Snow",
+            "characters": [
+                "Jon Snow"
+            ],
+            "person": {
+                "name": "Kit Harington",
+                "ids": {
+                    "trakt": 436512,
+                    "slug": "kit-harington",
+                    "imdb": "nm3229685",
+                    "tmdb": 239019,
+                    "tvrage": null
+                }
+            }
+        },
+        {
+            "character": "Daenerys Targaryen",
+            "characters": [
+                "Daenerys Targaryen"
+            ],
+            "person": {
+                "name": "Emilia Clarke",
+                "ids": {
+                    "trakt": 436511,
+                    "slug": "emilia-clarke",
+                    "imdb": "nm3592338",
+                    "tmdb": 1223786,
+                    "tvrage": null
+                }
+            }
+        }
+    ],
+    "crew": {
+        "sound": [
+            {
+                "job": "Original Music Composer",
+                "jobs": [
+                    "Original Music Composer"
+                ],
+                "person": {
+                    "name": "Ramin Djawadi",
+                    "ids": {
+                        "trakt": 15629,
+                        "slug": "ramin-djawadi",
+                        "imdb": "nm1014697",
+                        "tmdb": 10851,
+                        "tvrage": null
+                    }
+                }
+            }
+        ],
+        "production": [
+            {
+                "job": "Casting",
+                "jobs": [
+                    "Casting"
+                ],
+                "person": {
+                    "name": "Nina Gold",
+                    "ids": {
+                        "trakt": 13206,
+                        "slug": "nina-gold",
+                        "imdb": "nm0002274",
+                        "tmdb": 16363,
+                        "tvrage": null
+                    }
+                }
+            }
+        ],
+        "editing": [
+            {
+                "job": "Editor",
+                "jobs": [
+                    "Editor"
+                ],
+                "person": {
+                    "name": "Katie Weiland",
+                    "ids": {
+                        "trakt": 512706,
+                        "slug": "katie-weiland",
+                        "imdb": "nm1752459",
+                        "tmdb": 1432055,
+                        "tvrage": null
+                    }
+                }
+            }
+        ],
+        "art": [
+            {
+                "job": "Production Design",
+                "jobs": [
+                    "Production Design"
+                ],
+                "person": {
+                    "name": "Deborah Riley",
+                    "ids": {
+                        "trakt": 4980,
+                        "slug": "deborah-riley",
+                        "imdb": "nm0727015",
+                        "tmdb": 6411,
+                        "tvrage": null
+                    }
+                }
+            }
+        ],
+        "costume & make-up": [
+            {
+                "job": "Prosthetic Designer, Prosthetic Supervisor",
+                "jobs": [
+                    "Prosthetic Designer",
+                    "Prosthetic Supervisor"
+                ],
+                "person": {
+                    "name": "Barrie Gower",
+                    "ids": {
+                        "trakt": 19783,
+                        "slug": "barrie-gower",
+                        "imdb": "nm0332968",
+                        "tmdb": 23457,
+                        "tvrage": null
+                    }
+                }
+            }
+        ],
+        "crew": [
+            {
+                "job": "Stunt Coordinator",
+                "jobs": [
+                    "Stunt Coordinator"
+                ],
+                "person": {
+                    "name": "Rowley Irlam",
+                    "ids": {
+                        "trakt": 456953,
+                        "slug": "rowley-irlam",
+                        "imdb": "nm0410034",
+                        "tmdb": 1388878,
+                        "tvrage": null
+                    }
+                }
+            }
+        ],
+        "writing": [
+            {
+                "job": "Novel, Writer",
+                "jobs": [
+                    "Novel",
+                    "Writer"
+                ],
+                "person": {
+                    "name": "George R. R. Martin",
+                    "ids": {
+                        "trakt": 448663,
+                        "slug": "george-r-r-martin-448663",
+                        "imdb": "nm0552333",
+                        "tmdb": 237053,
+                        "tvrage": null
+                    }
+                }
+            }
+        ],
+        "camera": [
+            {
+                "job": "Additional Photography",
+                "jobs": [
+                    "Additional Photography"
+                ],
+                "person": {
+                    "name": "Jonathan Freeman",
+                    "ids": {
+                        "trakt": 49664,
+                        "slug": "jonathan-freeman",
+                        "imdb": "nm0293456",
+                        "tmdb": 1171528,
+                        "tvrage": null
+                    }
+                }
+            }
+        ],
+        "visual effects": [
+            {
+                "job": "Visual Effects",
+                "jobs": [
+                    "Visual Effects"
+                ],
+                "person": {
+                    "name": "Ben Shepherd",
+                    "ids": {
+                        "trakt": 425207,
+                        "slug": "ben-shepherd-a8d69887-8188-4122-8009-5d33a50ff23d",
+                        "imdb": "nm1074153",
+                        "tmdb": 1379051,
+                        "tvrage": null
+                    }
+                }
+            }
+        ],
+        "directing": [
+            {
+                "job": "Third Assistant Director",
+                "jobs": [
+                    "Third Assistant Director"
+                ],
+                "person": {
+                    "name": "Tom Edmondson",
+                    "ids": {
+                        "trakt": 1810555,
+                        "slug": "tom-edmondson",
+                        "imdb": "nm2593557",
+                        "tmdb": 2624625,
+                        "tvrage": null
+                    }
+                }
+            }
+        ],
+        "lighting": [
+            {
+                "job": "Gaffer",
+                "jobs": [
+                    "Gaffer"
+                ],
+                "person": {
+                    "name": "Pat Sweeney",
+                    "ids": {
+                        "trakt": 203065,
+                        "slug": "pat-sweeney",
+                        "imdb": "nm0842177",
+                        "tmdb": 1178898,
+                        "tvrage": null
+                    }
+                }
+            }
+        ]
+    }
+}

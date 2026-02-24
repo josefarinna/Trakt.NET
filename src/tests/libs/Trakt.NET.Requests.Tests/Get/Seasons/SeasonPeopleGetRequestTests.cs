@@ -6,7 +6,7 @@ namespace TraktNET.GetRequests.Seasons
 {
     public sealed class SeasonPeopleGetRequestTests
     {
-        private const string ShowID = TestConstants.Shows.ShowID;
+        private const string ShowID = TestConstants.Shows.ShowSlug;
         private const string URIPath = $"shows/{ShowID}/seasons/1/people";
 
         [Theory]

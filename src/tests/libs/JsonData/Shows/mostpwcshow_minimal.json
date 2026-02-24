@@ -1,0 +1,18 @@
+{
+	"watcher_count": 3910,
+	"play_count": 69164,
+	"collected_count": 1000,
+	"collector_count": 499,
+	"show": {
+		"title": "Game of Thrones",
+		"year": 2011,
+		"ids": {
+			"trakt": 1390,
+			"slug": "game-of-thrones",
+			"tvdb": 121361,
+			"imdb": "tt0944947",
+			"tmdb": 1399,
+			"tvrage": null
+		}
+	}
+}

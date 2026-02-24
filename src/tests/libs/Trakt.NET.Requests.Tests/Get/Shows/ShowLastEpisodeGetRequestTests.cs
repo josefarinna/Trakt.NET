@@ -6,7 +6,7 @@ namespace TraktNET.GetRequests.Shows
 {
     public sealed class ShowLastEpisodeGetRequestTests
     {
-        private const string ShowID = TestConstants.Shows.ShowID;
+        private const string ShowID = TestConstants.Shows.ShowSlug;
         private const string URIPath = $"shows/{ShowID}/last_episode";
 
         [Theory]

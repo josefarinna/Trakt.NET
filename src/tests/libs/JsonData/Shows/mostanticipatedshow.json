@@ -1,0 +1,84 @@
+{
+	"list_count": 12805,
+	"show": {
+		"title": "Game of Thrones",
+		"year": 2011,
+		"ids": {
+			"trakt": 1390,
+			"slug": "game-of-thrones",
+			"imdb": "tt0944947",
+			"tmdb": 1399,
+			"plex": {},
+			"tvdb": 121361
+		},
+		"tagline": "Winter Is Coming",
+		"overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and the icy horrors beyond.",
+		"runtime": 60,
+		"certification": "TV-MA",
+		"country": "us",
+		"trailer": "http://youtube.com/watch?v=F9Bo89m2f6g",
+		"homepage": "http://www.hbo.com/game-of-thrones",
+		"status": "ended",
+		"rating": 8.891263008117676,
+		"votes": 145001,
+		"comment_count": 449,
+		"updated_at": "2026-02-21T15:43:57.000Z",
+		"language": "en",
+		"languages": [
+			"en"
+		],
+		"available_translations": [
+			"en",
+			"es",
+			"fr",
+			"de"
+		],
+		"genres": [
+			"fantasy",
+			"drama",
+			"action",
+			"adventure"
+		],
+		"subgenres": [
+			"fantasy-world",
+			"dragon",
+			"kingdom",
+			"king"
+		],
+		"original_title": "Game of Thrones",
+		"images": {
+			"fanart": [
+				"media.trakt.tv/images/shows/000/001/390/fanarts/medium/76d5df8aed.jpg.webp"
+			],
+			"poster": [
+				"media.trakt.tv/images/shows/000/001/390/posters/medium/93df9cd612.jpg.webp"
+			],
+			"logo": [
+				"media.trakt.tv/images/shows/000/001/390/logos/medium/13b614ad43.png.webp"
+			],
+			"banner": [
+				"media.trakt.tv/images/shows/000/001/390/banners/medium/9fefff703d.jpg.webp"
+			],
+			"thumb": [
+				"media.trakt.tv/images/shows/000/001/390/thumbs/medium/7beccbd5a1.jpg.webp"
+			],
+			"clearart": [
+				"media.trakt.tv/images/shows/000/001/390/cleararts/medium/5cbde9e647.png.webp"
+			]
+		},
+		"colors": {
+			"poster": [
+				"#AD836A",
+				"#261713"
+			]
+		},
+		"first_aired": "2011-04-17T07:00:00Z",
+		"aired_episodes": 73,
+		"airs": {
+			"day": "Sunday",
+			"time": "21:00",
+			"timezone": "America/New_York"
+		},
+		"network": "HBO"
+	}
+}

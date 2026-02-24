@@ -1,0 +1,32 @@
+[
+    {
+        "list_count": 12805,
+		"show": {
+			"title": "Game of Thrones",
+			"year": 2011,
+			"ids": {
+				"trakt": 1390,
+				"slug": "game-of-thrones",
+				"imdb": "tt0944947",
+				"tmdb": 1399,
+				"plex": {},
+				"tvdb": 121361
+			}
+		}
+    },
+    {
+        "list_count": 23502,
+        "show": {
+            "title": "Stranger Things",
+            "year": 2016,
+            "ids": {
+				"imdb": "tt4574334",
+				"plex": {},
+				"slug": "stranger-things",
+				"tmdb": 66732,
+				"tvdb": 305288,
+				"trakt": 104439
+			}
+        }
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "updated_at": "2026-02-22T00:31:21.000Z",
+        "show": {
+            "title": "Medalist",
+            "year": 2025,
+            "ids": {
+                "trakt": 223571,
+                "slug": "medalist",
+                "tvdb": 433953,
+                "imdb": "tt33310730",
+                "tmdb": 237529,
+                "tvrage": null
+            }
+        }
+    },
+    {
+        "updated_at": "2026-02-22T00:37:47.000Z",
+        "show": {
+            "title": "Scrubs",
+            "year": 2026,
+            "ids": {
+                "trakt": 291441,
+                "slug": "scrubs-2026",
+                "tvdb": 465690,
+                "imdb": "tt37017338",
+                "tmdb": 295778,
+                "tvrage": null
+            }
+        }
+    }
+]

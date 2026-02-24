@@ -1,0 +1,77 @@
+{
+	"updated_at": "2026-02-22T00:31:21.000Z",
+	"show": {
+		"title": "Medalist",
+		"year": 2025,
+		"ids": {
+			"trakt": 223571,
+			"slug": "medalist",
+			"tvdb": 433953,
+			"imdb": "tt33310730",
+			"tmdb": 237529,
+			"tvrage": null
+		},
+		"tagline": "",
+		"overview": "Tsukasa Akeuraji, a frustrated skater, meets Inori Yuitsuka, a girl who yearns to be a figure skater. Motivated by Inori's obsession on the rink, Tsukasa begins coaching Inori. Inori's talent blossoms, and Tsukasa becomes a brilliant mentor. Together they aim to make her a glorious medalist!",
+		"first_aired": "2025-01-04T16:30:00.000Z",
+		"airs": {
+			"day": "Sunday",
+			"time": "01:30",
+			"timezone": "Asia/Tokyo"
+		},
+		"runtime": 23,
+		"certification": "TV-14",
+		"network": "Iwate Asahi TV",
+		"country": "jp",
+		"trailer": null,
+		"homepage": "http://medalist-pr.com",
+		"status": "returning series",
+		"rating": 7.93548,
+		"votes": 124,
+		"comment_count": 3,
+		"updated_at": "2026-02-22T00:31:21.000Z",
+		"language": "ja",
+		"languages": [
+			"ja"
+		],
+		"available_translations": [
+			"cs",
+			"da",
+			"de",
+			"el",
+			"en",
+			"es",
+			"fi",
+			"fr",
+			"he",
+			"hu",
+			"it",
+			"ja",
+			"ko",
+			"nl",
+			"no",
+			"pl",
+			"pt",
+			"ro",
+			"ru",
+			"sk",
+			"sv",
+			"th",
+			"tr",
+			"uk",
+			"zh"
+		],
+		"genres": [
+			"anime",
+			"drama"
+		],
+		"subgenres": [
+			"based-on-manga",
+			"sports",
+			"competition",
+			"seinen"
+		],
+		"aired_episodes": 18,
+		"original_title": "メダリスト"
+	}
+}

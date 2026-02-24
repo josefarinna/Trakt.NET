@@ -6,7 +6,7 @@ namespace TraktNET.GetRequests.Shows
 {
     public sealed class ShowRelatedShowsGetRequestTests
     {
-        private const string ShowID = TestConstants.Shows.ShowID;
+        private const string ShowID = TestConstants.Shows.ShowSlug;
         private const string URIPath = $"shows/{ShowID}/related";
 
         [Theory]

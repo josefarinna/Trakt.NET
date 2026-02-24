@@ -1,0 +1,137 @@
+[
+    {
+        "updated_at": "2026-02-22T00:31:21.000Z",
+        "show": {
+            "title": "Medalist",
+            "year": 2025,
+            "ids": {
+                "trakt": 223571,
+                "slug": "medalist",
+                "tvdb": 433953,
+                "imdb": "tt33310730",
+                "tmdb": 237529,
+                "tvrage": null
+            },
+            "tagline": "",
+            "overview": "Tsukasa Akeuraji, a frustrated skater, meets Inori Yuitsuka, a girl who yearns to be a figure skater. Motivated by Inori's obsession on the rink, Tsukasa begins coaching Inori. Inori's talent blossoms, and Tsukasa becomes a brilliant mentor. Together they aim to make her a glorious medalist!",
+            "first_aired": "2025-01-04T16:30:00.000Z",
+            "airs": {
+                "day": "Sunday",
+                "time": "01:30",
+                "timezone": "Asia/Tokyo"
+            },
+            "runtime": 23,
+            "certification": "TV-14",
+            "network": "Iwate Asahi TV",
+            "country": "jp",
+            "trailer": null,
+            "homepage": "http://medalist-pr.com",
+            "status": "returning series",
+            "rating": 7.93548,
+            "votes": 124,
+            "comment_count": 3,
+            "updated_at": "2026-02-22T00:31:21.000Z",
+            "language": "ja",
+            "languages": [
+                "ja"
+            ],
+            "available_translations": [
+                "cs",
+                "da",
+                "de",
+                "el",
+                "en",
+                "es",
+                "fi",
+                "fr",
+                "he",
+                "hu",
+                "it",
+                "ja",
+                "ko",
+                "nl",
+                "no",
+                "pl",
+                "pt",
+                "ro",
+                "ru",
+                "sk",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "zh"
+            ],
+            "genres": [
+                "anime",
+                "drama"
+            ],
+            "subgenres": [
+                "based-on-manga",
+                "sports",
+                "competition",
+                "seinen"
+            ],
+            "aired_episodes": 18,
+            "original_title": "メダリスト"
+        }
+    },
+    {
+        "updated_at": "2026-02-22T00:37:47.000Z",
+        "show": {
+            "title": "Scrubs",
+            "year": 2026,
+            "ids": {
+                "trakt": 291441,
+                "slug": "scrubs-2026",
+                "tvdb": 465690,
+                "imdb": "tt37017338",
+                "tmdb": 295778,
+                "tvrage": null
+            },
+            "tagline": "Scrub back in.",
+            "overview": "J.D. & Turk scrub in together for the first time in a long time–medicine has changed, interns have changed, but their bromance has stood the test of time. Characters new and old navigate the waters of Sacred Heart with laughter, heart and some surprises along the way.",
+            "first_aired": "2026-02-26T01:00:00.000Z",
+            "airs": {
+                "day": "Wednesday",
+                "time": "20:00",
+                "timezone": "America/New_York"
+            },
+            "runtime": 42,
+            "network": "ABC",
+            "country": "us",
+            "trailer": "https://youtube.com/watch?v=dJq8WJ5lMec",
+            "homepage": null,
+            "status": "returning series",
+            "rating": 7.7,
+            "votes": 20,
+            "comment_count": 2,
+            "updated_at": "2026-02-22T00:37:47.000Z",
+            "language": "en",
+            "languages": [
+                "en"
+            ],
+            "available_translations": [
+                "cs",
+                "en",
+                "he",
+                "ko",
+                "nl",
+                "ru"
+            ],
+            "genres": [
+                "comedy"
+            ],
+            "subgenres": [
+                "bromance",
+                "dramedy",
+                "workplace-comedy",
+                "doctor",
+                "hospital",
+                "medical-drama"
+            ],
+            "aired_episodes": 0,
+            "original_title": "Scrubs"
+        }
+    }
+]

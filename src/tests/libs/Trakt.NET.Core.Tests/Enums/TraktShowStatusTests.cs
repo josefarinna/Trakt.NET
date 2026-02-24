@@ -6,9 +6,9 @@
         public void TestTraktShowStatusToJson()
         {
             TraktShowStatus.Unspecified.ToJson().ShouldBeNull();
-            TraktShowStatus.ReturningSeries.ToJson().ShouldBe("returning_series");
+            TraktShowStatus.ReturningSeries.ToJson().ShouldBe("returning series");
             TraktShowStatus.Continuing.ToJson().ShouldBe("continuing");
-            TraktShowStatus.InProduction.ToJson().ShouldBe("in_production");
+            TraktShowStatus.InProduction.ToJson().ShouldBe("in production");
             TraktShowStatus.Planned.ToJson().ShouldBe("planned");
             TraktShowStatus.Upcoming.ToJson().ShouldBe("upcoming");
             TraktShowStatus.Pilot.ToJson().ShouldBe("pilot");
@@ -20,9 +20,9 @@
         public void TestTraktShowStatusFromJson()
         {
             "unspecified".ToTraktShowStatus().ShouldBe(TraktShowStatus.Unspecified);
-            "returning_series".ToTraktShowStatus().ShouldBe(TraktShowStatus.ReturningSeries);
+            "returning series".ToTraktShowStatus().ShouldBe(TraktShowStatus.ReturningSeries);
             "continuing".ToTraktShowStatus().ShouldBe(TraktShowStatus.Continuing);
-            "in_production".ToTraktShowStatus().ShouldBe(TraktShowStatus.InProduction);
+            "in production".ToTraktShowStatus().ShouldBe(TraktShowStatus.InProduction);
             "planned".ToTraktShowStatus().ShouldBe(TraktShowStatus.Planned);
             "upcoming".ToTraktShowStatus().ShouldBe(TraktShowStatus.Upcoming);
             "pilot".ToTraktShowStatus().ShouldBe(TraktShowStatus.Pilot);

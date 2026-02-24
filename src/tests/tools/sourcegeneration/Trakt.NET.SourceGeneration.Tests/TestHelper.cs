@@ -1,5 +1,4 @@
-﻿using Basic.Reference.Assemblies;
-using Microsoft.CodeAnalysis;
+﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using System.Reflection;
 
@@ -94,8 +93,13 @@ namespace TraktNET.SourceGeneration
                 syntaxTrees: syntaxTrees,
                 references: references, options: options);
 
-            // Reference for the .NET 8 library
-            compilation = compilation.AddReferences(ReferenceAssemblies.Net80);
+            var runtimeReferences = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(a => !a.IsDynamic && !string.IsNullOrWhiteSpace(a.Location))
+                .Select(a => MetadataReference.CreateFromFile(a.Location))
+                .Cast<MetadataReference>()
+                .ToList();
+
+            compilation = compilation.AddReferences(runtimeReferences);
 
             var generator = new T();
             GeneratorDriver driver = CSharpGeneratorDriver.Create(generator);

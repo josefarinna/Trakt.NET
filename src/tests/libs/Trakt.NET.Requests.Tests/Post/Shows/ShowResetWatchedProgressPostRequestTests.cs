@@ -6,7 +6,7 @@ namespace TraktNET.PostRequests.Shows
 {
     public sealed class ShowResetWatchedProgressPostRequestTests
     {
-        private const string ShowID = TestConstants.Shows.ShowID;
+        private const string ShowID = TestConstants.Shows.ShowSlug;
         private const string URIPath = $"shows/{ShowID}/progress/watched/reset";
 
         [Fact]

@@ -27,14 +27,23 @@ namespace TraktNET
         /// <summary>The UTC datetime when the episode was last updated.</summary>
         public DateTime? UpdatedAt { get; set; }
 
+        /// <summary>The list of translation language codes for the episode.</summary>
+        public List<string>? AvailableTranslations { get; set; }
+
         /// <summary>The runtime of the episode.</summary>
         public uint? Runtime { get; set; }
 
         /// <summary>The episode type. See also <seealso cref="TraktEpisodeType" />.</summary>
         public TraktEpisodeType? EpisodeType { get; set; }
 
-        /// <summary>The list of translation language codes for the episode.</summary>
-        public List<string>? AvailableTranslations { get; set; }
+        /// <summary>Extra scene after the credits.</summary>
+        public bool? AfterCredits { get; set; }
+
+        /// <summary>Extra scene during the credits.</summary>
+        public bool? DuringCredits { get; set; }
+
+        /// <summary>The episode original title.</summary>
+        public string? OriginalTitle { get; set; }
 
         /// <summary>The list of <see cref="TraktEpisodeTranslation" />s for the episode.</summary>
         /// <seealso cref="TraktSeason.Episodes" />

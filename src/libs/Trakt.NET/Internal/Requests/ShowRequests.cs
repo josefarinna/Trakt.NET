@@ -113,6 +113,12 @@
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
+    [TraktGetRequest("shows/{id!!}/videos")]
+    internal sealed partial class ShowVideosGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
+    }
+
     [TraktGetRequest("shows/{id!!}/progress/watched", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class ShowWatchedProgressGetRequest
     {
@@ -225,6 +231,9 @@
     [TraktPostRequest("shows/{id!!}/progress/watched/reset", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class ShowResetWatchedProgressPostRequest
     {
+        [TraktRequestQuery("reset_at", UseCacheEfficientDateTime = true)]
+        internal DateTime? ResetAt { get; set; }
+
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 

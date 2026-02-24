@@ -84,7 +84,7 @@
             CancellationToken cancellationToken = default)
             => GetMovieListsImplAsync(traktMovieID.ToInvariantCultureString(), listType, listSortOrder, extendedInfo, page, limit, cancellationToken);
 
-        /// <summary>Gets all lists containing a <see cref="TraktMovie" /> /> with the specified <see cref="TraktMovieIDs" />.</summary>
+        /// <summary>Gets all lists containing a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.</summary>
         /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
         /// <param name="listType">
         /// The type of lists, that should be queried. Defaults to personal lists.

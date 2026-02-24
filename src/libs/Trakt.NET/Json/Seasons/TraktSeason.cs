@@ -30,6 +30,9 @@
         /// <summary>The network on which the season airs.</summary>
         public string? Network { get; set; }
 
+        /// <summary>The season original title.</summary>
+        public string? OriginalTitle { get; set; }
+
         /// <summary>The collection of Trakt episodes in the season. See also <seealso cref="TraktEpisode" />.</summary>
         /// <remarks>
         /// This property is set automatically if this season is in a collection

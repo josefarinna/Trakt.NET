@@ -222,6 +222,19 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The movie colors. See also <seealso cref="TraktColors" />.</summary>
+        public TraktColors? Colors
+        {
+            get => Movie?.Colors;
+            set
+            {
+                if (Movie != null)
+                {
+                    Movie.Colors = value;
+                }
+            }
+        }
+
         /// <summary>The comment count of the movie.</summary>
         [JsonIgnore]
         public uint? CommentCount
@@ -312,6 +325,18 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The list of Trakt subgenre slugs of the movie.</summary>
+        public List<string>? Subgenres {
+            get => Movie?.Subgenres;
+            set
+            {
+                if (Movie != null)
+                {
+                    Movie.Subgenres = value;
+                }
+            }
+        }
+
         /// <summary>The content certification of the movie.</summary>
         [JsonIgnore]
         public string? Certification
@@ -323,6 +348,45 @@ namespace TraktNET
                 if (Movie != null)
                 {
                     Movie.Certification = value;
+                }
+            }
+        }
+
+        /// <summary>Extra scene after the credits.</summary>
+        public bool? AfterCredits
+        {
+            get => Movie?.AfterCredits;
+            set
+            {
+                if (Movie != null)
+                {
+                    Movie.AfterCredits = value;
+                }
+            }
+        }
+
+        /// <summary>Extra scene during the credits.</summary>
+        public bool? DuringCredits
+        {
+            get => Movie?.DuringCredits;
+            set
+            {
+                if (Movie != null)
+                {
+                    Movie.DuringCredits = value;
+                }
+            }
+        }
+
+        /// <summary>The movie original title.</summary>
+        public string? OriginalTitle
+        {
+            get => Movie?.OriginalTitle;
+            set
+            {
+                if (Movie != null)
+                {
+                    Movie.OriginalTitle = value;
                 }
             }
         }

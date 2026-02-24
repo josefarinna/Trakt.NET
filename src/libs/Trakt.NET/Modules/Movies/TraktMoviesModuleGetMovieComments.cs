@@ -74,7 +74,7 @@
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetMovieCommentsImplAsync(traktMovieID.ToInvariantCultureString(), commentSortOrder, extendedInfo, page, limit, cancellationToken);
 
-        /// <summary>Gets all top level comments for a <see cref="TraktMovie" /> /> with the specified <see cref="TraktMovieIDs" />.</summary>
+        /// <summary>Gets all top level comments for a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.</summary>
         /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
         /// <param name="commentSortOrder">
         /// The comment sort order. Defaults to sorted by newest first.

@@ -11,33 +11,50 @@
             {
                 CreatedAt = (ulong)new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(),
                 AccessToken = MockAccessToken,
-                ExpiresIn = 3600
+                ExpiresIn = 3600U
             };
 
         public static class Movies
         {
-            public const uint MovieID = 293990;
+            public const uint MovieID = 293990U;
 
             public const string MovieSlug = "guardians-of-the-galaxy-volume-3-2023";
 
             public static readonly TraktMovieIDs MovieIDs = new()
             {
-                Trakt = 293990,
+                Trakt = 293990U,
                 Slug = "guardians-of-the-galaxy-volume-3-2023",
                 IMDB = "tt6791350",
-                TMDB = 447365
+                TMDB = 447365U
             };
 
             public static readonly TraktFilter Filter = new()
             {
                 Genres = ["action", "drama"],
-                Year = 2024
+                Year = 2024U
             };
         }
 
         public static class Shows
         {
-            public const string ShowID = "game-of-thrones";
+            public const uint ShowID = 1390U;
+
+            public const string ShowSlug = "game-of-thrones";
+
+            public static readonly TraktShowIDs ShowIDs = new()
+            {
+                Trakt = 1390U,
+                Slug = "game-of-thrones",
+                IMDB = "tt0944947",
+                TMDB = 1399U,
+                TVDB = 121361U
+            };
+
+            public static readonly TraktFilter Filter = new()
+            {
+                Genres = ["fantasy", "drama"],
+                Year = 2011U
+            };
         }
     }
 }
