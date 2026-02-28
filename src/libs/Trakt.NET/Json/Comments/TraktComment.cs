@@ -34,6 +34,12 @@ namespace TraktNET
         /// <summary>The number of likes for the comment.</summary>
         public uint? Likes { get; set; }
 
+        /// <summary>The user rating for the comment.</summary>
+        public uint? UserRating { get; set; }
+
+        /// <summary>The comment's language.</summary>
+        public string? Language { get; set; }
+
         /// <summary>
         /// The user statistics for the comment.
         /// See also <seealso cref="TraktCommentUserStats" />.

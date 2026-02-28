@@ -218,7 +218,9 @@ namespace TraktNET
             typeof(TraktSeasonImages),
             typeof(TraktSeasonMinimal),
             typeof(TraktSeasonProgress),
+            typeof(TraktSeasonStatistics),
             typeof(TraktSeasonStats),
+            typeof(TraktSeasonTranslation),
             typeof(TraktSeasonWatchedProgress)
         });
 
@@ -359,7 +361,9 @@ namespace TraktNET
             typeof(TraktSeasonImages),
             typeof(TraktSeasonMinimal),
             typeof(TraktSeasonProgress),
+            typeof(TraktSeasonStatistics),
             typeof(TraktSeasonStats),
+            typeof(TraktSeasonTranslation),
             typeof(TraktSeasonWatchedProgress)
         ];
 

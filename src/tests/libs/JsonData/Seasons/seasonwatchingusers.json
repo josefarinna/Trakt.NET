@@ -1,0 +1,22 @@
+[
+    {
+        "username": "user1",
+        "private": false,
+        "name": "User Name 1",
+        "vip": false,
+        "vip_ep": false,
+        "ids": {
+            "slug": "user1"
+        }
+    },
+    {
+        "username": "user2",
+        "private": false,
+        "name": "User Name 2",
+        "vip": false,
+        "vip_ep": false,
+        "ids": {
+            "slug": "user2"
+        }
+    }
+]

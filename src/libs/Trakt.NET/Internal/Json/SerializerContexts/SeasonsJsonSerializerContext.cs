@@ -15,7 +15,13 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktSeasonImages>))]
     [JsonSerializable(typeof(TraktSeasonMinimal))]
     [JsonSerializable(typeof(IReadOnlyList<TraktSeasonMinimal>))]
-    [JsonSerializable(typeof(TraktSeasonWatchedProgress))]
+    [JsonSerializable(typeof(TraktSeasonProgress))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktSeasonProgress>))]
+    [JsonSerializable(typeof(TraktSeasonStatistics))]
+    [JsonSerializable(typeof(TraktSeasonStats))]
+    [JsonSerializable(typeof(TraktSeasonProgress))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktSeasonTranslation>))]
+    [JsonSerializable(typeof(TraktSeasonTranslation))]
     [JsonSerializable(typeof(IReadOnlyList<TraktSeasonWatchedProgress>))]
     public sealed partial class SeasonsJsonSerializerContext : JsonSerializerContext
     {

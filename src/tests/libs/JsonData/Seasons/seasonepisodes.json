@@ -1,0 +1,372 @@
+[
+    {
+        "season": 1,
+        "number": 1,
+        "title": "Winter Is Coming",
+        "ids": {
+            "trakt": 73640,
+            "tvdb": 3254641,
+            "imdb": "tt1480055",
+            "tmdb": 63056,
+            "tvrage": null
+        },
+        "number_abs": 1,
+        "overview": "Jon Arryn, the Hand of the King, is dead. King Robert Baratheon plans to ask his oldest friend, Eddard Stark, to take Jon's place. Across the sea, Viserys Targaryen plans to wed his sister to a nomadic warlord in exchange for an army.",
+        "rating": 8.06588,
+        "votes": 14996,
+        "comment_count": 43,
+        "first_aired": "2011-04-18T01:00:00.000Z",
+        "updated_at": "2026-02-27T10:51:22.000Z",
+        "available_translations": [],
+        "runtime": 62,
+        "episode_type": "series_premiere",
+        "original_title": "Winter Is Coming",
+        "after_credits": false,
+        "during_credits": false,
+        "translations": [
+            {
+                "title": "Se acerca el invierno",
+                "overview": "El Lord Ned Stark está preocupado por los perturbantes reportes de un desertor del Nights Watch; El Rey Robert y los Lannisters llegan a Winterfell; el exiliado Viserys Targaryen forja una nueva y poderosa alianza.",
+                "language": "es"
+            },
+            {
+                "title": "Se acerca el invierno",
+                "overview": "Un desertor de Guardia de la Noche es encontrado fuera de Invernalia, lo que provoca una justicia rápida por parte de Lord Eddard \"Ned\" Stark. Al regresar a casa, Ned se entera por su esposa Catelyn que su mentor, Jon Arryn, ha muerto, y que el rey Robert se encuentra camino hacia el norte para ofrecerle ser Mano del Rey. Mientras tanto, al otro lado del Mar Angosto, Viserys Targaryen idea un plan para recuperar el trono, lo que implica forjar una alianza con los nómadas guerreros dothrakis dando a su líder, Khal Drogo, la mano de su encantadora hermana Daenerys en matrimonio. Robert llega a Invernalia con su esposa, la reina Cersei, y otros miembros de la familia Lannister: su hermano gemelo, Jaime, su otro hermano apodado el enano o el gnomo, Tyrion y su hijo y heredero al trono, de 12 años de edad, Joffrey.",
+                "language": "es"
+            }
+        ]
+    },
+    {
+        "season": 1,
+        "number": 2,
+        "title": "The Kingsroad",
+        "ids": {
+            "trakt": 73641,
+            "tvdb": 3436411,
+            "imdb": "tt1668746",
+            "tmdb": 63057,
+            "tvrage": null
+        },
+        "number_abs": 2,
+        "overview": "While Bran recovers from his fall, Ned takes only his daughters to Kings Landing. Jon Snow goes with his uncle Benjen to The Wall. Tyrion joins them.",
+        "rating": 8.07209,
+        "votes": 11694,
+        "comment_count": 32,
+        "first_aired": "2011-04-25T01:00:00.000Z",
+        "updated_at": "2026-02-27T09:53:15.000Z",
+        "available_translations": [],
+        "runtime": 56,
+        "episode_type": "standard",
+        "original_title": "The Kingsroad",
+        "after_credits": false,
+        "during_credits": false,
+        "translations": [
+            {
+                "title": "El camino real",
+                "overview": "Cuando Bran sobrevive milagrosamente a su caída de la torre, Cersei y Jaime conspiran para asegurar su silencio; Jon Snow y Tyrion se dirigen a El Muro; al convertirse en la mano derecha del rey, Ned deja Winterfell con sus hijas Sansa y Arya.",
+                "language": "es"
+            },
+            {
+                "title": "El Camino Real",
+                "overview": "Después de haber aceptado ser la Mano del Rey, Ned parte de Invernalia con sus hijas Sansa y Arya. Jon Nieve se dirige hacia el norte para unirse a la Guardia de la Noche. Mientras que Daenerys centra su atención en el aprendizaje de cómo agradar a su nuevo marido, Drogo.",
+                "language": "es"
+            }
+        ]
+    },
+    {
+        "season": 1,
+        "number": 3,
+        "title": "Lord Snow",
+        "ids": {
+            "trakt": 73642,
+            "tvdb": 3436421,
+            "imdb": "tt1829962",
+            "tmdb": 63058,
+            "tvrage": null
+        },
+        "number_abs": 3,
+        "overview": "Lord Stark and his daughters arrive at King's Landing to discover the intrigues of the king's realm.",
+        "rating": 7.98508,
+        "votes": 10788,
+        "comment_count": 23,
+        "first_aired": "2011-05-02T01:00:00.000Z",
+        "updated_at": "2026-02-27T09:53:15.000Z",
+        "available_translations": [],
+        "runtime": 58,
+        "episode_type": "standard",
+        "original_title": "Lord Snow",
+        "after_credits": false,
+        "during_credits": false,
+        "translations": [
+            {
+                "title": "Lord Nieve",
+                "overview": "Jon impresiona a Tyrion en Castle Black; Ned se enfrenta a su pasado y a su futuro en Kings Landing; En el camino a Vaes Dothrak, Daenerys se pelea con Viserys.",
+                "language": "es"
+            },
+            {
+                "title": "Lord Nieve",
+                "overview": "Tras llegar a Desembarco del Rey, Ned se sorprende de los excesos que tienen lugar en la capital. En el Castillo Negro, Jon Nieve impresiona a Tyrion a costa de reclutas menos entrenados. Impulsada por la sospecha, Catelyn decide seguir a su marido a Desembarco del Rey.",
+                "language": "es"
+            }
+        ]
+    },
+    {
+        "season": 1,
+        "number": 4,
+        "title": "Cripples, Bastards, and Broken Things",
+        "ids": {
+            "trakt": 73643,
+            "tvdb": 3436431,
+            "imdb": "tt1829963",
+            "tmdb": 63059,
+            "tvrage": null
+        },
+        "number_abs": 4,
+        "overview": "Eddard investigates Jon Arryn's murder. Jon befriends Samwell Tarly, a coward who has come to join the Night's Watch.",
+        "rating": 8.03025,
+        "votes": 10381,
+        "comment_count": 13,
+        "first_aired": "2011-05-09T01:00:00.000Z",
+        "updated_at": "2026-02-27T11:01:54.000Z",
+        "available_translations": [],
+        "runtime": 56,
+        "episode_type": "standard",
+        "original_title": "Cripples, Bastards, and Broken Things",
+        "after_credits": false,
+        "during_credits": false,
+        "translations": [
+            {
+                "title": "Tullidos, bastardos y cosas rotas",
+                "overview": "Ned busca pistas sobre la muerte de su predecesor, y descubre uno de los bastardos del Rey Robert; Jon toma medidas para proteger a Sam de los abusos en Castle Black; Tyrion es atrapado en el lugar equivocado.",
+                "language": "es"
+            },
+            {
+                "title": "Tullidos, bastardos y cosas rotas",
+                "overview": "Ned encuentra en un libro claves sobre la muerte de su predecesor, que le llevan a un hijo bastardo del rey. Robert decide celebrar un torneo en honor a su amigo Ned. Jon trata de proteger a Samwell. Tyrion se encuentra en el lugar equivocado en el momento equivocado.",
+                "language": "es"
+            }
+        ]
+    },
+    {
+        "season": 1,
+        "number": 5,
+        "title": "The Wolf and the Lion",
+        "ids": {
+            "trakt": 73644,
+            "tvdb": 3436441,
+            "imdb": "tt1829964",
+            "tmdb": 63060,
+            "tvrage": null
+        },
+        "number_abs": 5,
+        "overview": "Catelyn has captured Tyrion and plans to bring him to her sister, Lysa Arryn, at The Vale, to be tried for his, supposed, crimes against Bran. Robert plans to have Daenerys killed, but Eddard refuses to be a part of it and quits.",
+        "rating": 8.07191,
+        "votes": 10026,
+        "comment_count": 17,
+        "first_aired": "2011-05-16T01:00:00.000Z",
+        "updated_at": "2026-02-27T10:46:55.000Z",
+        "available_translations": [],
+        "runtime": 55,
+        "episode_type": "standard",
+        "original_title": "The Wolf and the Lion",
+        "after_credits": false,
+        "during_credits": false,
+        "translations": [
+            {
+                "title": "El lobo y el león",
+                "overview": "Ned rechaza una orden del Rey. Un prisionero Tyrion ayuda a Catelyn y logra escapar de un encuentro muy peligroso, pero es recibido con la fría hermana de Catelyn en el Eyrie. Arya oye por casualidad un complot contra su padre.",
+                "language": "es"
+            },
+            {
+                "title": "El lobo y el león",
+                "overview": "Indignado por la noticia la unión de Daenerys con los dothraki, Robert toma una decisión que provoca un enfrentamiento con Ned. Tyrion recibe una gélida acogida por parte de Lysa Arryn, viuda de Jon Arryn y hermana de Catelyn. Sansa está maravillada ante Ser Loras Tyrell, el Caballero de las Flores. Arya se entera por casualidad de un complot contra su padre.",
+                "language": "es"
+            }
+        ]
+    },
+    {
+        "season": 1,
+        "number": 6,
+        "title": "A Golden Crown",
+        "ids": {
+            "trakt": 73645,
+            "tvdb": 3436451,
+            "imdb": "tt1837862",
+            "tmdb": 63061,
+            "tvrage": null
+        },
+        "number_abs": 6,
+        "overview": "While recovering from his battle with Jamie, Eddard is forced to run the kingdom while Robert goes hunting. Tyrion demands a trial by combat for his freedom. Viserys is losing his patience with Drogo.",
+        "rating": 8.25871,
+        "votes": 10023,
+        "comment_count": 19,
+        "first_aired": "2011-05-23T01:00:00.000Z",
+        "updated_at": "2026-02-27T09:29:59.000Z",
+        "available_translations": [],
+        "runtime": 53,
+        "episode_type": "standard",
+        "original_title": "A Golden Crown",
+        "after_credits": false,
+        "during_credits": false,
+        "translations": [
+            {
+                "title": "Una corona de oro",
+                "overview": "Ned emite un decreto que podría tener consecuencias a largo plazo a través de los Siete Reinados. En el Eyrie, Tyrion confiesa sus crímenes y demanda que Lysa lo juzgue en combate. Viserys recibe de Drogo su pago final para Daenerys.",
+                "language": "es"
+            },
+            {
+                "title": "Una corona de oro",
+                "overview": "Ocupando de nuevo el puesto de Mano del Rey, Ned se ve obligado a hacerse cargo de las responsabilidades de Robert mientras éste está de caza, y emite un decreto con consecuencias en los Siete Reinos. En el Nido de Águilas, Tyrion pide a Lysa que le dé la oportunidad de defenderse a través de un juicio por combate. Joffrey pide perdón a Sansa, y Viserys recibe su pago de parte de Khal Drogo.",
+                "language": "es"
+            }
+        ]
+    },
+    {
+        "season": 1,
+        "number": 7,
+        "title": "You Win or You Die",
+        "ids": {
+            "trakt": 73646,
+            "tvdb": 3436461,
+            "imdb": "tt1837863",
+            "tmdb": 63062,
+            "tvrage": null
+        },
+        "number_abs": 7,
+        "overview": "Robert has been injured while hunting and is dying. Jon and the others finally take their vows to the Night's Watch. A man, sent by Robert, is captured for trying to poison Daenerys. Furious, Drogo vows to attack the Seven Kingdoms.",
+        "rating": 8.22964,
+        "votes": 9785,
+        "comment_count": 23,
+        "first_aired": "2011-05-30T01:00:00.000Z",
+        "updated_at": "2026-02-27T15:16:08.000Z",
+        "available_translations": [],
+        "runtime": 58,
+        "episode_type": "standard",
+        "original_title": "You Win or You Die",
+        "after_credits": false,
+        "during_credits": false,
+        "translations": [
+            {
+                "title": "Ganas o mueres",
+                "overview": "Ned confronta a Cersei sobre sus secretos. Con el destino del perdido Benjen en su mente, Jon hace sus votos del Nights Watch, aunque no con la asignación que deseaba. Drogo promete llevar a los Dorthraki al Kings Landing.",
+                "language": "es"
+            },
+            {
+                "title": "Ganas o mueres",
+                "overview": "Ned se enfrenta a Cersei por los secretos que costaron la muerte a Jon Arryn. Jon Nieve pronuncia el juramento de la Guardia de la Noche, aunque no se le asigna la tarea que siempre había tenido en mente. Después de que la vida de Daenerys corra peligro, Drogo se decide a llevar a su pueblo al lugar al que jamás han ido. Robert, herido, intenta asegurar el futuro de Desembarco del Rey.",
+                "language": "es"
+            }
+        ]
+    },
+    {
+        "season": 1,
+        "number": 8,
+        "title": "The Pointy End",
+        "ids": {
+            "trakt": 73647,
+            "tvdb": 3360391,
+            "imdb": "tt1837864",
+            "tmdb": 63063,
+            "tvrage": null
+        },
+        "number_abs": 8,
+        "overview": "Eddard and his men are betrayed and captured by the Lannisters. When word reaches Robb, he plans to go to war to rescue them. The White Walkers attack The Wall. Tyrion returns to his father with some new friends.",
+        "rating": 8.08578,
+        "votes": 9431,
+        "comment_count": 10,
+        "first_aired": "2011-06-06T01:00:00.000Z",
+        "updated_at": "2026-02-27T11:20:13.000Z",
+        "available_translations": [],
+        "runtime": 59,
+        "episode_type": "standard",
+        "original_title": "The Pointy End",
+        "after_credits": false,
+        "during_credits": false,
+        "translations": [
+            {
+                "title": "Por el lado de la punta",
+                "overview": "Cuando capturan a Ned, Syrio y Arya se enfrentan a guardias Lannister mientras Cersei manipula a Sansa. Robb reúne los aliados de su padre y se dirige hacia la guerra. Tyrion forma una alianza con las tribus de las colinas y se reúne con su padre.",
+                "language": "es"
+            },
+            {
+                "title": "Por el lado de la punta",
+                "overview": "Tras la captura de Ned, Syrio y Arya se enfrentan a los guardias Lannister, mientras la reina Cersei trata de manipular a Sansa para sus propios fines. Robb conduce a los aliados de su padre a la guerra contra Tywin Lannister. Tyrion se alía con las tribus de las montañas y se reune con su padre. Jon se enfrenta a Ser Allister Thorne y tiene que combatir una amenaza que proviene de más allá del Muro. Dany tiene problemas para compaginar su visión de la conquista de Poniente con la brutalidad de los dothraki.",
+                "language": "es"
+            }
+        ]
+    },
+    {
+        "season": 1,
+        "number": 9,
+        "title": "Baelor",
+        "ids": {
+            "trakt": 73648,
+            "tvdb": 4063481,
+            "imdb": "tt1851398",
+            "tmdb": 63064,
+            "tvrage": null
+        },
+        "number_abs": 9,
+        "overview": "Robb goes to war against the Lannisters. Jon finds himself struggling on deciding if his place is with Robb or the Night's Watch. Drogo has fallen ill from a fresh battle wound. Daenerys is desperate to save him.",
+        "rating": 8.3393,
+        "votes": 9499,
+        "comment_count": 25,
+        "first_aired": "2011-06-13T01:00:00.000Z",
+        "updated_at": "2026-02-27T10:09:01.000Z",
+        "available_translations": [],
+        "runtime": 57,
+        "episode_type": "standard",
+        "original_title": "Baelor",
+        "after_credits": false,
+        "during_credits": false,
+        "translations": [
+            {
+                "title": "Baelor",
+                "overview": "Con Sansa en peligro, Ned toma una importante decisión. Tyrion adquiere una amante y es forzado por su padre a pelear en el frente. Robb toma un preciado prisionero. Jon descubre un oscuro secreto sobre Maester Aemon. Dany ve su reino en peligro.",
+                "language": "es"
+            },
+            {
+                "title": "Baelor",
+                "overview": "Cuando la vida de Sansa corre peligro, Ned toma una decisión complicada. Catelyn cierra un trato poco agradable con Walder Frey. Tyrion compra a una mujer y es obligado a luchar en primera línea de batalla. Robb obtiene su primera gran victoria y captura a un prisionero crucial. Jon es premiado por su valor y descubre un oscuro secreto del Maestre Aemon. El estado de salud de Drogo empeora, y Daenerys pone todas sus esperanzas en la hechicera Mirri Maz Duur.",
+                "language": "es"
+            }
+        ]
+    },
+    {
+        "season": 1,
+        "number": 10,
+        "title": "Fire and Blood",
+        "ids": {
+            "trakt": 73649,
+            "tvdb": 4063491,
+            "imdb": "tt1851397",
+            "tmdb": 63065,
+            "tvrage": null
+        },
+        "number_abs": 10,
+        "overview": "With Ned dead, Robb vows to get revenge on the Lannisters. Jon must officially decide if his place is with Robb or the Night's Watch. Daenerys says her final goodbye to Drogo.",
+        "rating": 8.53533,
+        "votes": 9566,
+        "comment_count": 19,
+        "first_aired": "2011-06-20T01:00:00.000Z",
+        "updated_at": "2026-02-27T11:01:48.000Z",
+        "available_translations": [],
+        "runtime": 53,
+        "episode_type": "season_finale",
+        "original_title": "Fire and Blood",
+        "after_credits": false,
+        "during_credits": false,
+        "translations": [
+            {
+                "title": "Fuego y sangre",
+                "overview": "La trágica noticia se esparce en los Siete Reinos. Bran y Rickon comparten un sueño profético, Catelyn interroga a Jaime acerca de la caída de su hijo y el destino de Robb cambia para siempre. Del otro lado del mar, Dany paga un terrible precio por su amor pero encuentra una nueva esperanza.",
+                "language": "es"
+            },
+            {
+                "title": "Fuego y sangre",
+                "overview": "Las trágicas noticias corren por los Siete Reinos, y Bran y Rickon comparten un sueño profético. Catelyn interroga a Jaime, y el destino de Robb cambia para siempre. Después de una sorprendente decisión de su padre, Tyrion se encamina al sur. Arya adopta una nueva personalidad en un intento por escapar de Desembarco del Rey, mientras su hermana Sansa es aterrorizada por Joffrey. En el Muro, Jon tiene que decidir entre la Guardia y su familia. Más allá del mar, Dany paga un precio terrible por amor, pero encuentra nueva esperanza.",
+                "language": "es"
+            }
+        ]
+    }
+]

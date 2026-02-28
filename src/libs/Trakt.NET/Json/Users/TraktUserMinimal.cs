@@ -15,6 +15,7 @@ namespace TraktNET
         public string? Name { get; set; }
 
         /// <summary>The user's VIP status.</summary>
+        [JsonPropertyName("vip")]
         public bool? VIP { get; set; }
 
         /// <summary>The user's VIP EP status.</summary>

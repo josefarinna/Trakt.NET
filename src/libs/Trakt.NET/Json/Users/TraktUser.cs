@@ -5,6 +5,9 @@ namespace TraktNET
     /// <inheritdoc />
     public record class TraktUser : TraktUserMinimal
     {
+        /// <summary>The user's deleted status.</summary>
+        public bool? Deleted { get; set; }
+
         /// <summary>The UTC datetime when the user joined Trakt.</summary>
         public DateTime? JoinedAt { get; set; }
 
@@ -28,9 +31,11 @@ namespace TraktNET
         public bool? VIPOG { get; set; }
 
         /// <summary>The user's VIP years.</summary>
+        [JsonPropertyName("vip_years")]
         public uint? VIPYears { get; set; }
 
         /// <summary>The user's VIP cover image.</summary>
+        [JsonPropertyName("vip_cover_image")]
         public string? VIPCoverImage { get; set; }
     }
 }

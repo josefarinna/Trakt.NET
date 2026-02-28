@@ -1,0 +1,3300 @@
+[
+	{
+        "number": 1,
+        "ids": {
+            "trakt": 3963,
+            "tvdb": 364731,
+            "tmdb": 3624,
+            "tvrage": null
+        },
+        "rating": 8.87081,
+        "votes": 6556,
+        "episode_count": 10,
+        "aired_episodes": 10,
+        "title": "Season 1",
+        "overview": "Trouble is brewing in the Seven Kingdoms of Westeros. For the driven inhabitants of this visionary world, control of Westeros' Iron Throne holds the lure of great power. But in a land where the seasons can last a lifetime, winter is coming...and beyond the Great Wall that protects them, an ancient evil has returned. In Season One, the story centers on three primary areas: the Stark and the Lannister families, whose designs on controlling the throne threaten a tenuous peace; the dragon princess Daenerys, heir to the former dynasty, who waits just over the Narrow Sea with her malevolent brother Viserys; and the Great Wall--a massive barrier of ice where a forgotten danger is stirring.",
+        "first_aired": "2011-04-18T01:00:00.000Z",
+        "updated_at": "2026-02-26T22:47:57.000Z",
+        "network": "HBO",
+        "original_title": null,
+        "images": {
+            "poster": [
+                "walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"
+            ],
+            "thumb": [
+                "walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"
+            ]
+        },
+        "episodes": [
+            {
+                "season": 1,
+                "number": 1,
+                "title": "Winter Is Coming",
+                "ids": {
+                    "trakt": 73640,
+                    "tvdb": 3254641,
+                    "imdb": "tt1480055",
+                    "tmdb": 63056,
+                    "tvrage": null
+                },
+                "number_abs": 1,
+                "overview": "Jon Arryn, the Hand of the King, is dead. King Robert Baratheon plans to ask his oldest friend, Eddard Stark, to take Jon's place. Across the sea, Viserys Targaryen plans to wed his sister to a nomadic warlord in exchange for an army.",
+                "rating": 8.06588,
+                "votes": 14996,
+                "comment_count": 43,
+                "first_aired": "2011-04-18T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:42.000Z",
+                "available_translations": [],
+                "runtime": 62,
+                "episode_type": "series_premiere",
+                "original_title": "Winter Is Coming",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/640/screenshots/medium/16f5e216b9.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Se acerca el invierno",
+                        "overview": "El Lord Ned Stark está preocupado por los perturbantes reportes de un desertor del Nights Watch; El Rey Robert y los Lannisters llegan a Winterfell; el exiliado Viserys Targaryen forja una nueva y poderosa alianza.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Se acerca el invierno",
+                        "overview": "Un desertor de Guardia de la Noche es encontrado fuera de Invernalia, lo que provoca una justicia rápida por parte de Lord Eddard \"Ned\" Stark. Al regresar a casa, Ned se entera por su esposa Catelyn que su mentor, Jon Arryn, ha muerto, y que el rey Robert se encuentra camino hacia el norte para ofrecerle ser Mano del Rey. Mientras tanto, al otro lado del Mar Angosto, Viserys Targaryen idea un plan para recuperar el trono, lo que implica forjar una alianza con los nómadas guerreros dothrakis dando a su líder, Khal Drogo, la mano de su encantadora hermana Daenerys en matrimonio. Robert llega a Invernalia con su esposa, la reina Cersei, y otros miembros de la familia Lannister: su hermano gemelo, Jaime, su otro hermano apodado el enano o el gnomo, Tyrion y su hijo y heredero al trono, de 12 años de edad, Joffrey.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 1,
+                "number": 2,
+                "title": "The Kingsroad",
+                "ids": {
+                    "trakt": 73641,
+                    "tvdb": 3436411,
+                    "imdb": "tt1668746",
+                    "tmdb": 63057,
+                    "tvrage": null
+                },
+                "number_abs": 2,
+                "overview": "While Bran recovers from his fall, Ned takes only his daughters to Kings Landing. Jon Snow goes with his uncle Benjen to The Wall. Tyrion joins them.",
+                "rating": 8.07209,
+                "votes": 11694,
+                "comment_count": 32,
+                "first_aired": "2011-04-25T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:42.000Z",
+                "available_translations": [],
+                "runtime": 56,
+                "episode_type": "standard",
+                "original_title": "The Kingsroad",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/641/screenshots/medium/2a8332df9b.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El camino real",
+                        "overview": "Cuando Bran sobrevive milagrosamente a su caída de la torre, Cersei y Jaime conspiran para asegurar su silencio; Jon Snow y Tyrion se dirigen a El Muro; al convertirse en la mano derecha del rey, Ned deja Winterfell con sus hijas Sansa y Arya.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El Camino Real",
+                        "overview": "Después de haber aceptado ser la Mano del Rey, Ned parte de Invernalia con sus hijas Sansa y Arya. Jon Nieve se dirige hacia el norte para unirse a la Guardia de la Noche. Mientras que Daenerys centra su atención en el aprendizaje de cómo agradar a su nuevo marido, Drogo.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 1,
+                "number": 3,
+                "title": "Lord Snow",
+                "ids": {
+                    "trakt": 73642,
+                    "tvdb": 3436421,
+                    "imdb": "tt1829962",
+                    "tmdb": 63058,
+                    "tvrage": null
+                },
+                "number_abs": 3,
+                "overview": "Lord Stark and his daughters arrive at King's Landing to discover the intrigues of the king's realm.",
+                "rating": 7.98508,
+                "votes": 10788,
+                "comment_count": 23,
+                "first_aired": "2011-05-02T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:43:54.000Z",
+                "available_translations": [],
+                "runtime": 58,
+                "episode_type": "standard",
+                "original_title": "Lord Snow",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/642/screenshots/medium/757d9f4a7a.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Lord Nieve",
+                        "overview": "Jon impresiona a Tyrion en Castle Black; Ned se enfrenta a su pasado y a su futuro en Kings Landing; En el camino a Vaes Dothrak, Daenerys se pelea con Viserys.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Lord Nieve",
+                        "overview": "Tras llegar a Desembarco del Rey, Ned se sorprende de los excesos que tienen lugar en la capital. En el Castillo Negro, Jon Nieve impresiona a Tyrion a costa de reclutas menos entrenados. Impulsada por la sospecha, Catelyn decide seguir a su marido a Desembarco del Rey.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 1,
+                "number": 4,
+                "title": "Cripples, Bastards, and Broken Things",
+                "ids": {
+                    "trakt": 73643,
+                    "tvdb": 3436431,
+                    "imdb": "tt1829963",
+                    "tmdb": 63059,
+                    "tvrage": null
+                },
+                "number_abs": 4,
+                "overview": "Eddard investigates Jon Arryn's murder. Jon befriends Samwell Tarly, a coward who has come to join the Night's Watch.",
+                "rating": 8.03025,
+                "votes": 10381,
+                "comment_count": 13,
+                "first_aired": "2011-05-09T01:00:00.000Z",
+                "updated_at": "2026-02-26T20:42:09.000Z",
+                "available_translations": [],
+                "runtime": 56,
+                "episode_type": "standard",
+                "original_title": "Cripples, Bastards, and Broken Things",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/643/screenshots/medium/592f2c70d1.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Tullidos, bastardos y cosas rotas",
+                        "overview": "Ned busca pistas sobre la muerte de su predecesor, y descubre uno de los bastardos del Rey Robert; Jon toma medidas para proteger a Sam de los abusos en Castle Black; Tyrion es atrapado en el lugar equivocado.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Tullidos, bastardos y cosas rotas",
+                        "overview": "Ned encuentra en un libro claves sobre la muerte de su predecesor, que le llevan a un hijo bastardo del rey. Robert decide celebrar un torneo en honor a su amigo Ned. Jon trata de proteger a Samwell. Tyrion se encuentra en el lugar equivocado en el momento equivocado.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 1,
+                "number": 5,
+                "title": "The Wolf and the Lion",
+                "ids": {
+                    "trakt": 73644,
+                    "tvdb": 3436441,
+                    "imdb": "tt1829964",
+                    "tmdb": 63060,
+                    "tvrage": null
+                },
+                "number_abs": 5,
+                "overview": "Catelyn has captured Tyrion and plans to bring him to her sister, Lysa Arryn, at The Vale, to be tried for his, supposed, crimes against Bran. Robert plans to have Daenerys killed, but Eddard refuses to be a part of it and quits.",
+                "rating": 8.07191,
+                "votes": 10026,
+                "comment_count": 17,
+                "first_aired": "2011-05-16T01:00:00.000Z",
+                "updated_at": "2026-02-26T21:40:12.000Z",
+                "available_translations": [],
+                "runtime": 55,
+                "episode_type": "standard",
+                "original_title": "The Wolf and the Lion",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/644/screenshots/medium/302371e589.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El lobo y el león",
+                        "overview": "Ned rechaza una orden del Rey. Un prisionero Tyrion ayuda a Catelyn y logra escapar de un encuentro muy peligroso, pero es recibido con la fría hermana de Catelyn en el Eyrie. Arya oye por casualidad un complot contra su padre.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El lobo y el león",
+                        "overview": "Indignado por la noticia la unión de Daenerys con los dothraki, Robert toma una decisión que provoca un enfrentamiento con Ned. Tyrion recibe una gélida acogida por parte de Lysa Arryn, viuda de Jon Arryn y hermana de Catelyn. Sansa está maravillada ante Ser Loras Tyrell, el Caballero de las Flores. Arya se entera por casualidad de un complot contra su padre.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 1,
+                "number": 6,
+                "title": "A Golden Crown",
+                "ids": {
+                    "trakt": 73645,
+                    "tvdb": 3436451,
+                    "imdb": "tt1837862",
+                    "tmdb": 63061,
+                    "tvrage": null
+                },
+                "number_abs": 6,
+                "overview": "While recovering from his battle with Jamie, Eddard is forced to run the kingdom while Robert goes hunting. Tyrion demands a trial by combat for his freedom. Viserys is losing his patience with Drogo.",
+                "rating": 8.25871,
+                "votes": 10023,
+                "comment_count": 19,
+                "first_aired": "2011-05-23T01:00:00.000Z",
+                "updated_at": "2026-02-26T22:31:07.000Z",
+                "available_translations": [],
+                "runtime": 53,
+                "episode_type": "standard",
+                "original_title": "A Golden Crown",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/645/screenshots/medium/05fb55214a.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Una corona de oro",
+                        "overview": "Ned emite un decreto que podría tener consecuencias a largo plazo a través de los Siete Reinados. En el Eyrie, Tyrion confiesa sus crímenes y demanda que Lysa lo juzgue en combate. Viserys recibe de Drogo su pago final para Daenerys.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Una corona de oro",
+                        "overview": "Ocupando de nuevo el puesto de Mano del Rey, Ned se ve obligado a hacerse cargo de las responsabilidades de Robert mientras éste está de caza, y emite un decreto con consecuencias en los Siete Reinos. En el Nido de Águilas, Tyrion pide a Lysa que le dé la oportunidad de defenderse a través de un juicio por combate. Joffrey pide perdón a Sansa, y Viserys recibe su pago de parte de Khal Drogo.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 1,
+                "number": 7,
+                "title": "You Win or You Die",
+                "ids": {
+                    "trakt": 73646,
+                    "tvdb": 3436461,
+                    "imdb": "tt1837863",
+                    "tmdb": 63062,
+                    "tvrage": null
+                },
+                "number_abs": 7,
+                "overview": "Robert has been injured while hunting and is dying. Jon and the others finally take their vows to the Night's Watch. A man, sent by Robert, is captured for trying to poison Daenerys. Furious, Drogo vows to attack the Seven Kingdoms.",
+                "rating": 8.2295,
+                "votes": 9782,
+                "comment_count": 23,
+                "first_aired": "2011-05-30T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:42.000Z",
+                "available_translations": [],
+                "runtime": 58,
+                "episode_type": "standard",
+                "original_title": "You Win or You Die",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/646/screenshots/medium/e72a325752.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Ganas o mueres",
+                        "overview": "Ned confronta a Cersei sobre sus secretos. Con el destino del perdido Benjen en su mente, Jon hace sus votos del Nights Watch, aunque no con la asignación que deseaba. Drogo promete llevar a los Dorthraki al Kings Landing.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Ganas o mueres",
+                        "overview": "Ned se enfrenta a Cersei por los secretos que costaron la muerte a Jon Arryn. Jon Nieve pronuncia el juramento de la Guardia de la Noche, aunque no se le asigna la tarea que siempre había tenido en mente. Después de que la vida de Daenerys corra peligro, Drogo se decide a llevar a su pueblo al lugar al que jamás han ido. Robert, herido, intenta asegurar el futuro de Desembarco del Rey.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 1,
+                "number": 8,
+                "title": "The Pointy End",
+                "ids": {
+                    "trakt": 73647,
+                    "tvdb": 3360391,
+                    "imdb": "tt1837864",
+                    "tmdb": 63063,
+                    "tvrage": null
+                },
+                "number_abs": 8,
+                "overview": "Eddard and his men are betrayed and captured by the Lannisters. When word reaches Robb, he plans to go to war to rescue them. The White Walkers attack The Wall. Tyrion returns to his father with some new friends.",
+                "rating": 8.08559,
+                "votes": 9429,
+                "comment_count": 10,
+                "first_aired": "2011-06-06T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:42.000Z",
+                "available_translations": [],
+                "runtime": 59,
+                "episode_type": "standard",
+                "original_title": "The Pointy End",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/647/screenshots/medium/ebfc364c43.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Por el lado de la punta",
+                        "overview": "Cuando capturan a Ned, Syrio y Arya se enfrentan a guardias Lannister mientras Cersei manipula a Sansa. Robb reúne los aliados de su padre y se dirige hacia la guerra. Tyrion forma una alianza con las tribus de las colinas y se reúne con su padre.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Por el lado de la punta",
+                        "overview": "Tras la captura de Ned, Syrio y Arya se enfrentan a los guardias Lannister, mientras la reina Cersei trata de manipular a Sansa para sus propios fines. Robb conduce a los aliados de su padre a la guerra contra Tywin Lannister. Tyrion se alía con las tribus de las montañas y se reune con su padre. Jon se enfrenta a Ser Allister Thorne y tiene que combatir una amenaza que proviene de más allá del Muro. Dany tiene problemas para compaginar su visión de la conquista de Poniente con la brutalidad de los dothraki.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 1,
+                "number": 9,
+                "title": "Baelor",
+                "ids": {
+                    "trakt": 73648,
+                    "tvdb": 4063481,
+                    "imdb": "tt1851398",
+                    "tmdb": 63064,
+                    "tvrage": null
+                },
+                "number_abs": 9,
+                "overview": "Robb goes to war against the Lannisters. Jon finds himself struggling on deciding if his place is with Robb or the Night's Watch. Drogo has fallen ill from a fresh battle wound. Daenerys is desperate to save him.",
+                "rating": 8.3393,
+                "votes": 9499,
+                "comment_count": 25,
+                "first_aired": "2011-06-13T01:00:00.000Z",
+                "updated_at": "2026-02-26T10:03:31.000Z",
+                "available_translations": [],
+                "runtime": 57,
+                "episode_type": "standard",
+                "original_title": "Baelor",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/648/screenshots/medium/04f6b85e35.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Baelor",
+                        "overview": "Con Sansa en peligro, Ned toma una importante decisión. Tyrion adquiere una amante y es forzado por su padre a pelear en el frente. Robb toma un preciado prisionero. Jon descubre un oscuro secreto sobre Maester Aemon. Dany ve su reino en peligro.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Baelor",
+                        "overview": "Cuando la vida de Sansa corre peligro, Ned toma una decisión complicada. Catelyn cierra un trato poco agradable con Walder Frey. Tyrion compra a una mujer y es obligado a luchar en primera línea de batalla. Robb obtiene su primera gran victoria y captura a un prisionero crucial. Jon es premiado por su valor y descubre un oscuro secreto del Maestre Aemon. El estado de salud de Drogo empeora, y Daenerys pone todas sus esperanzas en la hechicera Mirri Maz Duur.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 1,
+                "number": 10,
+                "title": "Fire and Blood",
+                "ids": {
+                    "trakt": 73649,
+                    "tvdb": 4063491,
+                    "imdb": "tt1851397",
+                    "tmdb": 63065,
+                    "tvrage": null
+                },
+                "number_abs": 10,
+                "overview": "With Ned dead, Robb vows to get revenge on the Lannisters. Jon must officially decide if his place is with Robb or the Night's Watch. Daenerys says her final goodbye to Drogo.",
+                "rating": 8.53533,
+                "votes": 9566,
+                "comment_count": 19,
+                "first_aired": "2011-06-20T01:00:00.000Z",
+                "updated_at": "2026-02-26T11:00:04.000Z",
+                "available_translations": [],
+                "runtime": 53,
+                "episode_type": "season_finale",
+                "original_title": "Fire and Blood",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/649/screenshots/medium/6215e94ed8.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Fuego y sangre",
+                        "overview": "La trágica noticia se esparce en los Siete Reinos. Bran y Rickon comparten un sueño profético, Catelyn interroga a Jaime acerca de la caída de su hijo y el destino de Robb cambia para siempre. Del otro lado del mar, Dany paga un terrible precio por su amor pero encuentra una nueva esperanza.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Fuego y sangre",
+                        "overview": "Las trágicas noticias corren por los Siete Reinos, y Bran y Rickon comparten un sueño profético. Catelyn interroga a Jaime, y el destino de Robb cambia para siempre. Después de una sorprendente decisión de su padre, Tyrion se encamina al sur. Arya adopta una nueva personalidad en un intento por escapar de Desembarco del Rey, mientras su hermana Sansa es aterrorizada por Joffrey. En el Muro, Jon tiene que decidir entre la Guardia y su familia. Más allá del mar, Dany paga un precio terrible por amor, pero encuentra nueva esperanza.",
+                        "language": "es"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "number": 2,
+        "ids": {
+            "trakt": 3964,
+            "tvdb": 473271,
+            "tmdb": 3625,
+            "tvrage": null
+        },
+        "rating": 8.80542,
+        "votes": 5612,
+        "episode_count": 10,
+        "aired_episodes": 10,
+        "title": "Season 2",
+        "overview": "The cold winds of winter are rising in Westeros...war is coming...and five kings continue their savage quest for control of the all-powerful Iron Throne. With winter fast approaching, the coveted Iron Throne is occupied by the cruel Joffrey, counseled by his conniving mother Cersei and uncle Tyrion. But the Lannister hold on the Throne is under assault on many fronts. Meanwhile, a new leader is rising among the wildings outside the Great Wall, adding new perils for Jon Snow and the order of the Night's Watch.",
+        "first_aired": "2012-04-02T01:00:00.000Z",
+        "updated_at": "2026-02-26T23:04:28.000Z",
+        "network": "HBO",
+        "original_title": null,
+        "images": {
+            "poster": [
+                "walter-r2.trakt.tv/images/seasons/000/003/964/posters/thumb/34d22f60fe.jpg.webp"
+            ],
+            "thumb": [
+                "walter-r2.trakt.tv/images/seasons/000/003/964/thumbs/medium/49d143cf04.jpg.webp"
+            ]
+        },
+        "episodes": [
+            {
+                "season": 2,
+                "number": 1,
+                "title": "The North Remembers",
+                "ids": {
+                    "trakt": 73650,
+                    "tvdb": 4161693,
+                    "imdb": "tt1971833",
+                    "tmdb": 63066,
+                    "tvrage": null
+                },
+                "number_abs": 11,
+                "overview": "Tyrion arrives to save Joffrey's crown from threats old and new; Daenerys searches for allies and water in the Red Waste.",
+                "rating": 8.06821,
+                "votes": 9647,
+                "comment_count": 13,
+                "first_aired": "2012-04-02T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 53,
+                "episode_type": "season_premiere",
+                "original_title": "The North Remembers",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/650/screenshots/medium/3f9386a4cf.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El Norte no olvida",
+                        "overview": "Tyrion llega para salvar la corona de Joffrey de viejas y nuevas amenazas. Daenerys busca agua y aliados en el Desierto Rojo. Jon Nieve y los miembros de la Guardia de la Noche se enfrentan a los salvajos más allá del Muro.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El Norte no olvida",
+                        "overview": "Robb continúa su guerra contra los Lannister y su hermano Bran, quien gobierna Invernalia en su ausencia, comienza a tener sueños de lobo. Tyrion llega a Desembarco del Rey para ayudar al rey Joffrey como su Mano. Stannis se alía con la sacerdotisa Melisandre y reclama el trono de su fallecido hermano Robert. Daenerys y su khalasar recorren el desierto. Jon y sus hermanos juramentados llegan al Torreón de Craster para averiguar por qué los salvajes están abandonando sus aldeas.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 2,
+                "number": 2,
+                "title": "The Night Lands",
+                "ids": {
+                    "trakt": 73651,
+                    "tvdb": 4245771,
+                    "imdb": "tt2069318",
+                    "tmdb": 974430,
+                    "tvrage": null
+                },
+                "number_abs": 12,
+                "overview": "Arya shares a secret with a familiar recruit; a scout returns to Dany with disturbing news; Theon comes home to the Iron Islands.",
+                "rating": 7.97486,
+                "votes": 9189,
+                "comment_count": 11,
+                "first_aired": "2012-04-09T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 54,
+                "episode_type": "standard",
+                "original_title": "The Night Lands",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/651/screenshots/medium/e3a49a308d.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Las tierras de la noche",
+                        "overview": "Arya comparte un secreto con un recluta familiar. Un explorador regresa para darle noticias inesperadas a Dany. Theon vuelve a casa en las Islas del Hierro y a su familia verdadera. Tyrion imparte justicia y Jon es testigo de un terrible crímen.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Las tierras de la noche",
+                        "overview": "Tyrion acusa a Cersei de ganarse la antipatía de sus súbditos y destierra al Muro a Janos Slynt, comandante de la guardia de Desembarco del Rey, quien seguía las órdenes de la reina. Arya le revela a Gendry su verdadera identidad. Theon regresa a Pyke y descubre los planes de su padre para nombrarse Rey de las Islas del Hierro. Davos recluta al pirata Salladhor Saan para la causa de Stannis. Sam intenta ayudar a Gilly, una de las esposas e hijas de Craster.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 2,
+                "number": 3,
+                "title": "What Is Dead May Never Die",
+                "ids": {
+                    "trakt": 73652,
+                    "tvdb": 4245772,
+                    "imdb": "tt2070135",
+                    "tmdb": 63068,
+                    "tvrage": null
+                },
+                "number_abs": 13,
+                "overview": "Tyrion roots out a spy; Catelyn meets a new king and queen; Bran dreams; Theon drowns.",
+                "rating": 8.03669,
+                "votes": 8857,
+                "comment_count": 12,
+                "first_aired": "2012-04-16T01:00:00.000Z",
+                "updated_at": "2026-02-26T21:18:11.000Z",
+                "available_translations": [],
+                "runtime": 53,
+                "episode_type": "standard",
+                "original_title": "What Is Dead May Never Die",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/652/screenshots/medium/010c9ccba9.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Lo que está muerto no puede morir",
+                        "overview": "Tyrion desenmascara a un espía. Catelyn conoce a los nuevos reyes. Bran sueña y Theon se ahoga.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Lo que está muerto no puede morir",
+                        "overview": "Tyrion planea varias alianzas matrimoniales. Catelyn va al campamento de Renly y trata forjar una alianza. El maestre Luwin intenta descifrar los sueños de Bran.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 2,
+                "number": 4,
+                "title": "Garden of Bones",
+                "ids": {
+                    "trakt": 73653,
+                    "tvdb": 4245773,
+                    "imdb": "tt2069319",
+                    "tmdb": 63069,
+                    "tvrage": null
+                },
+                "number_abs": 14,
+                "overview": "Catelyn tries to save two kings from themselves; Tyrion practices coercion; Robb meets a foreigner; Dany finds her ally.",
+                "rating": 8.02446,
+                "votes": 8872,
+                "comment_count": 17,
+                "first_aired": "2012-04-23T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:38.000Z",
+                "available_translations": [],
+                "runtime": 51,
+                "episode_type": "standard",
+                "original_title": "Garden of Bones",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/653/screenshots/medium/f0ff065768.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Jardín de huesos",
+                        "overview": "Catelyn intenta salvar a los reyes de ellos mismos. Tyrion practica la coerción. Robb conoce a alguien que viene del extranjero fuera de las puertas de la salvación. Dany encuentra un aliado. Melisandre arroja una gran nube sobre Bastión de Tormentas.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Jardín de huesos",
+                        "overview": "Joffrey castiga a Sansa por las victorias de su hermano Robb y Tyrion manda espiar a Cersei. Catelyn pide a Stannis y Renly que se unan en contra de los Lannister. Daenerys y su khalasar llegan a la ciudad de Qarth. Arya llega a Harrenhal.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 2,
+                "number": 5,
+                "title": "The Ghost of Harrenhal",
+                "ids": {
+                    "trakt": 73654,
+                    "tvdb": 4245774,
+                    "imdb": "tt2074658",
+                    "tmdb": 63070,
+                    "tvrage": null
+                },
+                "number_abs": 15,
+                "overview": "The Baratheon rivalry ends; Tyrion learns of Cersei's secret weapon; Dany suffers a loss; Arya collects a debt she didn't know was owed.",
+                "rating": 8.0394,
+                "votes": 8807,
+                "comment_count": 14,
+                "first_aired": "2012-04-30T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 55,
+                "episode_type": "standard",
+                "original_title": "The Ghost of Harrenhal",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/654/screenshots/medium/310308e9f1.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El fantasma de Harrenhal",
+                        "overview": "La rivalidad entre los Baratheon termina. Tyrion conoce el arma secreta de Cersei. Dany sufre una perdida. Arya cobra una deuda que desconocia tener. Jon y la Guardia de la Noche encuentran una fortaleza antigua y conocen una leyenda.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El fantasma de Harrenhal",
+                        "overview": "Tyrion descubre un arma secreta para defender Desembarco del Rey. Theon dirige un ejército de hombres del hierro hasta la Costa Pedregosa. Jaqen H'ghar le hace una promesa a Arya. Jon y los hermanos de la Guardia de la Noche que partieron a las tierra de más allá del Muro llegan a la fortaleza conocida como Puño de los Primeros Hombres e intentan detener el avance de los salvajes.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 2,
+                "number": 6,
+                "title": "The Old Gods and the New",
+                "ids": {
+                    "trakt": 73655,
+                    "tvdb": 4245775,
+                    "imdb": "tt2085238",
+                    "tmdb": 63071,
+                    "tvrage": null
+                },
+                "number_abs": 16,
+                "overview": "Arya has a surprise visitor; Dany vows to take what is hers; Joffrey meets his subjects; Qhorin gives Jon a chance to prove himself.",
+                "rating": 8.09126,
+                "votes": 8679,
+                "comment_count": 11,
+                "first_aired": "2012-05-07T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:38.000Z",
+                "available_translations": [],
+                "runtime": 54,
+                "episode_type": "standard",
+                "original_title": "The Old Gods and the New",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/655/screenshots/medium/5837abcaa6.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Los dioses antiguos y nuevos",
+                        "overview": "Theon completa su golpe maestro. En Desembarco del Rey, los Lannister se despiden de Myrcella sin perder tiempo para que no corra peligro. Arya se enfrenta cara a cara con un visitante sorpresa. Robb y Catelyn reciben noticias cruciales.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Los dioses antiguos y nuevos",
+                        "overview": "Theon irrumpe en Invernalia declarándose su príncipe. Arya recibe una sorpresa inesperada y elige a su segunda víctima. Jon encuentra dificultades al intentar ejecutar a una salvaje. Sansa, Tyrion y otros miembros de la corte despiden a la princesa Myrcella, al regreso son sorprendidos por una multitud con sed de sangre. Daenerys lleva a cabo fallidas negociaciones con los señores adinerados de Qarth y descubre que tiene más enemigos de los que suponía.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 2,
+                "number": 7,
+                "title": "A Man Without Honor",
+                "ids": {
+                    "trakt": 73656,
+                    "tvdb": 4245776,
+                    "imdb": "tt2085239",
+                    "tmdb": 63073,
+                    "tvrage": null
+                },
+                "number_abs": 17,
+                "overview": "Jaime meets a distant relative; Dany receives an invitation; Theon leads a search party; Jon loses his way in the wilderness.",
+                "rating": 8.0651,
+                "votes": 8633,
+                "comment_count": 18,
+                "first_aired": "2012-05-14T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:38.000Z",
+                "available_translations": [],
+                "runtime": 56,
+                "episode_type": "standard",
+                "original_title": "A Man Without Honor",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/656/screenshots/medium/0b798ebe9e.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Un hombre sin honor",
+                        "overview": "Jaime conoce a un pariente lejano. Dany recibe una invitación a la Casa de los Eternos. Theon lidera una reunión de búsqueda. Jon pierde su rumbo en territorio salvaje. Cersei aconseja a Sansa.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Un hombre sin honor",
+                        "overview": "Theon organiza una partida de caza en busca de Bran y Rickon. Jon recibe varias sorpresas de parte de Ygritte. Tywin Lannister comienza la busqueda del asesisno de Ser Amory Lorch. Daenerys descubre quien robó sus dragones. Tyrion presencia un momento de debilidad de Cercei. Jaime Lannister intenta escapar del campamento de los Stark.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 2,
+                "number": 8,
+                "title": "The Prince of Winterfell",
+                "ids": {
+                    "trakt": 73657,
+                    "tvdb": 4245777,
+                    "imdb": "tt2085240",
+                    "tmdb": 63074,
+                    "tvrage": null
+                },
+                "number_abs": 18,
+                "overview": "Theon holds down the fort; Arya calls in her debt with Jaqen; Robb is betrayed; Stannis and Davos approach their destination.",
+                "rating": 8.00877,
+                "votes": 8554,
+                "comment_count": 13,
+                "first_aired": "2012-05-21T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:38.000Z",
+                "available_translations": [],
+                "runtime": 54,
+                "episode_type": "standard",
+                "original_title": "The Prince of Winterfell",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/657/screenshots/medium/f8ff39a666.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Un príncipe de Invernalia",
+                        "overview": "Theon trata de conservar Invernalia tras la llegada de su hermana. Jon se reencuentra con Qhorin en una situación desesperada. Sam, Grenn y Edd hacen un descubrimiento. Arya reclama a Jaqen que pague su deuda. Robb recibe noticias desconcertantes sobre un prisionero vital. Stannis y Davos se aproximan a su destino.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Un príncipe de Invernalia",
+                        "overview": "En Invernalia, Theon recibe un visitante. Arya llama a Jaquen para pagar su deuda final de una forma desagradable. Robb es traicionado. Tyrion y Varys encuentran algo en común. Dany ignora el consejo de Jorah. Stannis y Davos se acercan a su destino.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 2,
+                "number": 9,
+                "title": "Blackwater",
+                "ids": {
+                    "trakt": 73658,
+                    "tvdb": 4245778,
+                    "imdb": "tt2084342",
+                    "tmdb": 63072,
+                    "tvrage": null
+                },
+                "number_abs": 19,
+                "overview": "Tyrion and the Lannisters fight for their lives as Stannis’ fleet assaults King’s Landing.",
+                "rating": 8.47242,
+                "votes": 8975,
+                "comment_count": 16,
+                "first_aired": "2012-05-28T01:00:00.000Z",
+                "updated_at": "2026-02-26T10:28:55.000Z",
+                "available_translations": [],
+                "runtime": 55,
+                "episode_type": "standard",
+                "original_title": "Blackwater",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/658/screenshots/medium/4d10cbe612.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Aguasnegras",
+                        "overview": "Tyrion y los Lannister pelean por sus vidas mientras Stannis lleva a cabo el asalto a Desembarco del Rey.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Aguasnegras",
+                        "overview": "Stannis llega con su flota a la bahía de Desembarco del Rey. Cersei, en medio del asedio, muestra una faceta oculta de su personalidad. Stannis supera a las tropas de Joffrey en diez hombres a uno. Tyrion se las arregla para acortar su desventaja con fuego valyrio. En el clímax de la situación, Tyrion descubre que los hombres de Stannis no son sus únicos enemigos.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 2,
+                "number": 10,
+                "title": "Valar Morghulis",
+                "ids": {
+                    "trakt": 73659,
+                    "tvdb": 4245779,
+                    "imdb": "tt2112510",
+                    "tmdb": 63075,
+                    "tvrage": null
+                },
+                "number_abs": 20,
+                "overview": "Tyrion wakes up in a new world; Dany goes to a strange place; Jon proves himself.",
+                "rating": 8.41915,
+                "votes": 8701,
+                "comment_count": 15,
+                "first_aired": "2012-06-04T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:34:15.000Z",
+                "available_translations": [],
+                "runtime": 64,
+                "episode_type": "season_finale",
+                "original_title": "Valar Morghulis",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/659/screenshots/medium/5a0d8254c6.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Valar Morghulis",
+                        "overview": "Joffrey reparte premios a sus súbditos. Mientras, Theon pone a sus hombres en acción. Luwin ofrece un consejo final. Arya recibe un regalo de parte de Jaquen. Jon se prueba a sí mismo ante Qhorin.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Valar Morghulis",
+                        "overview": "Tyrion despierta y se da cuenta de que ya no es Mano del Rey y que muchas cosas cambiarán. Sansa deja de ser la prometida de Joffrey. Robb se casa a escondidas. Invernalia es rodeada por los soldados de Robb y los caballeros de Theon lo traicionan y queman Invernalia. Rickon, Bran y Osha escapan al Muro para resguardarse de cualquier enemigo. Arya y los demás se topan con Jaqen H'ghar y se enteran de algo impactante. Daenerys va en busca de sus dragones y en su búsqueda la magia oscura le muestra a Drogo y a su bebé, pero prefiere encontrar a sus dragones. Se enfrenta con el hombre de magia oscura quien es quemado por los dragones. Daenerys aprende una lección y obtiene mucha riqueza. Jon Nieve \"se une\" a los salvajes. El capítulo finaliza cuando Sam se queda atrás y se topa con un enorme ejército de los \"no-vivos\", dirigiéndose hacia el Sur.",
+                        "language": "es"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "number": 3,
+        "ids": {
+            "trakt": 3965,
+            "tvdb": 488434,
+            "tmdb": 3626,
+            "tvrage": null
+        },
+        "rating": 8.9437,
+        "votes": 5293,
+        "episode_count": 10,
+        "aired_episodes": 10,
+        "title": "Season 3",
+        "overview": "Duplicity and treachery...nobility and honor...conquest and triumph...and, of course, dragons. In Season 3, family and loyalty are the overarching themes as many critical storylines from the first two seasons come to a brutal head. Meanwhile, the Lannisters maintain their hold on King's Landing, though stirrings in the North threaten to alter the balance of power; Robb Stark, King of the North, faces a major calamity as he tries to build on his victories; a massive army of wildlings led by Mance Rayder march for the Wall; and Daenerys Targaryen--reunited with her dragons--attempts to raise an army in her quest for the Iron Throne.",
+        "first_aired": "2013-04-01T01:00:00.000Z",
+        "updated_at": "2026-02-26T16:48:39.000Z",
+        "network": "HBO",
+        "original_title": null,
+        "images": {
+            "poster": [
+                "walter-r2.trakt.tv/images/seasons/000/003/965/posters/thumb/90908b332b.jpg.webp"
+            ],
+            "thumb": [
+                "walter-r2.trakt.tv/images/seasons/000/003/965/thumbs/medium/ba2b7136cf.jpg.webp"
+            ]
+        },
+        "episodes": [
+            {
+                "season": 3,
+                "number": 1,
+                "title": "Valar Dohaeris",
+                "ids": {
+                    "trakt": 73660,
+                    "tvdb": 4293685,
+                    "imdb": "tt2178782",
+                    "tmdb": 63077,
+                    "tvrage": null
+                },
+                "number_abs": 21,
+                "overview": "Jon is tested by the wildling king; Tyrion asks for his reward; Dany sails to Slaver's Bay.",
+                "rating": 8.14409,
+                "votes": 10056,
+                "comment_count": 7,
+                "first_aired": "2013-04-01T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 55,
+                "episode_type": "season_premiere",
+                "original_title": "Valar Dohaeris",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/660/screenshots/medium/7cb788970b.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Valar Dohaeris",
+                        "overview": "Tras la batalla del Aguasnegras, los reyes de Poniente recolocan sus piezas. Tyrion exige una recompensa por su labor en la batalla. Daenerys busca un ejército a su medida. Más allá del Muro, Jon Nieve conoce a Mance Rayder.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Valar Dohaeris",
+                        "overview": "Tras la batalla del Aguasnegras, los reyes de Poniente recolocan sus piezas. Tyrion exige una recompensa por su labor en la batalla. Daenerys busca un ejército a su medida. Más allá del Muro, Jon Nieve conoce a Mance Rayder.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 3,
+                "number": 2,
+                "title": "Dark Wings, Dark Words",
+                "ids": {
+                    "trakt": 73661,
+                    "tvdb": 4517458,
+                    "imdb": "tt2178772",
+                    "tmdb": 63076,
+                    "tvrage": null
+                },
+                "number_abs": 22,
+                "overview": "Sansa says too much. Shae asks Tyrion for a favor. Jaime finds a way to pass the time, while Arya encounters the Brotherhood Without Banners.",
+                "rating": 8.00493,
+                "votes": 9531,
+                "comment_count": 14,
+                "first_aired": "2013-04-08T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 58,
+                "episode_type": "standard",
+                "original_title": "Dark Wings, Dark Words",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/661/screenshots/medium/4024b36ea4.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Alas negras, palabras negras",
+                        "overview": "Mientras Sansa gana confianza con la familia Tyrell, su hermana Arya sigue huyendo para sobrevivir, como Bran y Rickon, que vivirán un encuentro inesperado en su largo camino al Muro. Por su parte, Catelyn recibe malas noticias de su familia.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Alas negras, palabras negras",
+                        "overview": "Mientras Sansa gana confianza con la familia Tyrell, su hermana Arya sigue huyendo para sobrevivir, como Bran y Rickon, que vivirán un encuentro inesperado en su largo camino al Muro. Por su parte, Catelyn recibe malas noticias de su familia.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 3,
+                "number": 3,
+                "title": "Walk of Punishment",
+                "ids": {
+                    "trakt": 73662,
+                    "tvdb": 4517459,
+                    "imdb": "tt2178802",
+                    "tmdb": 63078,
+                    "tvrage": null
+                },
+                "number_abs": 23,
+                "overview": "Tyrion shoulders new responsibilities. Jon is taken to the Fist of the First Men. Daenerys meets with the slavers. Jaime strikes a deal with his captors.",
+                "rating": 8.11697,
+                "votes": 9601,
+                "comment_count": 20,
+                "first_aired": "2013-04-15T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 53,
+                "episode_type": "standard",
+                "original_title": "Walk of Punishment",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/662/screenshots/medium/acd9b11365.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El camino del castigo",
+                        "overview": "Mientras Catelyn acude con su hijo a Aguasdulces para el funeral de su padre, Tywin Lannister sigue planeando sus movimientos como Mano del Rey. Brienne y Jaime no lo tendrán fácil para seguir su camino, Daenerys llega a un acuerdo sobre los Inmaculados.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El camino del castigo",
+                        "overview": "Mientras Catelyn acude con su hijo a Aguasdulces para el funeral de su padre, Tywin Lannister sigue planeando sus movimientos como Mano del Rey. Brienne y Jaime no lo tendrán fácil para seguir su camino, Daenerys llega a un acuerdo sobre los Inmaculados.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 3,
+                "number": 4,
+                "title": "And Now His Watch Is Ended",
+                "ids": {
+                    "trakt": 73663,
+                    "tvdb": 4517460,
+                    "imdb": "tt2178798",
+                    "tmdb": 63082,
+                    "tvrage": null
+                },
+                "number_abs": 24,
+                "overview": "The Night's Watch takes stock. Varys meets his better. Arya is taken to the commander of the Brotherhood. Dany exchanges a chain for a whip.",
+                "rating": 8.51136,
+                "votes": 9993,
+                "comment_count": 30,
+                "first_aired": "2013-04-22T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 54,
+                "episode_type": "standard",
+                "original_title": "And Now His Watch Is Ended",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/663/screenshots/medium/88063bc80e.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Y ahora su guardia ha terminado",
+                        "overview": "Con los nervios de punta y los estómagos vacíos, la Guardia de la Noche se pone a prueba con Craster. Mientras tanto, Margaery saca a Joffrey de su lugarcito cómodo y le da a Sansa un vistazo del futuro. Arya se encuentra con el líder de la Hermandad sin Estandartes. Varys trama venganza de un antiguo enemigo. Daenerys dispone su salida de Astapor con destreza.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Y ahora su guardia ha terminado",
+                        "overview": "Con los nervios de punta y los estómagos vacíos, la Guardia de la Noche se pone a prueba con Craster. Mientras tanto, Margaery saca a Joffrey de su lugarcito cómodo y le da a Sansa un vistazo del futuro. Arya se encuentra con el líder de la Hermandad sin Estandartes. Varys trama venganza de un antiguo enemigo. Daenerys dispone su salida de Astapor con destreza.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 3,
+                "number": 5,
+                "title": "Kissed by Fire",
+                "ids": {
+                    "trakt": 73664,
+                    "tvdb": 4517461,
+                    "imdb": "tt2178788",
+                    "tmdb": 63083,
+                    "tvrage": null
+                },
+                "number_abs": 25,
+                "overview": "The Hound is judged by the gods. Jaime is judged by men. Jon proves himself. Robb is betrayed. Tyrion learns the cost of weddings.",
+                "rating": 8.08787,
+                "votes": 9355,
+                "comment_count": 13,
+                "first_aired": "2013-04-29T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 58,
+                "episode_type": "standard",
+                "original_title": "Kissed by Fire",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/664/screenshots/medium/7c9778883c.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Besado por el fuego",
+                        "overview": "El perro es juzgado por los dioses. Jaime es juzgado por los hombres. Jon se prueba asi mismo. Robb es traicionado. Tyrion aprende lo costoso que pueden ser los matrimonios.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Besada por el fuego",
+                        "overview": "El perro es juzgado por los dioses. Jaime es juzgado por los hombres. Jon se prueba asi mismo. Robb es traicionado. Tyrion aprende lo costoso que pueden ser los matrimonios.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 3,
+                "number": 6,
+                "title": "The Climb",
+                "ids": {
+                    "trakt": 73665,
+                    "tvdb": 4517462,
+                    "imdb": "tt2178812",
+                    "tmdb": 63084,
+                    "tvrage": null
+                },
+                "number_abs": 26,
+                "overview": "Four Houses consider make-or-break alliances. Jon and the Wildlings face a daunting climb.",
+                "rating": 8.0548,
+                "votes": 9234,
+                "comment_count": 11,
+                "first_aired": "2013-05-06T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 54,
+                "episode_type": "standard",
+                "original_title": "The Climb",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/665/screenshots/medium/afddf1bc8d.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El ascenso",
+                        "overview": "Tywin planea uniones estrategicas para los Lannisters. Melisandre visita Riverlands. Roob evalua su compromiso para reparar su alianza con la casa Frey. Roose Bolton decide lo que hara con Jaime Lannister.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El ascenso",
+                        "overview": "Tywin planea uniones estrategicas para los Lannisters. Melisandre visita Riverlands. Roob evalua su compromiso para reparar su alianza con la casa Frey. Roose Bolton decide lo que hara con Jaime Lannister.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 3,
+                "number": 7,
+                "title": "The Bear and the Maiden Fair",
+                "ids": {
+                    "trakt": 73666,
+                    "tvdb": 4517463,
+                    "imdb": "tt2178814",
+                    "tmdb": 63081,
+                    "tvrage": null
+                },
+                "number_abs": 27,
+                "overview": "Dany exchanges gifts in Yunkai; Brienne faces a formidable foe in Harrenhal.",
+                "rating": 8.1167,
+                "votes": 9229,
+                "comment_count": 19,
+                "first_aired": "2013-05-13T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 58,
+                "episode_type": "standard",
+                "original_title": "The Bear and the Maiden Fair",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/666/screenshots/medium/01067a4293.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El oso y la doncella",
+                        "overview": "Dany intercambia regalos con un capataz en las afueras de Yunkai. Mientras,Sansa se preocupa por sus propectos, Shae se molesta con la nueva situacion de Tyrion.Tywin aconseja al rey, Melisandre revela un secreto a Gendry.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El oso y la doncella",
+                        "overview": "Dany intercambia regalos con un capataz en las afueras de Yunkai. Mientras,Sansa se preocupa por sus propectos, Shae se molesta con la nueva situacion de Tyrion.Tywin aconseja al rey, Melisandre revela un secreto a Gendry.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 3,
+                "number": 8,
+                "title": "Second Sons",
+                "ids": {
+                    "trakt": 73667,
+                    "tvdb": 4517464,
+                    "imdb": "tt2178806",
+                    "tmdb": 63085,
+                    "tvrage": null
+                },
+                "number_abs": 28,
+                "overview": "Dany meets the Titan's Bastard; King's Landing hosts a royal wedding.",
+                "rating": 8.18585,
+                "votes": 9330,
+                "comment_count": 11,
+                "first_aired": "2013-05-20T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 57,
+                "episode_type": "standard",
+                "original_title": "Second Sons",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/667/screenshots/medium/960cdb5920.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Los Segundos Hijos",
+                        "overview": "Davos sigue encerrado en su celda de Rocadragón cuando Melisandre vuelve con Gendry dispuesta a llevar a cabo su misión en favor de Stannis. Mientras tanto, en Desembarco del Rey, Sansa y Tyrion se preparan para su inminente unión matrimonial en el Gran Septo de Baelor. Al otro lado del Mar Angosto, Daenerys se reúne con tres rudos mercenarios con la esperanza de encontrar más aliados para conquistar Yunkai. Más allá del Muro, Sam tendrá que vencer sus miedos si quiere proteger a Gilly y su hijo del cruel invierno y lo que éste trae consigo.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Los segundos hijos",
+                        "overview": "Davos sigue encerrado en su celda de Rocadragón cuando Melisandre vuelve con Gendry dispuesta a llevar a cabo su misión en favor de Stannis. Mientras tanto, en Desembarco del Rey, Sansa y Tyrion se preparan para su inminente unión matrimonial en el Gran Septo de Baelor. Al otro lado del Mar Angosto, Daenerys se reúne con tres rudos mercenarios con la esperanza de encontrar más aliados para conquistar Yunkai. Más allá del Muro, Sam tendrá que vencer sus miedos si quiere proteger a Gilly y su hijo del cruel invierno y lo que éste trae consigo.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 3,
+                "number": 9,
+                "title": "The Rains of Castamere",
+                "ids": {
+                    "trakt": 73668,
+                    "tvdb": 4517465,
+                    "imdb": "tt2178784",
+                    "tmdb": 63080,
+                    "tvrage": null
+                },
+                "number_abs": 29,
+                "overview": "House Frey joins forces with House Tully. Jon faces his most difficult test yet.",
+                "rating": 8.71374,
+                "votes": 10515,
+                "comment_count": 69,
+                "first_aired": "2013-06-03T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:35:10.000Z",
+                "available_translations": [],
+                "runtime": 51,
+                "episode_type": "standard",
+                "original_title": "The Rains of Castamere",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/668/screenshots/medium/3a59c23014.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Las lluvias de Castamere",
+                        "overview": "Robb se presenta ante Walder Frey, Edmure conoce a su esposa. Jon se enfrenta a su prueba más dura. Bran descubre un nuevo don. Daario y Jorah se debaten el como tomar Yunkai. La casa Frey se une con la casa Tully.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Las lluvias de Castamere",
+                        "overview": "Robb se presenta ante Walder Frey, Edmure conoce a su esposa. Jon se enfrenta a su prueba más dura. Bran descubre un nuevo don. Daario y Jorah se debaten el como tomar Yunkai. La casa Frey se une con la casa Tully.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 3,
+                "number": 10,
+                "title": "Mhysa",
+                "ids": {
+                    "trakt": 73669,
+                    "tvdb": 4517466,
+                    "imdb": "tt2178796",
+                    "tmdb": 63079,
+                    "tvrage": null
+                },
+                "number_abs": 30,
+                "overview": "Joffrey challenges Tywin. Dany waits to see if she is a conqueror or a liberator.",
+                "rating": 8.34932,
+                "votes": 9364,
+                "comment_count": 13,
+                "first_aired": "2013-06-10T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:31:26.000Z",
+                "available_translations": [],
+                "runtime": 63,
+                "episode_type": "season_finale",
+                "original_title": "Mhysa",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/669/screenshots/medium/a50630e080.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Mhysa",
+                        "overview": "Joffrey desafia a su abuelo  Tywin. Bran cuenta una historia de fantasmas. En Piedradragon, la misericordia proviene de barrios extraños. Dany espera para ver si ella es una conquistadora o un libertadora.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Mhysa",
+                        "overview": "Joffrey desafia a su abuelo Tywin. Bran cuenta una historia de fantasmas. En Piedradragon, la misericordia proviene de barrios extraños. Dany espera para ver si ella es una conquistadora o un libertadora.",
+                        "language": "es"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "number": 4,
+        "ids": {
+            "trakt": 3966,
+            "tvdb": 568657,
+            "tmdb": 3628,
+            "tvrage": null
+        },
+        "rating": 8.94292,
+        "votes": 5221,
+        "episode_count": 10,
+        "aired_episodes": 10,
+        "title": "Season 4",
+        "overview": "The War of the Five Kings is drawing to a close, but new intrigues and plots are in motion, and the surviving factions must contend with enemies not only outside their ranks, but within.",
+        "first_aired": "2014-04-07T01:00:00.000Z",
+        "updated_at": "2026-02-26T21:15:55.000Z",
+        "network": "HBO",
+        "original_title": null,
+        "images": {
+            "poster": [
+                "walter-r2.trakt.tv/images/seasons/000/003/966/posters/thumb/dc63c37573.jpg.webp"
+            ],
+            "thumb": [
+                "walter-r2.trakt.tv/images/seasons/000/003/966/thumbs/medium/c031e92a3f.jpg.webp"
+            ]
+        },
+        "episodes": [
+            {
+                "season": 4,
+                "number": 1,
+                "title": "Two Swords",
+                "ids": {
+                    "trakt": 73670,
+                    "tvdb": 4721938,
+                    "imdb": "tt2816136",
+                    "tmdb": 973190,
+                    "tvrage": null
+                },
+                "number_abs": 31,
+                "overview": "King's Landing prepares for a royal wedding; Dany finds the way to Meereen; the Night's Watch braces for a new threat.",
+                "rating": 8.30499,
+                "votes": 11033,
+                "comment_count": 16,
+                "first_aired": "2014-04-07T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:40.000Z",
+                "available_translations": [],
+                "runtime": 59,
+                "episode_type": "season_premiere",
+                "original_title": "Two Swords",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/670/screenshots/medium/d942988ce6.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Dos espadas",
+                        "overview": "King's Landing se prepara para la boda real mientras que en Castle Back, la Guardia de la Noche enfrenta una nueva amenaza. Dany encuentra el camino en Mereen, la madre de todas las ciudades esclavistas. Arya se topa con una vieja amistad.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Dos espadas",
+                        "overview": "Tywin Lannister regala a su hijo Jaime, nuevo comandante de la Guardia Real, una espada de acero valyrio. Tyrion y Bronn reciben al díscolo príncipe Oberyn Martell, que busca venganza por las afrentas pasadas a su casa. Sansa, mientras tanto, recibe un regalo inesperado de Dontos Hollard. En el norte, Ygritte y Tormund se reúnen con nuevos refuerzos. En el Castillo Negro, Jon Nieve es sometido a juicio por su tiempo entre los salvajes. En su camino a Meereen, Daenerys descubre que no será bien recibida. En las Tierras de los Ríos, el Perro y Arya Stark tienen un encontronazo con soldados Lannister en una taberna.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 4,
+                "number": 2,
+                "title": "The Lion and the Rose",
+                "ids": {
+                    "trakt": 73671,
+                    "tvdb": 4801602,
+                    "imdb": "tt2832378",
+                    "tmdb": 973219,
+                    "tvrage": null
+                },
+                "number_abs": 32,
+                "overview": "The Lannisters and their guests gather in King's Landing; Stannis loses patience with Davos; Ramsay finds a purpose for his pet.",
+                "rating": 8.66579,
+                "votes": 11053,
+                "comment_count": 40,
+                "first_aired": "2014-04-14T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:40.000Z",
+                "available_translations": [],
+                "runtime": 53,
+                "episode_type": "standard",
+                "original_title": "The Lion and the Rose",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/671/screenshots/medium/07f01a6fbe.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El león y la rosa",
+                        "overview": "Joffrey y Margaery ofrecen un desayuno en el castillo. En Dragonstone, Stannis pierde la paciencia con Davos. Ramsay le encuentra un propósito a su mascota. Al norte del Muro, Bran vislumbra a dónde debe dirigirse ahora.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El león y la rosa",
+                        "overview": "Ramsay Nieve recibe a su padre lord Roose Bolton en Fuerte Terror. Al norte del Muro, Bran emplea sus habilidades como cambiapieles. En Rocadragón, Melisandre ordena quemar vivos en una hoguera a varios hombres de Stannis Baratheon. Desembarco del Rey celebra la boda del rey Joffrey Baratheon con Margaery Tyrell.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 4,
+                "number": 3,
+                "title": "Breaker of Chains",
+                "ids": {
+                    "trakt": 73672,
+                    "tvdb": 4801603,
+                    "imdb": "tt2972426",
+                    "tmdb": 63096,
+                    "tvrage": null
+                },
+                "number_abs": 33,
+                "overview": "Tyrion ponders his options; Tywin extends an olive branch; Jon proposes a bold plan; The Hound teaches Arya the way thing are.",
+                "rating": 8.22815,
+                "votes": 10331,
+                "comment_count": 16,
+                "first_aired": "2014-04-21T01:00:00.000Z",
+                "updated_at": "2026-02-26T20:29:25.000Z",
+                "available_translations": [],
+                "runtime": 57,
+                "episode_type": "standard",
+                "original_title": "Breaker of Chains",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/672/screenshots/medium/2b964db14a.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Rompedora de cadenas",
+                        "overview": "Tyrion considera sus opciones. Tywin forja una tregua. Sam se da cuenta que Castle Black está bajo amenza y a Jon se le ocurre un plan atrevido. The Hound le enseña a Arya cómo son las cosas. Daenerys escoge su campeón.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Rompedora de cadenas",
+                        "overview": "Tras los acontecimientos de la boda del Rey, Sansa encuentra un aliado para escapar de Desembarco. Mientras tanto, Tywin Lannister y su hija Cersei pretenden condenar a Tyrion. En el Norte, Samwell Tarly hace a Gilly mudarse a Villa Topo para mantenerla a salvo, mientras los salvajes liderados por Tormund y Styr siguen atacando aldeas. En Rocadragón, Davos Seaworth da con una idea para procurar un ejército a la causa de Stannis. En las Tierras de los Ríos, el Perro y Arya Stark continúan su viaje hacia el Valle de Arryn. A las puertas de Meereen, Daenerys y su ejército son recibidos por su campeón.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 4,
+                "number": 4,
+                "title": "Oathkeeper",
+                "ids": {
+                    "trakt": 73673,
+                    "tvdb": 4801604,
+                    "imdb": "tt2972428",
+                    "tmdb": 63097,
+                    "tvrage": null
+                },
+                "number_abs": 34,
+                "overview": "Dany balances justice and mercy; Jaime tasks Brienne with his honor; Jon readies his men.",
+                "rating": 8.10604,
+                "votes": 10166,
+                "comment_count": 8,
+                "first_aired": "2014-04-28T01:00:00.000Z",
+                "updated_at": "2026-02-26T21:15:55.000Z",
+                "available_translations": [],
+                "runtime": 56,
+                "episode_type": "standard",
+                "original_title": "Oathkeeper",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/673/screenshots/medium/ecdf893345.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Guardajuramentos",
+                        "overview": "Jaime Lannister encomienda a Brienne una misión. En el Muro, Jon Nieve reúne a un grupo de hermanos de la Guardia de la Noche para atacar a los amotinados del torreón de Craster, quienes han retenido a Bran y sus acompañantes. En Meereen, Daenerys inicia su ofensiva.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Guardajuramentos",
+                        "overview": "Daenerys considera si debe imponerse con justicia o con clemencia. Jaime le confiere atribuciones a Brienne. Jon prepara a sus hombres mientras que Bran, Jojen, Meera y Hodor se encuentran con un refugio.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 4,
+                "number": 5,
+                "title": "First of His Name",
+                "ids": {
+                    "trakt": 73674,
+                    "tvdb": 4801605,
+                    "imdb": "tt3060856",
+                    "tmdb": 63098,
+                    "tvrage": null
+                },
+                "number_abs": 35,
+                "overview": "Cersei and Tywin plot the Crown's next move. Dany discusses future plans. Jon Snow embarks on a new mission.",
+                "rating": 8.0284,
+                "votes": 10140,
+                "comment_count": 10,
+                "first_aired": "2014-05-05T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 54,
+                "episode_type": "standard",
+                "original_title": "First of His Name",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/674/screenshots/medium/b9829e6d54.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El primero de su nombre",
+                        "overview": "Tommen Baratheon se sienta en el Trono de Hierro. Cersei y Tywin discuten el futuro de la alianza entre la casa Lannister y la Tyrell. Littlefinger y Sansa se reúnen con Lysa Arryn. Dany quiere probar que puede controlar las ciudades que ha liberado.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El primero de su nombre",
+                        "overview": "Cersei planea influir en los jueces del proceso contra Tyrion. Lord Petyr Baelish y Sansa Stark llegan al Valle de Arryn, donde son recibidos por lady Lysa Arryn. Al otro lado del Mar Angosto, Daenerys decide quedarse un tiempo a gobernar en Meereen. Mas allá del Muro, Jon Nieve y su grupo atacan el torreón de Craster.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 4,
+                "number": 6,
+                "title": "The Laws of Gods and Men",
+                "ids": {
+                    "trakt": 73675,
+                    "tvdb": 4801606,
+                    "imdb": "tt3060910",
+                    "tmdb": 63099,
+                    "tvrage": null
+                },
+                "number_abs": 36,
+                "overview": "Stannis and Davos set sail with a new strategy. Dany meets with supplicants. Tyrion faces down his father in the Throne Room.",
+                "rating": 8.49976,
+                "votes": 10617,
+                "comment_count": 25,
+                "first_aired": "2014-05-12T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:49:09.000Z",
+                "available_translations": [],
+                "runtime": 51,
+                "episode_type": "standard",
+                "original_title": "The Laws of Gods and Men",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/675/screenshots/medium/c857bc1069.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Leyes de dioses y hombres",
+                        "overview": "Stannis y Davos se embarcan hacia una nueva estrategia que los lleva a Braavos. Dany se reune con el pueblo de Meeren y atiende sus súplicas. Tyrion se enfrenta a su padre al ser juzgado sin piedad en la sala del Trono de Hierro. Yara Greyjoy trata de rescatar a su hermano Theon.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Leyes de dioses y hombres",
+                        "overview": "Stannis y Davos negocian un préstamo con el Banco de Hierro de Braavos. En Fuerte Terror, Yara Greyjoy pone en marcha un plan para liberar a su hermano Theon de los Bolton. En Desembarco del Rey da comienzo el juicio de Tyrion Lannister.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 4,
+                "number": 7,
+                "title": "Mockingbird",
+                "ids": {
+                    "trakt": 73676,
+                    "tvdb": 4801607,
+                    "imdb": "tt3060876",
+                    "tmdb": 63100,
+                    "tvrage": null
+                },
+                "number_abs": 37,
+                "overview": "Tyrion enlists an unlikely ally. Daario entreats Dany to allow him to do what he does best. Jon's warnings fall on deaf ears.",
+                "rating": 8.29571,
+                "votes": 10294,
+                "comment_count": 12,
+                "first_aired": "2014-05-19T01:00:00.000Z",
+                "updated_at": "2026-02-26T21:11:56.000Z",
+                "available_translations": [],
+                "runtime": 52,
+                "episode_type": "standard",
+                "original_title": "Mockingbird",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/676/screenshots/medium/fb8d06287e.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Sinsonte",
+                        "overview": "Tyrion está de vuelta a su celda, pero ahora busca un aliado poco probable. Daario ofrece sus servicios a Dany, mientras que Jon trata en vano de advertir de la vulnerabilidad del Muro. Brienne sigue una nueva pista y Clegane tiene otra víctima.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Sinsonte",
+                        "overview": "En Desembarco del Rey, Tyrion recibe ayuda de un inesperado aliado. En el Muro, Jon Nieve solicita a la Guardia bloquear el paso a través del Muro para evitar que el ejército de Mance Rayder lo atraviese. En el Camino Real, Brienne y Pod reciben noticias del paradero de Arya Stark, que continua su viaje con el Perro. En el Valle, Petyr Baelish da a conocer sus verdaderos motivos respecto a Sansa.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 4,
+                "number": 8,
+                "title": "The Mountain and the Viper",
+                "ids": {
+                    "trakt": 73677,
+                    "tvdb": 4801608,
+                    "imdb": "tt3060782",
+                    "tmdb": 63101,
+                    "tvrage": null
+                },
+                "number_abs": 38,
+                "overview": "Mole's Town receives some unexpected visitors. Littlefinger's motives are questioned. Tyrion's fate is decided.",
+                "rating": 8.55942,
+                "votes": 10745,
+                "comment_count": 39,
+                "first_aired": "2014-06-02T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:39.000Z",
+                "available_translations": [],
+                "runtime": 53,
+                "episode_type": "standard",
+                "original_title": "The Mountain and the Viper",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/677/screenshots/medium/a3c5c3e7b3.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "La Montaña y la Víbora",
+                        "overview": "Un duelo define el futuro de Tyrion. mientras que visitantes inesperados llegan a una aldea al sur del Muro. Ramsay trata de justificar sus acciones ante su padre y recibe una sorpresa. Dany se ve forzada a tomar una dura decisión.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "La montaña y la víbora",
+                        "overview": "Sansa es interrogada por el asesinato de su tía Lysa Arryn. Ramsay Nieve pone en marcha un plan para recuperar Foso Cailin. La noticia sobre el pasado de ser Jorah llega a Danaerys, que toma medidas drásticas. En Desembarco del Rey, acontece la resolución del juicio de Tyrion Lannister mediante un combate singular.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 4,
+                "number": 9,
+                "title": "The Watchers on the Wall",
+                "ids": {
+                    "trakt": 73678,
+                    "tvdb": 4801609,
+                    "imdb": "tt3060858",
+                    "tmdb": 63102,
+                    "tvrage": null
+                },
+                "number_abs": 39,
+                "overview": "Jon Snow and the rest of the Night's Watch face the biggest challenge to the Wall yet.",
+                "rating": 8.47721,
+                "votes": 10662,
+                "comment_count": 17,
+                "first_aired": "2014-06-09T01:00:00.000Z",
+                "updated_at": "2026-02-26T11:08:09.000Z",
+                "available_translations": [],
+                "runtime": 51,
+                "episode_type": "standard",
+                "original_title": "The Watchers on the Wall",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/678/screenshots/medium/d38f2fdfda.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Los vigilantes del Muro",
+                        "overview": "La Guardia de la Noche enfrenta su mayor desafío, y Jon Snow deberá dar la talla. Al sur los salvajes atacan Castle Black, mientras que al norte, Mance Rayder y su cuantioso ejército intentan traspasar el muro. Lord Snow tendrá una víctima que lamentar.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Los vigilantes del muro",
+                        "overview": "La Guardia de la Noche defiende el Muro, en dos frentes, del ataque de los salvajes liderados por Mance Rayder, cuyo objetivo es pasar a través de este.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 4,
+                "number": 10,
+                "title": "The Children",
+                "ids": {
+                    "trakt": 73679,
+                    "tvdb": 4801610,
+                    "imdb": "tt3060860",
+                    "tmdb": 63103,
+                    "tvrage": null
+                },
+                "number_abs": 40,
+                "overview": "Circumstances change after an unexpected arrival from north of the Wall. Dany must face harsh realities. Bran learns more about his destiny. Tyrion sees the truth about his situation.",
+                "rating": 8.6262,
+                "votes": 10725,
+                "comment_count": 27,
+                "first_aired": "2014-06-16T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:39:04.000Z",
+                "available_translations": [],
+                "runtime": 66,
+                "episode_type": "season_finale",
+                "original_title": "The Children",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/679/screenshots/medium/ba3fd92e29.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Los niños",
+                        "overview": "Final de temporada. Condenado a muerte, Tyrion Lannister está a punto de conocer su destino. Jon Snow se dirige a una nueva batalla. Dany debe enfrentarse a una dura realidad, mientras Bran y su grupo siguen luchando para completar su viaje.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Los niños",
+                        "overview": "Jon Nieve y Mance Rayder exponen términos de paz entre su pueblo y los Siete Reinos cuando son sorprendidos por un contingente de caballería. En Desembarco de rey, Tywin insiste a Cersei con sus planes de matrimonio. En Meereen, Daenerys debe lidiar con los peligrosos instintos de sus dragones. Bran y su grupo llegan hasta su destino, pero son atacados por espectros. Brienne cruza su camino con el Perro y Arya. Jaime libera a Tyrion, quien antes de partir de Desembarco del Rey visita a dos personas y arregla su situación.",
+                        "language": "es"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "number": 5,
+        "ids": {
+            "trakt": 3967,
+            "tvdb": 607490,
+            "tmdb": 62090,
+            "tvrage": null
+        },
+        "rating": 8.2726,
+        "votes": 5099,
+        "episode_count": 10,
+        "aired_episodes": 10,
+        "title": "Season 5",
+        "overview": "The War of the Five Kings, once thought to be drawing to a close, is instead entering a new and more chaotic phase. Westeros is on the brink of collapse, and many are seizing what they can while the realm implodes, like a corpse making a feast for crows.",
+        "first_aired": "2015-04-13T01:00:00.000Z",
+        "updated_at": "2026-02-26T23:04:34.000Z",
+        "network": "HBO",
+        "original_title": null,
+        "images": {
+            "poster": [
+                "walter-r2.trakt.tv/images/seasons/000/003/967/posters/thumb/126953dc83.jpg.webp"
+            ],
+            "thumb": [
+                "walter-r2.trakt.tv/images/seasons/000/003/967/thumbs/medium/e8240191ba.jpg.webp"
+            ]
+        },
+        "episodes": [
+            {
+                "season": 5,
+                "number": 1,
+                "title": "The Wars to Come",
+                "ids": {
+                    "trakt": 73680,
+                    "tvdb": 5083694,
+                    "imdb": "tt3658012",
+                    "tmdb": 1043618,
+                    "tvrage": null
+                },
+                "number_abs": 41,
+                "overview": "Cersei and Jaime adjust to a world without Tywin. Varys reveals a conspiracy to Tyrion. Dany faces a new threat to her rule. Jon is caught between two kings.",
+                "rating": 8.00129,
+                "votes": 11613,
+                "comment_count": 39,
+                "first_aired": "2015-04-13T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:39:15.000Z",
+                "available_translations": [],
+                "runtime": 53,
+                "episode_type": "season_premiere",
+                "original_title": "The Wars to Come",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/000/073/680/screenshots/medium/65caf2efc8.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Las guerras venideras",
+                        "overview": "Rodeados por los Tyrell, Cersei y Jaime se adaptan a una nueva etapa sin Tywin Lannister en Desembarco del Rey, mientras Jon trata de cumplir las condiciones de Stannis. Al otro lado del Mar Angosto, Dany afronta una nueva amenaza en Meereen y Varys hace una revelación a Tyrion en Pentos.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Las guerras venideras",
+                        "overview": "Cersei y Jamie tratan de adaptarse a un mundo sin Tywin. Varys le revela a Tyrion una conspiración. Dany enfrenta una nueva amenaza a su trono. Jon está atrapado entre dos reyes.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 5,
+                "number": 2,
+                "title": "The House of Black and White",
+                "ids": {
+                    "trakt": 1782360,
+                    "tvdb": 5150174,
+                    "imdb": "tt3846626",
+                    "tmdb": 1045551,
+                    "tvrage": null
+                },
+                "number_abs": 42,
+                "overview": "Arya arrives in Braavos. Podrick and Brienne run into trouble on the road. Cersei fears for her daughter's safety in Dorne as Ellaria Sand seeks revenge for Oberyn's death. Stannis tempts Jon. An adviser tempts Daenerys.",
+                "rating": 7.91209,
+                "votes": 10886,
+                "comment_count": 16,
+                "first_aired": "2015-04-20T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:39:27.000Z",
+                "available_translations": [],
+                "runtime": 56,
+                "episode_type": "standard",
+                "original_title": "The House of Black and White",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/782/360/screenshots/medium/e1cd085fba.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "La Casa de Negro y Blanco",
+                        "overview": "Arya llega a Braavos. Pod y Brienne encuentran dificultades en el camino. Cersei teme por la seguridad de su hija en Dorne cuando Ellaria Arena busque vengar la muerte de Oberyn. Stannis trata de convencer a Jon y un consejero tienta a Dany.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "La casa de negro y blanco",
+                        "overview": "Cersei teme por la seguridad de su hija Myrcella en Dorne, ahora que Ellaria Arena reclama venganza por la muerte de Oberyn. En el Muro, Stannis tienta a Jon, y en Meereen un consejero tienta a Dany. Mientras tanto, Arya desembarca en Braavos.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 5,
+                "number": 3,
+                "title": "High Sparrow",
+                "ids": {
+                    "trakt": 1782361,
+                    "tvdb": 5150175,
+                    "imdb": "tt3866836",
+                    "tmdb": 1045552,
+                    "tvrage": null
+                },
+                "number_abs": 43,
+                "overview": "In Braavos, Arya sees the Many-Faced God. In King's Landing, Queen Margaery enjoys her new husband. Tyrion and Varys walk the Long Bridge of Volantis.",
+                "rating": 7.85674,
+                "votes": 10610,
+                "comment_count": 21,
+                "first_aired": "2015-04-27T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:39:35.000Z",
+                "available_translations": [],
+                "runtime": 60,
+                "episode_type": "standard",
+                "original_title": "High Sparrow",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/782/361/screenshots/medium/b335011b07.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Gorrión Supremo",
+                        "overview": "En Braavos, Arya ve al Dios de Muchos Rostros. En Desembarco del Rey, la Reina Margaery disfruta de su nuevo esposo. Tyrion y Varys caminan por el Puente Largo de Volantis.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Gorrión Supremo",
+                        "overview": "En Braavos, Arya se encuentra con el Dios de Muchos Rostros. No muy lejos de allí, Tyrion y Varys recorren el Puente Largo de la ciudad de Volantis. En Desembarco del Rey, la reina Margaery disfruta de la compañía de su nuevo marido.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 5,
+                "number": 4,
+                "title": "Sons of the Harpy",
+                "ids": {
+                    "trakt": 1782362,
+                    "tvdb": 5150183,
+                    "imdb": "tt3866838",
+                    "tmdb": 1045553,
+                    "tvrage": null
+                },
+                "number_abs": 44,
+                "overview": "The Faith Militant grow increasingly aggressive. Jaime and Bronn head south. Ellaria and the Sand Snakes vow vengeance.",
+                "rating": 7.94204,
+                "votes": 10646,
+                "comment_count": 31,
+                "first_aired": "2015-05-04T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:39:40.000Z",
+                "available_translations": [],
+                "runtime": 51,
+                "episode_type": "standard",
+                "original_title": "Sons of the Harpy",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/782/362/screenshots/medium/9320c5a804.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Hijos de la arpía",
+                        "overview": "La nueva milicia de la Fe se vuelve cada vez más agresiva. Jaime y Bronn van hacia el sur de Westeros. Ellaria y las Serpientes de Arena hacen un voto de  venganza.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Hijos de la arpía",
+                        "overview": "La Fe Militante empieza a crecer de manera agresiva en Desembarco del Rey, mientras Jaime y Bronn se dirigen al sur a negociar con Dorne, desde donde Ellaria y las Serpientes de Arena juran venganza por la muerte de Oberyn.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 5,
+                "number": 5,
+                "title": "Kill the Boy",
+                "ids": {
+                    "trakt": 1786535,
+                    "tvdb": 5171022,
+                    "imdb": "tt3866840",
+                    "tmdb": 1051286,
+                    "tvrage": null
+                },
+                "number_abs": 45,
+                "overview": "Dany makes a difficult decision in Meereen. Jon recruits the help of an unexpected ally. Brienne searches for Sansa. Theon remains under Ramsay's control.",
+                "rating": 7.8949,
+                "votes": 9886,
+                "comment_count": 20,
+                "first_aired": "2015-05-11T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:39:44.000Z",
+                "available_translations": [],
+                "runtime": 57,
+                "episode_type": "standard",
+                "original_title": "Kill the Boy",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/786/535/screenshots/medium/608da7c46a.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Matad al chico",
+                        "overview": "Daenerys toma una difícil decisión en Meeren. Jon Snow consigue la ayuda de un aliado inesperado. Brienne sigue en la búsqueda de Sansa. Theon continúa bajo el control de Ramsay Bolton",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Maten al chico",
+                        "overview": "Tras los últimos acontecimientos, Daenerys decide imponerse en Meereen. En el Muro, Jon recurre a un inesperado aliado en busca de ayuda. Brienne busca a Sansa, que ahora está sola en Invernalia, donde Theon sigue bajo el control de Ramsay.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 5,
+                "number": 6,
+                "title": "Unbowed, Unbent, Unbroken",
+                "ids": {
+                    "trakt": 1786537,
+                    "tvdb": 5171023,
+                    "imdb": "tt3866842",
+                    "tmdb": 1051287,
+                    "tvrage": null
+                },
+                "number_abs": 46,
+                "overview": "Arya trains. Jorah and Tyrion run into slavers. Trystane and Myrcella make plans. Jaime and Bronn reach their destination. The Sand Snakes attack.",
+                "rating": 7.69508,
+                "votes": 10088,
+                "comment_count": 52,
+                "first_aired": "2015-05-18T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:46:47.000Z",
+                "available_translations": [],
+                "runtime": 54,
+                "episode_type": "standard",
+                "original_title": "Unbowed, Unbent, Unbroken",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/786/537/screenshots/medium/5872212d2c.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Nunca doblegado, nunca roto",
+                        "overview": "Arya continúa con su entrenamiento. Jorah y Tyrion se encuentran con un grupo de esclavistas. Trystane y Myrcella hacen planes mientras Jaime y Bronn llegan a su destino. Las Serpientes de Arena se lanzan a un ataque.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Nunca doblegado, nunca roto",
+                        "overview": "Arya entrena. Jorah y Tyrion se encuentran con esclavistas. Trystane y Myrcella hacen planes. Jaime y Bronn alcanzan su destino. Las Serpientes de Arena atacan.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 5,
+                "number": 7,
+                "title": "The Gift",
+                "ids": {
+                    "trakt": 1786539,
+                    "tvdb": 5171024,
+                    "imdb": "tt3866846",
+                    "tmdb": 1051288,
+                    "tvrage": null
+                },
+                "number_abs": 47,
+                "overview": "Jon prepares for conflict. Sansa tries to talk to Theon. Brienne waits for a sign. Stannis remains stubborn. Jaime attempts to reconnect with family.",
+                "rating": 8.01352,
+                "votes": 10352,
+                "comment_count": 32,
+                "first_aired": "2015-05-25T01:00:00.000Z",
+                "updated_at": "2026-02-26T22:02:09.000Z",
+                "available_translations": [],
+                "runtime": 59,
+                "episode_type": "standard",
+                "original_title": "The Gift",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/786/539/screenshots/medium/bfc269c7a1.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El regalo",
+                        "overview": "Jon se prepara para un conflicto. Sansa intenta hablar con Theon. Brienne espera una señal. Stannis continúa con su terquedad. Jaime intenta reconectarse con su familia.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El regalo",
+                        "overview": "En el Muro, Sam se enfrenta a problemas cuando Jon emprende su viaje, mientras en Invernalia Sansa intenta persuadir a Theon. No muy lejos de allí, Brienne aguarda una señal y Stannis avanza por el frío con su ejército, convencido de su decisión. En Desembarco del Rey, las cosas no pintan bien para los Tyrell.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 5,
+                "number": 8,
+                "title": "Hardhome",
+                "ids": {
+                    "trakt": 1786541,
+                    "tvdb": 5194184,
+                    "imdb": "tt3866850",
+                    "tmdb": 1070282,
+                    "tvrage": null
+                },
+                "number_abs": 48,
+                "overview": "Arya makes progress in her training. Sansa confronts an old friend. Cersei struggles. Jon travels.",
+                "rating": 8.65249,
+                "votes": 11565,
+                "comment_count": 74,
+                "first_aired": "2015-06-01T01:00:00.000Z",
+                "updated_at": "2026-02-26T23:04:34.000Z",
+                "available_translations": [],
+                "runtime": 60,
+                "episode_type": "standard",
+                "original_title": "Hardhome",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/786/541/screenshots/medium/ab0bf0bf90.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Casa Austera",
+                        "overview": "Arya avanza en su entrenamiento. Sansa confronta a un viejo amigo. Cersei sufre. Jon emprende un viaje.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Casa Austera",
+                        "overview": "Daenerys decide escuchar a Tyrion. En Braavos, Arya hace progresos en su peculiar entrenamiento, mientras su hermana Sansa se enfrenta otra vez a Theon en la fría Invernalia. Todavía encerrada, Cersei habla con Qyburn. Jon desembarca en Casa Austera para negociar con los salvajes.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 5,
+                "number": 9,
+                "title": "The Dance of Dragons",
+                "ids": {
+                    "trakt": 1786543,
+                    "tvdb": 5194187,
+                    "imdb": "tt3866826",
+                    "tmdb": 1054979,
+                    "tvrage": null
+                },
+                "number_abs": 49,
+                "overview": "Stannis confronts a troubling decision. Jon returns to The Wall. Mace visits the Iron Bank. Arya encounters someone from her past. Dany reluctantly oversees a traditional celebration of athleticism.",
+                "rating": 8.4463,
+                "votes": 11015,
+                "comment_count": 60,
+                "first_aired": "2015-06-08T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:40:00.000Z",
+                "available_translations": [],
+                "runtime": 53,
+                "episode_type": "standard",
+                "original_title": "The Dance of Dragons",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/786/543/screenshots/medium/4b56b868d5.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Danza de dragones",
+                        "overview": "Stannis debe tomar una difícil decisión. Jon regresa al Muro. Arya se topa con alguien de su pasado. Dany ve, no muy complacida, una muestra tradicional de atletismo.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Danza de dragones",
+                        "overview": "Stannis afronta una decisión complicada en mitad del frío, mientras Jon regresa con los salvajes al Muro. Mace Tyrell visita el Banco de Hierro en Braavos. Arya se reencuentra con alguien de su pasado. En Meereen, muy a su pesar, Dany asiste como anfitriona al espectáculo del Gran Reñidero, donde Jorah pretende luchar una vez más para recuperar su confianza.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 5,
+                "number": 10,
+                "title": "Mother's Mercy",
+                "ids": {
+                    "trakt": 1786545,
+                    "tvdb": 5194188,
+                    "imdb": "tt3866862",
+                    "tmdb": 1159054,
+                    "tvrage": null
+                },
+                "number_abs": 50,
+                "overview": "Stannis marches. Dany is surrounded by strangers. Cersei seeks forgiveness. Jon is challenged.",
+                "rating": 8.35987,
+                "votes": 11307,
+                "comment_count": 84,
+                "first_aired": "2015-06-15T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:40:03.000Z",
+                "available_translations": [],
+                "runtime": 61,
+                "episode_type": "season_finale",
+                "original_title": "Mother's Mercy",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/786/545/screenshots/medium/a0f7f42da4.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Misericordia",
+                        "overview": "Stannis marcha hacia Invernalia, mientras Jon afronta un desafío en el Muro. En Desembarco del Rey, Cersei busca recibir el perdón del Gorrión Supremo. Tyrion, Jorah y Daario Naharis se plantean qué hacer en Meereen sin recibir noticias de Daenerys.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Misericordia",
+                        "overview": "En Desembarco del Rey, Cersei confiesa sus pecados y es liberada tras hacer una penitencia. En el Norte, cerca de Invernalia, Ramsey Bolton y su ejército masacran al diminuto ejército de Stannis. Mientras tanto, allí en Invernalia, Theon trata de escapar junto con Sansa. En el Muro, la Guardia de la Noche asesina a Jon Nieve por creerlo un traidor. En Meereen, Jorah y Daario emprenden una búsqueda para localizar a Daenerys, quien se encuentra en un valle donde es encontrada por un campamento Dothraki. En Dorne, Ellaria Arena envenena a Myrcella antes de partir con Jaime del lugar. En Braavos, Arya lleva a cabo el juego de las caras para una misión personal, lo que tendrá consecuencias.",
+                        "language": "es"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "number": 6,
+        "ids": {
+            "trakt": 114727,
+            "tvdb": 651357,
+            "tmdb": 71881,
+            "tvrage": null
+        },
+        "rating": 8.41364,
+        "votes": 5060,
+        "episode_count": 10,
+        "aired_episodes": 10,
+        "title": "Season 6",
+        "overview": "Following the shocking developments at the conclusion of season five, survivors from all parts of Westeros and Essos regroup to press forward, inexorably, towards their uncertain individual fates. Familiar faces will forge new alliances to bolster their strategic chances at survival, while new characters will emerge to challenge the balance of power in the east, west, north and south.",
+        "first_aired": "2016-04-25T01:00:00.000Z",
+        "updated_at": "2026-02-26T23:07:40.000Z",
+        "network": "HBO",
+        "original_title": null,
+        "images": {
+            "poster": [
+                "walter-r2.trakt.tv/images/seasons/000/114/727/posters/thumb/63587fcca7.jpg.webp"
+            ],
+            "thumb": [
+                "walter-r2.trakt.tv/images/seasons/000/114/727/thumbs/medium/c5c7768204.jpg.webp"
+            ]
+        },
+        "episodes": [
+            {
+                "season": 6,
+                "number": 1,
+                "title": "The Red Woman",
+                "ids": {
+                    "trakt": 1956360,
+                    "tvdb": 5469015,
+                    "imdb": "tt3658014",
+                    "tmdb": 1156503,
+                    "tvrage": null
+                },
+                "number_abs": 51,
+                "overview": "The fate of Jon Snow is revealed. Daenerys meets a strong man. Cersei sees her daughter once again.",
+                "rating": 8.00304,
+                "votes": 16426,
+                "comment_count": 52,
+                "first_aired": "2016-04-25T01:00:00.000Z",
+                "updated_at": "2026-02-26T20:12:52.000Z",
+                "available_translations": [],
+                "runtime": 51,
+                "episode_type": "season_premiere",
+                "original_title": "The Red Woman",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/956/360/screenshots/medium/b9e3295bb0.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "La mujer roja",
+                        "overview": "Jon Snow ha muerto. Daenerys se encuentra con un hombre fuerte. Cersei ve a su hija de nuevo.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "La mujer roja",
+                        "overview": "Mientras el destino de Jon Nieve se decide en el Muro, Daenerys es llevada ante un nuevo Khal, Tyrion se adapta a la vida en Meereen, Sansa y Theon encuentran aliados inesperados. En Dorne surge una rebelión y a Desembarco del Rey llega Jaime con Myrcella.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 6,
+                "number": 2,
+                "title": "Home",
+                "ids": {
+                    "trakt": 1989020,
+                    "tvdb": 5579002,
+                    "imdb": "tt4077554",
+                    "tmdb": 1187406,
+                    "tvrage": null
+                },
+                "number_abs": 52,
+                "overview": "Bran trains with the Three-Eyed Raven. In King’s Landing, Jaime advises Tommen. Tyrion demands good news, but has to make his own. At Castle Black, the Night’s Watch stands behind Thorne. Ramsay Bolton proposes a plan, and Balon Greyjoy entertains other proposals.",
+                "rating": 8.30734,
+                "votes": 16197,
+                "comment_count": 67,
+                "first_aired": "2016-05-02T01:00:00.000Z",
+                "updated_at": "2026-02-26T21:09:33.000Z",
+                "available_translations": [],
+                "runtime": 54,
+                "episode_type": "standard",
+                "original_title": "Home",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/989/020/screenshots/medium/82b7e5a64e.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "A casa",
+                        "overview": "Bran se entrena con el Cuervo de Tres Ojos. En Desembarco del Rey, Jaime aconseja a Tommen. Tyrion quiere buenas noticias, pero debe conseguirlas él mismo. En el Castillo Negro, la Guardia de la Noche apoya a Thorne. Ramsay Bolton propone un plan, y Balon Greyjoy analiza otras propuestas.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "A casa",
+                        "overview": "En su huida de Invernalia y tras cruzarse en el camino de Brienne y Podrick Payne, hará que Theon decida que Sansa ya está a salvo y que ha llegado el momento de regresar a su hogar, en Pyke.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 6,
+                "number": 3,
+                "title": "Oathbreaker",
+                "ids": {
+                    "trakt": 1989021,
+                    "tvdb": 5579003,
+                    "imdb": "tt4131606",
+                    "tmdb": 1186952,
+                    "tvrage": null
+                },
+                "number_abs": 53,
+                "overview": "Daenerys meets her future. Arya trains to be No One.",
+                "rating": 8.0701,
+                "votes": 15591,
+                "comment_count": 35,
+                "first_aired": "2016-05-09T01:00:00.000Z",
+                "updated_at": "2026-02-26T22:06:14.000Z",
+                "available_translations": [],
+                "runtime": 53,
+                "episode_type": "standard",
+                "original_title": "Oathbreaker",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/989/021/screenshots/medium/f436b0ba59.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Perjurio",
+                        "overview": "Daenerys conoce su futuro. Bran conoce el pasado. Tommen se enfrenta al Gorrión Supremo. Arya entrena para ser Nadie. Varys encuentra respuestas. Ramsay recibe un regalo.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Perjuro",
+                        "overview": "Daenerys se reúne con las viejas del nuevo Khalasar, mientras, en Meereen, Varys busca información sobre los Hijos de la Arpía. Arya entrena para no ser nadie. Ramsay recibe un inesperado regalo. Tommen habla con el Gorrión Supremo sobre su madre. Jon se intenta adaptar a su regreso.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 6,
+                "number": 4,
+                "title": "Book of the Stranger",
+                "ids": {
+                    "trakt": 1989022,
+                    "tvdb": 5599364,
+                    "imdb": "tt4283016",
+                    "tmdb": 1186953,
+                    "tvrage": null
+                },
+                "number_abs": 54,
+                "overview": "Tyrion strikes a deal. Jorah and Daario undertake a difficult task. Jaime and Cersei try to improve their situation.",
+                "rating": 8.33954,
+                "votes": 15851,
+                "comment_count": 41,
+                "first_aired": "2016-05-16T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:41.000Z",
+                "available_translations": [],
+                "runtime": 59,
+                "episode_type": "standard",
+                "original_title": "Book of the Stranger",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/989/022/screenshots/medium/72b25a6af3.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Libro del Desconocido",
+                        "overview": "Tyrion logra un acuerdo. Jorah y Daario se enfrentan a una tarea difícil. Jaime y Cersei intentan mejorar su situación.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Libro del Desconocido",
+                        "overview": "Mientras Tyrion llega un acuerdo en ausencia de Daenerys, Daario y Jorah le siguen la pista a la madre de dragones en el poblado dothraki. Jaime y Cersei mueven hilos con los Tyrell para mejorar su situación. Theon regresa a casa.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 6,
+                "number": 5,
+                "title": "The Door",
+                "ids": {
+                    "trakt": 1989023,
+                    "tvdb": 5600132,
+                    "imdb": "tt4283028",
+                    "tmdb": 1186954,
+                    "tvrage": null
+                },
+                "number_abs": 55,
+                "overview": "Tyrion seeks a strange ally. Bran learns a great deal. Brienne goes on a mission. Arya is given a chance to prove herself.",
+                "rating": 8.44982,
+                "votes": 16729,
+                "comment_count": 89,
+                "first_aired": "2016-05-23T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:41.000Z",
+                "available_translations": [],
+                "runtime": 57,
+                "episode_type": "standard",
+                "original_title": "The Door",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/989/023/screenshots/medium/698a03972a.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El portón",
+                        "overview": "Tyrion pide ayuda a una extraña aliada. Bran hace un gran descubrimiento. Brienne lleva a cabo una misión. Arya tiene una oportunidad de demostrar su valía.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El portón",
+                        "overview": "Tyrion busca un extraño aliado. Bran descubre un gran acuerdo. Brienne se dirige hacia una misión. Arya recibe una oportunidad de demostrar su valía.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 6,
+                "number": 6,
+                "title": "Blood of My Blood",
+                "ids": {
+                    "trakt": 1989025,
+                    "tvdb": 5615733,
+                    "imdb": "tt4283054",
+                    "tmdb": 1186955,
+                    "tvrage": null
+                },
+                "number_abs": 56,
+                "overview": "An old foe comes back into the picture. Gilly meets Sam’s family. Arya faces a difficult choice. Jaime faces off against the High Sparrow.",
+                "rating": 8.06244,
+                "votes": 15790,
+                "comment_count": 32,
+                "first_aired": "2016-05-30T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:40.000Z",
+                "available_translations": [],
+                "runtime": 52,
+                "episode_type": "standard",
+                "original_title": "Blood of My Blood",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/989/025/screenshots/medium/9a83a2c401.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Sangre de mi sangre",
+                        "overview": "Gilly conoce a la familia de Sam. Arya afronta una difícil decisión. Jaime planta cara al Gorrión Supremo. Un viejo enemigo vuelve a entrar en juego.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Sangre de mi sangre",
+                        "overview": "Un viejo enemigo regresa a escena. Elí conoce a la familia de Sam. Arya se enfrenta a una difícil elección. Jaime se enfrenta al Gorrión Supremo.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 6,
+                "number": 7,
+                "title": "The Broken Man",
+                "ids": {
+                    "trakt": 1989026,
+                    "tvdb": 5615734,
+                    "imdb": "tt4283060",
+                    "tmdb": 1186956,
+                    "tvrage": null
+                },
+                "number_abs": 57,
+                "overview": "The High Sparrow eyes another target. Jaime confronts a hero. Arya makes a plan. The North is reminded.",
+                "rating": 7.95798,
+                "votes": 15827,
+                "comment_count": 41,
+                "first_aired": "2016-06-06T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:41:39.000Z",
+                "available_translations": [],
+                "runtime": 51,
+                "episode_type": "standard",
+                "original_title": "The Broken Man",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/989/026/screenshots/medium/5d3193c5b4.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El hombre destrozado",
+                        "overview": "El Gorrión Supremo orienta sus miras hacia otro objetivo. Jaime negocia con Brynden Tully. Arya urde un plan. El Norte por fin recuerda.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El hombre destrozado",
+                        "overview": "Mientras el Gorrión Supremo orienta sus miras hacia otro objetivo, Jaime llega a Aguasdulces para negociar con Brynden Tully. En Braavos Arya urde un plan. El Norte por fin recuerda.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 6,
+                "number": 8,
+                "title": "No One",
+                "ids": {
+                    "trakt": 1989029,
+                    "tvdb": 5624259,
+                    "imdb": "tt4283074",
+                    "tmdb": 1187403,
+                    "tvrage": null
+                },
+                "number_abs": 58,
+                "overview": "While Jaime weighs his options, Cersei answers a request. Tyrion's plans bear fruit. Arya faces a new test.",
+                "rating": 8.06592,
+                "votes": 15868,
+                "comment_count": 32,
+                "first_aired": "2016-06-13T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:40.000Z",
+                "available_translations": [],
+                "runtime": 59,
+                "episode_type": "standard",
+                "original_title": "No One",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/989/029/screenshots/medium/1cfa671bd4.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Nadie",
+                        "overview": "Jaime sopesa sus opciones. Cersei responde a una petición. Los planes de Tyrion empiezan a dar frutos. Arya afronta un nuevo reto.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Nadie",
+                        "overview": "Mientras Jaime sopesa sus opciones, Cersei responde a un pedido. El plan de Tyrion rinde frutos. Arya enfrenta una nueva prueba.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 6,
+                "number": 9,
+                "title": "Battle of the Bastards",
+                "ids": {
+                    "trakt": 1989030,
+                    "tvdb": 5624260,
+                    "imdb": "tt4283088",
+                    "tmdb": 1187404,
+                    "tvrage": null
+                },
+                "number_abs": 59,
+                "overview": "Slaver envoys demand terms of surrender in Meereen. Ramsay plays the odds in defense of Winterfell.",
+                "rating": 8.91773,
+                "votes": 18950,
+                "comment_count": 101,
+                "first_aired": "2016-06-20T01:00:00.000Z",
+                "updated_at": "2026-02-26T10:34:24.000Z",
+                "available_translations": [],
+                "runtime": 60,
+                "episode_type": "standard",
+                "original_title": "Battle of the Bastards",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/989/030/screenshots/medium/a695c1459d.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "La batalla de los bastardos",
+                        "overview": "Jon y Sansa se preparan para la batalla por recuperar el Norte.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "La batalla de los bastardos",
+                        "overview": "Daenerys decide el destino de Meereen con la ayuda de Tyrion, mientras Jon y Sansa se preparan para la batalla por recuperar el Norte.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 6,
+                "number": 10,
+                "title": "The Winds of Winter",
+                "ids": {
+                    "trakt": 1989031,
+                    "tvdb": 5624261,
+                    "imdb": "tt4283094",
+                    "tmdb": 1187405,
+                    "tvrage": null
+                },
+                "number_abs": 60,
+                "overview": "Cersei faces a day of reckoning. Daenerys antes up for the 'Great Game.'",
+                "rating": 8.8495,
+                "votes": 18811,
+                "comment_count": 98,
+                "first_aired": "2016-06-27T01:00:00.000Z",
+                "updated_at": "2026-02-26T10:34:24.000Z",
+                "available_translations": [],
+                "runtime": 68,
+                "episode_type": "season_finale",
+                "original_title": "The Winds of Winter",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/001/989/031/screenshots/medium/edbc9cc108.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Vientos de invierno",
+                        "overview": "Final de temporada. Cersei y Loras se preparan para el juicio definitivo en el septo de Baelor.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Vientos de invierno",
+                        "overview": "Final de temporada. Cersei y Loras se preparan para el juicio definitivo en el septo de Baelor. Davos pide explicaciones a Melisandre. Sansa y Jon tratan de reagrupar a las casas del Norte. Antes de embarcar, Daenerys debe tomar una decisión difícil. Jaime ultima las negociaciones con los Frey.",
+                        "language": "es"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "number": 7,
+        "ids": {
+            "trakt": 140912,
+            "tvdb": 703353,
+            "tmdb": 81266,
+            "tvrage": null
+        },
+        "rating": 7.6407,
+        "votes": 4698,
+        "episode_count": 7,
+        "aired_episodes": 7,
+        "title": "Season 7",
+        "overview": "The long winter is here. And with it comes a convergence of armies and attitudes that have been brewing for years.",
+        "first_aired": "2017-07-17T01:00:00.000Z",
+        "updated_at": "2026-02-26T21:53:23.000Z",
+        "network": "HBO",
+        "original_title": null,
+        "images": {
+            "poster": [
+                "walter-r2.trakt.tv/images/seasons/000/140/912/posters/thumb/0c6b36128b.jpg.webp"
+            ],
+            "thumb": [
+                "walter-r2.trakt.tv/images/seasons/000/140/912/thumbs/medium/c41b46dd09.jpg.webp"
+            ]
+        },
+        "episodes": [
+            {
+                "season": 7,
+                "number": 1,
+                "title": "Dragonstone",
+                "ids": {
+                    "trakt": 2520054,
+                    "tvdb": 6185708,
+                    "imdb": "tt5654088",
+                    "tmdb": 1233022,
+                    "tvrage": null
+                },
+                "number_abs": 61,
+                "overview": "Jon Snow organizes the defense of the North. Cersei tries to even the odds. Daenerys comes home.",
+                "rating": 8.23215,
+                "votes": 18156,
+                "comment_count": 58,
+                "first_aired": "2017-07-17T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:41.000Z",
+                "available_translations": [],
+                "runtime": 59,
+                "episode_type": "season_premiere",
+                "original_title": "Dragonstone",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/002/520/054/screenshots/medium/cb5b601a6e.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Rocadragón",
+                        "overview": "Jon Snow organiza la defensa del Norte. Cersei intenta equilibrar la balanza. Samwell descubre información crucial. Daenerys vuelve a casa.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Rocadragón",
+                        "overview": "Jon organiza la defensa del Norte. Mientras, Cersei intenta equilibrar la balanza. Daenerys llega a casa.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 7,
+                "number": 2,
+                "title": "Stormborn",
+                "ids": {
+                    "trakt": 2610967,
+                    "tvdb": 6132445,
+                    "imdb": "tt5655178",
+                    "tmdb": 1336114,
+                    "tvrage": null
+                },
+                "number_abs": 62,
+                "overview": "Daenerys receives an unexpected visitor. Jon faces a revolt. Sam risks his career and life. Tyrion plans the conquest of Westeros.",
+                "rating": 8.21551,
+                "votes": 17057,
+                "comment_count": 44,
+                "first_aired": "2017-07-24T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:41.000Z",
+                "available_translations": [],
+                "runtime": 59,
+                "episode_type": "standard",
+                "original_title": "Stormborn",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/002/610/967/screenshots/medium/39c71a898a.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Bajo la tormenta",
+                        "overview": "Daenerys recibe una visita inesperada. Jon se enfrenta a una revuelta.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Bajo la tormenta",
+                        "overview": "Daenerys recibe una visita inesperada. Jon se enfrenta a una rebelión. Sam arriesga su carrera y su vida. Tyrion planea la conquista de Poniente.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 7,
+                "number": 3,
+                "title": "The Queen's Justice",
+                "ids": {
+                    "trakt": 2610968,
+                    "tvdb": 6132453,
+                    "imdb": "tt5775840",
+                    "tmdb": 1336115,
+                    "tvrage": null
+                },
+                "number_abs": 63,
+                "overview": "Daenerys holds court. Tyrion backchannels. Cersei returns a gift. Jaime learns from his mistakes.",
+                "rating": 8.31423,
+                "votes": 17271,
+                "comment_count": 43,
+                "first_aired": "2017-07-31T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:41.000Z",
+                "available_translations": [],
+                "runtime": 63,
+                "episode_type": "standard",
+                "original_title": "The Queen's Justice",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/002/610/968/screenshots/medium/8a221a56f9.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "La justicia de la reina",
+                        "overview": "Daenerys celebra audiencia. Cercei devuelve un regalo.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "La justicia de la reina",
+                        "overview": "Daenerys recibe a Jon Snow, pero ella se niega a reconocer la independencia del Norte y él no acepta inclinarse ante ella. Cersei se deleita vengándose de Ellaria y Jamie conquista el castillo de los Tyrell, pero Olenna le depara una última sorpresa.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 7,
+                "number": 4,
+                "title": "The Spoils of War",
+                "ids": {
+                    "trakt": 2610969,
+                    "tvdb": 6235145,
+                    "imdb": "tt5775846",
+                    "tmdb": 1340524,
+                    "tvrage": null
+                },
+                "number_abs": 64,
+                "overview": "The Lannisters pay their debts. Daenerys weighs her options. Arya comes home.",
+                "rating": 8.74879,
+                "votes": 18224,
+                "comment_count": 84,
+                "first_aired": "2017-08-07T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:41:16.000Z",
+                "available_translations": [],
+                "runtime": 50,
+                "episode_type": "standard",
+                "original_title": "The Spoils of War",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/002/610/969/screenshots/medium/419b69238e.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Botines de guerra",
+                        "overview": "Acompañados de los Tarly y lo que queda del ejército Lannister, Jaime y Bronn escoltan lo saqueado en Altojardín rumbo a Desembarco del Rey. En Rocadragón, Jon sigue intentando disuadir a Daenerys, quien recibe malas noticias. Invernalia recibe una visita inesperada.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Botines de guerra",
+                        "overview": "Acompañados de los Tarly y lo que queda del ejército Lannister, Jaime y Bronn escoltan lo saqueado en Altojardín rumbo a Desembarco del Rey. En Rocadragón, Jon sigue intentando disuadir a Daenerys, quien recibe malas noticias. Invernalia recibe una visita inesperada.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 7,
+                "number": 5,
+                "title": "Eastwatch",
+                "ids": {
+                    "trakt": 2610970,
+                    "tvdb": 6132455,
+                    "imdb": "tt5775854",
+                    "tmdb": 1340526,
+                    "tvrage": null
+                },
+                "number_abs": 65,
+                "overview": "Daenerys offers a choice. Arya grows suspicious. Tyrion answers a good question.",
+                "rating": 8.17927,
+                "votes": 17053,
+                "comment_count": 31,
+                "first_aired": "2017-08-14T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:41.000Z",
+                "available_translations": [],
+                "runtime": 59,
+                "episode_type": "standard",
+                "original_title": "Eastwatch",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/002/610/970/screenshots/medium/a48572e244.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Guardaoriente",
+                        "overview": "Tras la batalla, Cersei jura destruir a todo aquel que se ponga en su camino, mientras Daenerys demanda lealtad a los soldados Lannister que han sobrevivido: pueden unirse a ella o morir. De vuelta en Invernalia, Jon presta atención a una nueva visión de Bran.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Guardaoriente",
+                        "overview": "Tras la batalla, Cersei jura destruir a todo aquel que se ponga en su camino, mientras Daenerys demanda lealtad a los soldados Lannister que han sobrevivido: pueden unirse a ella o morir. De vuelta en Invernalia, Jon presta atención a una nueva visión de Bran.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 7,
+                "number": 6,
+                "title": "Beyond the Wall",
+                "ids": {
+                    "trakt": 2610971,
+                    "tvdb": 6132456,
+                    "imdb": "tt5775864",
+                    "tmdb": 1340527,
+                    "tvrage": null
+                },
+                "number_abs": 66,
+                "overview": "Jon and the Brotherhood hunt the dead. Arya confronts Sansa. Tyrion thinks about the future.",
+                "rating": 8.62871,
+                "votes": 16693,
+                "comment_count": 75,
+                "first_aired": "2017-08-21T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:41.000Z",
+                "available_translations": [],
+                "runtime": 70,
+                "episode_type": "standard",
+                "original_title": "Beyond the Wall",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/002/610/971/screenshots/medium/a068f7da2b.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Más allá del Muro",
+                        "overview": "Al otro lado del Muro, en compañía de Beric, Thoros, Tormund, Gendry, el Perro y Jorah Mormont, Jon se abre paso a través del frío hacia un destino impredecible. En Invernalia, Arya desconfía de las intenciones de Sansa tras encontrar el pergamino. Daenerys sopesa sus decisiones junto a Tyrion en Rocadragón.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Más allá del Muro",
+                        "overview": "Al otro lado del Muro, en compañía de Beric, Thoros, Tormund, Gendry, el Perro y Jorah Mormont, Jon se abre paso a través del frío hacia un destino impredecible. En Invernalia, Arya desconfía de las intenciones de Sansa tras encontrar el pergamino. Daenerys sopesa sus decisiones junto a Tyrion en Rocadragón.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 7,
+                "number": 7,
+                "title": "The Dragon and the Wolf",
+                "ids": {
+                    "trakt": 2610972,
+                    "tvdb": 6275142,
+                    "imdb": "tt5775874",
+                    "tmdb": 1340528,
+                    "tvrage": null
+                },
+                "number_abs": 67,
+                "overview": "Tyrion tries to save Westeros from itself. Sansa questions loyalties.",
+                "rating": 8.72103,
+                "votes": 17389,
+                "comment_count": 70,
+                "first_aired": "2017-08-28T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:41.000Z",
+                "available_translations": [],
+                "runtime": 80,
+                "episode_type": "season_finale",
+                "original_title": "The Dragon and the Wolf",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/002/610/972/screenshots/medium/898f5ba5ce.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El dragón y el lobo",
+                        "overview": "Final de temporada. Daenerys, Tyrion y Jon se dirigen a Desembarco del Rey con el objetivo de parlamentar con Cersei y convencerla de unirse a la lucha contra el Rey de la Noche. Sansa toma una decisión drástica para defender su honor.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El dragón y el lobo",
+                        "overview": "Jon Snow prepara las defensas en el norte. Cersei busca mejorar sus oportunidades. Samwell descubre información importante.",
+                        "language": "es"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "number": 8,
+        "ids": {
+            "trakt": 184210,
+            "tvdb": 793782,
+            "tmdb": 107971,
+            "tvrage": null
+        },
+        "rating": 5.16385,
+        "votes": 4138,
+        "episode_count": 6,
+        "aired_episodes": 6,
+        "title": "Season 8",
+        "overview": "The Great War has come, the Wall has fallen and the Night King's army of the dead marches towards Westeros. The end is here, but who will take the Iron Throne?",
+        "first_aired": "2019-04-15T01:00:00.000Z",
+        "updated_at": "2026-02-26T21:52:45.000Z",
+        "network": "HBO",
+        "original_title": null,
+        "images": {
+            "poster": [
+                "walter-r2.trakt.tv/images/seasons/000/184/210/posters/thumb/5fbf59aec0.jpg.webp"
+            ],
+            "thumb": [
+                "walter-r2.trakt.tv/images/seasons/000/184/210/thumbs/medium/0c0e103288.jpg.webp"
+            ]
+        },
+        "episodes": [
+            {
+                "season": 8,
+                "number": 1,
+                "title": "Winterfell",
+                "ids": {
+                    "trakt": 3401782,
+                    "tvdb": 7117386,
+                    "imdb": "tt5924366",
+                    "tmdb": 1551825,
+                    "tvrage": null
+                },
+                "number_abs": 68,
+                "overview": "Arriving at Winterfell, Jon and Daenerys struggle to unite a divided North. Jon Snow gets some big news.",
+                "rating": 8.11825,
+                "votes": 11975,
+                "comment_count": 51,
+                "first_aired": "2019-04-15T01:00:00.000Z",
+                "updated_at": "2026-02-26T20:50:56.000Z",
+                "available_translations": [],
+                "runtime": 55,
+                "episode_type": "season_premiere",
+                "original_title": "Winterfell",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/003/401/782/screenshots/medium/1f0b0b493e.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Invernalia",
+                        "overview": "El Norte recibe con escepticismo la llegada de Jon y Daenerys a Invernalia. Cersei negocia con Euron la recompensa que éste ansiaba. Sam recibe una noticia inesperada sobre su familia.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Invernalia",
+                        "overview": "El Norte recibe con escepticismo la llegada de Jon y Daenerys a Invernalia. Cersei negocia con Euron la recompensa que éste ansiaba. Sam recibe una noticia inesperada sobre su familia.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 8,
+                "number": 2,
+                "title": "A Knight of the Seven Kingdoms",
+                "ids": {
+                    "trakt": 3465694,
+                    "tvdb": 7121401,
+                    "imdb": "tt6027908",
+                    "tmdb": 1551826,
+                    "tvrage": null
+                },
+                "number_abs": 69,
+                "overview": "The battle at Winterfell is approaching. Jaime is confronted with the consequences of the past. A tense interaction between Sansa and Daenerys follows.",
+                "rating": 8.1237,
+                "votes": 11423,
+                "comment_count": 48,
+                "first_aired": "2019-04-22T01:00:00.000Z",
+                "updated_at": "2026-02-26T21:52:45.000Z",
+                "available_translations": [],
+                "runtime": 59,
+                "episode_type": "standard",
+                "original_title": "A Knight of the Seven Kingdoms",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/003/465/694/screenshots/medium/cca4c6c06d.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El caballero de los Siete Reinos",
+                        "overview": "Jaime trata de defender su honor ante los que fueron sus enemigos, mientras Invernalia se prepara para la que puede ser su última noche antes de la gran guerra. Daenerys intenta estrechar lazos con Sansa.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Caballero de los Siete Reinos",
+                        "overview": "Jaime trata de defender su honor ante los que fueron sus enemigos, mientras Invernalia se prepara para la que puede ser su última noche antes de la gran guerra. Daenerys intenta estrechar lazos con Sansa.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 8,
+                "number": 3,
+                "title": "The Long Night",
+                "ids": {
+                    "trakt": 3465695,
+                    "tvdb": 7121402,
+                    "imdb": "tt6027912",
+                    "tmdb": 1551827,
+                    "tvrage": null
+                },
+                "number_abs": 70,
+                "overview": "The Night King and his army have arrived at Winterfell and the great battle begins. Arya looks to prove her worth as a fighter.",
+                "rating": 8.43602,
+                "votes": 12566,
+                "comment_count": 176,
+                "first_aired": "2019-04-29T01:00:00.000Z",
+                "updated_at": "2026-02-26T21:33:57.000Z",
+                "available_translations": [],
+                "runtime": 82,
+                "episode_type": "standard",
+                "original_title": "The Long Night",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/003/465/695/screenshots/medium/7db1a5b7b7.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "La larga noche",
+                        "overview": "Brienne y Jaime preparan al ejército para la batalla. Arya desea demostrar su valor como guerrera mientras la muerte se acerca.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "La Larga Noche",
+                        "overview": "Las defensas de Invernalia hacen frente al ejército de los muertos, liderado por el Rey de la Noche. La gran batalla ha empezado.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 8,
+                "number": 4,
+                "title": "The Last of the Starks",
+                "ids": {
+                    "trakt": 3465696,
+                    "tvdb": 7121403,
+                    "imdb": "tt6027914",
+                    "tmdb": 1551828,
+                    "tvrage": null
+                },
+                "number_abs": 71,
+                "overview": "In the wake of a costly victory, Jon and Daenerys look to the south as Tyrion eyes a compromise that could save countless lives.",
+                "rating": 7.6111,
+                "votes": 10815,
+                "comment_count": 91,
+                "first_aired": "2019-05-06T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:40:37.000Z",
+                "available_translations": [],
+                "runtime": 79,
+                "episode_type": "standard",
+                "original_title": "The Last of the Starks",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/003/465/696/screenshots/medium/d414f4ce7c.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Los últimos Stark",
+                        "overview": "Daenerys y Jon se preparan para su viaje al sur en busca de liberar el trono de los Siete Reinos. No todos están de acuerdo en las decisiones generando más tensiones.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Los últimos Starks",
+                        "overview": "Invernalia se recupera tras la costosa victoria, no sin lamentar grandes pérdidas. Jon y Daenerys ponen su atención ahora en el sur, mientras Tyrion vislumbra una solución que podría salvar muchas vidas.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 8,
+                "number": 5,
+                "title": "The Bells",
+                "ids": {
+                    "trakt": 3465697,
+                    "tvdb": 7121404,
+                    "imdb": "tt6027916",
+                    "tmdb": 1551829,
+                    "tvrage": null
+                },
+                "number_abs": 72,
+                "overview": "Daenerys brings her forces to King's Landing.",
+                "rating": 7.50394,
+                "votes": 10402,
+                "comment_count": 140,
+                "first_aired": "2019-05-13T01:00:00.000Z",
+                "updated_at": "2026-02-26T19:40:30.000Z",
+                "available_translations": [],
+                "runtime": 80,
+                "episode_type": "standard",
+                "original_title": "The Bells",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/003/465/697/screenshots/medium/b6efcfcd20.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "Las campanas",
+                        "overview": "Las mermadas tropas de Jon y Daenerys plantan cara a Cersei a las puertas de Desembarco del Rey para la que podría ser la batalla final por el Trono de Hierro.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "Las campanas",
+                        "overview": "Las mermadas tropas de Jon y Daenerys plantan cara a Cersei a las puertas de Desembarco del Rey para la que podría ser la batalla final por el Trono de Hierro.",
+                        "language": "es"
+                    }
+                ]
+            },
+            {
+                "season": 8,
+                "number": 6,
+                "title": "The Iron Throne",
+                "ids": {
+                    "trakt": 3465698,
+                    "tvdb": 7121405,
+                    "imdb": "tt6027920",
+                    "tmdb": 1551830,
+                    "tvrage": null
+                },
+                "number_abs": 73,
+                "overview": "In the aftermath of the devastating attack on King's Landing, Daenerys must face the survivors.",
+                "rating": 6.59826,
+                "votes": 11836,
+                "comment_count": 162,
+                "first_aired": "2019-05-20T01:00:00.000Z",
+                "updated_at": "2026-02-26T16:48:41.000Z",
+                "available_translations": [],
+                "runtime": 80,
+                "episode_type": "series_finale",
+                "original_title": "The Iron Throne",
+                "after_credits": false,
+                "during_credits": false,
+                "images": {
+                    "screenshot": [
+                        "walter-r2.trakt.tv/images/episodes/003/465/698/screenshots/medium/fa9d6f37fd.jpg.webp"
+                    ]
+                },
+                "translations": [
+                    {
+                        "title": "El trono de hierro",
+                        "overview": "El destino de los Siete Reinos está en juego en el último capítulo de la historia.",
+                        "language": "es"
+                    },
+                    {
+                        "title": "El Trono de Hierro",
+                        "overview": "Tras el devastador ataque a Desembarco del Rey, Daenerys debe enfrentarse a los supervivientes.",
+                        "language": "es"
+                    }
+                ]
+            }
+        ]
+    }
+]

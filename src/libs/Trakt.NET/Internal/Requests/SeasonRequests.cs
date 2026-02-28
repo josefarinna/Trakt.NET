@@ -74,6 +74,12 @@
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 
+    [TraktGetRequest("shows/{show_id!!}/seasons/{season_number:uint}/videos", SupportsExtendedInfo = true)]
+    internal sealed partial class SeasonVideosGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
+    }
+
     [TraktGetRequest("shows/{show_id!!}/seasons/{season_number:uint}/watching", SupportsExtendedInfo = true)]
     internal sealed partial class SeasonWatchingGetRequest
     {

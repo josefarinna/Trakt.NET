@@ -1,0 +1,103 @@
+{
+	"number": 1,
+	"title": "Season 1",
+	"aired": 10,
+	"completed": 10,
+	"stats": {
+		"play_count": 10,
+		"minutes_watched": 567,
+		"minutes_left": 0
+	},
+	"episodes": [
+		{
+			"number": 1,
+			"completed": true,
+			"last_watched_at": "2012-10-09T14:32:00.000Z",
+			"stats": {
+				"play_count": 1,
+				"minutes_watched": 62
+			}
+		},
+		{
+			"number": 2,
+			"completed": true,
+			"last_watched_at": "2012-10-09T14:32:00.000Z",
+			"stats": {
+				"play_count": 1,
+				"minutes_watched": 56
+			}
+		},
+		{
+			"number": 3,
+			"completed": true,
+			"last_watched_at": "2012-10-09T14:32:00.000Z",
+			"stats": {
+				"play_count": 1,
+				"minutes_watched": 58
+			}
+		},
+		{
+			"number": 4,
+			"completed": true,
+			"last_watched_at": "2012-10-09T14:32:00.000Z",
+			"stats": {
+				"play_count": 1,
+				"minutes_watched": 56
+			}
+		},
+		{
+			"number": 5,
+			"completed": true,
+			"last_watched_at": "2012-10-09T14:32:00.000Z",
+			"stats": {
+				"play_count": 1,
+				"minutes_watched": 55
+			}
+		},
+		{
+			"number": 6,
+			"completed": true,
+			"last_watched_at": "2012-10-09T14:32:00.000Z",
+			"stats": {
+				"play_count": 1,
+				"minutes_watched": 53
+			}
+		},
+		{
+			"number": 7,
+			"completed": true,
+			"last_watched_at": "2012-10-09T14:32:00.000Z",
+			"stats": {
+				"play_count": 1,
+				"minutes_watched": 58
+			}
+		},
+		{
+			"number": 8,
+			"completed": true,
+			"last_watched_at": "2012-10-09T14:32:00.000Z",
+			"stats": {
+				"play_count": 1,
+				"minutes_watched": 59
+			}
+		},
+		{
+			"number": 9,
+			"completed": true,
+			"last_watched_at": "2012-10-09T14:32:00.000Z",
+			"stats": {
+				"play_count": 1,
+				"minutes_watched": 57
+			}
+		},
+		{
+			"number": 10,
+			"completed": true,
+			"last_watched_at": "2012-10-09T14:32:00.000Z",
+			"stats": {
+				"play_count": 1,
+				"minutes_watched": 53
+			}
+		}
+	]
+}

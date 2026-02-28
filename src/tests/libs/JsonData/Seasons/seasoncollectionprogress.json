@@ -1,0 +1,58 @@
+{
+	"number": 1,
+	"title": null,
+	"aired": 10,
+	"completed": 0,
+	"episodes": [
+		{
+			"number": 1,
+			"completed": false,
+			"collected_at": null
+		},
+		{
+			"number": 2,
+			"completed": false,
+			"collected_at": null
+		},
+		{
+			"number": 3,
+			"completed": false,
+			"collected_at": null
+		},
+		{
+			"number": 4,
+			"completed": false,
+			"collected_at": null
+		},
+		{
+			"number": 5,
+			"completed": false,
+			"collected_at": null
+		},
+		{
+			"number": 6,
+			"completed": false,
+			"collected_at": null
+		},
+		{
+			"number": 7,
+			"completed": false,
+			"collected_at": null
+		},
+		{
+			"number": 8,
+			"completed": false,
+			"collected_at": null
+		},
+		{
+			"number": 9,
+			"completed": false,
+			"collected_at": null
+		},
+		{
+			"number": 10,
+			"completed": false,
+			"collected_at": null
+		}
+	]
+}
