@@ -3,7 +3,7 @@
     /// <summary>
     /// Determines the possible extended options for Trakt API requests, allowing retrieving of additional data.<para />
     /// This enum can be used as a flag and multiple values can be combined.<para />
-    /// See <a href ="https://trakt.docs.apiary.io/#introduction/extended-info">"Trakt API Documentation - Extended Info"</a> for more information.
+    /// See <a href="https://trakt.docs.apiary.io/#introduction/extended-info">"Trakt API Documentation - Extended Info"</a> for more information.
     /// </summary>
     [TraktEnum(QueryName = "extended", HasQuerySupport = true)]
     [Flags]

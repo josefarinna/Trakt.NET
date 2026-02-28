@@ -2,9 +2,7 @@
 {
     public sealed partial class TraktShowsModule
     {
-        /// <summary>
-        /// Undoes the reset of watched progress for a <see cref="TraktShow" /> with the given Trakt-ID or -Slug.
-        /// </summary>
+        /// <summary>Undoes the reset of watched progress for a <see cref="TraktShow" /> with the given Trakt-ID or -Slug.</summary>
         /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
@@ -23,9 +21,7 @@
         public Task<TraktResponse> UndoResetShowWatchedProgressAsync(string traktShowIDOrSlug, CancellationToken cancellationToken = default)
             => UndoResetShowWatchedProgressImplAsync(traktShowIDOrSlug, cancellationToken);
 
-        /// <summary>
-        /// Undoes the reset of watched progress for a <see cref="TraktShow" /> with the given Trakt-ID.
-        /// </summary>
+        /// <summary>Undoes the reset of watched progress for a <see cref="TraktShow" /> with the given Trakt-ID.</summary>
         /// <param name="traktShowID">The show's Trakt-ID.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
@@ -44,9 +40,7 @@
         public Task<TraktResponse> UndoResetShowWatchedProgressAsync(uint traktShowID, CancellationToken cancellationToken = default)
             => UndoResetShowWatchedProgressImplAsync(traktShowID.ToInvariantCultureString(), cancellationToken);
 
-        /// <summary>
-        /// Undoes the reset of watched progress for a <see cref="TraktShow" /> with the given IDs.
-        /// </summary>
+        /// <summary>Undoes the reset of watched progress for a <see cref="TraktShow" /> with the given IDs.</summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>

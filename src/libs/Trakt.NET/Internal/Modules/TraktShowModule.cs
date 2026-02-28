@@ -2,10 +2,7 @@
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to shows.<para />
-    /// This module contains all methods of the 
-    /// <a href="https://trakt.docs.apiary.io/#reference/shows">
-    /// "Trakt API Documentation - Shows"
-    /// </a> section.
+    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/shows">"Trakt API Documentation - Shows"</a> section.
     /// </summary>
     public sealed partial class TraktShowsModule(TraktContext context) : BaseModule(context)
     {
@@ -73,11 +70,13 @@
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktShowStatistics>(_context, request, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktVideo>> GetShowVideosImplAsync(string movieIDOrSlug, CancellationToken cancellationToken = default)
+        private Task<TraktListResponse<TraktVideo>> GetShowVideosImplAsync(string movieIDOrSlug, TraktExtendedInfo? extendedInfo = null,
+            CancellationToken cancellationToken = default)
         {
             var request = new ShowVideosGetRequest
             {
-                Id = movieIDOrSlug
+                Id = movieIDOrSlug,
+                ExtendedInfo = extendedInfo
             };
 
             return RequestHandler.ExecuteListRequestAsync<TraktVideo>(_context, request, cancellationToken);

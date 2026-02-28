@@ -15,7 +15,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showvideos.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowVideosUri, responseContent);
 
-            TraktListResponse<TraktVideo> response = await client.Shows.GetShowVideosAsync(TestConstants.Shows.ShowID, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktVideo> response = await client.Shows.GetShowVideosAsync(TestConstants.Shows.ShowID, cancellationToken: TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }
@@ -26,7 +26,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showvideos.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowVideosUriWithSlug, responseContent);
 
-            TraktListResponse<TraktVideo> response = await client.Shows.GetShowVideosAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktVideo> response = await client.Shows.GetShowVideosAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }
@@ -37,7 +37,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showvideos.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowVideosUriWithSlug, responseContent);
 
-            TraktListResponse<TraktVideo> response = await client.Shows.GetShowVideosAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktVideo> response = await client.Shows.GetShowVideosAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }
@@ -80,7 +80,7 @@ namespace TraktNET.ShowsModule
 
             try
             {
-                await client.Shows.GetShowVideosAsync(TestConstants.Shows.ShowID, TestContext.Current.CancellationToken);
+                await client.Shows.GetShowVideosAsync(TestConstants.Shows.ShowID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.Fail("Exception should have been thrown");
             }
             catch (Exception exception)
@@ -96,12 +96,12 @@ namespace TraktNET.ShowsModule
             TraktClient client = ModuleTestUtility.GetClient(GetShowVideosUriWithSlug, responseContent);
 
 #pragma warning disable CS8625
-            Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Shows.GetShowVideosAsync(default(TraktShowIDs), TestContext.Current.CancellationToken);
+            Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Shows.GetShowVideosAsync(default(TraktShowIDs), cancellationToken: TestContext.Current.CancellationToken);
 #pragma warning restore CS8625
             await act.ShouldThrowAsync<ArgumentException>();
 
             var showIDs = new TraktShowIDs();
-            act = () => client.Shows.GetShowVideosAsync(showIDs, TestContext.Current.CancellationToken);
+            act = () => client.Shows.GetShowVideosAsync(showIDs, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

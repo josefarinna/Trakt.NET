@@ -113,7 +113,7 @@
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id!!}/videos")]
+    [TraktGetRequest("shows/{id!!}/videos", SupportsExtendedInfo = true)]
     internal sealed partial class ShowVideosGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;

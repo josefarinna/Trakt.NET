@@ -118,12 +118,12 @@ namespace TraktNET.ShowsModule
             TraktClient client = ModuleTestUtility.GetClient(GetShowListsUriWithSlug, responseContent);
 
 #pragma warning disable CS8625
-            Func<Task<TraktPagedResponse<TraktList>>> act = () => client.Shows.GetShowListsAsync(default(TraktShowIDs));
+            Func<Task<TraktPagedResponse<TraktList>>> act = () => client.Shows.GetShowListsAsync(default(TraktShowIDs), cancellationToken: TestContext.Current.CancellationToken);
 #pragma warning restore CS8625
             await act.ShouldThrowAsync<ArgumentException>();
 
             var showIDs = new TraktShowIDs();
-            act = () => client.Shows.GetShowListsAsync(showIDs);
+            act = () => client.Shows.GetShowListsAsync(showIDs, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to certifications.<para />
-    /// This module contains all methods of the <a href ="https://trakt.docs.apiary.io/#reference/certifications">"Trakt API Documentation - Certifications"</a> section.
+    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/certifications">"Trakt API Documentation - Certifications"</a> section.
     /// </summary>
     public sealed class TraktCertificationsModule(TraktContext context) : BaseModule(context)
     {

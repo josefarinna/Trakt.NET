@@ -4,6 +4,10 @@
     {
         /// <summary>Gets all videos for a <see cref="TraktShow" /> with the specified Trakt-ID or -Slug.</summary>
         /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the users.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -21,11 +25,16 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        public Task<TraktListResponse<TraktVideo>> GetShowVideosAsync(string traktShowIDOrSlug, CancellationToken cancellationToken = default)
-            => GetShowVideosImplAsync(traktShowIDOrSlug, cancellationToken);
+        public Task<TraktListResponse<TraktVideo>> GetShowVideosAsync(string traktShowIDOrSlug, TraktExtendedInfo? extendedInfo = null,
+            CancellationToken cancellationToken = default)
+            => GetShowVideosImplAsync(traktShowIDOrSlug, extendedInfo, cancellationToken);
 
         /// <summary>Gets all videos for a <see cref="TraktShow" /> with the specified Trakt-ID.</summary>
         /// <param name="traktShowID">The show's Trakt-ID.</param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the users.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -43,11 +52,16 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        public Task<TraktListResponse<TraktVideo>> GetShowVideosAsync(uint traktShowID, CancellationToken cancellationToken = default)
-            => GetShowVideosImplAsync(traktShowID.ToInvariantCultureString(), cancellationToken);
+        public Task<TraktListResponse<TraktVideo>> GetShowVideosAsync(uint traktShowID, TraktExtendedInfo? extendedInfo = null,
+            CancellationToken cancellationToken = default)
+            => GetShowVideosImplAsync(traktShowID.ToInvariantCultureString(), extendedInfo, cancellationToken);
 
         /// <summary>Gets all videos for a <see cref="TraktShow" /> with the specified <see cref="TraktShowIDs" />.</summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the users.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -67,7 +81,8 @@
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         /// <exception cref="ArgumentException">Thrown if the given <paramref name="showIDs" /> has not set any IDs.</exception>
         /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="showIDs" /> is null.</exception>
-        public Task<TraktListResponse<TraktVideo>> GetShowVideosAsync(TraktShowIDs showIDs, CancellationToken cancellationToken = default)
+        public Task<TraktListResponse<TraktVideo>> GetShowVideosAsync(TraktShowIDs showIDs, TraktExtendedInfo? extendedInfo = null,
+            CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(showIDs);
 
@@ -76,7 +91,7 @@
                 throw new ArgumentException($"{nameof(showIDs)} has not any IDs set", nameof(showIDs));
             }
 
-            return GetShowVideosImplAsync(showIDs.BestID, cancellationToken);
+            return GetShowVideosImplAsync(showIDs.BestID, extendedInfo, cancellationToken);
         }
     }
 }
