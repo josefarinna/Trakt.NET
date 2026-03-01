@@ -57,7 +57,7 @@ namespace TraktNET.SeasonsModule
         }
 
         [Theory]
-        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiSeasonNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
         [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
         [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]

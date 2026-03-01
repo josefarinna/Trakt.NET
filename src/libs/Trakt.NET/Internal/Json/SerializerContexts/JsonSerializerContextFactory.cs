@@ -169,6 +169,7 @@ namespace TraktNET
             typeof(TraktCrewMember),
             typeof(TraktRateLimitInfo),
             typeof(TraktRating),
+            typeof(TraktSearchResult),
             typeof(TraktStudio),
             typeof(TraktStudioIDs),
             typeof(TraktVideo)
@@ -316,6 +317,7 @@ namespace TraktNET
             typeof(TraktCrewMember),
             typeof(TraktRateLimitInfo),
             typeof(TraktRating),
+            typeof(TraktSearchResult),
             typeof(TraktStudio),
             typeof(TraktStudioIDs),
             typeof(TraktVideo)

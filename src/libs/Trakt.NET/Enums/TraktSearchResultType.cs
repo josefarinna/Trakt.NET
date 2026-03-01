@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the type of an object in a search result.</summary>
-    [TraktEnum]
+    [TraktEnum(QueryName = "type", HasQuerySupport = true, HasPathSupport = true)]
     public enum TraktSearchResultType
     {
         /// <summary>An invalid object type.</summary>

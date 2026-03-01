@@ -7,6 +7,7 @@ namespace TraktNET
         private const string QueryName = "query";
         private const string YearsName = "years";
         private const string GenresName = "genres";
+        private const string SubgenresName = "subgenres";
         private const string LanguagesName = "languages";
         private const string CountriesName = "countries";
         private const string RuntimesName = "runtimes";
@@ -46,6 +47,11 @@ namespace TraktNET
             if (Genres != null && Genres.Length > 0)
             {
                 values.Add($"{GenresName}={string.Join(",", Genres)}");
+            }
+
+            if (Subgenres != null && Subgenres.Length > 0)
+            {
+                values.Add($"{SubgenresName}={string.Join(",", Subgenres)}");
             }
 
             if (Languages != null && Languages.Length > 0)

@@ -1,0 +1,1058 @@
+[
+    {
+        "score": 578730123365189800,
+        "type": "movie",
+        "movie": {
+            "title": "Avengers: Endgame",
+            "year": 2019,
+            "ids": {
+                "trakt": 191798,
+                "slug": "avengers-endgame-2019",
+                "imdb": "tt4154796",
+                "tmdb": 299534,
+                "plex": {
+                    "guid": "5d776b37fb0d55001f56046d",
+                    "slug": "avengers-endgame"
+                }
+            },
+            "tagline": "Avenge the fallen.",
+            "overview": "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
+            "runtime": 181,
+            "country": "us",
+            "trailer": "https://youtube.com/watch?v=AMSITikqKiM",
+            "homepage": "https://www.marvel.com/movies/avengers-endgame",
+            "status": "released",
+            "rating": 8.40629,
+            "votes": 59222,
+            "comment_count": 229,
+            "updated_at": "2026-02-28T08:45:22.000Z",
+            "language": "en",
+            "languages": [
+                "en",
+                "ja",
+                "xh"
+            ],
+            "available_translations": [
+                "ar",
+                "bg",
+                "ca",
+                "cs",
+                "da",
+                "de",
+                "el",
+                "en",
+                "es",
+                "et",
+                "eu",
+                "fa",
+                "fi",
+                "fr",
+                "he",
+                "hi",
+                "hr",
+                "hu",
+                "id",
+                "it",
+                "ja",
+                "ka",
+                "kn",
+                "ko",
+                "lt",
+                "lv",
+                "mk",
+                "ml",
+                "nl",
+                "no",
+                "pl",
+                "pt",
+                "ro",
+                "ru",
+                "sk",
+                "sl",
+                "sr",
+                "sv",
+                "ta",
+                "te",
+                "th",
+                "tr",
+                "uk",
+                "uz",
+                "vi",
+                "zh"
+            ],
+            "genres": [
+                "action",
+                "adventure",
+                "science-fiction",
+                "superhero"
+            ],
+            "subgenres": [
+                "time-travel",
+                "father-daughter-relationship",
+                "sister-sister-relationship",
+                "alien-invasion",
+                "space-travel",
+                "vibrant",
+                "based-on-comic",
+                "marvel-cinematic-universe-mcu",
+                "superhero-team"
+            ],
+            "original_title": "Avengers: Endgame",
+            "images": {
+                "fanart": [
+                    "media.trakt.tv/images/movies/000/191/798/fanarts/medium/73766a5655.jpg.webp"
+                ],
+                "poster": [
+                    "media.trakt.tv/images/movies/000/191/798/posters/medium/a286884585.jpg.webp"
+                ],
+                "logo": [
+                    "media.trakt.tv/images/movies/000/191/798/logos/medium/0335f659b3.png.webp"
+                ],
+                "banner": [
+                    "media.trakt.tv/images/movies/000/191/798/banners/medium/566ca72795.jpg.webp"
+                ],
+                "thumb": [
+                    "media.trakt.tv/images/movies/000/191/798/thumbs/medium/8d83dab2b5.jpg.webp"
+                ],
+                "clearart": [
+                    "media.trakt.tv/images/movies/000/191/798/cleararts/medium/377e33c6b2.png.webp"
+                ]
+            },
+            "colors": {
+                "poster": [
+                    "#8A5C9F",
+                    "#230C36"
+                ]
+            },
+            "released": "2019-04-26",
+            "after_credits": false,
+            "during_credits": false,
+            "certification": "PG-13"
+        }
+    },
+    {
+        "score": 578730123365189800,
+        "type": "movie",
+        "movie": {
+            "title": "The Avengers",
+            "year": 2012,
+            "ids": {
+                "trakt": 14701,
+                "slug": "the-avengers-2012",
+                "imdb": "tt0848228",
+                "tmdb": 24428,
+                "plex": {
+                    "guid": "5d77684d61141d001fb181b9",
+                    "slug": "the-avengers"
+                }
+            },
+            "tagline": "Some assembly required.",
+            "overview": "When an unexpected enemy emerges and threatens global safety and security, Nick Fury, director of the international peacekeeping agency known as S.H.I.E.L.D., finds himself in need of a team to pull the world back from the brink of disaster. Spanning the globe, a daring recruitment effort begins!",
+            "runtime": 143,
+            "country": "us",
+            "trailer": "https://youtube.com/watch?v=hIR8Ar-Z4hw",
+            "homepage": "https://www.marvel.com/movies/the-avengers",
+            "status": "released",
+            "rating": 8.11578,
+            "votes": 74677,
+            "comment_count": 171,
+            "updated_at": "2026-02-28T08:44:40.000Z",
+            "language": "en",
+            "languages": [
+                "en",
+                "hi",
+                "ru"
+            ],
+            "available_translations": [
+                "ar",
+                "bg",
+                "ca",
+                "cs",
+                "da",
+                "de",
+                "el",
+                "en",
+                "es",
+                "et",
+                "fa",
+                "fi",
+                "fr",
+                "gl",
+                "he",
+                "hi",
+                "hr",
+                "hu",
+                "id",
+                "it",
+                "ja",
+                "ka",
+                "ko",
+                "lt",
+                "lv",
+                "mk",
+                "nl",
+                "no",
+                "pl",
+                "pt",
+                "ro",
+                "ru",
+                "sk",
+                "sl",
+                "sr",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "uz",
+                "vi",
+                "zh"
+            ],
+            "genres": [
+                "action",
+                "adventure",
+                "science-fiction",
+                "superhero"
+            ],
+            "subgenres": [
+                "alien-invasion",
+                "based-on-comic",
+                "marvel-cinematic-universe-mcu",
+                "superhero-team"
+            ],
+            "original_title": "The Avengers",
+            "images": {
+                "fanart": [
+                    "media.trakt.tv/images/movies/000/014/701/fanarts/medium/1ff4e618cd.jpg.webp"
+                ],
+                "poster": [
+                    "media.trakt.tv/images/movies/000/014/701/posters/medium/edad761a8a.jpg.webp"
+                ],
+                "logo": [
+                    "media.trakt.tv/images/movies/000/014/701/logos/medium/33f54c333e.png.webp"
+                ],
+                "banner": [
+                    "media.trakt.tv/images/movies/000/014/701/banners/medium/0f41e3332c.jpg.webp"
+                ],
+                "thumb": [
+                    "media.trakt.tv/images/movies/000/014/701/thumbs/medium/6bf5921a3e.jpg.webp"
+                ],
+                "clearart": [
+                    "media.trakt.tv/images/movies/000/014/701/cleararts/medium/1ae617054a.png.webp"
+                ]
+            },
+            "colors": {
+                "poster": [
+                    "#96ADAB",
+                    "#19272E"
+                ]
+            },
+            "released": "2012-05-04",
+            "after_credits": true,
+            "during_credits": true,
+            "certification": "PG-13"
+        }
+    },
+    {
+        "score": 578730123365189800,
+        "type": "movie",
+        "movie": {
+            "title": "Avengers: Infinity War",
+            "year": 2018,
+            "ids": {
+                "trakt": 191797,
+                "slug": "avengers-infinity-war-2018",
+                "imdb": "tt4154756",
+                "tmdb": 299536,
+                "plex": {
+                    "guid": "5d776b377a53e9001e71e283",
+                    "slug": "avengers-infinity-war"
+                }
+            },
+            "tagline": "Destiny arrives all the same.",
+            "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+            "runtime": 149,
+            "country": "us",
+            "trailer": "https://youtube.com/watch?v=QwievZ1Tx-8",
+            "homepage": "https://www.marvel.com/movies/avengers-infinity-war",
+            "status": "released",
+            "rating": 8.43816,
+            "votes": 67152,
+            "comment_count": 221,
+            "updated_at": "2026-02-28T08:44:36.000Z",
+            "language": "en",
+            "languages": [
+                "en",
+                "xh"
+            ],
+            "available_translations": [
+                "ar",
+                "bg",
+                "bs",
+                "ca",
+                "cs",
+                "da",
+                "de",
+                "ee",
+                "el",
+                "en",
+                "es",
+                "et",
+                "fa",
+                "fi",
+                "fr",
+                "gl",
+                "he",
+                "hi",
+                "hr",
+                "hu",
+                "id",
+                "it",
+                "ja",
+                "ka",
+                "ko",
+                "lt",
+                "lv",
+                "mk",
+                "nl",
+                "no",
+                "pl",
+                "pt",
+                "ro",
+                "ru",
+                "sk",
+                "sl",
+                "sr",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "uz",
+                "vi",
+                "zh"
+            ],
+            "genres": [
+                "action",
+                "adventure",
+                "superhero",
+                "science-fiction"
+            ],
+            "subgenres": [
+                "magic",
+                "super-power",
+                "space",
+                "battlefield",
+                "based-on-comic",
+                "marvel-cinematic-universe-mcu",
+                "superhero-team"
+            ],
+            "original_title": "Avengers: Infinity War",
+            "images": {
+                "fanart": [
+                    "media.trakt.tv/images/movies/000/191/797/fanarts/medium/ddc1503bbe.jpg.webp"
+                ],
+                "poster": [
+                    "media.trakt.tv/images/movies/000/191/797/posters/medium/f593432c60.jpg.webp"
+                ],
+                "logo": [
+                    "media.trakt.tv/images/movies/000/191/797/logos/medium/f233c4167f.png.webp"
+                ],
+                "banner": [
+                    "media.trakt.tv/images/movies/000/191/797/banners/medium/12ed93e421.jpg.webp"
+                ],
+                "thumb": [
+                    "media.trakt.tv/images/movies/000/191/797/thumbs/medium/0bf21e36b1.jpg.webp"
+                ],
+                "clearart": [
+                    "media.trakt.tv/images/movies/000/191/797/cleararts/medium/5f881af865.png.webp"
+                ]
+            },
+            "colors": {
+                "poster": [
+                    "#C37255",
+                    "#2D1829"
+                ]
+            },
+            "released": "2018-04-27",
+            "after_credits": true,
+            "during_credits": false,
+            "certification": "PG-13"
+        }
+    },
+    {
+        "score": 578730123365189800,
+        "type": "movie",
+        "movie": {
+            "title": "Avengers: Age of Ultron",
+            "year": 2015,
+            "ids": {
+                "trakt": 71938,
+                "slug": "avengers-age-of-ultron-2015",
+                "imdb": "tt2395427",
+                "tmdb": 99861,
+                "plex": {
+                    "guid": "5d77690623d5a3001f4f4ab6",
+                    "slug": "avengers-age-of-ultron"
+                }
+            },
+            "tagline": "A new age has come.",
+            "overview": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth’s Mightiest Heroes are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to The Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
+            "runtime": 141,
+            "country": "us",
+            "trailer": "https://youtube.com/watch?v=JAUoeqvedMo",
+            "homepage": "https://www.marvel.com/movies/avengers-age-of-ultron",
+            "status": "released",
+            "rating": 7.47294,
+            "votes": 53005,
+            "comment_count": 112,
+            "updated_at": "2026-02-28T08:45:19.000Z",
+            "language": "en",
+            "languages": [
+                "en"
+            ],
+            "available_translations": [
+                "ar",
+                "bg",
+                "bs",
+                "ca",
+                "cs",
+                "da",
+                "de",
+                "el",
+                "en",
+                "es",
+                "et",
+                "fa",
+                "fi",
+                "fr",
+                "he",
+                "hi",
+                "hr",
+                "hu",
+                "id",
+                "it",
+                "ja",
+                "ka",
+                "ko",
+                "lt",
+                "lv",
+                "nl",
+                "no",
+                "pl",
+                "pt",
+                "ro",
+                "ru",
+                "sk",
+                "sl",
+                "sr",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "uz",
+                "vi",
+                "zh"
+            ],
+            "genres": [
+                "action",
+                "adventure",
+                "science-fiction",
+                "superhero"
+            ],
+            "subgenres": [
+                "artificial-intelligence-a-i",
+                "good-versus-evil",
+                "based-on-comic",
+                "marvel-cinematic-universe-mcu",
+                "saving-the-world",
+                "super-villain",
+                "superhero-team"
+            ],
+            "original_title": "Avengers: Age of Ultron",
+            "images": {
+                "fanart": [
+                    "media.trakt.tv/images/movies/000/071/938/fanarts/medium/ffe37563ca.jpg.webp"
+                ],
+                "poster": [
+                    "media.trakt.tv/images/movies/000/071/938/posters/medium/de2265af49.jpg.webp"
+                ],
+                "logo": [
+                    "media.trakt.tv/images/movies/000/071/938/logos/medium/c79e5629f5.png.webp"
+                ],
+                "banner": [
+                    "media.trakt.tv/images/movies/000/071/938/banners/medium/c24339c23a.jpg.webp"
+                ],
+                "thumb": [
+                    "media.trakt.tv/images/movies/000/071/938/thumbs/medium/83efff2b3b.jpg.webp"
+                ],
+                "clearart": [
+                    "media.trakt.tv/images/movies/000/071/938/cleararts/medium/1a2c60dcb2.png.webp"
+                ]
+            },
+            "colors": {
+                "poster": [
+                    "#A7979D",
+                    "#252936"
+                ]
+            },
+            "released": "2015-05-01",
+            "after_credits": false,
+            "during_credits": true,
+            "certification": "PG-13"
+        }
+    },
+    {
+        "score": 578730123365189800,
+        "type": "movie",
+        "movie": {
+            "title": "Avengers: Doomsday",
+            "year": 2026,
+            "ids": {
+                "trakt": 806490,
+                "slug": "avengers-doomsday-2026",
+                "imdb": "tt21357150",
+                "tmdb": 1003596,
+                "plex": {
+                    "guid": "62deb8bf9576053a6b5c5ee7",
+                    "slug": "avengers-doomsday"
+                }
+            },
+            "tagline": "",
+            "overview": "The Avengers, Wakandans, Fantastic Four, Thunderbolts, and X-Men all fight against Doctor Doom. Plot TBA.",
+            "runtime": 90,
+            "country": "us",
+            "homepage": "https://www.marvel.com/movies/avengers-doomsday",
+            "status": "post production",
+            "rating": 7.53968,
+            "votes": 63,
+            "comment_count": 6,
+            "updated_at": "2026-02-28T08:51:34.000Z",
+            "language": "en",
+            "languages": [
+                "en"
+            ],
+            "available_translations": [
+                "ar",
+                "bg",
+                "cs",
+                "en",
+                "es",
+                "fa",
+                "fr",
+                "he",
+                "hi",
+                "hr",
+                "hu",
+                "ja",
+                "ka",
+                "ko",
+                "ml",
+                "my",
+                "pt",
+                "ro",
+                "ru",
+                "th",
+                "tr",
+                "uk",
+                "vi",
+                "zh"
+            ],
+            "genres": [
+                "science-fiction",
+                "superhero",
+                "action",
+                "adventure"
+            ],
+            "subgenres": [
+                "based-on-comic",
+                "marvel-cinematic-universe-mcu",
+                "superhero-team"
+            ],
+            "original_title": "Avengers: Doomsday",
+            "images": {
+                "fanart": [
+                    "media.trakt.tv/images/movies/000/806/490/fanarts/medium/af94d52c6e.jpg.webp"
+                ],
+                "poster": [
+                    "media.trakt.tv/images/movies/000/806/490/posters/medium/b8f5a22c56.jpg.webp"
+                ],
+                "logo": [
+                    "media.trakt.tv/images/movies/000/806/490/logos/medium/1c077b6815.png.webp"
+                ],
+                "banner": [],
+                "thumb": [
+                    "media.trakt.tv/images/movies/000/806/490/thumbs/medium/9ffc704adb.jpg.webp"
+                ],
+                "clearart": []
+            },
+            "colors": {
+                "poster": [
+                    "#A4BF91",
+                    "#172019"
+                ]
+            },
+            "released": "2026-12-18",
+            "after_credits": false,
+            "during_credits": false
+        }
+    },
+    {
+        "score": 578730123365189800,
+        "type": "movie",
+        "movie": {
+            "title": "Avengers: Secret Wars",
+            "year": 2027,
+            "ids": {
+                "trakt": 806489,
+                "slug": "avengers-secret-wars-2027",
+                "imdb": "tt21361444",
+                "tmdb": 1003598,
+                "plex": {
+                    "guid": "62deb8bf82b7b6f6ae06b2a6",
+                    "slug": "avengers-secret-wars-2027"
+                }
+            },
+            "tagline": "",
+            "overview": "An upcoming film in Phase Six of the Marvel Cinematic Universe (MCU) and the finale of The Multiverse Saga. Plot TBA.",
+            "runtime": 90,
+            "country": "us",
+            "homepage": "https://www.marvel.com/movies/avengers-secret-wars",
+            "status": "planned",
+            "rating": 7.70588,
+            "votes": 34,
+            "comment_count": 0,
+            "updated_at": "2026-02-18T08:33:29.000Z",
+            "language": "en",
+            "languages": [
+                "en"
+            ],
+            "available_translations": [
+                "en",
+                "es",
+                "fr",
+                "he",
+                "ka",
+                "ko",
+                "pt",
+                "ro",
+                "ru",
+                "uk",
+                "vi",
+                "zh"
+            ],
+            "genres": [
+                "science-fiction",
+                "superhero",
+                "action",
+                "adventure"
+            ],
+            "subgenres": [
+                "based-on-comic",
+                "marvel-cinematic-universe-mcu",
+                "superhero-team"
+            ],
+            "original_title": "Avengers: Secret Wars",
+            "images": {
+                "fanart": [
+                    "media.trakt.tv/images/movies/000/806/489/fanarts/medium/59a44f5172.jpg.webp"
+                ],
+                "poster": [
+                    "media.trakt.tv/images/movies/000/806/489/posters/medium/fdf36bf617.jpg.webp"
+                ],
+                "logo": [
+                    "media.trakt.tv/images/movies/000/806/489/logos/medium/15b25c179f.png.webp"
+                ],
+                "banner": [],
+                "thumb": [],
+                "clearart": []
+            },
+            "colors": {
+                "poster": [
+                    "#D8571D",
+                    "#030101"
+                ]
+            },
+            "released": "2027-12-17",
+            "after_credits": false,
+            "during_credits": false
+        }
+    },
+    {
+        "score": 578730123365189800,
+        "type": "movie",
+        "movie": {
+            "title": "Ultimate Avengers: The Movie",
+            "year": 2006,
+            "ids": {
+                "trakt": 8814,
+                "slug": "ultimate-avengers-the-movie-2006",
+                "imdb": "tt0491703",
+                "tmdb": 14609,
+                "plex": {
+                    "guid": "5d77683b103a2d001f5694f7",
+                    "slug": "ultimate-avengers-the-movie"
+                }
+            },
+            "tagline": "Saving the world, one enemy at a time.",
+            "overview": "When a nuclear missile was fired at Washington in 1945, Captain America managed to detonate it in the upper atmosphere. But then he fell miles into the icy depths of the North Atlantic, where he remained lost for over sixty years. But now, with the world facing the very same evil, Captain America must rise again as our last hope for survival.",
+            "runtime": 72,
+            "country": "us",
+            "trailer": "https://youtube.com/watch?v=IQ9QjHVaurM",
+            "status": "released",
+            "rating": 6.84592,
+            "votes": 980,
+            "comment_count": 5,
+            "updated_at": "2026-01-15T08:29:28.000Z",
+            "language": "en",
+            "languages": [
+                "en"
+            ],
+            "available_translations": [
+                "bg",
+                "cs",
+                "de",
+                "en",
+                "es",
+                "fr",
+                "he",
+                "hu",
+                "it",
+                "ja",
+                "ko",
+                "lv",
+                "nl",
+                "pl",
+                "pt",
+                "ro",
+                "ru",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "zh"
+            ],
+            "genres": [
+                "action",
+                "animation",
+                "science-fiction",
+                "adventure",
+                "superhero",
+                "family"
+            ],
+            "subgenres": [
+                "alien",
+                "alien-life-form",
+                "based-on-comic",
+                "superhero-team"
+            ],
+            "original_title": "Ultimate Avengers: The Movie",
+            "images": {
+                "fanart": [
+                    "media.trakt.tv/images/movies/000/008/814/fanarts/medium/852cc72887.jpg.webp"
+                ],
+                "poster": [
+                    "media.trakt.tv/images/movies/000/008/814/posters/medium/495e500fcd.jpg.webp"
+                ],
+                "logo": [
+                    "media.trakt.tv/images/movies/000/008/814/logos/medium/7a4f160168.png.webp"
+                ],
+                "banner": [
+                    "media.trakt.tv/images/movies/000/008/814/banners/medium/f8f4a5657b.jpg.webp"
+                ],
+                "thumb": [
+                    "media.trakt.tv/images/movies/000/008/814/thumbs/medium/60707408c4.jpg.webp"
+                ],
+                "clearart": []
+            },
+            "colors": {
+                "poster": [
+                    "#D0D1D6",
+                    "#615352"
+                ]
+            },
+            "released": "2006-02-21",
+            "after_credits": false,
+            "during_credits": false,
+            "certification": "PG-13"
+        }
+    },
+    {
+        "score": 578730123365189800,
+        "type": "movie",
+        "movie": {
+            "title": "Ultimate Avengers 2",
+            "year": 2006,
+            "ids": {
+                "trakt": 8815,
+                "slug": "ultimate-avengers-2-2006",
+                "imdb": "tt0803093",
+                "tmdb": 14611,
+                "plex": {
+                    "guid": "5d77683c6f4521001ea9d44a",
+                    "slug": "ultimate-avengers-ii"
+                }
+            },
+            "tagline": "To save humanity, the Earth's mightiest heroes must reunite for a rematch of heroic proportions.",
+            "overview": "Mysterious Wakanda lies in the darkest heart of Africa, unknown to most of the world. An isolated land hidden behind closed borders, fiercely protected by its young king: Black Panther. But when brutal alien invaders attack, the threat leaves Black Panther with no option but to go against the sacred decrees of his people and ask for help from outsiders.",
+            "runtime": 73,
+            "country": "us",
+            "trailer": "https://youtube.com/watch?v=gl4jsZcYt9k",
+            "status": "released",
+            "rating": 6.67608,
+            "votes": 673,
+            "comment_count": 3,
+            "updated_at": "2026-01-22T08:39:55.000Z",
+            "language": "en",
+            "languages": [
+                "en"
+            ],
+            "available_translations": [
+                "cs",
+                "de",
+                "en",
+                "es",
+                "fr",
+                "he",
+                "hu",
+                "it",
+                "ja",
+                "ko",
+                "lv",
+                "nl",
+                "pl",
+                "pt",
+                "ru",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "zh"
+            ],
+            "genres": [
+                "action",
+                "animation",
+                "science-fiction",
+                "adventure"
+            ],
+            "subgenres": [
+                "alien-life-form",
+                "based-on-comic"
+            ],
+            "original_title": "Ultimate Avengers 2",
+            "images": {
+                "fanart": [
+                    "media.trakt.tv/images/movies/000/008/815/fanarts/medium/2284aae26e.jpg.webp"
+                ],
+                "poster": [
+                    "media.trakt.tv/images/movies/000/008/815/posters/medium/2f4e116a39.jpg.webp"
+                ],
+                "logo": [
+                    "media.trakt.tv/images/movies/000/008/815/logos/medium/68cf3991ac.png.webp"
+                ],
+                "banner": [
+                    "media.trakt.tv/images/movies/000/008/815/banners/medium/33276b5e21.jpg.webp"
+                ],
+                "thumb": [
+                    "media.trakt.tv/images/movies/000/008/815/thumbs/medium/f2549cf213.jpg.webp"
+                ],
+                "clearart": []
+            },
+            "colors": {
+                "poster": [
+                    "#AF996D",
+                    "#2C2B27"
+                ]
+            },
+            "released": "2006-08-08",
+            "after_credits": false,
+            "during_credits": false,
+            "certification": "PG-13"
+        }
+    },
+    {
+        "score": 578730123365189800,
+        "type": "movie",
+        "movie": {
+            "title": "Avengers Confidential: Black Widow & Punisher",
+            "year": 2014,
+            "ids": {
+                "trakt": 157095,
+                "slug": "avengers-confidential-black-widow-punisher-2014",
+                "imdb": "tt3482378",
+                "tmdb": 257346,
+                "plex": {
+                    "guid": "5d776aa9fb0d55001f54d22c",
+                    "slug": "avengers-confidential-black-widow-and-punisher"
+                }
+            },
+            "tagline": "Two legendary heroes. One unstoppable force.",
+            "overview": "When the Punisher takes out a black-market weapons dealer, he stumbles upon a far-reaching terrorist plot devised by a group known as Leviathan.",
+            "runtime": 83,
+            "country": "us",
+            "trailer": "https://youtube.com/watch?v=s5mpaToJ6V8",
+            "homepage": "https://www.sonypictures.com/movies/avengersconfidentialblackwidowpunisher/",
+            "status": "released",
+            "rating": 6.211,
+            "votes": 673,
+            "comment_count": 4,
+            "updated_at": "2026-02-27T17:29:42.000Z",
+            "language": "ja",
+            "languages": [
+                "ja"
+            ],
+            "available_translations": [
+                "cs",
+                "da",
+                "de",
+                "el",
+                "en",
+                "es",
+                "fr",
+                "he",
+                "hu",
+                "id",
+                "it",
+                "ja",
+                "ko",
+                "nl",
+                "pl",
+                "pt",
+                "ru",
+                "sv",
+                "th",
+                "tr",
+                "uk",
+                "vi",
+                "zh"
+            ],
+            "genres": [
+                "action",
+                "science-fiction",
+                "anime",
+                "superhero"
+            ],
+            "subgenres": [
+                "adult-animation",
+                "based-on-comic"
+            ],
+            "original_title": "アベンジャーズ コンフィデンシャル：ブラック・ウィドウ ＆ パニッシャー",
+            "images": {
+                "fanart": [
+                    "media.trakt.tv/images/movies/000/157/095/fanarts/medium/ca3a4a6de9.jpg.webp"
+                ],
+                "poster": [
+                    "media.trakt.tv/images/movies/000/157/095/posters/medium/e220824cbd.jpg.webp"
+                ],
+                "logo": [
+                    "media.trakt.tv/images/movies/000/157/095/logos/medium/adf3fcfeda.png.webp"
+                ],
+                "banner": [],
+                "thumb": [
+                    "media.trakt.tv/images/movies/000/157/095/thumbs/medium/d61ebe59a7.jpg.webp"
+                ],
+                "clearart": []
+            },
+            "colors": {
+                "poster": [
+                    "#9C96A0",
+                    "#1E1D22"
+                ]
+            },
+            "released": "2014-03-25",
+            "after_credits": false,
+            "during_credits": false,
+            "certification": "PG-13"
+        }
+    },
+    {
+        "score": 578730123365189800,
+        "type": "movie",
+        "movie": {
+            "title": "Next Avengers: Heroes of Tomorrow",
+            "year": 2008,
+            "ids": {
+                "trakt": 8817,
+                "slug": "next-avengers-heroes-of-tomorrow-2008",
+                "imdb": "tt1259998",
+                "tmdb": 14613,
+                "plex": {
+                    "guid": "5d77683c54c0f0001f3043d0",
+                    "slug": "next-avengers-heroes-of-tomorrow"
+                }
+            },
+            "tagline": "The children of heroes past are our only hope for the future!",
+            "overview": "The children of the Avengers hone their powers and go head to head with the very enemy responsible for their parents' demise.",
+            "runtime": 78,
+            "country": "us",
+            "trailer": "https://youtube.com/watch?v=swn4H4sqm1A",
+            "status": "released",
+            "rating": 6.63953,
+            "votes": 516,
+            "comment_count": 3,
+            "updated_at": "2026-02-27T17:20:34.000Z",
+            "language": "en",
+            "languages": [
+                "en"
+            ],
+            "available_translations": [
+                "bg",
+                "cs",
+                "da",
+                "de",
+                "en",
+                "es",
+                "fa",
+                "fr",
+                "he",
+                "hu",
+                "it",
+                "ko",
+                "lt",
+                "lv",
+                "nl",
+                "pt",
+                "sv",
+                "tr",
+                "zh"
+            ],
+            "genres": [
+                "animation",
+                "family",
+                "action",
+                "adventure",
+                "science-fiction"
+            ],
+            "subgenres": [
+                "future",
+                "super-power",
+                "based-on-comic",
+                "superhero-team",
+                "teen-superhero"
+            ],
+            "original_title": "Next Avengers: Heroes of Tomorrow",
+            "images": {
+                "fanart": [
+                    "media.trakt.tv/images/movies/000/008/817/fanarts/medium/a2c7f959ba.jpg.webp"
+                ],
+                "poster": [
+                    "media.trakt.tv/images/movies/000/008/817/posters/medium/e395992dab.jpg.webp"
+                ],
+                "logo": [
+                    "media.trakt.tv/images/movies/000/008/817/logos/medium/bf477e8aad.png.webp"
+                ],
+                "banner": [],
+                "thumb": [],
+                "clearart": []
+            },
+            "colors": {
+                "poster": [
+                    "#B9BAAD",
+                    "#716465"
+                ]
+            },
+            "released": "2008-09-02",
+            "after_credits": false,
+            "during_credits": false,
+            "certification": "PG"
+        }
+    }
+]

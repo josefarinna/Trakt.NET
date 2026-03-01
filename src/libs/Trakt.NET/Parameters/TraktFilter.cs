@@ -15,6 +15,9 @@
         /// <summary>Genre slugs.</summary>
         public string[]? Genres { get; set; }
 
+        /// <summary>Subgenre slugs.</summary>
+        public string[]? Subgenres { get; set; }
+
         /// <summary>2 character language codes.</summary>
         public string[]? Languages { get; set; }
 

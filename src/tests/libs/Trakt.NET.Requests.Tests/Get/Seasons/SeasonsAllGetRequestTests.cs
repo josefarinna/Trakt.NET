@@ -43,7 +43,7 @@ namespace TraktNET.GetRequests.Seasons
         public void TestSeasonsAllGetRequestHasCorrectRequestObjectType()
         {
             var seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = ShowID };
-            seasonsAllGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Show);
+            seasonsAllGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.Season);
         }
 
         [Fact]

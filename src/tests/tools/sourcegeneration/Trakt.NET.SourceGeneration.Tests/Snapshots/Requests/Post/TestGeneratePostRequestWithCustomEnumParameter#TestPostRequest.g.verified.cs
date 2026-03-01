@@ -23,5 +23,13 @@ namespace SourceGeneraterTestNamespace
 
             RequestUri = new Uri(requestUri, UriKind.Relative);
         }
+
+        internal override void Validate()
+        {
+            if (ListType == TraktListType.Unspecified)
+            {
+                throw new TraktRequestValidationException(nameof(ListType), "ListType must not be Unspecified");
+            }
+        }
     }
 }

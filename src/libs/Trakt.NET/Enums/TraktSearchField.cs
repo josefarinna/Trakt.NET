@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the field hint in a search query.</summary>
-    [TraktEnum]
+    [TraktEnum(QueryName = "fields", HasQuerySupport = true)]
     public enum TraktSearchField
     {
         /// <summary>An invalid field hint.</summary>

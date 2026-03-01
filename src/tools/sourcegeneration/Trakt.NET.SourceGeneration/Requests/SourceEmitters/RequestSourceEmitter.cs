@@ -213,7 +213,7 @@ namespace TraktNET.SourceGeneration.Requests
                 WriteGetQueriesMethod();
             }
 
-            if (_uriPlaceHolders.Any(x => x.NeedsVerification))
+            if (_uriPlaceHolders.Any(x => x.NeedsVerification) || _requestParameters.Any(x => x.IsRequired) || _requestQueries.Any(x => x.IsRequired))
             {
                 _sourceWriter.WriteEmptyLine();
                 WriteValidateMethod();
@@ -817,42 +817,45 @@ namespace TraktNET.SourceGeneration.Requests
             _sourceWriter.Indent();
 
             bool needsEmptyLine = false;
-
-            foreach (PlaceHolder placeholder in _uriPlaceHolders)
+            // Local helper: write empty line if needed
+            void EnsureEmptyLine()
             {
-                if (!placeholder.NeedsVerification)
-                {
-                    continue;
-                }
-
                 if (needsEmptyLine)
                 {
                     _sourceWriter.WriteEmptyLine();
                 }
+            }
+
+            // Emit the throw block for a validation
+            void EmitThrow(string memberName, string message)
+            {
+                _sourceWriter.WriteLine('{');
+                _sourceWriter.Indent();
+                _sourceWriter.WriteLine($"throw new TraktRequestValidationException(nameof({memberName}), \"{message}\");");
+                _sourceWriter.DecrementIndent();
+                _sourceWriter.WriteLine('}');
+            }
+
+            // Validate placeholders (string/int/enum-like types are determined via the valueType string)
+            foreach (PlaceHolder placeholder in _uriPlaceHolders)
+            {
+                if (!placeholder.NeedsVerification)
+                    continue;
+
+                EnsureEmptyLine();
 
                 string name = placeholder.Name;
                 string valueType = placeholder.ValueType;
 
-                // valueType can be a nullable type name suffixed with '?'.
-                // E.g. for "string?" == "string" a simple equal comparison does not work.
-
                 if (valueType.Contains("string"))
                 {
                     _sourceWriter.WriteLine($"if (string.IsNullOrWhiteSpace({name}))");
-                    _sourceWriter.WriteLine('{');
-                    _sourceWriter.Indent();
-                    _sourceWriter.WriteLine($"throw new TraktRequestValidationException(nameof({name}), \"{name} must not be null or empty\");");
-                    _sourceWriter.DecrementIndent();
-                    _sourceWriter.WriteLine('}');
+                    EmitThrow(name, $"{name} must not be null or empty");
 
                     _sourceWriter.WriteEmptyLine();
 
                     _sourceWriter.WriteLine($"if ({name}.ContainsSpace())");
-                    _sourceWriter.WriteLine('{');
-                    _sourceWriter.Indent();
-                    _sourceWriter.WriteLine($"throw new TraktRequestValidationException(nameof({name}), \"{name} must not contain any spaces\");");
-                    _sourceWriter.DecrementIndent();
-                    _sourceWriter.WriteLine('}');
+                    EmitThrow(name, $"{name} must not contain any spaces");
                 }
                 else if (valueType.Contains("uint") || valueType.Contains("int") || valueType.Contains("ulong") || valueType.Contains("long"))
                 {
@@ -865,14 +868,61 @@ namespace TraktNET.SourceGeneration.Requests
                         _sourceWriter.WriteLine($"if ({name}.HasValue && {name}.Value == 0)");
                     }
 
-                    _sourceWriter.WriteLine('{');
-                    _sourceWriter.Indent();
-                    _sourceWriter.WriteLine($"throw new TraktRequestValidationException(nameof({name}), \"{name} must not be zero\");");
-                    _sourceWriter.DecrementIndent();
-                    _sourceWriter.WriteLine('}');
+                    EmitThrow(name, $"{name} must not be zero");
                 }
 
                 needsEmptyLine = true;
+            }
+
+            // Helper to validate generated members (parameters/queries)
+            void ValidateMember(string name, bool isTraktEnum, string traktEnumTypeName, string traktEnumDefaultValue, SpecialType specialType, bool isRequired, bool skipEnumDefaultCheck = false)
+            {
+                EnsureEmptyLine();
+
+                if (isTraktEnum && !skipEnumDefaultCheck)
+                {
+                    _sourceWriter.WriteLine($"if ({name} == {traktEnumTypeName}.{traktEnumDefaultValue})");
+                    EmitThrow(name, $"{name} must not be {traktEnumDefaultValue}");
+                }
+                else if (specialType == SpecialType.System_String)
+                {
+                    _sourceWriter.WriteLine($"if (string.IsNullOrWhiteSpace({name}))");
+                    EmitThrow(name, $"{name} must not be null or empty");
+                }
+                else if (specialType == SpecialType.System_Int16 || specialType == SpecialType.System_Int32 || specialType == SpecialType.System_Int64
+                    || specialType == SpecialType.System_UInt16 || specialType == SpecialType.System_UInt32 || specialType == SpecialType.System_UInt64)
+                {
+                    _sourceWriter.WriteLine($"if ({name} == 0)");
+                    EmitThrow(name, $"{name} must not be zero");
+                }
+                else
+                {
+                    _sourceWriter.WriteLine($"if ({name} == null)");
+                    EmitThrow(name, $"{name} must not be null");
+                }
+
+                needsEmptyLine = true;
+            }
+
+            // Validate required request parameters (non-nullable properties)
+            foreach (RequestParameterGenerationSpecification requestParameter in _requestParameters)
+            {
+                if (!requestParameter.IsRequired)
+                    continue;
+
+                // Skip extended info enum default check handled elsewhere
+                bool skipEnumDefault = requestParameter.Name == "TraktExtendedInfo";
+
+                ValidateMember(requestParameter.Name, requestParameter.IsTraktEnum, requestParameter.TraktEnumTypeName, requestParameter.TraktEnumDefaultValue, requestParameter.SpecialType, requestParameter.IsRequired, skipEnumDefault);
+            }
+
+            // Validate required request queries (non-nullable properties)
+            foreach (RequestQueryGenerationSpecification requestQuery in _requestQueries)
+            {
+                if (!requestQuery.IsRequired)
+                    continue;
+
+                ValidateMember(requestQuery.Name, requestQuery.IsTraktEnum, requestQuery.TraktEnumTypeName, requestQuery.TraktEnumDefaultValue, requestQuery.SpecialType, requestQuery.IsRequired);
             }
 
             _sourceWriter.DecrementIndent();
@@ -901,7 +951,7 @@ namespace TraktNET.SourceGeneration.Requests
             string placeHolderName = string.Empty;
             string placeHolderType = string.Empty;
 
-            bool hasQuesionMark = false;
+            bool hasQuestionMark = false;
             int exclamationMarkCount = 0;
 
             for (int i = 0; i < uriPath.Length; i++)
@@ -936,25 +986,25 @@ namespace TraktNET.SourceGeneration.Requests
                                 placeHolderType = "string";
                                 placeHolderTypeStartPosition = -1;
 
-                                _hasOptionalPlaceholders = _hasOptionalPlaceholders || hasQuesionMark;
+                                _hasOptionalPlaceholders = _hasOptionalPlaceholders || hasQuestionMark;
 
                                 _uriPlaceHolders.Add(new PlaceHolder
                                 {
                                     Name = placeHolderName,
                                     ValueType = placeHolderType,
-                                    IsRequired = !hasQuesionMark,
+                                    IsRequired = !hasQuestionMark,
                                     NeedsVerification = exclamationMarkCount == 2
                                 });
 
                                 placeHolderName = string.Empty;
 
-                                hasQuesionMark = false;
+                                hasQuestionMark = false;
                                 exclamationMarkCount = 0;
 
                                 WriteChar(currentCharacter, ref destination);
                                 break;
                             case '?':
-                                hasQuesionMark = true;
+                                hasQuestionMark = true;
                                 break;
                             case '!':
                                 exclamationMarkCount++;

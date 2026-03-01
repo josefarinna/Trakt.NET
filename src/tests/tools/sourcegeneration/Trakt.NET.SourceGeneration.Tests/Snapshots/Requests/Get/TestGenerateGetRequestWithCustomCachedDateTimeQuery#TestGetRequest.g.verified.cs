@@ -23,5 +23,13 @@ namespace SourceGeneraterTestNamespace
 
             RequestUri = new Uri(requestUri, UriKind.Relative);
         }
+
+        internal override void Validate()
+        {
+            if (StartDate == null)
+            {
+                throw new TraktRequestValidationException(nameof(StartDate), "StartDate must not be null");
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the id type, for which should be searched in an id lookup request.</summary>
-    [TraktEnum]
+    [TraktEnum(HasPathSupport = true)]
     public enum TraktSearchIDType
     {
         /// <summary>An invalid id type.</summary>

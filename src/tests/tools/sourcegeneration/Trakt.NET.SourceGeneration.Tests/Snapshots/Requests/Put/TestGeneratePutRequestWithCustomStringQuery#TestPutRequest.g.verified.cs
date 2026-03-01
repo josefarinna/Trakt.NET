@@ -23,5 +23,13 @@ namespace SourceGeneraterTestNamespace
 
             RequestUri = new Uri(requestUri, UriKind.Relative);
         }
+
+        internal override void Validate()
+        {
+            if (string.IsNullOrWhiteSpace(Country))
+            {
+                throw new TraktRequestValidationException(nameof(Country), "Country must not be null or empty");
+            }
+        }
     }
 }

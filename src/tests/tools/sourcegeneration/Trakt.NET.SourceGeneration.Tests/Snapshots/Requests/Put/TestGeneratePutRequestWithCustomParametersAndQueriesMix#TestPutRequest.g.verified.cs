@@ -71,5 +71,13 @@ namespace SourceGeneraterTestNamespace
 
             return queries;
         }
+
+        internal override void Validate()
+        {
+            if (string.IsNullOrWhiteSpace(Country))
+            {
+                throw new TraktRequestValidationException(nameof(Country), "Country must not be null or empty");
+            }
+        }
     }
 }
