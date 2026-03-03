@@ -4,7 +4,7 @@
     /// Provides access to data retrieving methods specific to search.<para />
     /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/search">"Trakt API Documentation - Search"</a> section.
     /// </summary>
-    public class TraktSearchModule(TraktContext context) : BaseModule(context)
+    public sealed partial class TraktSearchModule
     {
         /// <summary>Searches for movies, shows, episodes, people and / or lists with the given search query.</summary>
         /// <param name="searchResultTypes">
@@ -46,31 +46,7 @@
         public Task<TraktPagedResponse<TraktSearchResult>> GetTextQueryResultsAsync(TraktSearchResultType searchResultTypes, string searchQuery,
             TraktSearchField? searchFields = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-        {
-            var request = new SearchTextQueryGetRequest
-            {
-                Type = searchResultTypes,
-                Query = searchQuery,
-                Filter = filter,
-                ExtendedInfo = extendedInfo,
-                SearchField = searchFields,
-                Page = page,
-                Limit = limit
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktSearchResult>(_context, request, (uint? page, uint? limit)
-                => new SearchTextQueryGetRequest
-                {
-                    Type = searchResultTypes,
-                    Query = searchQuery,
-                    Filter = filter,
-                    ExtendedInfo = extendedInfo,
-                    SearchField = searchFields,
-                    Page = page,
-                    Limit = limit
-                },
-                cancellationToken);
-        }
+            => GetTextQueryResultsImplAsync(searchResultTypes, searchQuery, searchFields, filter, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Looks up items by their Trakt-, IMDB-, TMDB-, TVDB- or TVRage-Id.</summary>
         /// <param name="searchIdType">The id type, which should be looked up. See also <seealso cref="TraktSearchIdType" />.</param>
@@ -105,28 +81,6 @@
         public Task<TraktPagedResponse<TraktSearchResult>> GetIdLookupResultsAsync(TraktSearchIDType searchIdType, string lookupId,
             TraktSearchResultType? searchResultTypes = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-        {
-            var request = new SearchIDLookupGetRequest
-            {
-                IdType = searchIdType,
-                LookupId = lookupId,
-                ResultTypes = searchResultTypes,
-                ExtendedInfo = extendedInfo,
-                Page = page,
-                Limit = limit
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktSearchResult>(_context, request, (uint? page, uint? limit)
-                => new SearchIDLookupGetRequest
-                {
-                    IdType = searchIdType,
-                    LookupId = lookupId,
-                    ResultTypes = searchResultTypes,
-                    ExtendedInfo = extendedInfo,
-                    Page = page,
-                    Limit = limit
-                },
-                cancellationToken);
-        }
+            => GetIdLookupResultsImplAsync(searchIdType, lookupId, searchResultTypes, extendedInfo, page, limit, cancellationToken);
     }
 }

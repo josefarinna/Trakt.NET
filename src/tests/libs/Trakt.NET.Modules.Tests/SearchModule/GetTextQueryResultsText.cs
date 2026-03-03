@@ -7,9 +7,9 @@ namespace TraktNET.SearchModule
         private const string SearchTextQueryUri = "search/movie";
 
         [Theory]
-        [InlineData(null, null, null, null, null, "search/movie?query=avengers", "General\\searchresult.json")]
-        [InlineData(TraktSearchField.Title, null, null, null, null, "search/movie?query=avengers&fields=title", "General\\searchresult.json")]
-        [InlineData(null, null, TraktExtendedInfo.Full, 1U, 10U, "search/movie?query=avengers&extended=full&page=1&limit=10", "General\\searchresult.json")]
+        [InlineData(null, null, null, null, null, "search/movie?query=avengers", "Searchs\\searchresult.json")]
+        [InlineData(TraktSearchField.Title, null, null, null, null, "search/movie?query=avengers&fields=title", "Searchs\\searchresult.json")]
+        [InlineData(null, null, TraktExtendedInfo.Full, 1U, 10U, "search/movie?query=avengers&extended=full&page=1&limit=10", "Searchs\\searchresult.json")]
         public async Task TestGetTextQueryResults(TraktSearchField? searchFields, TraktFilter? filter,
             TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
         {
@@ -49,7 +49,7 @@ namespace TraktNET.SearchModule
             TraktSearchResultType types = TraktSearchResultType.Movie;
             string requestUri = "search/movie?query=avengers";
 
-            string responseContent = await TestUtility.GetJsonFileContentAsync("General\\searchresult.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
             TraktPagedResponse<TraktSearchResult> response =

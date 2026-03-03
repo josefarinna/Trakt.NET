@@ -7,9 +7,9 @@ namespace TraktNET.SearchModule
         private const string LookupUri = "search";
 
         [Theory]
-        [InlineData(TraktSearchIDType.Trakt, "191798", null, null, null, "search/trakt/191798", "General\\searchresult.json")]
-        [InlineData(TraktSearchIDType.ImDB, "tt4154796", TraktSearchResultType.Movie, 1U, 10U, "search/imdb/tt4154796?type=movie&page=1&limit=10", "General\\searchresult.json")]
-        [InlineData(TraktSearchIDType.TmDB, "299534", null, null, null, "search/tmdb/299534", "General\\searchresult.json")]
+        [InlineData(TraktSearchIDType.Trakt, "191798", null, null, null, "search/trakt/191798", "Searchs\\searchresult.json")]
+        [InlineData(TraktSearchIDType.ImDB, "tt4154796", TraktSearchResultType.Movie, 1U, 10U, "search/imdb/tt4154796?type=movie&page=1&limit=10", "Searchs\\searchresult.json")]
+        [InlineData(TraktSearchIDType.TmDB, "299534", null, null, null, "search/tmdb/299534", "Searchs\\searchresult.json")]
         public async Task TestGetIdLookupResults(TraktSearchIDType searchIdType, string lookupId,
             TraktSearchResultType? searchResultTypes, uint? page, uint? limit,
             string requestUri, string responseContentFile)
@@ -40,7 +40,7 @@ namespace TraktNET.SearchModule
             TraktSearchResultType resultTypes = TraktSearchResultType.Movie;
             string requestUri = $"search/trakt/{lookupId}?type=movie";
 
-            string responseContent = await TestUtility.GetJsonFileContentAsync("General\\searchresult.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
             TraktPagedResponse<TraktSearchResult> response =
