@@ -131,6 +131,7 @@ namespace TraktNET
                     new TraktHiddenItemTypeJsonConverter(),
                     new TraktHistoryActionTypeJsonConverter(),
                     new TraktKnownForDepartmentJsonConverter(),
+                    new TraktLanguageItemTypeJsonConverter(),
                     new TraktLastActivityJsonConverter(),
                     new TraktListItemTypeJsonConverter(),
                     new TraktListPrivacyJsonConverter(),
