@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    /// <inheritdoc />
+    /// <summary>A Trakt episode of a Trakt season.</summary>
     public record class TraktEpisode : TraktEpisodeMinimal
     {
         /// <summary>The absolute episode number of all episodes in all seasons.</summary>

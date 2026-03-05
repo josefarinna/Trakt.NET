@@ -50,7 +50,7 @@ namespace TraktNET.ShowsModule
             IReadOnlyList<TraktUpdatedShow> updatedShows = response.Content!;
 
             updatedShows[0].ShouldNotBeNull();
-            updatedShows[0].UpdatedAt.ShouldBe(DateTime.Parse("2026-02-22T00:31:21.000Z").ToUniversalTime());
+            updatedShows[0].UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-22T00:31:21.000Z"));
             updatedShows[0].Show.ShouldNotBeNull();
             updatedShows[0].Show!.Title.ShouldBe("Medalist");
             updatedShows[0].Show!.IDs!.Trakt.ShouldBe(223571U);
@@ -62,7 +62,7 @@ namespace TraktNET.ShowsModule
             }
 
             updatedShows[1].ShouldNotBeNull();
-            updatedShows[1].UpdatedAt.ShouldBe(DateTime.Parse("2026-02-22T00:37:47.000Z").ToUniversalTime());
+            updatedShows[1].UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-22T00:37:47.000Z"));
             updatedShows[1].Show.ShouldNotBeNull();
             updatedShows[1].Show!.Title.ShouldBe("Scrubs");
             updatedShows[1].Show!.Year.ShouldBe(2026U);

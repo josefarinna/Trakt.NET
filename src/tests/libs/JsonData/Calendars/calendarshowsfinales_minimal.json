@@ -1,0 +1,29 @@
+[
+	{
+		"first_aired": "2011-06-20T01:00:00.000Z",
+		"episode": {
+			"season": 1,
+			"number": 10,
+			"title": "Fire and Blood",
+			"ids": {
+				"trakt": 73649,
+				"tvdb": 4063491,
+				"imdb": "tt1851397",
+				"tmdb": 63065,
+				"tvrage": null
+			}
+		},
+		"show": {
+			"title": "Game of Thrones",
+			"year": 2011,
+			"ids": {
+				"trakt": 1390,
+				"slug": "game-of-thrones",
+				"tvdb": 121361,
+				"imdb": "tt0944947",
+				"tmdb": 1399,
+				"tvrage": null
+			}
+		}
+	}
+]

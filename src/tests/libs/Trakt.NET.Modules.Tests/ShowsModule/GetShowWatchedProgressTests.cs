@@ -61,7 +61,7 @@ namespace TraktNET.ShowsModule
 
             progress.Aired.ShouldBe(73U);
             progress.Completed.ShouldBe(73U);
-            progress.LastWatchedAt.ShouldBe(DateTime.Parse("2019-05-20T11:45:00.000Z").ToUniversalTime());
+            progress.LastWatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2019-05-20T11:45:00.000Z"));
 
             progress.LastEpisode.ShouldNotBeNull();
             progress.LastEpisode.Title.ShouldBe("The Iron Throne");

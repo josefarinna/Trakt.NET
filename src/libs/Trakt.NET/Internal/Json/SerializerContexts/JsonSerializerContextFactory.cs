@@ -19,6 +19,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[AuthenticationContextCacheKey];
             }
 
+            if (s_calendarssJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(CalendarsContextCacheKey));
+                return s_jsonSerializerContexts[CalendarsContextCacheKey];
+            }
+
             if (s_certificationsJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(CertificationsContextCacheKey));
@@ -101,6 +107,7 @@ namespace TraktNET
         }
 
         private const string AuthenticationContextCacheKey = "authentication";
+        private const string CalendarsContextCacheKey = "calendars";
         private const string CertificationsContextCacheKey = "certifications";
         private const string CheckinContextCacheKey = "checkin";
         private const string CommentsContextCacheKey = "comments";
@@ -124,6 +131,7 @@ namespace TraktNET
         private static readonly FrozenDictionary<string, JsonSerializerContext> s_jsonSerializerContexts = FrozenDictionary.ToFrozenDictionary(new[]
         {
             new KeyValuePair<string, JsonSerializerContext>(AuthenticationContextCacheKey, new AuthenticationJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(CalendarsContextCacheKey, new CalendarsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(CertificationsContextCacheKey, new CertificationsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(CheckinContextCacheKey, new CheckinJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(CommentsContextCacheKey, new CommentsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
@@ -143,6 +151,12 @@ namespace TraktNET
         {
             typeof(TraktAuthorization),
             typeof(TraktDevice)
+        });
+
+        private static readonly FrozenSet<Type> s_calendarssJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktCalendarShow),
+            typeof(TraktCalendarMovie)
         });
 
         private static readonly FrozenSet<Type> s_certificationsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -289,6 +303,7 @@ namespace TraktNET
         private static readonly Dictionary<string, JsonSerializerContext> s_jsonSerializerContexts = new()
         {
             { AuthenticationContextCacheKey, new AuthenticationJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { CalendarsContextCacheKey, new CalendarsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { CertificationsContextCacheKey, new CertificationsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { CheckinContextCacheKey, new CheckinJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { CommentsContextCacheKey, new CommentsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -307,6 +322,11 @@ namespace TraktNET
         private static readonly HashSet<Type> s_authenticationJsonTypes = [
             typeof(TraktAuthorization),
             typeof(TraktDevice)
+        ];
+
+        private static readonly HashSet<Type> s_calendarssJsonTypes = [
+            typeof(TraktCalendarShow),
+            typeof(TraktCalendarMovie)
         ];
 
         private static readonly HashSet<Type> s_certificationsJsonTypes = [
