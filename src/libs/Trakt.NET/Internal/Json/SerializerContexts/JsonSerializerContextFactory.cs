@@ -167,7 +167,11 @@ namespace TraktNET
 
         private static readonly FrozenSet<Type> s_checkinJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
-            typeof(TraktCheckinErrorResponse)
+            typeof(TraktCheckinErrorResponse),
+            typeof(TraktEpisodeCheckin),
+            typeof(TraktEpisodeCheckinResponse),
+            typeof(TraktMovieCheckin),
+            typeof(TraktMovieCheckinResponse)
         });
 
         private static readonly FrozenSet<Type> s_commentsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -335,7 +339,11 @@ namespace TraktNET
         ];
 
         private static readonly HashSet<Type> s_checkinJsonTypes = [
-            typeof(TraktCheckinErrorResponse)
+            typeof(TraktCheckinErrorResponse),
+            typeof(TraktEpisodeCheckin),
+            typeof(TraktEpisodeCheckinResponse),
+            typeof(TraktMovieCheckin),
+            typeof(TraktMovieCheckinResponse)
         ];
 
         private static readonly HashSet<Type> s_commentsJsonTypes = [

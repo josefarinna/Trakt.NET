@@ -49,6 +49,7 @@
 
   <ItemGroup Condition="$(DefineConstants.Contains(TRAKT_NETSTANDARD_TARGET))">
     <PackageReference Include="System.Text.Json" />
+    <PackageReference Include="System.Net.Http.Json" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">

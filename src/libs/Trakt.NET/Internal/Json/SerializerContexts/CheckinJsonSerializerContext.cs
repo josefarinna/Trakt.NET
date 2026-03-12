@@ -6,6 +6,10 @@ namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
     [JsonSerializable(typeof(TraktCheckinErrorResponse))]
+    [JsonSerializable(typeof(TraktEpisodeCheckin))]
+    [JsonSerializable(typeof(TraktEpisodeCheckinResponse))]
+    [JsonSerializable(typeof(TraktMovieCheckin))]
+    [JsonSerializable(typeof(TraktMovieCheckinResponse))]
     public sealed partial class CheckinJsonSerializerContext : JsonSerializerContext
     {
     }
