@@ -29,7 +29,14 @@
             }
         }
 
+        public string? OAuthAuthorizationCode { get; set; }
+
         public TraktAuthorization? Authorization { get; set; }
+
+        public TraktDevice? Device { get; set; } = new TraktDevice();
+
+        /// <summary>Gets a GUID, which can be used for OAuth authentication requests.</summary>
+        public string AntiForgeryToken { get; } = Guid.NewGuid().ToString();
 
         public bool IgnoreOAuthIfOptional { get; set; }
 

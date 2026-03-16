@@ -48,19 +48,20 @@ namespace TraktNET
                 throw new ArgumentException("invalid response content", nameof(responseContent));
             }
 
-            var response = new HttpResponseMessage
-            {
-                StatusCode = HttpStatusCode.OK,
-                Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
-            };
-
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
                 .WithHeaders(new Dictionary<string, string>
                 {
                     { TraktApiHeaderKey, TestConstants.ClientID },
                     { TraktApiVersionHeaderKey, "2" }
                 })
-                .Respond(_ => response);
+                .Respond(_ =>
+                {
+                    return new HttpResponseMessage
+                    {
+                        StatusCode = HttpStatusCode.OK,
+                        Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
+                    };
+                });
         }
 
         public void SetupMockResponse(string requestUri, string responseContent, uint? page, uint? pageCount, uint? limit, uint? itemCount)
@@ -75,24 +76,27 @@ namespace TraktNET
                 throw new ArgumentException("invalid response content", nameof(responseContent));
             }
 
-            var response = new HttpResponseMessage
-            {
-                StatusCode = HttpStatusCode.OK,
-                Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
-            };
-
-            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_KEY, $"{page ?? DefaultPage}");
-            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_COUNT_KEY, $"{pageCount ?? DefaultPageCount}");
-            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_LIMIT_KEY, $"{limit ?? DefaultLimit}");
-            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_ITEM_COUNT_KEY, $"{itemCount ?? DefaultItemCount}");
-
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
                 .WithHeaders(new Dictionary<string, string>
                 {
                     { TraktApiHeaderKey, TestConstants.ClientID },
                     { TraktApiVersionHeaderKey, "2" }
                 })
-                .Respond(_ => response);
+                .Respond(_ =>
+                {
+                    var resp = new HttpResponseMessage
+                    {
+                        StatusCode = HttpStatusCode.OK,
+                        Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
+                    };
+
+                    resp.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_KEY, $"{page ?? DefaultPage}");
+                    resp.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_COUNT_KEY, $"{pageCount ?? DefaultPageCount}");
+                    resp.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_LIMIT_KEY, $"{limit ?? DefaultLimit}");
+                    resp.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_ITEM_COUNT_KEY, $"{itemCount ?? DefaultItemCount}");
+
+                    return resp;
+                });
         }
 
         public void SetupMockResponse(string requestUri, HttpStatusCode statusCode)
@@ -111,7 +115,7 @@ namespace TraktNET
                 .Respond(statusCode);
         }
 
-        public void SetupOAuthMockResponse(string requestUri, string responseContent, uint? page, uint? pageCount, uint? limit, uint? itemCount)
+        public void SetupOAuthMockResponse(string requestUri, string responseContent, uint? page, uint? pageCount, uint? limit, uint? itemCount, bool noOauthHeaders = false)
         {
             if (string.IsNullOrWhiteSpace(requestUri))
             {
@@ -123,42 +127,68 @@ namespace TraktNET
                 throw new ArgumentException("invalid response content", nameof(responseContent));
             }
 
-            var response = new HttpResponseMessage
+            var headers = new Dictionary<string, string>
             {
-                StatusCode = HttpStatusCode.OK,
-                Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
+                { TraktApiHeaderKey, TestConstants.ClientID },
+                { TraktApiVersionHeaderKey, "2" },
+                { TraktApiAuthorizationHeaderKey, $"Bearer {TestConstants.MockAuthorization.AccessToken}" }
             };
-
-            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_KEY, $"{page ?? DefaultPage}");
-            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_COUNT_KEY, $"{pageCount ?? DefaultPageCount}");
-            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_LIMIT_KEY, $"{limit ?? DefaultLimit}");
-            response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_ITEM_COUNT_KEY, $"{itemCount ?? DefaultItemCount}");
+            if (noOauthHeaders)
+                headers.Clear();
 
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
-                .WithHeaders(new Dictionary<string, string>
+                .WithHeaders(headers)
+                .Respond(_ =>
                 {
-                    { TraktApiHeaderKey, TestConstants.ClientID },
-                    { TraktApiVersionHeaderKey, "2" },
-                    { TraktApiAuthorizationHeaderKey, $"Bearer {TestConstants.MockAuthorization.AccessToken}" }
-                })
-                .Respond(_ => response);
+                    var response = new HttpResponseMessage
+                    {
+                        StatusCode = HttpStatusCode.OK,
+                        Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
+                    };
+
+                    response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_KEY, $"{page ?? DefaultPage}");
+                    response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_PAGE_COUNT_KEY, $"{pageCount ?? DefaultPageCount}");
+                    response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_LIMIT_KEY, $"{limit ?? DefaultLimit}");
+                    response.Headers.Add(Constants.ResponseHeaders.HEADER_PAGINATION_ITEM_COUNT_KEY, $"{itemCount ?? DefaultItemCount}");
+
+                    return response;
+                });
         }
 
-        public void SetupOAuthMockResponse(string requestUri, HttpStatusCode statusCode)
+        public void SetupOAuthMockResponse(string requestUri, HttpStatusCode statusCode, bool noOauthHeaders = false)
         {
             if (string.IsNullOrWhiteSpace(requestUri))
             {
                 throw new ArgumentException("invalid request URI", nameof(requestUri));
             }
 
+            var headers = new Dictionary<string, string>
+            {
+                { TraktApiHeaderKey, TestConstants.ClientID },
+                { TraktApiVersionHeaderKey, "2" },
+                { TraktApiAuthorizationHeaderKey, $"Bearer {TestConstants.MockAuthorization.AccessToken}" }
+            };
+            if (noOauthHeaders)
+                headers.Clear();
+
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
-                .WithHeaders(new Dictionary<string, string>
-                {
-                    { TraktApiHeaderKey, TestConstants.ClientID },
-                    { TraktApiVersionHeaderKey, "2" },
-                    { TraktApiAuthorizationHeaderKey, $"Bearer {TestConstants.MockAuthorization.AccessToken}" }
-                })
+                .WithHeaders(headers)
                 .Respond(statusCode);
+        }
+
+        public void AddExpectationMockResponse(string requestUri, string requestContent, string responseContent, HttpStatusCode httpStatusCode)
+        {
+            var expectation = _mockHttpMessageHandler.Expect(_baseUrl + requestUri)
+                .WithContent(requestContent);
+
+            if (responseContent == null)
+            {
+                expectation.Respond(httpStatusCode);
+            }
+            else
+            {
+                expectation.Respond(httpStatusCode, "application/json", responseContent);
+            }
         }
 
         internal override HttpClient GetHttpClient(TraktContext context)

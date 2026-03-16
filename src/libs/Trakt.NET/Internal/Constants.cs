@@ -16,6 +16,8 @@ namespace TraktNET
             internal const string StagingBaseAuthorizationURL = "https://staging.trakt.tv/";
 
             internal const int Version = 2;
+
+            internal const string RedirectUri = "urn:ietf:wg:oauth:2.0:oob";
         }
 
         internal static class Request

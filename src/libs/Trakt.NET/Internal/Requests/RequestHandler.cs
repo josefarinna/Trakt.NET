@@ -62,6 +62,8 @@ namespace TraktNET
 
             HttpClient httpClient = context.GetHttpClient();
 
+            httpClient.BaseAddress = request.Flags.IsAuthorizationRequest ? context.BaseAuthorizationUri : context.BaseUri;
+
             HttpResponseMessage responseMessage = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead,
                 cancellationToken).ConfigureAwait(false);
 

@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Net.Http;
 using System.Reflection;
 using System.Text.Json;
 
@@ -45,6 +46,8 @@ namespace TraktNET
 #endif
         }
 
+        public static string SerializeObject<T>(T obj) where T : class => JsonSerializer.Serialize<T>(obj, Constants.Json.JsonOptions);
+
         public static DateTime ParseUTCDateTime(string dateTime)
             => DateTime.Parse(dateTime, CultureInfo.InvariantCulture).ToUniversalTime();
 
@@ -76,6 +79,33 @@ namespace TraktNET
 #endif
 
             return _location!;
+        }
+
+        public static async Task<string> BuildEncodedAuthorizeUrl(bool staging, string clientId, string redirectUri, string? state = null,
+                                                                   bool? showSignupPage = null, bool? forceLoginPrompt = null)
+        {
+            string baseUrl = staging ? Constants.API.StagingBaseAuthorizationURL : Constants.API.BaseAuthorizationURL;
+
+            var uriParams = new Dictionary<string, string>
+            {
+                ["response_type"] = "code",
+                ["client_id"] = clientId,
+                ["redirect_uri"] = redirectUri
+            };
+
+            if (!string.IsNullOrEmpty(state))
+                uriParams["state"] = state;
+
+            if (showSignupPage.HasValue)
+                uriParams.Add("signup", showSignupPage.Value.ToString().ToLowerInvariant());
+
+            if (forceLoginPrompt.HasValue && forceLoginPrompt.Value)
+                uriParams.Add("prompt", "login");
+
+            var encodedUriContent = new FormUrlEncodedContent(uriParams);
+            string encodedUri = await encodedUriContent.ReadAsStringAsync();
+
+            return $"{baseUrl}/oauth/authorize?{encodedUri}";
         }
     }
 }

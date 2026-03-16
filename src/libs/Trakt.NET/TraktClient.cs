@@ -27,6 +27,23 @@
             set => _context.Authorization = value;
         }
 
+        /// <summary>Gets or sets the OAuth authorization code.</summary>
+        public string? OAuthAuthorizationCode
+        {
+            get => _context.OAuthAuthorizationCode;
+            set => _context.OAuthAuthorizationCode = value;
+        }
+
+        /// <summary>Gets or sets the Trakt Device information /> for Device authentication. See also<see cref="TraktDevice" />.</summary>
+        public TraktDevice? Device
+        {
+            get => _context.Device;
+            set => _context.Device = value;
+        }
+
+        /// <summary>Gets a GUID, which can be used for OAuth authentication requests.</summary>
+        public string AntiForgeryToken => _context.AntiForgeryToken;
+
         /// <summary>Gets or sets, whether authorization should be ignored, if it is optional. This is disabled by default.</summary>
         public bool IgnoreOAuthIfOptional
         {

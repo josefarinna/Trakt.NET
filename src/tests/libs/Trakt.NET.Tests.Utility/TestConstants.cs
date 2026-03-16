@@ -5,14 +5,29 @@
         public const string ClientID = "traktClientID";
         public const string ClientSecret = "traktClientSecret";
         public const string MockAccessToken = "mockAccessToken";
+        public const string MockRefreshToken = "mockRefreshToken";
+        public const string RedirectURI = "urn:ietf:wg:oauth:2.0:oob";
+        public const string MockDeviceCode = "mockDeviceCode";
+        public const string MockUserCode = "5055CC52";
+        public const string DeviceVerificationURL = "https://trakt.tv/activate";
+        public const uint DeviceExpiresIn = 600;
+        public const uint DeviceInterval = 6;
+        public static readonly TraktDevice MockDevice = new()
+        {
+            DeviceCode = MockDeviceCode,
+            UserCode = MockUserCode,
+            VerificationUrl = DeviceVerificationURL,
+            ExpiresIn = DeviceExpiresIn,
+            Interval = DeviceInterval
+        };
 
-        public static readonly TraktAuthorization MockAuthorization =
-            new()
-            {
-                CreatedAt = (ulong)new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(),
-                AccessToken = MockAccessToken,
-                ExpiresIn = 3600U
-            };
+        public static readonly TraktAuthorization MockAuthorization = new()
+        {
+            CreatedAt = (ulong)new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(),
+            AccessToken = MockAccessToken,
+            ExpiresIn = 3600U,
+            RefreshToken = MockRefreshToken
+        };
 
         public static class Movies
         {
