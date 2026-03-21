@@ -177,7 +177,18 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_commentsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktComment),
-            typeof(TraktCommentUserStats)
+            typeof(TraktCommentItem),
+            typeof(TraktCommentLike),
+            typeof(TraktCommentPost),
+            typeof(TraktCommentPostResponse),
+            typeof(TraktCommentReplyPost),
+            typeof(TraktCommentUpdatePost),
+            typeof(TraktCommentUserStats),
+            typeof(TraktEpisodeCommentPost),
+            typeof(TraktListCommentPost),
+            typeof(TraktMovieCommentPost),
+            typeof(TraktSeasonCommentPost),
+            typeof(TraktShowCommentPost)
         });
 
         private static readonly FrozenSet<Type> s_episodeJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -298,6 +309,7 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_usersJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktUser),
+            typeof(TraktUserComment),
             typeof(TraktUserIDs),
             typeof(TraktUserImages),
             typeof(TraktUserImagesAvatar),
@@ -348,7 +360,18 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_commentsJsonTypes = [
             typeof(TraktComment),
-            typeof(TraktCommentUserStats)
+            typeof(TraktCommentItem),
+            typeof(TraktCommentLike),
+            typeof(TraktCommentPost),
+            typeof(TraktCommentPostResponse),
+            typeof(TraktCommentReplyPost),
+            typeof(TraktCommentUpdatePost),
+            typeof(TraktCommentUserStats),
+            typeof(TraktEpisodeCommentPost),
+            typeof(TraktListCommentPost),
+            typeof(TraktMovieCommentPost),
+            typeof(TraktSeasonCommentPost),
+            typeof(TraktShowCommentPost)
         ];
 
         private static readonly HashSet<Type> s_episodeJsonTypes = [
@@ -459,6 +482,7 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_usersJsonTypes = [
             typeof(TraktUser),
+            typeof(TraktUserComment),
             typeof(TraktUserIDs),
             typeof(TraktUserImages),
             typeof(TraktUserImagesAvatar),

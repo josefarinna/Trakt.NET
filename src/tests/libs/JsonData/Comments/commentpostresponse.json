@@ -1,0 +1,30 @@
+{
+	"id": 76957,
+	"parent_id": 1234,
+	"created_at": "2016-04-01T12:44:40Z",
+	"updated_at": "2016-04-03T08:23:38Z",
+	"comment": "I hate they made The flash a kids show. Could else be much better. And with a better flash offcourse.",
+	"spoiler": false,
+	"review": false,
+	"replies": 1,
+	"likes": 2,
+	"user_stats": {
+		"rating": 8,
+		"play_count": 1,
+		"completed_count": 1
+	},
+	"user": {
+		"username": "sean",
+		"private": false,
+		"name": "Sean Rudford",
+		"vip": true,
+		"vip_ep": true,
+		"ids": {
+			"slug": "sean"
+		}
+	},
+	"sharing": {
+		"twitter": true,
+		"tumblr": true
+	}
+}
