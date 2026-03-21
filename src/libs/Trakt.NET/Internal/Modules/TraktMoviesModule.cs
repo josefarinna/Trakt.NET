@@ -105,7 +105,7 @@
                 Limit = limit
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMovie>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMovie>(_context, request, (page, limit)
                 => new MovieRelatedMoviesGetRequest
                 {
                     Id = movieIDOrSlug,
@@ -152,7 +152,7 @@
                 Limit = limit
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktList>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktList>(_context, request, (page, limit)
                 => new MovieListsGetRequest
                 {
                     Id = movieIDOrSlug,
@@ -177,7 +177,7 @@
                 Limit = limit
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktComment>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktComment>(_context, request, (page, limit)
                 => new MovieCommentsGetRequest
                 {
                     Id = movieIDOrSlug,

@@ -21,7 +21,7 @@
                 Limit = limit
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktSearchResult>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktSearchResult>(_context, request, (page, limit)
                 => new SearchTextQueryGetRequest
                 {
                     Type = searchResultTypes,
@@ -49,7 +49,7 @@
                 Limit = limit
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktSearchResult>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktSearchResult>(_context, request, (page, limit)
                 => new SearchIDLookupGetRequest
                 {
                     IdType = searchIdType,

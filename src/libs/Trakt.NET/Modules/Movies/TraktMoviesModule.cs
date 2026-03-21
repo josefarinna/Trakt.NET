@@ -43,7 +43,7 @@ namespace TraktNET
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktTrendingMovie>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktTrendingMovie>(_context, request, (page, limit)
                 => new TrendingMoviesGetRequest
                 {
                     ExtendedInfo = extendedInfo,
@@ -95,7 +95,7 @@ namespace TraktNET
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMovie>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMovie>(_context, request, (page, limit)
                 => new PopularMoviesGetRequest
                 {
                     ExtendedInfo = extendedInfo,
@@ -153,7 +153,7 @@ namespace TraktNET
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMostFavoritedMovie>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostFavoritedMovie>(_context, request, (page, limit)
                 => new MostFavoritedMoviesGetRequest
                 {
                     TimePeriod = timePeriod,
@@ -212,7 +212,7 @@ namespace TraktNET
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMostPlayedMovie>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostPlayedMovie>(_context, request, (page, limit)
                 => new MostPlayedMoviesGetRequest
                 {
                     TimePeriod = timePeriod,
@@ -271,7 +271,7 @@ namespace TraktNET
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMostWatchedMovie>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostWatchedMovie>(_context, request, (page, limit)
                 => new MostWatchedMoviesGetRequest
                 {
                     TimePeriod = timePeriod,
@@ -330,7 +330,7 @@ namespace TraktNET
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMostCollectedMovie>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostCollectedMovie>(_context, request, (page, limit)
                 => new MostCollectedMoviesGetRequest
                 {
                     TimePeriod = timePeriod,
@@ -383,7 +383,7 @@ namespace TraktNET
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMostAnticipatedMovie>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostAnticipatedMovie>(_context, request, (page, limit)
                 => new MostAnticipatedMoviesGetRequest
                 {
                     ExtendedInfo = extendedInfo,
@@ -464,7 +464,7 @@ namespace TraktNET
                 StartDate = startDate
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktUpdatedMovie>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktUpdatedMovie>(_context, request, (page, limit)
                 => new RecentlyUpdatedMoviesGetRequest
                 {
                     ExtendedInfo = extendedInfo,
@@ -508,7 +508,7 @@ namespace TraktNET
                 StartDate = startDate
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<uint>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<uint>(_context, request, (page, limit)
                 => new RecentlyUpdatedMovieIDsGetRequest
                 {
                     Page = page,

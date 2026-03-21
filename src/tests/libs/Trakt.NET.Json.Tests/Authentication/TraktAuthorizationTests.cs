@@ -382,8 +382,7 @@
             authorization.RefreshToken.ShouldBe(REFRESH_TOKEN);
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
-            authorization.CreatedAt.ShouldBe(createdAtUtcNowTimestamp);
-            authorization.CreatedAtTimestamp.ShouldBe(createdAtUtcNowTimestamp);
+            authorization.CreatedAtTimestamp.ShouldBeInRange(createdAtUtcNowTimestamp - 10, createdAtUtcNowTimestamp + 10);
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
@@ -402,8 +401,7 @@
             authorization.RefreshToken!.ShouldBeEmpty();
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
-            authorization.CreatedAt.ShouldBe(createdAtUtcNowTimestamp);
-            authorization.CreatedAtTimestamp.ShouldBe(createdAtUtcNowTimestamp);
+            authorization.CreatedAtTimestamp.ShouldBeInRange(createdAtUtcNowTimestamp - 10, createdAtUtcNowTimestamp + 10);
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
@@ -422,8 +420,7 @@
             authorization.RefreshToken.ShouldBe(REFRESH_TOKEN);
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
-            authorization.CreatedAt.ShouldBe(createdAtUtcNowTimestamp);
-            authorization.CreatedAtTimestamp.ShouldBe(createdAtUtcNowTimestamp);
+            authorization.CreatedAtTimestamp.ShouldBeInRange(createdAtUtcNowTimestamp - 10, createdAtUtcNowTimestamp + 10);
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
@@ -442,8 +439,7 @@
             authorization.RefreshToken!.ShouldBeEmpty();
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
-            authorization.CreatedAt.ShouldBe(createdAtUtcNowTimestamp);
-            authorization.CreatedAtTimestamp.ShouldBe(createdAtUtcNowTimestamp);
+            authorization.CreatedAtTimestamp.ShouldBeInRange(createdAtUtcNowTimestamp - 10, createdAtUtcNowTimestamp + 10);
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);

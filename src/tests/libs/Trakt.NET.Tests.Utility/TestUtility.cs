@@ -94,7 +94,7 @@ namespace TraktNET
             };
 
             if (!string.IsNullOrEmpty(state))
-                uriParams["state"] = state;
+                uriParams["state"] = state!;
 
             if (showSignupPage.HasValue)
                 uriParams.Add("signup", showSignupPage.Value.ToString().ToLowerInvariant());

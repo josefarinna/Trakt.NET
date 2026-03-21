@@ -106,7 +106,7 @@
             };
 
             return RequestHandler.ExecutePagedListRequestAsync<TraktShow>(_context, request,
-                (uint? page, uint? limit) =>
+                (page, limit) =>
                     new ShowRelatedShowsGetRequest
                     {
                         Id = showIDOrSlug,
@@ -177,7 +177,7 @@
                 Limit = limit
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktList>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktList>(_context, request, (page, limit)
                 => new ShowListsGetRequest
                 {
                     Id = showIDOrSlug,
@@ -202,7 +202,7 @@
                 Limit = limit
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktComment>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktComment>(_context, request, (page, limit)
                 => new ShowCommentsGetRequest
                 {
                     Id = showIDOrSlug,

@@ -47,7 +47,7 @@
                 Limit = limit
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktTrendingShow>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktTrendingShow>(_context, request, (page, limit)
                 => new TrendingShowsGetRequest
                 {
                     ExtendedInfo = extendedInfo,
@@ -99,7 +99,7 @@
                 Limit = limit
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktShow>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktShow>(_context, request, (page, limit)
                 => new PopularShowsGetRequest
                 {
                     ExtendedInfo = extendedInfo,
@@ -158,7 +158,7 @@
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMostFavoritedShow>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostFavoritedShow>(_context, request, (page, limit)
                 => new MostFavoritedShowsGetRequest
                 {
                     TimePeriod = timePeriod,
@@ -218,7 +218,7 @@
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMostPlayedShow>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostPlayedShow>(_context, request, (page, limit)
                 => new MostPlayedShowsGetRequest
                 {
                     TimePeriod = timePeriod,
@@ -275,7 +275,7 @@
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMostWatchedShow>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostWatchedShow>(_context, request, (page, limit)
                 => new MostWatchedShowsGetRequest
                 {
                     TimePeriod = timePeriod,
@@ -332,7 +332,7 @@
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMostCollectedShow>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostCollectedShow>(_context, request, (page, limit)
                 => new MostCollectedShowsGetRequest
                 {
                     TimePeriod = timePeriod,
@@ -382,7 +382,7 @@
                 Filter = filter
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktMostAnticipatedShow>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktMostAnticipatedShow>(_context, request, (page, limit)
                 => new MostAnticipatedShowsGetRequest
                 {
                     ExtendedInfo = extendedInfo,
@@ -431,7 +431,7 @@
                 StartDate = startDate
             };
 
-            return RequestHandler.ExecutePagedListRequestAsync<TraktUpdatedShow>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<TraktUpdatedShow>(_context, request, (page, limit)
                 => new RecentlyUpdatedShowsGetRequest
                 {
                     ExtendedInfo = extendedInfo,
@@ -474,7 +474,7 @@
                 Page = page,
                 Limit = limit
             };
-            return RequestHandler.ExecutePagedListRequestAsync<uint>(_context, request, (uint? page, uint? limit)
+            return RequestHandler.ExecutePagedListRequestAsync<uint>(_context, request, (page, limit)
                 => new RecentlyUpdatedShowIDsGetRequest
                 {
                     Page = page,

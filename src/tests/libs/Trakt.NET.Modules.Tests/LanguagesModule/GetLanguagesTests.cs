@@ -2,7 +2,7 @@
 
 namespace TraktNET.LanguagesModule
 {
-    public sealed class TraktLanguagesModuleTests
+    public sealed class GetLanguagesTests
     {
         private const string LanguagesMoviesUri = "languages/movies";
         private const string LanguagesShowsUri = "languages/shows";
