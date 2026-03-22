@@ -43,6 +43,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[CommentsContextCacheKey];
             }
 
+            if (s_countriesJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(CountriesContextCacheKey));
+                return s_jsonSerializerContexts[CountriesContextCacheKey];
+            }
+
             if (s_episodeJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(EpisodesContextCacheKey));
@@ -53,6 +59,12 @@ namespace TraktNET
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(GeneralContextCacheKey));
                 return s_jsonSerializerContexts[GeneralContextCacheKey];
+            }
+
+            if (s_genresJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(GenresContextCacheKey));
+                return s_jsonSerializerContexts[GenresContextCacheKey];
             }
 
             if (s_languagesJsonTypes.Contains(typeof(TJsonObjectType)))
@@ -71,6 +83,12 @@ namespace TraktNET
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(MoviesContextCacheKey));
                 return s_jsonSerializerContexts[MoviesContextCacheKey];
+            }
+
+            if (s_networksJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(NetworksContextCacheKey));
+                return s_jsonSerializerContexts[NetworksContextCacheKey];
             }
 
             if (s_peopleJsonTypes.Contains(typeof(TJsonObjectType)))
@@ -111,11 +129,14 @@ namespace TraktNET
         private const string CertificationsContextCacheKey = "certifications";
         private const string CheckinContextCacheKey = "checkin";
         private const string CommentsContextCacheKey = "comments";
+        private const string CountriesContextCacheKey = "countries";
         private const string EpisodesContextCacheKey = "episodes";
         private const string GeneralContextCacheKey = "general";
+        private const string GenresContextCacheKey = "genres";
         private const string LanguagesContextCacheKey = "languages";
         private const string ListsContextCacheKey = "lists";
         private const string MoviesContextCacheKey = "movies";
+        private const string NetworksContextCacheKey = "networks";
         private const string PeopleContextCacheKey = "people";
         private const string SearchsContextCacheKey = "searchs";
         private const string SeasonsContextCacheKey = "seasons";
@@ -135,11 +156,14 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(CertificationsContextCacheKey, new CertificationsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(CheckinContextCacheKey, new CheckinJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(CommentsContextCacheKey, new CommentsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(CountriesContextCacheKey, new CountriesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(EpisodesContextCacheKey, new EpisodesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(GeneralContextCacheKey, new GeneralJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(GenresContextCacheKey, new GenresJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(LanguagesContextCacheKey, new LanguagesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(ListsContextCacheKey, new ListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(MoviesContextCacheKey, new MoviesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(NetworksContextCacheKey, new NetworksJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
@@ -191,6 +215,11 @@ namespace TraktNET
             typeof(TraktShowCommentPost)
         });
 
+        private static readonly FrozenSet<Type> s_countriesJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktCountry)
+        });
+
         private static readonly FrozenSet<Type> s_episodeJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktEpisode),
@@ -217,6 +246,12 @@ namespace TraktNET
             typeof(TraktStudio),
             typeof(TraktStudioIDs),
             typeof(TraktVideo)
+        });
+
+        private static readonly FrozenSet<Type> s_genresJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktGenre),
+            typeof(TraktSubgenre)
         });
 
         private static readonly FrozenSet<Type> s_languagesJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -249,6 +284,12 @@ namespace TraktNET
             typeof(TraktMovieTranslation),
             typeof(TraktTrendingMovie),
             typeof(TraktUpdatedMovie)
+        });
+
+        private static readonly FrozenSet<Type> s_networksJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktNetwork),
+            typeof(TraktNetworkIDs)
         });
 
         private static readonly FrozenSet<Type> s_peopleJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -323,11 +364,14 @@ namespace TraktNET
             { CertificationsContextCacheKey, new CertificationsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { CheckinContextCacheKey, new CheckinJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { CommentsContextCacheKey, new CommentsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { CountriesContextCacheKey, new CountriesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { EpisodesContextCacheKey, new EpisodesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { GeneralContextCacheKey, new GeneralJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { GenresContextCacheKey, new GenresJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { LanguagesContextCacheKey, new LanguagesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ListsContextCacheKey, new ListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { MoviesContextCacheKey, new MoviesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { NetworksContextCacheKey, new NetworkJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -374,6 +418,10 @@ namespace TraktNET
             typeof(TraktShowCommentPost)
         ];
 
+        private static readonly HashSet<Type> s_countriesJsonTypes = [
+            typeof(TraktCountry)
+        ];
+
         private static readonly HashSet<Type> s_episodeJsonTypes = [
             typeof(TraktEpisode),
             typeof(TraktEpisodeCollectionProgress),
@@ -398,6 +446,11 @@ namespace TraktNET
             typeof(TraktStudio),
             typeof(TraktStudioIDs),
             typeof(TraktVideo)
+        ];
+
+        private static readonly HashSet<Type> s_genresJsonTypes = [
+            typeof(TraktGenre),
+            typeof(TraktSubgenre)
         ];
 
         private static readonly HashSet<Type> s_languagesJsonTypes = [
@@ -427,6 +480,11 @@ namespace TraktNET
             typeof(TraktMovieTranslation),
             typeof(TraktTrendingMovie),
             typeof(TraktUpdatedMovie)
+        ];
+
+        private static readonly HashSet<Type> s_networksJsonTypes = [
+            typeof(TraktNetwork),
+            typeof(TraktNetworkIDs)
         ];
 
         private static readonly HashSet<Type> s_peopleJsonTypes = [

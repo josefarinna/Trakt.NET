@@ -14,6 +14,7 @@
             TraktExtendedInfo.Comments.ToJson().ShouldBe("comments");
             TraktExtendedInfo.VIP.ToJson().ShouldBe("vip");
             TraktExtendedInfo.Images.ToJson().ShouldBe("images");
+            TraktExtendedInfo.Subgenres.ToJson().ShouldBe("subgenres");
         }
 
         [Fact]
@@ -28,6 +29,7 @@
             "comments".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Comments);
             "vip".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.VIP);
             "images".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Images);
+            "subgenres".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Subgenres);
 
             string? nullValue = null;
             nullValue.ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.None);
@@ -45,6 +47,7 @@
             TraktExtendedInfo.Comments.DisplayName().ShouldBe("Comments");
             TraktExtendedInfo.VIP.DisplayName().ShouldBe("VIP");
             TraktExtendedInfo.Images.DisplayName().ShouldBe("Images");
+            TraktExtendedInfo.Subgenres.DisplayName().ShouldBe("Subgenres");
 
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.DisplayName().ShouldBe("Full, VIP");
@@ -71,6 +74,7 @@
             TraktExtendedInfo.Comments.AsQuery().ShouldBe("extended=comments");
             TraktExtendedInfo.VIP.AsQuery().ShouldBe("extended=vip");
             TraktExtendedInfo.Images.AsQuery().ShouldBe("extended=images");
+            TraktExtendedInfo.Subgenres.AsQuery().ShouldBe("extended=subgenres");
 
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.AsQuery().ShouldBe("extended=full,vip");

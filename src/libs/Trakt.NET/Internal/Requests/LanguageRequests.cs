@@ -4,10 +4,13 @@
     // GET Requests
     // -------------------------------------------------------
 
-    [TraktGetRequest("languages")]
-    internal sealed partial class ListLanguagesGetRequest
+    [TraktGetRequest("languages/movies")]
+    internal sealed partial class LanguagesMoviesGetRequest
     {
-        [TraktRequestParameter]
-        public TraktLanguageItemType LanguageType { get; set; }
+    }
+
+    [TraktGetRequest("languages/shows")]
+    internal sealed partial class LanguagesShowsGetRequest
+    {
     }
 }

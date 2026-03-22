@@ -6,14 +6,10 @@
     /// </summary>
     public sealed partial class TraktLanguagesModule(TraktContext context) : BaseModule(context)
     {
-        private Task<TraktListResponse<TraktLanguage>> GetLanguagesImplAsync(TraktLanguageItemType languageType, CancellationToken cancellationToken = default)
-        {
-            var request = new ListLanguagesGetRequest
-            {
-                LanguageType = languageType
-            };
+        private Task<TraktListResponse<TraktLanguage>> GetMovieLanguagesImplAsync(CancellationToken cancellationToken = default)
+            => RequestHandler.ExecuteListRequestAsync<TraktLanguage>(_context, new LanguagesMoviesGetRequest(), cancellationToken);
 
-            return RequestHandler.ExecuteListRequestAsync<TraktLanguage>(_context, request, cancellationToken);
-        }
+        private Task<TraktListResponse<TraktLanguage>> GetShowLanguagesImplAsync(CancellationToken cancellationToken = default)
+            => RequestHandler.ExecuteListRequestAsync<TraktLanguage>(_context, new LanguagesShowsGetRequest(), cancellationToken);
     }
 }

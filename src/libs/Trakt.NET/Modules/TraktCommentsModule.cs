@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.Design;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
 
 namespace TraktNET
 {

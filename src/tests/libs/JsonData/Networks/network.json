@@ -1,0 +1,8 @@
+{
+    "name": "CBS",
+    "country": "us",
+    "ids": {
+        "trakt": 22,
+        "tmdb": 16
+    }
+}

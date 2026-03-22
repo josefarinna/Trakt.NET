@@ -36,6 +36,9 @@
         VIP = 64,
 
         /// <summary>Media images shall be retrieved.</summary>
-        Images = 128
+        Images = 128,
+
+        /// <summary>Subgenres information shall be retrieved.</summary>
+        Subgenres = 256
     }
 }
