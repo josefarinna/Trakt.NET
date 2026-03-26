@@ -262,7 +262,15 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_listsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktList),
-            typeof(TraktListIDs)
+            typeof(TraktListIDs),
+            typeof(TraktListImages),
+            typeof(TraktListItem),
+            typeof(TraktListItemsReorderPost),
+            typeof(TraktListItemUpdatePost),
+            typeof(TraktListLike),
+            typeof(TraktPopularList),
+            typeof(TraktTrendingList),
+            typeof(TraktTrendingOrPopularList)
         });
 
         private static readonly FrozenSet<Type> s_movieJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -459,7 +467,15 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_listsJsonTypes = [
             typeof(TraktList),
-            typeof(TraktListIDs)
+            typeof(TraktListIDs),
+            typeof(TraktListImages),
+            typeof(TraktListItem),
+            typeof(TraktListItemsReorderPost),
+            typeof(TraktListItemUpdatePost),
+            typeof(TraktListLike),
+            typeof(TraktPopularList),
+            typeof(TraktTrendingList),
+            typeof(TraktTrendingOrPopularList)
         ];
 
         private static readonly HashSet<Type> s_movieJsonTypes = [

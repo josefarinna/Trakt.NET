@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines how items are ordered.</summary>
-    [TraktEnum]
+    [TraktEnum(HasPathSupport = true)]
     public enum TraktSortBy
     {
         /// <summary>An invalid sort-by type.</summary>

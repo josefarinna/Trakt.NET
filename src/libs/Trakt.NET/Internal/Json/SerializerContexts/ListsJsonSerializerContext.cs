@@ -9,6 +9,18 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktList>))]
     [JsonSerializable(typeof(TraktListIDs))]
     [JsonSerializable(typeof(IReadOnlyList<TraktListIDs>))]
+    [JsonSerializable(typeof(TraktListImages))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktListImages>))]
+    [JsonSerializable(typeof(TraktListItem))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktListItem>))]
+    [JsonSerializable(typeof(TraktListItemsReorderPost))]
+    [JsonSerializable(typeof(TraktListItemUpdatePost))]
+    [JsonSerializable(typeof(TraktListLike))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktListLike>))]
+    [JsonSerializable(typeof(TraktPopularList))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktPopularList>))]
+    [JsonSerializable(typeof(TraktTrendingList))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktTrendingList>))]
     public sealed partial class ListsJsonSerializerContext : JsonSerializerContext
     {
     }

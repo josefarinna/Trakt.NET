@@ -1,0 +1,13 @@
+{
+    "liked_at": "2014-09-01T09:10:11.000Z",
+    "user": {
+        "username": "justin",
+        "private": false,
+        "name": "Justin Nemeth",
+        "vip": true,
+        "vip_ep": true,
+        "ids": {
+            "slug": "justin"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "id": 101,
+    "rank": 1,
+    "listed_at": "2014-09-01T09:10:11.000Z",
+    "notes": "list item notes",
+    "type": "person",
+    "person": {
+        "name": "Bryan Cranston",
+        "ids": {
+            "trakt": 297737,
+            "slug": "bryan-cranston",
+            "imdb": "nm0186505",
+            "tmdb": 17419,
+            "tvrage": 1797
+        }
+    }
+}

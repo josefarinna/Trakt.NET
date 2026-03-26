@@ -23,6 +23,7 @@
             list.Likes.ShouldBeNull();
             list.IDs.ShouldBeNull();
             list.User.ShouldBeNull();
+            list.Images.ShouldBeNull();
         }
 
         [Fact]

@@ -59,5 +59,11 @@ namespace TraktNET
         /// See also <seealso cref="TraktUser" />.
         /// </summary>
         public TraktUser? User { get; set; }
+
+        /// <summary>
+        /// The collection of image URLs for the list.
+        /// See also <seealso cref="TraktListImages" />.
+        /// </summary>
+        public TraktListImages? Images { get; set; }
     }
 }
