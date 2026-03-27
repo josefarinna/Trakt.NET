@@ -4,7 +4,7 @@
     /// Provides access to data retrieving methods specific to certifications.<para />
     /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/certifications">"Trakt API Documentation - Certifications"</a> section.
     /// </summary>
-    public sealed class TraktCertificationsModule(TraktContext context) : BaseModule(context)
+    public sealed partial class TraktCertificationsModule
     {
         /// <summary>Gets all movie certifications.</summary>
         /// <param name="cancellationToken">
@@ -24,10 +24,7 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         public Task<TraktResponse<TraktCertifications>> GetMovieCertificationsAsync(CancellationToken cancellationToken = default)
-        {
-            var request = new CertificationsMoviesGetRequest();
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCertifications>(_context, request, cancellationToken);
-        }
+            => GetMovieCertificationsImplAsync(cancellationToken);
 
         /// <summary>Gets all show certifications.</summary>
         /// <param name="cancellationToken">
@@ -47,9 +44,6 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         public Task<TraktResponse<TraktCertifications>> GetShowCertificationsAsync(CancellationToken cancellationToken = default)
-        {
-            var request = new CertificationsShowsGetRequest();
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCertifications>(_context, request, cancellationToken);
-        }
+            => GetShowCertificationsImplAsync(cancellationToken);
     }
 }

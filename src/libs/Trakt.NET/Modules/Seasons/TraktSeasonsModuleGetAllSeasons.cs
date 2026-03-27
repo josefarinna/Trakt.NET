@@ -2,7 +2,7 @@
 {
     public sealed partial class TraktSeasonsModule
     {
-        /// <summary>Gets all <see cref="TraktSeason" /> for a specific Trakt show with the specified Trakt-ID or -Slug..</summary>
+        /// <summary>Gets all <see cref="TraktSeason" /> for a specific Trakt show with the specified Trakt-ID or -Slug.</summary>
         /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the seasons.

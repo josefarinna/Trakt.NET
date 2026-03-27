@@ -6,8 +6,8 @@
     /// </summary>
     public partial class TraktListsModule
     {
-        /// <summary>Gets a <see cref="TraktList" /> with the given Trakt-Id.</summary>
-        /// <param name="listIdOrSlug">The list's Trakt-Id or -Slug. See also <seealso cref="TraktListIDs" />.</param>
+        /// <summary>Gets a <see cref="TraktList" /> with the given Trakt-ID.</summary>
+        /// <param name="listIdOrSlug">The list's Trakt-ID or -Slug. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the list items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -33,8 +33,8 @@
             CancellationToken cancellationToken = default)
             => GetListImplAsync(listIdOrSlug, extendedInfo, cancellationToken);
 
-        /// <summary>Gets a <see cref="TraktList" /> with the given Trakt-Id.</summary>
-        /// <param name="traktListId">The list's Trakt-Id. See also <seealso cref="TraktListIDs" />.</param>
+        /// <summary>Gets a <see cref="TraktList" /> with the given Trakt-ID.</summary>
+        /// <param name="traktListId">The list's Trakt-ID. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the list items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -66,7 +66,7 @@
             return GetListAsync(traktListId.ToInvariantCultureString(), extendedInfo, cancellationToken);
         }
 
-        /// <summary>Gets a <see cref="TraktList" /> with the given Trakt-Id.</summary>
+        /// <summary>Gets a <see cref="TraktList" /> with the given Trakt-ID.</summary>
         /// <param name="listIds">The list's ids. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the list items.

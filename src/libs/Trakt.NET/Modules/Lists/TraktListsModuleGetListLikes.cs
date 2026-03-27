@@ -35,7 +35,7 @@
             => GetListLikesImplAsync(listIdOrSlug, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets the users who liked a list.</summary>
-        /// <param name="traktListId">The list's Trakt-Id. See also <seealso cref="TraktListIDs" />.</param>
+        /// <param name="traktListId">The list's Trakt-ID. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the list items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>

@@ -12,7 +12,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried genres.
+        /// A response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried networks.
         /// <para />
         /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNetwork" />.
         /// </returns>

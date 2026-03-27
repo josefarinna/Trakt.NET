@@ -6,7 +6,7 @@ namespace TraktNET
     /// Provides access to data retrieving methods specific to comments.<para />
     /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/comments">"Trakt API Documentation - Comments"</a> section.
     /// </summary>
-    public class TraktCommentsModule(TraktContext context) : BaseModule(context)
+    public sealed partial class TraktCommentsModule
     {
         /// <summary>Gets a <see cref="TraktComment" /> or reply with the given id.</summary>
         /// <param name="commentId">The comment's id.</param>
@@ -33,15 +33,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktComment>> GetCommentAsync(uint commentId, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
-        {
-            var request = new CommentSummaryGetRequest
-            {
-                Id = commentId.ToInvariantCultureString(),
-                ExtendedInfo = extendedInfo
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktComment>(_context, request, cancellationToken);
-        }
+            => GetCommentImplAsync(commentId, extendedInfo, cancellationToken);
 
         /// <summary>Gets the attached media <see cref="TraktCommentItem" /> from a comment with the given id.</summary>
         /// <param name="commentId">The comment's id.</param>
@@ -68,15 +60,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentItem>> GetCommentItemAsync(uint commentId, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
-        {
-            var request = new CommentItemGetRequest
-            {
-                Id = commentId.ToInvariantCultureString(),
-                ExtendedInfo = extendedInfo
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentItem>(_context, request, cancellationToken);
-        }
+            => GetCommentItemImplAsync(commentId, extendedInfo, cancellationToken);
 
         /// <summary>Gets likes for comment with the given id.</summary>
         /// <param name="commentId">The comment's id.</param>
@@ -108,25 +92,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktCommentLike>> GetCommentLikesAsync(uint commentId, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-        {
-            var request = new CommentLikesGetRequest
-            {
-                Id = commentId.ToInvariantCultureString(),
-                ExtendedInfo = extendedInfo,
-                Page = page,
-                Limit = limit
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktCommentLike>(_context, request, (page, limit)
-                => new CommentLikesGetRequest
-                {
-                    Id = commentId.ToInvariantCultureString(),
-                    ExtendedInfo = extendedInfo,
-                    Page = page,
-                    Limit = limit
-                },
-                cancellationToken);
-        }
+            => GetCommentLikesImplAsync(commentId, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets recently updated comments.</summary>
         /// <param name="commentType">Determines, which type of comments should be queried. See also <seealso cref="TraktCommentType" />.</param>
@@ -160,29 +126,7 @@ namespace TraktNET
         public Task<TraktPagedResponse<TraktUserComment>> GetRecentlyUpdatedCommentsAsync(TraktCommentType? commentType = null,
             TraktCommentObjectType? type = null, bool? includeReplies = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-        {
-            var request = new CommentsUpdatesGetRequest
-            {
-                CommentType = commentType,
-                Type = type,
-                IncludeReplies = includeReplies,
-                ExtendedInfo = extendedInfo,
-                Page = page,
-                Limit = limit
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktUserComment>(_context, request, (page, limit)
-                => new CommentsUpdatesGetRequest
-                {
-                    CommentType = commentType,
-                    Type = type,
-                    IncludeReplies = includeReplies,
-                    ExtendedInfo = extendedInfo,
-                    Page = page,
-                    Limit = limit
-                },
-                cancellationToken);
-        }
+            => GetRecentlyUpdatedCommentsImplAsync(commentType, type, includeReplies, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets recently created comments.</summary>
         /// <param name="commentType">Determines, which type of comments should be queried. See also <seealso cref="TraktCommentType" />.</param>
@@ -216,28 +160,7 @@ namespace TraktNET
         public Task<TraktPagedResponse<TraktUserComment>> GetRecentlyCreatedCommentsAsync(TraktCommentType? commentType = null,
             TraktCommentObjectType? type = null, bool? includeReplies = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-        {
-            var request = new CommentsRecentGetRequest
-            {
-                CommentType = commentType,
-                Type = type,
-                IncludeReplies = includeReplies,
-                ExtendedInfo = extendedInfo,
-                Page = page,
-                Limit = limit
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktUserComment>(_context, request, (page, limit)
-                => new CommentsRecentGetRequest
-                {
-                    CommentType = commentType,
-                    Type = type,
-                    IncludeReplies = includeReplies,
-                    ExtendedInfo = extendedInfo,
-                    Page = page,
-                    Limit = limit
-                }, cancellationToken);
-        }
+            => GetRecentlyCreatedCommentsImplAsync(commentType, type, includeReplies, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets trending comments.</summary>
         /// <param name="commentType">Determines, which type of comments should be queried. See also <seealso cref="TraktCommentType" />.</param>
@@ -271,28 +194,7 @@ namespace TraktNET
         public Task<TraktPagedResponse<TraktUserComment>> GetTrendingCommentsAsync(TraktCommentType? commentType = null,
             TraktCommentObjectType? type = null, bool? includeReplies = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-        {
-            var request = new CommentsTrendingGetRequest
-            {
-                CommentType = commentType,
-                Type = type,
-                IncludeReplies = includeReplies,
-                ExtendedInfo = extendedInfo,
-                Page = page,
-                Limit = limit
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktUserComment>(_context, request, (page, limit)
-                => new CommentsTrendingGetRequest
-                {
-                    CommentType = commentType,
-                    Type = type,
-                    IncludeReplies = includeReplies,
-                    ExtendedInfo = extendedInfo,
-                    Page = page,
-                    Limit = limit
-                }, cancellationToken);
-        }
+            => GetTrendingCommentsImplAsync(commentType, type, includeReplies, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Posts a comment for the given <see cref="TraktMovie" />.</summary>
         /// <param name="movieCommentPost">An <see cref="TraktMovieCommentPost" /> instance, which should be posted.</param>
@@ -316,17 +218,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> PostMovieCommentAsync(TraktMovieCommentPost movieCommentPost,
             CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(movieCommentPost);
-            movieCommentPost.Validate();
-
-            var request = new CommentPostRequest
-            {
-                Content = JsonContent.Create(movieCommentPost)
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
-        }
+            => PostMovieCommentImplAsync(movieCommentPost, cancellationToken);
 
         /// <summary>Posts a comment for the given <see cref="TraktShow" />.</summary>
         /// <param name="showCommentPost">An <see cref="TraktShowCommentPost" /> instance, which should be posted.</param>
@@ -350,17 +242,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> PostShowCommentAsync(TraktShowCommentPost showCommentPost,
             CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(showCommentPost);
-            showCommentPost.Validate();
-
-            var request = new CommentPostRequest
-            {
-                Content = JsonContent.Create(showCommentPost)
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
-        }
+            => PostShowCommentImplAsync(showCommentPost, cancellationToken);
 
         /// <summary>Posts a comment for the given <see cref="TraktSeason" />.</summary>
         /// <param name="seasonCommentPost">An <see cref="TraktSeasonCommentPost" /> instance, which should be posted.</param>
@@ -384,17 +266,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> PostSeasonCommentAsync(TraktSeasonCommentPost seasonCommentPost,
             CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(seasonCommentPost);
-            seasonCommentPost.Validate();
-
-            var request = new CommentPostRequest
-            {
-                Content = JsonContent.Create(seasonCommentPost)
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
-        }
+            => PostSeasonCommentImplAsync(seasonCommentPost, cancellationToken);
 
         /// <summary>Posts a comment for the given <see cref="TraktEpisode" />.</summary>
         /// <param name="episodeCommentPost">An <see cref="TraktEpisodeCommentPost" /> instance, which should be posted.</param>
@@ -418,17 +290,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> PostEpisodeCommentAsync(TraktEpisodeCommentPost episodeCommentPost,
             CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(episodeCommentPost);
-            episodeCommentPost.Validate();
-
-            var request = new CommentPostRequest
-            {
-                Content = JsonContent.Create(episodeCommentPost)
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
-        }
+            => PostEpisodeCommentImplAsync(episodeCommentPost, cancellationToken);
 
         /// <summary>Posts a comment for the given <see cref="TraktList" />.</summary>
         /// <param name="listCommentPost">An <see cref="TraktListCommentPost" /> instance, which should be posted.</param>
@@ -452,17 +314,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> PostListCommentAsync(TraktListCommentPost listCommentPost,
             CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(listCommentPost);
-            listCommentPost.Validate();
-
-            var request = new CommentPostRequest
-            {
-                Content = JsonContent.Create(listCommentPost)
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
-        }
+            => PostListCommentImplAsync(listCommentPost, cancellationToken);
 
         /// <summary>Updates a comment or reply with the given comment id, which was posted within the last hour.</summary>
         /// <param name="commentId">The id of the comment, which should be updated.</param>
@@ -488,22 +340,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> UpdateCommentAsync(uint commentId, string comment, bool? containsSpoiler = null,
             CancellationToken cancellationToken = default)
-        {
-            var content = new TraktCommentUpdatePost
-            {
-                Comment = comment,
-                Spoiler = containsSpoiler
-            };
-            content.Validate();
-
-            var request = new CommentUpdatePutRequest
-            {
-                Id = commentId.ToInvariantCultureString(),
-                Content = JsonContent.Create(content)
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
-        }
+            => UpdateCommentImplAsync(commentId, comment, containsSpoiler, cancellationToken);
 
         /// <summary>Posts a reply to a comment with the given comment id.</summary>
         /// <param name="commentId">The id of the comment, which should be updated.</param>
@@ -529,22 +366,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> PostCommentReplyAsync(uint commentId, string comment, bool? containsSpoiler = null,
             CancellationToken cancellationToken = default)
-        {
-            var content = new TraktCommentReplyPost
-            {
-                Comment = comment,
-                Spoiler = containsSpoiler
-            };
-            content.Validate();
-
-            var request = new CommentReplyPostRequest
-            {
-                Id = commentId.ToInvariantCultureString(),
-                Content = JsonContent.Create(content)
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
-        }
+            => PostCommentReplyImplAsync(commentId, comment, containsSpoiler, cancellationToken);
 
         /// <summary>Deletes a comment with the given comment id.</summary>
         /// <param name="commentId">The id of the comment, which should be deleted.</param>
@@ -564,14 +386,7 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> DeleteCommentAsync(uint commentId, CancellationToken cancellationToken = default)
-        {
-            var request = new CommentDeleteRequest
-            {
-                Id = commentId.ToInvariantCultureString()
-            };
-
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
-        }
+            => DeleteCommentImplAsync(commentId, cancellationToken);
 
         /// <summary>Likes a comment with the given comment id.</summary>
         /// <param name="commentId">The id of the comment, which should be liked.</param>
@@ -591,14 +406,7 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> LikeCommentAsync(uint commentId, CancellationToken cancellationToken = default)
-        {
-            var request = new CommentLikePostRequest
-            {
-                Id = commentId.ToInvariantCultureString()
-            };
-
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
-        }
+            => LikeCommentImplAsync(commentId, cancellationToken);
 
         /// <summary>Unlikes a comment with the given comment id.</summary>
         /// <param name="commentId">The id of the comment, which should be unliked.</param>
@@ -618,14 +426,7 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> UnlikeCommentAsync(uint commentId, CancellationToken cancellationToken = default)
-        {
-            var request = new CommentUnlikeDeleteRequest
-            {
-                Id = commentId.ToInvariantCultureString()
-            };
-
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
-        }
+            => UnlikeCommentImplAsync(commentId, cancellationToken);
 
         /// <summary>Gets replies for comment with the given id.</summary>
         /// <param name="commentId">The comment's id.</param>
@@ -657,23 +458,6 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetCommentRepliesAsync(uint commentId, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-        {
-            var request = new CommentRepliesGetRequest
-            {
-                Id = commentId.ToInvariantCultureString(),
-                ExtendedInfo = extendedInfo,
-                Page = page,
-                Limit = limit,
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktComment>(_context, request, (page, limit)
-                => new CommentRepliesGetRequest
-                {
-                    Id = commentId.ToInvariantCultureString(),
-                    ExtendedInfo = extendedInfo,
-                    Page = page,
-                    Limit = limit,
-                }, cancellationToken);
-        }
+            => GetCommentRepliesImplAsync(commentId, extendedInfo, page, limit, cancellationToken);
     }
 }

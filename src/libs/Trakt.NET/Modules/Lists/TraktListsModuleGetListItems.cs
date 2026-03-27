@@ -43,7 +43,7 @@
         }
 
         /// <summary>Gets the items on a list.</summary>
-        /// <param name="traktListId">The list's Trakt-Id. See also <seealso cref="TraktListIDs" />.</param>
+        /// <param name="traktListId">The list's Trakt-ID. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="listItemType">Determines, which type of list items should be queried. See also <seealso cref="TraktListItemType" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the list items.
