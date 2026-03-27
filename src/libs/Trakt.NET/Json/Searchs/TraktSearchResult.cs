@@ -3,8 +3,8 @@
     /// <summary>A Trakt search result.</summary>
     public record class TraktSearchResult
     {
-        /// <summary>Gets or sets the result type. See also <seealso cref="TraktSearchResultType" />.<para>Nullable</para></summary>
-        public TraktSearchResultType Type { get; set; }
+        /// <summary>Gets or sets the result type. See also <seealso cref="TraktSearchResultType" />.</summary>
+        public TraktSearchResultType? Type { get; set; }
 
         /// <summary>Gets or sets the result score.</summary>
         public float? Score { get; set; }

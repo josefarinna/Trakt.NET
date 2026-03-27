@@ -14,7 +14,6 @@
 
         /// <summary>
         /// Gets or sets the watched seasons. See also <seealso cref="TraktSeasonWatchedProgress" />.
-        /// <para>Nullable</para>
         /// </summary>
         public List<TraktSeasonWatchedProgress>? Seasons { get; set; }
     }

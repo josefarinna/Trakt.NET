@@ -79,7 +79,7 @@
         }
 
         /// <summary>Gets top level comments for a list.</summary>
-        /// <param name="listIds">The list's ids. See also <seealso cref="ITraktListIds" />.</param>
+        /// <param name="listIds">The list's ids. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="commentSortOrder">The comments sort order. See also <seealso cref="TraktCommentSortOrder" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the comment's media item.

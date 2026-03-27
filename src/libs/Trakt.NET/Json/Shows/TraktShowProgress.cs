@@ -11,21 +11,18 @@
 
         /// <summary>
         /// Gets or sets the hidden seasons. See also <seealso cref="TraktSeason" />.
-        /// <para>Nullable</para>
         /// </summary>
         public List<TraktSeason>? HiddenSeasons { get; set; }
 
         /// <summary>
         /// Gets or sets the episode, which the user should collect or watch.
         /// See also <seealso cref="TraktEpisode" />.
-        /// <para>Nullable</para>
         /// </summary>
         public TraktEpisode? NextEpisode { get; set; }
 
         /// <summary>
         /// Gets or sets the episode, which the user collected or watched last.
         /// See also <seealso cref="TraktEpisode" />.
-        /// <para>Nullable</para>
         /// </summary>
         public TraktEpisode? LastEpisode { get; set; }
     }

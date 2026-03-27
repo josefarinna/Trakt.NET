@@ -5,7 +5,6 @@
     {
         /// <summary>
         /// Gets or sets the collected episodes. See also <seealso cref="TraktEpisodeCollectionProgress" />.
-        /// <para>Nullable</para>
         /// </summary>
         public List<TraktEpisodeCollectionProgress>? Episodes { get; set; }
     }

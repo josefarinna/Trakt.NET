@@ -8,7 +8,6 @@
 
         /// <summary>
         /// Gets or sets the watched episodes. See also <seealso cref="TraktEpisodeWatchedProgress" />.
-        /// <para>Nullable</para>
         /// </summary>
         public List<TraktEpisodeWatchedProgress>? Episodes { get; set; }
     }

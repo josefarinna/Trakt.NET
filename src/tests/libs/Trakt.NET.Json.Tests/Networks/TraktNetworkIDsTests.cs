@@ -3,7 +3,7 @@
     public sealed partial class TraktNetworkIDsTests
     {
         [Fact]
-        public void TestTraktNetworkIdsDefaultConstructor()
+        public void TestTraktNetworkIDsDefaultConstructor()
         {
             var networkIds = new TraktNetworkIDs();
 
@@ -12,7 +12,7 @@
         }
 
         [Fact]
-        public async Task TestTraktNetworkIdsFromJson()
+        public async Task TestTraktNetworkIDsFromJson()
         {
             TraktNetworkIDs? networkIds = await TestUtility.DeserializeJsonAsync<TraktNetworkIDs>("Networks\\networkids.json");
 

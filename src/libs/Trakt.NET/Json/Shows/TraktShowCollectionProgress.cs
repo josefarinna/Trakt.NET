@@ -8,7 +8,6 @@
 
         /// <summary>
         /// Gets or sets the collected seasons. See also <seealso cref="TraktSeasonCollectionProgress" />.
-        /// <para>Nullable</para>
         /// </summary>
         public List<TraktSeasonCollectionProgress>? Seasons { get; set; }
     }

@@ -8,7 +8,6 @@
 
         /// <summary>
         /// Gets or sets the title of the season.
-        /// <para>Nullable</para>
         /// </summary>
         public string? Title { get; set; }
 

@@ -2,7 +2,7 @@
 {
     public sealed partial class TraktSeasonsModule
     {
-        /// <summary>Gets all translations for a specific <see cref="TraktSeason" /> of a Trakt show with the specified Trakt-ID or -Slug..</summary>
+        /// <summary>Gets all translations for a specific <see cref="TraktSeason" /> of a Trakt show with the specified Trakt-ID or -Slug.</summary>
         /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
         /// <param name="seasonNumber">The number of the season for which the translations should be queried.</param>
         /// <param name="language">An optional two-character language code to filter the translations.</param>
