@@ -91,6 +91,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[NetworksContextCacheKey];
             }
 
+            if (s_notesJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(NotesContextCacheKey));
+                return s_jsonSerializerContexts[NotesContextCacheKey];
+            }
+
             if (s_peopleJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(PeopleContextCacheKey));
@@ -137,6 +143,7 @@ namespace TraktNET
         private const string ListsContextCacheKey = "lists";
         private const string MoviesContextCacheKey = "movies";
         private const string NetworksContextCacheKey = "networks";
+        private const string NotesContextCacheKey = "notes";
         private const string PeopleContextCacheKey = "people";
         private const string SearchsContextCacheKey = "searchs";
         private const string SeasonsContextCacheKey = "seasons";
@@ -164,6 +171,7 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(ListsContextCacheKey, new ListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(MoviesContextCacheKey, new MoviesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(NetworksContextCacheKey, new NetworksJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(NotesContextCacheKey, new NotesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
@@ -300,6 +308,14 @@ namespace TraktNET
             typeof(TraktNetworkIDs)
         });
 
+        private static readonly FrozenSet<Type> s_notesJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktNote),
+            typeof(TraktNoteAttachedTo),
+            typeof(TraktNoteItem),
+            typeof(TraktNotePost)
+        });
+
         private static readonly FrozenSet<Type> s_peopleJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktPerson),
@@ -379,7 +395,8 @@ namespace TraktNET
             { LanguagesContextCacheKey, new LanguagesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ListsContextCacheKey, new ListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { MoviesContextCacheKey, new MoviesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
-            { NetworksContextCacheKey, new NetworkJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { NetworksContextCacheKey, new NetworksJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { NotesContextCacheKey, new NotesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -501,6 +518,13 @@ namespace TraktNET
         private static readonly HashSet<Type> s_networksJsonTypes = [
             typeof(TraktNetwork),
             typeof(TraktNetworkIDs)
+        ];
+
+        private static readonly HashSet<Type> s_notesJsonTypes = [
+            typeof(TraktNote),
+            typeof(TraktNoteAttachedTo),
+            typeof(TraktNoteItem),
+            typeof(TraktNotePost)
         ];
 
         private static readonly HashSet<Type> s_peopleJsonTypes = [
