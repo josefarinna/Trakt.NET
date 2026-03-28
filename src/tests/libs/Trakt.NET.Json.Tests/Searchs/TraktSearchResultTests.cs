@@ -7,7 +7,7 @@
         {
             var searchResult = new TraktSearchResult();
 
-            searchResult.Type.ShouldBe(TraktSearchResultType.Unspecified);
+            searchResult.Type.ShouldBeNull();
             searchResult.Score.ShouldBeNull();
             searchResult.Movie.ShouldBeNull();
             searchResult.Show.ShouldBeNull();

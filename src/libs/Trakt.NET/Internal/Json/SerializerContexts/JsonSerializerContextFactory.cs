@@ -103,6 +103,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[PeopleContextCacheKey];
             }
 
+            if (s_responsesJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(ResponsesContextCacheKey));
+                return s_jsonSerializerContexts[ResponsesContextCacheKey];
+            }
+
             if (s_searchsJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(SearchsContextCacheKey));
@@ -119,6 +125,12 @@ namespace TraktNET
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(ShowsContextCacheKey));
                 return s_jsonSerializerContexts[ShowsContextCacheKey];
+            }
+
+            if (s_syncsJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(SyncsContextCacheKey));
+                return s_jsonSerializerContexts[SyncsContextCacheKey];
             }
 
             if (s_usersJsonTypes.Contains(typeof(TJsonObjectType)))
@@ -145,9 +157,11 @@ namespace TraktNET
         private const string NetworksContextCacheKey = "networks";
         private const string NotesContextCacheKey = "notes";
         private const string PeopleContextCacheKey = "people";
+        private const string ResponsesContextCacheKey = "responses";
         private const string SearchsContextCacheKey = "searchs";
         private const string SeasonsContextCacheKey = "seasons";
         private const string ShowsContextCacheKey = "shows";
+        private const string SyncsContextCacheKey = "syncs";
         private const string UsersContextCacheKey = "users";
 
         // NOTE: JsonSerializerOptions needs to be copied, because the constructor
@@ -173,9 +187,11 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(NetworksContextCacheKey, new NetworksJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(NotesContextCacheKey, new NotesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(ResponsesContextCacheKey, new ResponsesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(ShowsContextCacheKey, new ShowsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(SyncsContextCacheKey, new SyncsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)))
         }, StringComparer.OrdinalIgnoreCase);
 
@@ -249,6 +265,7 @@ namespace TraktNET
             typeof(TraktColors),
             typeof(TraktCrew),
             typeof(TraktCrewMember),
+            typeof(TraktMetadata),
             typeof(TraktRateLimitInfo),
             typeof(TraktRating),
             typeof(TraktStudio),
@@ -325,6 +342,15 @@ namespace TraktNET
             typeof(TraktPersonSocialIDs)
         });
 
+        private static readonly FrozenSet<Type> s_responsesJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktPostResponseNotFoundEpisode),
+            typeof(TraktPostResponseNotFoundMovie),
+            typeof(TraktPostResponseNotFoundPerson),
+            typeof(TraktPostResponseNotFoundSeason),
+            typeof(TraktPostResponseNotFoundShow)
+        });
+
         private static readonly FrozenSet<Type> s_searchsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktSearchResult)
@@ -371,6 +397,70 @@ namespace TraktNET
             typeof(TraktUpdatedShow)
         });
 
+        private static readonly FrozenSet<Type> s_syncsJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktSyncAccountLastActivities),
+            typeof(TraktSyncCollaborationsLastActivities),
+            typeof(TraktSyncCommentsLastActivities),
+            typeof(TraktSyncEpisodesLastActivities),
+            typeof(TraktSyncFavoritesLastActivities),
+            typeof(TraktSyncLastActivities),
+            typeof(TraktSyncListsLastActivities),
+            typeof(TraktSyncMoviesLastActivities),
+            typeof(TraktSyncNotesLastActivities),
+            typeof(TraktSyncRecommendationsLastActivities),
+            typeof(TraktSyncSavedFiltersLastActivities),
+            typeof(TraktSyncSeasonsLastActivities),
+            typeof(TraktSyncShowsLastActivities),
+            typeof(TraktSyncWatchlistLastActivities),
+            typeof(TraktSyncCollectionPost),
+            typeof(TraktSyncCollectionPostEpisode),
+            typeof(TraktSyncCollectionPostMovie),
+            typeof(TraktSyncCollectionPostSeason),
+            typeof(TraktSyncCollectionPostShow),
+            typeof(TraktSyncCollectionPostShowEpisode),
+            typeof(TraktSyncCollectionPostShowSeason),
+            typeof(TraktSyncCollectionRemovePost),
+            typeof(TraktSyncFavoritesPost),
+            typeof(TraktSyncFavoritesPostMovie),
+            typeof(TraktSyncFavoritesPostShow),
+            typeof(TraktSyncFavoritesRemovePost),
+            typeof(TraktSyncHistoryPost),
+            typeof(TraktSyncHistoryPostEpisode),
+            typeof(TraktSyncHistoryPostMovie),
+            typeof(TraktSyncHistoryPostSeason),
+            typeof(TraktSyncHistoryPostShow),
+            typeof(TraktSyncHistoryPostShowEpisode),
+            typeof(TraktSyncHistoryPostShowSeason),
+            typeof(TraktSyncHistoryRemovePost),
+            typeof(TraktSyncHistoryRemovePostEpisode),
+            typeof(TraktSyncHistoryRemovePostMovie),
+            typeof(TraktSyncHistoryRemovePostSeason),
+            typeof(TraktSyncHistoryRemovePostShow),
+            typeof(TraktSyncHistoryRemovePostShowEpisode),
+            typeof(TraktSyncHistoryRemovePostShowSeason),
+            typeof(TraktUpdateListPost),
+            typeof(TraktSyncPlaybackProgressItem),
+            typeof(TraktSyncRatingsPost),
+            typeof(TraktSyncRatingsPostEpisode),
+            typeof(TraktSyncRatingsPostMovie),
+            typeof(TraktSyncRatingsPostSeason),
+            typeof(TraktSyncRatingsPostShow),
+            typeof(TraktSyncRatingsPostShowEpisode),
+            typeof(TraktSyncRatingsPostShowSeason),
+            typeof(TraktSyncRatingsRemovePost),
+            typeof(TraktSyncPostResponseGroup),
+            typeof(TraktSyncPostResponseNotFoundGroup),
+            typeof(TraktSyncWatchlistPost),
+            typeof(TraktSyncWatchlistPostEpisode),
+            typeof(TraktSyncWatchlistPostMovie),
+            typeof(TraktSyncWatchlistPostSeason),
+            typeof(TraktSyncWatchlistPostShow),
+            typeof(TraktSyncWatchlistPostShowEpisode),
+            typeof(TraktSyncWatchlistPostShowSeason),
+            typeof(TraktSyncWatchlistRemovePost)
+        });
+
         private static readonly FrozenSet<Type> s_usersJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktUser),
@@ -398,9 +488,11 @@ namespace TraktNET
             { NetworksContextCacheKey, new NetworksJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { NotesContextCacheKey, new NotesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { ResponsesContextCacheKey, new ResponsesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ShowsContextCacheKey, new ShowsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { SyncsContextCacheKey, new SyncsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) }
         };
 
@@ -466,6 +558,7 @@ namespace TraktNET
             typeof(TraktColors),
             typeof(TraktCrew),
             typeof(TraktCrewMember),
+            typeof(TraktMetadata),
             typeof(TraktRateLimitInfo),
             typeof(TraktRating),
             typeof(TraktStudio),
@@ -535,6 +628,15 @@ namespace TraktNET
             typeof(TraktPersonSocialIDs)
         ];
 
+        private static readonly HashSet<Type> s_responsesJsonTypes [
+        {
+            typeof(TraktPostResponseNotFoundEpisode),
+            typeof(TraktPostResponseNotFoundMovie),
+            typeof(TraktPostResponseNotFoundPerson),
+            typeof(TraktPostResponseNotFoundSeason),
+            typeof(TraktPostResponseNotFoundShow)
+        ];
+
         private static readonly HashSet<Type> s_searchsJsonTypes = [
             typeof(TraktSearchResult)
         ];
@@ -576,6 +678,70 @@ namespace TraktNET
             typeof(TraktShowWatchedProgress),
             typeof(TraktTrendingShow),
             typeof(TraktUpdatedShow)
+        ];
+
+        private static readonly HashSet<Type> s_syncsJsonTypes = [
+        {
+            typeof(TraktSyncAccountLastActivities),
+            typeof(TraktSyncCollaborationsLastActivities),
+            typeof(TraktSyncCommentsLastActivities),
+            typeof(TraktSyncEpisodesLastActivities),
+            typeof(TraktSyncFavoritesLastActivities),
+            typeof(TraktSyncLastActivities),
+            typeof(TraktSyncListsLastActivities),
+            typeof(TraktSyncMoviesLastActivities),
+            typeof(TraktSyncNotesLastActivities),
+            typeof(TraktSyncRecommendationsLastActivities),
+            typeof(TraktSyncSavedFiltersLastActivities),
+            typeof(TraktSyncSeasonsLastActivities),
+            typeof(TraktSyncShowsLastActivities),
+            typeof(TraktSyncWatchlistLastActivities),
+            typeof(TraktSyncCollectionPost),
+            typeof(TraktSyncCollectionPostEpisode),
+            typeof(TraktSyncCollectionPostMovie),
+            typeof(TraktSyncCollectionPostSeason),
+            typeof(TraktSyncCollectionPostShow),
+            typeof(TraktSyncCollectionPostShowEpisode),
+            typeof(TraktSyncCollectionPostShowSeason),
+            typeof(TraktSyncCollectionRemovePost),
+            typeof(TraktSyncFavoritesPost),
+            typeof(TraktSyncFavoritesPostMovie),
+            typeof(TraktSyncFavoritesPostShow),
+            typeof(TraktSyncFavoritesRemovePost),
+            typeof(TraktSyncHistoryPost),
+            typeof(TraktSyncHistoryPostEpisode),
+            typeof(TraktSyncHistoryPostMovie),
+            typeof(TraktSyncHistoryPostSeason),
+            typeof(TraktSyncHistoryPostShow),
+            typeof(TraktSyncHistoryPostShowEpisode),
+            typeof(TraktSyncHistoryPostShowSeason),
+            typeof(TraktSyncHistoryRemovePost),
+            typeof(TraktSyncHistoryRemovePostEpisode),
+            typeof(TraktSyncHistoryRemovePostMovie),
+            typeof(TraktSyncHistoryRemovePostSeason),
+            typeof(TraktSyncHistoryRemovePostShow),
+            typeof(TraktSyncHistoryRemovePostShowEpisode),
+            typeof(TraktSyncHistoryRemovePostShowSeason),
+            typeof(TraktUpdateListPost),
+            typeof(TraktSyncPlaybackProgressItem),
+            typeof(TraktSyncRatingsPost),
+            typeof(TraktSyncRatingsPostEpisode),
+            typeof(TraktSyncRatingsPostMovie),
+            typeof(TraktSyncRatingsPostSeason),
+            typeof(TraktSyncRatingsPostShow),
+            typeof(TraktSyncRatingsPostShowEpisode),
+            typeof(TraktSyncRatingsPostShowSeason),
+            typeof(TraktSyncRatingsRemovePost),
+            typeof(TraktSyncPostResponseGroup),
+            typeof(TraktSyncPostResponseNotFoundGroup),
+            typeof(TraktSyncWatchlistPost),
+            typeof(TraktSyncWatchlistPostEpisode),
+            typeof(TraktSyncWatchlistPostMovie),
+            typeof(TraktSyncWatchlistPostSeason),
+            typeof(TraktSyncWatchlistPostShow),
+            typeof(TraktSyncWatchlistPostShowEpisode),
+            typeof(TraktSyncWatchlistPostShowSeason),
+            typeof(TraktSyncWatchlistRemovePost)
         ];
 
         private static readonly HashSet<Type> s_usersJsonTypes = [
