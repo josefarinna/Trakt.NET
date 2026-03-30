@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
-    internal sealed class HttpClientFactoryProvider(IHttpClientFactory httpClientFactory) : HttpClientProvider
+    internal sealed class HttpClientFactoryProvider(IHttpClientFactory httpClientFactory, bool baseAuthRequest) : HttpClientProvider
     {
-        internal override HttpClient GetHttpClient(TraktContext context) => httpClientFactory.CreateClient(context.ID);
+        internal override HttpClient GetHttpClient(TraktContext context, bool baseAuthRequest) => httpClientFactory.CreateClient(context.ID);
     }
 }

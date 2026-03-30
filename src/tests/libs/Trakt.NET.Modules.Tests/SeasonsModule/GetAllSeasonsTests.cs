@@ -18,7 +18,7 @@ namespace TraktNET.SeasonsModule
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
             TraktListResponse<TraktSeason> response =
-                await client.Seasons.GetAllSeasonsAsync(TestConstants.Shows.ShowID, extendedInfo, TestContext.Current.CancellationToken);
+                await client.Seasons.GetAllSeasonsAsync(TestConstants.Shows.ShowID, extendedInfo, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -43,7 +43,7 @@ namespace TraktNET.SeasonsModule
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
             TraktListResponse<TraktSeason> response =
-                await client.Seasons.GetAllSeasonsAsync(TestConstants.Shows.ShowSlug, extendedInfo, TestContext.Current.CancellationToken);
+                await client.Seasons.GetAllSeasonsAsync(TestConstants.Shows.ShowSlug, extendedInfo, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);

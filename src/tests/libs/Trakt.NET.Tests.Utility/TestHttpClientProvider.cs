@@ -191,7 +191,7 @@ namespace TraktNET
             }
         }
 
-        internal override HttpClient GetHttpClient(TraktContext context)
+        internal override HttpClient GetHttpClient(TraktContext context, bool baseAuthRequest)
         {
             var httpClient = _mockHttpMessageHandler.ToHttpClient();
             httpClient.BaseAddress = new Uri(_baseUrl);

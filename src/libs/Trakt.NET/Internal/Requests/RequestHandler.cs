@@ -60,9 +60,7 @@ namespace TraktNET
             request.BuildUri();
             AddRequestMessageHeaders(context, request);
 
-            HttpClient httpClient = context.GetHttpClient();
-
-            httpClient.BaseAddress = request.Flags.IsAuthorizationRequest ? context.BaseAuthorizationUri : context.BaseUri;
+            HttpClient httpClient = context.GetHttpClient(request.Flags.IsAuthorizationRequest);
 
             HttpResponseMessage responseMessage = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead,
                 cancellationToken).ConfigureAwait(false);

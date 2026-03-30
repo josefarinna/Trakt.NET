@@ -9,8 +9,15 @@ namespace TraktNET
     /// </summary>
     public sealed partial class TraktAuthModule
     {
+        /// <summary>Gets or sets the Trakt redirect URI for OAuth authentication.</summary>
+        public string RedirectUri
+        {
+            get => _context.RedirectUri;
+            set => _context.RedirectUri = value;
+        }
+
         /// <summary>
-        /// Creates a new OAuth authorization URL. Uses the current <see cref="TraktContext.ClientID" /> and <see cref="Constants.API.RedirectUri" /> to build the authorization URL.
+        /// Creates a new OAuth authorization URL. Uses the current <see cref="TraktContext.ClientID" /> and <see cref="RedirectUri" /> to build the authorization URL.
         /// <para>
         /// See <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">"Trakt API Doc - OAuth: Authorize"</a> for more information.
         /// </para>
@@ -22,7 +29,7 @@ namespace TraktNET
             => CreateAuthorizationUrl(_context.ClientID, showSignupPage, forceLoginPrompt);
 
         /// <summary>
-        /// Creates a new OAuth authorization URL. Uses the current <see cref="Constants.API.RedirectUri" /> to build the authorization URL.
+        /// Creates a new OAuth authorization URL. Uses the current <see cref="RedirectUri" /> to build the authorization URL.
         /// <para>
         /// See <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">"Trakt API Doc - OAuth: Authorize"</a> for more information.
         /// </para>
@@ -32,7 +39,7 @@ namespace TraktNET
         /// <param name="forceLoginPrompt">Force the user to sign in and authorize your app.</param>
         /// <returns>Returns the created authorization URL.</returns>
         public string CreateAuthorizationUrl(string clientId, bool? showSignupPage = null, bool? forceLoginPrompt = null)
-            => CreateAuthorizationUrl(clientId, Constants.API.RedirectUri, showSignupPage, forceLoginPrompt);
+            => CreateAuthorizationUrl(clientId, RedirectUri, showSignupPage, forceLoginPrompt);
 
         /// <summary>
         /// Creates a new OAuth authorization URL.
@@ -67,7 +74,7 @@ namespace TraktNET
             => CreateAuthorizationUrlCore(clientId, redirectUri, state, showSignupPage, forceLoginPrompt);
 
         /// <summary>
-        /// Creates a new OAuth authorization URL. Uses the current <see cref="TraktContext.ClientID" />, <see cref="Constants.API.RedirectUri" />
+        /// Creates a new OAuth authorization URL. Uses the current <see cref="TraktContext.ClientID" />, <see cref="RedirectUri" />
         /// and <see cref="TraktContext.AntiForgeryToken" /> as state variable to build the authorization URL.
         /// <para>
         /// See <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">"Trakt API Doc - OAuth: Authorize"</a> for more information.
@@ -80,7 +87,7 @@ namespace TraktNET
             => CreateAuthorizationUrlWithDefaultState(_context.ClientID, showSignupPage, forceLoginPrompt);
 
         /// <summary>
-        /// Creates a new OAuth authorization URL. Uses the current <see cref="Constants.API.RedirectUri" />
+        /// Creates a new OAuth authorization URL. Uses the current <see cref="RedirectUri" />
         /// and <see cref="TraktContext.AntiForgeryToken" /> as state variable to build the authorization URL.
         /// <para>
         /// See <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">"Trakt API Doc - OAuth: Authorize"</a> for more information.
@@ -91,7 +98,7 @@ namespace TraktNET
         /// <param name="forceLoginPrompt">Force the user to sign in and authorize your app.</param>
         /// <returns>Returns the created authorization URL.</returns>
         public string CreateAuthorizationUrlWithDefaultState(string clientId, bool? showSignupPage = null, bool? forceLoginPrompt = null)
-            => CreateAuthorizationUrlWithDefaultState(clientId, Constants.API.RedirectUri, showSignupPage, forceLoginPrompt);
+            => CreateAuthorizationUrlWithDefaultState(clientId, RedirectUri, showSignupPage, forceLoginPrompt);
 
         /// <summary>
         /// Creates a new OAuth authorization URL. Uses the <see cref="TraktContext.AntiForgeryToken" /> as state variable to build the authorization URL.
@@ -134,7 +141,7 @@ namespace TraktNET
 
         /// <summary>
         /// Exchanges the OAuth authorization code from the user for a new access token. Uses the current
-        /// <see cref="TraktContext.ClientID" />, <see cref="TraktContext.ClientSecret" /> and <see cref="Constants.API.RedirectUri" /> for the request.
+        /// <see cref="TraktContext.ClientID" />, <see cref="TraktContext.ClientSecret" /> and <see cref="RedirectUri" /> for the request.
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" />, if successful.
         /// </summary>
         /// <para>
@@ -159,7 +166,7 @@ namespace TraktNET
 
         /// <summary>
         /// Exchanges the OAuth authorization code from the user for a new access token. Uses the current
-        /// <see cref="TraktContext.ClientSecret" /> and <see cref="Constants.API.RedirectUri" /> for the request.
+        /// <see cref="TraktContext.ClientSecret" /> and <see cref="RedirectUri" /> for the request.
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" />, if successful.
         /// </summary>
         /// <para>
@@ -185,7 +192,7 @@ namespace TraktNET
 
         /// <summary>
         /// Exchanges the OAuth authorization code from the user for a new access token. Uses the current
-        /// <see cref="Constants.API.RedirectUri" /> for the request.
+        /// <see cref="RedirectUri" /> for the request.
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" />, if successful.
         /// </summary>
         /// <para>
@@ -208,7 +215,7 @@ namespace TraktNET
         /// Thrown, if the current redirect URI is null, empty or contains spaces.
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> GetAuthorizationAsync(string code, string clientId, string clientSecret, CancellationToken cancellationToken = default)
-            => GetAuthorizationAsync(code, clientId, clientSecret, Constants.API.RedirectUri, cancellationToken);
+            => GetAuthorizationAsync(code, clientId, clientSecret, RedirectUri, cancellationToken);
 
         /// <summary>
         /// Exchanges the OAuth authorization code from the user for a new access token.
@@ -275,7 +282,7 @@ namespace TraktNET
         /// <summary>
         /// Exchanges the current refresh token for a new access token, without re-authenticating the associated user.
         /// Uses the current <see cref="Authorization" />'s refresh token, <see cref="TraktContext.ClientID" />,
-        /// <see cref="TraktContext.ClientSecret" /> and <see cref="Constants.API.RedirectUri" /> for the request.
+        /// <see cref="TraktContext.ClientSecret" /> and <see cref="RedirectUri" /> for the request.
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" />, if successful.
         /// <para>
         /// See <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-refresh_token-for-access_token">"Trakt API Doc - OAuth: Get Token"</a> for more information.
@@ -303,7 +310,7 @@ namespace TraktNET
 
         /// <summary>
         /// Exchanges the current refresh token for a new access token, without re-authenticating the associated user.
-        /// Uses the current <see cref="TraktContext.ClientID" />, <see cref="TraktContext.ClientSecret" /> and <see cref="Constants.API.RedirectUri" /> for the request.
+        /// Uses the current <see cref="TraktContext.ClientID" />, <see cref="TraktContext.ClientSecret" /> and <see cref="RedirectUri" /> for the request.
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" />, if successful.
         /// <para>
         /// See <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-refresh_token-for-access_token">"Trakt API Doc - OAuth: Get Token"</a> for more information.
@@ -332,7 +339,7 @@ namespace TraktNET
 
         /// <summary>
         /// Exchanges the current refresh token for a new access token, without re-authenticating the associated user.
-        /// Uses the current <see cref="TraktContext.ClientSecret" /> and <see cref="Constants.API.RedirectUri" /> for the request.
+        /// Uses the current <see cref="TraktContext.ClientSecret" /> and <see cref="RedirectUri" /> for the request.
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" />, if successful.
         /// <para>
         /// See <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-refresh_token-for-access_token">"Trakt API Doc - OAuth: Get Token"</a> for more information.
@@ -362,7 +369,7 @@ namespace TraktNET
 
         /// <summary>
         /// Exchanges the current refresh token for a new access token, without re-authenticating the associated user.
-        /// Uses the current <see cref="Constants.API.RedirectUri" /> for the request.
+        /// Uses the current <see cref="RedirectUri" /> for the request.
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" />, if successful.
         /// <para>
         /// See <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-refresh_token-for-access_token">"Trakt API Doc - OAuth: Get Token"</a> for more information.

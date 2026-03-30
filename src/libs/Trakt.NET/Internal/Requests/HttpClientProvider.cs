@@ -9,17 +9,18 @@ namespace TraktNET
 {
     internal abstract class HttpClientProvider
     {
-        internal abstract HttpClient GetHttpClient(TraktContext context);
+        internal abstract HttpClient GetHttpClient(TraktContext context, bool baseAuthRequest);
 
-        protected static HttpClient CreateHttpClient(TraktContext context)
+        protected static HttpClient CreateHttpClient(TraktContext context, bool baseAuthRequest)
         {
-            var httpClient = new HttpClient { BaseAddress = context.BaseUri };
+            var httpClient = new HttpClient { BaseAddress = !baseAuthRequest ? context.BaseUri : context.BaseAuthorizationUri };
 
 #if NETSTANDARD2_0
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(Constants.MediaTypeNames.ApplicationJson));
 #else
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MediaTypeNames.Application.Json));
 #endif
+            httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(context.UserAgent);
 
             return httpClient;
         }
@@ -29,7 +30,7 @@ namespace TraktNET
     {
         private static readonly ConcurrentDictionary<string, HttpClient> s_httpClientCache = new();
 
-        internal override HttpClient GetHttpClient(TraktContext context)
-            => s_httpClientCache.GetOrAdd(context.ID, CreateHttpClient(context));
+        internal override HttpClient GetHttpClient(TraktContext context, bool baseAuthRequest)
+            => s_httpClientCache.GetOrAdd(context.ID, CreateHttpClient(context, baseAuthRequest));
     }
 }

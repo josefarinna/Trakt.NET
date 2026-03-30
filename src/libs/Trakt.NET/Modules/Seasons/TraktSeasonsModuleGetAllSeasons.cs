@@ -8,6 +8,10 @@
         /// Specifies how much data should be queried about the seasons.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="translationLanguageCode">
+        /// An optional two letter language code to query a specific translation for the returned episodes.
+        /// <para>Set this to "all" to get all available translations.</para>
+        /// </param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -26,14 +30,18 @@
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         public Task<TraktListResponse<TraktSeason>> GetAllSeasonsAsync(string traktShowIDOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetAllSeasonsImplAsync(traktShowIDOrSlug, extendedInfo, cancellationToken);
+             string? translationLanguageCode = null, CancellationToken cancellationToken = default)
+            => GetAllSeasonsImplAsync(traktShowIDOrSlug, extendedInfo, translationLanguageCode, cancellationToken);
 
         /// <summary>Gets all <see cref="TraktSeason" /> for a specific Trakt show with the specified Trakt-ID.</summary>
         /// <param name="traktShowID">The show's Trakt-ID.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the seasons.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="translationLanguageCode">
+        /// An optional two letter language code to query a specific translation for the returned episodes.
+        /// <para>Set this to "all" to get all available translations.</para>
         /// </param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
@@ -53,14 +61,18 @@
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         public Task<TraktListResponse<TraktSeason>> GetAllSeasonsAsync(uint traktShowID, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetAllSeasonsImplAsync(traktShowID.ToInvariantCultureString(), extendedInfo, cancellationToken);
+            string? translationLanguageCode = null, CancellationToken cancellationToken = default)
+            => GetAllSeasonsImplAsync(traktShowID.ToInvariantCultureString(), extendedInfo, translationLanguageCode, cancellationToken);
 
         /// <summary>Gets all <see cref="TraktSeason" /> for a specific Trakt show with the specified <see cref="TraktShowIDs" />.</summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the seasons.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="translationLanguageCode">
+        /// An optional two letter language code to query a specific translation for the returned episodes.
+        /// <para>Set this to "all" to get all available translations.</para>
         /// </param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
@@ -82,7 +94,7 @@
         /// <exception cref="ArgumentException">Thrown if the given <paramref name="showIDs" /> has not set any IDs.</exception>
         /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="showIDs" /> is null.</exception>
         public Task<TraktListResponse<TraktSeason>> GetAllSeasonsAsync(TraktShowIDs showIDs, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+            string? translationLanguageCode = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(showIDs);
 
@@ -91,7 +103,7 @@
                 throw new ArgumentException($"{nameof(showIDs)} has not any IDs set", nameof(showIDs));
             }
 
-            return GetAllSeasonsImplAsync(showIDs.BestID, extendedInfo, cancellationToken);
+            return GetAllSeasonsImplAsync(showIDs.BestID, extendedInfo, translationLanguageCode, cancellationToken);
         }
     }
 }

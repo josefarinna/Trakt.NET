@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public sealed class TraktDefaultContext(string clientID, string clientSecret) : TraktContext(clientID, clientSecret)
+    public sealed class TraktDefaultContext(string clientID, string clientSecret, string? userAgent) : TraktContext(clientID, clientSecret, userAgent)
     {
     }
 }

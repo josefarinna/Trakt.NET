@@ -51,6 +51,13 @@
             set => _context.IgnoreOAuthIfOptional = value;
         }
 
+        /// <summary>Gets or sets the User Agent that will be used in all API requests.</summary>
+        public string UserAgent
+        {
+            get => _context.UserAgent;
+            set => _context.UserAgent = value;
+        }
+
         /// <summary>Provides access to the authentication module. See <seealso cref="TraktAuthModule" />.</summary>
         public TraktAuthModule Auth => _context.Auth;
 
@@ -119,8 +126,9 @@
         /// </summary>
         /// <param name="clientID">The Trakt Client ID to be used in the <see cref="TraktClient" />.</param>
         /// <param name="clientSecret">The Trakt Client Secret to be used in the <see cref="TraktClient" />.</param>
+        /// <param name="userAgent">The User Agent to be used in the <see cref="TraktClient" />.</param>
         /// <returns>A <see cref="TraktClient" /> instance.</returns>
-        public static TraktClient Create(string clientID, string clientSecret) => new(new TraktDefaultContext(clientID, clientSecret));
+        public static TraktClient Create(string clientID, string clientSecret, string? userAgent = null) => new(new TraktDefaultContext(clientID, clientSecret, userAgent));
 
         /// <summary>
         /// Create the a <see cref="TraktClient" /> with the given <paramref name="clientID" /> and <paramref name="clientSecret" />.
@@ -129,14 +137,16 @@
         /// </summary>
         /// <param name="clientID">The Trakt Client ID to be used in the <see cref="TraktClient" />.</param>
         /// <param name="clientSecret">The Trakt Client Secret to be used in the <see cref="TraktClient" />.</param>
+        /// <param name="userAgent">The User Agent to be used in the <see cref="TraktClient" />.</param>
         /// <returns>A <see cref="TraktClient" /> instance.</returns>
-        public static TraktClient CreateForSandbox(string clientID, string clientSecret) => new(new TraktSandboxContext(clientID, clientSecret));
+        public static TraktClient CreateForSandbox(string clientID, string clientSecret, string? userAgent = null) => new(new TraktSandboxContext(clientID, clientSecret, userAgent));
 
         /// <summary>Initializes a new instance of the <see cref="TraktClient" /> class.</summary>
         /// <param name="clientID">The Trakt Client ID. See <seealso cref="ClientID" />.</param>
         /// <param name="clientSecret">The Trakt Client Secret. See <seealso cref="ClientSecret" />.</param>
-        public TraktClient(string clientID, string clientSecret)
-            : this(new TraktDefaultContext(clientID, clientSecret))
+        /// <param name="userAgent">The User Agent that will be used in all API requests.</param>
+        public TraktClient(string clientID, string clientSecret, string? userAgent = null)
+            : this(new TraktDefaultContext(clientID, clientSecret, userAgent))
         {
         }
     }

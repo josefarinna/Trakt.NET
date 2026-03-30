@@ -8,7 +8,7 @@
         [Fact]
         public void TestTraktContextWithClientIDAndSecret()
         {
-            var context = new TraktDefaultContext(ClientID, ClientSecret);
+            var context = new TraktDefaultContext(ClientID, ClientSecret, null);
 
             context.ID.ShouldNotBeNullOrEmpty();
             context.ClientID.ShouldBe(ClientID);
@@ -19,7 +19,7 @@
         [Fact]
         public void TestTraktContextHasCorrectBaseUri()
         {
-            var context = new TraktDefaultContext(ClientID, ClientSecret);
+            var context = new TraktDefaultContext(ClientID, ClientSecret, null);
 
             context.BaseUri.AbsoluteUri.ShouldBe("https://api.trakt.tv/");
         }
@@ -27,7 +27,7 @@
         [Fact]
         public void TestTraktContextHasCorrectBaseAuthorizationUri()
         {
-            var context = new TraktDefaultContext(ClientID, ClientSecret);
+            var context = new TraktDefaultContext(ClientID, ClientSecret, null);
 
             context.BaseAuthorizationUri.AbsoluteUri.ShouldBe("https://trakt.tv/");
         }
@@ -35,26 +35,26 @@
         [Fact]
         public void TestTraktContextInvalidClientID()
         {
-            Action act = () => _ = new TraktDefaultContext(string.Empty, ClientSecret);
+            Action act = () => _ = new TraktDefaultContext(string.Empty, ClientSecret, null);
             act.ShouldThrow<ArgumentException>();
 
-            act = () => _ = new TraktDefaultContext("    ", ClientSecret);
+            act = () => _ = new TraktDefaultContext("    ", ClientSecret, null);
             act.ShouldThrow<ArgumentException>();
 
-            act = () => _ = new TraktDefaultContext(" id ", ClientSecret);
+            act = () => _ = new TraktDefaultContext(" id ", ClientSecret, null);
             act.ShouldThrow<ArgumentException>();
         }
 
         [Fact]
         public void TestTraktContextInvalidClientSecret()
         {
-            Action act = () => _ = new TraktDefaultContext(ClientID, string.Empty);
+            Action act = () => _ = new TraktDefaultContext(ClientID, string.Empty, null);
             act.ShouldThrow<ArgumentException>();
 
-            act = () => _ = new TraktDefaultContext(ClientID, "        ");
+            act = () => _ = new TraktDefaultContext(ClientID, "        ", null);
             act.ShouldThrow<ArgumentException>();
 
-            act = () => _ = new TraktDefaultContext(ClientID, " secret ");
+            act = () => _ = new TraktDefaultContext(ClientID, " secret ", null);
             act.ShouldThrow<ArgumentException>();
         }
     }

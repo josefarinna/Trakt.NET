@@ -7,6 +7,9 @@
     [TraktGetRequest("shows/{show_id!!}/seasons", SupportsExtendedInfo = true)]
     internal sealed partial class SeasonsAllGetRequest
     {
+        [TraktRequestQuery("translations")]
+        internal string? Translations { get; set; }
+
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 

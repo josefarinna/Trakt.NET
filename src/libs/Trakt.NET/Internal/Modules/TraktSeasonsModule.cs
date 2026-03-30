@@ -7,12 +7,13 @@
     public partial class TraktSeasonsModule(TraktContext context) : BaseModule(context)
     {
         private Task<TraktListResponse<TraktSeason>> GetAllSeasonsImplAsync(string showIDOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+            string? translationLanguageCode = null, CancellationToken cancellationToken = default)
         {
             var request = new SeasonsAllGetRequest
             {
                 ShowId = showIDOrSlug,
-                ExtendedInfo = extendedInfo
+                ExtendedInfo = extendedInfo,
+                Translations = translationLanguageCode
             };
 
             return RequestHandler.ExecuteListRequestAsync<TraktSeason>(_context, request, cancellationToken);

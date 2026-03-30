@@ -378,6 +378,20 @@ namespace TraktNET
             }
         }
 
+        /// <summary>The collection of image URLs for the movie.</summary>
+        [JsonIgnore]
+        public TraktMovieImages? Images
+        {
+            get => Movie?.Images;
+            set
+            {
+                if (Movie != null)
+                {
+                    Movie.Images = value;
+                }
+            }
+        }
+
         /// <summary>The movie original title.</summary>
         public string? OriginalTitle
         {

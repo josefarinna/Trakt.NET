@@ -29,6 +29,8 @@
             }
         }
 
+        internal string RedirectUri { get; set; } = Constants.API.RedirectUri;
+
         public string? OAuthAuthorizationCode { get; set; }
 
         public TraktAuthorization? Authorization { get; set; }
@@ -103,11 +105,11 @@
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
         public TraktUsersModule Users { get; }
 
-        public static TraktContext Create(string clientID, string clientSecret)
-            => new TraktDefaultContext(clientID, clientSecret);
+        public static TraktContext Create(string clientID, string clientSecret, string userAgent)
+            => new TraktDefaultContext(clientID, clientSecret, userAgent);
 
-        public static TraktContext CreateForSandbox(string clientID, string clientSecret)
-            => new TraktSandboxContext(clientID, clientSecret);
+        public static TraktContext CreateForSandbox(string clientID, string clientSecret, string userAgent)
+            => new TraktSandboxContext(clientID, clientSecret, userAgent);
 
         internal Uri BaseUri { get; set; }
 
@@ -115,7 +117,9 @@
 
         internal HttpClientProvider HttpClientProvider { get; set; }
 
-        protected TraktContext(string clientID, string clientSecret)
+        internal string UserAgent { get; set; }
+
+        protected TraktContext(string clientID, string clientSecret, string? userAgent)
         {
             ID = Guid.NewGuid().ToString();
             ClientID = clientID;
@@ -123,6 +127,12 @@
             BaseUri = new Uri(Constants.API.BaseURL);
             BaseAuthorizationUri = new Uri(Constants.API.BaseAuthorizationURL);
             HttpClientProvider = new DefaultHttpClientProvider();
+            string agent = Constants.Request.UserAgent;
+            if (userAgent != null)
+                agent = userAgent;
+            else if (UserAgent != null)
+                agent = UserAgent;
+            UserAgent = agent;
 
             Auth = new TraktAuthModule(this);
             Calendar = new TraktCalendarModule(this);
@@ -147,6 +157,6 @@
             Users = new TraktUsersModule(this);
         }
 
-        internal HttpClient GetHttpClient() => HttpClientProvider.GetHttpClient(this);
+        internal HttpClient GetHttpClient(bool baseAuthRequest = false) => HttpClientProvider.GetHttpClient(this, baseAuthRequest);
     }
 }

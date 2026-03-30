@@ -22,6 +22,8 @@ namespace TraktNET
 
         internal static class Request
         {
+            internal const string UserAgent = "PostmanRuntime/7.52.0";
+
             internal static class Headers
             {
                 internal const string APIVersionHeaderKey = "trakt-api-version";

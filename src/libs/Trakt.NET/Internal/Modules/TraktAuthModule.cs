@@ -1,4 +1,9 @@
-﻿namespace TraktNET
+﻿#if !NETSTANDARD2_0
+using System.Net.Mime;
+#endif
+using System.Text;
+
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to OAuth and device authentication and authorization.<para />
@@ -26,8 +31,11 @@
 
             var request = new AuthorizationRequest
             {
-                Content = new StringContent(content.ToJson())
-                //Flags = new RequestFlags { IsAuthorizationRequest = true }
+#if NETSTANDARD2_0
+                Content = new StringContent(content.ToJson(), Encoding.UTF8, Constants.MediaTypeNames.ApplicationJson)
+#else
+                Content = new StringContent(content.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json)
+#endif
             };
 
             return RequestHandler.GetAuthorizationAsync(_context, request, cancellationToken);
@@ -46,7 +54,11 @@
 
             var request = new AuthorizationRefreshRequest
             {
-                Content = new StringContent(content.ToJson())
+#if NETSTANDARD2_0
+                Content = new StringContent(content.ToJson(), Encoding.UTF8, Constants.MediaTypeNames.ApplicationJson)
+#else
+                Content = new StringContent(content.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json)
+#endif
             };
 
             return RequestHandler.RefreshAuthorizationAsync(_context, request, cancellationToken);
@@ -64,7 +76,11 @@
 
             var request = new AuthorizationRevokeRequest
             {
-                Content = new StringContent(content.ToJson()),
+#if NETSTANDARD2_0
+                Content = new StringContent(content.ToJson(), Encoding.UTF8, Constants.MediaTypeNames.ApplicationJson),
+#else
+                Content = new StringContent(content.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json),
+#endif
                 Flags = new RequestFlags { IsAuthorizationRevokeRequest = true }
             };
 
@@ -81,7 +97,11 @@
 
             var request = new DeviceRequest
             {
-                Content = new StringContent(content.ToJson()),
+#if NETSTANDARD2_0
+                Content = new StringContent(content.ToJson(), Encoding.UTF8, Constants.MediaTypeNames.ApplicationJson),
+#else
+                Content = new StringContent(content.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json),
+#endif
                 Flags = new RequestFlags { IsDeviceRequest = true }
             };
 
@@ -100,7 +120,11 @@
 
             var request = new AuthorizationPollRequest
             {
-                Content = new StringContent(content.ToJson())
+#if NETSTANDARD2_0
+                Content = new StringContent(content.ToJson(), Encoding.UTF8, Constants.MediaTypeNames.ApplicationJson)
+#else
+                Content = new StringContent(content.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json)
+#endif
             };
 
             return RequestHandler.PollForAuthorizationAsync(_context, request, device, cancellationToken);
