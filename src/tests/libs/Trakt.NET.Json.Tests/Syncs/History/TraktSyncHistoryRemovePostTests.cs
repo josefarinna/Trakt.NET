@@ -28,7 +28,7 @@
             act.ShouldThrow<TraktPostValidationException>();
 
             // movies = empty, shows = empty, seasons = empty, episodes = empty, history ids = empty
-            syncHistoryRemovePost.HistoryIds = [];
+            syncHistoryRemovePost.HistoryIDs = [];
             act.ShouldThrow<TraktPostValidationException>();
 
             // movies with at least one item, shows = empty, seasons = empty, episodes = empty, history ids = empty
@@ -52,7 +52,7 @@
 
             // movies = empty, shows = empty, seasons = empty, episodes = empty, history ids with at least one item
             syncHistoryRemovePost.Episodes.Clear();
-            (syncHistoryRemovePost.HistoryIds as List<ulong>).Add(10);
+            syncHistoryRemovePost.HistoryIDs.Add(10);
             act.ShouldNotThrow();
         }
     }

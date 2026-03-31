@@ -8,7 +8,7 @@ namespace TraktNET
     /// </summary>
     public record class TraktSyncRatingsPostEpisode
     {
-        /// <summary>Gets or sets the required episode ids. See also <seealso cref="TraktEpisodeIds" />.</summary>
+        /// <summary>Gets or sets the required episode ids. See also <seealso cref="TraktEpisodeIDs" />.</summary>
         [JsonPropertyName("ids")]
         public TraktEpisodeIDs? IDs { get; set; }
 

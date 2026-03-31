@@ -1,0 +1,15 @@
+{
+    "plays": 10,
+    "last_watched_at": "2014-09-01T09:10:11.000Z",
+    "last_updated_at": "2014-09-01T09:10:11.000Z",
+    "movie": {
+        "title": "Star Wars: The Force Awakens",
+        "year": 2015,
+        "ids": {
+            "trakt": 94024,
+            "slug": "star-wars-the-force-awakens-2015",
+            "imdb": "tt2488496",
+            "tmdb": 140607
+        }
+    }
+}

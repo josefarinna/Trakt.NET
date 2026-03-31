@@ -1,4 +1,6 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <summary>
     /// A Trakt history remove post, containing all movies, shows, seasons, episodes and / or history ids,
@@ -31,7 +33,8 @@
         public List<TraktSyncHistoryRemovePostEpisode>? Episodes { get; set; }
 
         /// <summary>An optional list of history ids, which should be removed.</summary>
-        public List<ulong>? HistoryIds { get; set; }
+        [JsonPropertyName("history_ids")]
+        public List<ulong>? HistoryIDs { get; set; }
 
         public virtual void Validate()
         {
@@ -39,7 +42,7 @@
             bool bHasNoShows = Shows == null || Shows.Count == 0;
             bool bHasNoSeasons = Seasons == null || Seasons.Count == 0;
             bool bHasNoEpisodes = Episodes == null || Episodes.Count == 0;
-            bool bHasNoHistoryIds = HistoryIds == null || HistoryIds.Count == 0;
+            bool bHasNoHistoryIds = HistoryIDs == null || HistoryIDs.Count == 0;
 
             if (bHasNoMovies && bHasNoShows && bHasNoSeasons && bHasNoEpisodes && bHasNoHistoryIds)
                 throw new TraktPostValidationException("no history items set");

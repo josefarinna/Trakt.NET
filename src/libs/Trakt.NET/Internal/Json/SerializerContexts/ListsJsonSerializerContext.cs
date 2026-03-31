@@ -14,6 +14,7 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktListItem))]
     [JsonSerializable(typeof(IReadOnlyList<TraktListItem>))]
     [JsonSerializable(typeof(TraktListItemsReorderPost))]
+    [JsonSerializable(typeof(TraktListItemsReorderPostResponse))]
     [JsonSerializable(typeof(TraktListItemUpdatePost))]
     [JsonSerializable(typeof(TraktListLike))]
     [JsonSerializable(typeof(IReadOnlyList<TraktListLike>))]

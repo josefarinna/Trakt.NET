@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
+    [JsonSerializable(typeof(TraktPostResponseListData))]
     [JsonSerializable(typeof(TraktPostResponseNotFoundEpisode))]
     [JsonSerializable(typeof(TraktPostResponseNotFoundMovie))]
     [JsonSerializable(typeof(TraktPostResponseNotFoundPerson))]

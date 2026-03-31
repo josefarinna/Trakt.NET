@@ -6,7 +6,7 @@ namespace TraktNET.AuthModule
     public sealed class PollForAuthorizationTests
     {
         private const string POLL_FOR_AUTHORIZATION_URI = "oauth/device/token";
-        private const string MockAuthorizationPollingPostContent = $"{{ \"code\": \"{TestConstants.MockDeviceCode}\", \"client_id\": \"{TestConstants.ClientID}\", \"client_secret\": \"{TestConstants.ClientSecret}\" }}";
+        private static readonly ulong Now = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
         [Fact]
         public async Task TestPollForAuthorization()
@@ -138,9 +138,9 @@ namespace TraktNET.AuthModule
             auth.RefreshToken.ShouldBe(TestConstants.MockAuthorization.RefreshToken);
             auth.Scope.ShouldBe(TestConstants.MockAuthorization.Scope);
             auth.TokenType.ShouldBe(TestConstants.MockAuthorization.TokenType);
-            ulong now = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            
 
-            auth.CreatedAtTimestamp.ShouldBeInRange(now - 10, now + 10);
+            auth.CreatedAtTimestamp.ShouldBeInRange(Now - 10, Now + 10);
 
             client.Authorization.ShouldNotBeNull();
             client.Authorization.AccessToken.ShouldBe(auth.AccessToken);
