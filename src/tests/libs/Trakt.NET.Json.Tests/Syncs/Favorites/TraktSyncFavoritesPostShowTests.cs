@@ -21,7 +21,7 @@
             syncFavoritesPostShow.ShouldNotBeNull();
 
             syncFavoritesPostShow.Title.ShouldBe("Breaking Bad");
-            syncFavoritesPostShow.Year.ShouldBe(2008);
+            syncFavoritesPostShow.Year.ShouldBe(2008U);
             syncFavoritesPostShow.IDs.ShouldNotBeNull();
             syncFavoritesPostShow.IDs.Trakt.ShouldBe(1U);
             syncFavoritesPostShow.IDs.Slug.ShouldBe("breaking-bad");

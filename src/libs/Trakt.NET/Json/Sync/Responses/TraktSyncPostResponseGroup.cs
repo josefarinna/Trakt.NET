@@ -4,15 +4,15 @@
     public record class TraktSyncPostResponseGroup
     {
         /// <summary>Gets or sets the number of movies.</summary>
-        public int? Movies { get; set; }
+        public uint? Movies { get; set; }
 
         /// <summary>Gets or sets the number of shows.</summary>
-        public int? Shows { get; set; }
+        public uint? Shows { get; set; }
 
         /// <summary>Gets or sets the number of seasons.</summary>
-        public int? Seasons { get; set; }
+        public uint? Seasons { get; set; }
 
         /// <summary>Gets or sets the number of episodes.</summary>
-        public int? Episodes { get; set; }
+        public uint? Episodes { get; set; }
     }
 }

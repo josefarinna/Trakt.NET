@@ -10,6 +10,7 @@
             mostCollectedShow.WatcherCount.ShouldBeNull();
             mostCollectedShow.PlayCount.ShouldBeNull();
             mostCollectedShow.CollectedCount.ShouldBeNull();
+            mostCollectedShow.CollectorCount.ShouldBeNull();
             mostCollectedShow.Title.ShouldBeNull();
             mostCollectedShow.Year.ShouldBeNull();
             mostCollectedShow.IDs.ShouldBeNull();
@@ -50,6 +51,7 @@
             mostCollectedShow!.WatcherCount.ShouldBe(3910U);
             mostCollectedShow!.PlayCount.ShouldBe(69164U);
             mostCollectedShow!.CollectedCount.ShouldBe(1000U);
+            mostCollectedShow!.CollectorCount.ShouldBe(499U);
 
             mostCollectedShow!.Title.ShouldBe("Game of Thrones");
             mostCollectedShow!.Year.ShouldBe(2011U);
@@ -116,6 +118,8 @@
             mostCollectedShow.ShouldNotBeNull();
             mostCollectedShow!.WatcherCount.ShouldBe(3910U);
             mostCollectedShow!.PlayCount.ShouldBe(69164U);
+            mostCollectedShow!.CollectedCount.ShouldBe(1000U);
+            mostCollectedShow!.CollectorCount.ShouldBe(499U);
 
             mostCollectedShow!.Title.ShouldBe("Game of Thrones");
             mostCollectedShow!.Year.ShouldBe(2011U);

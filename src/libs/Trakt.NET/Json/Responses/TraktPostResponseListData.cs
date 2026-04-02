@@ -7,6 +7,6 @@
         public DateTime? UpdatedAt { get; set; }
 
         /// <summary>Gets or sets the new item count of a list.</summary>
-        public int? ItemCount { get; set; }
+        public uint? ItemCount { get; set; }
     }
 }

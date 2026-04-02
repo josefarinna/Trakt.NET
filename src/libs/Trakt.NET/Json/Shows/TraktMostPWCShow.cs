@@ -12,6 +12,9 @@
         /// <summary>The collected count for the <see cref="TraktCollectionShow.Show" />.</summary>
         public uint? CollectedCount { get; set; }
 
+        /// <summary>The collector count for the <see cref="TraktCollectionShow.Show" />.</summary>
+        public uint? CollectorCount { get; set; }
+
         /// <summary>Gets a string representation of the show.</summary>
         /// <returns>A string representation of the show.</returns>
         public override string ToString()

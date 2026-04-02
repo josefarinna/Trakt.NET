@@ -20,5 +20,8 @@
 
         /// <summary>Gets or sets the UTC datetime, when a show was lastly hidden.</summary>
         public DateTime? HiddenAt { get; set; }
+
+        /// <summary>Gets or sets the UTC datetime, when a show was lastly dropped.</summary>
+        public DateTime? DroppedAt { get; set; }
     }
 }

@@ -18,8 +18,8 @@
 
             syncFavoritesPostResponseGroup.ShouldNotBeNull();
 
-            syncFavoritesPostResponseGroup.Movies.ShouldBe(1);
-            syncFavoritesPostResponseGroup.Shows.ShouldBe(2);
+            syncFavoritesPostResponseGroup.Movies.ShouldBe(1U);
+            syncFavoritesPostResponseGroup.Shows.ShouldBe(2U);
         }
     }
 }

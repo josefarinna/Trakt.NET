@@ -1,0 +1,31 @@
+{
+    "type": "show",
+    "last_collected_at": "2026-04-02T17:26:44.000Z",
+    "last_updated_at": "2026-04-02T17:26:44.000Z",
+    "show": {
+        "title": "Game of Thrones",
+        "year": 2011,
+        "ids": {
+            "trakt": 1390,
+            "slug": "game-of-thrones",
+            "tvdb": 121361,
+            "imdb": "tt0944947",
+            "tmdb": 1399
+        }
+    },
+    "seasons": [
+        {
+            "number": 1,
+            "episodes": [
+                {
+                    "number": 1,
+                    "collected_at": "2026-04-02T17:26:44.000Z"
+                },
+                {
+                    "number": 2,
+                    "collected_at": "2026-04-02T17:26:44.000Z"
+                }
+            ]
+        }
+    ]
+}

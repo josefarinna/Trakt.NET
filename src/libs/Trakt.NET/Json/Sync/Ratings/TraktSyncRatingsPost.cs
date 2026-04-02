@@ -32,12 +32,45 @@
 
         public void Validate()
         {
-            bool bHasNoMovies = Movies == null || Movies.Count == 0;
-            bool bHasNoShows = Shows == null || Shows.Count == 0;
-            bool bHasNoSeasons = Seasons == null || Seasons.Count == 0;
-            bool bHasNoEpisodes = Episodes == null || Episodes.Count == 0;
+            bool anyItemPresent = false;
 
-            if (bHasNoMovies && bHasNoShows && bHasNoSeasons && bHasNoEpisodes)
+            if (Movies != null && Movies.Count > 0)
+            {
+                anyItemPresent = true;
+                foreach (var movie in Movies)
+                {
+                    movie.Validate();
+                }
+            }
+
+            if (Shows != null && Shows.Count > 0)
+            {
+                anyItemPresent = true;
+                foreach (var show in Shows)
+                {
+                    show.Validate();
+                }
+            }
+
+            if (Seasons != null && Seasons.Count > 0)
+            {
+                anyItemPresent = true;
+                foreach (var season in Seasons)
+                {
+                    season.Validate();
+                }
+            }
+
+            if (Episodes != null && Episodes.Count > 0)
+            {
+                anyItemPresent = true;
+                foreach (var episode in Episodes)
+                {
+                    episode.Validate();
+                }
+            }
+
+            if (!anyItemPresent)
                 throw new TraktPostValidationException("no ratings items set");
         }
     }

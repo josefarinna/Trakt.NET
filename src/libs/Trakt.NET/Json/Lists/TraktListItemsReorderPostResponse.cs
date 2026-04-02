@@ -5,7 +5,7 @@ namespace TraktNET
     public record class TraktListItemsReorderPostResponse
     {
         /// <summary>The number of updated list items.</summary>
-        public int? Updated { get; set; }
+        public uint? Updated { get; set; }
 
         /// <summary>A list of of updated list item ids.</summary>
         [JsonPropertyName("skipped_ids")]

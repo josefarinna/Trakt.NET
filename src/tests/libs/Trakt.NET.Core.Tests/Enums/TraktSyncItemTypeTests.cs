@@ -10,6 +10,7 @@
             TraktSyncItemType.Show.ToJson().ShouldBe("show");
             TraktSyncItemType.Season.ToJson().ShouldBe("season");
             TraktSyncItemType.Episode.ToJson().ShouldBe("episode");
+            TraktSyncItemType.All.ToJson().ShouldBe("all");
         }
 
         [Fact]
@@ -20,6 +21,7 @@
             "show".ToTraktSyncItemType().ShouldBe(TraktSyncItemType.Show);
             "season".ToTraktSyncItemType().ShouldBe(TraktSyncItemType.Season);
             "episode".ToTraktSyncItemType().ShouldBe(TraktSyncItemType.Episode);
+            "all".ToTraktSyncItemType().ShouldBe(TraktSyncItemType.All);
 
             string? nullValue = null;
             nullValue.ToTraktSyncItemType().ShouldBe(TraktSyncItemType.Unspecified);
@@ -33,6 +35,7 @@
             TraktSyncItemType.Show.DisplayName().ShouldBe("Show");
             TraktSyncItemType.Season.DisplayName().ShouldBe("Season");
             TraktSyncItemType.Episode.DisplayName().ShouldBe("Episode");
+            TraktSyncItemType.All.DisplayName().ShouldBe("All");
         }
     }
 }

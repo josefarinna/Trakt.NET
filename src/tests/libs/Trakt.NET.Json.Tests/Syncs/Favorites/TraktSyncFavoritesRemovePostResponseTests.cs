@@ -19,15 +19,15 @@
             syncFavoritesRemovePostResponse.ShouldNotBeNull();
 
             syncFavoritesRemovePostResponse.Deleted.ShouldNotBeNull();
-            syncFavoritesRemovePostResponse.Deleted.Movies.ShouldBe(1);
-            syncFavoritesRemovePostResponse.Deleted.Shows.ShouldBe(2);
+            syncFavoritesRemovePostResponse.Deleted.Movies.ShouldBe(1U);
+            syncFavoritesRemovePostResponse.Deleted.Shows.ShouldBe(2U);
 
             syncFavoritesRemovePostResponse.NotFound.ShouldNotBeNull();
 
             syncFavoritesRemovePostResponse.NotFound.Movies.ShouldNotBeNull();
             syncFavoritesRemovePostResponse.NotFound.Movies.Count.ShouldBe(1);
 
-            TraktSyncFavoritesPostMovie[] notFoundMovies = syncFavoritesRemovePostResponse.NotFound.Movies.ToArray();
+            TraktSyncFavoritesPostMovie[] notFoundMovies = [.. syncFavoritesRemovePostResponse.NotFound.Movies];
 
             notFoundMovies[0].ShouldNotBeNull();
             notFoundMovies[0].IDs.ShouldNotBeNull();
@@ -39,7 +39,7 @@
             syncFavoritesRemovePostResponse.NotFound.Shows.ShouldNotBeNull();
             syncFavoritesRemovePostResponse.NotFound.Shows.Count.ShouldBe(1);
 
-            TraktSyncFavoritesPostShow[] notFoundShows = syncFavoritesRemovePostResponse.NotFound.Shows.ToArray();
+            TraktSyncFavoritesPostShow[] notFoundShows = [.. syncFavoritesRemovePostResponse.NotFound.Shows];
 
             notFoundShows[0].ShouldNotBeNull();
             notFoundShows[0].IDs.ShouldNotBeNull();

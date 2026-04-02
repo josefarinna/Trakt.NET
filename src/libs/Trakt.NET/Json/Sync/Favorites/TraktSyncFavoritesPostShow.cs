@@ -9,7 +9,7 @@ namespace TraktNET
         public string? Title { get; set; }
 
         /// <summary>Gets or sets the optional year of the Trakt show.</summary>
-        public int? Year { get; set; }
+        public uint? Year { get; set; }
 
         /// <summary>Gets or sets the required show ids. See also <seealso cref="TraktShowIDs" />.</summary>
         [JsonPropertyName("ids")]

@@ -21,6 +21,9 @@
 
         /// <summary>The history or watchlist item contains an episode.</summary>
         [TraktEnumMember(UriValue = "episodes")]
-        Episode
+        Episode,
+
+        /// <summary>The history item contains a movie, show, season or an episode.</summary>
+        All
     }
 }

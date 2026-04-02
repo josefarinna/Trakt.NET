@@ -24,7 +24,7 @@
             TraktSyncFavoritesPostMovie[] postMovies = [.. syncFavoritesPost.Movies];
 
             postMovies[0].Title.ShouldBe("Batman Begins");
-            postMovies[0].Year.ShouldBe(2005);
+            postMovies[0].Year.ShouldBe(2005U);
             postMovies[0].IDs.ShouldNotBeNull();
             postMovies[0].IDs!.Trakt.ShouldBe(1U);
             postMovies[0].IDs!.Slug.ShouldBe("batman-begins-2005");
@@ -47,7 +47,7 @@
             TraktSyncFavoritesPostShow[] postShows = [.. syncFavoritesPost.Shows];
 
             postShows[0].Title.ShouldBe("Breaking Bad");
-            postShows[0].Year.ShouldBe(2008);
+            postShows[0].Year.ShouldBe(2008U);
             postShows[0].IDs.ShouldNotBeNull();
             postShows[0].IDs!.Trakt.ShouldBe(1U);
             postShows[0].IDs!.Slug.ShouldBe("breaking-bad");
@@ -57,7 +57,7 @@
             postShows[0].Notes.ShouldBe("I AM THE DANGER!");
 
             postShows[1].Title.ShouldBe("The Walking Dead");
-            postShows[1].Year.ShouldBe(2010);
+            postShows[1].Year.ShouldBe(2010U);
             postShows[1].IDs.ShouldNotBeNull();
             postShows[1].IDs!.Trakt.ShouldBe(2U);
             postShows[1].IDs!.Slug.ShouldBe("the-walking-dead");

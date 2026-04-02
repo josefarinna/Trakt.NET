@@ -22,5 +22,15 @@
         /// A list of <see cref="TraktPostResponseNotFoundEpisode" />, containing the ids of episodes, which were not found.
         /// </summary>
         public List<TraktPostResponseNotFoundEpisode>? Episodes { get; set; }
+
+        /// <summary>
+        /// A list of <see cref="TraktPostResponseNotFoundPerson" />, containing the ids of people, which were not found.
+        /// </summary>
+        public List<TraktPostResponseNotFoundPerson>? People { get; set; }
+
+        /// <summary>
+        /// A list of <see cref="TraktPostResponseNotFoundUser" />, containing the ids of users, which were not found.
+        /// </summary>
+        public List<TraktPostResponseNotFoundUser>? Users { get; set; }
     }
 }

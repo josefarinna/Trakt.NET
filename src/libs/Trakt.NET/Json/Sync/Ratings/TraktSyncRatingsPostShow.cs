@@ -33,5 +33,13 @@ namespace TraktNET
         /// </para>
         /// </summary>
         public List<TraktSyncRatingsPostShowSeason>? Seasons { get; set; }
+
+        public void Validate()
+        {
+            if (Rating != null && (Rating < 1 || Rating > 10))
+            {
+                throw new ArgumentOutOfRangeException(nameof(Rating), "Rating must be between 1 and 10.");
+            }
+        }
     }
 }

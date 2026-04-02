@@ -4,7 +4,7 @@
     public record class TraktWatchlistItem
     {
         /// <summary>Gets or sets the id of the watchlist item.</summary>
-        public uint? Id { get; set; }
+        public ulong? Id { get; set; }
 
         /// <summary>Gets or sets the ranking number of the watchlist item.</summary>
         public int? Rank { get; set; }

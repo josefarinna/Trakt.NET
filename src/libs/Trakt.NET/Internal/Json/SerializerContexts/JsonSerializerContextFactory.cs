@@ -379,7 +379,8 @@ namespace TraktNET
             typeof(TraktPostResponseNotFoundMovie),
             typeof(TraktPostResponseNotFoundPerson),
             typeof(TraktPostResponseNotFoundSeason),
-            typeof(TraktPostResponseNotFoundShow)
+            typeof(TraktPostResponseNotFoundShow),
+            typeof(TraktPostResponseNotFoundUser)
         });
 
         private static readonly FrozenSet<Type> s_searchsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -454,6 +455,7 @@ namespace TraktNET
             typeof(TraktSyncCollectionPostShowSeason),
             typeof(TraktSyncCollectionRemovePost),
             typeof(TraktSyncCollectionRemovePostResponse),
+            typeof(TraktSyncCollectionShow),
             typeof(TraktSyncFavoritesPost),
             typeof(TraktSyncFavoritesPostMovie),
             typeof(TraktSyncFavoritesPostResponse),
@@ -707,7 +709,8 @@ namespace TraktNET
             typeof(TraktPostResponseNotFoundMovie),
             typeof(TraktPostResponseNotFoundPerson),
             typeof(TraktPostResponseNotFoundSeason),
-            typeof(TraktPostResponseNotFoundShow)
+            typeof(TraktPostResponseNotFoundShow),
+            typeof(TraktPostResponseNotFoundUser)
         ];
 
         private static readonly HashSet<Type> s_searchsJsonTypes = [
@@ -779,6 +782,7 @@ namespace TraktNET
             typeof(TraktSyncCollectionPostShowSeason),
             typeof(TraktSyncCollectionRemovePost),
             typeof(TraktSyncCollectionRemovePostResponse),
+            typeof(TraktSyncCollectionShow),
             typeof(TraktSyncFavoritesPost),
             typeof(TraktSyncFavoritesPostMovie),
             typeof(TraktSyncFavoritesPostResponse),

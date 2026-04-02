@@ -161,8 +161,7 @@ namespace TraktNET
                     new TraktSyncTypeJsonConverter(),
                     new TraktTimePeriodJsonConverter(),
                     new TraktUserLikeTypeJsonConverter(),
-                    new TraktVideoTypeJsonConverter(),
-                    new TraktWatchlistSortOrderJsonConverter()
+                    new TraktVideoTypeJsonConverter()
                 }
             };
         }

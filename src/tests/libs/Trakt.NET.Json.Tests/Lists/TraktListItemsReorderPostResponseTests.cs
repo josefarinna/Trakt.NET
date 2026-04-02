@@ -19,14 +19,14 @@
 
             listItemsReorderPostResponse.ShouldNotBeNull();
 
-            listItemsReorderPostResponse.Updated.ShouldBe(6);
+            listItemsReorderPostResponse.Updated.ShouldBe(6U);
             listItemsReorderPostResponse.SkippedIDs.ShouldNotBeNull();
             listItemsReorderPostResponse.SkippedIDs.Count.ShouldBe(1);
             listItemsReorderPostResponse.SkippedIDs.ShouldBe([ 2 ]);
 
             listItemsReorderPostResponse.List.ShouldNotBeNull();
             listItemsReorderPostResponse.List.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2022-04-27T21:40:41.000Z"));
-            listItemsReorderPostResponse.List.ItemCount.ShouldBe(5);
+            listItemsReorderPostResponse.List.ItemCount.ShouldBe(5U);
         }
     }
 }

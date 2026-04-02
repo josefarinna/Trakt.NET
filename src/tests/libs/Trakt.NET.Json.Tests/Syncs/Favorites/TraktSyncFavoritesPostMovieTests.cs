@@ -21,7 +21,7 @@
             syncFavoritesPostMovie.ShouldNotBeNull();
 
             syncFavoritesPostMovie.Title.ShouldBe("Batman Begins");
-            syncFavoritesPostMovie.Year.ShouldBe(2005);
+            syncFavoritesPostMovie.Year.ShouldBe(2005U);
             syncFavoritesPostMovie.IDs.ShouldNotBeNull();
             syncFavoritesPostMovie.IDs.Trakt.ShouldBe(1U);
             syncFavoritesPostMovie.IDs.Slug.ShouldBe("batman-begins-2005");

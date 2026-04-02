@@ -13,6 +13,7 @@
             showsLastActivities.RecommendationsAt.ShouldBeNull();
             showsLastActivities.CommentedAt.ShouldBeNull();
             showsLastActivities.HiddenAt.ShouldBeNull();
+            showsLastActivities.DroppedAt.ShouldBeNull();
         }
 
         [Fact]
@@ -27,6 +28,7 @@
             showsLastActivities.RecommendationsAt.ShouldBe(TestUtility.ParseUTCDateTime("2021-06-28T00:13:46.000Z"));
             showsLastActivities.CommentedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-02-18T12:54:39.000Z"));
             showsLastActivities.HiddenAt.ShouldBe(TestUtility.ParseUTCDateTime("2022-12-20T19:34:50.000Z"));
+            showsLastActivities.DroppedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-03-31T14:56:06.000Z"));
         }
     }
 }

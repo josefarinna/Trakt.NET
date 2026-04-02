@@ -29,6 +29,7 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktSyncCollectionPostShowSeason))]
     [JsonSerializable(typeof(TraktSyncCollectionRemovePost))]
     [JsonSerializable(typeof(TraktSyncCollectionRemovePostResponse))]
+    [JsonSerializable(typeof(TraktSyncCollectionShow))]
     [JsonSerializable(typeof(TraktSyncFavoritesPost))]
     [JsonSerializable(typeof(TraktSyncFavoritesPostMovie))]
     [JsonSerializable(typeof(TraktSyncFavoritesPostResponse))]

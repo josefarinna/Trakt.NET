@@ -1,0 +1,118 @@
+{
+    "type": "show",
+    "last_collected_at": "2026-04-02T17:26:44.000Z",
+    "last_updated_at": "2026-04-02T17:26:44.000Z",
+    "show": {
+        "title": "Game of Thrones",
+        "year": 2011,
+        "ids": {
+            "trakt": 1390,
+            "slug": "game-of-thrones",
+            "tvdb": 121361,
+            "imdb": "tt0944947",
+            "tmdb": 1399
+        },
+        "tagline": "Winter is coming.",
+        "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+        "first_aired": "2011-04-18T01:00:00.000Z",
+        "airs": {
+            "day": "Sunday",
+            "time": "21:00",
+            "timezone": "America/New_York"
+        },
+        "runtime": 55,
+        "certification": "TV-MA",
+        "network": "HBO",
+        "country": "us",
+        "trailer": "https://youtube.com/watch?v=KPLWWIOCOOQ",
+        "homepage": "http://www.hbo.com/game-of-thrones",
+        "status": "ended",
+        "rating": 8.89122,
+        "votes": 145017,
+        "comment_count": 449,
+        "updated_at": "2026-02-21T15:43:57.000Z",
+        "language": "en",
+        "languages": [
+            "en"
+        ],
+        "available_translations": [
+            "ar",
+            "be",
+            "bg",
+            "bs",
+            "ca",
+            "cs",
+            "da",
+            "de",
+            "el",
+            "en",
+            "eo",
+            "es",
+            "et",
+            "fa",
+            "fi",
+            "fr",
+            "he",
+            "hr",
+            "hu",
+            "id",
+            "is",
+            "it",
+            "ja",
+            "ka",
+            "ko",
+            "lb",
+            "lt",
+            "lv",
+            "ml",
+            "nl",
+            "no",
+            "pl",
+            "pt",
+            "ro",
+            "ru",
+            "sk",
+            "sl",
+            "so",
+            "sr",
+            "sv",
+            "ta",
+            "th",
+            "tr",
+            "tw",
+            "uk",
+            "uz",
+            "vi",
+            "zh"
+        ],
+        "genres": [
+            "fantasy",
+            "drama",
+            "action",
+            "adventure"
+        ],
+        "subgenres": [
+            "fantasy-world",
+            "dragon",
+            "kingdom",
+            "king"
+        ],
+        "aired_episodes": 73,
+        "original_title": "Game of Thrones"
+    },
+    "seasons": [
+        {
+            "number": 1,
+            "episodes": [
+                {
+                    "number": 1,
+                    "collected_at": "2026-04-02T17:26:44.000Z"
+                },
+                {
+                    "number": 2,
+                    "collected_at": "2026-04-02T17:26:44.000Z"
+                }
+            ]
+        }
+    ]
+}

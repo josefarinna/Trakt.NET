@@ -11,6 +11,7 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktPostResponseNotFoundPerson))]
     [JsonSerializable(typeof(TraktPostResponseNotFoundSeason))]
     [JsonSerializable(typeof(TraktPostResponseNotFoundShow))]
+    [JsonSerializable(typeof(TraktPostResponseNotFoundUser))]
     public sealed partial class ResponsesJsonSerializerContext : JsonSerializerContext
     {
     }

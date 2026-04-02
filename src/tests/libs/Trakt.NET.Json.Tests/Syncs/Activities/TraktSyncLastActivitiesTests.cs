@@ -57,6 +57,7 @@
             lastActivities.Shows.RecommendationsAt.ShouldBe(TestUtility.ParseUTCDateTime("2021-06-28T00:13:46.000Z"));
             lastActivities.Shows.CommentedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-02-18T12:54:39.000Z"));
             lastActivities.Shows.HiddenAt.ShouldBe(TestUtility.ParseUTCDateTime("2022-12-20T19:34:50.000Z"));
+            lastActivities.Shows.DroppedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-03-31T14:56:06.000Z"));
 
             lastActivities.Seasons.ShouldNotBeNull();
             lastActivities.Seasons.RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2022-06-25T23:46:39.000Z"));
@@ -66,10 +67,12 @@
 
             lastActivities.Comments.ShouldNotBeNull();
             lastActivities.Comments.LikedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-02-18T12:54:39.000Z"));
+            lastActivities.Comments.ReactedAt.ShouldBe(TestUtility.ParseUTCDateTime("2012-10-09T13:13:26.000Z"));
             lastActivities.Comments.BlockedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-02-18T12:54:39.000Z"));
 
             lastActivities.Lists.ShouldNotBeNull();
             lastActivities.Lists.LikedAt.ShouldBe(TestUtility.ParseUTCDateTime("2022-06-28T21:32:53.000Z"));
+            lastActivities.Lists.ReactedAt.ShouldBe(TestUtility.ParseUTCDateTime("2012-10-09T13:13:26.000Z"));
             lastActivities.Lists.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2022-10-14T21:47:15.000Z"));
             lastActivities.Lists.CommentedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-02-18T12:54:39.000Z"));
 
