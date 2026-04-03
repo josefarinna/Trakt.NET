@@ -28,7 +28,7 @@
                 foreach (TraktSyncFavoritesPostMovie postMovie in Movies)
                 {
                     if (postMovie.Notes?.Length > 255)
-                        throw new TraktPostValidationException($"Movies[{Movies.ToList().IndexOf(postMovie)}].Notes", "notes cannot be longer than 255 characters");
+                        throw new TraktPostValidationException($"Movies[{Movies.IndexOf(postMovie)}].Notes", "notes cannot be longer than 255 characters");
                 }
             }
 
@@ -37,7 +37,7 @@
                 foreach (TraktSyncFavoritesPostShow postShow in Shows)
                 {
                     if (postShow.Notes?.Length > 255)
-                        throw new TraktPostValidationException($"Shows[{Shows.ToList().IndexOf(postShow)}].Notes", "notes cannot be longer than 255 characters");
+                        throw new TraktPostValidationException($"Shows[{Shows.IndexOf(postShow)}].Notes", "notes cannot be longer than 255 characters");
                 }
             }
         }

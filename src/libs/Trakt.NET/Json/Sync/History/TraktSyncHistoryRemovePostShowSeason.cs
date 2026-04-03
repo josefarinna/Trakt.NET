@@ -9,8 +9,8 @@
         /// <summary>
         /// An optional list of <see cref="TraktSyncHistoryRemovePostShowEpisode" />s.
         /// <para>
-        /// If no episodes are set, the whole Trakt season will be added to the history.
-        /// Otherwise, only the specified episodes will be added to the history.
+        /// If no episodes are set, the whole Trakt season will be removed from the history.
+        /// Otherwise, only the specified episodes will be removed from the history.
         /// </para>
         /// </summary>
         public List<TraktSyncHistoryRemovePostShowEpisode>? Episodes { get; set; }

@@ -5,6 +5,8 @@ using System.Text.Json.Serialization;
 namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
+    [JsonSerializable(typeof(TraktFavorite))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktFavorite>))]
     [JsonSerializable(typeof(TraktUser))]
     [JsonSerializable(typeof(IReadOnlyList<TraktUser>))]
     [JsonSerializable(typeof(TraktUserComment))]

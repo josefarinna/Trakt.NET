@@ -92,8 +92,7 @@ namespace TraktNET.ShowsModule
         [Fact]
         public async Task TestGetShowVideosWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showvideos.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowVideosUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowVideosUriWithSlug, HttpStatusCode.OK);
 
 #pragma warning disable CS8625
             Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Shows.GetShowVideosAsync(default(TraktShowIDs), cancellationToken: TestContext.Current.CancellationToken);

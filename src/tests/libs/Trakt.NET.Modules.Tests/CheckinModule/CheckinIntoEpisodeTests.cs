@@ -36,7 +36,7 @@ namespace TraktNET.CheckinModule
             response.Content.ShouldNotBeNull();
 
             TraktEpisodeCheckinResponse responseData = response.Content!;
-            responseData.Id.ShouldBe(3373536620UL);
+            responseData.ID.ShouldBe(3373536620UL);
             responseData.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-08-06T01:11:37.000Z"));
 
             responseData.Show.ShouldNotBeNull();

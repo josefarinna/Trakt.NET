@@ -7,7 +7,7 @@
         {
             var response = new TraktMovieCheckinResponse();
 
-            response.Id.ShouldBe(0UL);
+            response.ID.ShouldBe(0UL);
             response.WatchedAt.ShouldBeNull();
             response.Sharing.ShouldBeNull();
             response.Movie.ShouldBeNull();
@@ -20,7 +20,7 @@
 
             response.ShouldNotBeNull();
 
-            response!.Id.ShouldBe(3373536619UL);
+            response!.ID.ShouldBe(3373536619UL);
             response!.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-08-06T01:11:37.000Z"));
 
             response!.Sharing.ShouldNotBeNull();

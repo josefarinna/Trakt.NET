@@ -38,7 +38,7 @@ namespace TraktNET.CheckinModule
             response.Content.ShouldNotBeNull();
 
             TraktMovieCheckinResponse responseData = response.Content!;
-            responseData.Id.ShouldBe(3373536619UL);
+            responseData.ID.ShouldBe(3373536619UL);
             responseData.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-08-06T01:11:37.000Z"));
 
             responseData.Movie.ShouldNotBeNull();

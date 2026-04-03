@@ -78,11 +78,7 @@
         public async Task TestTraktSyncCollectionShowFromJson()
         {
             TraktSyncCollectionShow? syncCollectionShow = await TestUtility.DeserializeJsonAsync<TraktSyncCollectionShow>("Syncs\\Collection\\synccollectionshow.json");
-            ValidatesyncCollectionShow(syncCollectionShow);
-        }
 
-        private static void ValidatesyncCollectionShow(TraktSyncCollectionShow? syncCollectionShow)
-        {
             syncCollectionShow.ShouldNotBeNull();
             syncCollectionShow.LastCollectedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-04-02T17:26:44.000Z"));
             syncCollectionShow.LastUpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-04-02T17:26:44.000Z"));

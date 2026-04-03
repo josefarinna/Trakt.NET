@@ -67,6 +67,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[GenresContextCacheKey];
             }
 
+            if (s_historyJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(HistoryContextCacheKey));
+                return s_jsonSerializerContexts[HistoryContextCacheKey];
+            }
+
             if (s_languagesJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(LanguagesContextCacheKey));
@@ -169,6 +175,7 @@ namespace TraktNET
         private const string EpisodesContextCacheKey = "episodes";
         private const string GeneralContextCacheKey = "general";
         private const string GenresContextCacheKey = "genres";
+        private const string HistoryContextCacheKey = "history";
         private const string LanguagesContextCacheKey = "languages";
         private const string ListsContextCacheKey = "lists";
         private const string MoviesContextCacheKey = "movies";
@@ -202,6 +209,7 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(EpisodesContextCacheKey, new EpisodesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(GeneralContextCacheKey, new GeneralJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(GenresContextCacheKey, new GenresJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(HistoryContextCacheKey, new HistoryJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(LanguagesContextCacheKey, new LanguagesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(ListsContextCacheKey, new ListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(MoviesContextCacheKey, new MoviesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
@@ -301,6 +309,11 @@ namespace TraktNET
         {
             typeof(TraktGenre),
             typeof(TraktSubgenre)
+        });
+
+        private static readonly FrozenSet<Type> s_historyJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktHistoryItem)
         });
 
         private static readonly FrozenSet<Type> s_languagesJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -445,6 +458,7 @@ namespace TraktNET
             typeof(TraktSyncSeasonsLastActivities),
             typeof(TraktSyncShowsLastActivities),
             typeof(TraktSyncWatchlistLastActivities),
+            typeof(TraktSyncCollectionMovie),
             typeof(TraktSyncCollectionPost),
             typeof(TraktSyncCollectionPostEpisode),
             typeof(TraktSyncCollectionPostMovie),
@@ -456,6 +470,8 @@ namespace TraktNET
             typeof(TraktSyncCollectionRemovePost),
             typeof(TraktSyncCollectionRemovePostResponse),
             typeof(TraktSyncCollectionShow),
+            typeof(TraktSyncCollectionShowEpisode),
+            typeof(TraktSyncCollectionShowSeason),
             typeof(TraktSyncFavoritesPost),
             typeof(TraktSyncFavoritesPostMovie),
             typeof(TraktSyncFavoritesPostResponse),
@@ -498,7 +514,13 @@ namespace TraktNET
             typeof(TraktSyncRatingsPostShowEpisode),
             typeof(TraktSyncRatingsPostShowSeason),
             typeof(TraktSyncRatingsRemovePost),
+            typeof(TraktSyncRatingsRemovePostEpisode),
+            typeof(TraktSyncRatingsRemovePostMovie),
             typeof(TraktSyncRatingsRemovePostResponse),
+            typeof(TraktSyncRatingsRemovePostSeason),
+            typeof(TraktSyncRatingsRemovePostShow),
+            typeof(TraktSyncRatingsRemovePostShowEpisode),
+            typeof(TraktSyncRatingsRemovePostShowSeason),
             typeof(TraktSyncPostResponseGroup),
             typeof(TraktSyncPostResponseNotFoundGroup),
             typeof(TraktSyncWatchlistPost),
@@ -515,6 +537,7 @@ namespace TraktNET
 
         private static readonly FrozenSet<Type> s_usersJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
+            typeof(TraktFavorite),
             typeof(TraktUser),
             typeof(TraktUserComment),
             typeof(TraktUserIDs),
@@ -547,6 +570,7 @@ namespace TraktNET
             { EpisodesContextCacheKey, new EpisodesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { GeneralContextCacheKey, new GeneralJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { GenresContextCacheKey, new GenresJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { HistoryContextCacheKey, new HistoryJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { LanguagesContextCacheKey, new LanguagesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ListsContextCacheKey, new ListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { MoviesContextCacheKey, new MoviesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -639,6 +663,10 @@ namespace TraktNET
             typeof(TraktSubgenre)
         ];
 
+        private static readonly HashSet<Type> s_historyJsonTypes = [
+            typeof(TraktHistoryItem)
+        ];
+
         private static readonly HashSet<Type> s_languagesJsonTypes = [
             typeof(TraktLanguage)
         ];
@@ -697,13 +725,11 @@ namespace TraktNET
             typeof(TraktPersonSocialIDs)
         ];
 
-        private static readonly FrozenSet<Type> s_ratingsJsonTypes = [
-        {
+        private static readonly HashSet<Type> s_ratingsJsonTypes = [
             typeof(TraktRatingsItem)
         ];
 
         private static readonly HashSet<Type> s_responsesJsonTypes [
-        {
             typeof(TraktPostResponseListData),
             typeof(TraktPostResponseNotFoundEpisode),
             typeof(TraktPostResponseNotFoundMovie),
@@ -757,7 +783,6 @@ namespace TraktNET
         ];
 
         private static readonly HashSet<Type> s_syncsJsonTypes = [
-        {
             typeof(TraktSyncAccountLastActivities),
             typeof(TraktSyncCollaborationsLastActivities),
             typeof(TraktSyncCommentsLastActivities),
@@ -772,6 +797,7 @@ namespace TraktNET
             typeof(TraktSyncSeasonsLastActivities),
             typeof(TraktSyncShowsLastActivities),
             typeof(TraktSyncWatchlistLastActivities),
+            typeof(TraktSyncCollectionMovie),
             typeof(TraktSyncCollectionPost),
             typeof(TraktSyncCollectionPostEpisode),
             typeof(TraktSyncCollectionPostMovie),
@@ -783,6 +809,8 @@ namespace TraktNET
             typeof(TraktSyncCollectionRemovePost),
             typeof(TraktSyncCollectionRemovePostResponse),
             typeof(TraktSyncCollectionShow),
+            typeof(TraktSyncCollectionShowEpisode),
+            typeof(TraktSyncCollectionShowSeason),
             typeof(TraktSyncFavoritesPost),
             typeof(TraktSyncFavoritesPostMovie),
             typeof(TraktSyncFavoritesPostResponse),
@@ -825,7 +853,13 @@ namespace TraktNET
             typeof(TraktSyncRatingsPostShowEpisode),
             typeof(TraktSyncRatingsPostShowSeason),
             typeof(TraktSyncRatingsRemovePost),
+            typeof(TraktSyncRatingsRemovePostEpisode),
+            typeof(TraktSyncRatingsRemovePostMovie),
             typeof(TraktSyncRatingsRemovePostResponse),
+            typeof(TraktSyncRatingsRemovePostSeason),
+            typeof(TraktSyncRatingsRemovePostShow),
+            typeof(TraktSyncRatingsRemovePostShowEpisode),
+            typeof(TraktSyncRatingsRemovePostShowSeason),
             typeof(TraktSyncPostResponseGroup),
             typeof(TraktSyncPostResponseNotFoundGroup),
             typeof(TraktSyncWatchlistPost),
@@ -841,6 +875,7 @@ namespace TraktNET
         ];
 
         private static readonly HashSet<Type> s_usersJsonTypes = [
+            typeof(TraktFavorite),
             typeof(TraktUser),
             typeof(TraktUserComment),
             typeof(TraktUserIDs),
@@ -849,16 +884,14 @@ namespace TraktNET
             typeof(TraktUserMinimal)
         ];
 
-        private static readonly FrozenSet<Type> s_watchedJsonTypes = [
-        {
+        private static readonly HashSet<Type> s_watchedJsonTypes = [
             typeof(TraktWatchedMovie),
             typeof(TraktWatchedShow),
             typeof(TraktWatchedShowEpisode),
             typeof(TraktWatchedShowSeason)
         ];
 
-        private static readonly FrozenSet<Type> s_watchlistJsonTypes = [
-        {
+        private static readonly HashSet<Type> s_watchlistJsonTypes = [
             typeof(TraktWatchlistItem)
         ];
 #endif

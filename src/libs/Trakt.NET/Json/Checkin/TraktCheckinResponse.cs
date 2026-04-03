@@ -1,9 +1,12 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     public record class TraktCheckinResponse
     {
         /// <summary>Gets or sets the history id for the checkin response.</summary>
-        public ulong Id { get; set; }
+        [JsonPropertyName("id")]
+        public ulong ID { get; set; }
 
         /// <summary>Gets or sets the UTC datetime, when the checked in movie or episode was watched.</summary>
         public DateTime? WatchedAt { get; set; }

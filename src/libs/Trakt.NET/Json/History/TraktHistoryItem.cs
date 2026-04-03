@@ -1,10 +1,13 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <summary>A Trakt history item, containing a movie, show, season and / or episode and information about it.</summary>
     public record class TraktHistoryItem
     {
         /// <summary>Gets or sets the id of this history item.</summary>
-        public ulong Id { get; set; }
+        [JsonPropertyName("id")]
+        public ulong ID { get; set; }
 
         /// <summary>Gets or sets the UTC datetime, when the movie, show, season and / or episode was watched.</summary>
         public DateTime? WatchedAt { get; set; }

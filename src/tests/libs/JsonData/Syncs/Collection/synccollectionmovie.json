@@ -1,0 +1,129 @@
+{
+    "type": "movie",
+    "collected_at": "2014-09-01T09:10:11.000Z",
+    "updated_at": "2014-09-01T09:10:11.000Z",
+    "movie": {
+        "ids": {
+            "imdb": "tt0468569",
+            "plex": {
+                "guid": "5d7768247e9a3c0020c6a8f3",
+                "slug": "the-dark-knight"
+            },
+            "slug": "the-dark-knight-2008",
+            "tmdb": 155,
+            "trakt": 120
+        },
+        "year": 2008,
+        "title": "The Dark Knight",
+        "votes": 89429,
+        "colors": {
+            "poster": [
+                "#808C92",
+                "#122739"
+            ]
+        },
+        "genres": [
+            "action",
+            "crime",
+            "thriller",
+            "superhero"
+        ],
+        "images": {
+            "logo": [
+                "media.trakt.tv/images/movies/000/000/120/logos/medium/3e39105d34.png.webp"
+            ],
+            "thumb": [
+                "media.trakt.tv/images/movies/000/000/120/thumbs/medium/f05f82ad93.jpg.webp"
+            ],
+            "banner": [
+                "media.trakt.tv/images/movies/000/000/120/banners/medium/ea419580a6.jpg.webp"
+            ],
+            "fanart": [
+                "media.trakt.tv/images/movies/000/000/120/fanarts/medium/f7884a908e.jpg.webp"
+            ],
+            "poster": [
+                "media.trakt.tv/images/movies/000/000/120/posters/medium/8369bf0d4a.jpg.webp"
+            ],
+            "clearart": [
+                "media.trakt.tv/images/movies/000/000/120/cleararts/medium/32bef50715.png.webp"
+            ]
+        },
+        "rating": 8.86959457397461,
+        "status": "released",
+        "country": "us",
+        "runtime": 152,
+        "tagline": "Welcome to a world without rules.",
+        "trailer": "https://youtube.com/watch?v=_PZpmTj1Q8Q",
+        "homepage": "https://www.warnerbros.com/movies/dark-knight/",
+        "language": "en",
+        "overview": "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.",
+        "released": "2008-07-18",
+        "languages": [
+            "en",
+            "zh"
+        ],
+        "subgenres": [
+            "organized-crime",
+            "neo-noir",
+            "super-power",
+            "chaos",
+            "sadism",
+            "based-on-comic",
+            "anti-hero",
+            "crime-fighter",
+            "secret-identity",
+            "super-villain",
+            "vigilante"
+        ],
+        "updated_at": "2026-04-03T08:56:11.000Z",
+        "after_credits": false,
+        "certification": "PG-13",
+        "comment_count": 191,
+        "during_credits": false,
+        "original_title": "The Dark Knight",
+        "available_translations": [
+            "ar",
+            "bg",
+            "bs",
+            "ca",
+            "cs",
+            "da",
+            "de",
+            "el",
+            "en",
+            "es",
+            "et",
+            "fa",
+            "fi",
+            "fr",
+            "gl",
+            "he",
+            "hi",
+            "hr",
+            "hu",
+            "it",
+            "ja",
+            "ka",
+            "ko",
+            "lt",
+            "lv",
+            "ml",
+            "my",
+            "nl",
+            "no",
+            "pl",
+            "pt",
+            "ro",
+            "ru",
+            "sk",
+            "sl",
+            "sr",
+            "sv",
+            "th",
+            "tr",
+            "uk",
+            "vi",
+            "zh"
+        ]
+    }
+}

@@ -7,7 +7,7 @@
         {
             var response = new TraktEpisodeCheckinResponse();
 
-            response.Id.ShouldBe(0UL);
+            response.ID.ShouldBe(0UL);
             response.WatchedAt.ShouldBeNull();
             response.Sharing.ShouldBeNull();
             response.Episode.ShouldBeNull();
@@ -21,7 +21,7 @@
 
             response.ShouldNotBeNull();
 
-            response!.Id.ShouldBe(3373536620UL);
+            response!.ID.ShouldBe(3373536620UL);
             response!.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-08-06T01:11:37.000Z"));
 
             response!.Sharing.ShouldNotBeNull();
