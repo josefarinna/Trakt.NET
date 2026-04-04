@@ -9,28 +9,28 @@ namespace TraktNET
     public record class TraktSyncHistoryRemovePost
     {
         /// <summary>
-        /// An optional list of <see cref="TraktSyncHistoryRemovePostMovie" />s.
-        /// <para>Each <see cref="TraktSyncHistoryRemovePostMovie" /> must have at least a valid Trakt id.</para>
+        /// An optional list of <see cref="TraktSyncRemovePostMovie" />s.
+        /// <para>Each <see cref="TraktSyncRemovePostMovie" /> must have at least a valid Trakt id.</para>
         /// </summary>
-        public List<TraktSyncHistoryRemovePostMovie>? Movies { get; set; }
+        public List<TraktSyncRemovePostMovie>? Movies { get; set; }
 
         /// <summary>
-        /// An optional list of <see cref="TraktSyncHistoryRemovePostShow" />s.
-        /// <para>Each <see cref="TraktSyncHistoryRemovePostShow" /> must have at least a valid Trakt id.</para>
+        /// An optional list of <see cref="TraktSyncRemovePostShow" />s.
+        /// <para>Each <see cref="TraktSyncRemovePostShow" /> must have at least a valid Trakt id.</para>
         /// </summary>
-        public List<TraktSyncHistoryRemovePostShow>? Shows { get; set; }
+        public List<TraktSyncRemovePostShow>? Shows { get; set; }
 
         /// <summary>
-        /// An optional list of <see cref="TraktSyncHistoryRemovePostSeason" />s.
-        /// <para>Each <see cref="TraktSyncHistoryRemovePostSeason" /> must have at least a valid Trakt id.</para>
+        /// An optional list of <see cref="TraktSyncRemovePostSeason" />s.
+        /// <para>Each <see cref="TraktSyncRemovePostSeason" /> must have at least a valid Trakt id.</para>
         /// </summary>
-        public List<TraktSyncHistoryRemovePostSeason>? Seasons { get; set; }
+        public List<TraktSyncRemovePostSeason>? Seasons { get; set; }
 
         /// <summary>
-        /// An optional list of <see cref="TraktSyncHistoryRemovePostEpisode" />s.
-        /// <para>Each <see cref="TraktSyncHistoryRemovePostEpisode" /> must have at least a valid Trakt id.</para>
+        /// An optional list of <see cref="TraktSyncRemovePostEpisode" />s.
+        /// <para>Each <see cref="TraktSyncRemovePostEpisode" /> must have at least a valid Trakt id.</para>
         /// </summary>
-        public List<TraktSyncHistoryRemovePostEpisode>? Episodes { get; set; }
+        public List<TraktSyncRemovePostEpisode>? Episodes { get; set; }
 
         /// <summary>An optional list of history ids, which should be removed.</summary>
         [JsonPropertyName("history_ids")]

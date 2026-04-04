@@ -32,22 +32,22 @@
             act.ShouldThrow<TraktPostValidationException>();
 
             // movies with at least one item, shows = empty, seasons = empty, episodes = empty, history ids = empty
-            syncHistoryRemovePost.Movies.Add(new TraktSyncHistoryRemovePostMovie());
+            syncHistoryRemovePost.Movies.Add(new TraktSyncRemovePostMovie());
             act.ShouldNotThrow();
 
             // movies = empty, shows with at least one item, seasons = empty, episodes = empty, history ids = empty
             syncHistoryRemovePost.Movies.Clear();
-            syncHistoryRemovePost.Shows.Add(new TraktSyncHistoryRemovePostShow());
+            syncHistoryRemovePost.Shows.Add(new TraktSyncRemovePostShow());
             act.ShouldNotThrow();
 
             // movies = empty, shows = empty, seasons with at least one item, episodes = empty, history ids = empty
             syncHistoryRemovePost.Shows.Clear();
-            syncHistoryRemovePost.Seasons.Add(new TraktSyncHistoryRemovePostSeason());
+            syncHistoryRemovePost.Seasons.Add(new TraktSyncRemovePostSeason());
             act.ShouldNotThrow();
 
             // movies = empty, shows = empty, seasons = empty, episodes with at least one item, history ids = empty
             syncHistoryRemovePost.Seasons.Clear();
-            syncHistoryRemovePost.Episodes.Add(new TraktSyncHistoryRemovePostEpisode());
+            syncHistoryRemovePost.Episodes.Add(new TraktSyncRemovePostEpisode());
             act.ShouldNotThrow();
 
             // movies = empty, shows = empty, seasons = empty, episodes = empty, history ids with at least one item

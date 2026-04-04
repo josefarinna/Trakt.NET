@@ -9,28 +9,28 @@ namespace TraktNET
     public record class TraktSyncRatingsRemovePost
     {
         /// <summary>
-        /// An optional list of <see cref="TraktSyncRatingsRemovePostMovie" />s.
-        /// <para>Each <see cref="TraktSyncRatingsRemovePostMovie" /> must have at least a valid Trakt id.</para>
+        /// An optional list of <see cref="TraktSyncRemovePostMovie" />s.
+        /// <para>Each <see cref="TraktSyncRemovePostMovie" /> must have at least a valid Trakt id.</para>
         /// </summary>
-        public List<TraktSyncRatingsRemovePostMovie>? Movies { get; set; }
+        public List<TraktSyncRemovePostMovie>? Movies { get; set; }
 
         /// <summary>
-        /// An optional list of <see cref="TraktSyncRatingsRemovePostShow" />s.
-        /// <para>Each <see cref="TraktSyncRatingsRemovePostShow" /> must have at least a valid Trakt id.</para>
+        /// An optional list of <see cref="TraktSyncRemovePostShow" />s.
+        /// <para>Each <see cref="TraktSyncRemovePostShow" /> must have at least a valid Trakt id.</para>
         /// </summary>
-        public List<TraktSyncRatingsRemovePostShow>? Shows { get; set; }
+        public List<TraktSyncRemovePostShow>? Shows { get; set; }
 
         /// <summary>
-        /// An optional list of <see cref="TraktSyncRatingsRemovePostSeason" />s.
-        /// <para>Each <see cref="TraktSyncRatingsRemovePostSeason" /> must have at least a valid Trakt id.</para>
+        /// An optional list of <see cref="TraktSyncRemovePostSeason" />s.
+        /// <para>Each <see cref="TraktSyncRemovePostSeason" /> must have at least a valid Trakt id.</para>
         /// </summary>
-        public List<TraktSyncRatingsRemovePostSeason>? Seasons { get; set; }
+        public List<TraktSyncRemovePostSeason>? Seasons { get; set; }
 
         /// <summary>
-        /// An optional list of <see cref="TraktSyncRatingsRemovePostEpisode" />s.
-        /// <para>Each <see cref="TraktSyncRatingsRemovePostEpisode" /> must have at least a valid Trakt id.</para>
+        /// An optional list of <see cref="TraktSyncRemovePostEpisode" />s.
+        /// <para>Each <see cref="TraktSyncRemovePostEpisode" /> must have at least a valid Trakt id.</para>
         /// </summary>
-        public List<TraktSyncRatingsRemovePostEpisode>? Episodes { get; set; }
+        public List<TraktSyncRemovePostEpisode>? Episodes { get; set; }
 
         public virtual void Validate()
         {

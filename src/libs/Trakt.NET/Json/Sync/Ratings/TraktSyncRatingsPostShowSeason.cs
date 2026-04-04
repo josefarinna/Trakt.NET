@@ -4,11 +4,8 @@
     /// A Trakt ratings post season, containing the required season number and optional episodes,
     /// a rating and an optional datetime, when the season was rated.
     /// </summary>
-    public record class TraktSyncRatingsPostShowSeason
+    public record class TraktSyncRatingsPostShowSeason : TraktSyncRemovePostShowSeason
     {
-        /// <summary>Gets or sets the required season number of the Trakt season.</summary>
-        public int Number { get; set; }
-
         /// <summary>Gets or sets the rating for the season.</summary>
         public int? Rating { get; set; }
 
@@ -22,6 +19,6 @@
         /// Otherwise, only the specified episodes will be added to the ratings.
         /// </para>
         /// </summary>
-        public List<TraktSyncRatingsPostShowEpisode>? Episodes { get; set; }
+        public new List<TraktSyncRatingsPostShowEpisode>? Episodes { get; set; }
     }
 }

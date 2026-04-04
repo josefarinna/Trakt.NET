@@ -20,12 +20,12 @@
             act.ShouldThrow<TraktPostValidationException>();
 
             // movies with at least one item, shows = empty
-            syncFavoritesRemovePost.Movies.Add(new TraktSyncFavoritesPostMovie());
+            syncFavoritesRemovePost.Movies.Add(new TraktSyncRemovePostMovie());
             act.ShouldNotThrow();
 
             // movies = empty, shows with at least one item
             syncFavoritesRemovePost.Movies.Clear();
-            syncFavoritesRemovePost.Shows.Add(new TraktSyncFavoritesPostShow());
+            syncFavoritesRemovePost.Shows.Add(new TraktSyncRemovePostShow());
             act.ShouldNotThrow();
         }
     }

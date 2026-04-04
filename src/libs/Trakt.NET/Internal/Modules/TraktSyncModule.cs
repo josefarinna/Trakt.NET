@@ -100,7 +100,7 @@ namespace TraktNET
         private Task<TraktResponse> RemovePlaybackItemImplAsync(uint playbackId, CancellationToken cancellationToken = default)
         {
             if (playbackId == 0)
-                throw new ArgumentOutOfRangeException(nameof(playbackId), "playback id not valid");
+                throw new TraktRequestValidationException(nameof(playbackId), "playback id not valid");
 
             var request = new SyncPlaybackDeleteRequest
             {

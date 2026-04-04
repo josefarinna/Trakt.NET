@@ -28,22 +28,22 @@
             act.ShouldThrow<TraktPostValidationException>();
 
             // movies with at least one item, shows = empty, seasons = empty, episodes = empty
-            syncRatingsRemovePost.Movies.Add(new TraktSyncRatingsRemovePostMovie());
+            syncRatingsRemovePost.Movies.Add(new TraktSyncRemovePostMovie());
             act.ShouldNotThrow();
 
             // movies = empty, shows with at least one item, seasons = empty, episodes = empty
             syncRatingsRemovePost.Movies.Clear();
-            syncRatingsRemovePost.Shows.Add(new TraktSyncRatingsRemovePostShow());
+            syncRatingsRemovePost.Shows.Add(new TraktSyncRemovePostShow());
             act.ShouldNotThrow();
 
             // movies = empty, shows = empty, seasons with at least one item, episodes = empty
             syncRatingsRemovePost.Shows.Clear();
-            syncRatingsRemovePost.Seasons.Add(new TraktSyncRatingsRemovePostSeason());
+            syncRatingsRemovePost.Seasons.Add(new TraktSyncRemovePostSeason());
             act.ShouldNotThrow();
 
             // movies = empty, shows = empty, seasons = empty, episodes with at least one item
             syncRatingsRemovePost.Seasons.Clear();
-            syncRatingsRemovePost.Episodes.Add(new TraktSyncRatingsRemovePostEpisode());
+            syncRatingsRemovePost.Episodes.Add(new TraktSyncRemovePostEpisode());
             act.ShouldNotThrow();
         }
     }

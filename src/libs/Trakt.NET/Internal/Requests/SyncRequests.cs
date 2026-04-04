@@ -91,8 +91,10 @@
         [TraktRequestParameter]
         internal TraktSyncItemType? Type { get; set; }
 
+        [TraktRequestParameter]
         internal TraktSortBy? SortBy { get; set; }
 
+        [TraktRequestParameter]
         internal TraktSortHow? SortHow { get; set; }
     }
 

@@ -6,12 +6,8 @@ namespace TraktNET
     /// A Trakt ratings post episode, containing the required episode ids,
     /// a rating and an optional datetime, when the episode was rated.
     /// </summary>
-    public record class TraktSyncRatingsPostEpisode
+    public record class TraktSyncRatingsPostEpisode : TraktSyncRemovePostEpisode
     {
-        /// <summary>Gets or sets the required episode ids. See also <seealso cref="TraktEpisodeIDs" />.</summary>
-        [JsonPropertyName("ids")]
-        public TraktEpisodeIDs? IDs { get; set; }
-
         /// <summary>Gets or sets the rating for the episode.</summary>
         public int? Rating { get; set; }
 

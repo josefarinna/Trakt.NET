@@ -4,11 +4,8 @@
     /// A Trakt ratings post episode, containing the required episode number,
     /// a rating and an optional datetime, when the episode was rated.
     /// </summary>
-    public record class TraktSyncRatingsPostShowEpisode
+    public record class TraktSyncRatingsPostShowEpisode : TraktSyncRemovePostShowEpisode
     {
-        /// <summary>Gets or sets the required season number of the Trakt episode.</summary>
-        public int Number { get; set; }
-
         /// <summary>Gets or sets the rating for the episode.</summary>
         public int? Rating { get; set; }
 
