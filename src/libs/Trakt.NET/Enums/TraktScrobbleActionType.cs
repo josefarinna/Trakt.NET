@@ -14,6 +14,6 @@
         Pause,
 
         /// <summary>The scrobble stopped.</summary>
-        Scrobble
+        Stop
     }
 }

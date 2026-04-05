@@ -121,6 +121,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[ResponsesContextCacheKey];
             }
 
+            if (s_scrobblesJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(ScrobllesContextCacheKey));
+                return s_jsonSerializerContexts[ScrobllesContextCacheKey];
+            }
+
             if (s_searchsJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(SearchsContextCacheKey));
@@ -184,6 +190,7 @@ namespace TraktNET
         private const string PeopleContextCacheKey = "people";
         private const string ResponsesContextCacheKey = "responses";
         private const string RatingsContextCacheKey = "ratings";
+        private const string ScrobllesContextCacheKey = "scrobbles";
         private const string SearchsContextCacheKey = "searchs";
         private const string SeasonsContextCacheKey = "seasons";
         private const string ShowsContextCacheKey = "shows";
@@ -218,6 +225,7 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(RatingsContextCacheKey, new RatingsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(ResponsesContextCacheKey, new ResponsesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(ScrobllesContextCacheKey, new ScrobblesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(ShowsContextCacheKey, new ShowsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
@@ -394,6 +402,16 @@ namespace TraktNET
             typeof(TraktPostResponseNotFoundSeason),
             typeof(TraktPostResponseNotFoundShow),
             typeof(TraktPostResponseNotFoundUser)
+        });
+
+        private static readonly FrozenSet<Type> s_scrobblesJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktEpisodeScrobblePost),
+            typeof(TraktEpisodeScrobblePostResponse),
+            typeof(TraktMovieScrobblePost),
+            typeof(TraktMovieScrobblePostResponse),
+            typeof(TraktScrobblePost),
+            typeof(TraktScrobblePostResponse)
         });
 
         private static readonly FrozenSet<Type> s_searchsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -573,6 +591,7 @@ namespace TraktNET
             { PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { RatingsContextCacheKey, new RatingsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ResponsesContextCacheKey, new ResponsesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { ScrobllesContextCacheKey, new ScrobblesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ShowsContextCacheKey, new ShowsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -723,7 +742,7 @@ namespace TraktNET
             typeof(TraktRatingsItem)
         ];
 
-        private static readonly HashSet<Type> s_responsesJsonTypes [
+        private static readonly HashSet<Type> s_responsesJsonTypes = [
             typeof(TraktPostResponseListData),
             typeof(TraktPostResponseNotFoundEpisode),
             typeof(TraktPostResponseNotFoundMovie),
@@ -731,6 +750,15 @@ namespace TraktNET
             typeof(TraktPostResponseNotFoundSeason),
             typeof(TraktPostResponseNotFoundShow),
             typeof(TraktPostResponseNotFoundUser)
+        ];
+
+        private static readonly HashSet<Type> s_scrobblesJsonTypes = [
+            typeof(TraktEpisodeScrobblePost),
+            typeof(TraktEpisodeScrobblePostResponse),
+            typeof(TraktMovieScrobblePost),
+            typeof(TraktMovieScrobblePostResponse),
+            typeof(TraktScrobblePost),
+            typeof(TraktScrobblePostResponse)
         ];
 
         private static readonly HashSet<Type> s_searchsJsonTypes = [
