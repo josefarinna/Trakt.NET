@@ -393,7 +393,16 @@ namespace TraktNET
             typeof(TraktPersonIDs),
             typeof(TraktPersonImages),
             typeof(TraktPersonMinimal),
-            typeof(TraktPersonSocialIDs)
+            typeof(TraktPersonMovieCredits),
+            typeof(TraktPersonMovieCreditsCastItem),
+            typeof(TraktPersonMovieCreditsCrew),
+            typeof(TraktPersonMovieCreditsCrewItem),
+            typeof(TraktPersonShowCredits),
+            typeof(TraktPersonShowCreditsCastItem),
+            typeof(TraktPersonShowCreditsCrew),
+            typeof(TraktPersonShowCreditsCrewItem),
+            typeof(TraktPersonSocialIDs),
+            typeof(TraktRecentlyUpdatedPerson)
         });
 
         private static readonly FrozenSet<Type> s_ratingsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -751,7 +760,16 @@ namespace TraktNET
             typeof(TraktPersonIDs),
             typeof(TraktPersonImages),
             typeof(TraktPersonMinimal),
-            typeof(TraktPersonSocialIDs)
+            typeof(TraktPersonMovieCredits),
+            typeof(TraktPersonMovieCreditsCastItem),
+            typeof(TraktPersonMovieCreditsCrew),
+            typeof(TraktPersonMovieCreditsCrewItem),
+            typeof(TraktPersonShowCredits),
+            typeof(TraktPersonShowCreditsCastItem),
+            typeof(TraktPersonShowCreditsCrew),
+            typeof(TraktPersonShowCreditsCrewItem),
+            typeof(TraktPersonSocialIDs),
+            typeof(TraktRecentlyUpdatedPerson)
         ];
 
         private static readonly HashSet<Type> s_ratingsJsonTypes = [

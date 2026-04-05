@@ -1,0 +1,354 @@
+{
+    "production": [
+        {
+            "jobs": [
+                "Producer 1"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Producer 2"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ],
+    "art": [
+        {
+            "jobs": [
+                "Art Director 1"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Art Director 2"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ],
+    "crew": [
+        {
+            "jobs": [
+                "Crew Member 1"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Crew Member 2"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ],
+    "costume & make-up": [
+        {
+            "jobs": [
+                "Costume Designer"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Make Up Artist"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ],
+    "directing": [
+        {
+            "jobs": [
+                "Director 1"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Director 2"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ],
+    "writing": [
+        {
+            "jobs": [
+                "Writer 1"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Writer 2"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ],
+    "sound": [
+        {
+            "jobs": [
+                "Sound Designer 1"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Sound Designer 2"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ],
+    "camera": [
+        {
+            "jobs": [
+                "Camera Man 1"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Camera Man 2"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ],
+    "lighting": [
+        {
+            "jobs": [
+                "Light Technician 1"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Light Technician 2"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ],
+    "visual effects": [
+        {
+            "jobs": [
+                "VFX Artist 1"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "VFX Artist 2"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ],
+    "editing": [
+        {
+            "jobs": [
+                "Editor 1"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Editor 2"
+            ],
+            "movie": {
+                "title": "Star Wars: The Force Awakens",
+                "year": 2015,
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            }
+        }
+    ]
+}

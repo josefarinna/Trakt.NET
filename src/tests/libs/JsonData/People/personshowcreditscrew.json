@@ -1,0 +1,376 @@
+{
+    "production": [
+        {
+            "jobs": [
+                "Producer 1"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Producer 2"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ],
+    "art": [
+        {
+            "jobs": [
+                "Art Director 1"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Art Director 2"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ],
+    "crew": [
+        {
+            "jobs": [
+                "Crew Member 1"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Crew Member 2"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ],
+    "costume & make-up": [
+        {
+            "jobs": [
+                "Costume Designer"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Make Up Artist"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ],
+    "directing": [
+        {
+            "jobs": [
+                "Director 1"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Director 2"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ],
+    "writing": [
+        {
+            "jobs": [
+                "Writer 1"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Writer 2"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ],
+    "sound": [
+        {
+            "jobs": [
+                "Sound Designer 1"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Sound Designer 2"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ],
+    "camera": [
+        {
+            "jobs": [
+                "Camera Man 1"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Camera Man 2"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ],
+    "lighting": [
+        {
+            "jobs": [
+                "Light Technician 1"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Light Technician 2"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ],
+    "visual effects": [
+        {
+            "jobs": [
+                "VFX Artist 1"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "VFX Artist 2"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ],
+    "editing": [
+        {
+            "jobs": [
+                "Editor 1"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        },
+        {
+            "jobs": [
+                "Editor 2"
+            ],
+            "show": {
+                "title": "Game of Thrones",
+                "year": 2011,
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            }
+        }
+    ]
+}

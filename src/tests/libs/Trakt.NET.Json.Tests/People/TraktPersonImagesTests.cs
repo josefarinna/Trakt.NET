@@ -1,4 +1,4 @@
-namespace TraktNET.Json.Persons
+namespace TraktNET.Json.People
 {
     public sealed class TraktPersonImagesTests
     {

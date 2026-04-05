@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Globalization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -30,6 +31,27 @@ namespace TraktNET
         /// <summary>The UTC datetime when the person died.</summary>
         public DateTime? Death { get; set; }
 #endif
+
+        /// <summary>Returns the age of the person, if <see cref="Birthday" /> is set, otherwise zero.</summary>
+        public int Age
+        {
+            get
+            {
+                if (Birthday.HasValue)
+                {
+                    if (Death.HasValue)
+                        return Birthday.YearsBetween(Death);
+
+#if NET7_0_OR_GREATER
+                    return Birthday.YearsBetween(DateOnly.Parse(DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture), CultureInfo.InvariantCulture));
+#else
+                    return Birthday.YearsBetween(DateTime.Now);
+#endif
+                }
+
+                return 0;
+            }
+        }
 
         /// <summary>The birthplace of the person.</summary>
         public string? Birthplace { get; set; }

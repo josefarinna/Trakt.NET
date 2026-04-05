@@ -14,5 +14,19 @@ namespace TraktNET
             DateTime dateTime = value.ToUniversalTime();
             return $"{dateTime.Year}-{dateTime.Month:00}-{dateTime.Day:00}T{dateTime.Hour:00}:00:00Z";
         }
+
+#if NET7_0_OR_GREATER
+        internal static int YearsBetween(this DateOnly? value, DateOnly? otherDate)
+            => value.GetValueOrDefault().YearsBetween(otherDate.GetValueOrDefault());
+
+        public static int YearsBetween(this DateOnly value, DateOnly otherDate)
+            => Math.Abs(value.Year - otherDate.Year);
+#else
+        internal static int YearsBetween(this DateTime? value, DateTime? otherDate)
+            => value.GetValueOrDefault().YearsBetween(otherDate.GetValueOrDefault());
+
+        public static int YearsBetween(this DateTime value, DateTime otherDate)
+            => Math.Abs(value.Year - otherDate.Year);
+#endif
     }
 }
