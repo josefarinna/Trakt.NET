@@ -1,0 +1,119 @@
+[
+    {
+        "title": "Blackfish",
+        "year": 2013,
+        "ids": {
+            "trakt": 58,
+            "slug": "blackfish-2013",
+            "imdb": "tt2545118",
+            "tmdb": 158999
+        },
+        "favorited_by": [
+            {
+                "user": {
+                    "username": "sean",
+                    "private": false,
+                    "name": "Sean Rudford",
+                    "vip": true,
+                    "vip_ep": true,
+                    "ids": {
+                        "slug": "sean",
+                        "uuid": "3528009dgf0dfhkasghsgng00ds7g0907hfdslsha0070"
+                    },
+                    "joined_at": "2010-09-25T17:49:25.000Z",
+                    "location": "SF",
+                    "about": "I have all your cassette tapes.",
+                    "gender": "male",
+                    "age": 35,
+                    "images": {
+                        "avatar": {
+                            "full": "https://walter-dev.trakt.tv/images/users/000/000/001/avatars/large/0ba3f72910.jpg"
+                        }
+                    },
+                    "vip_og": true,
+                    "vip_years": 5,
+                    "vip_cover_image": "https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg"
+                },
+                "notes": "Favorited because ..."
+            }
+        ]
+    },
+    {
+        "title": "Waiting for Superman",
+        "year": 2010,
+        "ids": {
+        "trakt": 289,
+        "slug": "waiting-for-superman-2010",
+        "imdb": "tt1566648",
+        "tmdb": 39440
+        },
+        "favorited_by": [
+            {
+                "user": {
+                    "username": "sean",
+                    "private": false,
+                    "name": "Sean Rudford",
+                    "vip": true,
+                    "vip_ep": true,
+                    "ids": {
+                        "slug": "sean",
+                        "uuid": "3528009dgf0dfhkasghsgng00ds7g0907hfdslsha0070"
+                    },
+                    "joined_at": "2010-09-25T17:49:25.000Z",
+                    "location": "SF",
+                    "about": "I have all your cassette tapes.",
+                    "gender": "male",
+                    "age": 35,
+                    "images": {
+                        "avatar": {
+                            "full": "https://walter-dev.trakt.tv/images/users/000/000/001/avatars/large/0ba3f72910.jpg"
+                        }
+                    },
+                    "vip_og": true,
+                    "vip_years": 5,
+                    "vip_cover_image": "https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg"
+                },
+                "notes": "Favorited because ..."
+            }
+        ]
+    },
+    {
+        "title": "Inside Job",
+        "year": 2010,
+        "ids": {
+            "trakt": 329,
+            "slug": "inside-job-2010",
+            "imdb": "tt1645089",
+            "tmdb": 44639
+        },
+        "favorited_by": [
+            {
+                "user": {
+                    "username": "sean",
+                    "private": false,
+                    "name": "Sean Rudford",
+                    "vip": true,
+                    "vip_ep": true,
+                    "ids": {
+                        "slug": "sean",
+                        "uuid": "3528009dgf0dfhkasghsgng00ds7g0907hfdslsha0070"
+                    },
+                    "joined_at": "2010-09-25T17:49:25.000Z",
+                    "location": "SF",
+                    "about": "I have all your cassette tapes.",
+                    "gender": "male",
+                    "age": 35,
+                    "images": {
+                        "avatar": {
+                            "full": "https://walter-dev.trakt.tv/images/users/000/000/001/avatars/large/0ba3f72910.jpg"
+                        }
+                    },
+                    "vip_og": true,
+                    "vip_years": 5,
+                    "vip_cover_image": "https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg"
+                },
+                "notes": "Favorited because ..."
+            }
+        ]
+    }
+]

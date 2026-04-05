@@ -115,6 +115,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[RatingsContextCacheKey];
             }
 
+            if (s_recommendationsJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(RecommendationsContextCacheKey));
+                return s_jsonSerializerContexts[RecommendationsContextCacheKey];
+            }
+
             if (s_responsesJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(ResponsesContextCacheKey));
@@ -188,8 +194,9 @@ namespace TraktNET
         private const string NetworksContextCacheKey = "networks";
         private const string NotesContextCacheKey = "notes";
         private const string PeopleContextCacheKey = "people";
-        private const string ResponsesContextCacheKey = "responses";
         private const string RatingsContextCacheKey = "ratings";
+        private const string RecommendationsContextCacheKey = "recommendations";
+        private const string ResponsesContextCacheKey = "responses";
         private const string ScrobllesContextCacheKey = "scrobbles";
         private const string SearchsContextCacheKey = "searchs";
         private const string SeasonsContextCacheKey = "seasons";
@@ -224,6 +231,7 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(NotesContextCacheKey, new NotesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(RatingsContextCacheKey, new RatingsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(RecommendationsContextCacheKey, new RecommendationsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(ResponsesContextCacheKey, new ResponsesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(ScrobllesContextCacheKey, new ScrobblesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
@@ -391,6 +399,13 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_ratingsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktRatingsItem)
+        });
+
+        private static readonly FrozenSet<Type> s_recommendationsJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktFavoritedBy),
+            typeof(TraktRecommendedMovie),
+            typeof(TraktRecommendedShow)
         });
 
         private static readonly FrozenSet<Type> s_responsesJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -590,6 +605,7 @@ namespace TraktNET
             { NotesContextCacheKey, new NotesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { PeopleContextCacheKey, new PeopleJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { RatingsContextCacheKey, new RatingsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { RecommendationsContextCacheKey, new RecommendationsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ResponsesContextCacheKey, new ResponsesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ScrobllesContextCacheKey, new ScrobblesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -740,6 +756,12 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_ratingsJsonTypes = [
             typeof(TraktRatingsItem)
+        ];
+
+        private static readonly HashSet<Type> s_recommendationsJsonTypes = [
+            typeof(TraktFavoritedBy),
+            typeof(TraktRecommendedMovie),
+            typeof(TraktRecommendedShow)
         ];
 
         private static readonly HashSet<Type> s_responsesJsonTypes = [
