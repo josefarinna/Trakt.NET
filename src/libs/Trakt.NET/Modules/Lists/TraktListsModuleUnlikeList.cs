@@ -91,7 +91,7 @@
         {
             ArgumentValidator.ThrowIfNull(list);
 
-            return UnlikeListAsync(list.IDs, cancellationToken);
+            return UnlikeListAsync(list.IDs!, cancellationToken);
         }
     }
 }

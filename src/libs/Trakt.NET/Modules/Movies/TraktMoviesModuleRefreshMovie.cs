@@ -43,8 +43,14 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
+        /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktMovieID"/> is 0.</exception>
         public Task<TraktResponse> RefreshMovieAsync(uint traktMovieID, CancellationToken cancellationToken = default)
-            => RefreshMovieImplAsync(traktMovieID.ToInvariantCultureString(), cancellationToken);
+        {
+            if (traktMovieID == 0)
+                throw new ArgumentException("movie id must not be 0", nameof(traktMovieID));
+
+            return RefreshMovieAsync(traktMovieID.ToInvariantCultureString(), cancellationToken);
+        }
 
         /// <summary>
         /// Refreshs a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.
@@ -72,9 +78,7 @@
             ArgumentValidator.ThrowIfNull(movieIDs);
 
             if (!movieIDs.HasAnyID)
-            {
                 throw new ArgumentException($"{nameof(movieIDs)} has not any IDs set", nameof(movieIDs));
-            }
 
             return RefreshMovieImplAsync(movieIDs.BestID, cancellationToken);
         }

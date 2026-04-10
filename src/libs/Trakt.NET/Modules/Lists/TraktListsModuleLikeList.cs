@@ -91,7 +91,7 @@
         {
             ArgumentValidator.ThrowIfNull(list);
 
-            return LikeListAsync(list.IDs, cancellationToken);
+            return LikeListAsync(list.IDs!, cancellationToken);
         }
     }
 }

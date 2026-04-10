@@ -102,7 +102,7 @@
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="listIds"/> is null.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="listIds"/> has not any ids set.</exception>
-        public Task<TraktPagedResponse<TraktListLike>> GetListLikesAsync(TraktListIDs? listIds, TraktExtendedInfo? extendedInfo = null,
+        public Task<TraktPagedResponse<TraktListLike>> GetListLikesAsync(TraktListIDs listIds, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(listIds);
@@ -147,7 +147,7 @@
         {
             ArgumentValidator.ThrowIfNull(list);
 
-            return GetListLikesAsync(list.IDs, extendedInfo, page, limit, cancellationToken);
+            return GetListLikesAsync(list.IDs!, extendedInfo, page, limit, cancellationToken);
         }
     }
 }

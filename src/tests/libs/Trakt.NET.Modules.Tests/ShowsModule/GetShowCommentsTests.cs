@@ -61,7 +61,6 @@ namespace TraktNET.ShowsModule
 
             IReadOnlyList<TraktComment> comments = response.Content!;
 
-            // Primer comentario
             comments[0].ID.ShouldBe(7149524U);
             comments[0].Comment.ShouldBe("Comment content 1.");
             comments[0].User.ShouldNotBeNull();
@@ -69,7 +68,6 @@ namespace TraktNET.ShowsModule
             comments[0].UserStats.ShouldNotBeNull();
             comments[0].UserStats!.Rating.ShouldBe(9U);
 
-            // Segundo comentario
             comments[1].ID.ShouldBe(7149524U);
             comments[1].Comment.ShouldBe("Comment content 2.");
             comments[1].User.ShouldNotBeNull();

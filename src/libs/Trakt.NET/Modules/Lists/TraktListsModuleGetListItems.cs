@@ -158,7 +158,7 @@
         {
             ArgumentValidator.ThrowIfNull(list);
             
-            return GetListItemsAsync(list.IDs, listItemType, extendedInfo, page, limit, cancellationToken);
+            return GetListItemsAsync(list.IDs!, listItemType, extendedInfo, page, limit, cancellationToken);
         }
     }
 }

@@ -1,20 +1,21 @@
 ﻿using System.Net;
 
-namespace TraktNET.MoviesModule
+namespace TraktNET.PeopleModule
 {
-    public sealed class RefreshMovieTests
+    public sealed class RefreshPersonTests
     {
-        private const string RefreshMovieUriPrefix = "movies";
-        private const string RefreshMovieUriSuffix = "refresh";
-        private const string RefreshMovieUriWithSlug = RefreshMovieUriPrefix + "/" + TestConstants.Movies.MovieSlug + "/" + RefreshMovieUriSuffix;
-        private static readonly string RefreshMovieUri = $"{RefreshMovieUriPrefix}/{TestConstants.Movies.MovieID}/{RefreshMovieUriSuffix}";
+        private const string RefreshPersonUriPrefix = "people";
+        private const string RefreshPersonUriSuffix = "refresh";
+        private const string RefreshPersonUriWithSlug = RefreshPersonUriPrefix + "/" + PersonSlug + "/" + RefreshPersonUriSuffix;
+        private const string PersonSlug = "bryan-cranston";
+        private const uint PersonID = 297737U;
 
         [Fact]
-        public async Task TestRefreshMovieWithID()
+        public async Task TestRefreshPersonWithID()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{RefreshMovieUriPrefix}/293990/{RefreshMovieUriSuffix}", HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{RefreshPersonUriPrefix}/{PersonID}/{RefreshPersonUriSuffix}", HttpStatusCode.Created);
 
-            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.People.RefreshPersonAsync(PersonID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -23,11 +24,11 @@ namespace TraktNET.MoviesModule
         }
 
         [Fact]
-        public async Task TestRefreshMovieWithSlug()
+        public async Task TestRefreshPersonWithSlug()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshMovieUriWithSlug, HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshPersonUriWithSlug, HttpStatusCode.Created);
 
-            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.People.RefreshPersonAsync(PersonSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -36,11 +37,17 @@ namespace TraktNET.MoviesModule
         }
 
         [Fact]
-        public async Task TestRefreshMovieWithIDs()
+        public async Task TestRefreshPersonWithIDs()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshMovieUriWithSlug, HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshPersonUriWithSlug, HttpStatusCode.Created);
 
-            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
+            var personIDs = new TraktPersonIDs
+            {
+                Trakt = PersonID,
+                Slug = PersonSlug
+            };
+
+            TraktResponse response = await client.People.RefreshPersonAsync(personIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -49,7 +56,7 @@ namespace TraktNET.MoviesModule
         }
 
         [Theory]
-        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiMovieNotFoundException))]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiPersonNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
         [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
         [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
@@ -74,33 +81,26 @@ namespace TraktNET.MoviesModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestRefreshMovieThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestRefreshPersonThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshMovieUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshPersonUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktResponse>> act = () => client.People.RefreshPersonAsync(PersonSlug, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestRefreshMovieThrowsArgumentException()
+        public async Task TestRefreshPersonThrowsArgumentException()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshMovieUriWithSlug, HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshPersonUriWithSlug, HttpStatusCode.Created);
 
-            Func<Task<TraktResponse>> act = () => client.Movies.RefreshMovieAsync(default(TraktMovieIDs)!, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.People.RefreshPersonAsync(default(TraktPersonIDs)!, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Movies.RefreshMovieAsync(new TraktMovieIDs(), TestContext.Current.CancellationToken);
+            act = () => client.People.RefreshPersonAsync(new TraktPersonIDs(), TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Movies.RefreshMovieAsync(0, TestContext.Current.CancellationToken);
+            act = () => client.People.RefreshPersonAsync(0, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

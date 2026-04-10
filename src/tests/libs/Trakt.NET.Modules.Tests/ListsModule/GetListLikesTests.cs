@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Globalization;
+using System.Net;
 
 namespace TraktNET.ListsModule
 {
@@ -13,7 +14,7 @@ namespace TraktNET.ListsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listlikes.json");
             TraktClient client = ModuleTestUtility.GetClient(GetListLikesUri, responseContent);
 
-            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID.ToString(), cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListLike> response = await client.Lists.GetListLikesAsync(ListID.ToString(CultureInfo.InvariantCulture), cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -79,7 +80,7 @@ namespace TraktNET.ListsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetListLikesUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktListLike>>> act = () => client.Lists.GetListLikesAsync(ListID.ToString(), cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktListLike>>> act = () => client.Lists.GetListLikesAsync(ListID.ToString(CultureInfo.InvariantCulture), cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 

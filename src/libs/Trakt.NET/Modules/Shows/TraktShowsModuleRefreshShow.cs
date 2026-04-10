@@ -42,8 +42,14 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
+        /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktShowID"/> is 0.</exception>
         public Task<TraktResponse> RefreshShowAsync(uint traktShowID, CancellationToken cancellationToken = default)
-            => RefreshShowImplAsync(traktShowID.ToInvariantCultureString(), cancellationToken);
+        {
+            if (traktShowID == 0)
+                throw new ArgumentException("show id must not be 0", nameof(traktShowID));
+
+            return RefreshShowImplAsync(traktShowID.ToInvariantCultureString(), cancellationToken);
+        }
 
         /// <summary>
         /// Refreshs a <see cref="TraktShow" /> with the specified <see cref="TraktShowIDs" />.
@@ -71,9 +77,7 @@
             ArgumentValidator.ThrowIfNull(showIDs);
 
             if (!showIDs.HasAnyID)
-            {
                 throw new ArgumentException($"{nameof(showIDs)} has not any IDs set", nameof(showIDs));
-            }
 
             return RefreshShowImplAsync(showIDs.BestID, cancellationToken);
         }

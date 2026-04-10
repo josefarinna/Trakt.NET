@@ -101,7 +101,7 @@
 #endif
             person!.Death.ShouldBeNull();
             person!.Birthplace.ShouldBe("Hollywood, Los Angeles, California, USA");
-            person!.Homepage.ShouldBeNull();
+            person!.Homepage.ShouldBe("http://www.bryancranston.com/");
             person!.KnownForDepartment.ShouldBe(TraktKnownForDepartment.Acting);
             person!.Gender.ShouldBe(TraktGender.Male);
             person!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-22T08:01:24.000Z"));

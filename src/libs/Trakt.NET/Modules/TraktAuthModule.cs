@@ -137,7 +137,7 @@ namespace TraktNET
         /// Thrown, if the current redirect URI is null, empty or contains spaces.
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> GetAuthorizationAsync(CancellationToken cancellationToken = default)
-            => GetAuthorizationAsync(_context.OAuthAuthorizationCode, cancellationToken);
+            => GetAuthorizationAsync(_context.OAuthAuthorizationCode!, cancellationToken);
 
         /// <summary>
         /// Exchanges the OAuth authorization code from the user for a new access token. Uses the current

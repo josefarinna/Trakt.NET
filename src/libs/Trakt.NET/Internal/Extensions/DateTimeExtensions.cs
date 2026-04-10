@@ -20,13 +20,25 @@ namespace TraktNET
             => value.GetValueOrDefault().YearsBetween(otherDate.GetValueOrDefault());
 
         public static int YearsBetween(this DateOnly value, DateOnly otherDate)
-            => Math.Abs(value.Year - otherDate.Year);
+        {
+            int age = Math.Abs(otherDate.Year - value.Year);       
+
+            if (otherDate < value.AddYears(age))
+                age--;
+            return age;
+        }            
 #else
         internal static int YearsBetween(this DateTime? value, DateTime? otherDate)
             => value.GetValueOrDefault().YearsBetween(otherDate.GetValueOrDefault());
 
         public static int YearsBetween(this DateTime value, DateTime otherDate)
-            => Math.Abs(value.Year - otherDate.Year);
+        {
+            int age = Math.Abs(otherDate.Year - value.Year);
+
+            if (otherDate < value.AddYears(age))
+                age--;
+            return age;
+        }
 #endif
     }
 }

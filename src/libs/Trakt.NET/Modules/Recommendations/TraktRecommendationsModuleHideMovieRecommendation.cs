@@ -91,7 +91,7 @@
         {
             ArgumentValidator.ThrowIfNull(movie);
 
-            return HideMovieRecommendationAsync(movie.IDs, cancellationToken);
+            return HideMovieRecommendationAsync(movie.IDs!, cancellationToken);
         }
     }
 }

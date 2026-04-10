@@ -84,7 +84,7 @@ namespace TraktNET.ListsModule
         public async Task TestGetListWithExtendedInfo()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\list.json");
-            var extendedInfo = TraktExtendedInfo.Full;
+            TraktExtendedInfo extendedInfo = TraktExtendedInfo.Full;
             TraktClient client = ModuleTestUtility.GetClient($"{GetListUri}?extended={extendedInfo}".ToLowerInvariant(), responseContent);
 
             TraktResponse<TraktList> response = await client.Lists.GetListAsync(ListID, extendedInfo, TestContext.Current.CancellationToken);
