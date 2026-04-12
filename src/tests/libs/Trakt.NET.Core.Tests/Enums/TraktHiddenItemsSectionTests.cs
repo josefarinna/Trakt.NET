@@ -12,6 +12,7 @@
             TraktHiddenItemsSection.Recommendations.ToJson().ShouldBe("recommendations");
             TraktHiddenItemsSection.ProgressWatchedReset.ToJson().ShouldBe("progress_watched_reset");
             TraktHiddenItemsSection.Comments.ToJson().ShouldBe("comments");
+            TraktHiddenItemsSection.Dropped.ToJson().ShouldBe("dropped");
         }
 
         [Fact]
@@ -24,6 +25,7 @@
             "recommendations".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Recommendations);
             "progress_watched_reset".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.ProgressWatchedReset);
             "comments".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Comments);
+            "dropped".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Dropped);
 
             string? nullValue = null;
             nullValue.ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Unspecified);
@@ -39,6 +41,7 @@
             TraktHiddenItemsSection.Recommendations.DisplayName().ShouldBe("Recommendations");
             TraktHiddenItemsSection.ProgressWatchedReset.DisplayName().ShouldBe("Progress Watched Reset");
             TraktHiddenItemsSection.Comments.DisplayName().ShouldBe("Comments");
+            TraktHiddenItemsSection.Dropped.DisplayName().ShouldBe("Dropped");
         }
     }
 }

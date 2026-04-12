@@ -1,0 +1,15 @@
+{
+    "hidden_at": "2014-09-01T09:10:11.000Z",
+    "type": "user",
+    "user": {
+        "username": "sean",
+        "private": false,
+        "name": "Sean Rudford",
+        "vip": true,
+        "vip_ep": true,
+        "ids": {
+            "slug": "sean",
+            "uuid": "3528009dgf0dfhkasghsgng00ds7g0907hfdslsha0070"
+        }
+    }
+}

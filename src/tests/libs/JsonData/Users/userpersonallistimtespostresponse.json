@@ -1,0 +1,108 @@
+{
+    "added": {
+        "movies": 1,
+        "shows": 2,
+        "seasons": 3,
+        "episodes": 4,
+        "people": 5
+    },
+    "existing": {
+        "movies": 1,
+        "shows": 2,
+        "seasons": 3,
+        "episodes": 4,
+        "people": 5
+    },
+    "not_found": {
+        "movies": [
+            {
+                "ids": {
+                    "trakt": 94024,
+                    "slug": "star-wars-the-force-awakens-2015",
+                    "imdb": "tt2488496",
+                    "tmdb": 140607
+                }
+            },
+            {
+                "ids": {
+                    "trakt": 172687,
+                    "slug": "king-arthur-legend-of-the-sword-2017",
+                    "imdb": "tt1972591",
+                    "tmdb": 274857
+                }
+            }
+        ],
+        "shows": [
+            {
+                "ids": {
+                    "trakt": 1390,
+                    "slug": "game-of-thrones",
+                    "tvdb": 121361,
+                    "imdb": "tt0944947",
+                    "tmdb": 1399
+                }
+            },
+            {
+                "ids": {
+                    "trakt": 60300,
+                    "slug": "the-flash-2014",
+                    "tvdb": 279121,
+                    "imdb": "tt3107288",
+                    "tmdb": 60735
+                }
+            }
+        ],
+        "seasons": [
+            {
+                "ids": {
+                    "trakt": 61430,
+                    "tvdb": 279121,
+                    "tmdb": 60523
+                }
+            },
+            {
+                "ids": {
+                    "trakt": 61431,
+                    "tvdb": 578373,
+                    "tmdb": 60524
+                }
+            }
+        ],
+        "episodes": [
+            {
+                "ids": {
+                    "trakt": 73640,
+                    "tvdb": 3254641,
+                    "imdb": "tt1480055",
+                    "tmdb": 63056
+                }
+            },
+            {
+                "ids": {
+                    "trakt": 73641,
+                    "tvdb": 3436411,
+                    "imdb": "tt1668746",
+                    "tmdb": 63057
+                }
+            }
+        ],
+        "people": [
+            {
+                "ids": {
+                    "trakt": 297737,
+                    "slug": "bryan-cranston",
+                    "imdb": "nm0186505",
+                    "tmdb": 17419
+                }
+            },
+            {
+                "ids": {
+                    "trakt": 9486,
+                    "slug": "samuel-l-jackson",
+                    "imdb": "nm0000168",
+                    "tmdb": 2231
+                }
+            }
+        ]
+    }
+}

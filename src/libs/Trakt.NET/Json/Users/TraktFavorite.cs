@@ -1,13 +1,16 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <summary>A Trakt favorite.</summary>
     public record class TraktFavorite
     {
         /// <summary>Gets or sets the id of this favorite item.</summary>
-        public ulong? Id { get; set; }
+        [JsonPropertyName("id")]
+        public ulong? ID { get; set; }
 
         /// <summary>Gets or sets the favorite rank.</summary>
-        public int? Rank { get; set; }
+        public uint? Rank { get; set; }
 
         /// <summary>Gets or sets the UTC datetime, when the favorite was listed.</summary>
         public DateTime? ListedAt { get; set; }

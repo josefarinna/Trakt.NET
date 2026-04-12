@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the filter section of saved filters.</summary>
-    [TraktEnum]
+    [TraktEnum(HasQuerySupport = true, QueryName = "section")]
     public enum TraktFilterSection
     {
         /// <summary>An invalid filter section.</summary>

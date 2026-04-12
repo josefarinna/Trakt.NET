@@ -1,0 +1,16 @@
+{
+    "started_at": "2014-10-23T06:44:02.000Z",
+    "expires_at": "2014-10-23T08:36:02.000Z",
+    "action": "checkin",
+    "type": "movie",
+    "movie": {
+        "title": "Star Wars: The Force Awakens",
+        "year": 2015,
+        "ids": {
+            "trakt": 94024,
+            "slug": "star-wars-the-force-awakens-2015",
+            "imdb": "tt2488496",
+            "tmdb": 140607
+        }
+    }
+}

@@ -1,7 +1,7 @@
 ﻿namespace TraktNET
 {
     /// <summary>Determines the type of an object in an hidden item.</summary>
-    [TraktEnum]
+    [TraktEnum(HasQuerySupport = true, QueryName = "type")]
     public enum TraktHiddenItemType
     {
         /// <summary>An invalid object type.</summary>

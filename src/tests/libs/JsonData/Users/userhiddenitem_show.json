@@ -1,0 +1,15 @@
+{
+    "hidden_at": "2014-09-01T09:10:11.000Z",
+    "type": "show",
+    "show": {
+        "title": "Game of Thrones",
+        "year": 2011,
+        "ids": {
+            "trakt": 1390,
+            "slug": "game-of-thrones",
+            "tvdb": 121361,
+            "imdb": "tt0944947",
+            "tmdb": 1399
+        }
+    }
+}

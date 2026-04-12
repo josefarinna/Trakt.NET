@@ -1,0 +1,12 @@
+{
+    "hidden_at": "2014-09-01T09:10:11.000Z",
+    "type": "season",
+    "season": {
+        "number": 1,
+        "ids": {
+            "trakt": 61430,
+            "tvdb": 279121,
+            "tmdb": 60523
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "started_at": "2014-10-23T06:44:02.000Z",
+    "expires_at": "2014-10-23T08:36:02.000Z",
+    "action": "checkin",
+    "type": "episode",
+    "episode": {
+        "season": 1,
+        "number": 1,
+        "title": "Winter Is Coming",
+        "ids": {
+            "trakt": 73640,
+            "tvdb": 3254641,
+            "imdb": "tt1480055",
+            "tmdb": 63056
+        }
+    },
+    "show": {
+        "title": "Game of Thrones",
+        "year": 2011,
+        "ids": {
+            "trakt": 1390,
+            "slug": "game-of-thrones",
+            "tvdb": 121361,
+            "imdb": "tt0944947",
+            "tmdb": 1399
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "list": {
+        "count": 10,
+        "item_count": 250
+    },
+    "watchlist": {
+        "item_count": 250
+    },
+    "favorites": {
+        "item_count": 100
+    },
+    "search": {
+        "recent_count": 5
+    },
+    "collection": {
+        "item_count": 100
+    },
+    "notes": {
+        "item_count": 100
+    },
+    "saved_filters": {
+        "count": 5
+    },
+    "recommendations": {
+        "item_count": 100
+    }
+}
