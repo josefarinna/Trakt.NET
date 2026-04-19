@@ -1,4 +1,6 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <summary>A Trakt show.</summary>
     public record class TraktShow : TraktShowMinimal
@@ -71,6 +73,10 @@
 
         /// <summary>The show original title.</summary>
         public string? OriginalTitle { get; set; }
+
+        /// <summary>A collection of social IDs for various web services for the show.</summary>
+        [JsonPropertyName("social_ids")]
+        public TraktShowSocialIDs? SocialIDs { get; set; }
 
         /// <summary>Gets a string representation of the show.</summary>
         /// <returns>A string representation of the show.</returns>

@@ -405,6 +405,19 @@ namespace TraktNET
             }
         }
 
+        /// <summary>A collection of social IDs for various web services for the movie.</summary>
+        public TraktMovieSocialIDs? SocialIDs
+        {
+            get => Movie?.SocialIDs;
+            set
+            {
+                if (Movie != null)
+                {
+                    Movie.SocialIDs = value;
+                }
+            }
+        }
+
         /// <summary>Gets a string representation of the movie.</summary>
         /// <returns>A string representation of the movie.</returns>
         public override string ToString()

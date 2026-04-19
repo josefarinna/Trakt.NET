@@ -93,7 +93,7 @@
     {
     }
 
-    [TraktGetRequest("users/{id!!}/lists/{list_id:uint!!}/comments", SupportsExtendedInfo = true, SupportsPagination = true,
+    [TraktGetRequest("users/{id!!}/lists/{list_id!!}/comments", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.Optional)]
     internal sealed partial class UserListCommentsGetRequest
     {
@@ -101,7 +101,7 @@
         internal TraktCommentSortOrder? Sort { get; set; }
     }
 
-    [TraktGetRequest("users/{id!!}/lists/{list_id:uint!!}/likes", SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    [TraktGetRequest("users/{id!!}/lists/{list_id!!}/likes", SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserListLikesGetRequest
     {
     }
@@ -119,10 +119,11 @@
     {
     }
 
-    [TraktGetRequest("users/{id!!}/lists/{list_id:uint!!}/items", SupportsExtendedInfo = true, SupportsPagination = true,
+    [TraktGetRequest("users/{id!!}/lists/{list_id!!}/items", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserPersonalListItemsGetRequest
     {
+        [TraktRequestParameter]
         internal TraktListItemType? Type { get; set; }
     }
 
@@ -131,7 +132,7 @@
     {
     }
 
-    [TraktGetRequest("users/{id!!}/lists/{list_id:uint!!}", OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    [TraktGetRequest("users/{id!!}/lists/{list_id!!}", OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserPersonalSingleListGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.User;
@@ -229,7 +230,7 @@
     // POST Requests
     // -------------------------------------------------------
 
-    [TraktPostRequest("user/request/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("users/request/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserApproveFollowerPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.User;
@@ -252,7 +253,7 @@
     {
     }
 
-    [TraktPostRequest("users/{id!!}/lists/{list_id:uint!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("users/{id!!}/lists/{list_id!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserListLikePostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
@@ -263,19 +264,19 @@
     {
     }
 
-    [TraktPostRequest("users/{id!!}/lists/{list_id:uint!!}/items", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("users/{id!!}/lists/{list_id!!}/items", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserPersonalListItemsAddPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
-    [TraktPostRequest("users/{id!!}/lists/{list_id:uint!!}/items/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("users/{id!!}/lists/{list_id!!}/items/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserPersonalListItemsRemovePostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
-    [TraktPostRequest("users/{id!!}/lists/{list_id:uint!!}/items/reorder", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("users/{id!!}/lists/{list_id!!}/items/reorder", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserPersonalListItemsReorderPostRequest
     {
     }
@@ -289,7 +290,7 @@
     // PUT Requests
     // -------------------------------------------------------
 
-    [TraktPutRequest("users/{id!!}/lists/{list_id:uint!!}/items", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPutRequest("users/{id!!}/lists/{list_id!!}/items", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserPersonalListItemUpdatePutRequest
     {
         [TraktRequestParameter]
@@ -298,12 +299,9 @@
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
-    [TraktPutRequest("users/{id!!}/lists/{list_id:uint!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPutRequest("users/{id!!}/lists/{list_id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserPersonalListUpdatePutRequest
     {
-        [TraktRequestParameter]
-        internal uint ListItemId { get; set; }
-
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
@@ -311,24 +309,24 @@
     // DELETE Requests
     // -------------------------------------------------------
 
-    [TraktDeleteRequest("user/request/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("users/request/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserDenyFollowerDeleteRequest
     {
     }
 
-    [TraktDeleteRequest("users/{id!!}/lists/{list_id:uint!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("users/{id!!}/lists/{list_id!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserListUnlikeDeleteRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
-    [TraktDeleteRequest("user/{id!!}/lists/{list_id:uint!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("users/{id!!}/lists/{list_id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserPersonalListDeleteRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
-    [TraktDeleteRequest("user/{id!!}/follow", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("users/{id!!}/follow", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserUnfollowUserDeleteRequest
     {
     }

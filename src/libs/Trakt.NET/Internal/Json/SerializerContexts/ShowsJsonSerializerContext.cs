@@ -33,6 +33,7 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktShowImages>))]
     [JsonSerializable(typeof(TraktShowMinimal))]
     [JsonSerializable(typeof(IReadOnlyList<TraktShowMinimal>))]
+    [JsonSerializable(typeof(TraktShowSocialIDs))]
     [JsonSerializable(typeof(TraktShowStatistics))]
     [JsonSerializable(typeof(IReadOnlyList<TraktShowStatistics>))]
     [JsonSerializable(typeof(TraktShowTranslation))]

@@ -1,4 +1,6 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <inheritdoc />
     public record class TraktMovie : TraktMovieMinimal
@@ -73,6 +75,10 @@
 
         /// <summary>The movie original title.</summary>
         public string? OriginalTitle { get; set; }
+
+        /// <summary>A collection of social IDs for various web services for the movie.</summary>
+        [JsonPropertyName("social_ids")]
+        public TraktMovieSocialIDs? SocialIDs { get; set; }
 
         /// <summary>Gets a string representation of the movie.</summary>
         /// <returns>A string representation of the movie.</returns>

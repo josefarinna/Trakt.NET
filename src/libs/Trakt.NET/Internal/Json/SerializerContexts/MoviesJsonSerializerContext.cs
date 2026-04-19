@@ -31,6 +31,7 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktMovieMinimal>))]
     [JsonSerializable(typeof(TraktMovieRelease))]
     [JsonSerializable(typeof(IReadOnlyList<TraktMovieRelease>))]
+    [JsonSerializable(typeof(TraktMovieSocialIDs))]
     [JsonSerializable(typeof(TraktMovieStatistics))]
     [JsonSerializable(typeof(IReadOnlyList<TraktMovieStatistics>))]
     [JsonSerializable(typeof(TraktMovieTranslation))]

@@ -4,7 +4,7 @@
     public class TraktListItem
     {
         /// <summary>Gets or sets the ranking number of the list item.</summary>
-        public int? Rank { get; set; }
+        public uint? Rank { get; set; }
 
         /// <summary>Gets or sets the id of the list item.</summary>
         public uint? Id { get; set; }

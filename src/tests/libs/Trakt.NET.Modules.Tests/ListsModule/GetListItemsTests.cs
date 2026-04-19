@@ -26,25 +26,25 @@ namespace TraktNET.ListsModule
             List<TraktListItem> items = [.. response.Content];
 
             // Item 1: Movie
-            items[0].Rank.ShouldBe(1);
+            items[0].Rank.ShouldBe(1U);
             items[0].Type.ShouldBe(TraktListItemType.Movie);
             items[0].Movie.ShouldNotBeNull();
             items[0].Movie!.Title.ShouldBe("Star Wars: Episode IV - A New Hope");
 
             // Item 2: Show
-            items[1].Rank.ShouldBe(2);
+            items[1].Rank.ShouldBe(2U);
             items[1].Type.ShouldBe(TraktListItemType.Show);
             items[1].Show.ShouldNotBeNull();
             items[1].Show!.Title.ShouldBe("The Walking Dead");
 
             // Item 3: Season
-            items[2].Rank.ShouldBe(3);
+            items[2].Rank.ShouldBe(3U);
             items[2].Type.ShouldBe(TraktListItemType.Season);
             items[2].Season.ShouldNotBeNull();
             items[2].Season!.Number.ShouldBe(1U);
 
             // Item 4: Episode
-            items[3].Rank.ShouldBe(4);
+            items[3].Rank.ShouldBe(4U);
             items[3].Type.ShouldBe(TraktListItemType.Episode);
             items[3].Episode.ShouldNotBeNull();
             items[3].Episode!.Title.ShouldBe("Wedding Day");

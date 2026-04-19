@@ -390,6 +390,19 @@ namespace TraktNET
             }
         }
 
+        /// <summary>A collection of social IDs for various web services for the show.</summary>
+        public TraktShowSocialIDs? SocialIDs
+        {
+            get => Show?.SocialIDs;
+            set
+            {
+                if (Show != null)
+                {
+                    Show.SocialIDs = value;
+                }
+            }
+        }
+
         /// <summary>Gets a string representation of the show.</summary>
         /// <returns>A string representation of the show.</returns>
         public override string ToString()
