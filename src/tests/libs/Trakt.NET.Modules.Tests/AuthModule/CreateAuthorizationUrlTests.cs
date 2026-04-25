@@ -2,15 +2,15 @@
 {
     public sealed class CreateAuthorizationUrlTests
     {
-        private const string CUSTOM_CLIENT_ID = "custom_client_id";
-        private const string CUSTOM_REDIRECT_URI = "https://example.com/redirect";
-        private const string CUSTOM_STATE = "custom_state";
-        private const string REQUEST_URI = "request_uri";
+        private const string CustomClientID = "custom_client_id";
+        private const string CustomRedirectUri = "https://example.com/redirect";
+        private const string CustomState = "custom_state";
+        private const string RequestUri = "request_uri";
 
         [Fact]
         public async Task TestCreateAuthorizationUrl()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REQUEST_URI, "{}", null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, TestConstants.ClientID, TestConstants.RedirectURI);
 
             string createdUrl = client.Auth.CreateAuthorizationUrl();
@@ -21,7 +21,7 @@
         [Fact]
         public async Task TestCreateAuthorizationUrlWithSignupTrue()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REQUEST_URI, "{}", null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, TestConstants.ClientID, TestConstants.RedirectURI, null, true);
 
             string createdUrl = client.Auth.CreateAuthorizationUrl(true);
@@ -32,7 +32,7 @@
         [Fact]
         public async Task TestCreateAuthorizationUrlWithForceLoginPromptTrue()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REQUEST_URI, "{}", null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, TestConstants.ClientID, TestConstants.RedirectURI, null, null, true);
 
             string createdUrl = client.Auth.CreateAuthorizationUrl(forceLoginPrompt: true);
@@ -43,7 +43,7 @@
         [Fact]
         public async Task TestCreateAuthorizationUrlInSandbox()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClientForSandbox(REQUEST_URI, "{}", null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClientForSandbox(RequestUri, "{}", null, null, null, null);
             string encodedStagingUrl = await TestUtility.BuildEncodedAuthorizeUrl(true, TestConstants.ClientID, TestConstants.RedirectURI);
 
             string createdUrl = client.Auth.CreateAuthorizationUrl();
@@ -54,10 +54,10 @@
         [Fact]
         public async Task TestCreateAuthorizationUrlWithClientId()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REQUEST_URI, "{}", null, null, null, null);
-            string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CUSTOM_CLIENT_ID, TestConstants.RedirectURI);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
+            string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, TestConstants.RedirectURI);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrl(CUSTOM_CLIENT_ID);
+            string createdUrl = client.Auth.CreateAuthorizationUrl(CustomClientID);
             createdUrl.ShouldNotBeNullOrEmpty();
             createdUrl.ShouldBe(encodedUrl);
         }
@@ -65,10 +65,10 @@
         [Fact]
         public async Task TestCreateAuthorizationUrlWithClientIdAndRedirectUri()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REQUEST_URI, "{}", null, null, null, null);
-            string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CUSTOM_CLIENT_ID, CUSTOM_REDIRECT_URI);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
+            string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, CustomRedirectUri);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrl(CUSTOM_CLIENT_ID, CUSTOM_REDIRECT_URI);
+            string createdUrl = client.Auth.CreateAuthorizationUrl(CustomClientID, CustomRedirectUri);
             createdUrl.ShouldNotBeNullOrEmpty();
             createdUrl.ShouldBe(encodedUrl);
         }
@@ -76,10 +76,10 @@
         [Fact]
         public async Task TestCreateAuthorizationUrlWithAllParameters()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REQUEST_URI, "{}", null, null, null, null);
-            string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CUSTOM_CLIENT_ID, CUSTOM_REDIRECT_URI, CUSTOM_STATE, true, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
+            string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, CustomRedirectUri, CustomState, true, true);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrl(CUSTOM_CLIENT_ID, CUSTOM_REDIRECT_URI, CUSTOM_STATE, true, true);
+            string createdUrl = client.Auth.CreateAuthorizationUrl(CustomClientID, CustomRedirectUri, CustomState, true, true);
             createdUrl.ShouldNotBeNullOrEmpty();
             createdUrl.ShouldBe(encodedUrl);
         }
@@ -87,7 +87,7 @@
         [Fact]
         public void TestCreateAuthorizationUrlArgumentExceptions()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REQUEST_URI, "{}", null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
 
 #pragma warning disable CS8625
             Action act = () => client.Auth.CreateAuthorizationUrl(clientId: null);
@@ -100,10 +100,10 @@
             act = () => client.Auth.CreateAuthorizationUrl("client id");
             act.ShouldThrow<ArgumentException>();
 
-            act = () => client.Auth.CreateAuthorizationUrl(CUSTOM_CLIENT_ID, "redirect uri");
+            act = () => client.Auth.CreateAuthorizationUrl(CustomClientID, "redirect uri");
             act.ShouldThrow<ArgumentException>();
 
-            act = () => client.Auth.CreateAuthorizationUrl(CUSTOM_CLIENT_ID, CUSTOM_REDIRECT_URI, string.Empty);
+            act = () => client.Auth.CreateAuthorizationUrl(CustomClientID, CustomRedirectUri, string.Empty);
             act.ShouldThrow<ArgumentException>();
         }
     }

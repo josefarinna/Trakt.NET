@@ -4,7 +4,7 @@ namespace TraktNET.UsersModule
 {
     public sealed class GetFollowersTests
     {
-        private readonly string GetFollowersUri = $"users/{Username}/followers";
+        private const string GetFollowersUri = $"users/{Username}/followers";
         private const string Username = "sean";
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 

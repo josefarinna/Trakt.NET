@@ -2,20 +2,20 @@
 
 namespace TraktNET.UsersModule
 {
-    public sealed class GetCollectionShowsTests
+    public sealed class GetFriendsTests
     {
-        private const string GetCollectionShowsUri = $"users/{Username}/collection/shows";
+        private const string GetFriendsUri = $"users/{Username}/friends";
         private const string Username = "sean";
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
-        public async Task TestGetCollectionShows()
+        public async Task TestGetFriends()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usercollection_shows.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\friends.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetCollectionShowsUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetFriendsUri, responseContent);
             
-            TraktListResponse<TraktCollectionShow> response = await client.Users.GetCollectionShowsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktUserFriend> response = await client.Users.GetFriendsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -25,14 +25,14 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetCollectionShowsWithOAuthEnforced()
+        public async Task TestGetFriendsWithOAuthEnforced()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usercollection_shows.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GetCollectionShowsUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\friends.json");
+            
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetFriendsUri, responseContent);
             client.IgnoreOAuthIfOptional = false;
 
-            TraktListResponse<TraktCollectionShow> response = await client.Users.GetCollectionShowsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktUserFriend> response = await client.Users.GetFriendsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -42,13 +42,13 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetCollectionShowsWithOAuthEnforcedForUsernameMe()
+        public async Task TestGetFriendsWithOAuthEnforcedForUsernameMe()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usercollection_shows.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient("users/me/collection/shows", responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\friends.json");
             
-            TraktListResponse<TraktCollectionShow> response = await client.Users.GetCollectionShowsAsync("me", cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient("users/me/friends", responseContent);
+            
+            TraktListResponse<TraktUserFriend> response = await client.Users.GetFriendsAsync("me", cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -58,13 +58,16 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetCollectionShowsWithExtendedInfo()
+        public async Task TestGetFriendsWithExtendedInfo()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usercollection_shows.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\friends.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"{GetCollectionShowsUri}?extended={ExtendedInfo.ToURI()}", responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetFriendsUri}?extended={ExtendedInfo.ToURI()}",
+                responseContent);
 
-            TraktListResponse<TraktCollectionShow> response = await client.Users.GetCollectionShowsAsync(Username, ExtendedInfo, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktUserFriend> response =
+                await client.Users.GetFriendsAsync(Username, ExtendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -99,11 +102,11 @@ namespace TraktNET.UsersModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetCollectionShowsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetFriendsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetCollectionShowsUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetFriendsUri, statusCode);
 
-            Func<Task<TraktListResponse<TraktCollectionShow>>> act = () => client.Users.GetCollectionShowsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktListResponse<TraktUserFriend>>> act = () => client.Users.GetFriendsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }

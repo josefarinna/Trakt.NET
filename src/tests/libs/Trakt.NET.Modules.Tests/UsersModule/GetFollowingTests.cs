@@ -4,7 +4,7 @@ namespace TraktNET.UsersModule
 {
     public sealed class GetFollowingTests
     {
-        private readonly string GET_FOLLOWING_URI = $"users/{Username}/following";
+        private const string GetFollowingUri = $"users/{Username}/following";
         private const string Username = "sean";
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
@@ -13,7 +13,7 @@ namespace TraktNET.UsersModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\follower.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GET_FOLLOWING_URI, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetFollowingUri, responseContent);
 
             TraktListResponse<TraktUserFollower> response = await client.Users.GetFollowingAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
 
@@ -29,7 +29,7 @@ namespace TraktNET.UsersModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\follower.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GET_FOLLOWING_URI, responseContent);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetFollowingUri, responseContent);
             client.IgnoreOAuthIfOptional = false;
 
             TraktListResponse<TraktUserFollower> response = await client.Users.GetFollowingAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
@@ -63,7 +63,7 @@ namespace TraktNET.UsersModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\follower.json");
 
             TraktClient client = ModuleTestUtility.GetClient(
-                $"{GET_FOLLOWING_URI}?extended={ExtendedInfo.ToURI()}",
+                $"{GetFollowingUri}?extended={ExtendedInfo.ToURI()}",
                 responseContent);
 
             TraktListResponse<TraktUserFollower> response = await client.Users.GetFollowingAsync(Username, ExtendedInfo, TestContext.Current.CancellationToken);
@@ -103,7 +103,7 @@ namespace TraktNET.UsersModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetFollowingThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GET_FOLLOWING_URI, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetFollowingUri, statusCode);
 
             Func<Task<TraktListResponse<TraktUserFollower>>> act = () => client.Users.GetFollowingAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();

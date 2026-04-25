@@ -8,6 +8,7 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktNote))]
     [JsonSerializable(typeof(TraktNoteAttachedTo))]
     [JsonSerializable(typeof(TraktNoteItem))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktNoteItem>))]
     [JsonSerializable(typeof(TraktNotePost))]
     public sealed partial class NotesJsonSerializerContext : JsonSerializerContext
     {

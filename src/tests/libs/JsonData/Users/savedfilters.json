@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "section": "movies",
+        "name": "Movies: IMDB + TMDB ratings",
+        "path": "/movies/recommended/weekly",
+        "query": "imdb_ratings=6.9-10.0&tmdb_ratings=4.2-10.0",
+        "updated_at": "2022-06-15T11:15:06.000Z"
+    },
+    {
+        "id": 2,
+        "section": "shows",
+        "name": "Shows: US + Disney+",
+        "path": "/shows/popular",
+        "query": "watchnow=disney_plus&countries=us",
+        "updated_at": "2022-06-15T12:15:06.000Z"
+    }
+]

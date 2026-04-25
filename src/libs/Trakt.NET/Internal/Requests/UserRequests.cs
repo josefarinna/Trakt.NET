@@ -84,7 +84,7 @@
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserLikesGetRequest
     {
-        [TraktRequestQuery("type")]
+        [TraktRequestParameter()]
         internal TraktUserLikeType? Type { get; set; }
     }
 

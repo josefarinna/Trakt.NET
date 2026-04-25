@@ -4,8 +4,8 @@ namespace TraktNET.AuthModule
 {
     public sealed class GetAuthorizationTests
     {
-        private const string GET_AUTHORIZATION_URI = "oauth/token";
-        private const string MOCK_AUTH_CODE = "mockAuthCode";
+        private const string GetAuthorizationUri = "oauth/token";
+        private const string MockAuthCode = "mockAuthCode";
 
         [Fact]
         public async Task TestGetAuthorization()
@@ -13,8 +13,8 @@ namespace TraktNET.AuthModule
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             authorizationJson.ShouldNotBeNullOrEmpty();
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GET_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
-            client.OAuthAuthorizationCode = MOCK_AUTH_CODE;
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, authorizationJson, null, null, null, null, true);
+            client.OAuthAuthorizationCode = MockAuthCode;
 
             TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationAsync(TestContext.Current.CancellationToken);
 
@@ -25,9 +25,9 @@ namespace TraktNET.AuthModule
         public async Task TestGetAuthorizationWithCode()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GET_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, authorizationJson, null, null, null, null, true);
 
-            TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationAsync(MOCK_AUTH_CODE, TestContext.Current.CancellationToken);
+            TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationAsync(MockAuthCode, TestContext.Current.CancellationToken);
 
             ValidateResponse(response, client);
         }
@@ -36,9 +36,9 @@ namespace TraktNET.AuthModule
         public async Task TestGetAuthorizationWithCodeAndClientId()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GET_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, authorizationJson, null, null, null, null, true);
 
-            TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationAsync(MOCK_AUTH_CODE, TestConstants.ClientID, TestContext.Current.CancellationToken);
+            TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationAsync(MockAuthCode, TestConstants.ClientID, TestContext.Current.CancellationToken);
 
             ValidateResponse(response, client);
         }
@@ -47,10 +47,10 @@ namespace TraktNET.AuthModule
         public async Task TestGetAuthorizationWithAllParameters()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GET_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, authorizationJson, null, null, null, null, true);
 
             TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationAsync(
-                MOCK_AUTH_CODE,
+                MockAuthCode,
                 TestConstants.ClientID,
                 TestConstants.ClientSecret,
                 TestConstants.RedirectURI,
@@ -83,8 +83,8 @@ namespace TraktNET.AuthModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetAuthorizationThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GET_AUTHORIZATION_URI, statusCode, true);
-            client.OAuthAuthorizationCode = MOCK_AUTH_CODE;
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, statusCode, true);
+            client.OAuthAuthorizationCode = MockAuthCode;
 
             Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.GetAuthorizationAsync(TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);

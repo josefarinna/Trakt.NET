@@ -2,20 +2,19 @@
 
 namespace TraktNET.UsersModule
 {
-    public sealed class GetCollectionShowsTests
+    public sealed class GetListCollaborationsTests
     {
-        private const string GetCollectionShowsUri = $"users/{Username}/collection/shows";
+        private const string GetListsCollaborationsUri = $"users/{Username}/lists/collaborations";
         private const string Username = "sean";
-        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
-        public async Task TestGetCollectionShows()
+        public async Task TestGetListCollaborations()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usercollection_shows.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetCollectionShowsUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetListsCollaborationsUri, responseContent);
             
-            TraktListResponse<TraktCollectionShow> response = await client.Users.GetCollectionShowsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktList> response = await client.Users.GetListCollaborationsAsync(Username, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -25,14 +24,14 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetCollectionShowsWithOAuthEnforced()
+        public async Task TestGetListCollaborationsWithOAuthEnfored()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usercollection_shows.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GetCollectionShowsUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetListsCollaborationsUri, responseContent);
             client.IgnoreOAuthIfOptional = false;
 
-            TraktListResponse<TraktCollectionShow> response = await client.Users.GetCollectionShowsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktList> response = await client.Users.GetListCollaborationsAsync(Username, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -42,29 +41,13 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetCollectionShowsWithOAuthEnforcedForUsernameMe()
+        public async Task TestGetListCollaborationsWithOAuthEnforedForUsernameMe()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usercollection_shows.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient("users/me/collection/shows", responseContent);
+            TraktClient client = ModuleTestUtility.GetOAuthClient("users/me/lists/collaborations", responseContent);
             
-            TraktListResponse<TraktCollectionShow> response = await client.Users.GetCollectionShowsAsync("me", cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(2);
-        }
-
-        [Fact]
-        public async Task TestGetCollectionShowsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usercollection_shows.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetCollectionShowsUri}?extended={ExtendedInfo.ToURI()}", responseContent);
-
-            TraktListResponse<TraktCollectionShow> response = await client.Users.GetCollectionShowsAsync(Username, ExtendedInfo, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktList> response = await client.Users.GetListCollaborationsAsync("me", TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -99,11 +82,11 @@ namespace TraktNET.UsersModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetCollectionShowsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetListCollaborationsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetCollectionShowsUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetListsCollaborationsUri, statusCode);
 
-            Func<Task<TraktListResponse<TraktCollectionShow>>> act = () => client.Users.GetCollectionShowsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktListResponse<TraktList>>> act = () => client.Users.GetListCollaborationsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }

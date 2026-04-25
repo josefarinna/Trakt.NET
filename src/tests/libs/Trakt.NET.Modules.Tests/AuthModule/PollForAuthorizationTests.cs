@@ -5,7 +5,7 @@ namespace TraktNET.AuthModule
 {
     public sealed class PollForAuthorizationTests
     {
-        private const string POLL_FOR_AUTHORIZATION_URI = "oauth/device/token";
+        private const string PollForAuthorizationUri = "oauth/device/token";
         private static readonly ulong Now = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
         [Fact]
@@ -14,7 +14,7 @@ namespace TraktNET.AuthModule
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             authorizationJson.ShouldNotBeNullOrEmpty();
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(POLL_FOR_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
             client.Device = TestConstants.MockDevice;
 
             TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(TestContext.Current.CancellationToken);
@@ -25,7 +25,7 @@ namespace TraktNET.AuthModule
         [Fact]
         public async Task TestPollForAuthorizationWithPolling()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(POLL_FOR_AUTHORIZATION_URI);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri);
             client.Device = TestConstants.MockDevice;
 
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
@@ -39,9 +39,9 @@ namespace TraktNET.AuthModule
             }
             """;
 
-            ModuleTestUtility.AddMockExpectationResponse(client, POLL_FOR_AUTHORIZATION_URI, mockDeviceJson, HttpStatusCode.BadRequest);
+            ModuleTestUtility.AddMockExpectationResponse(client, PollForAuthorizationUri, mockDeviceJson, HttpStatusCode.BadRequest);
 
-            ModuleTestUtility.AddMockExpectationResponse(client, POLL_FOR_AUTHORIZATION_URI, mockDeviceJson, authorizationJson);
+            ModuleTestUtility.AddMockExpectationResponse(client, PollForAuthorizationUri, mockDeviceJson, authorizationJson);
 
             TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(TestContext.Current.CancellationToken);
 
@@ -54,7 +54,7 @@ namespace TraktNET.AuthModule
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             authorizationJson.ShouldNotBeNullOrEmpty();
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(POLL_FOR_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
 
             TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(
                 TestConstants.MockDevice,
@@ -69,7 +69,7 @@ namespace TraktNET.AuthModule
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             authorizationJson.ShouldNotBeNullOrEmpty();
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(POLL_FOR_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
 
             TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(
                 TestConstants.MockDevice,
@@ -85,7 +85,7 @@ namespace TraktNET.AuthModule
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             authorizationJson.ShouldNotBeNullOrEmpty();
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(POLL_FOR_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
 
             TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(
                 TestConstants.MockDevice,
@@ -119,7 +119,7 @@ namespace TraktNET.AuthModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestPollForAuthorizationThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(POLL_FOR_AUTHORIZATION_URI, statusCode, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, statusCode, true);
             client.Device = TestConstants.MockDevice;
 
             Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.PollForAuthorizationAsync(TestContext.Current.CancellationToken);

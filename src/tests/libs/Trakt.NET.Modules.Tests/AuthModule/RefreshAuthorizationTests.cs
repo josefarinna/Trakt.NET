@@ -4,7 +4,7 @@ namespace TraktNET.AuthModule
 {
     public sealed class RefreshAuthorizationTests
     {
-        private const string REFRESH_AUTHORIZATION_URI = "oauth/token";
+        private const string RefreshAuthorizationUri = "oauth/token";
 
         [Fact]
         public async Task TestRefreshAuthorization()
@@ -12,7 +12,7 @@ namespace TraktNET.AuthModule
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             authorizationJson.ShouldNotBeNullOrEmpty();
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REFRESH_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAuthorizationUri, authorizationJson, null, null, null, null, true);
 
             TraktResponse<TraktAuthorization> response = await client.Auth.RefreshAuthorizationAsync(TestContext.Current.CancellationToken);
 
@@ -23,7 +23,7 @@ namespace TraktNET.AuthModule
         public async Task TestRefreshAuthorizationWithToken()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REFRESH_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAuthorizationUri, authorizationJson, null, null, null, null, true);
 
             TraktResponse<TraktAuthorization> response = await client.Auth.RefreshAuthorizationAsync(
                 TestConstants.MockAuthorization.RefreshToken!,
@@ -36,7 +36,7 @@ namespace TraktNET.AuthModule
         public async Task TestRefreshAuthorizationWithTokenAndClientId()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REFRESH_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAuthorizationUri, authorizationJson, null, null, null, null, true);
 
             TraktResponse<TraktAuthorization> response = await client.Auth.RefreshAuthorizationAsync(
                 TestConstants.MockAuthorization.RefreshToken!,
@@ -50,7 +50,7 @@ namespace TraktNET.AuthModule
         public async Task TestRefreshAuthorizationWithAllParameters()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REFRESH_AUTHORIZATION_URI, authorizationJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAuthorizationUri, authorizationJson, null, null, null, null, true);
 
             TraktResponse<TraktAuthorization> response = await client.Auth.RefreshAuthorizationAsync(
                 TestConstants.MockAuthorization.RefreshToken!,
@@ -86,7 +86,7 @@ namespace TraktNET.AuthModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestRefreshAuthorizationThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REFRESH_AUTHORIZATION_URI, statusCode, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAuthorizationUri, statusCode, true);
 
             Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.RefreshAuthorizationAsync(TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);

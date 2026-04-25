@@ -4,12 +4,12 @@ namespace TraktNET.AuthModule
 {
     public sealed class RevokeAuthorizationTests
     {
-        private const string REVOKE_AUTHORIZATION_URI = "oauth/revoke";
+        private const string RevokeAuthorizationUri = "oauth/revoke";
 
         [Fact]
         public async Task TestRevokeAuthorization()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REVOKE_AUTHORIZATION_URI, HttpStatusCode.NoContent, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RevokeAuthorizationUri, HttpStatusCode.NoContent, true);
             client.Authorization = TestConstants.MockAuthorization;
 
             TraktResponse response = await client.Auth.RevokeAuthorizationAsync(TestContext.Current.CancellationToken);
@@ -22,7 +22,7 @@ namespace TraktNET.AuthModule
         [Fact]
         public async Task TestRevokeAuthorizationWithToken()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REVOKE_AUTHORIZATION_URI, HttpStatusCode.NoContent, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RevokeAuthorizationUri, HttpStatusCode.NoContent, true);
             client.Authorization = TestConstants.MockAuthorization;
 
             TraktResponse response = await client.Auth.RevokeAuthorizationAsync(
@@ -37,7 +37,7 @@ namespace TraktNET.AuthModule
         [Fact]
         public async Task TestRevokeAuthorizationWithTokenAndClientId()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REVOKE_AUTHORIZATION_URI, HttpStatusCode.NoContent, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RevokeAuthorizationUri, HttpStatusCode.NoContent, true);
             client.Authorization = TestConstants.MockAuthorization;
 
             TraktResponse response = await client.Auth.RevokeAuthorizationAsync(
@@ -53,7 +53,7 @@ namespace TraktNET.AuthModule
         [Fact]
         public async Task TestRevokeAuthorizationWithAllParameters()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REVOKE_AUTHORIZATION_URI, HttpStatusCode.NoContent, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RevokeAuthorizationUri, HttpStatusCode.NoContent, true);
             client.Authorization = TestConstants.MockAuthorization;
 
             TraktResponse response = await client.Auth.RevokeAuthorizationAsync(
@@ -90,7 +90,7 @@ namespace TraktNET.AuthModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestRevokeAuthorizationThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(REVOKE_AUTHORIZATION_URI, statusCode, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RevokeAuthorizationUri, statusCode, true);
             client.Authorization = TestConstants.MockAuthorization;
 
             Func<Task<TraktResponse>> act = () => client.Auth.RevokeAuthorizationAsync(TestContext.Current.CancellationToken);

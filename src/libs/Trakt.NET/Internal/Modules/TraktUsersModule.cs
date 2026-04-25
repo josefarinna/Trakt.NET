@@ -412,7 +412,7 @@ namespace TraktNET
             {
                 Id = usernameOrSlug,
                 Type = ratingsItemType,
-                RatingFilter = string.Join(",", ratingsFilter ?? []),
+                RatingFilter = FormatRatingsFilter(ratingsFilter, ratingsItemType),
                 ExtendedInfo = extendedInfo,
                 Page = page,
                 Limit = limit
@@ -423,11 +423,24 @@ namespace TraktNET
                 {
                     Id = usernameOrSlug,
                     Type = ratingsItemType,
-                    RatingFilter = string.Join(",", ratingsFilter ?? []),
+                    RatingFilter = FormatRatingsFilter(ratingsFilter, ratingsItemType),
                     ExtendedInfo = extendedInfo,
                     Page = page,
                     Limit = limit
                 }, cancellationToken);
+        }
+
+        private static string FormatRatingsFilter(uint[]? filter, TraktRatingsItemType? type)
+        {
+            bool isValidType = type != null && type != TraktRatingsItemType.Unspecified;
+
+            if (isValidType && filter is { Length: > 0 and <= 10 })
+            {
+                if (filter.All(r => r is >= 1 and <= 10))
+                    return string.Join(",", filter);
+            }
+
+            return string.Empty;
         }
 
         private Task<TraktPagedResponse<TraktWatchlistItem>> GetWatchlistImplAsync(string usernameOrSlug, TraktSyncItemType? watchlistItemType = null,

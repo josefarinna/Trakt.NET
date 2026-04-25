@@ -4,7 +4,7 @@ namespace TraktNET.AuthModule
 {
     public sealed class GenerateDeviceTests
     {
-        private const string GET_DEVICE_URI = "oauth/device/code";
+        private const string GetDeviceUri = "oauth/device/code";
 
         [Fact]
         public async Task TestGenerateDevice()
@@ -12,7 +12,7 @@ namespace TraktNET.AuthModule
             string deviceJson = TestUtility.SerializeObject(TestConstants.MockDevice);
             deviceJson.ShouldNotBeNullOrEmpty();
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GET_DEVICE_URI, deviceJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetDeviceUri, deviceJson, null, null, null, null, true);
             TraktResponse<TraktDevice> response = await client.Auth.GenerateDeviceAsync(TestContext.Current.CancellationToken);
 
             ValidateResponse(response, client);
@@ -24,7 +24,7 @@ namespace TraktNET.AuthModule
             string deviceJson = TestUtility.SerializeObject(TestConstants.MockDevice);
             deviceJson.ShouldNotBeNullOrEmpty();
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GET_DEVICE_URI, deviceJson, null, null, null, null, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetDeviceUri, deviceJson, null, null, null, null, true);
             TraktResponse<TraktDevice> response = await client.Auth.GenerateDeviceAsync(TestConstants.ClientID, TestContext.Current.CancellationToken);
 
             ValidateResponse(response, client);
@@ -54,7 +54,7 @@ namespace TraktNET.AuthModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGenerateDeviceThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GET_DEVICE_URI, statusCode, true);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetDeviceUri, statusCode, true);
 
             Func<Task<TraktResponse<TraktDevice>>> act = () => client.Auth.GenerateDeviceAsync(TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);
