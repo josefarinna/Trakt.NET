@@ -2,7 +2,7 @@
 
 namespace TraktNET
 {
-    public abstract record class TraktCollectionShow
+    public record class TraktCollectionShow
     {
         /// <summary>The Trakt show. See also <seealso cref="TraktShow" />.</summary>
         public TraktShow? Show { get; set; }

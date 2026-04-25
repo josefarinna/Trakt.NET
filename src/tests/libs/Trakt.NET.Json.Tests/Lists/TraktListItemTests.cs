@@ -9,7 +9,7 @@
 
             item.ShouldNotBeNull();
             item.Id.ShouldBe(101U);
-            item.Rank.ShouldBe(1);
+            item.Rank.ShouldBe(1U);
             item.ListedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
             item.Notes.ShouldBe("list item notes");
             item.Type.ShouldBe(TraktListItemType.Movie);

@@ -52,8 +52,8 @@ namespace TraktNET
             return client;
         }
 
-        public static TraktClient GetOAuthClient(string requestUri, string responseContent, uint? page, uint? pageCount,
-            uint? limit, uint? itemCount, bool noOauthHeaders = false)
+        public static TraktClient GetOAuthClient(string requestUri, string responseContent, uint? page = null, uint? pageCount = null,
+            uint? limit = null, uint? itemCount = null, bool noOauthHeaders = false)
         {
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
             client.Authorization = TestConstants.MockAuthorization;

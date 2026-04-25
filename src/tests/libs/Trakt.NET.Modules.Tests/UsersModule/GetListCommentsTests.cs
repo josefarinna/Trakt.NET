@@ -20,6 +20,7 @@ namespace TraktNET.UsersModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
 
             TraktClient client = ModuleTestUtility.GetClient(GetListCommentsUri, responseContent, 1, 1, 10, ListCommentsItemCount);
+            
             TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync(Username, ListID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -162,8 +163,8 @@ namespace TraktNET.UsersModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetListCommentsUri, responseContent, 1, 1, 10, ListCommentsItemCount);
+            client.IgnoreOAuthIfOptional = false;
 
-            //client.Configuration.ForceAuthorization = true;
             TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync(Username, ListID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();

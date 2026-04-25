@@ -167,7 +167,7 @@ namespace TraktNET.UsersModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listlikes.json");
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetListLikesUri, responseContent, 1, 1, 10, ListLikesItemCount);
-            //client.Configuration.ForceAuthorization = true;
+            client.IgnoreOAuthIfOptional = false;
 
             TraktPagedResponse<TraktListLike> response = await client.Users.GetListLikesAsync(Username, ListID, cancellationToken: TestContext.Current.CancellationToken);
 

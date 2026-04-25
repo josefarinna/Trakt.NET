@@ -342,7 +342,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing  which items were added and not found.
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing which items were added and not found.
         /// <para />
         /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovie" />.
         /// </returns>

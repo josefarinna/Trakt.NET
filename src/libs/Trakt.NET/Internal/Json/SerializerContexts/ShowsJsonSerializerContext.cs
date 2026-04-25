@@ -5,6 +5,8 @@ using System.Text.Json.Serialization;
 namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
+    [JsonSerializable(typeof(TraktCollectionShow))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktCollectionShow>))]
     [JsonSerializable(typeof(TraktMostAnticipatedShow))]
     [JsonSerializable(typeof(IReadOnlyList<TraktMostAnticipatedShow>))]
     [JsonSerializable(typeof(TraktMostCollectedShow))]

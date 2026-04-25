@@ -126,8 +126,7 @@ namespace TraktNET.UsersModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\list.json");
             
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetPersonalListUri, responseContent, null, null, null, null);
-            
-            //client.Configuration.ForceAuthorization = true;
+            client.IgnoreOAuthIfOptional = false;
 
             TraktResponse<TraktList> response = await client.Users.GetPersonalListAsync(Username, ListID, TestContext.Current.CancellationToken);
 

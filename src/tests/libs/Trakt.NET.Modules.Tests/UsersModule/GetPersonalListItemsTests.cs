@@ -141,7 +141,7 @@ namespace TraktNET.UsersModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listitems.json");
 
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPersonalListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
-            //client.Configuration.ForceAuthorization = true;
+            client.IgnoreOAuthIfOptional = false;
 
             TraktPagedResponse<TraktListItem> response =
                 await client.Users.GetPersonalListItemsAsync(Username, ListID, null, null, Page, Limit, TestContext.Current.CancellationToken);

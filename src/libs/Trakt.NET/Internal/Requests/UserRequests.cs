@@ -59,13 +59,13 @@
     {
     }
 
-    [TraktGetRequest("users/request", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktGetRequest("users/requests", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserFollowRequestsGetRequest
     {
     }
 
-    [TraktGetRequest("users/{id!!}/friend", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
-    internal sealed partial class UserFriendGetRequest
+    [TraktGetRequest("users/{id!!}/friends", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    internal sealed partial class UserFriendsGetRequest
     {
     }
 
@@ -209,7 +209,7 @@
     internal sealed partial class UserWatchlistCommentsGetRequest
     {
         [TraktRequestParameter]
-        internal TraktCommentSortOrder Sort { get; set; }
+        internal TraktCommentSortOrder? Sort { get; set; }
     }
 
     [TraktGetRequest("users/{id!!}/watchlist", SupportsExtendedInfo = true, SupportsPagination = true,
@@ -217,7 +217,7 @@
     internal sealed partial class UserWatchlistGetRequest
     {
         [TraktRequestParameter]
-        internal TraktSyncItemType Type { get; set; }
+        internal TraktSyncItemType? Type { get; set; }
 
         [TraktRequestParameter]
         internal TraktSortBy? SortBy { get; set; }
@@ -230,14 +230,14 @@
     // POST Requests
     // -------------------------------------------------------
 
-    [TraktPostRequest("users/request/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("users/requests/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserApproveFollowerPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.User;
     }
 
     [TraktPostRequest("users/{id!!}/follow", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class UserFollowRequestsPostRequest
+    internal sealed partial class UserFollowUserPostRequest
     {
     }
 
@@ -286,6 +286,11 @@
     {
     }
 
+    [TraktPostRequest("users/{id!!}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserReportPostRequest
+    {
+    }
+
     // -------------------------------------------------------
     // PUT Requests
     // -------------------------------------------------------
@@ -309,7 +314,7 @@
     // DELETE Requests
     // -------------------------------------------------------
 
-    [TraktDeleteRequest("users/request/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("users/requests/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserDenyFollowerDeleteRequest
     {
     }
