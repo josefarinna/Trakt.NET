@@ -2,34 +2,19 @@
 
 namespace TraktNET.UsersModule
 {
-    public sealed class FollowUserTests
+    public sealed class UnfollowUserTests
     {
-        private const string FollowUserUri = $"users/{Username}/follow";
+        private const string UnfollowUserUri = $"users/{Username}/follow";
         private const string Username = "sean";
 
         [Fact]
-        public async Task TestFollowUser()
+        public async Task TestUnfollowUser()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\userfollowuserpostresponse.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(FollowUserUri, responseContent);
-            
-            TraktResponse<TraktUserFollowUserPostResponse> response = await client.Users.FollowUserAsync(Username, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(UnfollowUserUri, HttpStatusCode.NoContent);
+            TraktResponse response = await client.Users.UnfollowUserAsync(Username, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-
-            TraktUserFollowUserPostResponse responseValue = response.Content;
-
-            responseValue.ApprovedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-11-15T09:41:34.704Z"));
-            responseValue.User.ShouldNotBeNull();
-            responseValue.User.Username.ShouldBe("sean");
-            responseValue.User.Private.ShouldBe(false);
-            responseValue.User.Name.ShouldBe("Sean Rudford");
-            responseValue.User.VIP.ShouldBe(true);
-            responseValue.User.VIPEP.ShouldBe(true);
         }
 
         [Theory]
@@ -58,11 +43,11 @@ namespace TraktNET.UsersModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestFollowUserThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestUnfollowUserThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(FollowUserUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(UnfollowUserUri, statusCode);
 
-            Func<Task<TraktResponse<TraktUserFollowUserPostResponse>>> act = () => client.Users.FollowUserAsync(Username, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Users.UnfollowUserAsync(Username, TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }

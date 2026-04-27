@@ -14,6 +14,7 @@ namespace TraktNET.UsersModule
         public async Task TestDeletePersonalList()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(DeletePersonalListUri, HttpStatusCode.NoContent);
+            
             TraktResponse response = await client.Users.DeletePersonalListAsync(Username, ListID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -24,6 +25,7 @@ namespace TraktNET.UsersModule
         public async Task TestDeletePersonalListWithTraktID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(DeletePersonalListUri, HttpStatusCode.NoContent);
+            
             TraktResponse response = await client.Users.DeletePersonalListAsync(Username, TraktListID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -39,6 +41,7 @@ namespace TraktNET.UsersModule
             };
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(DeletePersonalListUri, HttpStatusCode.NoContent);
+            
             TraktResponse response = await client.Users.DeletePersonalListAsync(Username, listIds, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -54,6 +57,7 @@ namespace TraktNET.UsersModule
             };
 
             TraktClient client = ModuleTestUtility.GetOAuthClient($"users/{Username}/lists/{ListSlug}", HttpStatusCode.NoContent);
+            
             TraktResponse response = await client.Users.DeletePersonalListAsync(Username, listIds, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -70,6 +74,7 @@ namespace TraktNET.UsersModule
             };
 
             TraktClient client = ModuleTestUtility.GetOAuthClient($"users/{Username}/lists/{ListSlug}", HttpStatusCode.NoContent);
+            
             TraktResponse response = await client.Users.DeletePersonalListAsync(Username, listIds, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -89,6 +94,7 @@ namespace TraktNET.UsersModule
             };
 
             TraktClient client = ModuleTestUtility.GetOAuthClient($"users/{Username}/lists/{ListSlug}", HttpStatusCode.NoContent);
+            
             TraktResponse response = await client.Users.DeletePersonalListAsync(Username, list, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();

@@ -933,7 +933,7 @@ namespace TraktNET
 
         /// <summary>Reports a user for moderator review with the given id.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, which should be reported.</param>
-        /// <param name="reason">The reason for reporting the user.</param>
+        /// <param name="reason">The reason for reporting the user. See also <seealso cref="TraktReason" />.</param>
         /// <param name="message">The message for additional context.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
@@ -948,7 +948,7 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktResponse> ReportUserAsync(string usernameOrSlug, string reason, string message, CancellationToken cancellationToken = default)
+        public Task<TraktResponse> ReportUserAsync(string usernameOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
             => ReportUserImplAsync(usernameOrSlug, reason, message, cancellationToken);
     }
 }

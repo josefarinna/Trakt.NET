@@ -28,21 +28,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktListItemsReorderPostResponse>> ReorderPersonalListItemsAsync(string usernameOrSlug, string listIdOrSlug,
             List<uint> reorderedListItemsRank, CancellationToken cancellationToken = default)
-        {
-            var content = new TraktListItemsReorderPost
-            {
-                Rank = reorderedListItemsRank
-            };
-            content.Validate();
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktListItemsReorderPostResponse>(_context, new UserPersonalListItemsReorderPostRequest
-            {
-                Id = usernameOrSlug,
-                ListId = listIdOrSlug,
-                Content = JsonContent.Create(content)
-            },
-            cancellationToken);
-        }
+            => ReorderPersonalListItemsImplAsync(usernameOrSlug, listIdOrSlug, reorderedListItemsRank, cancellationToken);
 
         /// <summary>Reorders an user's personal list items.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be reordered.</param>

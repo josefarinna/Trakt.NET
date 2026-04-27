@@ -19,14 +19,7 @@
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> UnlikeListAsync(string usernameOrSlug, string listIdOrSlug, CancellationToken cancellationToken = default)
-        {
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, new UserListUnlikeDeleteRequest
-            {
-                Id = usernameOrSlug,
-                ListId = listIdOrSlug
-            },
-            cancellationToken);
-        }
+            => UnlikeListImplAsync(usernameOrSlug, listIdOrSlug, cancellationToken);
 
         /// <summary>Removes like on an user's list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which a like on a list should be removed.</param>

@@ -28,19 +28,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktUserPersonalListItemsPostResponse>> AddPersonalListItemsAsync(string usernameOrSlug, string listIdOrSlug,
             TraktUserPersonalListItemsPost listItemsPost, CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(listItemsPost);
-            listItemsPost.Validate();
-
-            var request = new UserPersonalListItemsAddPostRequest
-            {
-                Id = usernameOrSlug,
-                ListId = listIdOrSlug,
-                Content = JsonContent.Create(listItemsPost)
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserPersonalListItemsPostResponse>(_context, request, cancellationToken);
-        }
+            => AddPersonalListItemsImplAsync(usernameOrSlug, listIdOrSlug, listItemsPost, cancellationToken);
 
         /// <summary>Adds items to an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be added to a personal list.</param>

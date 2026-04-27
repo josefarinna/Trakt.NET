@@ -29,24 +29,7 @@
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktListLike>> GetListLikesAsync(string usernameOrSlug, string listIdOrSlug,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-        {
-            var request = new UserListLikesGetRequest
-            {
-                Id = usernameOrSlug,
-                ListId = listIdOrSlug,
-                Page = page,
-                Limit = limit
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktListLike>(_context, request, (page, limit)
-                => new UserListLikesGetRequest
-                {
-                    Id = usernameOrSlug,
-                    ListId = listIdOrSlug,
-                    Page = page,
-                    Limit = limit
-                }, cancellationToken);
-        }
+            => GetListLikesImplAsync(usernameOrSlug, listIdOrSlug, page, limit, cancellationToken);
 
         /// <summary>Gets all likes for an user's list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list likes should be queried.</param>

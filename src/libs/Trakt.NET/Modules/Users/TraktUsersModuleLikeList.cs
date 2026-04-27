@@ -19,14 +19,7 @@
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> LikeListAsync(string usernameOrSlug, string listIdOrSlug, CancellationToken cancellationToken = default)
-        {
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, new UserListLikePostRequest
-            {
-                Id = usernameOrSlug,
-                ListId = listIdOrSlug
-            },
-            cancellationToken);
-        }
+            => LikeListImplAsync(usernameOrSlug, listIdOrSlug, cancellationToken);
 
         /// <summary>Likes an user's list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list should be liked.</param>

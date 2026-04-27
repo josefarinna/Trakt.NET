@@ -27,31 +27,7 @@
         public Task<TraktPagedResponse<TraktListItem>> GetPersonalListItemsAsync(string usernameOrSlug, string listIdOrSlug,
             TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(page);
-            ArgumentValidator.ThrowIfNull(limit);
-
-            var request = new UserPersonalListItemsGetRequest
-            {
-                Id = usernameOrSlug,
-                ListId = listIdOrSlug,
-                Type = listItemType,
-                ExtendedInfo = extendedInfo,
-                Page = page,
-                Limit = limit
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktListItem>(_context, request, (page, limit)
-                => new UserPersonalListItemsGetRequest
-                {
-                    Id = usernameOrSlug,
-                    ListId = listIdOrSlug,
-                    Type = listItemType,
-                    ExtendedInfo = extendedInfo,
-                    Page = page,
-                    Limit = limit
-                }, cancellationToken);
-        }
+            => GetPersonalListItemsAsync(usernameOrSlug, listIdOrSlug, listItemType, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>
         /// Gets the items on an user's single personal list.

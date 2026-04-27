@@ -4,7 +4,7 @@ namespace TraktNET.UsersModule
 {
     public sealed class UpdatePersonalListTests
     {
-        private readonly string UpdatePersonalListUri = $"users/{Username}/lists/{ListID}";
+        private const string UpdatePersonalListUri = $"users/{Username}/lists/{ListID}";
         private const string Username = "sean";
         private const string ListID = "55";
         private const uint TraktListID = 55;

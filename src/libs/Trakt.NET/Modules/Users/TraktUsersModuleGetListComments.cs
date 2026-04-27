@@ -30,26 +30,7 @@
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetListCommentsAsync(string usernameOrSlug, string listIdOrSlug,
             TraktCommentSortOrder? commentSortOrder = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-        {
-            var request = new UserListCommentsGetRequest
-            {
-                Id = usernameOrSlug,
-                ListId = listIdOrSlug,
-                Sort = commentSortOrder,
-                Page = page,
-                Limit = limit
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktComment>(_context, request, (page, limit)
-                => new UserListCommentsGetRequest
-                {
-                    Id = usernameOrSlug,
-                    ListId = listIdOrSlug,
-                    Sort = commentSortOrder,
-                    Page = page,
-                    Limit = limit
-                }, cancellationToken);
-        }
+            => GetListCommentsImplAsync(usernameOrSlug, listIdOrSlug, commentSortOrder, page, limit, cancellationToken);
 
         /// <summary>Gets top level comments for an user's list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list comments should be queried.</param>

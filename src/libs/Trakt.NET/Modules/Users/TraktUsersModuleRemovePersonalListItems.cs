@@ -4,7 +4,7 @@ namespace TraktNET
 {
     public sealed partial class TraktUsersModule
     {
-        /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.
+        /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be removed from a personal list.</param>
         /// <param name="listIdOrSlug">The id or slug of the personal list, from which items should be removed.</param>
         /// <param name="listItemsRemovePost">An <see cref="TraktUserPersonalListItemsRemovePost" /> instance containing all shows, seasons, episodes, movies and people, which should be removed.</param>
@@ -28,18 +28,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktUserPersonalListItemsRemovePostResponse>> RemovePersonalListItemsAsync(string usernameOrSlug, string listIdOrSlug,
             TraktUserPersonalListItemsRemovePost listItemsRemovePost, CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(listItemsRemovePost);
-            listItemsRemovePost.Validate();
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserPersonalListItemsRemovePostResponse>(_context, new UserPersonalListItemsRemovePostRequest
-            {
-                Id = usernameOrSlug,
-                ListId = listIdOrSlug,
-                Content = JsonContent.Create(listItemsRemovePost)
-            },
-            cancellationToken);
-        }
+            => RemovePersonalListItemsImplAsync(usernameOrSlug, listIdOrSlug, listItemsRemovePost, cancellationToken);
 
         /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be removed from a personal list.</param>

@@ -24,20 +24,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> UpdatePersonalListItemAsync(string usernameOrSlug, string listIdOrSlug,
             uint listItemId, string? notes = null, CancellationToken cancellationToken = default)
-        {
-            var content = new TraktListItemUpdatePost
-            {
-                Notes = notes
-            };
-
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, new UserPersonalListItemUpdatePutRequest
-            {
-                Id = usernameOrSlug,
-                ListId = listIdOrSlug,
-                ListItemId = listItemId,
-                Content = JsonContent.Create(content)
-            }, cancellationToken);
-        }
+            => UpdatePersonalListItemImplAsync(usernameOrSlug, listIdOrSlug, listItemId, notes, cancellationToken);
 
         /// <summary>Update the notes on a single list item.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list item should be updated.</param>

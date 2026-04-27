@@ -248,9 +248,14 @@
         internal TraktHiddenItemsSection Section { get; set; }
     }
 
-    [TraktPostRequest("users/hidden/{section:TraktHiddenItemsSection!!}/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("users/hidden", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserHiddenItemsRemovePostRequest
     {
+        [TraktRequestParameter]
+        internal TraktHiddenItemsSection Section { get; set; }
+
+        [TraktRequestParameter]
+        private string remove => "remove";
     }
 
     [TraktPostRequest("users/{id!!}/lists/{list_id!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]

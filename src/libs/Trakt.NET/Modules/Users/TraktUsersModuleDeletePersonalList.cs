@@ -19,15 +19,7 @@
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> DeletePersonalListAsync(string usernameOrSlug, string listIdOrSlug, CancellationToken cancellationToken = default)
-        {
-            var request = new UserPersonalListDeleteRequest
-            {
-                Id = usernameOrSlug,
-                ListId = listIdOrSlug
-            };
-
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
-        }
+            => DeletePersonalListImplAsync(usernameOrSlug, listIdOrSlug, cancellationToken);
 
         /// <summary>Deletes an user's personal list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be deleted.</param>

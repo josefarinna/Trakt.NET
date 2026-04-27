@@ -2,34 +2,32 @@
 
 namespace TraktNET.UsersModule
 {
-    public sealed class FollowUserTests
+    public sealed class ReportUserTests
     {
-        private const string FollowUserUri = $"users/{Username}/follow";
+        private const string ReportUserUri = $"users/{Username}/report";
         private const string Username = "sean";
+        private const TraktReason Reason = TraktReason.Spam;
+        private const string Message = "Inappropriate behavior";
 
         [Fact]
-        public async Task TestFollowUser()
+        public async Task TestReportUser()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\userfollowuserpostresponse.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(FollowUserUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportUserUri, HttpStatusCode.NoContent);
             
-            TraktResponse<TraktUserFollowUserPostResponse> response = await client.Users.FollowUserAsync(Username, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Users.ReportUserAsync(Username, Reason, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
+        }
 
-            TraktUserFollowUserPostResponse responseValue = response.Content;
+        [Fact]
+        public async Task TestReportUserWithMessage()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportUserUri, HttpStatusCode.NoContent);
 
-            responseValue.ApprovedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-11-15T09:41:34.704Z"));
-            responseValue.User.ShouldNotBeNull();
-            responseValue.User.Username.ShouldBe("sean");
-            responseValue.User.Private.ShouldBe(false);
-            responseValue.User.Name.ShouldBe("Sean Rudford");
-            responseValue.User.VIP.ShouldBe(true);
-            responseValue.User.VIPEP.ShouldBe(true);
+            TraktResponse response = await client.Users.ReportUserAsync(Username, Reason, Message, TestContext.Current.CancellationToken);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
         }
 
         [Theory]
@@ -58,11 +56,11 @@ namespace TraktNET.UsersModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestFollowUserThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestReportUserThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(FollowUserUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportUserUri, statusCode);
 
-            Func<Task<TraktResponse<TraktUserFollowUserPostResponse>>> act = () => client.Users.FollowUserAsync(Username, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Users.ReportUserAsync(Username, Reason, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }
