@@ -28,7 +28,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/trending/get-trending-lists">
-        /// Trakt API Documentation - Lists: Trending
+        /// Trakt API Documentation: Lists: Trending
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -58,7 +58,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/popular/get-popular-lists">
-        /// Trakt API Documentation - Lists: Popular
+        /// Trakt API Documentation: Lists: Popular
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

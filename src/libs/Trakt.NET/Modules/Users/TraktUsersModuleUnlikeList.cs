@@ -13,7 +13,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-like/remove-like-on-a-list">
-        /// Trakt API Documentation - Users: List Like
+        /// Trakt API Documentation: Users: List Like
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -32,7 +32,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-like/remove-like-on-a-list">
-        /// Trakt API Documentation - Users: List Like
+        /// Trakt API Documentation: Users: List Like
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -57,7 +57,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-like/remove-like-on-a-list">
-        /// Trakt API Documentation - Users: List Like
+        /// Trakt API Documentation: Users: List Like
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -85,7 +85,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-like/remove-like-on-a-list">
-        /// Trakt API Documentation - Users: List Like
+        /// Trakt API Documentation: Users: List Like
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

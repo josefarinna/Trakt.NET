@@ -19,7 +19,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/countries/list/get-countries">
-        /// Trakt API Documentation - Countries: List
+        /// Trakt API Documentation: Countries: List
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
@@ -39,7 +39,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/countries/list/get-countries">
-        /// Trakt API Documentation - Countries: List
+        /// Trakt API Documentation: Countries: List
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>

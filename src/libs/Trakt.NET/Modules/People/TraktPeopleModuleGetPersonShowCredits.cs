@@ -20,7 +20,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
-        /// Trakt API Documentation - People: Shows
+        /// Trakt API Documentation: People: Shows
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -47,7 +47,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
-        /// Trakt API Documentation - People: Shows
+        /// Trakt API Documentation: People: Shows
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -80,7 +80,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
-        /// Trakt API Documentation - People: Shows
+        /// Trakt API Documentation: People: Shows
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -116,7 +116,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
-        /// Trakt API Documentation - People: Shows
+        /// Trakt API Documentation: People: Shows
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

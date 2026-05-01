@@ -14,7 +14,7 @@
         /// <para>See also <seealso cref="TraktListSortOrder" />.</para>
         /// </param>
         /// <param name="extendedInfo">
-        /// Specifies how much data should be queried about the lists.
+        /// Specifies how much data should be queried about the season lists.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
@@ -24,7 +24,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried lists.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried season lists.
         /// <para />
         /// The response also contains information about the queried page number, the page's item count, maximum page count
         /// and maximum item count.
@@ -56,7 +56,7 @@
         /// <para>See also <seealso cref="TraktListSortOrder" />.</para>
         /// </param>
         /// <param name="extendedInfo">
-        /// Specifies how much data should be queried about the lists.
+        /// Specifies how much data should be queried about the season lists.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
@@ -66,7 +66,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried lists.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried season lists.
         /// <para />
         /// The response also contains information about the queried page number, the page's item count, maximum page count
         /// and maximum item count.
@@ -98,7 +98,7 @@
         /// <para>See also <seealso cref="TraktListSortOrder" />.</para>
         /// </param>
         /// <param name="extendedInfo">
-        /// Specifies how much data should be queried about the lists.
+        /// Specifies how much data should be queried about the season lists.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
@@ -108,7 +108,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried lists.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried season lists.
         /// <para />
         /// The response also contains information about the queried page number, the page's item count, maximum page count
         /// and maximum item count.

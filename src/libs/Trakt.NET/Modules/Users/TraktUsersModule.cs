@@ -19,7 +19,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/settings/retrieve-settings">
-        /// Trakt API Documentation - Users: Settings
+        /// Trakt API Documentation: Users: Settings
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -43,7 +43,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/follower-requests/get-follow-requests">
-        /// Trakt API Documentation - Users: Follower Requests
+        /// Trakt API Documentation: Users: Follower Requests
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -68,7 +68,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/following-requests/get-pending-following-requests">
-        /// Trakt API Documentation - Users: Following Requests
+        /// Trakt API Documentation: Users: Following Requests
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -100,7 +100,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/hidden-items/get-hidden-items">
-        /// Trakt API Documentation - Users: Hidden Items
+        /// Trakt API Documentation: Users: Hidden Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -130,7 +130,7 @@ namespace TraktNET
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/saved-filters/get-saved-filters">
-        /// Trakt API Documentation - Users: Saved Filters
+        /// Trakt API Documentation: Users: Saved Filters
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -153,7 +153,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/add-hidden-items/add-hidden-items">
-        /// Trakt API Documentation - Users: Add Hidden Items
+        /// Trakt API Documentation: Users: Add Hidden Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -178,7 +178,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/remove-hidden-items/remove-hidden-items">
-        /// Trakt API Documentation - Users: Remove Hidden Items
+        /// Trakt API Documentation: Users: Remove Hidden Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -208,7 +208,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/likes/get-likes">
-        /// Trakt API Documentation - Users: Likes
+        /// Trakt API Documentation: Users: Likes
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -234,7 +234,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/profile/get-user-profile">
-        /// Trakt API Documentation - Users: Profile
+        /// Trakt API Documentation: Users: Profile
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -261,7 +261,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/collection/get-collection">
-        /// Trakt API Documentation - Users: Collection
+        /// Trakt API Documentation: Users: Collection
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -289,7 +289,7 @@ namespace TraktNET
         /// OAuth authorization is optional.
         /// <para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/collection/get-collection">
-        /// Trakt API Documentation - Users: Collection
+        /// Trakt API Documentation: Users: Collection
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -324,7 +324,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/comments/get-comments">
-        /// Trakt API Documentation - Users: Comments
+        /// Trakt API Documentation: Users: Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -348,7 +348,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/lists/get-a-user's-personal-lists">
-        /// Trakt API Documentation - Users: Lists
+        /// Trakt API Documentation: Users: Lists
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -371,7 +371,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/lists/create-personal-list">
-        /// Trakt API Documentation - Users: Lists
+        /// Trakt API Documentation: Users: Lists
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -396,7 +396,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/reorder-lists/reorder-a-user's-lists">
-        /// Trakt API Documentation - Users: Reorder Lists
+        /// Trakt API Documentation: Users: Reorder Lists
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -419,7 +419,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/collaborations/get-all-lists-a-user-can-collaborate-on">
-        /// Trakt API Documentation - Users: Collaborations
+        /// Trakt API Documentation: Users: Collaborations
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -445,7 +445,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/followers/get-followers">
-        /// Trakt API Documentation - Users: Followers
+        /// Trakt API Documentation: Users: Followers
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -472,7 +472,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/following/get-following">
-        /// Trakt API Documentation - Users: Following
+        /// Trakt API Documentation: Users: Following
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -499,7 +499,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/friends/get-friends">
-        /// Trakt API Documentation - Users: Friends
+        /// Trakt API Documentation: Users: Friends
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -522,7 +522,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/follow/follow-this-user">
-        /// Trakt API Documentation - Users: Follow
+        /// Trakt API Documentation: Users: Follow
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -540,7 +540,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/follow/unfollow-this-user">
-        /// Trakt API Documentation - Users: Follow
+        /// Trakt API Documentation: Users: Follow
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -562,7 +562,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/approve-or-deny-follower-requests/approve-follow-request">
-        /// Trakt API Documentation - Users: Approve or Deny Follower Requests
+        /// Trakt API Documentation: Users: Approve or Deny Follower Requests
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -580,7 +580,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/approve-or-deny-follower-requests/deny-follow-request">
-        /// Trakt API Documentation - Users: Approve or Deny Follower Requests
+        /// Trakt API Documentation: Users: Approve or Deny Follower Requests
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -615,7 +615,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/history/get-watched-history">
-        /// Trakt API Documentation - Users: History
+        /// Trakt API Documentation: Users: History
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -652,7 +652,7 @@ namespace TraktNET
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/favorites/get-favorites">
-        /// Trakt API Documentation - Users: Favorites
+        /// Trakt API Documentation: Users: Favorites
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -682,7 +682,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/favorites-comments/get-all-favorites-comments">
-        /// Trakt API Documentation - Users: Favorites Comments
+        /// Trakt API Documentation: Users: Favorites Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -719,7 +719,7 @@ namespace TraktNET
         /// </returns>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/ratings/get-ratings">
-        /// Trakt API Documentation - Users: Ratings
+        /// Trakt API Documentation: Users: Ratings
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -756,7 +756,7 @@ namespace TraktNET
         /// OAuth authorization is optional.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watchlist/get-watchlist">
-        /// Trakt API Documentation - Users: Watchlist
+        /// Trakt API Documentation: Users: Watchlist
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -786,7 +786,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watchlist-comments/get-all-watchlist-comments">
-        /// Trakt API Documentation - Users: Watchlist Comments
+        /// Trakt API Documentation: Users: Watchlist Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -813,7 +813,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watching/get-watching">
-        /// Trakt API Documentation - Users: Watching
+        /// Trakt API Documentation: Users: Watching
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -840,7 +840,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watched/get-watched">
-        /// Trakt API Documentation - Users: Watched
+        /// Trakt API Documentation: Users: Watched
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -867,7 +867,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watched/get-watched">
-        /// Trakt API Documentation - Users: Watched
+        /// Trakt API Documentation: Users: Watched
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -890,7 +890,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/stats/get-stats">
-        /// Trakt API Documentation - Users: Stats
+        /// Trakt API Documentation: Users: Stats
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -922,7 +922,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/notes/get-notes">
-        /// Trakt API Documentation - Users: Notes
+        /// Trakt API Documentation: Users: Notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -943,7 +943,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watched/report-a-user">
-        /// Trakt API Documentation - Users: Report a User
+        /// Trakt API Documentation: Users: Report a User
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

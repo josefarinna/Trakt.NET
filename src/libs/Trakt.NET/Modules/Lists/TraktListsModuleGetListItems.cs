@@ -26,7 +26,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-items/get-items-on-a-list">
-        /// Trakt API Documentation - Lists: List Items
+        /// Trakt API Documentation: Lists: List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -66,7 +66,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-items/get-items-on-a-list">
-        /// Trakt API Documentation - Lists: List Items
+        /// Trakt API Documentation: Lists: List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -105,7 +105,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-items/get-items-on-a-list">
-        /// Trakt API Documentation - Lists: List Items
+        /// Trakt API Documentation: Lists: List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -147,7 +147,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-items/get-items-on-a-list">
-        /// Trakt API Documentation - Lists: List Items
+        /// Trakt API Documentation: Lists: List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

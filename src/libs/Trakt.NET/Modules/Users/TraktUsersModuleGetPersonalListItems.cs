@@ -6,7 +6,7 @@
         /// Gets the items on an user's single personal list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Doc - Users: List Items"</a> for more information.
+        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Documentation: Users: List Items"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be queried.</param>
@@ -27,13 +27,13 @@
         public Task<TraktPagedResponse<TraktListItem>> GetPersonalListItemsAsync(string usernameOrSlug, string listIdOrSlug,
             TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
-            => GetPersonalListItemsAsync(usernameOrSlug, listIdOrSlug, listItemType, extendedInfo, page, limit, cancellationToken);
+            => GetPersonalListItemsImplAsync(usernameOrSlug, listIdOrSlug, listItemType, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>
         /// Gets the items on an user's single personal list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Doc - Users: List Items"</a> for more information.
+        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Documentation: Users: List Items"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be queried.</param>
@@ -66,7 +66,7 @@
         /// Gets the items on an user's single personal list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Doc - Users: List Items"</a> for more information.
+        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Documentation: Users: List Items"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be queried.</param>
@@ -103,7 +103,7 @@
         /// Gets the items on an user's single personal list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Doc - Users: List Items"</a> for more information.
+        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Documentation: Users: List Items"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be queried.</param>

@@ -20,7 +20,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/add-list-items/add-items-to-personal-list">
-        /// Trakt API Documentation - Users: List Items
+        /// Trakt API Documentation: Users: List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -46,7 +46,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/add-list-items/add-items-to-personal-list">
-        /// Trakt API Documentation - Users: List Items
+        /// Trakt API Documentation: Users: List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -78,7 +78,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/add-list-items/add-items-to-personal-list">
-        /// Trakt API Documentation - Users: List Items
+        /// Trakt API Documentation: Users: List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -113,7 +113,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/add-list-items/add-items-to-personal-list">
-        /// Trakt API Documentation - Users: List Items
+        /// Trakt API Documentation: Users: List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

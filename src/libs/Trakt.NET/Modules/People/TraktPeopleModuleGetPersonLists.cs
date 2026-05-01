@@ -27,7 +27,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
-        /// Trakt API Documentation - People: Lists
+        /// Trakt API Documentation: People: Lists
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -62,7 +62,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
-        /// Trakt API Documentation - People: Lists
+        /// Trakt API Documentation: People: Lists
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -103,7 +103,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
-        /// Trakt API Documentation - People: Lists
+        /// Trakt API Documentation: People: Lists
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -147,7 +147,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
-        /// Trakt API Documentation - People: Lists
+        /// Trakt API Documentation: People: Lists
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

@@ -1,9 +1,5 @@
 ﻿namespace TraktNET
 {
-    /// <summary>
-    /// Provides access to data retrieving methods specific to lists.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/lists">"Trakt API Documentation - Lists"</a> section.
-    /// </summary>
     public sealed partial class TraktListsModule
     {
         /// <summary>Gets top level comments for a list.</summary>
@@ -30,7 +26,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-comments/get-all-list-comments">
-        /// Trakt API Documentation - Lists: List Comments
+        /// Trakt API Documentation: Lists: List Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -63,7 +59,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-comments/get-all-list-comments">
-        /// Trakt API Documentation - Lists: List Comments
+        /// Trakt API Documentation: Lists: List Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -102,7 +98,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-comments/get-all-list-comments">
-        /// Trakt API Documentation - Lists: List Comments
+        /// Trakt API Documentation: Lists: List Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -144,7 +140,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-comments/get-all-list-comments">
-        /// Trakt API Documentation - Lists: List Comments
+        /// Trakt API Documentation: Lists: List Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

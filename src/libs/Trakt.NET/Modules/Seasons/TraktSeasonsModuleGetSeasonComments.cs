@@ -20,7 +20,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried comments.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried season comments.
         /// <para />
         /// The response also contains information about the queried page number, the page's item count, maximum page count
         /// and maximum item count.
@@ -58,7 +58,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried comments.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried season comments.
         /// <para />
         /// The response also contains information about the queried page number, the page's item count, maximum page count
         /// and maximum item count.
@@ -96,7 +96,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried comments.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried season comments.
         /// <para />
         /// The response also contains information about the queried page number, the page's item count, maximum page count
         /// and maximum item count.

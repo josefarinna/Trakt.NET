@@ -17,7 +17,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">
-        /// Trakt API Documentation - Users: Update List Item
+        /// Trakt API Documentation: Users: Update List Item
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -39,7 +39,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">
-        /// Trakt API Documentation - Users: Update List Item
+        /// Trakt API Documentation: Users: Update List Item
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -67,7 +67,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">
-        /// Trakt API Documentation - Users: Update List Item
+        /// Trakt API Documentation: Users: Update List Item
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -98,7 +98,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">
-        /// Trakt API Documentation - Users: Update List Item
+        /// Trakt API Documentation: Users: Update List Item
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

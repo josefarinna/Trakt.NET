@@ -20,7 +20,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">
-        /// Trakt API Documentation - Users: Reorder List Items
+        /// Trakt API Documentation: Users: Reorder List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -46,7 +46,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">
-        /// Trakt API Documentation - Users: Reorder List Items
+        /// Trakt API Documentation: Users: Reorder List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -78,7 +78,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">
-        /// Trakt API Documentation - Users: Reorder List Items
+        /// Trakt API Documentation: Users: Reorder List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -113,7 +113,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">
-        /// Trakt API Documentation - Users: Reorder List Items
+        /// Trakt API Documentation: Users: Reorder List Items
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>

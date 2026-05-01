@@ -1,10 +1,6 @@
 ﻿namespace TraktNET
 {
-    /// <summary>
-    /// Provides access to data retrieving methods specific to lists.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/lists">"Trakt API Documentation - Lists"</a> section.
-    /// </summary>
-    public partial class TraktListsModule
+    public sealed partial class TraktListsModule
     {
         /// <summary>Gets a <see cref="TraktList" /> with the given Trakt-ID.</summary>
         /// <param name="listIdOrSlug">The list's Trakt-ID or -Slug. See also <seealso cref="TraktListIDs" />.</param>
@@ -24,7 +20,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list/get-list">
-        /// Trakt API Documentation - Lists: List
+        /// Trakt API Documentation: Lists: List
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -51,7 +47,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list/get-list">
-        /// Trakt API Documentation - Lists: List
+        /// Trakt API Documentation: Lists: List
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -84,7 +80,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list/get-list">
-        /// Trakt API Documentation - Lists: List
+        /// Trakt API Documentation: Lists: List
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

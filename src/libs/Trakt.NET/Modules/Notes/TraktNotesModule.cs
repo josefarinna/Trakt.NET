@@ -20,7 +20,7 @@
         /// <remarks>
         /// OAuth authorization required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/note/get-a-note">
-        /// Trakt API Documentation - Note: Get a note
+        /// Trakt API Documentation: Note: Get a note
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -45,7 +45,7 @@
         /// <remarks>
         /// OAuth authorization required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/note/update-a-note">
-        /// Trakt API Documentation - Note: Update a note
+        /// Trakt API Documentation: Note: Update a note
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -65,7 +65,7 @@
         /// <remarks>
         /// OAuth authorization required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/note/delete-a-note">
-        /// Trakt API Documentation - Note: Delete a note
+        /// Trakt API Documentation: Note: Delete a note
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -91,7 +91,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/item/get-the-attached-item">
-        /// Trakt API Documentation - Item: Get the attached item
+        /// Trakt API Documentation: Item: Get the attached item
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

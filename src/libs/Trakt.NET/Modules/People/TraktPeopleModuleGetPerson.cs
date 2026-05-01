@@ -20,7 +20,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/summary/get-a-single-person">
-        /// Trakt API Documentation - People: Summary
+        /// Trakt API Documentation: People: Summary
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -47,7 +47,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/summary/get-a-single-person">
-        /// Trakt API Documentation - People: Summary
+        /// Trakt API Documentation: People: Summary
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -80,7 +80,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/summary/get-a-single-person">
-        /// Trakt API Documentation - People: Summary
+        /// Trakt API Documentation: People: Summary
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

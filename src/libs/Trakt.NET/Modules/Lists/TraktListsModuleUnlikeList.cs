@@ -1,6 +1,6 @@
 ﻿namespace TraktNET
 {
-    public partial class TraktListsModule
+    public sealed partial class TraktListsModule
     {
         /// <summary>Unlike a list.</summary>
         /// <param name="listIdOrSlug">The id or slug of the list, which will be unliked. See also <seealso cref="TraktListIDs" />.</param>
@@ -12,7 +12,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-like/like-a-list">
-        /// Trakt API Documentation - Lists: List Like
+        /// Trakt API Documentation: Lists: List Like
         /// </see></para>
         /// </remarks>>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -30,7 +30,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-like/like-a-list">
-        /// Trakt API Documentation - Lists: List Like
+        /// Trakt API Documentation: Lists: List Like
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -54,7 +54,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-like/like-a-list">
-        /// Trakt API Documentation - Lists: List Like
+        /// Trakt API Documentation: Lists: List Like
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -81,7 +81,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/list-like/like-a-list">
-        /// Trakt API Documentation - Lists: List Like
+        /// Trakt API Documentation: Lists: List Like
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>

@@ -12,7 +12,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/recommendations/hide-show/hide-a-show-recommendation">
-        /// Trakt API Documentation - Recommendations: Shows
+        /// Trakt API Documentation: Recommendations: Shows
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -30,7 +30,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/recommendations/hide-show/hide-a-show-recommendation">
-        /// Trakt API Documentation - Recommendations: Shows
+        /// Trakt API Documentation: Recommendations: Shows
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -54,7 +54,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/recommendations/hide-show/hide-a-show-recommendation">
-        /// Trakt API Documentation - Recommendations: Shows
+        /// Trakt API Documentation: Recommendations: Shows
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -81,7 +81,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/recommendations/hide-show/hide-a-show-recommendation">
-        /// Trakt API Documentation - Recommendations: Shows
+        /// Trakt API Documentation: Recommendations: Shows
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

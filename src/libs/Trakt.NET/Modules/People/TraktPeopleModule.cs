@@ -25,7 +25,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/updated-ids/get-recently-updated-people-trakt-ids">
-        /// Trakt API Documentation - People: Updated Ids
+        /// Trakt API Documentation: People: Updated Ids
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -56,7 +56,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/people/updates/get-recently-updated-people">
-        /// Trakt API Documentation - People: Updates
+        /// Trakt API Documentation: People: Updates
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

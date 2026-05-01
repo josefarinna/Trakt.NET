@@ -26,7 +26,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="movie"/> is null.</exception>
@@ -55,7 +55,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="show"/> is null.</exception>
@@ -84,7 +84,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="movie"/> is null.</exception>
@@ -113,7 +113,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="episode"/> is null.</exception>
@@ -142,7 +142,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="movie"/> is null.</exception>
@@ -171,7 +171,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -199,7 +199,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="movie"/> is null.</exception>
@@ -228,7 +228,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="show"/> is null.</exception>
@@ -257,7 +257,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="movie"/> is null.</exception>
@@ -286,7 +286,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="show"/> is null.</exception>
@@ -315,7 +315,7 @@ namespace TraktNET
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
-        /// Trakt API Documentation - Notes: Add notes
+        /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="season"/> is null.</exception>
@@ -330,7 +330,7 @@ namespace TraktNET
         /// Adds notes for an rated <see cref="TraktEpisode" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Documentation: Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="episode">An <see cref="TraktEpisode" /> instance for which the notes will be attached.</param>

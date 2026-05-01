@@ -23,7 +23,7 @@
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">
-        /// Trakt API Documentation - Users: List Comments
+        /// Trakt API Documentation: Users: List Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -53,7 +53,7 @@
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">
-        /// Trakt API Documentation - Users: List Comments
+        /// Trakt API Documentation: Users: List Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -89,7 +89,7 @@
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">
-        /// Trakt API Documentation - Users: List Comments
+        /// Trakt API Documentation: Users: List Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -128,7 +128,7 @@
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">
-        /// Trakt API Documentation - Users: List Comments
+        /// Trakt API Documentation: Users: List Comments
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

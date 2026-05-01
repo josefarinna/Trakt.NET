@@ -19,7 +19,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/last-activities/get-last-activity">
-        /// Trakt API Documentation - Sync: Last Activities
+        /// Trakt API Documentation: Sync: Last Activities
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -56,7 +56,7 @@
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-favorites/get-favorites">
-        /// Trakt API Documentation - Sync: Get Favorites
+        /// Trakt API Documentation: Sync: Get Favorites
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -79,7 +79,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/reorder-favorites/reorder-favorited-items">
-        /// Trakt API Documentation - Sync: Reorder Favorites
+        /// Trakt API Documentation: Sync: Reorder Favorites
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -100,7 +100,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-favorite-item/update-a-favorite-item">
-        /// Trakt API Documentation - Sync: Update Favorite Item
+        /// Trakt API Documentation: Sync: Update Favorite Item
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -129,7 +129,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/playback/get-playback-progress">
-        /// Trakt API Documentation - Sync: Playback
+        /// Trakt API Documentation: Sync: Playback
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -147,7 +147,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-playback/remove-a-playback-item">
-        /// Trakt API Documentation - Sync: Remove Playback
+        /// Trakt API Documentation: Sync: Remove Playback
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -172,7 +172,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-collection/get-collection">
-        /// Trakt API Documentation - Sync: Get Collection
+        /// Trakt API Documentation: Sync: Get Collection
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -197,7 +197,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-collection/get-collection">
-        /// Trakt API Documentation - Sync: Get Collection
+        /// Trakt API Documentation: Sync: Get Collection
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -220,7 +220,7 @@
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/add-to-collection/add-items-to-collection">
-        /// Trakt API Documentation - Sync: Add to Collection
+        /// Trakt API Documentation: Sync: Add to Collection
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -244,7 +244,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-from-collection/remove-items-from-collection">
-        /// Trakt API Documentation - Sync: Remove from Collection
+        /// Trakt API Documentation: Sync: Remove from Collection
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -271,7 +271,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-watched/get-watched">
-        /// Trakt API Documentation - Sync: Get Watched
+        /// Trakt API Documentation: Sync: Get Watched
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -296,7 +296,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-watched/get-watched">
-        /// Trakt API Documentation - Sync: Get Watched
+        /// Trakt API Documentation: Sync: Get Watched
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -326,7 +326,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-history/get-watched-history">
-        /// Trakt API Documentation - Sync: Get History
+        /// Trakt API Documentation: Sync: Get History
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -349,7 +349,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/add-to-history/add-items-to-watched-history">
-        /// Trakt API Documentation - Sync: Add to History
+        /// Trakt API Documentation: Sync: Add to History
         /// </see</para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -373,7 +373,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-from-history/remove-items-from-history">
-        /// Trakt API Documentation - Sync: Remove from History
+        /// Trakt API Documentation: Sync: Remove from History
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -411,7 +411,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-ratings/get-ratings">
-        /// Trakt API Documentation - Sync: Get Ratings
+        /// Trakt API Documentation: Sync: Get Ratings
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -434,7 +434,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/add-ratings/add-new-ratings">
-        /// Trakt API Documentation - Sync: Add Ratings
+        /// Trakt API Documentation: Sync: Add Ratings
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -458,7 +458,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-ratings/remove-ratings">
-        /// Trakt API Documentation - Sync: Remove Ratings
+        /// Trakt API Documentation: Sync: Remove Ratings
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -482,7 +482,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-favorites/add-items-to-favorites">
-        /// Trakt API Documentation - Sync: Add to Favorites
+        /// Trakt API Documentation: Sync: Add to Favorites
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -506,7 +506,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-from-favorites/remove-items-from-favorites">
-        /// Trakt API Documentation - Sync: Remove from Favorites
+        /// Trakt API Documentation: Sync: Remove from Favorites
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -532,7 +532,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-favorites/update-favorites">
-        /// Trakt API Documentation - Sync: Update Favorites
+        /// Trakt API Documentation: Sync: Update Favorites
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -568,7 +568,7 @@
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-watchlist/get-watchlist">
-        /// Trakt API Documentation - Sync: Get Watchlist
+        /// Trakt API Documentation: Sync: Get Watchlist
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -591,7 +591,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/reorder-watchlist/reorder-watchlist-items">
-        /// Trakt API Documentation - Sync: Reorder Watchlist
+        /// Trakt API Documentation: Sync: Reorder Watchlist
         /// </see></para>
         /// </summary>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -613,7 +613,7 @@
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-watchlist-item/update-a-watchlist-item">
-        /// Trakt API Documentation - Sync: Update Watchlist Item
+        /// Trakt API Documentation: Sync: Update Watchlist Item
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -636,7 +636,7 @@
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-watchlist/add-items-to-watchlist">
-        /// Trakt API Documentation - Sync: Add to Watchlist
+        /// Trakt API Documentation: Sync: Add to Watchlist
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -660,7 +660,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-from-watchlist/remove-items-from-watchlist">
-        /// Trakt API Documentation - Sync: Remove from Watchlist
+        /// Trakt API Documentation: Sync: Remove from Watchlist
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -686,7 +686,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-watchlist/update-watchlist">
-        /// Trakt API Documentation - Sync: Update Watchlist
+        /// Trakt API Documentation: Sync: Update Watchlist
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>

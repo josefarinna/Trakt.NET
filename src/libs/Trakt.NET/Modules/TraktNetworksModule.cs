@@ -19,7 +19,7 @@
         /// <remarks>
         /// OAuth authorization is not required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/networks/list/get-networks">
-        /// Trakt API Documentation - Networks: List
+        /// Trakt API Documentation: Networks: List
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>

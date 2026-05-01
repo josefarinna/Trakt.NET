@@ -22,7 +22,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/checkin/checkin/check-into-an-item">
-        /// Trakt API Documentation - Checkin: Checkin into an item
+        /// Trakt API Documentation: Checkin: Checkin into an item
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -47,7 +47,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/checkin/checkin/check-into-an-item">
-        /// Trakt API Documentation - Checkin: Checkin into an item
+        /// Trakt API Documentation: Checkin: Checkin into an item
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -69,7 +69,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/checkin/checkin/delete-any-active-checkins">
-        /// Trakt API Documentation - Checkin: Delete any active checkins
+        /// Trakt API Documentation: Checkin: Delete any active checkins
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>

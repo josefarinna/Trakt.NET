@@ -4,7 +4,7 @@
     /// Provides access to data retrieving methods specific to calendars.<para />
     /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/calendars">"Trakt API Documentation - Calendars"</a> section.
     /// </summary>
-    public partial class TraktCalendarModule
+    public sealed partial class TraktCalendarModule
     {
         /// <summary>Gets all shows from the user's calendar airing during the given time period.</summary>
         /// <param name="startDate">The start date of the calendar. If not set, today's date will be used.</param>

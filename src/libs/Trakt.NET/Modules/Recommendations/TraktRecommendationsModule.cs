@@ -30,7 +30,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/recommendations/movies/get-movie-recommendations">
-        /// Trakt API Documentation - Recommendations: Movies
+        /// Trakt API Documentation: Recommendations: Movies
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
@@ -38,8 +38,7 @@
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetMovieRecommendationsImplAsync(ignoreCollected, ignoreWatchlisted, extendedInfo, page, limit, cancellationToken);
 
-        /// <summary>
-        /// Gets personalized show recommendations for an user.
+        /// <summary>Gets personalized show recommendations for an user.</summary>
         /// <param name="ignoreCollected">Determines, if already collected movies should be filtered out.</param>
         /// <param name="ignoreWatchlisted">Determines, if already watchlisted movies should be filtered out.</param>
         /// <param name="extendedInfo">
@@ -63,7 +62,7 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="http://trakt.docs.apiary.io/#reference/recommendations/shows/get-show-recommendations">
-        /// Trakt API Documentation - Recommendations: Shows
+        /// Trakt API Documentation: Recommendations: Shows
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>

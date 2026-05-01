@@ -12,9 +12,9 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/recommendations/hide-movie/hide-a-movie-recommendation">
-        /// Trakt API Documentation - Recommendations: Movies
+        /// Trakt API Documentation: Recommendations: Movies
         /// </see></para>
-        /// </remmarks
+        /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> HideMovieRecommendationAsync(string movieIdOrSlug, CancellationToken cancellationToken = default)
@@ -30,9 +30,9 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/recommendations/hide-movie/hide-a-movie-recommendation">
-        /// Trakt API Documentation - Recommendations: Movies
+        /// Trakt API Documentation: Recommendations: Movies
         /// </see></para>
-        /// </remmarks
+        /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktMovieId"/> is 0.</exception>
@@ -54,9 +54,9 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/recommendations/hide-movie/hide-a-movie-recommendation">
-        /// Trakt API Documentation - Recommendations: Movies
+        /// Trakt API Documentation: Recommendations: Movies
         /// </see></para>
-        /// </remmarks
+        /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="movieIds"/> is null.</exception>
@@ -81,9 +81,9 @@
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/recommendations/hide-movie/hide-a-movie-recommendation">
-        /// Trakt API Documentation - Recommendations: Movies
+        /// Trakt API Documentation: Recommendations: Movies
         /// </see></para>
-        /// </remmarks
+        /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="movie"/> is null.</exception>

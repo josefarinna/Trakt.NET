@@ -14,7 +14,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried episodes.
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried season.
         /// <para />
         /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSeason" />.
         /// </returns>
