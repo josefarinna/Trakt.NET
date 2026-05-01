@@ -15,6 +15,8 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktEpisodeImages>))]
     [JsonSerializable(typeof(TraktEpisodeMinimal))]
     [JsonSerializable(typeof(IReadOnlyList<TraktEpisodeMinimal>))]
+    [JsonSerializable(typeof(TraktEpisodeStatistics))]
+    [JsonSerializable(typeof(TraktEpisodeStats))]
     [JsonSerializable(typeof(TraktEpisodeTranslation))]
     [JsonSerializable(typeof(IReadOnlyList<TraktEpisodeTranslation>))]
     [JsonSerializable(typeof(TraktEpisodeWatchedProgress))]

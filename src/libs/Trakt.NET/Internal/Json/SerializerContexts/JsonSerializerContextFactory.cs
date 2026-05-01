@@ -300,6 +300,7 @@ namespace TraktNET
             typeof(TraktEpisodeImages),
             typeof(TraktEpisodeMinimal),
             typeof(TraktEpisodeProgress),
+            typeof(TraktEpisodeStatistics),
             typeof(TraktEpisodeStats),
             typeof(TraktEpisodeTranslation),
             typeof(TraktEpisodeWatchedProgress)
@@ -734,6 +735,7 @@ namespace TraktNET
             typeof(TraktEpisodeImages),
             typeof(TraktEpisodeMinimal),
             typeof(TraktEpisodeProgress),
+            typeof(TraktEpisodeStatistics),
             typeof(TraktEpisodeStats),
             typeof(TraktEpisodeTranslation),
             typeof(TraktEpisodeWatchedProgress)
