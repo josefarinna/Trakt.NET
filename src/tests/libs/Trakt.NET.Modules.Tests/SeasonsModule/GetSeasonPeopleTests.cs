@@ -1,55 +1,201 @@
-﻿using System.Net;
+﻿using System.Globalization;
+using System.Net;
 
 namespace TraktNET.SeasonsModule
 {
     public sealed class GetSeasonPeopleTests
     {
-        private const string GetSeasonPeopleUriPrefix = "shows";
-        private const string GetSeasonPeopleUriSuffix = "people";
-        private const uint SeasonNumber = 1U;
-        private const string GetSeasonPeopleUriWithSlug = GetSeasonPeopleUriPrefix + "/" + TestConstants.Shows.ShowSlug + "/seasons/1/" + GetSeasonPeopleUriSuffix;
-        private static readonly string GetSeasonPeopleUri = $"{GetSeasonPeopleUriPrefix}/{TestConstants.Shows.ShowID}/seasons/1/{GetSeasonPeopleUriSuffix}";
+        private const string GetSeasonPeopleUri = $"shows/1390/seasons/1/people";
+        private readonly string ShowID = TestConstants.Shows.ShowID.ToString(CultureInfo.InvariantCulture);
+        private const uint SeasonNr = 1U;
+        private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, $"{GetSeasonPeopleUriPrefix}/1390/seasons/1/{GetSeasonPeopleUriSuffix}", "Seasons\\seasonpeople.json")]
-        [InlineData(TraktExtendedInfo.None, $"{GetSeasonPeopleUriPrefix}/1390/seasons/1/{GetSeasonPeopleUriSuffix}", "Seasons\\seasonpeople.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetSeasonPeopleUriPrefix}/1390/seasons/1/{GetSeasonPeopleUriSuffix}?extended=full", "Seasons\\seasonpeople.json")]
-        public async Task TestGetSeasonPeopleWithID(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetSeasonPeople()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonpeople.json");
 
-            TraktResponse<TraktCastAndCrew> response = await client.Seasons.GetSeasonPeopleAsync(TestConstants.Shows.ShowID, SeasonNumber, extendedInfo, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonPeopleUri, responseContent);
+            
+            TraktResponse<TraktCastAndCrew> response = await client.Seasons.GetSeasonPeopleAsync(ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+
+            TraktCastAndCrew responseValue = response.Content;
+
+            responseValue.Cast.ShouldNotBeNull();
+            responseValue.Cast.Count.ShouldBe(2);
+            responseValue.Crew.ShouldNotBeNull();
+            responseValue.Crew.Production.ShouldNotBeNull();
+            responseValue.Crew.Production.Count.ShouldBe(1);
+            responseValue.Crew.Art.ShouldNotBeNull();
+            responseValue.Crew.Art.Count.ShouldBe(1);
+            responseValue.Crew.Crew.ShouldNotBeNull();
+            responseValue.Crew.Crew.Count.ShouldBe(1);
+            responseValue.Crew.CostumeAndMakeUp.ShouldNotBeNull();
+            responseValue.Crew.CostumeAndMakeUp.Count.ShouldBe(1);
+            responseValue.Crew.Directing.ShouldNotBeNull();
+            responseValue.Crew.Directing.Count.ShouldBe(1);
+            responseValue.Crew.Writing.ShouldNotBeNull();
+            responseValue.Crew.Writing.Count.ShouldBe(1);
+            responseValue.Crew.Sound.ShouldNotBeNull();
+            responseValue.Crew.Sound.Count.ShouldBe(1);
+            responseValue.Crew.Camera.ShouldNotBeNull();
+            responseValue.Crew.Camera.Count.ShouldBe(1);
+            responseValue.Crew.Lighting.ShouldNotBeNull();
+            responseValue.Crew.Lighting.Count.ShouldBe(1);
+            responseValue.Crew.VisualEffects.ShouldNotBeNull();
+            responseValue.Crew.VisualEffects.Count.ShouldBe(1);
+            responseValue.Crew.Editing.ShouldNotBeNull();
+            responseValue.Crew.Editing.Count.ShouldBe(1);
         }
 
-        [Theory]
-        [InlineData(null, GetSeasonPeopleUriWithSlug, "Seasons\\seasonpeople.json")]
-        [InlineData(TraktExtendedInfo.None, GetSeasonPeopleUriWithSlug, "Seasons\\seasonpeople.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetSeasonPeopleUriWithSlug}?extended=full", "Seasons\\seasonpeople.json")]
-        public async Task TestGetSeasonPeopleWithSlug(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetSeasonPeopleWithTraktID()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonpeople.json");
 
-            TraktResponse<TraktCastAndCrew> response = await client.Seasons.GetSeasonPeopleAsync(TestConstants.Shows.ShowSlug, SeasonNumber, extendedInfo, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/people", responseContent);
+            
+            TraktResponse<TraktCastAndCrew> response = await client.Seasons.GetSeasonPeopleAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
-        [Theory]
-        [InlineData(null, GetSeasonPeopleUriWithSlug, "Seasons\\seasonpeople.json")]
-        [InlineData(TraktExtendedInfo.None, GetSeasonPeopleUriWithSlug, "Seasons\\seasonpeople.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetSeasonPeopleUriWithSlug}?extended=full", "Seasons\\seasonpeople.json")]
-        public async Task TestGetSeasonPeopleWithIDs(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetSeasonPeopleWithShowIDsTraktID()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            var showIDs = new TraktShowIDs
+            {
+                Trakt = TestConstants.Shows.ShowID
+            };
 
-            TraktResponse<TraktCastAndCrew> response = await client.Seasons.GetSeasonPeopleAsync(TestConstants.Shows.ShowIDs, SeasonNumber, extendedInfo, TestContext.Current.CancellationToken);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonpeople.json");
 
-            ValidateResponse(response);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/people", responseContent);
+            
+            TraktResponse<TraktCastAndCrew> response = await client.Seasons.GetSeasonPeopleAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonPeopleWithShowIDsSlug()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Slug = TestConstants.Shows.ShowSlug
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonpeople.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/people", responseContent);
+            
+            TraktResponse<TraktCastAndCrew> response = await client.Seasons.GetSeasonPeopleAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonPeopleWithShowIDs()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Trakt = TestConstants.Shows.ShowID,
+                Slug = TestConstants.Shows.ShowSlug
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonpeople.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/people", responseContent);
+            
+            TraktResponse<TraktCastAndCrew> response = await client.Seasons.GetSeasonPeopleAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonPeopleWithShow()
+        {
+            var show = new TraktShow
+            {
+                IDs = new TraktShowIDs
+                {
+                    Trakt = TestConstants.Shows.ShowID,
+                    Slug = TestConstants.Shows.ShowSlug
+                }
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonpeople.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/people", responseContent);
+            
+            TraktResponse<TraktCastAndCrew> response = await client.Seasons.GetSeasonPeopleAsync(show, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonPeopleWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonpeople.json");
+
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetSeasonPeopleUri}?extended={ExtendedInfo.ToURI()}",
+                responseContent);
+
+            TraktResponse<TraktCastAndCrew> response = await client.Seasons.GetSeasonPeopleAsync(ShowID, SeasonNr, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+
+            TraktCastAndCrew responseValue = response.Content;
+
+            responseValue.Cast.ShouldNotBeNull();
+            responseValue.Cast.Count.ShouldBe(2);
+            responseValue.Crew.ShouldNotBeNull();
+            responseValue.Crew.Production.ShouldNotBeNull();
+            responseValue.Crew.Production.Count.ShouldBe(1);
+            responseValue.Crew.Art.ShouldNotBeNull();
+            responseValue.Crew.Art.Count.ShouldBe(1);
+            responseValue.Crew.Crew.ShouldNotBeNull();
+            responseValue.Crew.Crew.Count.ShouldBe(1);
+            responseValue.Crew.CostumeAndMakeUp.ShouldNotBeNull();
+            responseValue.Crew.CostumeAndMakeUp.Count.ShouldBe(1);
+            responseValue.Crew.Directing.ShouldNotBeNull();
+            responseValue.Crew.Directing.Count.ShouldBe(1);
+            responseValue.Crew.Writing.ShouldNotBeNull();
+            responseValue.Crew.Writing.Count.ShouldBe(1);
+            responseValue.Crew.Sound.ShouldNotBeNull();
+            responseValue.Crew.Sound.Count.ShouldBe(1);
+            responseValue.Crew.Camera.ShouldNotBeNull();
+            responseValue.Crew.Camera.Count.ShouldBe(1);
+            responseValue.Crew.Lighting.ShouldNotBeNull();
+            responseValue.Crew.Lighting.Count.ShouldBe(1);
+            responseValue.Crew.VisualEffects.ShouldNotBeNull();
+            responseValue.Crew.VisualEffects.Count.ShouldBe(1);
+            responseValue.Crew.Editing.ShouldNotBeNull();
+            responseValue.Crew.Editing.Count.ShouldBe(1);
         }
 
         [Theory]
@@ -82,54 +228,26 @@ namespace TraktNET.SeasonsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonPeopleUri, statusCode);
 
-            try
-            {
-                await client.Seasons.GetSeasonPeopleAsync(TestConstants.Shows.ShowID, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktResponse<TraktCastAndCrew>>> act = () => client.Seasons.GetSeasonPeopleAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetSeasonPeopleWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonpeople.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonPeopleUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonPeopleUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktResponse<TraktCastAndCrew>>> act = () => client.Seasons.GetSeasonPeopleAsync(default(TraktShowIDs), SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
+            Func<Task<TraktResponse<TraktCastAndCrew>>> act = () => client.Seasons.GetSeasonPeopleAsync(default(TraktShowIDs)!, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            var ShowIDs = new TraktShowIDs();
+            act = () => client.Seasons.GetSeasonPeopleAsync(default(TraktShow)!, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.Seasons.GetSeasonPeopleAsync(ShowIDs, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Seasons.GetSeasonPeopleAsync(new TraktShowIDs(), SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
-        }
 
-        private static void ValidateResponse(TraktResponse<TraktCastAndCrew> response)
-        {
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
-            response.Content.ShouldNotBeNull();
-            response.Headers.ShouldNotBeNull();
-            response.TraktHeaders.ShouldNotBeNull();
-            response.ContentHeaders.ShouldNotBeNull();
-
-            TraktCastAndCrew seasonPeople = response.Content!;
-
-            seasonPeople.Cast.ShouldNotBeNull();
-            seasonPeople.Cast![0].Person.ShouldNotBeNull();
-            seasonPeople.Cast[0].Person!.Name.ShouldBe("Kit Harington");
-
-            seasonPeople.Crew.ShouldNotBeNull();
-            seasonPeople.Crew!.Writing.ShouldNotBeNull();
-            seasonPeople.Crew.Writing![0].Person.ShouldNotBeNull();
-            seasonPeople.Crew.Writing![0].Person!.Name.ShouldBe("George R. R. Martin");
+            act = () => client.Seasons.GetSeasonPeopleAsync(0, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

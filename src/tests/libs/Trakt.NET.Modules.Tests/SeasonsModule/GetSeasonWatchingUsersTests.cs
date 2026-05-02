@@ -1,110 +1,205 @@
-﻿using System.Net;
+﻿using System.Globalization;
+using System.Net;
 
 namespace TraktNET.SeasonsModule
 {
     public sealed class GetSeasonWatchingUsersTests
     {
-        private const string GetSeasonWatchingUsersUriPrefix = "shows";
-        private const string GetSeasonWatchingUsersUriSuffix = "watching";
-        private const uint SeasonNumber = 1U;
-        private const string GetSeasonWatchingUsersUriWithSlug = GetSeasonWatchingUsersUriPrefix + "/" + TestConstants.Shows.ShowSlug + "/seasons/1/" + GetSeasonWatchingUsersUriSuffix;
+        private readonly string GetSeasonWatchingUsersUri = $"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/watching";
+        private readonly string ShowID = TestConstants.Shows.ShowID.ToString(CultureInfo.InvariantCulture);
+        private const uint SeasonNr = 1U;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, $"{GetSeasonWatchingUsersUriPrefix}/1390/seasons/1/{GetSeasonWatchingUsersUriSuffix}", "Seasons\\seasonwatchingusers.json")]
-        [InlineData(TraktExtendedInfo.None, $"{GetSeasonWatchingUsersUriPrefix}/1390/seasons/1/{GetSeasonWatchingUsersUriSuffix}", "Seasons\\seasonwatchingusers.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetSeasonWatchingUsersUriPrefix}/1390/seasons/1/{GetSeasonWatchingUsersUriSuffix}?extended=full", "Seasons\\seasonwatchingusers.json")]
-        public async Task TestGetSeasonWatchingUsersWithID(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetSeasonWatchingUsers()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonwatchingusers.json");
 
-            TraktListResponse<TraktUser> response = await client.Seasons.GetSeasonWatchingUsersAsync(TestConstants.Shows.ShowID, SeasonNumber, extendedInfo, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonWatchingUsersUri, responseContent);
+            
+            TraktListResponse<TraktUser> response = await client.Seasons.GetSeasonWatchingUsersAsync(ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
-        }
-
-        [Theory]
-        [InlineData(null, GetSeasonWatchingUsersUriWithSlug, "Seasons\\seasonwatchingusers.json")]
-        [InlineData(TraktExtendedInfo.None, GetSeasonWatchingUsersUriWithSlug, "Seasons\\seasonwatchingusers.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetSeasonWatchingUsersUriWithSlug}?extended=full", "Seasons\\seasonwatchingusers.json")]
-        public async Task TestGetSeasonWatchingUsersWithSlug(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
-
-            TraktListResponse<TraktUser> response = await client.Seasons.GetSeasonWatchingUsersAsync(TestConstants.Shows.ShowSlug, SeasonNumber, extendedInfo, TestContext.Current.CancellationToken);
-
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
         }
 
         [Fact]
-        public async Task TestGetSeasonWatchingUsersWithIDs()
+        public async Task TestGetSeasonWatchingUsersWithTraktID()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonwatchingusers.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonWatchingUsersUriWithSlug, responseContent);
 
-            TraktListResponse<TraktUser> response = await client.Seasons.GetSeasonWatchingUsersAsync(TestConstants.Shows.ShowIDs, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonWatchingUsersUri, responseContent);
 
-            ValidateResponse(response);
+            TraktListResponse<TraktUser> response = await client.Seasons.GetSeasonWatchingUsersAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
         }
 
-        private static void ValidateResponse(TraktListResponse<TraktUser> response)
+        [Fact]
+        public async Task TestGetSeasonWatchingUsersWithShowIDsTraktID()
         {
+            var showIDs = new TraktShowIDs
+            {
+                Trakt = TestConstants.Shows.ShowID
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonwatchingusers.json");
+
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonWatchingUsersUri, responseContent);
+
+            TraktListResponse<TraktUser> response = await client.Seasons.GetSeasonWatchingUsersAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Headers.ShouldNotBeNull();
-            response.TraktHeaders.ShouldNotBeNull();
-            response.ContentHeaders.ShouldNotBeNull();
-            response.Count.ShouldBe(2);
+            response.Content.Count.ShouldBe(2);
+        }
 
-            IReadOnlyList<TraktUser> users = response.Content!;
+        [Fact]
+        public async Task TestGetSeasonWatchingUsersWithShowIDsSlug()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Slug = TestConstants.Shows.ShowSlug
+            };
 
-            users[0].ShouldNotBeNull();
-            users[0].Username.ShouldBe("user1");
-            users[0].Name.ShouldBe("User Name 1");
-            users[0].IDs.ShouldNotBeNull();
-            users[0].IDs!.Slug.ShouldBe("user1");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonwatchingusers.json");
 
-            users[1].ShouldNotBeNull();
-            users[1].Username.ShouldBe("user2");
-            users[1].Name.ShouldBe("User Name 2");
-            users[1].IDs.ShouldNotBeNull();
-            users[1].IDs!.Slug.ShouldBe("user2");
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/watching",
+                responseContent);
+
+            TraktListResponse<TraktUser> response = await client.Seasons.GetSeasonWatchingUsersAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonWatchingUsersWithShowIDs()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Trakt = TestConstants.Shows.ShowID,
+                Slug = TestConstants.Shows.ShowSlug
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonwatchingusers.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/watching",
+                responseContent);
+
+            TraktListResponse<TraktUser> response = await client.Seasons.GetSeasonWatchingUsersAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonWatchingUsersWithShow()
+        {
+            var show = new TraktShow
+            {
+                IDs = new TraktShowIDs
+                {
+                    Trakt = TestConstants.Shows.ShowID,
+                    Slug = TestConstants.Shows.ShowSlug
+                }
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonwatchingusers.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/watching",
+                responseContent);
+
+            TraktListResponse<TraktUser> response = await client.Seasons.GetSeasonWatchingUsersAsync(show, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonWatchingUsersWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonwatchingusers.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonWatchingUsersUri}?extended={ExtendedInfo.ToURI()}",
+                                                           responseContent);
+
+            TraktListResponse<TraktUser> response = await client.Seasons.GetSeasonWatchingUsersAsync(ShowID, SeasonNr, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiSeasonNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetSeasonWatchingUsersThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonWatchingUsersUriWithSlug, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonWatchingUsersUri, statusCode);
 
-            try
-            {
-                await client.Seasons.GetSeasonWatchingUsersAsync(TestConstants.Shows.ShowIDs, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Seasons.GetSeasonWatchingUsersAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetSeasonWatchingUsersWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonwatchingusers.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonWatchingUsersUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonWatchingUsersUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Seasons.GetSeasonWatchingUsersAsync(default(TraktShowIDs), SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Seasons.GetSeasonWatchingUsersAsync(default(TraktShowIDs)!, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            var ShowIDs = new TraktShowIDs();
-            act = () => client.Seasons.GetSeasonWatchingUsersAsync(ShowIDs, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Seasons.GetSeasonWatchingUsersAsync(default(TraktShow)!, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Seasons.GetSeasonWatchingUsersAsync(new TraktShowIDs(), SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
+
+            act = () => client.Seasons.GetSeasonWatchingUsersAsync(0, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

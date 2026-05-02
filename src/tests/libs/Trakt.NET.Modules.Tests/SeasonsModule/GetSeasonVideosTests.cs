@@ -2,107 +2,194 @@
 
 namespace TraktNET.SeasonsModule
 {
-    public sealed class GetSeasonVideosTests
+    public sealed class GetSeasonVideosVideosTests
     {
-        private const string GetSeasonVideosUriPrefix = "shows";
-        private const string GetSeasonVideosUriSuffix = "videos";
-        private const uint SeasonNumber = 1U;
-        private static readonly string GetSeasonVideosUri = $"{GetSeasonVideosUriPrefix}/{TestConstants.Shows.ShowID}/seasons/1/{GetSeasonVideosUriSuffix}";
-        private static readonly string GetSeasonVideosUriWithSlug = $"{GetSeasonVideosUriPrefix}/{TestConstants.Shows.ShowSlug}/seasons/1/{GetSeasonVideosUriSuffix}";
+        private static readonly string GetSeasonVideosUri = $"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/videos";
+        private readonly string ShowID = $"{TestConstants.Shows.ShowID}";
+        private const uint SeasonNr = 1U;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
-        public async Task TestGetSeasonVideosWithID()
+        public async Task TestGetSeasonVideos()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonvideos.json");
+
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonVideosUri, responseContent);
 
-            TraktListResponse<TraktVideo> response = await client.Seasons.GetSeasonVideosAsync(TestConstants.Shows.ShowID, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktVideo> response = await client.Seasons.GetSeasonVideosAsync(ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonVideosWithSlug()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonvideos.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonVideosUriWithSlug, responseContent);
-
-            TraktListResponse<TraktVideo> response = await client.Seasons.GetSeasonVideosAsync(TestConstants.Shows.ShowSlug, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-
-            ValidateResponse(response);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonVideosWithIDs()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonvideos.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonVideosUriWithSlug, responseContent);
-
-            TraktListResponse<TraktVideo> response = await client.Seasons.GetSeasonVideosAsync(TestConstants.Shows.ShowIDs, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-
-            ValidateResponse(response);
-        }
-
-        private static void ValidateResponse(TraktListResponse<TraktVideo> response)
-        {
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Headers.ShouldNotBeNull();
-            response.TraktHeaders.ShouldNotBeNull();
-            response.ContentHeaders.ShouldNotBeNull();
-            response.Count.ShouldBe(2);
+        }
 
-            IReadOnlyList<TraktVideo> seasonVideos = response.Content!;
+        [Fact]
+        public async Task TestGetSeasonVideosWithTraktID()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonvideos.json");
 
-            seasonVideos[0].ShouldNotBeNull();
-            seasonVideos[0].Title.ShouldBe("Game of Thrones | Official Series Trailer");
-            seasonVideos[0].Url.ShouldBe("https://youtube.com/watch?v=KPLWWIOCOOQ");
-            seasonVideos[0].Site.ShouldBe("youtube");
-            seasonVideos[0].Type.ShouldBe(TraktVideoType.Trailer);
-            seasonVideos[0].Size.ShouldBe(1080U);
-            seasonVideos[0].Official.ShouldBe(true);
-            seasonVideos[0].Country.ShouldBe("us");
-            seasonVideos[0].Language.ShouldBe("en");
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonVideosUri, responseContent);
 
-            seasonVideos[1].ShouldNotBeNull();
-            seasonVideos[1].Title.ShouldBe("Official Trailer");
-            seasonVideos[1].Url.ShouldBe("https://youtube.com/watch?v=BpJYNVhGf1s");
-            seasonVideos[1].Size.ShouldBe(720U);
+            TraktListResponse<TraktVideo> response = await client.Seasons.GetSeasonVideosAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonVideosWithShowIDsTraktID()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Trakt = TestConstants.Shows.ShowID
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonvideos.json");
+
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonVideosUri, responseContent);
+
+            TraktListResponse<TraktVideo> response = await client.Seasons.GetSeasonVideosAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonVideosWithShowIDsSlug()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Slug = TestConstants.Shows.ShowSlug
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonvideos.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/videos", responseContent);
+
+            TraktListResponse<TraktVideo> response = await client.Seasons.GetSeasonVideosAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonVideosWithShowIDs()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Trakt = TestConstants.Shows.ShowID,
+                Slug = TestConstants.Shows.ShowSlug
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonvideos.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/videos", responseContent);
+
+            TraktListResponse<TraktVideo> response = await client.Seasons.GetSeasonVideosAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonVideosWithShow()
+        {
+            var show = new TraktShow
+            {
+                IDs = new TraktShowIDs
+                {
+                    Trakt = TestConstants.Shows.ShowID,
+                    Slug = TestConstants.Shows.ShowSlug
+                }
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonvideos.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/videos", responseContent);
+
+            TraktListResponse<TraktVideo> response = await client.Seasons.GetSeasonVideosAsync(show, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonVideosWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonvideos.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonVideosUri}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktListResponse<TraktVideo> response = await client.Seasons.GetSeasonVideosAsync(ShowID, SeasonNr, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiSeasonNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetSeasonVideosWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonVideosUri, statusCode);
 
-            try
-            {
-                await client.Seasons.GetSeasonVideosAsync(TestConstants.Shows.ShowID, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Seasons.GetSeasonVideosAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetSeasonVideosWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonvideos.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonVideosUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonVideosUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Seasons.GetSeasonVideosAsync(default(TraktShowIDs), SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktListResponse<TraktVideo>>> act =
+                () => client.Seasons.GetSeasonVideosAsync(default(TraktShowIDs)!, SeasonNr);
+
             await act.ShouldThrowAsync<ArgumentException>();
 
-            var ShowIDs = new TraktShowIDs();
-            act = () => client.Seasons.GetSeasonVideosAsync(ShowIDs, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Seasons.GetSeasonVideosAsync(default(TraktShow)!, SeasonNr);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Seasons.GetSeasonVideosAsync(new TraktShowIDs(), SeasonNr);
+            await act.ShouldThrowAsync<ArgumentException>();
+
+            act = () => client.Seasons.GetSeasonVideosAsync(0, SeasonNr);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

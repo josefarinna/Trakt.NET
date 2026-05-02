@@ -1,128 +1,926 @@
-﻿using System.Net;
+﻿using System.Globalization;
+using System.Net;
 
 namespace TraktNET.SeasonsModule
 {
     public sealed class GetSeasonListsTests
     {
-        private const string GetSeasonListsUriPrefix = "shows";
-        private const string GetSeasonListsUriSuffix = "lists";
-        private const uint SeasonNumber = 1U;
-        private const string GetSeasonListsUriWithSlug = GetSeasonListsUriPrefix + "/" + TestConstants.Shows.ShowSlug + "/seasons/1/" + GetSeasonListsUriSuffix;
-        private static readonly string GetSeasonListsUri = $"{GetSeasonListsUriPrefix}/{TestConstants.Shows.ShowID}/seasons/1/{GetSeasonListsUriSuffix}";
-
-        [Theory]
-        [InlineData(null, null, null, null, null, GetSeasonListsUriWithSlug, "Seasons\\seasonlists.json")]
-        [InlineData(null, null, TraktExtendedInfo.None, null, null, GetSeasonListsUriWithSlug, "Seasons\\seasonlists.json")]
-        [InlineData(null, null, TraktExtendedInfo.Full, null, null, $"{GetSeasonListsUriWithSlug}?extended=full", "Seasons\\seasonlists.json")]
-        [InlineData(null, null, null, 4U, null, $"{GetSeasonListsUriWithSlug}?page=4", "Seasons\\seasonlists.json")]
-        [InlineData(null, null, null, null, 20U, $"{GetSeasonListsUriWithSlug}?limit=20", "Seasons\\seasonlists.json")]
-        [InlineData(TraktListType.Personal, TraktListSortOrder.Popular, TraktExtendedInfo.Full, 4U, 20U, $"{GetSeasonListsUriWithSlug}/personal/popular?extended=full&page=4&limit=20", "Seasons\\seasonlists.json")]
-        public async Task TestGetSeasonLists(TraktListType? type, TraktListSortOrder? sortOrder, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
-
-            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(TestConstants.Shows.ShowSlug, SeasonNumber, type, sortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
-
-            ValidateResponse(response, page ?? 1U, limit ?? 10U);
-        }
+        private readonly string GetSeasonListsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/1/lists";
+        private readonly string ShowID = TestConstants.Shows.ShowID.ToString(CultureInfo.InvariantCulture);
+        private const uint SeasonNr = 1U;
+        private const uint ListItemCount = 2U;
+        private const uint Page = 2U;
+        private const uint Limit = 4U;
+        private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
+        private const TraktListType ListType = TraktListType.Official;
+        private const TraktListSortOrder ListSortOrder = TraktListSortOrder.Comments;
 
         [Fact]
-        public async Task TestGetSeasonListsWithID()
+        public async Task TestGetSeasonLists()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonListsUri, responseContent);
 
-            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(TestConstants.Shows.ShowID, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonListsUri, responseContent, 1, 1, 10, ListItemCount);
+            
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response, null, null);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonListsWithIDs()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonListsUriWithSlug, responseContent);
-
-            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(TestConstants.Shows.ShowIDs, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-
-            ValidateResponse(response, null, null);
-        }
-
-        private static void ValidateResponse(TraktPagedResponse<TraktList> response, uint? page, uint? limit)
-        {
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Count.ShouldBe(2);
-            response.Page.ShouldBe(page);
-            response.Limit.ShouldBe(limit);
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
 
-            IReadOnlyList<TraktList> lists = response.Content!;
+        [Fact]
+        public async Task TestGetSeasonListsWithTraktID()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonListsUri, responseContent, 1, 1, 10, ListItemCount);
 
-            lists[0].ShouldNotBeNull();
-            lists[0].Name.ShouldBe("IMDB: Top Rated TV Shows");
-            lists[0].Description.ShouldStartWith("Top 250 TV Shows");
-            lists[0].Likes.ShouldBe(3464u);
-            lists[0].IDs!.Trakt.ShouldBe(2143363U);
-            lists[0].User!.Username.ShouldBe("justin");
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
-            lists[1].ShouldNotBeNull();
-            lists[1].Name.ShouldBe("Trending Shows");
-            lists[1].Type.ShouldBe(TraktListType.Personal);
-            lists[1].UpdatedAt.ShouldNotBeNull();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithShowIDsTraktID()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Trakt = TestConstants.Shows.ShowID
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonListsUri, responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithShowIDsSlug()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Slug = TestConstants.Shows.ShowSlug
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/lists",
+                responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithShowIDs()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Trakt = TestConstants.Shows.ShowID,
+                Slug = TestConstants.Shows.ShowSlug
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/lists",
+                responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithShow()
+        {
+            var show = new TraktShow
+            {
+                IDs = new TraktShowIDs
+                {
+                    Trakt = TestConstants.Shows.ShowID,
+                    Slug = TestConstants.Shows.ShowSlug
+                }
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/lists",
+                responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(show, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithType()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}",
+                                                           responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithSortOrderAndWithoutType()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListSortOrder.ToURI()}",
+                                                           responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, ListSortOrder, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}?extended={ExtendedInfo.ToURI()}",
+                                                           responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}?page={Page}",
+                                                           responseContent, Page, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, null, null, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}?limit={Limit}",
+                                                           responseContent, 1, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, null, null, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndSortOrder()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}",
+                                                           responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetSeasonListsUri}/{ListType.ToURI()}?extended={ExtendedInfo.ToURI()}",
+                responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}?page={Page}",
+                                                           responseContent, Page, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, null, null, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}?limit={Limit}",
+                                                           responseContent, 1, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, null, null, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}?page={Page}&limit={Limit}",
+                                                           responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, null, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithSortOrderAndExtendedInfoAndWithoutType()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}",
+                                                           responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, ListSortOrder, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithSortOrderAndPageAndWithoutType()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListSortOrder.ToURI()}?page={Page}",
+                                                           responseContent, Page, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, ListSortOrder, null, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithSortOrderAndLimitAndWithoutType()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListSortOrder.ToURI()}?limit={Limit}",
+                                                           responseContent, 1, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, ListSortOrder, null, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithSortOrderPageAndLimitAndWithoutType()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListSortOrder.ToURI()}?page={Page}&limit={Limit}",
+                                                           responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, ListSortOrder, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithExtendedInfoAndPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetSeasonListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}",
+                responseContent, Page, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithExtendedInfoAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetSeasonListsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}",
+                responseContent, 1, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, null, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithExtendedInfoAndPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetSeasonListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
+                responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}?page={Page}&limit={Limit}",
+                                                           responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndSortOrderAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}",
+                responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndSortOrderAndPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page={Page}",
+                                                           responseContent, Page, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, null, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndSortOrderAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?limit={Limit}",
+                                                           responseContent, 1, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, null, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndSortOrderAndPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page={Page}&limit={Limit}",
+                responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndSortOrderAndExtendedInfoAndPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}" +
+                $"?extended={ExtendedInfo.ToURI()}&page={Page}",
+                responseContent, Page, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsWithTypeAndSortOrderAndExtendedInfoAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}" +
+                $"?extended={ExtendedInfo.ToURI()}&limit={Limit}",
+                responseContent, 1, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsComplete()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}" +
+                $"?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
+                responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=2&limit={Limit}",
+                responseContent, 2, 5, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(5U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=2&limit={Limit}",
+                responseContent, 2, 2, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=1&limit={Limit}",
+                responseContent, 1, 2, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=1&limit={Limit}",
+                responseContent, 1, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetSeasonListsPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=2&limit={Limit}",
+                responseContent, 2, 2, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=1&limit={Limit}",
+                responseContent, 1, 2, Limit, ListItemCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
         }
 
         [Fact]
         public async Task TestGetSeasonListsPagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUriWithSlug}?page=1", responseContent, 1, 2, 10, 2);
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=1&limit={Limit}",
+                responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(TestConstants.Shows.ShowSlug, SeasonNumber, page: 1, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Seasons.GetSeasonListsAsync(ShowID, SeasonNr, ListType, ListSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
 
-            response.HasNextPage.ShouldBe(true);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
 
-            ModuleTestUtility.SetClient(client, $"{GetSeasonListsUriWithSlug}?page=2", responseContent, 2, 2, 10, 2);
+            ModuleTestUtility.SetClient(client, $"{GetSeasonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=2&limit={Limit}",
+                responseContent, 2, 2, Limit, ListItemCount);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+			response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
             response.Page.ShouldBe(2U);
-            ValidateResponse(response, 2U, 10U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiSeasonNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetSeasonListsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonListsUriWithSlug, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonListsUri, statusCode);
 
-            try
-            {
-                await client.Seasons.GetSeasonListsAsync(TestConstants.Shows.ShowIDs, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktPagedResponse<TraktList>>> act = () => client.Seasons.GetSeasonListsAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetSeasonListsWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonlists.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonListsUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetSeasonListsUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktPagedResponse<TraktList>>> act = () => client.Seasons.GetSeasonListsAsync(default(TraktShowIDs), SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktPagedResponse<TraktList>>> act = () => client.Seasons.GetSeasonListsAsync(default(TraktShowIDs)!, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            var ShowIDs = new TraktShowIDs();
-            act = () => client.Seasons.GetSeasonListsAsync(ShowIDs, SeasonNumber, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Seasons.GetSeasonListsAsync(default(TraktShow)!, SeasonNr);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Seasons.GetSeasonListsAsync(new TraktShowIDs(), SeasonNr);
+            await act.ShouldThrowAsync<ArgumentException>();
+
+            act = () => client.Seasons.GetSeasonListsAsync(0, SeasonNr);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

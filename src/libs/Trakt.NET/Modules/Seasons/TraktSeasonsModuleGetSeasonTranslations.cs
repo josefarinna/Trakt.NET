@@ -48,9 +48,15 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
+        /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktShowID"/> is 0.</exception>
         public Task<TraktListResponse<TraktSeasonTranslation>> GetSeasonTranslationsAsync(uint traktShowID, uint seasonNumber,
             string? language = null, CancellationToken cancellationToken = default)
-            => GetSeasonTranslationsImplAsync(traktShowID.ToInvariantCultureString(), seasonNumber, language, cancellationToken);
+        {
+            if (traktShowID == 0)
+                throw new ArgumentException("show id must not be 0", nameof(traktShowID));
+
+            return GetSeasonTranslationsAsync(traktShowID.ToInvariantCultureString(), seasonNumber, language, cancellationToken);
+        }
 
         /// <summary>Gets all translations for a specific <see cref="TraktSeason" /> of a Trakt show with the specified <see cref="TraktShowIDs" />.</summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
@@ -81,11 +87,39 @@
             ArgumentValidator.ThrowIfNull(showIDs);
 
             if (!showIDs.HasAnyID)
-            {
                 throw new ArgumentException($"{nameof(showIDs)} has not any IDs set", nameof(showIDs));
-            }
 
-            return GetSeasonTranslationsImplAsync(showIDs.BestID, seasonNumber, language, cancellationToken);
+            return GetSeasonTranslationsAsync(showIDs.BestID, seasonNumber, language, cancellationToken);
+        }
+
+        /// <summary>Gets all translations for a specific <see cref="TraktSeason" /> of a Trakt show with the specified <see cref="TraktShowIDs" />.</summary>
+        /// <param name="show">The show. See also <seealso cref="TraktShow" />.</param>
+        /// <param name="seasonNumber">The number of the season for which the translations should be queried.</param>
+        /// <param name="language">An optional two-character language code to filter the translations.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried season translations.
+        /// <para />
+        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSeasonTranslation" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/translations/get-all-season-translations">
+        /// Trakt API Documentation: Seasons: Translations - Get all season translations
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="show"/> is null.</exception>
+        public Task<TraktListResponse<TraktSeasonTranslation>> GetSeasonTranslationsAsync(TraktShow show, uint seasonNumber,
+            string? language = null, CancellationToken cancellationToken = default)
+        {
+            ArgumentValidator.ThrowIfNull(show);
+
+            return GetSeasonTranslationsAsync(show.IDs!, seasonNumber, language, cancellationToken);
         }
     }
 }
