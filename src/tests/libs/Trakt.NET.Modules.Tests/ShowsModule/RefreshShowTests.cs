@@ -12,9 +12,9 @@ namespace TraktNET.ShowsModule
         [Fact]
         public async Task TestRefreshShowWithID()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{RefreshShowUriPrefix}/{TestConstants.Shows.ShowID}/{RefreshShowUriSuffix}", HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{RefreshShowUriPrefix}/{TestConstants.Shows.TraktShowID}/{RefreshShowUriSuffix}", HttpStatusCode.Created);
 
-            TraktResponse response = await client.Shows.RefreshShowAsync(TestConstants.Shows.ShowID, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Shows.RefreshShowAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -80,7 +80,7 @@ namespace TraktNET.ShowsModule
 
             try
             {
-                await client.Shows.RefreshShowAsync(TestConstants.Shows.ShowID, TestContext.Current.CancellationToken);
+                await client.Shows.RefreshShowAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

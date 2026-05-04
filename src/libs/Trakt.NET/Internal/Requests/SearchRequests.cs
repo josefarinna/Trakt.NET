@@ -13,11 +13,12 @@
         [TraktRequestQuery("query")]
         public required string Query { get; set; }
 
+        [TraktRequestQuery]
+        public TraktSearchField? SearchField { get; set; }
+
         [TraktRequestQuery("filter")]
         public TraktFilter? Filter { get; set; }
 
-        [TraktRequestQuery]
-        public TraktSearchField? SearchField { get; set; }
     }
 
     [TraktGetRequest("search", SupportsExtendedInfo = true, SupportsPagination = true)]

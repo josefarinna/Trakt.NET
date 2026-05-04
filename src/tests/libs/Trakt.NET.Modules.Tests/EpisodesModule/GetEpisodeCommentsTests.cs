@@ -5,7 +5,6 @@ namespace TraktNET.EpisodesModule
     public sealed class GetEpisodeCommentsTests
     {
         private readonly string GetEpisodeCommentsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/episodes/{EpisodeNr}/comments";
-        private readonly string ShowID = $"{TestConstants.Shows.ShowID}";
         private const uint SeasonNr = 1U;
         private const uint EpisodeNr = 1U;
         private const uint Page = 2U;
@@ -21,7 +20,7 @@ namespace TraktNET.EpisodesModule
 
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeCommentsUri, responseContent, 1, 1, 10, CommentsItemCount);
             
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -39,10 +38,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/episodes/{EpisodeNr}/comments",
-                responseContent, 1, 1, 10, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeCommentsUri, responseContent, 1, 1, 10, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -60,13 +58,12 @@ namespace TraktNET.EpisodesModule
         {
             var showIds = new TraktShowIDs
             {
-                Trakt = TestConstants.Shows.ShowID
+                Trakt = TestConstants.Shows.TraktShowID
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/episodes/{EpisodeNr}/comments",
-                responseContent, 1, 1, 10, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeCommentsUri, responseContent, 1, 1, 10, CommentsItemCount);
 
             TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(showIds, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
@@ -110,18 +107,12 @@ namespace TraktNET.EpisodesModule
         [Fact]
         public async Task TestGetEpisodeCommentsWithShowIds()
         {
-            var showIds = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.ShowID,
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
             TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/comments",
                 responseContent, 1, 1, 10, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(showIds, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowIDs, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -139,11 +130,7 @@ namespace TraktNET.EpisodesModule
         {
             var show = new TraktShow
             {
-                IDs = new TraktShowIDs
-                {
-                    Trakt = TestConstants.Shows.ShowID,
-                    Slug = TestConstants.Shows.ShowSlug
-                }
+                IDs = TestConstants.Shows.ShowIDs
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
@@ -169,10 +156,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}",
-                                                           responseContent, 1, 1, 10, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}", responseContent, 1, 1, 10, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -190,11 +176,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeCommentsUri}?extended={ExtendedInfo.ToURI()}",
-                responseContent, 1, 1, 10, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -212,10 +196,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}?page={Page}",
-                                                           responseContent, Page, 1, 10, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}?page={Page}", responseContent, Page, 1, 10, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, null, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -233,10 +216,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}?limit={Limit}",
-                                                           responseContent, 1, 1, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}?limit={Limit}", responseContent, 1, 1, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, null, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -254,11 +236,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}",
-                responseContent, 1, 1, 10, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -276,10 +256,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}",
-                                                           responseContent, Page, 1, 10, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}", responseContent, Page, 1, 10, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -297,10 +276,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?limit={Limit}",
-                                                           responseContent, 1, 1, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?limit={Limit}", responseContent, 1, 1, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -318,11 +296,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeCommentsUri}?extended={ExtendedInfo.ToURI()}&page={Page}",
-                responseContent, Page, 1, 10, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -340,11 +316,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeCommentsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}",
-                responseContent, 1, 1, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, null, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -362,10 +336,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}?page={Page}&limit={Limit}",
-                                                           responseContent, Page, 1, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -383,11 +356,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}&limit={Limit}",
-                responseContent, 1, 1, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}&limit={Limit}", responseContent, 1, 1, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -405,11 +376,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeCommentsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, 1, 1, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, 1, 1, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -427,11 +396,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -449,10 +416,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}",
-                                                           responseContent, 2, 5, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 5, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -472,10 +438,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}",
-                                                           responseContent, 2, 2, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -495,10 +460,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}",
-                                                           responseContent, 1, 2, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -518,10 +482,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}",
-                                                           responseContent, 1, 1, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 1, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -541,10 +504,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}",
-                                                           responseContent, 2, 2, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -558,8 +520,7 @@ namespace TraktNET.EpisodesModule
             response.HasPreviousPage.ShouldBeTrue();
             response.HasNextPage.ShouldBeFalse();
 
-            ModuleTestUtility.SetClient(client, $"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}",
-                                        responseContent, 1, 2, Limit, CommentsItemCount);
+            ModuleTestUtility.SetClient(client, $"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, CommentsItemCount);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
@@ -581,10 +542,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodecomments.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}",
-                                                           responseContent, 1, 2, Limit, CommentsItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, CommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, CommentSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -598,8 +558,7 @@ namespace TraktNET.EpisodesModule
             response.HasPreviousPage.ShouldBeFalse();
             response.HasNextPage.ShouldBeTrue();
 
-            ModuleTestUtility.SetClient(client, $"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}",
-                                        responseContent, 2, 2, Limit, CommentsItemCount);
+            ModuleTestUtility.SetClient(client, $"{GetEpisodeCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, CommentsItemCount);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
@@ -648,7 +607,7 @@ namespace TraktNET.EpisodesModule
 			
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeCommentsUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktComment>>> act = () => client.Episodes.GetEpisodeCommentsAsync(ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktComment>>> act = () => client.Episodes.GetEpisodeCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 

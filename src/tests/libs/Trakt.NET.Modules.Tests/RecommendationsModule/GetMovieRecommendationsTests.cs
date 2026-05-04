@@ -5,34 +5,338 @@ namespace TraktNET.RecommendationsModule
     public sealed class GetMovieRecommendationsTests
     {
         private const string GetMovieRecommendationsUri = "recommendations/movies";
+        private const uint Page = 2U;
+        private const uint Limit = 4U;
+        private const uint MovieRecommendationsCount = 3U;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, null, null, null, null, GetMovieRecommendationsUri)]
-        [InlineData(true, true, null, null, null, $"{GetMovieRecommendationsUri}?ignore_collected=true&ignore_watchlisted=true")]
-        [InlineData(null, null, TraktExtendedInfo.Full, null, null, $"{GetMovieRecommendationsUri}?extended=full")]
-        [InlineData(null, null, null, 2U, null, $"{GetMovieRecommendationsUri}?page=2")]
-        [InlineData(null, null, null, null, 5U, $"{GetMovieRecommendationsUri}?limit=5")]
-        [InlineData(true, null, null, 2U, null, $"{GetMovieRecommendationsUri}?ignore_collected=true&page=2")]
-        [InlineData(true, true, TraktExtendedInfo.Full, 3U, 10U, $"{GetMovieRecommendationsUri}?ignore_collected=true&ignore_watchlisted=true&extended=full&page=3&limit=10")]
-        public async Task TestGetMovieRecommendations(bool? ignoreCollected, bool? ignoreWatchlisted, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string expectedUri)
+        [Fact]
+        public async Task TestGetMovieRecommendations()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
-            uint expectedPage = page ?? 1U;
-            uint expectedLimit = limit ?? 10U;
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(expectedUri, responseContent, expectedPage, 1, expectedLimit, 3);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetMovieRecommendationsUri,
+                                                                responseContent, 1, 1, 10, MovieRecommendationsCount);
 
-            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(ignoreCollected, ignoreWatchlisted, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(3);
-            response.ItemCount.ShouldBe(3U);
-            response.Page.ShouldBe(expectedPage);
-            response.Limit.ShouldBe(expectedLimit);
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
             response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsWithPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}?page={Page}",
+                                                                responseContent, Page, 1, 10, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(page: Page, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}?limit={Limit}",
+                                                                responseContent, 1, 1, Limit, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsWithIgnoreCollected()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}?ignore_collected=true",
+                                                                responseContent, 1, 1, 10, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(ignoreCollected: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsWithIgnoreWatchlisted()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}?ignore_watchlisted=true",
+                                                                responseContent, 1, 1, 10, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(ignoreWatchlisted: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}?extended={ExtendedInfo.ToURI()}",
+                                                                responseContent, 1, 1, 10, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(extendedInfo: ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsComplete()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(
+                $"{GetMovieRecommendationsUri}" +
+                $"?ignore_collected=true&ignore_watchlisted=true&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
+                responseContent, Page, 1, Limit, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(true, true, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}" +
+                $"?ignore_collected=true&ignore_watchlisted=true&extended={ExtendedInfo.ToURI()}&page=2&limit={Limit}",
+                responseContent, 2, 5, Limit, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(true, true, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(5U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}" +
+                $"?ignore_collected=true&ignore_watchlisted=true&extended={ExtendedInfo.ToURI()}&page=2&limit={Limit}",
+                responseContent, 2, 2, Limit, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(true, true, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}" +
+                $"?ignore_collected=true&ignore_watchlisted=true&extended={ExtendedInfo.ToURI()}&page=1&limit={Limit}",
+                responseContent, 1, 2, Limit, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(true, true, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}" +
+                $"?ignore_collected=true&ignore_watchlisted=true&extended={ExtendedInfo.ToURI()}&page=1&limit={Limit}",
+                responseContent, 1, 1, Limit, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(true, true, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}" +
+                $"?ignore_collected=true&ignore_watchlisted=true&extended={ExtendedInfo.ToURI()}&page=2&limit={Limit}",
+                responseContent, 2, 2, Limit, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(true, true, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetMovieRecommendationsUri}" +
+                $"?ignore_collected=true&ignore_watchlisted=true&extended={ExtendedInfo.ToURI()}&page=1&limit={Limit}",
+                responseContent, 1, 2, Limit, MovieRecommendationsCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetMovieRecommendationsPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\recommendedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMovieRecommendationsUri}" +
+                $"?ignore_collected=true&ignore_watchlisted=true&extended={ExtendedInfo.ToURI()}&page=1&limit={Limit}",
+                responseContent, 1, 2, Limit, MovieRecommendationsCount);
+
+            TraktPagedResponse<TraktRecommendedMovie> response = await client.Recommendations.GetMovieRecommendationsAsync(true, true, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+
+            ModuleTestUtility.SetClient(client, $"{GetMovieRecommendationsUri}" +
+                $"?ignore_collected=true&ignore_watchlisted=true&extended={ExtendedInfo.ToURI()}&page=2&limit={Limit}",
+                responseContent, 2, 2, Limit, MovieRecommendationsCount);
+
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)MovieRecommendationsCount);
+            response.ItemCount.ShouldBe(MovieRecommendationsCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Theory]

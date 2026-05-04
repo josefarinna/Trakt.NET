@@ -33,7 +33,7 @@ namespace TraktNET.ShowsModule
             TraktClient client = ModuleTestUtility.GetClient(GetShowWatchedProgressUri, responseContent);
 
             TraktResponse<TraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(
-                TestConstants.Shows.ShowID, cancellationToken: TestContext.Current.CancellationToken);
+                TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }

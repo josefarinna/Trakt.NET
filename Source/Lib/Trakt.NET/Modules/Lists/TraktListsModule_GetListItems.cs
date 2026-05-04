@@ -33,16 +33,19 @@
         /// <returns>A list of <see cref="ITraktListItem" /> instances.</returns>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktPagedResponse<ITraktListItem>> GetListItemsAsync(string listIdOrSlug, TraktListItemType listItemType = null,
-                                                                          TraktExtendedInfo extendedInfo = null, TraktPagedParameters pagedParameters = null,
+        public Task<TraktPagedResponse<ITraktListItem>> GetListItemsAsync(string listIdOrSlug, TraktPagedParameters pagedParameters,
+                                                                          TraktListItemType listItemType = null, TraktExtendedInfo extendedInfo = null,
                                                                           CancellationToken cancellationToken = default)
         {
+            if (pagedParameters == null)
+                throw new ArgumentNullException(nameof(pagedParameters));
+
             var request = new ListItemsRequest
             {
                 Id = listIdOrSlug,
                 Type = listItemType,
                 ExtendedInfo = extendedInfo,
-                Page = pagedParameters?.Page,
+                Page = pagedParameters.Page,
                 Limit = pagedParameters?.Limit
             };
 
@@ -70,14 +73,14 @@
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktListId"/> is 0.</exception>
-        public Task<TraktPagedResponse<ITraktListItem>> GetListItemsAsync(uint traktListId, TraktListItemType listItemType = null,
-                                                                          TraktExtendedInfo extendedInfo = null, TraktPagedParameters pagedParameters = null,
+        public Task<TraktPagedResponse<ITraktListItem>> GetListItemsAsync(uint traktListId, TraktPagedParameters pagedParameters,
+                                                                          TraktListItemType listItemType = null, TraktExtendedInfo extendedInfo = null,
                                                                           CancellationToken cancellationToken = default)
         {
             if (traktListId == 0)
                 throw new ArgumentException("list id must not be 0", nameof(traktListId));
 
-            return GetListItemsAsync(traktListId.ToString(), listItemType, extendedInfo, pagedParameters, cancellationToken);
+            return GetListItemsAsync(traktListId.ToString(), pagedParameters, listItemType, extendedInfo, cancellationToken);
         }
 
         /// <summary>
@@ -102,8 +105,8 @@
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="listIds"/> is null.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="listIds"/> has not any ids set.</exception>
-        public Task<TraktPagedResponse<ITraktListItem>> GetListItemsAsync(ITraktListIds listIds, TraktListItemType listItemType = null,
-                                                                          TraktExtendedInfo extendedInfo = null, TraktPagedParameters pagedParameters = null,
+        public Task<TraktPagedResponse<ITraktListItem>> GetListItemsAsync(ITraktListIds listIds, TraktPagedParameters pagedParameters,
+                                                                          TraktListItemType listItemType = null, TraktExtendedInfo extendedInfo = null,
                                                                           CancellationToken cancellationToken = default)
         {
             if (listIds == null)
@@ -112,7 +115,7 @@
             if (!listIds.HasAnyId)
                 throw new ArgumentException($"{nameof(listIds)} has not any ids set", nameof(listIds));
 
-            return GetListItemsAsync(listIds.GetBestId(), listItemType, extendedInfo, pagedParameters, cancellationToken);
+            return GetListItemsAsync(listIds.GetBestId(), pagedParameters, listItemType, extendedInfo, cancellationToken);
         }
 
         /// <summary>
@@ -136,14 +139,14 @@
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="list"/> is null.</exception>
-        public Task<TraktPagedResponse<ITraktListItem>> GetListItemsAsync(ITraktList list, TraktListItemType listItemType = null,
-                                                                          TraktExtendedInfo extendedInfo = null, TraktPagedParameters pagedParameters = null,
+        public Task<TraktPagedResponse<ITraktListItem>> GetListItemsAsync(ITraktList list, TraktPagedParameters pagedParameters,
+                                                                          TraktListItemType listItemType = null, TraktExtendedInfo extendedInfo = null,
                                                                           CancellationToken cancellationToken = default)
         {
             if (list == null)
                 throw new ArgumentNullException(nameof(list));
 
-            return GetListItemsAsync(list.Ids, listItemType, extendedInfo, pagedParameters, cancellationToken);
+            return GetListItemsAsync(list.Ids, pagedParameters, listItemType, extendedInfo, cancellationToken);
         }
     }
 }

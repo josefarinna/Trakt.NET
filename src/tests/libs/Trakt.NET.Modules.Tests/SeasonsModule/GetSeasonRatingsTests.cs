@@ -4,7 +4,7 @@ namespace TraktNET.SeasonsModule
 {
     public sealed class GetSeasonRatingsTests
     {
-        private static readonly string GetSeasonRatingsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/1/ratings";
+        private const string GetSeasonRatingsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/1/ratings";
         private const uint SeasonNr = 1U;
 
         [Fact]
@@ -14,17 +14,17 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonRatingsUri, responseContent);
 
-            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync($"{TestConstants.Shows.ShowID}", SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(TestConstants.Shows.ShowID, SeasonNr, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktRating seasonRatings = response.Content!;
+            TraktRating responseValue = response.Content;
 
-            seasonRatings.Rating.ShouldBe(8.8911f);
-            seasonRatings.Votes.ShouldBe(145026U);
+            responseValue.Rating.ShouldBe(8.8911f);
+            responseValue.Votes.ShouldBe(145026U);
 
             var distribution = new Dictionary<string, uint>()
             {
@@ -32,9 +32,9 @@ namespace TraktNET.SeasonsModule
                 { "6",  3565 }, { "7", 8411 }, { "8", 19929 }, { "9", 32323 }, { "10", 73856 }
             };
 
-            seasonRatings.Distribution.ShouldNotBeNull();
-            seasonRatings.Distribution.Count.ShouldBe(10);
-            seasonRatings.Distribution.ShouldBeEquivalentTo(distribution);
+            responseValue.Distribution.ShouldNotBeNull();
+            responseValue.Distribution.Count.ShouldBe(10);
+            responseValue.Distribution.ShouldBeEquivalentTo(distribution);
         }
 
         [Fact]
@@ -44,7 +44,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonRatingsUri, responseContent);
             
-            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(TestConstants.Shows.ShowID, SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(TestConstants.Shows.TraktShowID, SeasonNr, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -57,7 +57,7 @@ namespace TraktNET.SeasonsModule
         {
             var showIDs = new TraktShowIDs
             {
-                Trakt = TestConstants.Shows.ShowID
+                Trakt = TestConstants.Shows.TraktShowID
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonratings.json");
@@ -95,17 +95,11 @@ namespace TraktNET.SeasonsModule
         [Fact]
         public async Task TestGetSeasonRatingsWithShowIDs()
         {
-            var showIDs = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.ShowID,
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonratings.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/ratings", responseContent);
             
-            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(showIDs, SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(TestConstants.Shows.ShowIDs, SeasonNr, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -118,11 +112,7 @@ namespace TraktNET.SeasonsModule
         {
             var show = new TraktShow
             {
-                IDs = new TraktShowIDs
-                {
-                    Trakt = TestConstants.Shows.ShowID,
-                    Slug = TestConstants.Shows.ShowSlug
-                }
+                IDs = TestConstants.Shows.ShowIDs
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonratings.json");
@@ -135,32 +125,6 @@ namespace TraktNET.SeasonsModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-        }
-
-        private static void ValidateResponse(TraktResponse<TraktRating> response)
-        {
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-
-            TraktRating seasonRatings = response.Content!;
-
-            seasonRatings.Rating.ShouldBe(8.8911f);
-            seasonRatings.Votes.ShouldBe(145026U);
-
-            seasonRatings.Distribution.ShouldNotBeNull();
-            seasonRatings.Distribution.Count.ShouldBe(10);
-            seasonRatings.Distribution["1"].ShouldBe(2488U);
-            seasonRatings.Distribution["2"].ShouldBe(711U);
-            seasonRatings.Distribution["3"].ShouldBe(737U);
-            seasonRatings.Distribution["4"].ShouldBe(893U);
-            seasonRatings.Distribution["5"].ShouldBe(2107U);
-            seasonRatings.Distribution["6"].ShouldBe(3565U);
-            seasonRatings.Distribution["7"].ShouldBe(8411U);
-            seasonRatings.Distribution["8"].ShouldBe(19929U);
-            seasonRatings.Distribution["9"].ShouldBe(32323U);
-            seasonRatings.Distribution["10"].ShouldBe(73856U);
         }
 
         [Theory]

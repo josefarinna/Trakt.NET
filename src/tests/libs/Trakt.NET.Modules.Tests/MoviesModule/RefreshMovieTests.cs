@@ -7,14 +7,14 @@ namespace TraktNET.MoviesModule
         private const string RefreshMovieUriPrefix = "movies";
         private const string RefreshMovieUriSuffix = "refresh";
         private const string RefreshMovieUriWithSlug = RefreshMovieUriPrefix + "/" + TestConstants.Movies.MovieSlug + "/" + RefreshMovieUriSuffix;
-        private static readonly string RefreshMovieUri = $"{RefreshMovieUriPrefix}/{TestConstants.Movies.MovieID}/{RefreshMovieUriSuffix}";
+        private static readonly string RefreshMovieUri = $"{RefreshMovieUriPrefix}/{TestConstants.Movies.TraktMovieID}/{RefreshMovieUriSuffix}";
 
         [Fact]
         public async Task TestRefreshMovieWithID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{RefreshMovieUriPrefix}/293990/{RefreshMovieUriSuffix}", HttpStatusCode.Created);
 
-            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -80,7 +80,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
+                await client.Movies.RefreshMovieAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

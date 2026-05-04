@@ -7,7 +7,7 @@ namespace TraktNET.MoviesModule
         private const string GetMovieWatchingUsersUriPrefix = "movies";
         private const string GetMovieWatchingUsersUriSuffix = "watching";
         private const string GetMovieWatchingUsersUriWithSlug = GetMovieWatchingUsersUriPrefix + "/" + TestConstants.Movies.MovieSlug + "/" + GetMovieWatchingUsersUriSuffix;
-        private static readonly string GetMovieWatchingUsersUri = $"{GetMovieWatchingUsersUriPrefix}/{TestConstants.Movies.MovieID}/{GetMovieWatchingUsersUriSuffix}";
+        private static readonly string GetMovieWatchingUsersUri = $"{GetMovieWatchingUsersUriPrefix}/{TestConstants.Movies.TraktMovieID}/{GetMovieWatchingUsersUriSuffix}";
 
         [Theory]
         [InlineData(null, $"{GetMovieWatchingUsersUriPrefix}/293990/{GetMovieWatchingUsersUriSuffix}", "Movies\\moviewatchingusers.json")]
@@ -18,7 +18,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieID, extendedInfo, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.TraktMovieID, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -140,7 +140,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieID, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.TraktMovieID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

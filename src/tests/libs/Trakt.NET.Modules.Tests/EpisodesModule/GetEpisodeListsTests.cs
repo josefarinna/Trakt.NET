@@ -5,7 +5,6 @@ namespace TraktNET.EpisodesModule
     public sealed class GetEpisodeListsTests
     {
         private readonly string GetEpisodeListsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/episodes/{EpisodeNr}/lists";
-        private readonly string ShowID = $"{TestConstants.Shows.ShowID}";
         private const uint SeasonNr = 1U;
         private const uint EpisodeNr = 1U;
         private const uint Page = 2U;
@@ -22,7 +21,7 @@ namespace TraktNET.EpisodesModule
 
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeListsUri, responseContent, 1, 1, 10, ListItemCount);
 
-			TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+			TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -40,10 +39,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/episodes/{EpisodeNr}/lists",
-                responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeListsUri, responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -61,13 +59,12 @@ namespace TraktNET.EpisodesModule
         {
             var showIds = new TraktShowIDs
             {
-                Trakt = TestConstants.Shows.ShowID
+                Trakt = TestConstants.Shows.TraktShowID
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/episodes/{EpisodeNr}/lists",
-                responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeListsUri, responseContent, 1, 1, 10, ListItemCount);
 
             TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(showIds, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
@@ -92,8 +89,7 @@ namespace TraktNET.EpisodesModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/lists",
-                responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/lists", responseContent, 1, 1, 10, ListItemCount);
 
             TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(showIds, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
@@ -111,18 +107,11 @@ namespace TraktNET.EpisodesModule
         [Fact]
         public async Task TestGetEpisodeListsWithShowIds()
         {
-            var showIds = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.ShowID,
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/lists",
-                responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/lists", responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(showIds, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowIDs, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -140,17 +129,12 @@ namespace TraktNET.EpisodesModule
         {
             var show = new TraktShow
             {
-                IDs = new TraktShowIDs
-                {
-                    Trakt = TestConstants.Shows.ShowID,
-                    Slug = TestConstants.Shows.ShowSlug
-                }
+                IDs = TestConstants.Shows.ShowIDs
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/lists",
-                responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/lists", responseContent, 1, 1, 10, ListItemCount);
 
             TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(show, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
@@ -170,10 +154,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}",
-                                                           responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -191,10 +174,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListSortOrder.ToURI()}",
-                                                           responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListSortOrder.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, ListSortOrder, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, ListSortOrder, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -212,10 +194,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?extended={ExtendedInfo.ToURI()}",
-                                                           responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -233,10 +214,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?page={Page}",
-                                                           responseContent, Page, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, null, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -254,10 +234,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?limit={Limit}",
-                                                           responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, null, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, null, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -275,10 +254,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}",
-                                                           responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -296,11 +274,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeListsUri}/{ListType.ToURI()}?extended={ExtendedInfo.ToURI()}",
-                responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -318,10 +294,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}?page={Page}",
-                                                           responseContent, Page, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, null, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -339,10 +314,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}?limit={Limit}",
-                                                           responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, null, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, null, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -360,10 +334,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}?page={Page}&limit={Limit}",
-                                                           responseContent, Page, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, null, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -381,10 +354,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}",
-                                                           responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, ListSortOrder, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, ListSortOrder, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -402,10 +374,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListSortOrder.ToURI()}?page={Page}",
-                                                           responseContent, Page, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListSortOrder.ToURI()}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, ListSortOrder, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, ListSortOrder, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -423,10 +394,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListSortOrder.ToURI()}?limit={Limit}",
-                                                           responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListSortOrder.ToURI()}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, ListSortOrder, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, ListSortOrder, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -444,10 +414,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListSortOrder.ToURI()}?page={Page}&limit={Limit}",
-                                                           responseContent, Page, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListSortOrder.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, ListSortOrder, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, ListSortOrder, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -465,11 +434,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}",
-                responseContent, Page, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -487,11 +454,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeListsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}",
-                responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, null, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, null, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -509,11 +474,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -531,10 +494,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?page={Page}&limit={Limit}",
-                                                           responseContent, Page, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}?page={Page}&limit={Limit}",responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -552,11 +514,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}",
-                responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -574,10 +534,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page={Page}",
-                                                           responseContent, Page, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -595,10 +554,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?limit={Limit}",
-                                                           responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -616,11 +574,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -643,7 +599,7 @@ namespace TraktNET.EpisodesModule
                 $"?extended={ExtendedInfo.ToURI()}&page={Page}",
                 responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -661,12 +617,9 @@ namespace TraktNET.EpisodesModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodelists.json");
 			
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}" +
-                $"?extended={ExtendedInfo.ToURI()}&limit={Limit}",
-                responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -689,7 +642,7 @@ namespace TraktNET.EpisodesModule
                 $"?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
                 responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType, ListSortOrder, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -710,7 +663,7 @@ namespace TraktNET.EpisodesModule
             TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=2&limit={Limit}",
                                                            responseContent, 2, 5, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType,
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType,
                                                                                                  ListSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -734,7 +687,7 @@ namespace TraktNET.EpisodesModule
             TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=2&limit={Limit}",
                                                            responseContent, 2, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType,
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType,
                                                                                                  ListSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -758,7 +711,7 @@ namespace TraktNET.EpisodesModule
             TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=1&limit={Limit}",
                                                            responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType,
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType,
                                                                                                  ListSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -782,7 +735,7 @@ namespace TraktNET.EpisodesModule
             TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=1&limit={Limit}",
                                                            responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType,
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType,
                                                                                                  ListSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -806,7 +759,7 @@ namespace TraktNET.EpisodesModule
             TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=2&limit={Limit}",
                                                            responseContent, 2, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType,
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType,
                                                                                                  ListSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -821,8 +774,7 @@ namespace TraktNET.EpisodesModule
             response.HasPreviousPage.ShouldBeTrue();
             response.HasNextPage.ShouldBeFalse();
 
-            ModuleTestUtility.SetClient(client, $"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=1&limit={Limit}",
-                                        responseContent, 1, 2, Limit, ListItemCount);
+            ModuleTestUtility.SetClient(client, $"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
@@ -847,7 +799,7 @@ namespace TraktNET.EpisodesModule
             TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=1&limit={Limit}",
                                                            responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, ListType,
+            TraktPagedResponse<TraktList> response = await client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ListType,
                                                                                                  ListSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -862,8 +814,7 @@ namespace TraktNET.EpisodesModule
             response.HasPreviousPage.ShouldBeFalse();
             response.HasNextPage.ShouldBeTrue();
 
-            ModuleTestUtility.SetClient(client, $"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=2&limit={Limit}",
-                                        responseContent, 2, 2, Limit, ListItemCount);
+            ModuleTestUtility.SetClient(client, $"{GetEpisodeListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
@@ -910,7 +861,7 @@ namespace TraktNET.EpisodesModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeListsUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktList>>> act = () => client.Episodes.GetEpisodeListsAsync(ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktList>>> act = () => client.Episodes.GetEpisodeListsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 

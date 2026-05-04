@@ -32,7 +32,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showlists.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowListsUri, responseContent);
 
-            TraktPagedResponse<TraktList> response = await client.Shows.GetShowListsAsync(TestConstants.Shows.ShowID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Shows.GetShowListsAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
             ValidateResponse(response, null, null);
         }

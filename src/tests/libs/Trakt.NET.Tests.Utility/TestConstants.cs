@@ -31,7 +31,9 @@
 
         public static class Movies
         {
-            public const uint MovieID = 293990U;
+            public const string MovieID = "293990";
+
+            public const uint TraktMovieID = 293990U;
 
             public const string MovieSlug = "guardians-of-the-galaxy-volume-3-2023";
 
@@ -52,7 +54,9 @@
 
         public static class Shows
         {
-            public const uint ShowID = 1390U;
+            public const string ShowID = "1390";
+
+            public const uint TraktShowID = 1390U;
 
             public const string ShowSlug = "game-of-thrones";
 

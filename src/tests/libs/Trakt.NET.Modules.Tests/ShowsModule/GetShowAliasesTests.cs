@@ -15,7 +15,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showaliases.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowAliasesUri, responseContent);
 
-            TraktListResponse<TraktShowAlias> response = await client.Shows.GetShowAliasesAsync(TestConstants.Shows.ShowID, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktShowAlias> response = await client.Shows.GetShowAliasesAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }
@@ -72,7 +72,7 @@ namespace TraktNET.ShowsModule
 
             try
             {
-                await client.Shows.GetShowAliasesAsync(TestConstants.Shows.ShowID, TestContext.Current.CancellationToken);
+                await client.Shows.GetShowAliasesAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
                 Assert.Fail("Exception should have been thrown");
             }
             catch (Exception exception)

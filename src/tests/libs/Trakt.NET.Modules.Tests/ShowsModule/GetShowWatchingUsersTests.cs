@@ -17,7 +17,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktListResponse<TraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.ShowID, extendedInfo, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.TraktShowID, extendedInfo, TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }

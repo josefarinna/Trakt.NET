@@ -4,18 +4,15 @@ namespace TraktNET.EpisodesModule
 {
     public sealed class GetEpisodeVideosTests
     {
-        private const string GetEpisodeVideosUriPrefix = "shows";
-        private const string GetEpisodeVideosUriSuffix = "videos";
-        private readonly string ShowID = $"{TestConstants.Shows.ShowID}";
+        private static readonly string GetEpisodeVideosUri = $"shows/{TestConstants.Shows.ShowID}/seasons/1/episodes/1/videos";
         private const uint SeasonNr = 1U;
         private const uint EpisodeNr = 1U;
-        private static readonly string GetEpisodeVideosUri = $"{GetEpisodeVideosUriPrefix}/{TestConstants.Shows.ShowID}/seasons/1/episodes/1/{GetEpisodeVideosUriSuffix}";
-        private static readonly string GetEpisodeVideosUriWithSlug = $"{GetEpisodeVideosUriPrefix}/{TestConstants.Shows.ShowSlug}/seasons/1/episodes/1/{GetEpisodeVideosUriSuffix}";
 
         [Fact]
-        public async Task TestGetEpisodeVideosWithID()
+        public async Task TestGetEpisodeVideos()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodevideos.json");
+
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeVideosUri, responseContent);
 
             TraktListResponse<TraktVideo> response = await client.Episodes.GetEpisodeVideosAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
@@ -24,23 +21,76 @@ namespace TraktNET.EpisodesModule
         }
 
         [Fact]
-        public async Task TestGetEpisodeVideosWithSlug()
+        public async Task TestGetEpisodeVideosWithTraktID()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodevideos.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeVideosUriWithSlug, responseContent);
 
-            TraktListResponse<TraktVideo> response = await client.Episodes.GetEpisodeVideosAsync(TestConstants.Shows.ShowSlug, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeVideosUri, responseContent);
+
+            TraktListResponse<TraktVideo> response = await client.Episodes.GetEpisodeVideosAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }
 
         [Fact]
-        public async Task TestGetEpisodeVideosWithIDs()
+        public async Task TestGetEpisodeVideosWithShowIDsTraktID()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Trakt = TestConstants.Shows.TraktShowID
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodevideos.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowID}/seasons/1/episodes/1/videos", responseContent);
+
+            TraktListResponse<TraktVideo> response = await client.Episodes.GetEpisodeVideosAsync(showIDs, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            ValidateResponse(response);
+        }
+
+        [Fact]
+        public async Task TestGetEpisodeVideosWithShowIDsSlug()
+        {
+            var showIDs = new TraktShowIDs
+            {
+                Slug = TestConstants.Shows.ShowSlug
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodevideos.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/1/episodes/1/videos", responseContent);
+
+            TraktListResponse<TraktVideo> response = await client.Episodes.GetEpisodeVideosAsync(showIDs, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            ValidateResponse(response);
+        }
+
+        [Fact]
+        public async Task TestGetEpisodeVideosWithShowIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodevideos.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeVideosUriWithSlug, responseContent);
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/1/episodes/1/videos", responseContent);
 
             TraktListResponse<TraktVideo> response = await client.Episodes.GetEpisodeVideosAsync(TestConstants.Shows.ShowIDs, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            ValidateResponse(response);
+        }
+
+        [Fact]
+        public async Task TestGetEpisodeVideosWithShow()
+        {
+            var show = new TraktShow
+            {
+                IDs = TestConstants.Shows.ShowIDs
+            };
+
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodevideos.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/1/episodes/1/videos", responseContent);
+
+            TraktListResponse<TraktVideo> response = await client.Episodes.GetEpisodeVideosAsync(show, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }
@@ -104,14 +154,14 @@ namespace TraktNET.EpisodesModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeVideosUri, statusCode);
 
-            Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Episodes.GetEpisodeVideosAsync(ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Episodes.GetEpisodeVideosAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetEpisodeVideosWithIDsThrowsArgumentException()
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeVideosUriWithSlug, HttpStatusCode.OK);
+            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeVideosUri, HttpStatusCode.OK);
 
             Func<Task<TraktListResponse<TraktVideo>>> act = () => client.Episodes.GetEpisodeVideosAsync(default(TraktShowIDs)!, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();

@@ -5,13 +5,13 @@ namespace TraktNET.RecommendationsModule
 {
     public sealed class HideUserMovieRecommendationTests
     {
-        private readonly string HideMovieRecommendationUri = $"recommendations/movies/{TestConstants.Movies.MovieID}";
+        private readonly string HideMovieRecommendationUri = $"recommendations/movies/{TestConstants.Movies.TraktMovieID}";
 
         [Fact]
         public async Task TestHideMovieRecommendation()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideMovieRecommendationUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Recommendations.HideMovieRecommendationAsync(TestConstants.Movies.MovieID.ToString(CultureInfo.InvariantCulture), TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Recommendations.HideMovieRecommendationAsync(TestConstants.Movies.TraktMovieID.ToString(CultureInfo.InvariantCulture), TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -21,7 +21,7 @@ namespace TraktNET.RecommendationsModule
         public async Task TestHideMovieRecommendationRatingsWithTraktID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideMovieRecommendationUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Recommendations.HideMovieRecommendationAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Recommendations.HideMovieRecommendationAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -32,7 +32,7 @@ namespace TraktNET.RecommendationsModule
         {
             var movieIds = new TraktMovieIDs
             {
-                Trakt = TestConstants.Movies.MovieID
+                Trakt = TestConstants.Movies.TraktMovieID
             };
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideMovieRecommendationUri, HttpStatusCode.NoContent);
@@ -112,7 +112,7 @@ namespace TraktNET.RecommendationsModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideMovieRecommendationUri, statusCode);
 
-            Func<Task<TraktResponse>> act = () => client.Recommendations.HideMovieRecommendationAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Recommendations.HideMovieRecommendationAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
@@ -121,14 +121,10 @@ namespace TraktNET.RecommendationsModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideMovieRecommendationUri, HttpStatusCode.NoContent);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse>> act = () => client.Recommendations.HideMovieRecommendationAsync(default(TraktMovieIDs), TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktResponse>> act = () => client.Recommendations.HideMovieRecommendationAsync(default(TraktMovieIDs)!, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-#pragma warning disable CS8625
-            act = () => client.Recommendations.HideMovieRecommendationAsync(default(TraktMovie), TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            act = () => client.Recommendations.HideMovieRecommendationAsync(default(TraktMovie)!, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
             act = () => client.Recommendations.HideMovieRecommendationAsync(new TraktMovieIDs(), TestContext.Current.CancellationToken);

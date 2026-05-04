@@ -33,7 +33,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcomments.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowCommentsUri, responseContent);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
             ValidateResponse(response, null, null);
         }

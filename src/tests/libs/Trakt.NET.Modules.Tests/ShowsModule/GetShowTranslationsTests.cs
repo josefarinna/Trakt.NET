@@ -29,7 +29,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showtranslations.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUri, responseContent);
 
-            TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }

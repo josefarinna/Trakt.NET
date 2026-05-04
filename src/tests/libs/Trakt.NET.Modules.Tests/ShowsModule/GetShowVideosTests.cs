@@ -15,7 +15,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showvideos.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowVideosUri, responseContent);
 
-            TraktListResponse<TraktVideo> response = await client.Shows.GetShowVideosAsync(TestConstants.Shows.ShowID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktVideo> response = await client.Shows.GetShowVideosAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }
@@ -80,7 +80,7 @@ namespace TraktNET.ShowsModule
 
             try
             {
-                await client.Shows.GetShowVideosAsync(TestConstants.Shows.ShowID, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Shows.GetShowVideosAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.Fail("Exception should have been thrown");
             }
             catch (Exception exception)

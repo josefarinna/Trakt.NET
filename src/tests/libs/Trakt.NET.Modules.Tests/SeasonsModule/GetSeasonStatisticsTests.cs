@@ -4,7 +4,7 @@ namespace TraktNET.SeasonsModule
 {
     public sealed class GetSeasonStatisticsTests
     {
-        private static readonly string GetSeasonStatisticsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/1/stats";
+        private const string GetSeasonStatisticsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/1/stats";
         private const uint SeasonNr = 1U;
 
         [Fact]
@@ -14,7 +14,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonStatisticsUri, responseContent);
             
-            TraktResponse<TraktSeasonStatistics> response = await client.Seasons.GetSeasonStatisticsAsync($"{TestConstants.Shows.ShowID}", SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktSeasonStatistics> response = await client.Seasons.GetSeasonStatisticsAsync(TestConstants.Shows.ShowID, SeasonNr, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -22,7 +22,7 @@ namespace TraktNET.SeasonsModule
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
 
-            TraktSeasonStatistics responseValue = response.Content!;
+            TraktSeasonStatistics responseValue = response.Content;
 
             responseValue.Watchers.ShouldBe(312487U);
             responseValue.Plays.ShouldBe(3697671U);
@@ -40,7 +40,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonStatisticsUri, responseContent);
             
-            TraktResponse<TraktSeasonStatistics> response = await client.Seasons.GetSeasonStatisticsAsync(TestConstants.Shows.ShowID, SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktSeasonStatistics> response = await client.Seasons.GetSeasonStatisticsAsync(TestConstants.Shows.TraktShowID, SeasonNr, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -53,7 +53,7 @@ namespace TraktNET.SeasonsModule
         {
             var showIDs = new TraktShowIDs
             {
-                Trakt = TestConstants.Shows.ShowID
+                Trakt = TestConstants.Shows.TraktShowID
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonstatistics.json");
@@ -91,17 +91,11 @@ namespace TraktNET.SeasonsModule
         [Fact]
         public async Task TestGetSeasonStatisticsWithShowIDs()
         {
-            var showIDs = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.ShowID,
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonstatistics.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/stats", responseContent);
             
-            TraktResponse<TraktSeasonStatistics> response = await client.Seasons.GetSeasonStatisticsAsync(showIDs, SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktSeasonStatistics> response = await client.Seasons.GetSeasonStatisticsAsync(TestConstants.Shows.ShowIDs, SeasonNr, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -114,11 +108,7 @@ namespace TraktNET.SeasonsModule
         {
             var show = new TraktShow
             {
-                IDs = new TraktShowIDs
-                {
-                    Trakt = TestConstants.Shows.ShowID,
-                    Slug = TestConstants.Shows.ShowSlug
-                }
+                IDs = TestConstants.Shows.ShowIDs
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonstatistics.json");
@@ -136,6 +126,29 @@ namespace TraktNET.SeasonsModule
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiSeasonNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetSeasonStatisticsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonStatisticsUri, statusCode);

@@ -114,7 +114,7 @@ namespace TraktNET.ShowsModule
 
             try
             {
-                await client.Shows.GetShowAsync(TestConstants.Shows.ShowID,
+                await client.Shows.GetShowAsync(TestConstants.Shows.TraktShowID,
                                                 cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }

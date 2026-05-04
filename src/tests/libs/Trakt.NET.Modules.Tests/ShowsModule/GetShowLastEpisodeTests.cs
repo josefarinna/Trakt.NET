@@ -22,7 +22,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episode_full.json");
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(TestConstants.Shows.ShowID, extendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(TestConstants.Shows.TraktShowID, extendedInfo, TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }

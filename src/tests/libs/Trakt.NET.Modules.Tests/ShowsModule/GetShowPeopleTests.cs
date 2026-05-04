@@ -18,7 +18,7 @@ namespace TraktNET.ShowsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.ShowID, extendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.TraktShowID, extendedInfo, TestContext.Current.CancellationToken);
 
             ValidateResponse(response);
         }
@@ -83,7 +83,7 @@ namespace TraktNET.ShowsModule
 
             try
             {
-                await client.Shows.GetShowPeopleAsync(TestConstants.Shows.ShowID, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Shows.GetShowPeopleAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

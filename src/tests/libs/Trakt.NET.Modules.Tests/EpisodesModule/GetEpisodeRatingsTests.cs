@@ -5,7 +5,6 @@ namespace TraktNET.EpisodesModule
     public sealed class GetEpisodeRatingsTests
     {
         private readonly string GetEpisodeRatingsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/{SeasonNr}/episodes/{EpisodeNr}/ratings";
-        private readonly string ShowID = $"{TestConstants.Shows.ShowID}";
         private const uint SeasonNr = 1U;
         private const uint EpisodeNr = 1U;
 
@@ -16,7 +15,7 @@ namespace TraktNET.EpisodesModule
 
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeRatingsUri, responseContent);
 
-            TraktResponse<TraktRating> response = await client.Episodes.GetEpisodeRatingsAsync(ShowID, SeasonNr, EpisodeNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Episodes.GetEpisodeRatingsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -46,7 +45,7 @@ namespace TraktNET.EpisodesModule
 
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeRatingsUri, responseContent);
 
-            TraktResponse<TraktRating> response = await client.Episodes.GetEpisodeRatingsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Episodes.GetEpisodeRatingsAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -59,7 +58,7 @@ namespace TraktNET.EpisodesModule
         {
             var showIds = new TraktShowIDs
             {
-                Trakt = TestConstants.Shows.ShowID
+                Trakt = TestConstants.Shows.TraktShowID
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episoderatings.json");
@@ -84,8 +83,7 @@ namespace TraktNET.EpisodesModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episoderatings.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/ratings",
-                responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/ratings", responseContent);
 
             TraktResponse<TraktRating> response = await client.Episodes.GetEpisodeRatingsAsync(showIds, SeasonNr, EpisodeNr, TestContext.Current.CancellationToken);
 
@@ -98,18 +96,11 @@ namespace TraktNET.EpisodesModule
         [Fact]
         public async Task TestGetEpisodeRatingsWithShowIds()
         {
-            var showIds = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.ShowID,
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episoderatings.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/ratings",
-                responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/ratings", responseContent);
 
-            TraktResponse<TraktRating> response = await client.Episodes.GetEpisodeRatingsAsync(showIds, SeasonNr, EpisodeNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Episodes.GetEpisodeRatingsAsync(TestConstants.Shows.ShowIDs, SeasonNr, EpisodeNr, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -122,17 +113,12 @@ namespace TraktNET.EpisodesModule
         {
             var show = new TraktShow
             {
-                IDs = new TraktShowIDs
-                {
-                    Trakt = TestConstants.Shows.ShowID,
-                    Slug = TestConstants.Shows.ShowSlug
-                }
+                IDs = TestConstants.Shows.ShowIDs
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episoderatings.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/ratings",
-                responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/ratings", responseContent);
 
             TraktResponse<TraktRating> response = await client.Episodes.GetEpisodeRatingsAsync(show, SeasonNr, EpisodeNr, TestContext.Current.CancellationToken);
 
@@ -172,7 +158,7 @@ namespace TraktNET.EpisodesModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeRatingsUri, statusCode);
 
-            Func<Task<TraktResponse<TraktRating>>> act = () => client.Episodes.GetEpisodeRatingsAsync(ShowID, SeasonNr, EpisodeNr, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktRating>>> act = () => client.Episodes.GetEpisodeRatingsAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 

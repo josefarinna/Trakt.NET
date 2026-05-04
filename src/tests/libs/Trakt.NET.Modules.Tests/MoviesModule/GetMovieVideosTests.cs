@@ -6,7 +6,7 @@ namespace TraktNET.MoviesModule
     {
         private const string GetMovieVideosUriPrefix = "movies";
         private const string GetMovieVideosUriSuffix = "videos";
-        private static readonly string GetMovieVideosUri = $"{GetMovieVideosUriPrefix}/{TestConstants.Movies.MovieID}/{GetMovieVideosUriSuffix}";
+        private static readonly string GetMovieVideosUri = $"{GetMovieVideosUriPrefix}/{TestConstants.Movies.TraktMovieID}/{GetMovieVideosUriSuffix}";
         private static readonly string GetMovieVideosUriWithSlug = $"{GetMovieVideosUriPrefix}/{TestConstants.Movies.MovieSlug}/{GetMovieVideosUriSuffix}";
 
         [Fact]
@@ -15,7 +15,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movievideos.json");
             TraktClient client = ModuleTestUtility.GetClient(GetMovieVideosUri, responseContent);
 
-            TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktVideo> response = await client.Movies.GetMovieVideosAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -131,7 +131,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieVideosAsync(TestConstants.Movies.MovieID, TestContext.Current.CancellationToken);
+                await client.Movies.GetMovieVideosAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)

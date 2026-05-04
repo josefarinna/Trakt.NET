@@ -4,7 +4,7 @@ namespace TraktNET.SeasonsModule
 {
     public sealed class GetSeasonTranslationsTests
     {
-        private readonly string GetSeasonTranslationsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/1/translations";
+        private const string GetSeasonTranslationsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/1/translations";
         private const uint SeasonNr = 1U;
         private const string LanguageCode = "en";
 
@@ -15,7 +15,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonTranslationsUri, responseContent);
             
-            TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync($"{TestConstants.Shows.ShowID}", SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync($"{TestConstants.Shows.TraktShowID}", SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -31,7 +31,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonTranslationsUri, responseContent);
 
-            TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync(TestConstants.Shows.TraktShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -45,7 +45,7 @@ namespace TraktNET.SeasonsModule
         {
             var showIDs = new TraktShowIDs
             {
-                Trakt = TestConstants.Shows.ShowID
+                Trakt = TestConstants.Shows.TraktShowID
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasontranslations.json");
@@ -71,8 +71,7 @@ namespace TraktNET.SeasonsModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasontranslations.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/translations",
-                responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/translations", responseContent);
 
             TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
@@ -86,18 +85,11 @@ namespace TraktNET.SeasonsModule
         [Fact]
         public async Task TestGetSeasonTranslationsWithShowIDs()
         {
-            var showIDs = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.ShowID,
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasontranslations.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/translations",
-                responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/translations", responseContent);
 
-            TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync(TestConstants.Shows.ShowIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -111,17 +103,12 @@ namespace TraktNET.SeasonsModule
         {
             var show = new TraktShow
             {
-                IDs = new TraktShowIDs
-                {
-                    Trakt = TestConstants.Shows.ShowID,
-                    Slug = TestConstants.Shows.ShowSlug
-                }
+                IDs = TestConstants.Shows.ShowIDs
             };
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasontranslations.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/translations",
-                responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/translations", responseContent);
 
             TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync(show, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
@@ -139,7 +126,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonTranslationsUri}/{LanguageCode}", responseContent);
             
-            TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync(TestConstants.Shows.ShowID, SeasonNr, LanguageCode, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync(TestConstants.Shows.TraktShowID, SeasonNr, LanguageCode, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -178,7 +165,7 @@ namespace TraktNET.SeasonsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonTranslationsUri, statusCode);
 
-            Func<Task<TraktListResponse<TraktSeasonTranslation>>> act = () => client.Seasons.GetSeasonTranslationsAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktListResponse<TraktSeasonTranslation>>> act = () => client.Seasons.GetSeasonTranslationsAsync(TestConstants.Shows.TraktShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 

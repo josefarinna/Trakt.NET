@@ -5,13 +5,13 @@ namespace TraktNET.RecommendationsModule
 {
     public sealed class HideUserShowRecommendationTests
     {
-        private readonly string HideShowRecommendationUri = $"recommendations/shows/{TestConstants.Shows.ShowID}";
+        private readonly string HideShowRecommendationUri = $"recommendations/shows/{TestConstants.Shows.TraktShowID}";
 
         [Fact]
         public async Task TestHideShowRecommendation()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideShowRecommendationUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Recommendations.HideShowRecommendationAsync(TestConstants.Shows.ShowID.ToString(CultureInfo.InvariantCulture), TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Recommendations.HideShowRecommendationAsync(TestConstants.Shows.TraktShowID.ToString(CultureInfo.InvariantCulture), TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -21,7 +21,7 @@ namespace TraktNET.RecommendationsModule
         public async Task TestHideShowRecommendationRatingsWithTraktID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideShowRecommendationUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Recommendations.HideShowRecommendationAsync(TestConstants.Shows.ShowID, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Recommendations.HideShowRecommendationAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -32,7 +32,7 @@ namespace TraktNET.RecommendationsModule
         {
             var showIds = new TraktShowIDs
             {
-                Trakt = TestConstants.Shows.ShowID
+                Trakt = TestConstants.Shows.TraktShowID
             };
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideShowRecommendationUri, HttpStatusCode.NoContent);
@@ -112,7 +112,7 @@ namespace TraktNET.RecommendationsModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideShowRecommendationUri, statusCode);
 
-            Func<Task<TraktResponse>> act = () => client.Recommendations.HideShowRecommendationAsync(TestConstants.Shows.ShowID, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Recommendations.HideShowRecommendationAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
@@ -121,14 +121,10 @@ namespace TraktNET.RecommendationsModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideShowRecommendationUri, HttpStatusCode.NoContent);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse>> act = () => client.Recommendations.HideShowRecommendationAsync(default(TraktShowIDs), TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktResponse>> act = () => client.Recommendations.HideShowRecommendationAsync(default(TraktShowIDs)!, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-#pragma warning disable CS8625
-            act = () => client.Recommendations.HideShowRecommendationAsync(default(TraktShow), TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            act = () => client.Recommendations.HideShowRecommendationAsync(default(TraktShow)!, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
             act = () => client.Recommendations.HideShowRecommendationAsync(new TraktShowIDs(), TestContext.Current.CancellationToken);

@@ -15,7 +15,7 @@ namespace TraktNET.ShowsModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(UndoResetShowWatchedProgressUri, HttpStatusCode.NoContent);
 
-            TraktResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(TestConstants.Shows.ShowID, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Shows.UndoResetShowWatchedProgressAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
