@@ -255,7 +255,7 @@
         internal TraktHiddenItemsSection Section { get; set; }
 
         [TraktRequestParameter]
-        private string remove => "remove";
+        private string Remove => "remove";
     }
 
     [TraktPostRequest("users/{id!!}/lists/{list_id!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]

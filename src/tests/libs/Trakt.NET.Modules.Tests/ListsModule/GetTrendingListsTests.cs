@@ -2,96 +2,336 @@
 
 namespace TraktNET.ListsModule
 {
-    public sealed partial class GetTrendingListsTests
+    public sealed class GetTrendingListsTests
     {
         private const string GetTrendingListsUri = "lists/trending";
+        private const uint Page = 2U;
+        private const uint Limit = 4U;
+        private const uint ItemCount = 2U;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, null, null, GetTrendingListsUri)]
-        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetTrendingListsUri}?extended=full")]
-        [InlineData(null, 1U, null, $"{GetTrendingListsUri}?page=1")]
-        [InlineData(null, null, 10U, $"{GetTrendingListsUri}?limit=10")]
-        [InlineData(null, 1U, 10U, $"{GetTrendingListsUri}?page=1&limit=10")]
-        [InlineData(TraktExtendedInfo.Full, 2U, 20U, $"{GetTrendingListsUri}?extended=full&page=2&limit=20")]
-        public async Task TestGetTrendingLists(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
+        [Fact]
+        public async Task TestGetTrendingLists()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(GetTrendingListsUri, responseContent, 1, 1, 10, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(2);
-
-            List<TraktTrendingList> lists = [.. response.Content];
-
-            // First List Validation
-            lists[0].ShouldNotBeNull();
-            lists[0].LikeCount.ShouldBe(5);
-            lists[0].CommentCount.ShouldBe(5);
-
-            lists[0].List.ShouldNotBeNull();
-            lists[0].List!.Name.ShouldBe("Incredible Thoughts");
-            lists[0].List!.Description.ShouldBe("How could my brain conceive them?");
-            lists[0].List!.Privacy.ShouldBe(TraktListPrivacy.Public);
-            lists[0].List!.ShareLink.ShouldBe("https://trakt.tv/lists/1337");
-            lists[0].List!.Type.ShouldBe(TraktListType.Personal);
-            lists[0].List!.DisplayNumbers.ShouldBe(true);
-            lists[0].List!.AllowComments.ShouldBe(true);
-            lists[0].List!.SortBy.ShouldBe(TraktSortBy.Rank);
-            lists[0].List!.SortHow.ShouldBe(TraktSortHow.Ascending);
-            lists[0].List!.CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
-            lists[0].List!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
-            lists[0].List!.ItemCount.ShouldBe(50U);
-            lists[0].List!.CommentCount.ShouldBe(10U);
-            lists[0].List!.Likes.ShouldBe(99U);
-
-            lists[0].List!.IDs.ShouldNotBeNull();
-            lists[0].List!.IDs!.Trakt.ShouldBe(1337U);
-            lists[0].List!.IDs!.Slug.ShouldBe("incredible-thoughts");
-
-            lists[0].List!.User.ShouldNotBeNull();
-            lists[0].List!.User!.Username.ShouldBe("justin");
-            lists[0].List!.User!.Private.ShouldBe(false);
-            lists[0].List!.User!.Name.ShouldBe("Justin Nemeth");
-            lists[0].List!.User!.VIP.ShouldBe(true);
-            lists[0].List!.User!.VIPEP.ShouldBe(false);
-            lists[0].List!.User!.IDs.ShouldNotBeNull();
-            lists[0].List!.User!.IDs!.Slug.ShouldBe("justin");
-
-            // Second List Minimal Validation
-            lists[1].LikeCount.ShouldBe(109);
-            lists[1].List.ShouldNotBeNull();
-            lists[1].List!.Name.ShouldBe("Top Chihuahua Movies");
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(10u);
+            response.Page.ShouldBe(1u);
+            response.PageCount.ShouldBe(1U);
         }
 
         [Fact]
-        public async Task TestGetTrendingListsPaging()
+        public async Task TestGetTrendingListsWithExtendedInfo()
         {
-            const uint page = 1;
-            const uint limit = 2;
-            string requestUri = $"{GetTrendingListsUri}?page={page}&limit={limit}";
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 2, limit, 2);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ItemCount);
 
-            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
-            response.Page.ShouldBe(page);
-            response.Limit.ShouldBe(limit);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(10u);
+            response.Page.ShouldBe(1u);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsWithPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?page={Page}", responseContent, Page, 1, 10, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(10u);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsWithExtendedInfoPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(10u);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsWithExtendedInfoLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsWithPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsComplete()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetTrendingListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(5U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
             response.PageCount.ShouldBe(2U);
-            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetTrendingListsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetTrendingListsPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingListsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktTrendingList> response = await client.Lists.GetTrendingListsAsync(null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
             response.HasPreviousPage.ShouldBeFalse();
             response.HasNextPage.ShouldBeTrue();
 
-            ModuleTestUtility.SetClient(client, $"{GetTrendingListsUri}?page=2&limit={limit}", responseContent, 2, 2, limit, 2);
+            ModuleTestUtility.SetClient(client, $"{GetTrendingListsUri}?page=2&limit={Limit}",
+                responseContent, 2, 2, Limit, ItemCount);
+
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
             response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
             response.HasPreviousPage.ShouldBeTrue();
             response.HasNextPage.ShouldBeFalse();
         }

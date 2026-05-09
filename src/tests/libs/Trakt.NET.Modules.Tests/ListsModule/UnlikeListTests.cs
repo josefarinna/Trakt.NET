@@ -2,17 +2,93 @@
 
 namespace TraktNET.ListsModule
 {
-    public sealed partial class UnlikeListTests
+    public sealed class UnlikeListTests
     {
-        private const uint ListID = 1248149U;
-        private readonly string UnlikeListUri = $"lists/{ListID}/like";
+        private const string UnlikeListUri = $"lists/{ListID}/like";
+        private const string ListID = "1248149";
+        private const uint TraktListID = 1248149U;
+        private const string ListSlug = "incredible-thoughts";
 
         [Fact]
         public async Task TestUnlikeList()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(UnlikeListUri, HttpStatusCode.NoContent);
-
             TraktResponse response = await client.Lists.UnlikeListAsync(ListID, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestUnlikeListWithTraktID()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(UnlikeListUri, HttpStatusCode.NoContent);
+            TraktResponse response = await client.Lists.UnlikeListAsync(TraktListID, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestUnlikeListWithListIDsTraktID()
+        {
+            var listIDs = new TraktListIDs
+            {
+                Trakt = TraktListID
+            };
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(UnlikeListUri, HttpStatusCode.NoContent);
+            TraktResponse response = await client.Lists.UnlikeListAsync(listIDs, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestUnlikeListWithListIDsSlug()
+        {
+            var listIDs = new TraktListIDs
+            {
+                Slug = ListSlug
+            };
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"lists/{ListSlug}/like", HttpStatusCode.NoContent);
+            TraktResponse response = await client.Lists.UnlikeListAsync(listIDs, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestUnlikeListWithListIDs()
+        {
+            var listIDs = new TraktListIDs
+            {
+                Trakt = TraktListID,
+                Slug = ListSlug
+            };
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"lists/{ListSlug}/like", HttpStatusCode.NoContent);
+            TraktResponse response = await client.Lists.UnlikeListAsync(listIDs, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestUnlikeListWithList()
+        {
+            var list = new TraktList
+            {
+                IDs = new TraktListIDs
+                {
+                    Trakt = TraktListID,
+                    Slug = ListSlug
+                }
+            };
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"lists/{ListSlug}/like", HttpStatusCode.NoContent);
+            TraktResponse response = await client.Lists.UnlikeListAsync(list, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -57,10 +133,11 @@ namespace TraktNET.ListsModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(UnlikeListUri, HttpStatusCode.NoContent);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse>> act = () => client.Lists.UnlikeListAsync(default(string), TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
-            await act.ShouldThrowAsync<TraktRequestValidationException>();
+            Func<Task<TraktResponse>> act = () => client.Lists.UnlikeListAsync(default(TraktListIDs)!, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Lists.UnlikeListAsync(default(TraktList)!, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
 
             act = () => client.Lists.UnlikeListAsync(new TraktListIDs(), TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();

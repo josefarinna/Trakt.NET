@@ -43,7 +43,7 @@
             if (traktListId == 0)
                 throw new ArgumentException("list id must not be 0", nameof(traktListId));
 
-            return UnlikeListAsync(usernameOrSlug, traktListId.ToString(), cancellationToken);
+            return UnlikeListAsync(usernameOrSlug, traktListId.ToInvariantCultureString(), cancellationToken);
         }
 
         /// <summary>Removes like on an user's list.</summary>
