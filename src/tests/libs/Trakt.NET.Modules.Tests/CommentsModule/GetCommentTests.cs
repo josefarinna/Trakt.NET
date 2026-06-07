@@ -2,37 +2,72 @@
 
 namespace TraktNET.CommentsModule
 {
-    public sealed partial class GetCommentTests
+    public sealed class GetCommentTests
     {
-        private const uint CommentID = 190U;
-        private const string GetCommentUri = "comments";
+        private readonly string GetCommentUri = $"comments/{CommentID}";
+        private const uint CommentID = 7149524U;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, $"{GetCommentUri}/190", "Comments\\comment.json")]
-        [InlineData(TraktExtendedInfo.None, $"{GetCommentUri}/190", "Comments\\comment.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetCommentUri}/190?extended=full", "Comments\\comment.json")]
-        public async Task TestGetComment(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetCommentWithoutExtendedInfo()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
-
-            TraktResponse<TraktComment> response = await client.Comments.GetCommentAsync(CommentID, extendedInfo, TestContext.Current.CancellationToken);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\comment.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(GetCommentUri, responseContent);
+            
+            TraktResponse<TraktComment> response = await client.Comments.GetCommentAsync(CommentID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktComment comment = response.Content!;
+            TraktComment responseValue = response.Content;
 
-            comment.ID.ShouldBe(7149524U);
-            comment.ParentID.ShouldBe(0U);
-            comment.CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-10-04T16:25:36.000Z"));
-            comment.Comment.ShouldBe("Comment content.");
-            comment.UserStats.ShouldNotBeNull();
-            comment.UserStats!.Rating.ShouldBe(9U);
-            comment.User.ShouldNotBeNull();
-            comment.User!.Username.ShouldBe("user1");
+            responseValue.ID.ShouldBe(CommentID);
+            responseValue.ParentID.ShouldBe(0U);
+            responseValue.CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-10-04T16:25:36.000Z"));
+            responseValue.Comment.ShouldBe("Comment content.");
+            responseValue.Spoiler.ShouldBe(false);
+            responseValue.Review.ShouldBe(false);
+            responseValue.Replies.ShouldBe(0U);
+            responseValue.Likes.ShouldBe(0U);
+            responseValue.UserStats.ShouldNotBeNull();
+            responseValue.UserStats.Rating.ShouldBe(9U);
+            responseValue.UserStats.PlayCount.ShouldBe(3U);
+            responseValue.UserStats.CompletedCount.ShouldBe(1U);
+            responseValue.User.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetCommentComplete()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\comment.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentUri}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktComment> response = await client.Comments.GetCommentAsync(CommentID, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+
+            TraktComment responseValue = response.Content;
+
+            responseValue.ID.ShouldBe(CommentID);
+            responseValue.ParentID.ShouldBe(0U);
+            responseValue.CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-10-04T16:25:36.000Z"));
+            responseValue.Comment.ShouldBe("Comment content.");
+            responseValue.Spoiler.ShouldBe(false);
+            responseValue.Review.ShouldBe(false);
+            responseValue.Replies.ShouldBe(0U);
+            responseValue.Likes.ShouldBe(0U);
+            responseValue.UserStats.ShouldNotBeNull();
+            responseValue.UserStats.Rating.ShouldBe(9U);
+            responseValue.UserStats.PlayCount.ShouldBe(3U);
+            responseValue.UserStats.CompletedCount.ShouldBe(1U);
+            responseValue.User.ShouldNotBeNull();
         }
 
         [Theory]
@@ -63,7 +98,7 @@ namespace TraktNET.CommentsModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetCommentThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentUri}/{CommentID}", statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetCommentUri, statusCode);
 
             Func<Task<TraktResponse<TraktComment>>> act = () => client.Comments.GetCommentAsync(CommentID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();

@@ -2,59 +2,106 @@
 
 namespace TraktNET.CommentsModule
 {
-    public sealed partial class GetCommentItemTests
+    public sealed class GetCommentItemTests
     {
+        private readonly string GetCommentItemUri = $"comments/{CommentID}/item";
         private const uint CommentID = 190U;
-        private const string GetCommentItemUri = "comments";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, $"{GetCommentItemUri}/190/item", "Comments\\commentitem.json")]
-        [InlineData(TraktExtendedInfo.None, $"{GetCommentItemUri}/190/item", "Comments\\commentitem.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetCommentItemUri}/190/item?extended=full", "Comments\\commentitem.json")]
-        public async Task TestGetCommentItem(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetCommentItem()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentitem.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient(GetCommentItemUri, responseContent);
 
-            TraktResponse<TraktCommentItem> response = await client.Comments.GetCommentItemAsync(CommentID, extendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktCommentItem> response = await client.Comments.GetCommentItemAsync(CommentID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktCommentItem commentItem = response.Content!;
+            TraktCommentItem responseValue = response.Content;
 
-            commentItem.Type.ShouldBe(TraktCommentObjectType.Movie);
+            responseValue.Type.ShouldBe(TraktCommentObjectType.Movie);
 
-            commentItem.Movie.ShouldNotBeNull();
-            commentItem.Movie!.Title.ShouldBe("Star Wars: The Force Awakens");
-            commentItem.Movie.Year.ShouldBe(2015U);
-            commentItem.Movie.IDs.ShouldNotBeNull();
-            commentItem.Movie.IDs!.Trakt.ShouldBe(94024U);
+            responseValue.Movie.ShouldNotBeNull();
+            responseValue.Movie.Title.ShouldBe("Star Wars: The Force Awakens");
+            responseValue.Movie.Year.ShouldBe(2015U);
+            responseValue.Movie.IDs.ShouldNotBeNull();
+            responseValue.Movie.IDs!.Trakt.ShouldBe(94024U);
 
-            commentItem.Show.ShouldNotBeNull();
-            commentItem.Show.Title.ShouldBe("Game of Thrones");
-            commentItem.Show.Year.ShouldBe(2011U);
-            commentItem.Show.IDs.ShouldNotBeNull();
-            commentItem.Show.IDs.Trakt.ShouldBe(1390U);
+            responseValue.Show.ShouldNotBeNull();
+            responseValue.Show.Title.ShouldBe("Game of Thrones");
+            responseValue.Show.Year.ShouldBe(2011U);
+            responseValue.Show.IDs.ShouldNotBeNull();
+            responseValue.Show.IDs.Trakt.ShouldBe(1390U);
 
-            commentItem.Season.ShouldNotBeNull();
-            commentItem.Season.Number.ShouldBe(1U);
-            commentItem.Season.IDs.ShouldNotBeNull();
-            commentItem.Season.IDs!.Trakt.ShouldBe(61430U);
+            responseValue.Season.ShouldNotBeNull();
+            responseValue.Season.Number.ShouldBe(1U);
+            responseValue.Season.IDs.ShouldNotBeNull();
+            responseValue.Season.IDs!.Trakt.ShouldBe(61430U);
 
-            commentItem.Episode.ShouldNotBeNull();
-            commentItem.Episode.Number.ShouldBe(1U);
-            commentItem.Episode.Season.ShouldBe(1U);
-            commentItem.Episode.Title.ShouldBe("Winter Is Coming");
-            commentItem.Episode.IDs.ShouldNotBeNull();
-            commentItem.Episode.IDs.Trakt.ShouldBe(73640U);
+            responseValue.Episode.ShouldNotBeNull();
+            responseValue.Episode.Number.ShouldBe(1U);
+            responseValue.Episode.Season.ShouldBe(1U);
+            responseValue.Episode.Title.ShouldBe("Winter Is Coming");
+            responseValue.Episode.IDs.ShouldNotBeNull();
+            responseValue.Episode.IDs.Trakt.ShouldBe(73640U);
 
-            commentItem.List.ShouldNotBeNull();
-            commentItem.List.Name.ShouldBe("Star Wars in machete order");
-            commentItem.List.IDs.ShouldNotBeNull();
-            commentItem.List.IDs.Trakt.ShouldBe(55U);
+            responseValue.List.ShouldNotBeNull();
+            responseValue.List.Name.ShouldBe("Star Wars in machete order");
+            responseValue.List.IDs.ShouldNotBeNull();
+            responseValue.List.IDs.Trakt.ShouldBe(55U);
+        }
+
+        [Fact]
+        public async Task TestGetCommentItemWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentitem.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentItemUri}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktCommentItem> response = await client.Comments.GetCommentItemAsync(CommentID, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+
+            TraktCommentItem responseValue = response.Content;
+
+            responseValue.Type.ShouldBe(TraktCommentObjectType.Movie);
+
+            responseValue.Movie.ShouldNotBeNull();
+            responseValue.Movie.Title.ShouldBe("Star Wars: The Force Awakens");
+            responseValue.Movie.Year.ShouldBe(2015U);
+            responseValue.Movie.IDs.ShouldNotBeNull();
+            responseValue.Movie.IDs!.Trakt.ShouldBe(94024U);
+
+            responseValue.Show.ShouldNotBeNull();
+            responseValue.Show.Title.ShouldBe("Game of Thrones");
+            responseValue.Show.Year.ShouldBe(2011U);
+            responseValue.Show.IDs.ShouldNotBeNull();
+            responseValue.Show.IDs.Trakt.ShouldBe(1390U);
+
+            responseValue.Season.ShouldNotBeNull();
+            responseValue.Season.Number.ShouldBe(1U);
+            responseValue.Season.IDs.ShouldNotBeNull();
+            responseValue.Season.IDs!.Trakt.ShouldBe(61430U);
+
+            responseValue.Episode.ShouldNotBeNull();
+            responseValue.Episode.Number.ShouldBe(1U);
+            responseValue.Episode.Season.ShouldBe(1U);
+            responseValue.Episode.Title.ShouldBe("Winter Is Coming");
+            responseValue.Episode.IDs.ShouldNotBeNull();
+            responseValue.Episode.IDs.Trakt.ShouldBe(73640U);
+
+            responseValue.List.ShouldNotBeNull();
+            responseValue.List.Name.ShouldBe("Star Wars in machete order");
+            responseValue.List.IDs.ShouldNotBeNull();
+            responseValue.List.IDs.Trakt.ShouldBe(55U);
         }
 
         [Theory]
@@ -85,7 +132,7 @@ namespace TraktNET.CommentsModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetCommentItemThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentItemUri}/{CommentID}/item", statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetCommentItemUri, statusCode);
 
             Func<Task<TraktResponse<TraktCommentItem>>> act = () => client.Comments.GetCommentItemAsync(CommentID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();

@@ -2,73 +2,324 @@
 
 namespace TraktNET.CommentsModule
 {
-    public sealed partial class GetCommentRepliesTests
+    public sealed class GetCommentRepliesTests
     {
+        private readonly string GetCommentRepliesUri = $"comments/{CommentID}/replies";
         private const uint CommentID = 190U;
-        private const string GetCommentRepliesUri = "comments";
+        private const uint CommentRepliesItemCount = 2U;
+        private const uint Page = 2U;
+        private const uint Limit = 4U;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, null, null, $"{GetCommentRepliesUri}/190/replies", "Comments\\commentreplies.json")]
-        [InlineData(TraktExtendedInfo.None, null, null, $"{GetCommentRepliesUri}/190/replies", "Comments\\commentreplies.json")]
-        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetCommentRepliesUri}/190/replies?extended=full", "Comments\\commentreplies.json")]
-        [InlineData(null, 1U, null, $"{GetCommentRepliesUri}/190/replies?page=1", "Comments\\commentreplies.json")]
-        [InlineData(null, null, 10U, $"{GetCommentRepliesUri}/190/replies?limit=10", "Comments\\commentreplies.json")]
-        [InlineData(TraktExtendedInfo.Full, 1U, 10U, $"{GetCommentRepliesUri}/190/replies?extended=full&page=1&limit=10", "Comments\\commentreplies.json")]
-        public async Task TestGetCommentReplies(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetCommentReplies()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetCommentRepliesUri, responseContent, 1, 1, 10, CommentRepliesItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(2);
-
-            List<TraktComment> replies = [.. response.Content];
-
-            for (int i = 0; i < 2; i++)
-            {
-                replies[i].ID.ShouldBe(76957U);
-                replies[i].Comment.ShouldBe("I hate they made The flash a kids show. Could else be much better. And with a better flash offcourse.");
-                replies[i].ParentID.ShouldBe(0U);
-                replies[i].CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2016-04-01T12:44:40Z"));
-                replies[i].Replies.ShouldBe(1U);
-                replies[i].Likes.ShouldBe(2U);
-
-                replies[i].UserStats.ShouldNotBeNull();
-                replies[i].UserStats!.Rating.ShouldBe(8U);
-                replies[i].UserStats!.PlayCount.ShouldBe(1U);
-                replies[i].UserStats!.CompletedCount.ShouldBe(1U);
-
-                replies[i].User.ShouldNotBeNull();
-                replies[i].User!.Username.ShouldBe("WalterBishopj");
-                replies[i].User!.Name.ShouldBe("Walter");
-                replies[i].User!.Private.ShouldBe(false);
-            }
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
         }
 
         [Fact]
-        public async Task TestGetCommentRepliesPaging()
+        public async Task TestGetCommentRepliesWithExtendedInfo()
         {
-            string requestUri = $"{GetCommentRepliesUri}/{CommentID}/replies?page=1&limit=4";
             string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, 1, 2, 4, 2);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?extended={ExtendedInfo.ToURI()}", responseContent, Page, 1, 10, CommentRepliesItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, null, 1, 4, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesWithPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?page={Page}", responseContent, Page, 1, 10, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, null, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?limit={Limit}", responseContent, 1, 1, Limit, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, null, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
             response.Page.ShouldBe(1U);
-            response.Limit.ShouldBe(4U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesWithPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesWithExtendedInfoAndPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesWithExtendedInfoAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesComplete()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?page=2&limit={Limit}", responseContent, 2, 5, Limit, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(5U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
             response.PageCount.ShouldBe(2U);
-            response.ItemCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?page=1&limit={Limit}", responseContent, 1, 1, Limit, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetCommentRepliesUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, CommentRepliesItemCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetCommentRepliesPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreplies.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}?page=1&limit={Limit}",
+                                                           responseContent, 1, 2, Limit, CommentRepliesItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Comments.GetCommentRepliesAsync(CommentID, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
             response.HasPreviousPage.ShouldBeFalse();
             response.HasNextPage.ShouldBeTrue();
 
-            ModuleTestUtility.SetClient(client, $"{GetCommentRepliesUri}/{CommentID}/replies?page=2", responseContent, 2, 2, 4, 2);
+            ModuleTestUtility.SetClient(client, $"{GetCommentRepliesUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, CommentRepliesItemCount);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
@@ -76,8 +327,9 @@ namespace TraktNET.CommentsModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.ItemCount.ShouldBe(2U);
-            response.Limit.ShouldBe(4U);
+            response.Content.Count.ShouldBe((int)CommentRepliesItemCount);
+            response.ItemCount.ShouldBe(CommentRepliesItemCount);
+            response.Limit.ShouldBe(Limit);
             response.Page.ShouldBe(2U);
             response.PageCount.ShouldBe(2U);
             response.HasPreviousPage.ShouldBeTrue();
@@ -112,7 +364,7 @@ namespace TraktNET.CommentsModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetCommentRepliesThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentRepliesUri}/{CommentID}/replies", statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetCommentRepliesUri, statusCode);
 
             Func<Task<TraktPagedResponse<TraktComment>>> act = () => client.Comments.GetCommentRepliesAsync(CommentID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();

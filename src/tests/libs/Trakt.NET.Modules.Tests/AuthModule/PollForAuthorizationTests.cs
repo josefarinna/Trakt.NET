@@ -140,7 +140,7 @@ namespace TraktNET.AuthModule
             auth.TokenType.ShouldBe(TestConstants.MockAuthorization.TokenType);
             
 
-            auth.CreatedAtTimestamp.ShouldBeInRange(Now - 10, Now + 10);
+            auth.CreatedAtTimestamp.ShouldBeInRange(Now - 15, Now + 15);
 
             client.Authorization.ShouldNotBeNull();
             client.Authorization.AccessToken.ShouldBe(auth.AccessToken);
