@@ -1,4 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Collections.Immutable;
@@ -24,6 +24,7 @@ namespace TraktNET.SourceGeneration.Requests
         private string _requestOAuthRequirementValue = string.Empty;
         private readonly List<RequestParameterGenerationSpecification> _requestParameters = [];
         private readonly List<RequestQueryGenerationSpecification> _requestQueries = [];
+        private RequestPayloadGenerationSpecification? _requestPayload;
 
         internal List<DiagnosticInfo> Diagnostics { get; } = [];
 
@@ -36,7 +37,8 @@ namespace TraktNET.SourceGeneration.Requests
                 || _knownRequestSymbols.TraktDeleteRequestAttributeType != null;
 
             _compilationContainsRequestPropertyAttributeType = _knownRequestSymbols.TraktRequestParameterAttributeType != null
-                || _knownRequestSymbols.TraktRequestQueryAttributeType != null;
+                || _knownRequestSymbols.TraktRequestQueryAttributeType != null
+                || _knownRequestSymbols.TraktRequestPayloadAttributeType != null;
         }
 
         internal RequestGenerationSpecification? Parse(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, CancellationToken cancellationToken)
@@ -138,6 +140,7 @@ namespace TraktNET.SourceGeneration.Requests
             string traktEnumDefaultValue = string.Empty;
             bool hasParameterAttribute = false;
             bool hasQueryAttribute = false;
+            bool hasPayloadAttribute = false;
             SpecialType specialType = SpecialType.None;
             string queryName = string.Empty;
             bool useCacheEfficientDateTime = false;
@@ -162,6 +165,11 @@ namespace TraktNET.SourceGeneration.Requests
                         ReportDiagnostic(DiagnosticDescriptors.RequestAndQueryBothDeclared, attributeLocation);
                         return false;
                     }
+                    if (hasPayloadAttribute)
+                    {
+                        ReportDiagnostic(DiagnosticDescriptors.RequestPayloadConflict, attributeLocation);
+                        return false;
+                    }
 
                     hasParameterAttribute = true;
 
@@ -178,6 +186,11 @@ namespace TraktNET.SourceGeneration.Requests
                     if (hasParameterAttribute)
                     {
                         ReportDiagnostic(DiagnosticDescriptors.RequestAndQueryBothDeclared, attributeLocation);
+                        return false;
+                    }
+                    if (hasPayloadAttribute)
+                    {
+                        ReportDiagnostic(DiagnosticDescriptors.RequestPayloadConflict, attributeLocation);
                         return false;
                     }
 
@@ -202,6 +215,16 @@ namespace TraktNET.SourceGeneration.Requests
                     {
                         useCacheEfficientDateTime = useCacheEfficientDateTimeValue;
                     }
+                }
+                else if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestPayloadAttributeType))
+                {
+                    if (hasParameterAttribute || hasQueryAttribute)
+                    {
+                        ReportDiagnostic(DiagnosticDescriptors.RequestPayloadConflict, attributeLocation);
+                        return false;
+                    }
+
+                    hasPayloadAttribute = true;
                 }
             }
 
@@ -302,6 +325,42 @@ namespace TraktNET.SourceGeneration.Requests
                     UseCacheEfficientDateTime = useCacheEfficientDateTime
                 });
             }
+            else if (hasPayloadAttribute)
+            {
+                isRequired = propertySymbol.IsRequired;
+
+                if (_requestPayload != null)
+                {
+                    ReportDiagnostic(DiagnosticDescriptors.RequestPayloadAlreadyDeclared, propertyLocation);
+                    return false;
+                }
+
+                bool hasValidateMethod = false;
+                ITypeSymbol payloadType = propertySymbol.Type;
+                ITypeSymbol? currentType = payloadType;
+                while (currentType != null)
+                {
+                    var validateMethods = currentType.GetMembers("Validate").OfType<IMethodSymbol>();
+                    if (validateMethods.Any(m => m.Parameters.Length == 0 && m.Arity == 0 && !m.IsStatic))
+                    {
+                        hasValidateMethod = true;
+                        break;
+                    }
+                    currentType = currentType.BaseType;
+                }
+
+                _requestPayload = new RequestPayloadGenerationSpecification
+                {
+                    Name = name,
+                    IsRequired = isRequired,
+                    IsTraktEnum = isTraktEnum,
+                    TraktEnumTypeName = traktEnumTypeName,
+                    TraktEnumDefaultValue = traktEnumDefaultValue,
+                    SpecialType = specialType,
+                    UseCacheEfficientDateTime = useCacheEfficientDateTime,
+                    HasValidateMethod = hasValidateMethod
+                };
+            }
 
             return true;
         }
@@ -318,7 +377,8 @@ namespace TraktNET.SourceGeneration.Requests
                 SupportsPagination = _requestSupportsPagination,
                 HasOAuthRequirementDefined = _requestHasOAuthRequirementDefined,
                 RequestParameters = _requestParameters,
-                RequestQueries = _requestQueries
+                RequestQueries = _requestQueries,
+                RequestPayload = _requestPayload
             };
 
         private void ReportDiagnostic(DiagnosticDescriptor descriptor, Location? location)

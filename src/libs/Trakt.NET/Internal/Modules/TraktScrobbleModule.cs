@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Json;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to scrobbles.<para />
@@ -11,64 +9,46 @@ namespace TraktNET
         private Task<TraktResponse<TraktMovieScrobblePostResponse>> StartMovieImplAsync(TraktMovieScrobblePost movieScrobblePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(movieScrobblePost);
-            movieScrobblePost.Validate();
-
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktMovieScrobblePostResponse>(_context, CreateScrobbleStartRequest<TraktMovieScrobblePostResponse, TraktMovieScrobblePost>(movieScrobblePost), cancellationToken);
         }
 
         private Task<TraktResponse<TraktMovieScrobblePostResponse>> PauseMovieImplAsync(TraktMovieScrobblePost movieScrobblePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(movieScrobblePost);
-            movieScrobblePost.Validate();
-
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktMovieScrobblePostResponse>(_context, CreateScrobblePauseRequest<TraktMovieScrobblePostResponse, TraktMovieScrobblePost>(movieScrobblePost), cancellationToken);
         }
 
         private Task<TraktResponse<TraktMovieScrobblePostResponse>> StopMovieImplAsync(TraktMovieScrobblePost movieScrobblePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(movieScrobblePost);
-            movieScrobblePost.Validate();
-
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktMovieScrobblePostResponse>(_context, CreateScrobbleStopRequest<TraktMovieScrobblePostResponse, TraktMovieScrobblePost>(movieScrobblePost), cancellationToken);
         }
 
         private Task<TraktResponse<TraktEpisodeScrobblePostResponse>> StartEpisodeImplAsync(TraktEpisodeScrobblePost episodeScrobblePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(episodeScrobblePost);
-            episodeScrobblePost.Validate();
-
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktEpisodeScrobblePostResponse>(_context, CreateScrobbleStartRequest<TraktEpisodeScrobblePostResponse, TraktEpisodeScrobblePost>(episodeScrobblePost), cancellationToken);
         }
 
         private Task<TraktResponse<TraktEpisodeScrobblePostResponse>> PauseEpisodeImplAsync(TraktEpisodeScrobblePost episodeScrobblePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(episodeScrobblePost);
-            episodeScrobblePost.Validate();
-
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktEpisodeScrobblePostResponse>(_context, CreateScrobblePauseRequest<TraktEpisodeScrobblePostResponse, TraktEpisodeScrobblePost>(episodeScrobblePost), cancellationToken);
         }
 
         private Task<TraktResponse<TraktEpisodeScrobblePostResponse>> StopEpisodeImplAsync(TraktEpisodeScrobblePost episodeScrobblePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(episodeScrobblePost);
-            episodeScrobblePost.Validate();
-
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktEpisodeScrobblePostResponse>(_context, CreateScrobbleStopRequest<TraktEpisodeScrobblePostResponse, TraktEpisodeScrobblePost>(episodeScrobblePost), cancellationToken);
         }
 
         private static ScrobbleStartPostRequest CreateScrobbleStartRequest<T, U>(U requestBody) where U : TraktScrobblePost
-            => new() { Content = JsonContent.Create(requestBody) };
+            => new() { TraktScrobblePost = requestBody };
 
         private static ScrobblePausePostRequest CreateScrobblePauseRequest<T, U>(U requestBody) where U : TraktScrobblePost
-            => new() { Content = JsonContent.Create(requestBody) };
+            => new() { TraktScrobblePost = requestBody };
 
         private static ScrobbleStopPostRequest CreateScrobbleStopRequest<T, U>(U requestBody) where U : TraktScrobblePost
-            => new() { Content = JsonContent.Create(requestBody) };
+            => new() { TraktScrobblePost = requestBody };
     }
 }

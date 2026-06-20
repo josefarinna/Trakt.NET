@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Json;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to sync.<para />
@@ -48,11 +46,10 @@ namespace TraktNET
             {
                 Rank = reorderedFavoritedItemRanks
             };
-            content.Validate();
 
             var request = new SyncFavoritedItemsReorderPostRequest
             {
-                Content = JsonContent.Create(content)
+                TraktListItemsReorderPost = content
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktListItemsReorderPostResponse>(_context, request, cancellationToken);
@@ -68,7 +65,7 @@ namespace TraktNET
             var request = new SyncFavoriteItemUpdatePostRequest
             {
                 ListItemId = listItemId,
-                Content = JsonContent.Create(content)
+                TraktListItemUpdatePost = content
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
@@ -135,12 +132,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktSyncCollectionPostResponse>> AddCollectionItemsImplAsync(TraktSyncCollectionPost collectionPost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(collectionPost);
-            collectionPost.Validate();
-
             var request = new SyncCollectionAddPostRequest
             {
-                Content = JsonContent.Create(collectionPost)
+                TraktSyncCollectionPost = collectionPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncCollectionPostResponse>(_context, request, cancellationToken);
@@ -149,12 +143,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktSyncCollectionRemovePostResponse>> RemoveCollectionItemsImplAsync(TraktSyncCollectionRemovePost collectionRemovePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(collectionRemovePost);
-            collectionRemovePost.Validate();
-
             var request = new SyncCollectionRemovePostRequest
             {
-                Content = JsonContent.Create(collectionRemovePost)
+                TraktSyncCollectionRemovePost = collectionRemovePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncCollectionRemovePostResponse>(_context, request, cancellationToken);
@@ -213,12 +204,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktSyncHistoryPostResponse>> AddWatchedHistoryItemsImplAsync(TraktSyncHistoryPost historyPost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(historyPost);
-            historyPost.Validate();
-
             var request = new SyncWatchedHistoryAddPostRequest
             {
-                Content = JsonContent.Create(historyPost)
+                TraktSyncHistoryPost = historyPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncHistoryPostResponse>(_context, request, cancellationToken);
@@ -227,12 +215,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktSyncHistoryRemovePostResponse>> RemoveWatchedHistoryItemsImplAsync(TraktSyncHistoryRemovePost historyRemovePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(historyRemovePost);
-            historyRemovePost.Validate();
-
             var request = new SyncWatchedHistoryRemovePostRequest
             {
-                Content = JsonContent.Create(historyRemovePost)
+                TraktSyncHistoryRemovePost = historyRemovePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncHistoryRemovePostResponse>(_context, request, cancellationToken);
@@ -265,12 +250,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktSyncRatingsPostResponse>> AddRatingsImplAsync(TraktSyncRatingsPost ratingsPost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(ratingsPost);
-            ratingsPost.Validate();
-
             var request = new SyncRatingsAddPostRequest
             {
-                Content = JsonContent.Create(ratingsPost)
+                TraktSyncRatingsPost = ratingsPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncRatingsPostResponse>(_context, request, cancellationToken);
@@ -279,12 +261,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktSyncRatingsRemovePostResponse>> RemoveRatingsImplAsync(TraktSyncRatingsRemovePost ratingsRemovePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(ratingsRemovePost);
-            ratingsRemovePost.Validate();
-
             var request = new SyncRatingsRemovePostRequest
             {
-                Content = JsonContent.Create(ratingsRemovePost)
+                TraktSyncRatingsRemovePost = ratingsRemovePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncRatingsRemovePostResponse>(_context, request, cancellationToken);
@@ -293,12 +272,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktSyncFavoritesPostResponse>> AddFavoriteItemsImplAsync(TraktSyncFavoritesPost favoritesPost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(favoritesPost);
-            favoritesPost.Validate();
-
             var request = new SyncFavoritesAddPostRequest
             {
-                Content = JsonContent.Create(favoritesPost)
+                TraktSyncFavoritesPost = favoritesPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncFavoritesPostResponse>(_context, request, cancellationToken);
@@ -307,12 +283,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktSyncFavoritesRemovePostResponse>> RemoveFavoriteItemsImplAsync(TraktSyncFavoritesRemovePost favoritesRemovePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(favoritesRemovePost);
-            favoritesRemovePost.Validate();
-
             var request = new SyncFavoritesRemovePostRequest
             {
-                Content = JsonContent.Create(favoritesRemovePost)
+                TraktSyncFavoritesRemovePost = favoritesRemovePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncFavoritesRemovePostResponse>(_context, request, cancellationToken);
@@ -327,11 +300,10 @@ namespace TraktNET
                 SortBy = sortBy,
                 SortHow = sortHow
             };
-            content.Validate();
 
             var request = new SyncFavoritesUpdatePostRequest
             {
-                Content = JsonContent.Create(content)
+                TraktUpdateListPost = content
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktList>(_context, request, cancellationToken);
@@ -370,11 +342,10 @@ namespace TraktNET
             {
                 Rank = reorderedWatchlistItemRanks
             };
-            content.Validate();
 
             var request = new SyncWatchlistItemsReorderPostRequest
             {
-                Content = JsonContent.Create(content)
+                TraktListItemsReorderPost = content
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktListItemsReorderPostResponse>(_context, request, cancellationToken);
@@ -390,7 +361,7 @@ namespace TraktNET
             var request = new SyncWatchlistItemUpdatePostRequest
             {
                 ListItemId = listItemId,
-                Content = JsonContent.Create(content)
+                TraktListItemUpdatePost = content
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
@@ -399,12 +370,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktSyncWatchlistPostResponse>> AddWatchlistItemsImplAsync(TraktSyncWatchlistPost watchlistPost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(watchlistPost);
-            watchlistPost.Validate();
-
             var request = new SyncWatchlistAddPostRequest
             {
-                Content = JsonContent.Create(watchlistPost)
+                TraktSyncWatchlistPost = watchlistPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncWatchlistPostResponse>(_context, request, cancellationToken);
@@ -413,12 +381,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktSyncWatchlistRemovePostResponse>> RemoveWatchlistItemsImplAsync(TraktSyncWatchlistRemovePost watchlistRemovePost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(watchlistRemovePost);
-            watchlistRemovePost.Validate();
-
             var request = new SyncWatchlistRemovePostRequest
             {
-                Content = JsonContent.Create(watchlistRemovePost)
+                TraktSyncWatchlistRemovePost = watchlistRemovePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncWatchlistRemovePostResponse>(_context, request, cancellationToken);
@@ -433,11 +398,10 @@ namespace TraktNET
                 SortBy = sortBy,
                 SortHow = sortHow
             };
-            content.Validate();
 
             var request = new SyncWatchlistUpdatePostRequest
             {
-                Content = JsonContent.Create(content)
+                TraktUpdateListPost = content
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktList>(_context, request, cancellationToken);

@@ -9,7 +9,7 @@
         /// </summary>
         public TraktMovie? Movie { get; set; }
 
-        public new void Validate()
+        public override void Validate()
         {
             base.Validate();
 

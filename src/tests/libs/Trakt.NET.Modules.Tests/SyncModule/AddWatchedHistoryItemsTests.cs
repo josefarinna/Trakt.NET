@@ -98,10 +98,8 @@ namespace TraktNET.SyncModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(AddWatchedHistoryItemsUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktSyncHistoryPostResponse>>> act = () => client.Sync.AddWatchedHistoryItemsAsync(default, TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
-            await act.ShouldThrowAsync<ArgumentException>();
+            Func<Task<TraktResponse<TraktSyncHistoryPostResponse>>> act = () => client.Sync.AddWatchedHistoryItemsAsync(default!, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             var content = new TraktSyncHistoryPost();
             act = () => client.Sync.AddWatchedHistoryItemsAsync(content, TestContext.Current.CancellationToken);

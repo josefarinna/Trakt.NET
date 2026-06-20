@@ -97,10 +97,8 @@ namespace TraktNET.SyncModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(AddRatingsUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktSyncRatingsPostResponse>>> act = () => client.Sync.AddRatingsAsync(default, TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
-            await act.ShouldThrowAsync<ArgumentException>();
+            Func<Task<TraktResponse<TraktSyncRatingsPostResponse>>> act = () => client.Sync.AddRatingsAsync(default!, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             var content = new TraktSyncRatingsPost();
             act = () => client.Sync.AddRatingsAsync(content, TestContext.Current.CancellationToken);

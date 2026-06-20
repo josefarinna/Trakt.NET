@@ -96,10 +96,8 @@ namespace TraktNET.SyncModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RemoveWatchlistItemsUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktSyncWatchlistRemovePostResponse>>> act = () => client.Sync.RemoveWatchlistItemsAsync(default, TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
-            await act.ShouldThrowAsync<ArgumentException>();
+            Func<Task<TraktResponse<TraktSyncWatchlistRemovePostResponse>>> act = () => client.Sync.RemoveWatchlistItemsAsync(default!, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             var content = new TraktSyncWatchlistRemovePost();
             act = () => client.Sync.RemoveWatchlistItemsAsync(content, TestContext.Current.CancellationToken);

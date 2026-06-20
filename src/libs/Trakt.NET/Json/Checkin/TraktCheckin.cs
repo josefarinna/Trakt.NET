@@ -10,5 +10,9 @@
 
         /// <summary>Gets or sets the message for the checkin post.</summary>
         public string? Message { get; set; }
+
+        public virtual void Validate()
+        {
+        }
     }
 }

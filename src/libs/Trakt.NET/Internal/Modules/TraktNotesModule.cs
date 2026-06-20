@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Json;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to notes.<para />
@@ -29,12 +27,10 @@ namespace TraktNET
                 IgnoreCompleteValidation = true
             };
 
-            traktNotePost.Validate();
-
             var request = new NoteUpdatePutRequest
             {
                 Id = noteId,
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -73,11 +69,9 @@ namespace TraktNET
                 Movie = movie
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -94,11 +88,9 @@ namespace TraktNET
                 Show = show
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -115,11 +107,9 @@ namespace TraktNET
                 Season = season
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -136,11 +126,9 @@ namespace TraktNET
                 Episode = episode
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -157,11 +145,9 @@ namespace TraktNET
                 Person = person
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -182,11 +168,9 @@ namespace TraktNET
                 }
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -209,11 +193,9 @@ namespace TraktNET
                 }
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -236,11 +218,9 @@ namespace TraktNET
                 }
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -263,11 +243,9 @@ namespace TraktNET
                 }
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -290,11 +268,9 @@ namespace TraktNET
                 }
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -317,11 +293,9 @@ namespace TraktNET
                 }
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
@@ -344,11 +318,9 @@ namespace TraktNET
                 }
             };
 
-            traktNotePost.Validate();
-
             var request = new NotesAddPostRequest
             {
-                Content = JsonContent.Create(traktNotePost)
+                TraktNotePost = traktNotePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);

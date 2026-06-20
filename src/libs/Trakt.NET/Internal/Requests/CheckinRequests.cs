@@ -7,6 +7,8 @@
     [TraktPostRequest("checkin", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CheckinPostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktCheckin TraktCheckin { get; set; }
     }
 
     // -------------------------------------------------------

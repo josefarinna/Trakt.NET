@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.AuthModule
 {
@@ -102,9 +102,7 @@ namespace TraktNET.AuthModule
             responseAuth.TokenType.ShouldBe(TestConstants.MockAuthorization.TokenType);
             responseAuth.RefreshToken.ShouldBe(TestConstants.MockAuthorization.RefreshToken);
             responseAuth.Scope.ShouldBe(TestConstants.MockAuthorization.Scope);
-            ulong now = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-
-            responseAuth.CreatedAtTimestamp.ShouldBeInRange(now - 10, now + 10);
+            responseAuth.CreatedAtDateTime.ShouldBe(DateTime.UtcNow, TimeSpan.FromSeconds(10));
 
             client.Authorization.ShouldNotBeNull();
             client.Authorization.AccessToken.ShouldBe(responseAuth.AccessToken);

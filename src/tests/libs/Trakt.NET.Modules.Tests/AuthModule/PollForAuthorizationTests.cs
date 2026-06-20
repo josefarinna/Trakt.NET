@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace TraktNET.AuthModule
@@ -6,7 +6,6 @@ namespace TraktNET.AuthModule
     public sealed class PollForAuthorizationTests
     {
         private const string PollForAuthorizationUri = "oauth/device/token";
-        private static readonly ulong Now = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
 
         [Fact]
         public async Task TestPollForAuthorization()
@@ -140,7 +139,7 @@ namespace TraktNET.AuthModule
             auth.TokenType.ShouldBe(TestConstants.MockAuthorization.TokenType);
             
 
-            auth.CreatedAtTimestamp.ShouldBeInRange(Now - 15, Now + 15);
+            auth.CreatedAtDateTime.ShouldBe(DateTime.UtcNow, TimeSpan.FromSeconds(15));
 
             client.Authorization.ShouldNotBeNull();
             client.Authorization.AccessToken.ShouldBe(auth.AccessToken);

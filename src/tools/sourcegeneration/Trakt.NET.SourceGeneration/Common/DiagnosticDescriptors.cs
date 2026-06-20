@@ -1,4 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis;
 
 namespace TraktNET.SourceGeneration.Common
 {
@@ -84,6 +84,22 @@ namespace TraktNET.SourceGeneration.Common
             title: "Invalid JSON separator value for Trakt enum.",
             messageFormat: "JSON separator value for Trakt enum is null or empty.",
             category: EnumsCategory,
+            defaultSeverity: DiagnosticSeverity.Error,
+            isEnabledByDefault: true);
+
+        public static DiagnosticDescriptor RequestPayloadAlreadyDeclared { get; } = new(
+            id: "TRAKTNET1011",
+            title: "Multiple request payloads declared",
+            messageFormat: "TraktRequestPayloadAttribute is declared more than once. Only one is allowed.",
+            category: RequestsCategory,
+            defaultSeverity: DiagnosticSeverity.Error,
+            isEnabledByDefault: true);
+
+        public static DiagnosticDescriptor RequestPayloadConflict { get; } = new(
+            id: "TRAKTNET1012",
+            title: "Property has payload and parameter or query attribute",
+            messageFormat: "TraktRequestPayloadAttribute cannot be declared with TraktRequestParameterAttribute or TraktRequestQueryAttribute. Only one of them is allowed.",
+            category: RequestsCategory,
             defaultSeverity: DiagnosticSeverity.Error,
             isEnabledByDefault: true);
     }

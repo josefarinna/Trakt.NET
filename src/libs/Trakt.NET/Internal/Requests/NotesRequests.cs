@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     // -------------------------------------------------------
     // GET Requests
@@ -21,6 +21,8 @@
     [TraktPostRequest("notes", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class NotesAddPostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktNotePost TraktNotePost { get; set; }
     }
 
     // -------------------------------------------------------
@@ -30,6 +32,8 @@
     [TraktPutRequest("notes/{id:ulong!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class NoteUpdatePutRequest
     {
+        [TraktRequestPayload]
+        internal required TraktNotePost TraktNotePost { get; set; }
     }
 
     // -------------------------------------------------------

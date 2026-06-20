@@ -1,4 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis;
 using TraktNET.SourceGeneration.Models;
 
 namespace TraktNET.SourceGeneration.Requests
@@ -13,6 +13,7 @@ namespace TraktNET.SourceGeneration.Requests
         private OptionalValue<INamedTypeSymbol?> _traktExtendedInfoEnumType;
         private OptionalValue<INamedTypeSymbol?> _traktRequestParameterAttributeType;
         private OptionalValue<INamedTypeSymbol?> _traktRequestQueryAttributeType;
+        private OptionalValue<INamedTypeSymbol?> _traktRequestPayloadAttributeType;
 
         public INamedTypeSymbol? TraktOAuthRequirementEnumType
             => GetOrResolveType(RequestConstants.FullTraktOAuthRequirementName, ref _traktOAuthRequirementEnumType);
@@ -37,6 +38,9 @@ namespace TraktNET.SourceGeneration.Requests
 
         public INamedTypeSymbol? TraktRequestQueryAttributeType
             => GetOrResolveType(RequestConstants.FullTraktRequestQueryAttributeName, ref _traktRequestQueryAttributeType);
+
+        public INamedTypeSymbol? TraktRequestPayloadAttributeType
+            => GetOrResolveType(RequestConstants.FullTraktRequestPayloadAttributeName, ref _traktRequestPayloadAttributeType);
 
         public List<IFieldSymbol> TraktOAuthRequirementValues { get; } = [];
 

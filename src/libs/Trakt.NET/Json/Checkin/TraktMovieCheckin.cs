@@ -8,5 +8,15 @@
         /// See also <seealso cref="TraktMovie" />.
         /// </summary>
         public required TraktMovie Movie { get; set; }
+
+        public override void Validate()
+        {
+            ArgumentValidator.ThrowIfNull(Movie);
+            ArgumentValidator.ThrowIfNull(Movie.IDs);
+            if (!Movie.IDs!.HasAnyID)
+            {
+                throw new ArgumentException($"{nameof(Movie)} has not any IDs set", nameof(Movie));
+            }
+        }
     }
 }

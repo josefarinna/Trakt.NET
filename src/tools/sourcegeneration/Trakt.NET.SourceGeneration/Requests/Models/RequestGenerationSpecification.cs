@@ -1,4 +1,4 @@
-﻿namespace TraktNET.SourceGeneration.Requests
+namespace TraktNET.SourceGeneration.Requests
 {
     public sealed record RequestGenerationSpecification
     {
@@ -21,5 +21,7 @@
         public required List<RequestParameterGenerationSpecification> RequestParameters { get; init; }
 
         public required List<RequestQueryGenerationSpecification> RequestQueries { get; init; }
+
+        public required RequestPayloadGenerationSpecification? RequestPayload { get; init; }
     }
 }

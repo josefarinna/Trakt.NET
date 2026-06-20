@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.AuthModule
 {
@@ -74,8 +74,7 @@ namespace TraktNET.AuthModule
             responseDevice.ExpiresInSeconds.ShouldBe(TestConstants.MockDevice.ExpiresInSeconds);
             responseDevice.IntervalInSeconds.ShouldBe(TestConstants.MockDevice.IntervalInSeconds);
 
-            ulong now = (ulong)DateTimeOffset.UtcNow.ToUnixTimeSeconds();
-            responseDevice.CreatedAt.ShouldBeInRange(DateTime.UtcNow.AddSeconds(-10), DateTime.UtcNow.AddSeconds(10));
+            responseDevice.CreatedAt.ShouldBe(DateTime.UtcNow, TimeSpan.FromSeconds(10));
 
             responseDevice.IsExpiredUnused.ShouldBeFalse();
             responseDevice.IsValid.ShouldBeTrue();
@@ -83,7 +82,7 @@ namespace TraktNET.AuthModule
             client.Device.ShouldNotBeNull();
             client.Device.DeviceCode.ShouldBe(responseDevice.DeviceCode);
             client.Device.UserCode.ShouldBe(responseDevice.UserCode);
-            client.Device.CreatedAt.ShouldBeInRange(DateTime.UtcNow.AddSeconds(-10), DateTime.UtcNow.AddSeconds(10));
+            client.Device.CreatedAt.ShouldBe(DateTime.UtcNow, TimeSpan.FromSeconds(10));
         }
     }
 }

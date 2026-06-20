@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Json;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to comments.<para />
@@ -136,12 +134,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktCommentPostResponse>> PostMovieCommentImplAsync(TraktMovieCommentPost movieCommentPost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(movieCommentPost);
-            movieCommentPost.Validate();
-
             var request = new CommentPostRequest
             {
-                Content = JsonContent.Create(movieCommentPost)
+                TraktCommentPost = movieCommentPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
@@ -150,12 +145,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktCommentPostResponse>> PostShowCommentImplAsync(TraktShowCommentPost showCommentPost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(showCommentPost);
-            showCommentPost.Validate();
-
             var request = new CommentPostRequest
             {
-                Content = JsonContent.Create(showCommentPost)
+                TraktCommentPost = showCommentPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
@@ -164,12 +156,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktCommentPostResponse>> PostSeasonCommentImplAsync(TraktSeasonCommentPost seasonCommentPost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(seasonCommentPost);
-            seasonCommentPost.Validate();
-
             var request = new CommentPostRequest
             {
-                Content = JsonContent.Create(seasonCommentPost)
+                TraktCommentPost = seasonCommentPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
@@ -178,12 +167,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktCommentPostResponse>> PostEpisodeCommentImplAsync(TraktEpisodeCommentPost episodeCommentPost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(episodeCommentPost);
-            episodeCommentPost.Validate();
-
             var request = new CommentPostRequest
             {
-                Content = JsonContent.Create(episodeCommentPost)
+                TraktCommentPost = episodeCommentPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
@@ -192,12 +178,9 @@ namespace TraktNET
         private Task<TraktResponse<TraktCommentPostResponse>> PostListCommentImplAsync(TraktListCommentPost listCommentPost,
             CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(listCommentPost);
-            listCommentPost.Validate();
-
             var request = new CommentPostRequest
             {
-                Content = JsonContent.Create(listCommentPost)
+                TraktCommentPost = listCommentPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
@@ -211,12 +194,11 @@ namespace TraktNET
                 Comment = comment,
                 Spoiler = containsSpoiler
             };
-            content.Validate();
 
             var request = new CommentUpdatePutRequest
             {
                 Id = commentId.ToInvariantCultureString(),
-                Content = JsonContent.Create(content)
+                TraktCommentUpdatePost = content
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
@@ -230,12 +212,11 @@ namespace TraktNET
                 Comment = comment,
                 Spoiler = containsSpoiler
             };
-            content.Validate();
 
             var request = new CommentReplyPostRequest
             {
                 Id = commentId.ToInvariantCultureString(),
-                Content = JsonContent.Create(content)
+                TraktCommentReplyPost = content
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);

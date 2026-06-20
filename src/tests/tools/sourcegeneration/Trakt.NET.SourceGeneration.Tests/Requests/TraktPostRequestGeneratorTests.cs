@@ -1,4 +1,4 @@
-﻿namespace TraktNET.SourceGeneration.Requests
+namespace TraktNET.SourceGeneration.Requests
 {
     public sealed class TraktPostRequestGeneratorTests
     {
@@ -1072,6 +1072,90 @@
             return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests",
                 "SourceGeneration.PostRequestParameterMixedVerification",
                 source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithParameterMixedVerification));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithPayload()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes")]
+                    public sealed partial class TestPostRequest
+                    {
+                        [TraktRequestPayload]
+                        public string? Payload { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests", "SourceGeneration.PostRequestWithPayload",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithPayload));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithRequiredPayload()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes")]
+                    public sealed partial class TestPostRequest
+                    {
+                        [TraktRequestPayload]
+                        public required string Payload { get; init; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests", "SourceGeneration.PostRequestWithRequiredPayload",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithRequiredPayload));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithPayloadValidate()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes")]
+                    public sealed partial class TestPostRequest
+                    {
+                        [TraktRequestPayload]
+                        public required TraktNotePost Payload { get; init; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests", "SourceGeneration.PostRequestWithPayloadValidate",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithPayloadValidate));
+        }
+
+        [Fact]
+        public Task TestGeneratePostRequestWithOptionalPayloadValidate()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktPostRequest("notes")]
+                    public sealed partial class TestPostRequest
+                    {
+                        [TraktRequestPayload]
+                        public TraktNotePost Payload { get; set; }
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktPostRequestSourceGenerator>("Requests", "SourceGeneration.PostRequestWithOptionalPayloadValidate",
+                source, RequestTestType.PostRequest, nameof(TestGeneratePostRequestWithOptionalPayloadValidate));
         }
     }
 }

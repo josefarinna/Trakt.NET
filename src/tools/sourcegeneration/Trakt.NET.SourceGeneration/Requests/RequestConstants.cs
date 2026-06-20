@@ -1,4 +1,4 @@
-﻿using TraktNET.SourceGeneration.Common;
+using TraktNET.SourceGeneration.Common;
 
 namespace TraktNET.SourceGeneration.Requests
 {
@@ -22,6 +22,8 @@ namespace TraktNET.SourceGeneration.Requests
 
         internal const string TraktRequestQueryAttributeName = "TraktRequestQueryAttribute";
 
+        internal const string TraktRequestPayloadAttributeName = "TraktRequestPayloadAttribute";
+
         internal const string FullTraktExtendedInfoName = Constants.LibraryNamespace + "." + TraktExtendedInfoName;
 
         internal const string FullTraktOAuthRequirementName = Constants.LibraryNamespace + "." + TraktOAuthRequirementName;
@@ -39,6 +41,8 @@ namespace TraktNET.SourceGeneration.Requests
         internal const string FullTraktRequestParameterAttributeName = Constants.LibraryNamespace + "." + TraktRequestParameterAttributeName;
 
         internal const string FullTraktRequestQueryAttributeName = Constants.LibraryNamespace + "." + TraktRequestQueryAttributeName;
+
+        internal const string FullTraktRequestPayloadAttributeName = Constants.LibraryNamespace + "." + TraktRequestPayloadAttributeName;
 
         internal const string TraktRequestPropertySupportsExtendedInfoName = "SupportsExtendedInfo";
 

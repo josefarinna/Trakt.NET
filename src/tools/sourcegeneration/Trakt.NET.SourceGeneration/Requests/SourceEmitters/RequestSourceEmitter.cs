@@ -1,4 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis;
 using System.Buffers;
 using System.Runtime.CompilerServices;
 using TraktNET.SourceGeneration.Common;
@@ -30,6 +30,7 @@ namespace TraktNET.SourceGeneration.Requests
 
         private List<RequestParameterGenerationSpecification> _requestParameters = [];
         private List<RequestQueryGenerationSpecification> _requestQueries = [];
+        private RequestPayloadGenerationSpecification? _requestPayload;
 
         public override void Emit(RequestGenerationSpecification generationSpecification)
         {
@@ -61,6 +62,7 @@ namespace TraktNET.SourceGeneration.Requests
             _hasOAuthRequirementDefined = requestGenerationSpecification.HasOAuthRequirementDefined;
             _requestParameters = requestGenerationSpecification.RequestParameters;
             _requestQueries = requestGenerationSpecification.RequestQueries;
+            _requestPayload = requestGenerationSpecification.RequestPayload;
 
             if (_supportsExtendedInfo)
             {
@@ -213,7 +215,7 @@ namespace TraktNET.SourceGeneration.Requests
                 WriteGetQueriesMethod();
             }
 
-            if (_uriPlaceHolders.Any(x => x.NeedsVerification) || _requestParameters.Any(x => x.IsRequired) || _requestQueries.Any(x => x.IsRequired))
+            if (_uriPlaceHolders.Any(x => x.NeedsVerification) || _requestParameters.Any(x => x.IsRequired) || _requestQueries.Any(x => x.IsRequired) || (_requestPayload != null && (_requestPayload.IsRequired || _requestPayload.HasValidateMethod)))
             {
                 _sourceWriter.WriteEmptyLine();
                 WriteValidateMethod();
@@ -728,7 +730,7 @@ namespace TraktNET.SourceGeneration.Requests
         {
             _sourceWriter.WriteLine("internal override void BuildUri()");
 
-            if (!_hasOptionalPlaceholders && _uriPlaceHolders.Count == 0 && !_hasOptionalParameters && !_hasOptionalQueries)
+            if (!_hasOptionalPlaceholders && _uriPlaceHolders.Count == 0 && !_hasOptionalParameters && !_hasOptionalQueries && _requestPayload == null)
             {
                 _sourceWriter.Indent();
                 _sourceWriter.WriteLine($"=> RequestUri = new Uri(\"{_resolvedUriPath}\", UriKind.Relative);");
@@ -803,6 +805,24 @@ namespace TraktNET.SourceGeneration.Requests
                 {
                     _sourceWriter.WriteLine($"string {RequestUriName} = $\"{_resolvedUriPath}\";");
                     _sourceWriter.WriteLine($"RequestUri = new Uri({RequestUriName}, UriKind.Relative);");
+                }
+
+                if (_requestPayload != null)
+                {
+                    _sourceWriter.WriteEmptyLine();
+                    if (_requestPayload.IsRequired)
+                    {
+                        _sourceWriter.WriteLine($"Content = System.Net.Http.Json.JsonContent.Create({_requestPayload.Name}, {_requestPayload.Name}.GetType());");
+                    }
+                    else
+                    {
+                        _sourceWriter.WriteLine($"if ({_requestPayload.Name} != null)");
+                        _sourceWriter.WriteLine('{');
+                        _sourceWriter.Indent();
+                        _sourceWriter.WriteLine($"Content = System.Net.Http.Json.JsonContent.Create({_requestPayload.Name}, {_requestPayload.Name}.GetType());");
+                        _sourceWriter.DecrementIndent();
+                        _sourceWriter.WriteLine('}');
+                    }
                 }
 
                 _sourceWriter.DecrementIndent();
@@ -923,6 +943,27 @@ namespace TraktNET.SourceGeneration.Requests
                     continue;
 
                 ValidateMember(requestQuery.Name, requestQuery.IsTraktEnum, requestQuery.TraktEnumTypeName, requestQuery.TraktEnumDefaultValue, requestQuery.SpecialType, requestQuery.IsRequired);
+            }
+
+            if (_requestPayload != null && _requestPayload.IsRequired)
+            {
+                ValidateMember(_requestPayload.Name, _requestPayload.IsTraktEnum, _requestPayload.TraktEnumTypeName, _requestPayload.TraktEnumDefaultValue, _requestPayload.SpecialType, _requestPayload.IsRequired);
+                if (_requestPayload.HasValidateMethod)
+                {
+                    _sourceWriter.WriteEmptyLine();
+                    _sourceWriter.WriteLine($"{_requestPayload.Name}.Validate();");
+                }
+            }
+            else if (_requestPayload != null && !_requestPayload.IsRequired && _requestPayload.HasValidateMethod)
+            {
+                EnsureEmptyLine();
+                _sourceWriter.WriteLine($"if ({_requestPayload.Name} != null)");
+                _sourceWriter.WriteLine('{');
+                _sourceWriter.Indent();
+                _sourceWriter.WriteLine($"{_requestPayload.Name}.Validate();");
+                _sourceWriter.DecrementIndent();
+                _sourceWriter.WriteLine('}');
+                needsEmptyLine = true;
             }
 
             _sourceWriter.DecrementIndent();

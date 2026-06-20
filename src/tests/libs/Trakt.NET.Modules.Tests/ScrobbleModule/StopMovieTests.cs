@@ -89,10 +89,8 @@ namespace TraktNET.ScrobbleModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(ScrobbleStopUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktMovieScrobblePostResponse>>> act = () => client.Scrobble.StopMovieAsync(default, cancellationToken: TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
-            await act.ShouldThrowAsync<ArgumentNullException>();
+            Func<Task<TraktResponse<TraktMovieScrobblePostResponse>>> act = () => client.Scrobble.StopMovieAsync(default!, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             var content = new TraktMovieScrobblePost { Progress = StopProgress };
             act = () => client.Scrobble.StopMovieAsync(content, TestContext.Current.CancellationToken);

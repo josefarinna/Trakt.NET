@@ -82,12 +82,18 @@
     internal sealed partial class CommentPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
+
+        [TraktRequestPayload]
+        internal required TraktCommentPost TraktCommentPost { get; set; }
     }
 
     [TraktPostRequest("comments/{id!!}/replies", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CommentReplyPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
+
+        [TraktRequestPayload]
+        internal required TraktCommentReplyPost TraktCommentReplyPost { get; set; }
     }
 
     [TraktPostRequest("comments/{id!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]
@@ -104,6 +110,9 @@
     internal sealed partial class CommentUpdatePutRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
+
+        [TraktRequestPayload]
+        internal required TraktCommentUpdatePost TraktCommentUpdatePost { get; set; }
     }
 
     // -------------------------------------------------------

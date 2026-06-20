@@ -14,5 +14,15 @@
         /// See also <seealso cref="TraktShow" />.
         /// </summary>
         public TraktShow? Show { get; set; }
+
+        public override void Validate()
+        {
+            ArgumentValidator.ThrowIfNull(Episode);
+            ArgumentValidator.ThrowIfNull(Episode.IDs);
+            if (!Episode.IDs!.HasAnyID)
+            {
+                throw new ArgumentException($"{nameof(Episode)} has not any IDs set", nameof(Episode));
+            }
+        }
     }
 }

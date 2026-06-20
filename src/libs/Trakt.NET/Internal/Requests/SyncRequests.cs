@@ -105,61 +105,85 @@
     [TraktPostRequest("sync/collection", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncCollectionAddPostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktSyncCollectionPost TraktSyncCollectionPost { get; set; }
     }
 
     [TraktPostRequest("sync/collection/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncCollectionRemovePostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktSyncCollectionRemovePost TraktSyncCollectionRemovePost { get; set; }
     }
 
     [TraktPostRequest("sync/favorites/reorder", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncFavoritedItemsReorderPostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktListItemsReorderPost TraktListItemsReorderPost { get; set; }
     }
 
     [TraktPostRequest("sync/favorites", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncFavoritesAddPostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktSyncFavoritesPost TraktSyncFavoritesPost { get; set; }
     }
 
     [TraktPostRequest("sync/favorites/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncFavoritesRemovePostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktSyncFavoritesRemovePost TraktSyncFavoritesRemovePost { get; set; }
     }
 
     [TraktPostRequest("sync/ratings", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncRatingsAddPostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktSyncRatingsPost TraktSyncRatingsPost { get; set; }
     }
 
     [TraktPostRequest("sync/ratings/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncRatingsRemovePostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktSyncRatingsRemovePost TraktSyncRatingsRemovePost { get; set; }
     }
 
     [TraktPostRequest("sync/history", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncWatchedHistoryAddPostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktSyncHistoryPost TraktSyncHistoryPost { get; set; }
     }
 
     [TraktPostRequest("sync/history/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncWatchedHistoryRemovePostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktSyncHistoryRemovePost TraktSyncHistoryRemovePost { get; set; }
     }
 
     [TraktPostRequest("sync/watchlist", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncWatchlistAddPostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktSyncWatchlistPost TraktSyncWatchlistPost { get; set; }
     }
 
     [TraktPostRequest("sync/watchlist/reorder", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncWatchlistItemsReorderPostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktListItemsReorderPost TraktListItemsReorderPost { get; set; }
     }
 
     [TraktPostRequest("sync/watchlist/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncWatchlistRemovePostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktSyncWatchlistRemovePost TraktSyncWatchlistRemovePost { get; set; }
     }
 
     // -------------------------------------------------------
@@ -171,11 +195,16 @@
     {
         [TraktRequestParameter]
         internal uint ListItemId { get; set; }
+
+        [TraktRequestPayload]
+        internal TraktListItemUpdatePost? TraktListItemUpdatePost { get; set; }
     }
 
     [TraktPutRequest("sync/favorites", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncFavoritesUpdatePostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktUpdateListPost TraktUpdateListPost { get; set; }
     }
 
     [TraktPutRequest("sync/watchlist", OAuthRequirement = TraktOAuthRequirement.Required)]
@@ -183,11 +212,16 @@
     {
         [TraktRequestParameter]
         internal uint ListItemId { get; set; }
+
+        [TraktRequestPayload]
+        internal TraktListItemUpdatePost? TraktListItemUpdatePost { get; set; }
     }
 
     [TraktPutRequest("sync/watchlist", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncWatchlistUpdatePostRequest
     {
+        [TraktRequestPayload]
+        internal required TraktUpdateListPost TraktUpdateListPost { get; set; }
     }
 
     // -------------------------------------------------------

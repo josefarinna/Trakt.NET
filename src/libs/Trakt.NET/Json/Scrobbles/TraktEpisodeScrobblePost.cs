@@ -15,7 +15,7 @@
         /// </summary>
         public TraktShow? Show { get; set; }
 
-        public new void Validate()
+        public override void Validate()
         {
             base.Validate();
 

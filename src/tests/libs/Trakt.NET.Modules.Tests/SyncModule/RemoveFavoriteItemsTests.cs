@@ -102,10 +102,8 @@ namespace TraktNET.SyncModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RemoveFavoritesUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktSyncFavoritesRemovePostResponse>>> act = () => client.Sync.RemoveFavoriteItemsAsync(default, TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
-            await act.ShouldThrowAsync<ArgumentException>();
+            Func<Task<TraktResponse<TraktSyncFavoritesRemovePostResponse>>> act = () => client.Sync.RemoveFavoriteItemsAsync(default!, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             var content = new TraktSyncFavoritesRemovePost();
             act = () => client.Sync.RemoveFavoriteItemsAsync(content, TestContext.Current.CancellationToken);

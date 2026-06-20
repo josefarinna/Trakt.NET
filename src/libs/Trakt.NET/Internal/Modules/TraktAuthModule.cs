@@ -18,7 +18,7 @@ namespace TraktNET
         public string CreateAuthorizationUrlWithDefaultStateCore(string clientId, string redirectUri, bool? showSignupPage = null, bool? forceLoginPrompt = null)
             => RequestHandler.CreateAuthorizationUrl(_context, clientId, redirectUri, _context.AntiForgeryToken, showSignupPage, forceLoginPrompt);
 
-        public Task<TraktResponse<TraktAuthorization>> GetAuthorizationImplAsync(string code, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktAuthorization>> GetAuthorizationImplAsync(string code, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)
         {
             var content = new AuthorizationRequestBody
             {
@@ -41,7 +41,7 @@ namespace TraktNET
             return RequestHandler.GetAuthorizationAsync(_context, request, cancellationToken);
         }
 
-        public Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationImplAsync(string refreshToken, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationImplAsync(string refreshToken, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)
         {
             var content = new AuthorizationRefreshRequestBody
             {
@@ -64,7 +64,7 @@ namespace TraktNET
             return RequestHandler.RefreshAuthorizationAsync(_context, request, cancellationToken);
         }
 
-        public Task<TraktResponse> RevokeAuthorizationImplAsync(string accessToken, string clientId, string clientSecret, CancellationToken cancellationToken = default)
+        private Task<TraktResponse> RevokeAuthorizationImplAsync(string accessToken, string clientId, string clientSecret, CancellationToken cancellationToken = default)
         {
             var content = new AuthorizationRevokeRequestBody
             {
@@ -87,7 +87,7 @@ namespace TraktNET
             return RequestHandler.RevokeAuthorizationAsync(_context, request, cancellationToken);
         }
 
-        public Task<TraktResponse<TraktDevice>> GenerateDeviceImplAsync(string clientId, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktDevice>> GenerateDeviceImplAsync(string clientId, CancellationToken cancellationToken = default)
         {
             var content = new DeviceRequestBody
             {
@@ -108,7 +108,7 @@ namespace TraktNET
             return RequestHandler.GetDeviceAsync(_context, request, cancellationToken);
         }
 
-        public Task<TraktResponse<TraktAuthorization>> PollForAuthorizationImplAsync(TraktDevice device, string clientId, string clientSecret, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktAuthorization>> PollForAuthorizationImplAsync(TraktDevice device, string clientId, string clientSecret, CancellationToken cancellationToken = default)
         {
             var content = new AuthorizationPollRequestBody
             {

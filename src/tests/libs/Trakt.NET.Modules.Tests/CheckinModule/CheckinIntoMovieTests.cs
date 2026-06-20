@@ -99,7 +99,7 @@ namespace TraktNET.CheckinModule
             TraktClient client = ModuleTestUtility.GetClient(CheckinUri, "{}");
 
             Func<Task<TraktResponse<TraktMovieCheckinResponse>>> act = () => client.Checkins.CheckIntoMovieAsync(null!);
-            await act.ShouldThrowAsync<ArgumentNullException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             var movieCheckin = new TraktMovieCheckin { Movie = null! };
             act = () => client.Checkins.CheckIntoMovieAsync(movieCheckin);
