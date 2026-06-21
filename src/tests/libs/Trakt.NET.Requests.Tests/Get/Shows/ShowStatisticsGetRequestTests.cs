@@ -43,17 +43,14 @@ namespace TraktNET.GetRequests.Shows
         public void TestShowStatisticsGetRequestValidate()
         {
             var showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = string.Empty };
-
             Action act = () => showStatisticsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = "  " };
-
             act = () => showStatisticsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showStatisticsGetRequest = new ShowStatisticsGetRequest { Id = "id with spaces" };
-
             act = () => showStatisticsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

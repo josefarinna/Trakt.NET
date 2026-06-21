@@ -65,17 +65,14 @@ namespace TraktNET.GetRequests.Shows
         public void TestShowWatchedProgressGetRequestValidate()
         {
             var showWatchedProgressGetRequest = new ShowWatchedProgressGetRequest { Id = string.Empty };
-
             Action act = () => showWatchedProgressGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showWatchedProgressGetRequest = new ShowWatchedProgressGetRequest { Id = "  " };
-
             act = () => showWatchedProgressGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showWatchedProgressGetRequest = new ShowWatchedProgressGetRequest { Id = "id with spaces" };
-
             act = () => showWatchedProgressGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

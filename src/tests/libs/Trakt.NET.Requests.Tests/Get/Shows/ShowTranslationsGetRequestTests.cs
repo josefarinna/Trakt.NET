@@ -51,17 +51,14 @@ namespace TraktNET.GetRequests.Shows
         public void TestShowTranslationsGetRequestValidate()
         {
             var showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = string.Empty };
-
             Action act = () => showTranslationsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = "  " };
-
             act = () => showTranslationsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showTranslationsGetRequest = new ShowTranslationsGetRequest { Id = "id with spaces" };
-
             act = () => showTranslationsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

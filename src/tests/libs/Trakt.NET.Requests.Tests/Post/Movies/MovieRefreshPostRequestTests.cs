@@ -46,17 +46,14 @@ namespace TraktNET.PostRequests.Movies
         public void TestMovieRefreshPostRequestValidate()
         {
             var movieRefreshPostRequest = new MovieRefreshPostRequest { Id = string.Empty };
-
             Action act = () => movieRefreshPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             movieRefreshPostRequest = new MovieRefreshPostRequest { Id = "  " };
-
             act = () => movieRefreshPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             movieRefreshPostRequest = new MovieRefreshPostRequest { Id = "id with spaces" };
-
             act = () => movieRefreshPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

@@ -81,17 +81,14 @@ namespace TraktNET.GetRequests.Movies
         public void TestMovieCommentsGetRequestValidate()
         {
             var movieCommentsGetRequest = new MovieCommentsGetRequest { Id = string.Empty };
-
             Action act = () => movieCommentsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             movieCommentsGetRequest = new MovieCommentsGetRequest { Id = "  " };
-
             act = () => movieCommentsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             movieCommentsGetRequest = new MovieCommentsGetRequest { Id = "id with spaces" };
-
             act = () => movieCommentsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

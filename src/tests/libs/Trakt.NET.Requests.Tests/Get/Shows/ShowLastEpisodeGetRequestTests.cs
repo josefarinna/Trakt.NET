@@ -50,17 +50,14 @@ namespace TraktNET.GetRequests.Shows
         public void TestShowLastEpisodeGetRequestValidate()
         {
             var showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = string.Empty };
-
             Action act = () => showLastEpisodeGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = "  " };
-
             act = () => showLastEpisodeGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showLastEpisodeGetRequest = new ShowLastEpisodeGetRequest { Id = "id with spaces" };
-
             act = () => showLastEpisodeGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

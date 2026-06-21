@@ -50,17 +50,14 @@ namespace TraktNET.GetRequests.Movies
         public void TestMovieWatchingGetRequestValidate()
         {
             var movieWatchingGetRequest = new MovieWatchingGetRequest { Id = string.Empty };
-
             Action act = () => movieWatchingGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             movieWatchingGetRequest = new MovieWatchingGetRequest { Id = "  " };
-
             act = () => movieWatchingGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             movieWatchingGetRequest = new MovieWatchingGetRequest { Id = "id with spaces" };
-
             act = () => movieWatchingGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

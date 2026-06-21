@@ -81,17 +81,14 @@ namespace TraktNET.GetRequests.Shows
         public void TestShowCommentsGetRequestValidate()
         {
             var showCommentsGetRequest = new ShowCommentsGetRequest { Id = string.Empty };
-
             Action act = () => showCommentsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showCommentsGetRequest = new ShowCommentsGetRequest { Id = "  " };
-
             act = () => showCommentsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showCommentsGetRequest = new ShowCommentsGetRequest { Id = "id with spaces" };
-
             act = () => showCommentsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

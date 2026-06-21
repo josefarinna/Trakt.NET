@@ -50,17 +50,14 @@ namespace TraktNET.GetRequests.Shows
         public void TestShowGetRequestValidate()
         {
             var showGetRequest = new ShowGetRequest { Id = string.Empty };
-
             Action act = () => showGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showGetRequest = new ShowGetRequest { Id = "  " };
-
             act = () => showGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showGetRequest = new ShowGetRequest { Id = "id with spaces" };
-
             act = () => showGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

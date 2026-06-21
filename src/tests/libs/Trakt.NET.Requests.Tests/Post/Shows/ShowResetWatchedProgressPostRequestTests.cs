@@ -46,17 +46,14 @@ namespace TraktNET.PostRequests.Shows
         public void TestShowResetWatchedProgressPostRequestValidate()
         {
             var showResetWatchedProgressPostRequest = new ShowResetWatchedProgressPostRequest { Id = string.Empty };
-
             Action act = () => showResetWatchedProgressPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showResetWatchedProgressPostRequest = new ShowResetWatchedProgressPostRequest { Id = "  " };
-
             act = () => showResetWatchedProgressPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showResetWatchedProgressPostRequest = new ShowResetWatchedProgressPostRequest { Id = "id with spaces" };
-
             act = () => showResetWatchedProgressPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

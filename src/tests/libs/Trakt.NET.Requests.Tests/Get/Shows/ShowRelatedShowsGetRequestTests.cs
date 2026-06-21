@@ -61,17 +61,14 @@ namespace TraktNET.GetRequests.Shows
         public void TestShowRelatedShowsGetRequestValidate()
         {
             var showRelatedShowsGetRequest = new ShowRelatedShowsGetRequest { Id = string.Empty };
-
             Action act = () => showRelatedShowsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showRelatedShowsGetRequest = new ShowRelatedShowsGetRequest { Id = "  " };
-
             act = () => showRelatedShowsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showRelatedShowsGetRequest = new ShowRelatedShowsGetRequest { Id = "id with spaces" };
-
             act = () => showRelatedShowsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

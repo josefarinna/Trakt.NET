@@ -43,17 +43,14 @@ namespace TraktNET.GetRequests.Shows
         public void TestShowAliasesGetRequestValidate()
         {
             var showAliasesGetRequest = new ShowAliasesGetRequest { Id = string.Empty };
-
             Action act = () => showAliasesGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showAliasesGetRequest = new ShowAliasesGetRequest { Id = "  " };
-
             act = () => showAliasesGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showAliasesGetRequest = new ShowAliasesGetRequest { Id = "id with spaces" };
-
             act = () => showAliasesGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

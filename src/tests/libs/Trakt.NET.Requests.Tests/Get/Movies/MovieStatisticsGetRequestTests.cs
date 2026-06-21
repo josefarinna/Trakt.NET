@@ -43,17 +43,14 @@ namespace TraktNET.GetRequests.Movies
         public void TestMovieStatisticsGetRequestValidate()
         {
             var movieStatisticsGetRequest = new MovieStatisticsGetRequest { Id = string.Empty };
-
             Action act = () => movieStatisticsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             movieStatisticsGetRequest = new MovieStatisticsGetRequest { Id = "  " };
-
             act = () => movieStatisticsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             movieStatisticsGetRequest = new MovieStatisticsGetRequest { Id = "id with spaces" };
-
             act = () => movieStatisticsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

@@ -46,17 +46,14 @@ namespace TraktNET.DeleteRequests.Shows
         public void TestShowUndoResetWatchedProgressDeleteRequestValidate()
         {
             var showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = string.Empty };
-
             Action act = () => showUndoResetWatchedProgressDeleteRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = "  " };
-
             act = () => showUndoResetWatchedProgressDeleteRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showUndoResetWatchedProgressDeleteRequest = new ShowUndoResetWatchedProgressDeleteRequest { Id = "id with spaces" };
-
             act = () => showUndoResetWatchedProgressDeleteRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

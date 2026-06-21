@@ -46,17 +46,14 @@ namespace TraktNET.PostRequests.Shows
         public void TestShowRefreshPostRequestValidate()
         {
             var showRefreshPostRequest = new ShowRefreshPostRequest { Id = string.Empty };
-
             Action act = () => showRefreshPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showRefreshPostRequest = new ShowRefreshPostRequest { Id = "  " };
-
             act = () => showRefreshPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             showRefreshPostRequest = new ShowRefreshPostRequest { Id = "id with spaces" };
-
             act = () => showRefreshPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

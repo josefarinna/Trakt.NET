@@ -50,17 +50,14 @@ namespace TraktNET.GetRequests.Seasons
         public void TestSeasonsAllGetRequestValidate()
         {
             var seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = string.Empty };
-
             Action act = () => seasonsAllGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = "  " };
-
             act = () => seasonsAllGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             seasonsAllGetRequest = new SeasonsAllGetRequest { ShowId = "id with spaces" };
-
             act = () => seasonsAllGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
