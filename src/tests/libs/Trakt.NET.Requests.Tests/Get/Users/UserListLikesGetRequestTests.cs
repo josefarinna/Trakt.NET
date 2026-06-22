@@ -63,15 +63,15 @@ namespace TraktNET.GetRequests.Users
             act = () => userListLikesGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListLikesGetRequest = new UserListLikesGetRequest { Id = default!, ListId = string.Empty };
+            userListLikesGetRequest = new UserListLikesGetRequest { Id = "id", ListId = string.Empty };
             act = () => userListLikesGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListLikesGetRequest = new UserListLikesGetRequest { Id = default!, ListId = "  " };
+            userListLikesGetRequest = new UserListLikesGetRequest { Id = "id", ListId = "  " };
             act = () => userListLikesGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListLikesGetRequest = new UserListLikesGetRequest { Id = default!, ListId = "id with spaces" };
+            userListLikesGetRequest = new UserListLikesGetRequest { Id = "id", ListId = "id with spaces" };
             act = () => userListLikesGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

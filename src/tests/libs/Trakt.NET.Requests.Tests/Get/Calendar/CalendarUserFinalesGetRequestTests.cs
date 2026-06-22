@@ -6,7 +6,8 @@ namespace TraktNET.GetRequests.Calendar
 {
     public sealed class CalendarUserFinalesGetRequestTests
     {
-        private const string URIPath = "calendars/my/shows/finales/123";
+        private const string URIPath = "calendars/my/shows/finales";
+        private const string StartDateURIValue = "2024-07-20";
 
         [Theory]
         [InlineData(null, URIPath)]
@@ -16,7 +17,22 @@ namespace TraktNET.GetRequests.Calendar
         {
             var calendarUserFinalesGetRequest = new CalendarUserFinalesGetRequest
             {
-                StartDate = "123",
+                ExtendedInfo = extendedInfo
+            };
+
+            calendarUserFinalesGetRequest.BuildUri();
+            calendarUserFinalesGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
+        }
+
+        [Theory]
+        [InlineData(null, $"{URIPath}/{StartDateURIValue}")]
+        [InlineData(TraktExtendedInfo.None, $"{URIPath}/{StartDateURIValue}")]
+        [InlineData(TraktExtendedInfo.Full, $"{URIPath}/{StartDateURIValue}?extended=full")]
+        public void TestCalendarUserFinalesGetRequestHasValidURIPathWithStartDate(TraktExtendedInfo? extendedInfo, string expectedURIPath)
+        {
+            var calendarUserFinalesGetRequest = new CalendarUserFinalesGetRequest
+            {
+                StartDate = StartDateURIValue,
                 ExtendedInfo = extendedInfo
             };
 

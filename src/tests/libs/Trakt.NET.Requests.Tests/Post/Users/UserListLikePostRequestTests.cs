@@ -57,15 +57,15 @@ namespace TraktNET.PostRequests.Users
             act = () => userListLikePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListLikePostRequest = new UserListLikePostRequest { Id = default!, ListId = string.Empty };
+            userListLikePostRequest = new UserListLikePostRequest { Id = "id", ListId = string.Empty };
             act = () => userListLikePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListLikePostRequest = new UserListLikePostRequest { Id = default!, ListId = "  " };
+            userListLikePostRequest = new UserListLikePostRequest { Id = "id", ListId = "  " };
             act = () => userListLikePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListLikePostRequest = new UserListLikePostRequest { Id = default!, ListId = "id with spaces" };
+            userListLikePostRequest = new UserListLikePostRequest { Id = "id", ListId = "id with spaces" };
             act = () => userListLikePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

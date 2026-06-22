@@ -9,7 +9,7 @@ namespace TraktNET.PostRequests.Users
         [Theory]
         [InlineData(TraktHiddenItemsSection.Calendar, "users/hidden/calendar/remove")]
         [InlineData(TraktHiddenItemsSection.Comments, "users/hidden/comments/remove")]
-        [InlineData(TraktHiddenItemsSection.ProgressCollected, "users/hidden/progresscollected/remove")]
+        [InlineData(TraktHiddenItemsSection.ProgressCollected, "users/hidden/progress_collected/remove")]
         [InlineData(TraktHiddenItemsSection.Dropped, "users/hidden/dropped/remove")]
         [InlineData(TraktHiddenItemsSection.Recommendations, "users/hidden/recommendations/remove")]
         public void TestUserHiddenItemsRemovePostRequestHasValidURIPath(TraktHiddenItemsSection section, string expectedURIPath)

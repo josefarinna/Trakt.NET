@@ -97,15 +97,15 @@ namespace TraktNET.GetRequests.Users
             act = () => userPersonalListItemsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsGetRequest = new UserPersonalListItemsGetRequest { Id = default!, ListId = string.Empty };
+            userPersonalListItemsGetRequest = new UserPersonalListItemsGetRequest { Id = "id", ListId = string.Empty };
             act = () => userPersonalListItemsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsGetRequest = new UserPersonalListItemsGetRequest { Id = default!, ListId = "  " };
+            userPersonalListItemsGetRequest = new UserPersonalListItemsGetRequest { Id = "id", ListId = "  " };
             act = () => userPersonalListItemsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsGetRequest = new UserPersonalListItemsGetRequest { Id = default!, ListId = "id with spaces" };
+            userPersonalListItemsGetRequest = new UserPersonalListItemsGetRequest { Id = "id", ListId = "id with spaces" };
             act = () => userPersonalListItemsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

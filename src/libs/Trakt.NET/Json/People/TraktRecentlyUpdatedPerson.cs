@@ -6,6 +6,7 @@ namespace TraktNET
     public record class TraktRecentlyUpdatedPerson
     {
         /// <summary>Gets or sets the UTC datetime, when the <see cref="Person" /> was updated.</summary>
+        [JsonPropertyName("updated_at")]
         public DateTime? RecentlyUpdatedAt { get; set; }
 
         /// <summary>Gets or sets the Trakt person. See also <seealso cref="TraktPerson" />.<para>Nullable</para></summary>

@@ -6,7 +6,8 @@ namespace TraktNET.GetRequests.Calendar
 {
     public sealed class CalendarAllStreamingMoviesGetRequestTests
     {
-        private const string URIPath = "calendars/all/streaming/123";
+        private const string URIPath = "calendars/all/streaming";
+        private const string StartDateURIValue = "2024-07-20";
 
         [Theory]
         [InlineData(null, URIPath)]
@@ -16,7 +17,22 @@ namespace TraktNET.GetRequests.Calendar
         {
             var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest
             {
-                StartDate = "123",
+                ExtendedInfo = extendedInfo
+            };
+
+            calendarAllStreamingMoviesGetRequest.BuildUri();
+            calendarAllStreamingMoviesGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
+        }
+
+        [Theory]
+        [InlineData(null, $"{URIPath}/{StartDateURIValue}")]
+        [InlineData(TraktExtendedInfo.None, $"{URIPath}/{StartDateURIValue}")]
+        [InlineData(TraktExtendedInfo.Full, $"{URIPath}/{StartDateURIValue}?extended=full")]
+        public void TestCalendarAllStreamingMoviesGetRequestHasValidURIPathWithStartDate(TraktExtendedInfo? extendedInfo, string expectedURIPath)
+        {
+            var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest
+            {
+                StartDate = StartDateURIValue,
                 ExtendedInfo = extendedInfo
             };
 

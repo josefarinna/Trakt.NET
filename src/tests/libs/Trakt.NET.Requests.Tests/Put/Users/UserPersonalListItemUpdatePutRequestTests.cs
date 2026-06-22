@@ -46,29 +46,34 @@ namespace TraktNET.PutRequests.Users
         [Fact]
         public void TestUserPersonalListItemUpdatePutRequestValidate()
         {
-            var userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = string.Empty, ListId = default! };
+            var userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = string.Empty, ListId = default!, ListItemId = default };
             Action act = () => userPersonalListItemUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = "  ", ListId = default! };
+            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = "  ", ListId = default!, ListItemId = default };
             act = () => userPersonalListItemUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = "id with spaces", ListId = default! };
+            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = "id with spaces", ListId = default!, ListItemId = default };
             act = () => userPersonalListItemUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = default!, ListId = string.Empty };
+            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = "id", ListId = string.Empty, ListItemId = default };
             act = () => userPersonalListItemUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = default!, ListId = "  " };
+            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = "id", ListId = "  ", ListItemId = default };
             act = () => userPersonalListItemUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = default!, ListId = "id with spaces" };
+            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = "id", ListId = "id with spaces", ListItemId = default };
+            act = () => userPersonalListItemUpdatePutRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            userPersonalListItemUpdatePutRequest = new UserPersonalListItemUpdatePutRequest { Id = "id", ListId = "listid", ListItemId = default };
             act = () => userPersonalListItemUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
+    }
     }
 }

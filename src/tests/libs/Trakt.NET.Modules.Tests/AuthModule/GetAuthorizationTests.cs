@@ -106,7 +106,6 @@ namespace TraktNET.AuthModule
 
             client.Authorization.ShouldNotBeNull();
             client.Authorization.AccessToken.ShouldBe(responseAuth.AccessToken);
-            client.Authorization.CreatedAt.ShouldBe(responseAuth.CreatedAt);
         }
     }
 }

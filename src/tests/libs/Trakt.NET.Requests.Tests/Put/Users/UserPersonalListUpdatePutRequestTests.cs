@@ -57,15 +57,15 @@ namespace TraktNET.PutRequests.Users
             act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = default!, ListId = string.Empty };
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = string.Empty };
             act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = default!, ListId = "  " };
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = "  " };
             act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = default!, ListId = "id with spaces" };
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = "id with spaces" };
             act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

@@ -57,15 +57,15 @@ namespace TraktNET.DeleteRequests.Users
             act = () => userListUnlikeDeleteRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListUnlikeDeleteRequest = new UserListUnlikeDeleteRequest { Id = default!, ListId = string.Empty };
+            userListUnlikeDeleteRequest = new UserListUnlikeDeleteRequest { Id = "id", ListId = string.Empty };
             act = () => userListUnlikeDeleteRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListUnlikeDeleteRequest = new UserListUnlikeDeleteRequest { Id = default!, ListId = "  " };
+            userListUnlikeDeleteRequest = new UserListUnlikeDeleteRequest { Id = "id", ListId = "  " };
             act = () => userListUnlikeDeleteRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListUnlikeDeleteRequest = new UserListUnlikeDeleteRequest { Id = default!, ListId = "id with spaces" };
+            userListUnlikeDeleteRequest = new UserListUnlikeDeleteRequest { Id = "id", ListId = "id with spaces" };
             act = () => userListUnlikeDeleteRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

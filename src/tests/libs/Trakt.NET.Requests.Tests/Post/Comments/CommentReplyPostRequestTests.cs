@@ -13,7 +13,7 @@ namespace TraktNET.PostRequests.Comments
         {
             var commentReplyPostRequest = new CommentReplyPostRequest
             {
-                TraktCommentReplyPost = new TraktNET.TraktCommentReplyPost { Comment = default! },
+                TraktCommentReplyPost = new TraktCommentReplyPost { Comment = default! },
                 Id = "123"
             };
 
@@ -58,6 +58,10 @@ namespace TraktNET.PostRequests.Comments
             act.ShouldThrow<TraktRequestValidationException>();
 
             commentReplyPostRequest = new CommentReplyPostRequest { TraktCommentReplyPost = default!, Id = default! };
+            act = () => commentReplyPostRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            commentReplyPostRequest = new CommentReplyPostRequest { TraktCommentReplyPost = default!, Id = "id" };
             act = () => commentReplyPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

@@ -48,6 +48,10 @@ namespace TraktNET.PutRequests.Notes
             var noteUpdatePutRequest = new NoteUpdatePutRequest { TraktNotePost = default!, Id = default! };
             Action act = () => noteUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
+
+            noteUpdatePutRequest = new NoteUpdatePutRequest { TraktNotePost = default!, Id = 1UL };
+            act = () => noteUpdatePutRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

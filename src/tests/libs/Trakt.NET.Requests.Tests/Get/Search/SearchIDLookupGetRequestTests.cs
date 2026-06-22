@@ -83,8 +83,12 @@ namespace TraktNET.GetRequests.Search
         [Fact]
         public void TestSearchIDLookupGetRequestValidate()
         {
-            var searchIDLookupGetRequest = new SearchIDLookupGetRequest { LookupId = default! };
+            var searchIDLookupGetRequest = new SearchIDLookupGetRequest { IdType = default!, LookupId = default! };
             Action act = () => searchIDLookupGetRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            searchIDLookupGetRequest = new SearchIDLookupGetRequest { IdType = TraktSearchIDType.Trakt, LookupId = default! };
+            act = () => searchIDLookupGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

@@ -57,15 +57,15 @@ namespace TraktNET.PostRequests.Users
             act = () => userPersonalListItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = default!, ListId = string.Empty };
+            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = string.Empty };
             act = () => userPersonalListItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = default!, ListId = "  " };
+            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = "  " };
             act = () => userPersonalListItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = default!, ListId = "id with spaces" };
+            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = "id with spaces" };
             act = () => userPersonalListItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

@@ -10,7 +10,6 @@
             TraktSearchIDType.ImDB.ToJson().ShouldBe("imdb");
             TraktSearchIDType.TmDB.ToJson().ShouldBe("tmdb");
             TraktSearchIDType.TvDB.ToJson().ShouldBe("tvdb");
-            TraktSearchIDType.TVRage.ToJson().ShouldBe("tvrage");
         }
 
         [Fact]
@@ -21,7 +20,6 @@
             "imdb".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.ImDB);
             "tmdb".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.TmDB);
             "tvdb".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.TvDB);
-            "tvrage".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.TVRage);
 
             string? nullValue = null;
             nullValue.ToTraktSearchIDType().ShouldBe(TraktSearchIDType.Unspecified);
@@ -35,7 +33,6 @@
             TraktSearchIDType.ImDB.DisplayName().ShouldBe("Internet Movie Database");
             TraktSearchIDType.TmDB.DisplayName().ShouldBe("The Movie Database");
             TraktSearchIDType.TvDB.DisplayName().ShouldBe("TheTVDB");
-            TraktSearchIDType.TVRage.DisplayName().ShouldBe("TVRage");
         }
     }
 }

@@ -20,10 +20,6 @@
 
         /// <summary>Search for TvDB IDs.</summary>
         [TraktEnumMember(JsonValue = "tvdb", DisplayName = "TheTVDB")]
-        TvDB,
-
-        /// <summary>Search for TVRage IDs.</summary>
-        [TraktEnumMember(JsonValue = "tvrage", DisplayName = "TVRage")]
-        TVRage
+        TvDB
     }
 }

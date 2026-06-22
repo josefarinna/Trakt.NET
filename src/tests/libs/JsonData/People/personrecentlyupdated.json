@@ -1,26 +1,26 @@
-[
-    {
-        "updated_at": "2022-11-03T18:58:09.000Z",
-        "person": {
-            "name": "Charlie Cox",
-            "ids": {
-                "trakt": 417084,
-                "slug": "charlie-cox",
-                "imdb": "nm1214435",
-                "tmdb": 23458
-            }
-        }
-    },
-    {
-        "updated_at": "2022-11-03T18:58:09.000Z",
-        "person": {
-            "name": "Deborah Ann Woll",
-            "ids": {
-                "trakt": 451773,
-                "slug": "deborah-ann-woll",
-                "imdb": "nm2832695",
-                "tmdb": 212154
-            }
-        }
+{
+    "updated_at": "2022-11-03T18:58:09.000Z",
+    "person": {
+        "name": "Bryan Cranston",
+        "ids": {
+            "trakt": 297737,
+            "slug": "bryan-cranston",
+            "imdb": "nm0186505",
+            "tmdb": 17419
+        },
+        "biography": "Bryan Lee Cranston(born March 7, 1956)...",
+        "birthday": "1956-03-07",
+        "death": "2016-04-06",
+        "birthplace": "San Fernando Valley, California, USA",
+        "homepage": "http://www.bryancranston.com/",
+        "gender": "male",
+        "known_for_department": "acting",
+        "social_ids": {
+            "twitter": "BryanCranston",
+            "facebook": "thebryancranston",
+            "instagram": "bryancranston",
+            "wikipedia": "Bryan_Cranston"
+        },
+        "updated_at": "2022-11-03T18:58:09.000Z"
     }
-]
+}

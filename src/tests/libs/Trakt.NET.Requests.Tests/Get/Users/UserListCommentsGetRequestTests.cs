@@ -97,15 +97,15 @@ namespace TraktNET.GetRequests.Users
             act = () => userListCommentsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListCommentsGetRequest = new UserListCommentsGetRequest { Id = default!, ListId = string.Empty };
+            userListCommentsGetRequest = new UserListCommentsGetRequest { Id = "id", ListId = string.Empty };
             act = () => userListCommentsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListCommentsGetRequest = new UserListCommentsGetRequest { Id = default!, ListId = "  " };
+            userListCommentsGetRequest = new UserListCommentsGetRequest { Id = "id", ListId = "  " };
             act = () => userListCommentsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userListCommentsGetRequest = new UserListCommentsGetRequest { Id = default!, ListId = "id with spaces" };
+            userListCommentsGetRequest = new UserListCommentsGetRequest { Id = "id", ListId = "id with spaces" };
             act = () => userListCommentsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

@@ -107,6 +107,25 @@
         }
 
         [Fact]
+        public void TestTraktFilterToStringSubgenres()
+        {
+            var filter = new TraktFilter
+            {
+                Subgenres = ["action", "drama"]
+            };
+
+            filter.ToString().ShouldBe("subgenres=action,drama");
+
+            filter = new TraktFilter
+            {
+                Subgenres = []
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
+        }
+
+        [Fact]
         public void TestTraktFilterToStringLanguages()
         {
             var filter = new TraktFilter

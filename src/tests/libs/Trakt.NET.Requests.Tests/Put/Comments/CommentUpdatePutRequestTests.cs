@@ -60,6 +60,10 @@ namespace TraktNET.PutRequests.Comments
             commentUpdatePutRequest = new CommentUpdatePutRequest { TraktCommentUpdatePost = default!, Id = default! };
             act = () => commentUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
+
+            commentUpdatePutRequest = new CommentUpdatePutRequest { TraktCommentUpdatePost = default!, Id = "id" };
+            act = () => commentUpdatePutRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

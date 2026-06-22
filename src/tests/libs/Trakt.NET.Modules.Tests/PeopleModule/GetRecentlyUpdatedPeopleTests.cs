@@ -25,7 +25,7 @@ namespace TraktNET.PeopleModule
         public async Task TestGetRecentlyUpdatedPeopleParametrized(bool useStartDate, TraktExtendedInfo? extendedInfo,
             uint? page, uint? limit, string expectedUri)
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personrecentlyupdated.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdated.json");
             uint expectedPage = page ?? 1U;
             uint expectedLimit = limit ?? 10U;
 
@@ -55,7 +55,7 @@ namespace TraktNET.PeopleModule
         [Fact]
         public async Task TestGetRecentlyUpdatedPeoplePagingGetPreviousPage()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personrecentlyupdated.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdated.json");
             string uriPage2 = $"{GetRecentlyUpdatedPeopleUri}?page=2&limit=10";
             string uriPage1 = $"{GetRecentlyUpdatedPeopleUri}?page=1&limit=10";
 
@@ -76,7 +76,7 @@ namespace TraktNET.PeopleModule
         [Fact]
         public async Task TestGetRecentlyUpdatedPeoplePagingGetNextPage()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personrecentlyupdated.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdated.json");
             string uriPage1 = $"{GetRecentlyUpdatedPeopleUri}?page=1&limit=10";
             string uriPage2 = $"{GetRecentlyUpdatedPeopleUri}?page=2&limit=10";
 

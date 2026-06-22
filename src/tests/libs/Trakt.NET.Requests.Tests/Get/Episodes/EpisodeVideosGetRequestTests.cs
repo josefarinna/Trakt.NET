@@ -66,6 +66,10 @@ namespace TraktNET.GetRequests.Episodes
             episodeVideosGetRequest = new EpisodeVideosGetRequest { ShowId = default!, SeasonNumber = default!, EpisodeNumber = 0 };
             act = () => episodeVideosGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
+
+            episodeVideosGetRequest = new EpisodeVideosGetRequest { ShowId = "id", SeasonNumber = default!, EpisodeNumber = 0 };
+            act = () => episodeVideosGetRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }
