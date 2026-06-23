@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>A Trakt favorites post, containing all movies and shows, which should be favorited by an user.</summary>
     public record class TraktSyncFavoritesPost
@@ -23,21 +23,21 @@
             if (bHasNoMovies && bHasNoShows)
                 throw new TraktPostValidationException("no favorite items set");
 
-            if (Movies != null && Movies.Count > 0)
+            if (Movies != null)
             {
-                foreach (TraktSyncFavoritesPostMovie postMovie in Movies)
+                for (int i = 0; i < Movies.Count; i++)
                 {
-                    if (postMovie.Notes?.Length > 255)
-                        throw new TraktPostValidationException($"Movies[{Movies.IndexOf(postMovie)}].Notes", "notes cannot be longer than 255 characters");
+                    if (Movies[i].Notes?.Length > 255)
+                        throw new TraktPostValidationException($"Movies[{i}].Notes", "notes cannot be longer than 255 characters");
                 }
             }
 
-            if (Shows != null && Shows.Count > 0)
+            if (Shows != null)
             {
-                foreach (TraktSyncFavoritesPostShow postShow in Shows)
+                for (int i = 0; i < Shows.Count; i++)
                 {
-                    if (postShow.Notes?.Length > 255)
-                        throw new TraktPostValidationException($"Shows[{Shows.IndexOf(postShow)}].Notes", "notes cannot be longer than 255 characters");
+                    if (Shows[i].Notes?.Length > 255)
+                        throw new TraktPostValidationException($"Shows[{i}].Notes", "notes cannot be longer than 255 characters");
                 }
             }
         }

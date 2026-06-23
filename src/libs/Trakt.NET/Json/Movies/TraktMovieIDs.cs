@@ -40,10 +40,7 @@ namespace TraktNET
                 if (!string.IsNullOrWhiteSpace(IMDB))
                     return IMDB!;
 
-                if (TMDB.HasValue && TMDB.Value > 0)
-                    return TMDB.Value.ToInvariantCultureString();
-
-                return string.Empty;
+                return TMDB!.Value.ToInvariantCultureString();
             }
         }
     }

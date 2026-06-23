@@ -35,11 +35,7 @@
 
         public void Validate()
         {
-            if (Name == null)
-                throw new TraktPostValidationException(nameof(Name), "list name must not be null");
-
-            if (Name.Length == 0)
-                throw new TraktPostValidationException(nameof(Name), "list name must not be empty");
+            ArgumentValidator.ThrowIfNullOrWhiteSpace(Name, "list name must not be null or empty");
 
             if (Privacy != null && Privacy == TraktListPrivacy.Unspecified)
                 throw new TraktPostValidationException(nameof(Privacy), "Privacy must not be unspecified");

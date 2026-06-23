@@ -27,10 +27,7 @@ namespace TraktNET
                 if (!string.IsNullOrWhiteSpace(Slug))
                     return Slug!;
 
-                if (Trakt.HasValue && Trakt.Value > 0)
-                    return Trakt.Value.ToInvariantCultureString();
-
-                return string.Empty;
+                return Trakt!.Value.ToInvariantCultureString();
             }
         }
     }

@@ -9,6 +9,7 @@
 
             traktSubgenre.Name.ShouldBeNull();
             traktSubgenre.Slug.ShouldBeNull();
+            traktSubgenre.ToString().ShouldBe("name not set, slug not set");
         }
 
         [Fact]
@@ -19,6 +20,7 @@
             traktSubgenre.ShouldNotBeNull();
             traktSubgenre.Name.ShouldBe("Action");
             traktSubgenre.Slug.ShouldBe("action");
+            traktSubgenre.ToString().ShouldBe("Action, action");
         }
     }
 }

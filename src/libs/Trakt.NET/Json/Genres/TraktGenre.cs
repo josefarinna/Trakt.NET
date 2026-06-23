@@ -16,15 +16,12 @@
         public TraktGenreType? Type { get; set; }
 
         /// <summary>Returns a string representation of the genre.</summary>
-        /// <returns>The name of the genre if it exists; otherwise, an empty string.</returns>
+        /// <returns>The name of the genre if it exists; otherwise, a placeholder.</returns>
         public override string ToString()
         {
-            if (!string.IsNullOrEmpty(Name))
-            {
-                return Name!;
-            }
-
-            return string.Empty;
+            string name = string.IsNullOrEmpty(Name) ? "name not set" : Name!;
+            string slug = string.IsNullOrEmpty(Slug) ? "slug not set" : Slug!;
+            return $"{name}, {slug}";
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Movies
+namespace TraktNET.Json.Movies
 {
     public sealed class TraktMovieTranslationTests
     {
@@ -65,6 +65,19 @@
             movieTranslation.Country.ShouldBe("cz");
 
             movieTranslation.ToString().ShouldBe("cs-CZ=Strážci Galaxie: Volume 3");
+        }
+
+        [Fact]
+        public void TestTraktMovieTranslationToString()
+        {
+            var movieTranslation = new TraktMovieTranslation { Title = "Guardians of the Galaxy Vol. 3" };
+            movieTranslation.ToString().ShouldBe("Guardians of the Galaxy Vol. 3");
+
+            movieTranslation = new TraktMovieTranslation { Language = "ca" };
+            movieTranslation.ToString().ShouldBe("no title set");
+
+            movieTranslation = new TraktMovieTranslation { Country = "es" };
+            movieTranslation.ToString().ShouldBe("no title set");
         }
     }
 }

@@ -1,4 +1,4 @@
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -59,6 +59,19 @@ namespace TraktNET.GetRequests.Calendar
         {
             var calendarUserNewShowsGetRequest = new CalendarUserNewShowsGetRequest();
             calendarUserNewShowsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
+        }
+    
+        [Fact]
+        public void TestCalendarUserNewShowsGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "game of thrones" };
+            var calendarUserNewShowsGetRequest = new CalendarUserNewShowsGetRequest
+            {
+                Filter = filter
+            };
+
+            calendarUserNewShowsGetRequest.BuildUri();
+            calendarUserNewShowsGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game of thrones", UriKind.Relative));
         }
     }
 }

@@ -12,14 +12,7 @@ namespace TraktNET
         public string? Title
         {
             get => Movie?.Title;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Title = value;
-                }
-            }
+            set => Movie?.Title = value;
         }
 
         /// <summary>The movie release year.</summary>
@@ -27,14 +20,7 @@ namespace TraktNET
         public uint? Year
         {
             get => Movie?.Year;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Year = value;
-                }
-            }
+            set => Movie?.Year = value;
         }
 
         /// <summary>
@@ -45,14 +31,7 @@ namespace TraktNET
         public TraktMovieIDs? IDs
         {
             get => Movie?.IDs;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.IDs = value;
-                }
-            }
+            set => Movie?.IDs = value;
         }
 
         /// <summary>The movie tagline.</summary>
@@ -60,14 +39,7 @@ namespace TraktNET
         public string? Tagline
         {
             get => Movie?.Tagline;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Tagline = value;
-                }
-            }
+            set => Movie?.Tagline = value;
         }
 
         /// <summary>The synopsis of the movie.</summary>
@@ -75,14 +47,7 @@ namespace TraktNET
         public string? Overview
         {
             get => Movie?.Overview;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Overview = value;
-                }
-            }
+            set => Movie?.Overview = value;
         }
 
 #if NET7_0_OR_GREATER
@@ -91,14 +56,7 @@ namespace TraktNET
         public DateOnly? Released
         {
             get => Movie?.Released;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Released = value;
-                }
-            }
+            set => Movie?.Released = value;
         }
 #else
         /// <summary>The UTC datetime when the movie was released.</summary>
@@ -106,14 +64,7 @@ namespace TraktNET
         public DateTime? Released
         {
             get => Movie?.Released;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Released = value;
-                }
-            }
+            set => Movie?.Released = value;
         }
 #endif
 
@@ -122,14 +73,7 @@ namespace TraktNET
         public uint? Runtime
         {
             get => Movie?.Runtime;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Runtime = value;
-                }
-            }
+            set => Movie?.Runtime = value;
         }
 
         /// <summary>The country code of the movie.</summary>
@@ -137,14 +81,7 @@ namespace TraktNET
         public string? Country
         {
             get => Movie?.Country;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Country = value;
-                }
-            }
+            set => Movie?.Country = value;
         }
 
         /// <summary>The web address of a trailer of the movie.</summary>
@@ -152,14 +89,7 @@ namespace TraktNET
         public string? Trailer
         {
             get => Movie?.Trailer;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Trailer = value;
-                }
-            }
+            set => Movie?.Trailer = value;
         }
 
         /// <summary>The web address of the homepage of the movie.</summary>
@@ -167,14 +97,7 @@ namespace TraktNET
         public string? Homepage
         {
             get => Movie?.Homepage;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Homepage = value;
-                }
-            }
+            set => Movie?.Homepage = value;
         }
 
         /// <summary>The movie's current status. See also <seealso cref="TraktMovieStatus" />.</summary>
@@ -182,14 +105,7 @@ namespace TraktNET
         public TraktMovieStatus? Status
         {
             get => Movie?.Status;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Status = value;
-                }
-            }
+            set => Movie?.Status = value;
         }
 
         /// <summary>The average user rating of the movie.</summary>
@@ -197,14 +113,7 @@ namespace TraktNET
         public float? Rating
         {
             get => Movie?.Rating;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Rating = value;
-                }
-            }
+            set => Movie?.Rating = value;
         }
 
         /// <summary>The number of votes of the movie.</summary>
@@ -212,27 +121,14 @@ namespace TraktNET
         public uint? Votes
         {
             get => Movie?.Votes;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Votes = value;
-                }
-            }
+            set => Movie?.Votes = value;
         }
 
         /// <summary>The movie colors. See also <seealso cref="TraktColors" />.</summary>
         public TraktColors? Colors
         {
             get => Movie?.Colors;
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Colors = value;
-                }
-            }
+            set => Movie?.Colors = value;
         }
 
         /// <summary>The comment count of the movie.</summary>
@@ -240,14 +136,7 @@ namespace TraktNET
         public uint? CommentCount
         {
             get => Movie?.CommentCount;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.CommentCount = value;
-                }
-            }
+            set => Movie?.CommentCount = value;
         }
 
         /// <summary>The UTC datetime when the movie was last updated.</summary>
@@ -255,14 +144,7 @@ namespace TraktNET
         public DateTime? UpdatedAt
         {
             get => Movie?.UpdatedAt;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.UpdatedAt = value;
-                }
-            }
+            set => Movie?.UpdatedAt = value;
         }
 
         /// <summary>The language code of the movie.</summary>
@@ -270,14 +152,7 @@ namespace TraktNET
         public string? Language
         {
             get => Movie?.Language;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Language = value;
-                }
-            }
+            set => Movie?.Language = value;
         }
 
         /// <summary>The list of language codes of the movie.</summary>
@@ -285,14 +160,7 @@ namespace TraktNET
         public List<string>? Languages
         {
             get => Movie?.Languages;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Languages = value;
-                }
-            }
+            set => Movie?.Languages = value;
         }
 
         /// <summary>The list of translation language codes of the movie.</summary>
@@ -300,14 +168,7 @@ namespace TraktNET
         public List<string>? AvailableTranslations
         {
             get => Movie?.AvailableTranslations;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.AvailableTranslations = value;
-                }
-            }
+            set => Movie?.AvailableTranslations = value;
         }
 
         /// <summary>The collection of Trakt genre slugs of the movie.</summary>
@@ -315,26 +176,14 @@ namespace TraktNET
         public List<string>? Genres
         {
             get => Movie?.Genres;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Genres = value;
-                }
-            }
+            set => Movie?.Genres = value;
         }
 
         /// <summary>The list of Trakt subgenre slugs of the movie.</summary>
-        public List<string>? Subgenres {
+        public List<string>? Subgenres
+        {
             get => Movie?.Subgenres;
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Subgenres = value;
-                }
-            }
+            set => Movie?.Subgenres = value;
         }
 
         /// <summary>The content certification of the movie.</summary>
@@ -342,40 +191,21 @@ namespace TraktNET
         public string? Certification
         {
             get => Movie?.Certification;
-
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Certification = value;
-                }
-            }
+            set => Movie?.Certification = value;
         }
 
         /// <summary>Extra scene after the credits.</summary>
         public bool? AfterCredits
         {
             get => Movie?.AfterCredits;
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.AfterCredits = value;
-                }
-            }
+            set => Movie?.AfterCredits = value;
         }
 
         /// <summary>Extra scene during the credits.</summary>
         public bool? DuringCredits
         {
             get => Movie?.DuringCredits;
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.DuringCredits = value;
-                }
-            }
+            set => Movie?.DuringCredits = value;
         }
 
         /// <summary>The collection of image URLs for the movie.</summary>
@@ -383,39 +213,21 @@ namespace TraktNET
         public TraktMovieImages? Images
         {
             get => Movie?.Images;
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.Images = value;
-                }
-            }
+            set => Movie?.Images = value;
         }
 
         /// <summary>The movie original title.</summary>
         public string? OriginalTitle
         {
             get => Movie?.OriginalTitle;
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.OriginalTitle = value;
-                }
-            }
+            set => Movie?.OriginalTitle = value;
         }
 
         /// <summary>A collection of social IDs for various web services for the movie.</summary>
         public TraktMovieSocialIDs? SocialIDs
         {
             get => Movie?.SocialIDs;
-            set
-            {
-                if (Movie != null)
-                {
-                    Movie.SocialIDs = value;
-                }
-            }
+            set => Movie?.SocialIDs = value;
         }
 
         /// <summary>Gets a string representation of the movie.</summary>

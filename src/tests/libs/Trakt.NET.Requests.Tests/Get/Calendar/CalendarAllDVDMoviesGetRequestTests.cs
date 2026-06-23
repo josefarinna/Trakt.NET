@@ -1,4 +1,4 @@
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -59,6 +59,19 @@ namespace TraktNET.GetRequests.Calendar
         {
             var calendarAllDVDMoviesGetRequest = new CalendarAllDVDMoviesGetRequest();
             calendarAllDVDMoviesGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
+        }
+    
+        [Fact]
+        public void TestCalendarAllDVDMoviesGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "game of thrones" };
+            var calendarAllDVDMoviesGetRequest = new CalendarAllDVDMoviesGetRequest
+            {
+                Filter = filter
+            };
+
+            calendarAllDVDMoviesGetRequest.BuildUri();
+            calendarAllDVDMoviesGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game of thrones", UriKind.Relative));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>A translation for a Trakt episode.</summary>
     public record class TraktEpisodeTranslation
@@ -32,7 +32,7 @@
         public override string ToString()
         {
             string cultureName = CultureName();
-            string title = $"{Title ?? "no title set"}";
+            string title = Title ?? "no title set";
 
             if (!string.IsNullOrEmpty(cultureName))
             {

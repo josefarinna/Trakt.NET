@@ -13,7 +13,7 @@ namespace TraktNET.PostRequests.Checkin
         {
             var checkinPostRequest = new CheckinPostRequest
             {
-                TraktCheckin = new TraktCheckin()
+                TraktCheckin = new TraktMovieCheckin { Movie = new TraktMovie() }
             };
 
             checkinPostRequest.BuildUri();

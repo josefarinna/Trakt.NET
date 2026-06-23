@@ -27,10 +27,7 @@ namespace TraktNET
                 if (Trakt.HasValue && Trakt.Value > 0)
                     return Trakt.Value.ToInvariantCultureString();
 
-                if (TMDB.HasValue && TMDB.Value > 0)
-                    return TMDB.Value.ToInvariantCultureString();
-
-                return string.Empty;
+                return TMDB!.Value.ToInvariantCultureString();
             }
         }
     }

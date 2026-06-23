@@ -27,10 +27,7 @@ namespace TraktNET
                 if (!string.IsNullOrWhiteSpace(Slug))
                     return Slug!;
 
-                if (!string.IsNullOrWhiteSpace(UUID))
-                    return UUID!;
-
-                return string.Empty;
+                return UUID!;
             }
         }
     }

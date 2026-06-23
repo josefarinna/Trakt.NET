@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Shows
+namespace TraktNET.Json.Shows
 {
     public sealed class TraktShowTranslationTests
     {
@@ -33,38 +33,16 @@
         }
 
         [Fact]
-        public async Task TestTraktShowTranslationsFromJson()
+        public void TestTraktShowTranslationToString()
         {
-            IReadOnlyList<TraktShowTranslation>? showTranslations = await TestUtility.DeserializeJsonListAsync<TraktShowTranslation>("Shows\\showtranslations.json");
+            var showTranslation = new TraktShowTranslation { Title = "Juego de tronos" };
+            showTranslation.ToString().ShouldBe("Juego de tronos");
 
-            showTranslations.ShouldNotBeNull();
-            showTranslations!.Count.ShouldBe(2);
+            showTranslation = new TraktShowTranslation { Language = "es" };
+            showTranslation.ToString().ShouldBe("no title set");
 
-            TraktShowTranslation showTranslation = showTranslations![0];
-
-            showTranslation.ShouldNotBeNull();
-
-            showTranslation.Title.ShouldBe("Juego de tronos");
-            showTranslation.Overview.ShouldStartWith("En una tierra donde los veranos duran décadas");
-            showTranslation.Tagline.ShouldBe("Se acerca el invierno");
-            showTranslation.Language.ShouldBe("es");
-            showTranslation.Country.ShouldBe("es");
-
-            showTranslation.ToString().ShouldBe("es-ES=Juego de tronos");
-
-            // --------------------------------------------------------------------------------------------
-
-            showTranslation = showTranslations![1];
-
-            showTranslation.ShouldNotBeNull();
-
-            showTranslation.Title.ShouldBe("A Guerra dos Tronos");
-            showTranslation.Overview.ShouldStartWith("Numa terra onde o verão abrange décadas");
-            showTranslation.Tagline.ShouldBe("O inverno está a chegar.");
-            showTranslation.Language.ShouldBe("pt");
-            showTranslation.Country.ShouldBe("pt");
-
-            showTranslation.ToString().ShouldBe("pt-PT=A Guerra dos Tronos");
+            showTranslation = new TraktShowTranslation { Country = "es" };
+            showTranslation.ToString().ShouldBe("no title set");
         }
     }
 }

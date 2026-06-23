@@ -17,6 +17,105 @@
         }
 
         [Fact]
+        public void TestTraktMovieIDsHasAnyId()
+        {
+            var movieIDs = new TraktMovieIDs { Trakt = 1 };
+            movieIDs.HasAnyID.ShouldBeTrue();
+
+            movieIDs = new TraktMovieIDs { Trakt = 0 };
+            movieIDs.HasAnyID.ShouldBeFalse();
+
+            movieIDs = new TraktMovieIDs { Slug = "slug" };
+            movieIDs.HasAnyID.ShouldBeTrue();
+
+            movieIDs = new TraktMovieIDs { IMDB = "imdb" };
+            movieIDs.HasAnyID.ShouldBeTrue();
+
+            movieIDs = new TraktMovieIDs { TMDB = 1 };
+            movieIDs.HasAnyID.ShouldBeTrue();
+
+            movieIDs = new TraktMovieIDs { TMDB = 0 };
+            movieIDs.HasAnyID.ShouldBeFalse();
+        }
+
+        [Fact]
+        public void TestTraktMovieIDsGetBestID()
+        {
+            var movieIDs = new TraktMovieIDs();
+
+            string bestID = movieIDs.BestID;
+            bestID.ShouldNotBeNull();
+
+            movieIDs = new TraktMovieIDs { Trakt = 1 };
+
+            bestID = movieIDs.BestID;
+            bestID.ShouldBe("1");
+
+            movieIDs = new TraktMovieIDs { Trakt = 0 };
+
+            bestID = movieIDs.BestID;
+            bestID.ShouldBe("");
+
+            movieIDs = new TraktMovieIDs { Slug = "slug" };
+
+            bestID = movieIDs.BestID;
+            bestID.ShouldBe("slug");
+
+            movieIDs = new TraktMovieIDs { IMDB = "imdb" };
+
+            bestID = movieIDs.BestID;
+            bestID.ShouldBe("imdb");
+
+            movieIDs = new TraktMovieIDs { TMDB = 1 };
+
+            bestID = movieIDs.BestID;
+            bestID.ShouldBe("1");
+
+            movieIDs = new TraktMovieIDs { TMDB = 0 };
+
+            bestID = movieIDs.BestID;
+            bestID.ShouldBe("");
+
+            movieIDs = new TraktMovieIDs
+            {
+                Slug = "slug",
+                Trakt = 1,
+                IMDB = "imdb",
+                TMDB = 1
+            };
+
+            bestID = movieIDs.BestID;
+            bestID.ShouldBe("slug");
+
+            movieIDs = new TraktMovieIDs
+            {
+                Trakt = 1,
+                IMDB = "imdb",
+                TMDB = 1
+            };
+
+            bestID = movieIDs.BestID;
+            bestID.ShouldBe("1");
+
+            movieIDs = new TraktMovieIDs
+            {
+                IMDB = "imdb",
+                TMDB = 1
+            };
+
+            bestID = movieIDs.BestID;
+            bestID.ShouldBe("imdb");
+
+            movieIDs = new TraktMovieIDs
+            {
+                TMDB = 1
+            };
+
+            bestID = movieIDs.BestID;
+            bestID.ShouldBe("1");
+        }
+
+        [Fact]
         public async Task TestTraktMovieIDsFromJson()
         {
             TraktMovieIDs? movieIDs = await TestUtility.DeserializeJsonAsync<TraktMovieIDs>("Movies\\movieids.json");

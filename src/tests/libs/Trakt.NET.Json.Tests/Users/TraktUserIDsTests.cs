@@ -15,6 +15,53 @@
         }
 
         [Fact]
+        public void TestTraktUserIDsHasAnyId()
+        {
+            var userIDs = new TraktUserIDs { Slug = "slug" };
+            userIDs.HasAnyID.ShouldBeTrue();
+
+            userIDs = new TraktUserIDs { UUID = "uuid" };
+            userIDs.HasAnyID.ShouldBeTrue();
+
+        }
+
+        [Fact]
+        public void TestTraktUserIDsGetBestID()
+        {
+            var userIDs = new TraktUserIDs();
+
+            var bestID = userIDs.BestID;
+            bestID.ShouldNotBeNull();
+
+            userIDs = new TraktUserIDs { Slug = "slug" };
+
+            bestID = userIDs.BestID;
+            bestID.ShouldBe("slug");
+
+            userIDs = new TraktUserIDs { UUID = "uuid" };
+
+            bestID = userIDs.BestID;
+            bestID.ShouldBe("uuid");
+
+            userIDs = new TraktUserIDs
+            {
+                Slug = "slug",
+                UUID = "uuid"
+            };
+
+            bestID = userIDs.BestID;
+            bestID.ShouldBe("slug");
+
+            userIDs = new TraktUserIDs
+            {
+                UUID = "uuid"
+            };
+
+            bestID = userIDs.BestID;
+            bestID.ShouldBe("uuid");
+        }
+
+        [Fact]
         public async Task TestTraktUserIDsFromJson()
         {
             TraktUserIDs? userIDs = await TestUtility.DeserializeJsonAsync<TraktUserIDs>("Users\\userids.json");

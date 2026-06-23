@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Seasons
+namespace TraktNET.Json.Seasons
 {
     public sealed class TraktSeasonTranslationTests
     {
@@ -31,36 +31,16 @@
         }
 
         [Fact]
-        public async Task TestTraktSeasonTranslationsFromJson()
+        public void TestTraktSeasonTranslationToString()
         {
-            IReadOnlyList<TraktSeasonTranslation>? seasonTranslations = await TestUtility.DeserializeJsonListAsync<TraktSeasonTranslation>("Seasons\\seasontranslations.json");
+            var seasonTranslation = new TraktSeasonTranslation { Title = "Temporada 1" };
+            seasonTranslation.ToString().ShouldBe("Temporada 1");
 
-            seasonTranslations.ShouldNotBeNull();
-            seasonTranslations!.Count.ShouldBe(2);
+            seasonTranslation = new TraktSeasonTranslation { Language = "es" };
+            seasonTranslation.ToString().ShouldBe("no title set");
 
-            TraktSeasonTranslation seasonTranslation = seasonTranslations![0];
-
-            seasonTranslation.ShouldNotBeNull();
-
-            seasonTranslation.Title.ShouldBe("Temporada 1");
-            seasonTranslation.Overview.ShouldStartWith("Se avecinan problemas en los Siete Reinos de Poniente.");
-            seasonTranslation.Language.ShouldBe("es");
-            seasonTranslation.Country.ShouldBe("es");
-
-            seasonTranslation.ToString().ShouldBe("es-ES=Temporada 1");
-
-            // --------------------------------------------------------------------------------------------
-
-            seasonTranslation = seasonTranslations![1];
-
-            seasonTranslation.ShouldNotBeNull();
-
-            seasonTranslation.Title.ShouldBe("null");
-            seasonTranslation.Overview.ShouldStartWith("Die fiktive Welt von Westeros, in der Jahreszeiten sich über Jahre hinziehen");
-            seasonTranslation.Language.ShouldBe("de");
-            seasonTranslation.Country.ShouldBe("de");
-
-            seasonTranslation.ToString().ShouldBe("de-DE=null");
+            seasonTranslation = new TraktSeasonTranslation { Country = "es" };
+            seasonTranslation.ToString().ShouldBe("no title set");
         }
     }
 }

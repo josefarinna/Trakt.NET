@@ -16,36 +16,21 @@ namespace TraktNET
         public string? Name
         {
             get => Person?.Name;
-
-            set
-            {
-                if (Person != null)
-                    Person.Name = value;
-            }
+            set => Person?.Name = value;
         }
 
         [JsonIgnore]
         public TraktPersonIDs? IDs
         {
             get => Person?.IDs;
-
-            set
-            {
-                if (Person != null)
-                    Person.IDs = value;
-            }
+            set => Person?.IDs = value;
         }
 
         [JsonIgnore]
         public string? Biography
         {
             get => Person?.Biography;
-
-            set
-            {
-                if (Person != null)
-                    Person.Biography = value;
-            }
+            set => Person?.Biography = value;
         }
 
 #if NET7_0_OR_GREATER
@@ -53,24 +38,14 @@ namespace TraktNET
         public DateOnly? Birthday
         {
             get => Person?.Birthday;
-
-            set
-            {
-                if (Person != null)
-                    Person.Birthday = value;
-            }
+            set => Person?.Birthday = value;
         }
 #else
         [JsonIgnore]
         public DateTime? Birthday
         {
             get => Person?.Birthday;
-
-            set
-            {
-                if (Person != null)
-                    Person.Birthday = value;
-            }
+            set => Person?.Birthday = value;
         }
 #endif
 
@@ -79,24 +54,14 @@ namespace TraktNET
         public DateOnly? Death
         {
             get => Person?.Death;
-
-            set
-            {
-                if (Person != null)
-                    Person.Death = value;
-            }
+            set => Person?.Death = value;
         }
 #else
         [JsonIgnore]
         public DateTime? Death
         {
             get => Person?.Death;
-
-            set
-            {
-                if (Person != null)
-                    Person.Death = value;
-            }
+            set => Person?.Death = value;
         }
 #endif
 
@@ -107,84 +72,49 @@ namespace TraktNET
         public string? Birthplace
         {
             get => Person?.Birthplace;
-
-            set
-            {
-                if (Person != null)
-                    Person.Birthplace = value;
-            }
+            set => Person?.Birthplace = value;
         }
 
         [JsonIgnore]
         public string? Homepage
         {
             get => Person?.Homepage;
-
-            set
-            {
-                if (Person != null)
-                    Person.Homepage = value;
-            }
+            set => Person?.Homepage = value;
         }
 
         [JsonIgnore]
         public TraktGender? Gender
         {
             get => Person?.Gender;
-
-            set
-            {
-                if (Person != null)
-                    Person.Gender = value;
-            }
+            set => Person?.Gender = value;
         }
 
         [JsonIgnore]
         public TraktKnownForDepartment? KnownForDepartment
         {
             get => Person?.KnownForDepartment;
-
-            set
-            {
-                if (Person != null)
-                    Person.KnownForDepartment = value;
-            }
+            set => Person?.KnownForDepartment = value;
         }
 
         [JsonIgnore]
         public TraktPersonSocialIDs? SocialIds
         {
             get => Person?.SocialIDs;
-
-            set
-            {
-                if (Person != null)
-                    Person.SocialIDs = value;
-            }
+            set => Person?.SocialIDs = value;
         }
 
         [JsonIgnore]
         public DateTime? UpdatedAt
         {
             get => Person?.UpdatedAt;
-
-            set
-            {
-                if (Person != null)
-                    Person.UpdatedAt = value;
-            }
+            set => Person?.UpdatedAt = value;
         }
 
         [JsonIgnore]
         public TraktPersonImages? Images
         {
             get => Person?.Images;
-
-            set
-            {
-                if (Person != null)
-                    Person.Images = value;
-            }
+            set => Person?.Images = value;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Episodes
+namespace TraktNET.Json.Episodes
 {
     public sealed class TraktEpisodeTranslationTests
     {
@@ -22,12 +22,25 @@
 
             episodeTranslation.ShouldNotBeNull();
 
-            episodeTranslation!.Title.ShouldBe("Winter Is Coming");
-            episodeTranslation!.Overview.ShouldBe("Jon Arryn, the Hand of the King, is dead.");
-            episodeTranslation!.Language.ShouldBe("en");
-            episodeTranslation!.Country.ShouldBe("us");
+            episodeTranslation.Title.ShouldBe("Winter Is Coming");
+            episodeTranslation.Overview.ShouldBe("Jon Arryn, the Hand of the King, is dead.");
+            episodeTranslation.Language.ShouldBe("en");
+            episodeTranslation.Country.ShouldBe("us");
 
-            episodeTranslation!.ToString().ShouldBe("en-US=Winter Is Coming");
+            episodeTranslation.ToString().ShouldBe("en-US=Winter Is Coming");
+        }
+
+        [Fact]
+        public void TestTraktEpisodeTranslationToString()
+        {
+            var episodeTranslation = new TraktEpisodeTranslation { Title = "Winter Is Coming" };
+            episodeTranslation.ToString().ShouldBe("Winter Is Coming");
+
+            episodeTranslation = new TraktEpisodeTranslation { Language = "en" };
+            episodeTranslation.ToString().ShouldBe("no title set");
+
+            episodeTranslation = new TraktEpisodeTranslation { Country = "us" };
+            episodeTranslation.ToString().ShouldBe("no title set");
         }
     }
 }

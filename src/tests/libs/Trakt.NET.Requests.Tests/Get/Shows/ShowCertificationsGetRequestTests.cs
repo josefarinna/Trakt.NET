@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -53,6 +53,14 @@ namespace TraktNET.GetRequests.Shows
             showCertificationsGetRequest = new ShowCertificationsGetRequest { Id = "id with spaces" };
             act = () => showCertificationsGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
+
+            showCertificationsGetRequest = new ShowCertificationsGetRequest { Id = null! };
+            act = () => showCertificationsGetRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            showCertificationsGetRequest = new ShowCertificationsGetRequest { Id = ShowID };
+            act = () => showCertificationsGetRequest.Validate();
+            act.ShouldNotThrow();
         }
     }
 }

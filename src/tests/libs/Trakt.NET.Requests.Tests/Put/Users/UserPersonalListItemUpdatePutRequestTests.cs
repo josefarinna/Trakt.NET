@@ -75,5 +75,4 @@ namespace TraktNET.PutRequests.Users
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }
-    }
 }

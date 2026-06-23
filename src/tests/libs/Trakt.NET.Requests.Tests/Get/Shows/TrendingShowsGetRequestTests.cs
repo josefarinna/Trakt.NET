@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -53,6 +53,19 @@ namespace TraktNET.GetRequests.Shows
         {
             var trendingShowsGetRequest = new TrendingShowsGetRequest();
             trendingShowsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
+        }
+
+        [Fact]
+        public void TestTrendingShowsGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "game of thrones" };
+            var trendingShowsGetRequest = new TrendingShowsGetRequest
+            {
+                Filter = filter
+            };
+
+            trendingShowsGetRequest.BuildUri();
+            trendingShowsGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game of thrones", UriKind.Relative));
         }
     }
 }

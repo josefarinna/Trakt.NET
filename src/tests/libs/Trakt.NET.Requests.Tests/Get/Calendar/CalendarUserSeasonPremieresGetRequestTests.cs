@@ -1,4 +1,4 @@
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -59,6 +59,19 @@ namespace TraktNET.GetRequests.Calendar
         {
             var calendarUserSeasonPremieresGetRequest = new CalendarUserSeasonPremieresGetRequest();
             calendarUserSeasonPremieresGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
+        }
+    
+        [Fact]
+        public void TestCalendarUserSeasonPremieresGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "game of thrones" };
+            var calendarUserSeasonPremieresGetRequest = new CalendarUserSeasonPremieresGetRequest
+            {
+                Filter = filter
+            };
+
+            calendarUserSeasonPremieresGetRequest.BuildUri();
+            calendarUserSeasonPremieresGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game of thrones", UriKind.Relative));
         }
     }
 }

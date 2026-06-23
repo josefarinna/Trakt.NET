@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SyncModule
 {
@@ -118,6 +118,19 @@ namespace TraktNET.SyncModule
             await act.ShouldThrowAsync<TraktPostValidationException>();
 
             content.Movies = [ new TraktSyncFavoritesPostMovie {
+                Notes = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
+                    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            } ];
+            act = () => client.Sync.AddFavoriteItemsAsync(content, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktPostValidationException>();
+
+            content.Movies = null;
+            content.Shows = [];
+            act = () => client.Sync.AddFavoriteItemsAsync(content, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktPostValidationException>();
+
+            content.Shows = [ new TraktSyncFavoritesPostShow {
                 Notes = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
                     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" +
                     "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
