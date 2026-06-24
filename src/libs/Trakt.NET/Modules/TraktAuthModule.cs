@@ -547,7 +547,7 @@ namespace TraktNET
         /// Thrown if the current client id is null, empty or contains spaces.
         /// </exception>
         public Task<TraktResponse> RevokeAuthorizationAsync(CancellationToken cancellationToken = default)
-            => RevokeAuthorizationAsync(_context.Authorization!.AccessToken!, cancellationToken);
+            => RevokeAuthorizationAsync(_context.Authorization?.AccessToken!, cancellationToken);
 
         /// <summary>
         /// Revokes the current access token. If successful, the current access token will be invalid

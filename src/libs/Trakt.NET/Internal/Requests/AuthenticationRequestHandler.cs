@@ -15,10 +15,7 @@ namespace TraktNET
             CancellationToken cancellationToken = default)
         {
             TraktResponse<TraktDevice> response = await ExecuteSingleItemRequestAsync<TraktDevice>(context, request, cancellationToken).ConfigureAwait(false);
-            if (response.IsSuccess)
-            {
-                context.Device = response.Content;
-            }
+            context.Device = response.Content;
 
             return response;
         }
@@ -27,18 +24,20 @@ namespace TraktNET
             AuthorizationRequest request, CancellationToken cancellationToken = default)
             => ExecuteSingleItemRequestAsync<TraktAuthorization>(context, request, cancellationToken);
 
-        internal static Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(TraktContext context,
+        internal static async Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(TraktContext context,
             AuthorizationRefreshRequest request, CancellationToken cancellationToken = default)
-            => ExecuteSingleItemRequestAsync<TraktAuthorization>(context, request, cancellationToken);
+        {
+            TraktResponse<TraktAuthorization> response = await ExecuteSingleItemRequestAsync<TraktAuthorization>(context, request, cancellationToken);
+            context.Authorization = response.Content;
+
+            return response;
+        }
 
         internal static async Task<TraktResponse> RevokeAuthorizationAsync(TraktContext context,
             AuthorizationRevokeRequest request, CancellationToken cancellationToken = default)
         {
             TraktResponse response = await ExecuteNoContentRequestAsync(context, request, cancellationToken).ConfigureAwait(false);
-            if (response.IsSuccess)
-            {
-                context.Authorization = TraktAuthorization.CreateWith(string.Empty, string.Empty);
-            }
+            context.Authorization = TraktAuthorization.CreateWith(string.Empty, string.Empty);
 
             return response;
         }
