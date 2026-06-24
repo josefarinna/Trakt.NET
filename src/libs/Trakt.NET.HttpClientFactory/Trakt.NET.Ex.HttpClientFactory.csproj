@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Product>Trakt.NET.HttpClientFactory ($(TargetFramework))</Product>
-    <Title>Trakt.NET.HttpClientFactory</Title>
+    <Title>Trakt.NET.Ex.HttpClientFactory</Title>
     <TargetFrameworks>$(HttpClientFactoryLibraryTargetFrameworks)</TargetFrameworks>
   </PropertyGroup>
 
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Trakt.NET\Trakt.NET.csproj" />
+    <ProjectReference Include="..\Trakt.NET\Trakt.NET.Ex.csproj" />
   </ItemGroup>
 
 </Project>

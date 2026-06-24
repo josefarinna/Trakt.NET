@@ -1,8 +1,15 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>A scrobble post for a Trakt episode.</summary>
     public record class TraktEpisodeScrobblePost : TraktScrobblePost
     {
+#if NET5_0 || NET6_0 || NET7_0
+        [System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public TraktEpisodeScrobblePost()
+        {
+        }
+#endif
+
         /// <summary>
         /// Gets or sets the required Trakt episode for the scrobble post.
         /// See also <seealso cref="TraktEpisode" />.

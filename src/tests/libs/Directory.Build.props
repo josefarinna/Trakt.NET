@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\libs\Trakt.NET\Trakt.NET.csproj" />
+    <ProjectReference Include="..\..\..\libs\Trakt.NET\Trakt.NET.Ex.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(IsTestProject)' == 'true' AND '$(IsTestUtilityProject)' != 'true'">

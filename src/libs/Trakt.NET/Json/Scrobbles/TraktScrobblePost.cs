@@ -1,7 +1,14 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public record class TraktScrobblePost
     {
+#if NET5_0 || NET6_0 || NET7_0
+        [System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public TraktScrobblePost()
+        {
+        }
+#endif
+
         /// <summary>Gets or sets the required progress. Should be a value between 0 and 100.</summary>
         public required float Progress { get; set; }
 

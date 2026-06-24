@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\libs\Trakt.NET\Trakt.NET.csproj" />
+    <ProjectReference Include="..\..\..\..\libs\Trakt.NET\Trakt.NET.Ex.csproj" />
     <ProjectReference Include="..\..\..\..\tools\sourcegeneration\Trakt.NET.SourceGeneration\Trakt.NET.SourceGeneration.csproj" />
   </ItemGroup>
 

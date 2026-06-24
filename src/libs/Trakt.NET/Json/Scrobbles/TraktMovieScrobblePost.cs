@@ -1,8 +1,15 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>A scrobble post for a Trakt movie.</summary>
     public record class TraktMovieScrobblePost : TraktScrobblePost
     {
+#if NET5_0 || NET6_0 || NET7_0
+        [System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+        public TraktMovieScrobblePost()
+        {
+        }
+#endif
+
         /// <summary>
         /// Gets or sets the required Trakt movie for the scrobble post.
         /// See also <seealso cref="TraktMovie" />.

@@ -19,6 +19,7 @@ namespace System.Runtime.CompilerServices
 #pragma warning restore CS9113 // Parameter is unread.
 }
 
+#if TRAKT_NETSTANDARD_TARGET || NET5_0 || NET6_0
 namespace System.Diagnostics.CodeAnalysis
 {
     // Fix for error "CS0656 Missing compiler required member 'System.Diagnostics.CodeAnalysis.SetsRequiredMemberAttribute..ctor'"
@@ -26,3 +27,4 @@ namespace System.Diagnostics.CodeAnalysis
     [EditorBrowsable(EditorBrowsableState.Never)]
     internal sealed class SetsRequiredMembersAttribute : Attribute { }
 }
+#endif
