@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 
 namespace TraktNET
 {
@@ -87,10 +87,10 @@ namespace TraktNET
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="movie"/> is null.</exception>
-        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
-        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="season"/> is null.</exception>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktPostValidationException">Thrown if validation of post data fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown if validation of request data fails.</exception>
         public Task<TraktResponse<TraktNote>> AddSeasonNoteAsync(TraktSeason season, string notes, bool? spoiler = null,
             TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)
             => AddSeasonNoteImplAsync(season, notes, spoiler, privacy, cancellationToken);
@@ -116,10 +116,10 @@ namespace TraktNET
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="episode"/> is null.</exception>
-        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
-        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="episode"/> is null.</exception>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktPostValidationException">Thrown if validation of post data fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown if validation of request data fails.</exception>
         public Task<TraktResponse<TraktNote>> AddEpisodeNoteAsync(TraktEpisode episode, string notes, bool? spoiler = null,
             TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)
             => AddEpisodeNoteImplAsync(episode, notes, spoiler, privacy, cancellationToken);
@@ -145,10 +145,10 @@ namespace TraktNET
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
-        /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="movie"/> is null.</exception>
-        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
-        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="person"/> is null.</exception>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktPostValidationException">Thrown if validation of post data fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown if validation of request data fails.</exception>
         public Task<TraktResponse<TraktNote>> AddPersonNoteAsync(TraktPerson person, string notes, bool? spoiler = null,
             TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)
             => AddPersonNoteImplAsync(person, notes, spoiler, privacy, cancellationToken);
@@ -326,13 +326,7 @@ namespace TraktNET
             TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)
             => AddRatedSeasonNoteImplAsync(season, notes, spoiler, privacy, cancellationToken);
 
-        /// <summary>
-        /// Adds notes for an rated <see cref="TraktEpisode" />.
-        /// <para>OAuth authorization required.</para>
-        /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Documentation: Notes: Add notes"</a> for more information.
-        /// </para>
-        /// </summary>
+        /// <summary>Adds notes for a rated <see cref="TraktEpisode" />.</summary>
         /// <param name="episode">An <see cref="TraktEpisode" /> instance for which the notes will be attached.</param>
         /// <param name="notes">The content of the created note.</param>
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
@@ -341,9 +335,20 @@ namespace TraktNET
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
-        /// <returns>An <see cref="TraktNote" /> instance, which contains information about the created user notes entry.</returns>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
+        /// <para />
+        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization required.
+        /// <para>VIP enhanced.</para>
+        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// Trakt API Documentation: Notes: Add notes
+        /// </see></para>
+        /// </remarks>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="episode"/> is null.</exception>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktNote>> AddRatedEpisodeNoteAsync(TraktEpisode episode, string notes, bool? spoiler = null,

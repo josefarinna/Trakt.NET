@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktEpisodesModule
     {
@@ -93,6 +93,7 @@
         }
 
         /// <summary>Gets the statistics for a <see cref="TraktEpisode" /> in a show with the given Trakt-Show-Id or -Slug.</summary>
+        /// <param name="show">The show. See also <seealso cref="TraktShow" />.</param>
         /// <param name="seasonNumber">The number of the season containing the episode, for which the statistics should be queried.</param>
         /// <param name="episodeNumber">The number of the episode, for which the statistics should be queried.</param>
         /// <param name="cancellationToken">
@@ -111,8 +112,8 @@
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
-        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="show"/> is null.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown if validation of request data fails.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="show"/> is null.</exception>
         public Task<TraktResponse<TraktEpisodeStatistics>> GetEpisodeStatisticsAsync(TraktShow show, uint seasonNumber, uint episodeNumber,
             CancellationToken cancellationToken = default)
         {

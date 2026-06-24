@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to search.<para />
@@ -49,7 +49,7 @@
             => GetTextQueryResultsImplAsync(searchResultTypes, searchQuery, searchFields, filter, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Looks up items by their Trakt-, IMDB-, TMDB-, TVDB- or TVRage-Id.</summary>
-        /// <param name="searchIdType">The id type, which should be looked up. See also <seealso cref="TraktSearchIdType" />.</param>
+        /// <param name="searchIdType">The id type, which should be looked up. See also <seealso cref="TraktSearchIDType" />.</param>
         /// <param name="lookupId">The Trakt-, IMDB-, TMDB-, TVDB- or TVRage-Id, which will be looked up.</param>
         /// <param name="searchResultTypes">The object type(s), which will be looked up. See also <seealso cref="TraktSearchResultType" />.</param>
         /// <param name="extendedInfo">

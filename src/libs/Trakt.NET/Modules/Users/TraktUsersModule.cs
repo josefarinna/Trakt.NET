@@ -287,7 +287,6 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para>
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/collection/get-collection">
         /// Trakt API Documentation: Users: Collection
         /// </see></para>
@@ -301,7 +300,7 @@ namespace TraktNET
         /// <summary>Gets all comments an user has posted, sorted by most recent.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the comments should be queried.</param>
         /// <param name="type">Determines, which type of comments should be queried. See also <seealso cref="TraktCommentType" />.</param>
-        /// <param name="objectType">Determines, for which object types comments should be queried. See also <seealso cref="TraktObjectType" />.</param>
+        /// <param name="objectType">Determines, for which object types comments should be queried. See also <seealso cref="TraktCommentObjectType" />.</param>
         /// <param name="includeReplies">Determines, whether replies should be retrieved alongside with comments.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the commented objects.
@@ -407,6 +406,7 @@ namespace TraktNET
             => ReorderPersonalListsImplAsync(usernameOrSlug, reorderedListsRank, cancellationToken);
 
         /// <summary>Gets all lists a user can collaborate on.</summary>
+        /// <param name="usernameOrSlug">The username or slug of the user, for which the collaborations should be queried.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -698,7 +698,7 @@ namespace TraktNET
         /// An array of numbers. Numbers should be between 1 and 10.
         /// Will be ignored, if the given array contains a number higher than 10 or below 1 or if it contains more than ten numbers.
         /// Will be ignored, if the given <paramref name="ratingsItemType" /> is null or unspecified.
-        /// <remarks>
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the rating items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -717,6 +717,7 @@ namespace TraktNET
         /// <para />
         /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktRatingsItem" />.
         /// </returns>
+        /// <remarks>
         /// OAuth authorization is optional.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/users/ratings/get-ratings">
         /// Trakt API Documentation: Users: Ratings

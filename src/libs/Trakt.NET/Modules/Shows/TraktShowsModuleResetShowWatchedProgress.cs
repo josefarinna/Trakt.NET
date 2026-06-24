@@ -1,9 +1,10 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktShowsModule
     {
         /// <summary>Resets the watched progress for a <see cref="TraktShow" /> with the given Trakt-ID or -Slug.</summary>
         /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
+        /// <param name="resetAt">The UTC datetime from which the progress should be calculated onwards.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -29,6 +30,7 @@
 
         /// <summary>Resets the watched progress for a <see cref="TraktShow" /> with the given Trakt-ID or -Slug.</summary>
         /// <param name="traktShowID">The show's Trakt-ID.</param>
+        /// <param name="resetAt">The UTC datetime from which the progress should be calculated onwards.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -54,6 +56,7 @@
 
         /// <summary>Resets the watched progress for a <see cref="TraktShow" /> with the given Trakt-ID or -Slug.</summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
+        /// <param name="resetAt">The UTC datetime from which the progress should be calculated onwards.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
@@ -73,8 +76,8 @@
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any IDs.</exception>
-        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIDs" /> is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if the given <paramref name="showIDs" /> has not set any IDs.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="showIDs" /> is null.</exception>
         public Task<TraktResponse<TraktShowResetWatchedProgress>> ResetShowWatchedProgressAsync(TraktShowIDs showIDs,
             DateTime? resetAt = null, CancellationToken cancellationToken = default)
         {

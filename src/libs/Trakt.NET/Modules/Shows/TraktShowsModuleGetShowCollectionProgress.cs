@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktShowsModule
     {
@@ -29,7 +29,7 @@
             => GetShowCollectionProgressImplAsync(traktShowIDOrSlug, hidden, specials, countSpecials, cancellationToken);
 
         /// <summary>Gets collection progress for a <see cref="TraktShow" /> with the specified Trakt-ID.</summary>
-        /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
+        /// <param name="traktShowID">The show's Trakt-ID.</param>
         /// <param name="hidden"> If <see langword="true"/>, include hidden episodes in the progress results.</param>
         /// <param name="specials"> If <see langword="true"/>, include special episodes in the progress results.</param>
         /// <param name="countSpecials"> If <see langword="true"/>, count specials when calculating collection progress.</param>

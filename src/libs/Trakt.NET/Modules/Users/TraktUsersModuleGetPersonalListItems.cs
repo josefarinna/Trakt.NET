@@ -1,14 +1,8 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktUsersModule
     {
-        /// <summary>
-        /// Gets the items on an user's single personal list.
-        /// <para>OAuth authorization optional.</para>
-        /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Documentation: Users: List Items"</a> for more information.
-        /// </para>
-        /// </summary>
+        /// <summary>Gets the items on an user's single personal list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be queried.</param>
         /// <param name="listIdOrSlug">The id or slug of the personal list, for which the items should be queried.</param>
         /// <param name="listItemType">Determines, which type of list items should be queried. See also <seealso cref="TraktListItemType" />.</param>
@@ -16,26 +10,34 @@
         /// The extended info, which determines how much data about the list items should be queried.
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
-        /// <param name="pagedParameters">Specifies pagination parameters. <see cref="TraktPagedParameters" />.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
-        /// <returns>A list of <see cref="TraktListItem" /> instances.</returns>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried list items.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktListItem" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">
+        /// Trakt API Documentation: Users: List Items - Get items on a personal list
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetPersonalListItemsAsync(string usernameOrSlug, string listIdOrSlug,
             TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
             => GetPersonalListItemsImplAsync(usernameOrSlug, listIdOrSlug, listItemType, extendedInfo, page, limit, cancellationToken);
 
-        /// <summary>
-        /// Gets the items on an user's single personal list.
-        /// <para>OAuth authorization optional.</para>
-        /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Documentation: Users: List Items"</a> for more information.
-        /// </para>
-        /// </summary>
+        /// <summary>Gets the items on an user's single personal list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be queried.</param>
         /// <param name="traktListId">The Trakt-ID of the personal list, for which the items should be queried.</param>
         /// <param name="listItemType">Determines, which type of list items should be queried. See also <seealso cref="TraktListItemType" />.</param>
@@ -43,13 +45,27 @@
         /// The extended info, which determines how much data about the list items should be queried.
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
-        /// <param name="pagedParameters">Specifies pagination parameters. <see cref="TraktPagedParameters" />.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
-        /// <returns>A list of <see cref="TraktListItem" /> instances.</returns>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried list items.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktListItem" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">
+        /// Trakt API Documentation: Users: List Items - Get items on a personal list
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktListId"/> is 0.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetPersonalListItemsAsync(string usernameOrSlug, uint traktListId,
@@ -62,13 +78,7 @@
             return GetPersonalListItemsAsync(usernameOrSlug, traktListId.ToInvariantCultureString(), listItemType, extendedInfo, page, limit, cancellationToken);
         }
 
-        /// <summary>
-        /// Gets the items on an user's single personal list.
-        /// <para>OAuth authorization optional.</para>
-        /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Documentation: Users: List Items"</a> for more information.
-        /// </para>
-        /// </summary>
+        /// <summary>Gets the items on an user's single personal list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be queried.</param>
         /// <param name="listIds">The ids of the personal list, for which the items should be queried.</param>
         /// <param name="listItemType">Determines, which type of list items should be queried. See also <seealso cref="TraktListItemType" />.</param>
@@ -76,13 +86,27 @@
         /// The extended info, which determines how much data about the list items should be queried.
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
-        /// <param name="pagedParameters">Specifies pagination parameters. <see cref="TraktPagedParameters" />.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
-        /// <returns>A list of <see cref="TraktListItem" /> instances.</returns>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried list items.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktListItem" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">
+        /// Trakt API Documentation: Users: List Items - Get items on a personal list
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="listIds"/> is null.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="listIds"/> has not any ids set.</exception>
@@ -99,13 +123,7 @@
                                              page, limit, cancellationToken);
         }
 
-        /// <summary>
-        /// Gets the items on an user's single personal list.
-        /// <para>OAuth authorization optional.</para>
-        /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">"Trakt API Documentation: Users: List Items"</a> for more information.
-        /// </para>
-        /// </summary>
+        /// <summary>Gets the items on an user's single personal list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be queried.</param>
         /// <param name="list">The personal list, for which the items should be queried.</param>
         /// <param name="listItemType">Determines, which type of list items should be queried. See also <seealso cref="TraktListItemType" />.</param>
@@ -113,13 +131,27 @@
         /// The extended info, which determines how much data about the list items should be queried.
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
-        /// <param name="pagedParameters">Specifies pagination parameters. <see cref="TraktPagedParameters" />.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
-        /// <returns>A list of <see cref="TraktListItem" /> instances.</returns>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried list items.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktListItem" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">
+        /// Trakt API Documentation: Users: List Items - Get items on a personal list
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="list"/> is null.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetPersonalListItemsAsync(string usernameOrSlug, TraktList list,

@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to sync.<para />
@@ -34,6 +34,7 @@
         /// </param>
         /// <param name="sortHow">
         /// The favorites sort order. See also <seealso cref="TraktSortHow" />.
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the favorite items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -309,6 +310,10 @@
         /// <param name="itemId">The Trakt Id for the item, which should be specifically queried. Will be ignored, if <paramref name="historyItemType" /> is not set or unspecified.</param>
         /// <param name="startAt">The datetime, after which history items should be queried. Will be converted to the Trakt UTC-datetime and -format.</param>
         /// <param name="endAt">The datetime, until which history items should be queried. Will be converted to the Trakt UTC-datetime and -format.</param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the history items.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -350,7 +355,7 @@
         /// OAuth authorization is required.
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/add-to-history/add-items-to-watched-history">
         /// Trakt API Documentation: Sync: Add to History
-        /// </see</para>
+        /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
@@ -593,7 +598,7 @@
         /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/reorder-watchlist/reorder-watchlist-items">
         /// Trakt API Documentation: Sync: Reorder Watchlist
         /// </see></para>
-        /// </summary>
+        /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>

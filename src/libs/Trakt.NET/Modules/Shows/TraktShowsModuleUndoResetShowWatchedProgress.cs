@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktShowsModule
     {
@@ -8,7 +8,9 @@
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
-        /// <returns>A <see cref="TraktResponse" />.</returns>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse" />
+        /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
@@ -27,7 +29,9 @@
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
-        /// <returns>A <see cref="TraktResponse" />.</returns>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse" />
+        /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
@@ -47,9 +51,7 @@
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the restored watched progress information.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowResetWatchedProgress" />.
+        /// A response of type <see cref="TraktResponse" />
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
