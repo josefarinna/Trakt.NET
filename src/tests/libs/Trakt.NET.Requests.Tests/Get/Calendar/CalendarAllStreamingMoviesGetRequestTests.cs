@@ -10,29 +10,15 @@ namespace TraktNET.GetRequests.Calendar
         private const string StartDateURIValue = "2024-07-20";
 
         [Theory]
-        [InlineData(null, URIPath)]
-        [InlineData(TraktExtendedInfo.None, URIPath)]
-        [InlineData(TraktExtendedInfo.Full, $"{URIPath}?extended=full")]
+        [InlineData(null, $"{URIPath}/{StartDateURIValue}/7")]
+        [InlineData(TraktExtendedInfo.None, $"{URIPath}/{StartDateURIValue}/7")]
+        [InlineData(TraktExtendedInfo.Full, $"{URIPath}/{StartDateURIValue}/7?extended=full")]
         public void TestCalendarAllStreamingMoviesGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, string expectedURIPath)
         {
             var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest
             {
-                ExtendedInfo = extendedInfo
-            };
-
-            calendarAllStreamingMoviesGetRequest.BuildUri();
-            calendarAllStreamingMoviesGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
-        }
-
-        [Theory]
-        [InlineData(null, $"{URIPath}/{StartDateURIValue}")]
-        [InlineData(TraktExtendedInfo.None, $"{URIPath}/{StartDateURIValue}")]
-        [InlineData(TraktExtendedInfo.Full, $"{URIPath}/{StartDateURIValue}?extended=full")]
-        public void TestCalendarAllStreamingMoviesGetRequestHasValidURIPathWithStartDate(TraktExtendedInfo? extendedInfo, string expectedURIPath)
-        {
-            var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest
-            {
                 StartDate = StartDateURIValue,
+                Days = 7,
                 ExtendedInfo = extendedInfo
             };
 
@@ -43,21 +29,33 @@ namespace TraktNET.GetRequests.Calendar
         [Fact]
         public void TestCalendarAllStreamingMoviesGetRequestHasValidOAuthRequirement()
         {
-            var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest();
+            var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest
+            {
+                StartDate = StartDateURIValue,
+                Days = 7,
+            };
             calendarAllStreamingMoviesGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestCalendarAllStreamingMoviesGetRequestIsGetRequest()
         {
-            var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest();
+            var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest
+            {
+                StartDate = StartDateURIValue,
+                Days = 7,
+            };
             calendarAllStreamingMoviesGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestCalendarAllStreamingMoviesGetRequestHasCorrectRequestObjectType()
         {
-            var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest();
+            var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest
+            {
+                StartDate = StartDateURIValue,
+                Days = 7,
+            };
             calendarAllStreamingMoviesGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     
@@ -67,11 +65,13 @@ namespace TraktNET.GetRequests.Calendar
             var filter = new TraktFilter { Query = "game of thrones" };
             var calendarAllStreamingMoviesGetRequest = new CalendarAllStreamingMoviesGetRequest
             {
+                StartDate = StartDateURIValue,
+                Days = 7,
                 Filter = filter
             };
 
             calendarAllStreamingMoviesGetRequest.BuildUri();
-            calendarAllStreamingMoviesGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game of thrones", UriKind.Relative));
+            calendarAllStreamingMoviesGetRequest.RequestUri.ShouldBe(new Uri(URIPath + "/" + StartDateURIValue + "/7?query=game of thrones", UriKind.Relative));
         }
     }
 }

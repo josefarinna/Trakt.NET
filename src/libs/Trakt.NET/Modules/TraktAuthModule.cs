@@ -4,8 +4,8 @@ namespace TraktNET
 {
     /// <summary>
     /// Provides access to OAuth and device authentication and authorization.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth">"Trakt API Documentation - Authentication - OAuth"</a> section
-    /// and the <a href="https://trakt.docs.apiary.io/#reference/authentication-devices">"Trakt API Documentation - Authentication - Devices"</a> section.
+    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/authentication#user-content-authentication">"Trakt API Documentation - Authentication - OAuth"</a> section
+    /// and the <a href="https://docs.trakt.tv/reference/authentication#user-content-device-code-flow">"Trakt API Documentation - Authentication - Devices"</a> section.
     /// </summary>
     public sealed partial class TraktAuthModule
     {
@@ -136,7 +136,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-code-for-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthtoken">
         /// Trakt API Documentation: OAuth: Get Token
         /// </see></para>
         /// </remarks>
@@ -168,7 +168,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-code-for-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthtoken">
         /// Trakt API Documentation: OAuth: Get Token
         /// </see></para>
         /// </remarks>
@@ -201,7 +201,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-code-for-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthtoken">
         /// Trakt API Documentation: OAuth: Get Token
         /// </see></para>
         /// </remarks>
@@ -235,7 +235,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-code-for-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthtoken">
         /// Trakt API Documentation: OAuth: Get Token
         /// </see></para>
         /// </remarks>
@@ -269,7 +269,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-code-for-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthtoken">
         /// Trakt API Documentation: OAuth: Get Token
         /// </see></para>
         /// </remarks>
@@ -299,7 +299,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-devices/device-code/generate-new-device-codes">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthdevicecode">
         /// Trakt API Documentation: Devices: Device Code
         /// </see></para>
         /// </remarks>
@@ -324,7 +324,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-devices/device-code/generate-new-device-codes">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthdevicecode">
         /// Trakt API Documentation: Devices: Device Code
         /// </see></para>
         /// </remarks>
@@ -350,7 +350,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-refresh_token-for-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthtoken">
         /// Trakt API Documentation: OAuth: Get Token
         /// </see></para>
         /// </remarks>
@@ -386,7 +386,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-refresh_token-for-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthtoken">
         /// Trakt API Documentation: OAuth: Get Token
         /// </see></para>
         /// </remarks>
@@ -423,7 +423,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-refresh_token-for-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthtoken">
         /// Trakt API Documentation: OAuth: Get Token
         /// </see></para>
         /// </remarks>
@@ -461,7 +461,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-refresh_token-for-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthtoken">
         /// Trakt API Documentation: OAuth: Get Token
         /// </see></para>
         /// </remarks>
@@ -499,7 +499,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/get-token/exchange-refresh_token-for-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthtoken">
         /// Trakt API Documentation: OAuth: Get Token
         /// </see></para>
         /// </remarks>
@@ -663,7 +663,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-devices/get-token/poll-for-the-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthdevicetoken">
         /// Trakt API Documentation: Devices: Get Token
         /// </see></para>
         /// </remarks>
@@ -698,7 +698,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-devices/get-token/poll-for-the-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthdevicetoken">
         /// Trakt API Documentation: Devices: Get Token
         /// </see></para>
         /// </remarks>
@@ -734,7 +734,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-devices/get-token/poll-for-the-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthdevicetoken">
         /// Trakt API Documentation: Devices: Get Token
         /// </see></para>
         /// </remarks>
@@ -770,7 +770,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-devices/get-token/poll-for-the-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthdevicetoken">
         /// Trakt API Documentation: Devices: Get Token
         /// </see></para>
         /// </remarks>

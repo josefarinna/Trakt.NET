@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to certifications.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/certifications">"Trakt API Documentation - Certifications"</a> section.
+    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/getcertificationslist">"Trakt API Documentation - Certifications"</a> section.
     /// </summary>
     public sealed partial class TraktCertificationsModule
     {
@@ -18,7 +18,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/certifications/list/get-certifications">
+        /// <para><see href="https://docs.trakt.tv/reference/getcertificationsmovies">
         /// Trakt API Documentation: Certifications: List - Get certifications
         /// </see></para>
         /// </remarks>
@@ -38,7 +38,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/certifications/list/get-certifications">
+        /// <para><see href="https://docs.trakt.tv/reference/getcertificationsshows">
         /// Trakt API Documentation: Certifications: List - Get certifications
         /// </see></para>
         /// </remarks>

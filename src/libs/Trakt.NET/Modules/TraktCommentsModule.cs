@@ -4,7 +4,7 @@ namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to comments.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/comments">"Trakt API Documentation - Comments"</a> section.
+    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-comments">"Trakt API Documentation - Comments"</a> section.
     /// </summary>
     public sealed partial class TraktCommentsModule
     {
@@ -25,7 +25,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/comment/get-a-comment-or-reply">
+        /// <para><see href="https://docs.trakt.tv/reference/getcommentssummary">
         /// Trakt API Documentation: Comments: Comment
         /// </see></para>
         /// </remarks>
@@ -52,7 +52,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/item/get-the-attached-media-item">
+        /// <para><see href="https://docs.trakt.tv/reference/getcommentsitem">
         /// Trakt API Documentation: Comments: Item
         /// </see></para>
         /// </remarks>
@@ -84,7 +84,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/likes/get-all-users-who-liked-a-comment">
+        /// <para><see href="https://docs.trakt.tv/reference/getcommentslikes">
         /// Trakt API Documentation: Comments: Likes
         /// </see></para>
         /// </remarks>
@@ -118,7 +118,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/updates/get-recently-updated-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getcommentsupdates">
         /// Trakt API Documentation: Comments: Updates
         /// </see></para>
         /// </remarks>
@@ -152,7 +152,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/recent/get-recently-created-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getcommentsrecent">
         /// Trakt API Documentation: Comments: Recent
         /// </see></para>
         /// </remarks>
@@ -186,7 +186,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/trending/get-trending-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getcommentstrending">
         /// Trakt API Documentation: Comments: Trending
         /// </see></para>
         /// </remarks>
@@ -209,7 +209,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/comments/post-a-comment">
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentspost">
         /// Trakt API Documentation: Comments: Comments
         /// </see></para>
         /// </remarks>
@@ -233,7 +233,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/comments/post-a-comment">
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentspost">
         /// Trakt API Documentation: Comments: Comments
         /// </see></para>
         /// </remarks>
@@ -257,7 +257,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/comments/post-a-comment">
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentspost">
         /// Trakt API Documentation: Comments: Comments
         /// </see></para>
         /// </remarks>
@@ -281,7 +281,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/comments/post-a-comment">
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentspost">
         /// Trakt API Documentation: Comments: Comments
         /// </see></para>
         /// </remarks>
@@ -305,7 +305,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/comments/post-a-comment">
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentspost">
         /// Trakt API Documentation: Comments: Comments
         /// </see></para>
         /// </remarks>
@@ -331,7 +331,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/comment/update-a-comment-or-reply">
+        /// <para><see href="https://docs.trakt.tv/reference/putcommentsedit">
         /// Trakt API Documentation: Comments: Comment
         /// </see></para>
         /// </remarks>
@@ -357,7 +357,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/replies/post-a-reply-for-a-comment">
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentsreply">
         /// Trakt API Documentation: Comments: Replies
         /// </see></para>
         /// </remarks>
@@ -379,7 +379,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/comment/delete-a-comment-or-reply">
+        /// <para><see href="https://docs.trakt.tv/reference/deletecommentsdelete">
         /// Trakt API Documentation: Comments: Comment
         /// </see></para>
         /// </remarks>
@@ -399,7 +399,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/like/like-a-comment">
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentslike">
         /// Trakt API Documentation: Comments: Like
         /// </see></para>
         /// </remarks>
@@ -419,7 +419,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/like/remove-like-on-a-comment">
+        /// <para><see href="https://docs.trakt.tv/reference/deletecommentsunlike">
         /// Trakt API Documentation: Comments: Like
         /// </see></para>
         /// </remarks>
@@ -450,7 +450,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/comments/replies/get-replies-for-a-comment">
+        /// <para><see href="https://docs.trakt.tv/reference/getcommentsreplies">
         /// Trakt API Documentation: Comments: Likes
         /// </see></para>
         /// </remarks>

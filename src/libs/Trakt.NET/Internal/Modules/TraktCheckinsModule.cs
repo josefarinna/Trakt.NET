@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to checkins.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/checkin">"Trakt API Documentation - Checkin"</a> section.
+    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-checkin">"Trakt API Documentation - Checkin"</a> section.
     /// </summary>
     public sealed partial class TraktCheckinsModule(TraktContext context) : BaseModule(context)
     {

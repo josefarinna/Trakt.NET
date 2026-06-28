@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Net;
 
 namespace TraktNET.CalendarsModule
@@ -8,18 +8,14 @@ namespace TraktNET.CalendarsModule
         private const string GetUserFinalesUri = "calendars/my/shows/finales";
 
         [Theory]
-        [InlineData(null, null, null, GetUserFinalesUri, "Calendars\\calendarshowsfinales_minimal.json")]
-        [InlineData("2011-04-18", null, null, "calendars/my/shows/finales/2011-04-18", "Calendars\\calendarshowsfinales_minimal.json")]
-        [InlineData(null, 7U, null, "calendars/my/shows/finales/7", "Calendars\\calendarshowsfinales_minimal.json")]
-        [InlineData("2011-04-18", 7U, null, "calendars/my/shows/finales/2011-04-18/7", "Calendars\\calendarshowsfinales_minimal.json")]
-        [InlineData(null, null, TraktExtendedInfo.Full, "calendars/my/shows/finales?extended=full", "Calendars\\calendarshowsfinales.json")]
-        [InlineData("2011-04-18", 7U, TraktExtendedInfo.Full, "calendars/my/shows/finales/2011-04-18/7?extended=full", "Calendars\\calendarshowsfinales.json")]
-        public async Task TestGetUserFinales(string? startDate, uint? days, TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [InlineData("2011-04-18T00:00:00.000Z", 7U, null, "calendars/my/shows/finales/2011-04-18/7", "Calendars\\calendarshowsfinales_minimal.json")]
+        [InlineData("2011-04-18T00:00:00.000Z", 7U, TraktExtendedInfo.Full, "calendars/my/shows/finales/2011-04-18/7?extended=full", "Calendars\\calendarshowsfinales.json")]
+        public async Task TestGetUserFinales(string startDate, uint days, TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            DateTime? date = startDate != null ? DateTime.Parse(startDate, CultureInfo.InvariantCulture) : null;
+            DateTime date = TestUtility.ParseUTCDateTime(startDate);
 
             TraktListResponse<TraktCalendarShow> response = await client.Calendar.GetUserFinalesAsync(date, days, null, extendedInfo, TestContext.Current.CancellationToken);
 
@@ -36,11 +32,36 @@ namespace TraktNET.CalendarsModule
             calendarShow.Episode.ShouldNotBeNull();
             calendarShow.Show.ShouldNotBeNull();
 
-            // Verificación de datos específicos del JSON (basado en calendarshows_minimal.json)
             calendarShow.Show!.Title.ShouldBe("Game of Thrones");
             calendarShow.Episode!.Title.ShouldBe("Fire and Blood");
             calendarShow.Episode!.Season.ShouldBe(1U);
             calendarShow.Episode!.Number.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetUserFinalesWithFilter()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Calendars\\calendarshows_minimal.json");
+            DateTime date = TestUtility.ParseUTCDateTime("2011-04-18T00:00:00.000Z");
+
+            var filter = new TraktFilter
+            {
+                Year = 2011U,
+                Genres = ["action", "thriller"]
+            };
+
+            string requestUri = $"{GetUserFinalesUri}/2011-04-18/7?{filter}";
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+
+            TraktListResponse<TraktCalendarShow> response = await client.Calendar.GetUserFinalesAsync(date, 7U, filter, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+
+            List<TraktCalendarShow> items = [.. response.Content!];
+            items.ShouldNotBeEmpty();
         }
 
         [Theory]
@@ -71,17 +92,29 @@ namespace TraktNET.CalendarsModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetUserFinalesThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetUserFinalesUri, statusCode);
+            DateTime date = DateTime.UtcNow;
+            string dateString = date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetUserFinalesUri}/{dateString}/1", statusCode);
 
-            try
-            {
-                await client.Calendar.GetUserFinalesAsync(cancellationToken: TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktCalendarShow>>> act = () => client.Calendar.GetUserFinalesAsync(date, 1U, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetUserFinalesThrowsArgumentException()
+        {
+            DateTime date = DateTime.UtcNow;
+            string dateString = date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetUserFinalesUri}/{dateString}/1", HttpStatusCode.OK);
+
+            Func<Task<TraktListResponse<TraktCalendarShow>>> act = () => client.Calendar.GetUserFinalesAsync(default, default, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Calendar.GetUserFinalesAsync(DateTime.MinValue, default, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Calendar.GetUserFinalesAsync(date, default, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }
 }

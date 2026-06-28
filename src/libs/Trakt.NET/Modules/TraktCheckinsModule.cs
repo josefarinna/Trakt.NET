@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to checkins.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/checkin">"Trakt API Documentation - Checkin"</a> section.
+    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-checkin">"Trakt API Documentation - Checkin"</a> section.
     /// </summary>
     public partial class TraktCheckinsModule
     {
@@ -21,7 +21,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/checkin/checkin/check-into-an-item">
+        /// <para><see href="https://docs.trakt.tv/reference/postcheckinstart">
         /// Trakt API Documentation: Checkin: Checkin into an item
         /// </see></para>
         /// </remarks>
@@ -46,7 +46,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/checkin/checkin/check-into-an-item">
+        /// <para><see href="https://docs.trakt.tv/reference/postcheckinstart">
         /// Trakt API Documentation: Checkin: Checkin into an item
         /// </see></para>
         /// </remarks>
@@ -68,7 +68,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/checkin/checkin/delete-any-active-checkins">
+        /// <para><see href="https://docs.trakt.tv/reference/deletecheckindelete">
         /// Trakt API Documentation: Checkin: Delete any active checkins
         /// </see></para>
         /// </remarks>

@@ -10,29 +10,15 @@ namespace TraktNET.GetRequests.Calendar
         private const string StartDateURIValue = "2024-07-20";
 
         [Theory]
-        [InlineData(null, URIPath)]
-        [InlineData(TraktExtendedInfo.None, URIPath)]
-        [InlineData(TraktExtendedInfo.Full, $"{URIPath}?extended=full")]
+        [InlineData(null, $"{URIPath}/{StartDateURIValue}/7")]
+        [InlineData(TraktExtendedInfo.None, $"{URIPath}/{StartDateURIValue}/7")]
+        [InlineData(TraktExtendedInfo.Full, $"{URIPath}/{StartDateURIValue}/7?extended=full")]
         public void TestCalendarAllNewShowsGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, string expectedURIPath)
         {
             var calendarAllNewShowsGetRequest = new CalendarAllNewShowsGetRequest
             {
-                ExtendedInfo = extendedInfo
-            };
-
-            calendarAllNewShowsGetRequest.BuildUri();
-            calendarAllNewShowsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
-        }
-
-        [Theory]
-        [InlineData(null, $"{URIPath}/{StartDateURIValue}")]
-        [InlineData(TraktExtendedInfo.None, $"{URIPath}/{StartDateURIValue}")]
-        [InlineData(TraktExtendedInfo.Full, $"{URIPath}/{StartDateURIValue}?extended=full")]
-        public void TestCalendarAllNewShowsGetRequestHasValidURIPathWithStartDate(TraktExtendedInfo? extendedInfo, string expectedURIPath)
-        {
-            var calendarAllNewShowsGetRequest = new CalendarAllNewShowsGetRequest
-            {
                 StartDate = StartDateURIValue,
+                Days = 7,
                 ExtendedInfo = extendedInfo
             };
 
@@ -43,21 +29,33 @@ namespace TraktNET.GetRequests.Calendar
         [Fact]
         public void TestCalendarAllNewShowsGetRequestHasValidOAuthRequirement()
         {
-            var calendarAllNewShowsGetRequest = new CalendarAllNewShowsGetRequest();
+            var calendarAllNewShowsGetRequest = new CalendarAllNewShowsGetRequest
+            {
+                StartDate = StartDateURIValue,
+                Days = 7,
+            };
             calendarAllNewShowsGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestCalendarAllNewShowsGetRequestIsGetRequest()
         {
-            var calendarAllNewShowsGetRequest = new CalendarAllNewShowsGetRequest();
+            var calendarAllNewShowsGetRequest = new CalendarAllNewShowsGetRequest
+            {
+                StartDate = StartDateURIValue,
+                Days = 7,
+            };
             calendarAllNewShowsGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestCalendarAllNewShowsGetRequestHasCorrectRequestObjectType()
         {
-            var calendarAllNewShowsGetRequest = new CalendarAllNewShowsGetRequest();
+            var calendarAllNewShowsGetRequest = new CalendarAllNewShowsGetRequest
+            {
+                StartDate = StartDateURIValue,
+                Days = 7,
+            };
             calendarAllNewShowsGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     
@@ -67,11 +65,13 @@ namespace TraktNET.GetRequests.Calendar
             var filter = new TraktFilter { Query = "game of thrones" };
             var calendarAllNewShowsGetRequest = new CalendarAllNewShowsGetRequest
             {
+                StartDate = StartDateURIValue,
+                Days = 7,
                 Filter = filter
             };
 
             calendarAllNewShowsGetRequest.BuildUri();
-            calendarAllNewShowsGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game of thrones", UriKind.Relative));
+            calendarAllNewShowsGetRequest.RequestUri.ShouldBe(new Uri(URIPath + "/" + StartDateURIValue + "/7?query=game of thrones", UriKind.Relative));
         }
     }
 }

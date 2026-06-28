@@ -10,29 +10,15 @@ namespace TraktNET.GetRequests.Calendar
         private const string StartDateURIValue = "2024-07-20";
 
         [Theory]
-        [InlineData(null, URIPath)]
-        [InlineData(TraktExtendedInfo.None, URIPath)]
-        [InlineData(TraktExtendedInfo.Full, $"{URIPath}?extended=full")]
+        [InlineData(null, $"{URIPath}/{StartDateURIValue}/7")]
+        [InlineData(TraktExtendedInfo.None, $"{URIPath}/{StartDateURIValue}/7")]
+        [InlineData(TraktExtendedInfo.Full, $"{URIPath}/{StartDateURIValue}/7?extended=full")]
         public void TestCalendarUserMoviesGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, string expectedURIPath)
         {
             var calendarUserMoviesGetRequest = new CalendarUserMoviesGetRequest
             {
-                ExtendedInfo = extendedInfo
-            };
-
-            calendarUserMoviesGetRequest.BuildUri();
-            calendarUserMoviesGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
-        }
-
-        [Theory]
-        [InlineData(null, $"{URIPath}/{StartDateURIValue}")]
-        [InlineData(TraktExtendedInfo.None, $"{URIPath}/{StartDateURIValue}")]
-        [InlineData(TraktExtendedInfo.Full, $"{URIPath}/{StartDateURIValue}?extended=full")]
-        public void TestCalendarUserMoviesGetRequestHasValidURIPathWithStartDate(TraktExtendedInfo? extendedInfo, string expectedURIPath)
-        {
-            var calendarUserMoviesGetRequest = new CalendarUserMoviesGetRequest
-            {
                 StartDate = StartDateURIValue,
+                Days = 7,
                 ExtendedInfo = extendedInfo
             };
 
@@ -43,21 +29,33 @@ namespace TraktNET.GetRequests.Calendar
         [Fact]
         public void TestCalendarUserMoviesGetRequestHasValidOAuthRequirement()
         {
-            var calendarUserMoviesGetRequest = new CalendarUserMoviesGetRequest();
+            var calendarUserMoviesGetRequest = new CalendarUserMoviesGetRequest
+            {
+                StartDate = StartDateURIValue,
+                Days = 7,
+            };
             calendarUserMoviesGetRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestCalendarUserMoviesGetRequestIsGetRequest()
         {
-            var calendarUserMoviesGetRequest = new CalendarUserMoviesGetRequest();
+            var calendarUserMoviesGetRequest = new CalendarUserMoviesGetRequest
+            {
+                StartDate = StartDateURIValue,
+                Days = 7,
+            };
             calendarUserMoviesGetRequest.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestCalendarUserMoviesGetRequestHasCorrectRequestObjectType()
         {
-            var calendarUserMoviesGetRequest = new CalendarUserMoviesGetRequest();
+            var calendarUserMoviesGetRequest = new CalendarUserMoviesGetRequest
+            {
+                StartDate = StartDateURIValue,
+                Days = 7,
+            };
             calendarUserMoviesGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     
@@ -67,11 +65,13 @@ namespace TraktNET.GetRequests.Calendar
             var filter = new TraktFilter { Query = "game of thrones" };
             var calendarUserMoviesGetRequest = new CalendarUserMoviesGetRequest
             {
+                StartDate = StartDateURIValue,
+                Days = 7,
                 Filter = filter
             };
 
             calendarUserMoviesGetRequest.BuildUri();
-            calendarUserMoviesGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game of thrones", UriKind.Relative));
+            calendarUserMoviesGetRequest.RequestUri.ShouldBe(new Uri(URIPath + "/" + StartDateURIValue + "/7?query=game of thrones", UriKind.Relative));
         }
     }
 }

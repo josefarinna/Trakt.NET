@@ -5,6 +5,10 @@ namespace TraktNET
     internal static class DateTimeExtensions
     {
         private const string TraktLongDateTimeFormat = "yyyy-MM-ddTHH:mm:ss.fffZ";
+        private const string TraktSortDateTimeFormat = "yyyy-MM-dd";
+
+        internal static string ToTraktSortDateTimeString(this DateTime value)
+            => value.ToUniversalTime().ToString(TraktSortDateTimeFormat, CultureInfo.InvariantCulture);
 
         internal static string ToTraktLongDateTimeString(this DateTime value)
             => value.ToUniversalTime().ToString(TraktLongDateTimeFormat, CultureInfo.InvariantCulture);

@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Net;
 
 namespace TraktNET.CalendarsModule
@@ -8,18 +8,14 @@ namespace TraktNET.CalendarsModule
         private const string GetUserMoviesUri = "calendars/my/movies";
 
         [Theory]
-        [InlineData(null, null, null, GetUserMoviesUri, "Calendars\\calendarmovies_minimal.json")]
-        [InlineData("2012-05-04", null, null, "calendars/my/movies/2012-05-04", "Calendars\\calendarmovies_minimal.json")]
-        [InlineData(null, 7U, null, "calendars/my/movies/7", "Calendars\\calendarmovies_minimal.json")]
-        [InlineData("2012-05-04", 7U, null, "calendars/my/movies/2012-05-04/7", "Calendars\\calendarmovies_minimal.json")]
-        [InlineData(null, null, TraktExtendedInfo.Full, "calendars/my/movies?extended=full", "Calendars\\calendarmovies.json")]
-        [InlineData("2012-05-04", 7U, TraktExtendedInfo.Full, "calendars/my/movies/2012-05-04/7?extended=full", "Calendars\\calendarmovies.json")]
-        public async Task TestGetUserMovies(string? startDate, uint? days, TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [InlineData("2012-05-04T00:00:00.000Z", 7U, null, "calendars/my/movies/2012-05-04/7", "Calendars\\calendarmovies_minimal.json")]
+        [InlineData("2012-05-04T00:00:00.000Z", 7U, TraktExtendedInfo.Full, "calendars/my/movies/2012-05-04/7?extended=full", "Calendars\\calendarmovies.json")]
+        public async Task TestGetUserMovies(string startDate, uint days, TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            DateTime? date = startDate != null ? DateTime.Parse(startDate, CultureInfo.InvariantCulture) : null;
+            DateTime date = TestUtility.ParseUTCDateTime(startDate);
 
             TraktListResponse<TraktCalendarMovie> response = await client.Calendar.GetUserMoviesAsync(date, days, null, extendedInfo, TestContext.Current.CancellationToken);
 
@@ -38,13 +34,38 @@ namespace TraktNET.CalendarsModule
             calendarMovie.Released.ShouldNotBeNull();
             calendarMovie.Movie.ShouldNotBeNull();
 
-            // Verificación de datos basada en calendarmovies_minimal.json
-            calendarMovie.Released.ShouldBe(DateTime.Parse("2012-05-04", CultureInfo.InvariantCulture));
+            calendarMovie.Released.ShouldBe(TestUtility.ParseUTCDateTime("2012-05-04T00:00:00.000Z"));
             calendarMovie.Movie!.Title.ShouldBe("The Avengers");
             calendarMovie.Movie!.Year.ShouldBe(2012U);
             calendarMovie.Movie!.IDs.ShouldNotBeNull();
             calendarMovie.Movie!.IDs!.Trakt.ShouldBe(14701U);
             calendarMovie.Movie!.IDs!.Slug.ShouldBe("the-avengers-2012");
+        }
+
+        [Fact]
+        public async Task TestGetUserMoviesWithFilter()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Calendars\\calendarmovies_minimal.json");
+            DateTime date = TestUtility.ParseUTCDateTime("2011-04-18T00:00:00.000Z");
+
+            var filter = new TraktFilter
+            {
+                Year = 2011U,
+                Genres = ["action", "thriller"]
+            };
+
+            string requestUri = $"{GetUserMoviesUri}/2011-04-18/7?{filter}";
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+
+            TraktListResponse<TraktCalendarMovie> response = await client.Calendar.GetUserMoviesAsync(date, 7U, filter, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+
+            List<TraktCalendarMovie> items = [.. response.Content!];
+            items.ShouldNotBeEmpty();
         }
 
         [Theory]
@@ -75,17 +96,29 @@ namespace TraktNET.CalendarsModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetUserMoviesThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetUserMoviesUri, statusCode);
+            DateTime date = DateTime.UtcNow;
+            string dateString = date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetUserMoviesUri}/{dateString}/1", statusCode);
 
-            try
-            {
-                await client.Calendar.GetUserMoviesAsync(cancellationToken: TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktCalendarMovie>>> act = () => client.Calendar.GetUserMoviesAsync(date, 1U, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetUserMoviesThrowsArgumentException()
+        {
+            DateTime date = DateTime.UtcNow;
+            string dateString = date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetUserMoviesUri}/{dateString}/1", HttpStatusCode.OK);
+
+            Func<Task<TraktListResponse<TraktCalendarMovie>>> act = () => client.Calendar.GetUserMoviesAsync(default, default, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Calendar.GetUserMoviesAsync(DateTime.MinValue, default, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Calendar.GetUserMoviesAsync(date, default, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }
 }
