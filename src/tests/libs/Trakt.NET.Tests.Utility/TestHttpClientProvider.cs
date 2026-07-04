@@ -1,4 +1,4 @@
-﻿using RichardSzalay.MockHttp;
+using RichardSzalay.MockHttp;
 using System.Net;
 
 #if TRAKT_NET_4XX_FRAMEWORK_TARGET
@@ -54,13 +54,10 @@ namespace TraktNET
                     { TraktApiHeaderKey, TestConstants.ClientID },
                     { TraktApiVersionHeaderKey, "2" }
                 })
-                .Respond(_ =>
+                .Respond(_ => new HttpResponseMessage
                 {
-                    return new HttpResponseMessage
-                    {
-                        StatusCode = HttpStatusCode.OK,
-                        Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
-                    };
+                    StatusCode = HttpStatusCode.OK,
+                    Content = new StringContent(responseContent, Encoding.UTF8, AcceptMediaType)
                 });
         }
 
@@ -176,9 +173,9 @@ namespace TraktNET
                 .Respond(statusCode);
         }
 
-        public void AddExpectationMockResponse(string requestUri, string requestContent, string responseContent, HttpStatusCode httpStatusCode)
+        public void AddExpectationMockResponse(string requestUri, string requestContent, string? responseContent, HttpStatusCode httpStatusCode)
         {
-            var expectation = _mockHttpMessageHandler.Expect(_baseUrl + requestUri)
+            MockedRequest expectation = _mockHttpMessageHandler.Expect(_baseUrl + requestUri)
                 .WithContent(requestContent);
 
             if (responseContent == null)

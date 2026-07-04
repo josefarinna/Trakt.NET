@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 using System.Net.Http.Headers;
 
 #if !NETSTANDARD2_0
@@ -20,7 +20,6 @@ namespace TraktNET
 #else
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MediaTypeNames.Application.Json));
 #endif
-            httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(context.UserAgent);
 
             return httpClient;
         }
@@ -31,6 +30,9 @@ namespace TraktNET
         private static readonly ConcurrentDictionary<string, HttpClient> s_httpClientCache = new();
 
         internal override HttpClient GetHttpClient(TraktContext context, bool baseAuthRequest)
-            => s_httpClientCache.GetOrAdd(context.ID, CreateHttpClient(context, baseAuthRequest));
+        {
+            string cacheKey = baseAuthRequest ? $"{context.ID}_auth" : context.ID;
+            return s_httpClientCache.GetOrAdd(cacheKey, _ => CreateHttpClient(context, baseAuthRequest));
+        }
     }
 }

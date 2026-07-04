@@ -1,9 +1,10 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public abstract class TraktContext
     {
         private string _clientID = string.Empty;
         private string _clientSecret = string.Empty;
+        private string _userAgent = string.Empty;
 
         internal string ID { get; }
 
@@ -105,10 +106,10 @@
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
         public TraktUsersModule Users { get; }
 
-        public static TraktContext Create(string clientID, string clientSecret, string userAgent)
+        public static TraktContext Create(string clientID, string clientSecret, string? userAgent = null)
             => new TraktDefaultContext(clientID, clientSecret, userAgent);
 
-        public static TraktContext CreateForSandbox(string clientID, string clientSecret, string userAgent)
+        public static TraktContext CreateForSandbox(string clientID, string clientSecret, string? userAgent = null)
             => new TraktSandboxContext(clientID, clientSecret, userAgent);
 
         internal Uri BaseUri { get; set; }
@@ -117,7 +118,16 @@
 
         internal HttpClientProvider HttpClientProvider { get; set; }
 
-        internal string UserAgent { get; set; }
+        internal string UserAgent
+        {
+            get => _userAgent;
+
+            set
+            {
+                ArgumentValidator.ThrowIfNullOrWhiteSpace(value, "user agent must not be null or empty or only whitespace", checkSpaces: true);
+                _userAgent = value;
+            }
+        }
 
         protected TraktContext(string clientID, string clientSecret, string? userAgent)
         {
@@ -127,12 +137,7 @@
             BaseUri = new Uri(Constants.API.BaseURL);
             BaseAuthorizationUri = new Uri(Constants.API.BaseAuthorizationURL);
             HttpClientProvider = new DefaultHttpClientProvider();
-            string agent = Constants.Request.UserAgent;
-            if (userAgent != null)
-                agent = userAgent;
-            else if (UserAgent != null)
-                agent = UserAgent;
-            UserAgent = agent;
+            UserAgent = !string.IsNullOrWhiteSpace(userAgent) ? userAgent! : Constants.Request.UserAgent;
 
             Auth = new TraktAuthModule(this);
             Calendar = new TraktCalendarModule(this);

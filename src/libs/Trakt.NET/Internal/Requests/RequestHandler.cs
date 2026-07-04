@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Headers;
+using System.Net.Http.Headers;
 
 namespace TraktNET
 {
@@ -101,6 +101,11 @@ namespace TraktNET
 
             request.Headers.Add(Constants.Request.Headers.APIVersionHeaderKey, $"{Constants.API.Version}");
             request.Headers.Add(Constants.Request.Headers.APIClientIDHeaderKey, context.ClientID);
+
+            if (!string.IsNullOrWhiteSpace(context.UserAgent))
+            {
+                request.Headers.UserAgent.ParseAdd(context.UserAgent);
+            }
 
             TraktOAuthRequirement oauthRequirement = request.OAuthRequirement;
 

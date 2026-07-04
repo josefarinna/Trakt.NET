@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace TraktNET
@@ -94,7 +94,7 @@ namespace TraktNET
         /// <param name="clientID">The value for the <see cref="TraktClient.ClientID" />.</param>
         /// <param name="clientSecret">The value for the <see cref="TraktClient.ClientSecret" />.</param>
         /// <returns>A <see cref="IHttpClientBuilder" /> instance.</returns>
-        public static IHttpClientBuilder AddTraktClient(this IServiceCollection services, string clientID, string clientSecret, string userAgent)
+        public static IHttpClientBuilder AddTraktClient(this IServiceCollection services, string clientID, string clientSecret, string? userAgent = null)
         {
             var context = TraktContext.Create(clientID, clientSecret, userAgent);
             return services.AddTraktHttpClient(context).AddTypedClient(context);
@@ -137,14 +137,17 @@ namespace TraktNET
         }
 
         private static IHttpClientBuilder AddTraktHttpClient(this IServiceCollection services, TraktContext context)
-            => services.AddHttpClient(context.ID).ConfigureHttpClient(httpClient => httpClient.BaseAddress = context.BaseUri);
+        {
+            services.AddHttpClient($"{context.ID}_auth").ConfigureHttpClient(httpClient => httpClient.BaseAddress = context.BaseAuthorizationUri);
+            return services.AddHttpClient(context.ID).ConfigureHttpClient(httpClient => httpClient.BaseAddress = context.BaseUri);
+        }
 
         private static IHttpClientBuilder AddTypedClient(this IHttpClientBuilder httpClientBuilder, TraktContext context)
         {
             httpClientBuilder.Services.AddTransient(serviceProvider =>
             {
                 IHttpClientFactory httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
-                context.HttpClientProvider = new HttpClientFactoryProvider(httpClientFactory, false);
+                context.HttpClientProvider = new HttpClientFactoryProvider(httpClientFactory);
                 return new TraktClient(context);
             });
 
