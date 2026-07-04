@@ -13,7 +13,8 @@ namespace TraktNET.PostRequests.Users
         {
             var userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest
             {
-                Id = "123"
+                Id = "123",
+                TraktListItemsReorderPost = new TraktListItemsReorderPost()
             };
 
             userPersonalListsReorderPostRequest.BuildUri();
@@ -23,38 +24,46 @@ namespace TraktNET.PostRequests.Users
         [Fact]
         public void TestUserPersonalListsReorderPostRequestHasValidOAuthRequirement()
         {
-            var userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = default! };
+            var userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = default!, TraktListItemsReorderPost = default! };
             userPersonalListsReorderPostRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestUserPersonalListsReorderPostRequestIsPostRequest()
         {
-            var userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = default! };
+            var userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = default!, TraktListItemsReorderPost = default! };
             userPersonalListsReorderPostRequest.Method.ShouldBe(HttpMethod.Post);
         }
 
         [Fact]
         public void TestUserPersonalListsReorderPostRequestHasCorrectRequestObjectType()
         {
-            var userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = default! };
+            var userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = default!, TraktListItemsReorderPost = default! };
             userPersonalListsReorderPostRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
 
         [Fact]
         public void TestUserPersonalListsReorderPostRequestValidate()
         {
-            var userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = string.Empty };
+            var userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = string.Empty, TraktListItemsReorderPost = default! };
             Action act = () => userPersonalListsReorderPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = "  " };
+            userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = "  ", TraktListItemsReorderPost = default! };
             act = () => userPersonalListsReorderPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = "id with spaces" };
+            userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = "id with spaces", TraktListItemsReorderPost = default! };
             act = () => userPersonalListsReorderPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
+
+            userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = "id", TraktListItemsReorderPost = default! };
+            act = () => userPersonalListsReorderPostRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            userPersonalListsReorderPostRequest = new UserPersonalListsReorderPostRequest { Id = "id", TraktListItemsReorderPost = new TraktListItemsReorderPost() };
+            act = () => userPersonalListsReorderPostRequest.Validate();
+            act.ShouldThrow<TraktPostValidationException>();
         }
     }
 }

@@ -85,6 +85,9 @@
         private Task<TraktPagedResponse<TraktListItem>> GetListItemsImplAsync(string listIdOrSlug, TraktListItemType? listItemType = null,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
             var request = new ListItemsGetRequest
             {
                 Id = listIdOrSlug,

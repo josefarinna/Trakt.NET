@@ -14,7 +14,8 @@ namespace TraktNET.PostRequests.Users
             var userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest
             {
                 Id = "123",
-                ListId = "123"
+                ListId = "123",
+                TraktUserPersonalListItemsRemovePost = new TraktUserPersonalListItemsRemovePost()
             };
 
             userPersonalListItemsRemovePostRequest.BuildUri();
@@ -24,50 +25,58 @@ namespace TraktNET.PostRequests.Users
         [Fact]
         public void TestUserPersonalListItemsRemovePostRequestHasValidOAuthRequirement()
         {
-            var userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = default!, ListId = default! };
+            var userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = default!, ListId = default!, TraktUserPersonalListItemsRemovePost = default! };
             userPersonalListItemsRemovePostRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestUserPersonalListItemsRemovePostRequestIsPostRequest()
         {
-            var userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = default!, ListId = default! };
+            var userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = default!, ListId = default!, TraktUserPersonalListItemsRemovePost = default! };
             userPersonalListItemsRemovePostRequest.Method.ShouldBe(HttpMethod.Post);
         }
 
         [Fact]
         public void TestUserPersonalListItemsRemovePostRequestHasCorrectRequestObjectType()
         {
-            var userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = default!, ListId = default! };
+            var userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = default!, ListId = default!, TraktUserPersonalListItemsRemovePost = default! };
             userPersonalListItemsRemovePostRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.List);
         }
 
         [Fact]
         public void TestUserPersonalListItemsRemovePostRequestValidate()
         {
-            var userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = string.Empty, ListId = default! };
+            var userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = string.Empty, ListId = default!, TraktUserPersonalListItemsRemovePost = default! };
             Action act = () => userPersonalListItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "  ", ListId = default! };
+            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "  ", ListId = default!, TraktUserPersonalListItemsRemovePost = default! };
             act = () => userPersonalListItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id with spaces", ListId = default! };
+            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id with spaces", ListId = default!, TraktUserPersonalListItemsRemovePost = default! };
             act = () => userPersonalListItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = string.Empty };
+            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = string.Empty, TraktUserPersonalListItemsRemovePost = default! };
             act = () => userPersonalListItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = "  " };
+            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = "  ", TraktUserPersonalListItemsRemovePost = default! };
             act = () => userPersonalListItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = "id with spaces" };
+            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = "id with spaces", TraktUserPersonalListItemsRemovePost = default! };
             act = () => userPersonalListItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
+
+            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = "listid", TraktUserPersonalListItemsRemovePost = default! };
+            act = () => userPersonalListItemsRemovePostRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            userPersonalListItemsRemovePostRequest = new UserPersonalListItemsRemovePostRequest { Id = "id", ListId = "listid", TraktUserPersonalListItemsRemovePost = new TraktUserPersonalListItemsRemovePost() };
+            act = () => userPersonalListItemsRemovePostRequest.Validate();
+            act.ShouldThrow<TraktPostValidationException>();
         }
     }
 }

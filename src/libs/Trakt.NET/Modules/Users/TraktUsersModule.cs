@@ -249,14 +249,19 @@ namespace TraktNET
         /// Specifies how much data should be queried about the collected movies.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing all collected movies in a user collection.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containingall collected movies in a user collection.
         /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktCollectionMovie" />.
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktCollectionMovie" />.
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
@@ -266,9 +271,9 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktListResponse<TraktCollectionMovie>> GetCollectionMoviesAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetCollectionMoviesImplAsync(usernameOrSlug, extendedInfo, cancellationToken);
+        public Task<TraktPagedResponse<TraktCollectionMovie>> GetCollectionMoviesAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetCollectionMoviesImplAsync(usernameOrSlug, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets all collected shows in an user's collection.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the collected shows should be queried.</param>
@@ -276,14 +281,19 @@ namespace TraktNET
         /// Specifies how much data should be queried about the collected shows.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing all collected shows in a user collection.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containingall collected shows in a user collection.
         /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktCollectionShow" />.
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktCollectionShow" />.
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
@@ -293,9 +303,9 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktListResponse<TraktCollectionShow>> GetCollectionShowsAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetCollectionShowsImplAsync(usernameOrSlug, extendedInfo, cancellationToken);
+        public Task<TraktPagedResponse<TraktCollectionShow>> GetCollectionShowsAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetCollectionShowsImplAsync(usernameOrSlug, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets all comments an user has posted, sorted by most recent.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the comments should be queried.</param>
@@ -829,14 +839,19 @@ namespace TraktNET
         /// Specifies how much data should be queried about the watched movies.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried watched movies.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried watched movies.
         /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedMovie" />.
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedMovie" />.
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
@@ -846,9 +861,9 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktListResponse<TraktWatchedMovie>> GetWatchedMoviesAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetWatchedMoviesImplAsync(usernameOrSlug, extendedInfo, cancellationToken);
+        public Task<TraktPagedResponse<TraktWatchedMovie>> GetWatchedMoviesAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetWatchedMoviesImplAsync(usernameOrSlug, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets all shows an user has watched, sorted by most plays.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the watched shows should be queried.</param>
@@ -856,14 +871,19 @@ namespace TraktNET
         /// Specifies how much data should be queried about the watched shows.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried watched shows.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried watched shows.
         /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedShow" />.
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedShow" />.
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
@@ -873,9 +893,9 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktListResponse<TraktWatchedShow>> GetWatchedShowsAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetWatchedShowsImplAsync(usernameOrSlug, extendedInfo, cancellationToken);
+        public Task<TraktPagedResponse<TraktWatchedShow>> GetWatchedShowsAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetWatchedShowsImplAsync(usernameOrSlug, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets statistics about the movies, shows and episodes an user has watched.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the statistics should be queried.</param>

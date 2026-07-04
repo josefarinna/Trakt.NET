@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.UsersModule
 {
@@ -462,6 +462,12 @@ namespace TraktNET.UsersModule
 
             act = () => client.Users.GetPersonalListItemsAsync(Username, 0);
             await act.ShouldThrowAsync<ArgumentException>();
+
+            act = () => client.Users.GetPersonalListItemsAsync(Username, ListID, null, null, null, 10, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Users.GetPersonalListItemsAsync(Username, ListID, null, null, 1, null, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
         }
     }
 }

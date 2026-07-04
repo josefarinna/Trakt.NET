@@ -14,7 +14,8 @@ namespace TraktNET.PutRequests.Users
             var userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest
             {
                 Id = "123",
-                ListId = "123"
+                ListId = "123",
+                TraktUserPersonalListPost = new TraktUserPersonalListPost()
             };
 
             userPersonalListUpdatePutRequest.BuildUri();
@@ -24,50 +25,58 @@ namespace TraktNET.PutRequests.Users
         [Fact]
         public void TestUserPersonalListUpdatePutRequestHasValidOAuthRequirement()
         {
-            var userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = default!, ListId = default! };
+            var userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = default!, ListId = default!, TraktUserPersonalListPost = default! };
             userPersonalListUpdatePutRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestUserPersonalListUpdatePutRequestIsPutRequest()
         {
-            var userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = default!, ListId = default! };
+            var userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = default!, ListId = default!, TraktUserPersonalListPost = default! };
             userPersonalListUpdatePutRequest.Method.ShouldBe(HttpMethod.Put);
         }
 
         [Fact]
         public void TestUserPersonalListUpdatePutRequestHasCorrectRequestObjectType()
         {
-            var userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = default!, ListId = default! };
+            var userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = default!, ListId = default!, TraktUserPersonalListPost = default! };
             userPersonalListUpdatePutRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.List);
         }
 
         [Fact]
         public void TestUserPersonalListUpdatePutRequestValidate()
         {
-            var userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = string.Empty, ListId = default! };
+            var userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = string.Empty, ListId = default!, TraktUserPersonalListPost = default! };
             Action act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "  ", ListId = default! };
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "  ", ListId = default!, TraktUserPersonalListPost = default! };
             act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id with spaces", ListId = default! };
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id with spaces", ListId = default!, TraktUserPersonalListPost = default! };
             act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = string.Empty };
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = string.Empty, TraktUserPersonalListPost = default! };
             act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = "  " };
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = "  ", TraktUserPersonalListPost = default! };
             act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = "id with spaces" };
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = "id with spaces", TraktUserPersonalListPost = default! };
             act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
+
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = "listid", TraktUserPersonalListPost = default! };
+            act = () => userPersonalListUpdatePutRequest.Validate();
+            act.ShouldNotThrow();
+
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = "listid", TraktUserPersonalListPost = new TraktUserPersonalListPost() };
+            act = () => userPersonalListUpdatePutRequest.Validate();
+            act.ShouldThrow<ArgumentException>();
         }
     }
 }

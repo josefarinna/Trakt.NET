@@ -13,7 +13,8 @@ namespace TraktNET.PostRequests.Users
         {
             var userPersonalListAddPostRequest = new UserPersonalListAddPostRequest
             {
-                Id = "123"
+                Id = "123",
+                TraktUserPersonalListPost = new TraktUserPersonalListPost()
             };
 
             userPersonalListAddPostRequest.BuildUri();
@@ -23,38 +24,46 @@ namespace TraktNET.PostRequests.Users
         [Fact]
         public void TestUserPersonalListAddPostRequestHasValidOAuthRequirement()
         {
-            var userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = default! };
+            var userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = default!, TraktUserPersonalListPost = default! };
             userPersonalListAddPostRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestUserPersonalListAddPostRequestIsPostRequest()
         {
-            var userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = default! };
+            var userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = default!, TraktUserPersonalListPost = default! };
             userPersonalListAddPostRequest.Method.ShouldBe(HttpMethod.Post);
         }
 
         [Fact]
         public void TestUserPersonalListAddPostRequestHasCorrectRequestObjectType()
         {
-            var userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = default! };
+            var userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = default!, TraktUserPersonalListPost = default! };
             userPersonalListAddPostRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
 
         [Fact]
         public void TestUserPersonalListAddPostRequestValidate()
         {
-            var userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = string.Empty };
+            var userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = string.Empty, TraktUserPersonalListPost = default! };
             Action act = () => userPersonalListAddPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = "  " };
+            userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = "  ", TraktUserPersonalListPost = default! };
             act = () => userPersonalListAddPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = "id with spaces" };
+            userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = "id with spaces", TraktUserPersonalListPost = default! };
             act = () => userPersonalListAddPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
+
+            userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = "id", TraktUserPersonalListPost = default! };
+            act = () => userPersonalListAddPostRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = "id", TraktUserPersonalListPost = new TraktUserPersonalListPost() };
+            act = () => userPersonalListAddPostRequest.Validate();
+            act.ShouldThrow<ArgumentException>();
         }
     }
 }

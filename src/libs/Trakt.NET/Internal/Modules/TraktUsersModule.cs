@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Json;
-
-namespace TraktNET
+﻿namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to users.<para />
@@ -83,13 +81,10 @@ namespace TraktNET
         private Task<TraktResponse<TraktUserHiddenItemsPostResponse>> AddHiddenItemsImplAsync(TraktUserHiddenItemsPost hiddenItemsPost,
             TraktHiddenItemsSection hiddenItemsSection, CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(hiddenItemsPost);
-            hiddenItemsPost.Validate();
-
             var request = new UserHiddenItemsAddPostRequest
             {
                 Section = hiddenItemsSection,
-                Content = JsonContent.Create(hiddenItemsPost)
+                TraktUserHiddenItemsPost = hiddenItemsPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserHiddenItemsPostResponse>(_context, request, cancellationToken);
@@ -98,13 +93,10 @@ namespace TraktNET
         private Task<TraktResponse<TraktUserHiddenItemsRemovePostResponse>> RemoveHiddenItemsImplAsync(TraktUserHiddenItemsRemovePost hiddenItemsRemovePost,
             TraktHiddenItemsSection hiddenItemsSection, CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(hiddenItemsRemovePost);
-            hiddenItemsRemovePost.Validate();
-
             var request = new UserHiddenItemsRemovePostRequest
             {
                 Section = hiddenItemsSection,
-                Content = JsonContent.Create(hiddenItemsRemovePost)
+                TraktUserHiddenItemsRemovePost = hiddenItemsRemovePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserHiddenItemsRemovePostResponse>(_context, request, cancellationToken);
@@ -143,28 +135,52 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktUser>(_context, request, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktCollectionMovie>> GetCollectionMoviesImplAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+        private Task<TraktPagedResponse<TraktCollectionMovie>> GetCollectionMoviesImplAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
             var request = new UserCollectionMoviesGetRequest
             {
                 Id = usernameOrSlug,
-                ExtendedInfo = extendedInfo
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
             };
 
-            return RequestHandler.ExecuteListRequestAsync<TraktCollectionMovie>(_context,  request, cancellationToken);
+            return RequestHandler.ExecutePagedListRequestAsync<TraktCollectionMovie>(_context,  request, (page, limit)
+                => new UserCollectionMoviesGetRequest
+                {
+                    Id = usernameOrSlug,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktCollectionShow>> GetCollectionShowsImplAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+        private Task<TraktPagedResponse<TraktCollectionShow>> GetCollectionShowsImplAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
             var request = new UserCollectionShowsGetRequest
             {
                 Id = usernameOrSlug,
-                ExtendedInfo = extendedInfo
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
             };
 
-            return RequestHandler.ExecuteListRequestAsync<TraktCollectionShow>(_context, request, cancellationToken);
+            return RequestHandler.ExecutePagedListRequestAsync<TraktCollectionShow>(_context, request, (page, limit)
+                => new UserCollectionShowsGetRequest
+                {
+                    Id = usernameOrSlug,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
         }
 
         private Task<TraktPagedResponse<TraktUserComment>> GetCommentsImplAsync(string usernameOrSlug, TraktCommentType? type = null,
@@ -208,13 +224,10 @@ namespace TraktNET
         private Task<TraktResponse<TraktList>> CreatePersonalListImplAsync(string usernameOrSlug, TraktUserPersonalListPost personalListPost,
            CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(personalListPost);
-            personalListPost.Validate();
-
             var request = new UserPersonalListAddPostRequest
             {
                 Id = usernameOrSlug,
-                Content = JsonContent.Create(personalListPost)
+                TraktUserPersonalListPost = personalListPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktList>(_context, request, cancellationToken);
@@ -227,12 +240,11 @@ namespace TraktNET
             {
                 Rank = reorderedListsRank
             };
-            content.Validate();
 
             var request = new UserPersonalListsReorderPostRequest
             {
                 Id = usernameOrSlug,
-                Content = JsonContent.Create(content)
+                TraktListItemsReorderPost = content
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktListItemsReorderPostResponse>(_context, request, cancellationToken);
@@ -359,6 +371,9 @@ namespace TraktNET
             TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
         {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
             var request = new UserFavoritesGetRequest
             {
                 Id = usernameOrSlug,
@@ -447,6 +462,9 @@ namespace TraktNET
             TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
         {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
             var request = new UserWatchlistGetRequest
             {
                 Id = usernameOrSlug,
@@ -504,28 +522,52 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserWatchingItem>(_context, request, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktWatchedMovie>> GetWatchedMoviesImplAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+        private Task<TraktPagedResponse<TraktWatchedMovie>> GetWatchedMoviesImplAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
             var request = new UserWatchedMoviesGetRequest
             {
                 Id = usernameOrSlug,
-                ExtendedInfo = extendedInfo
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
             };
 
-            return RequestHandler.ExecuteListRequestAsync<TraktWatchedMovie>(_context, request, cancellationToken);
+            return RequestHandler.ExecutePagedListRequestAsync<TraktWatchedMovie>(_context, request, (page, limit)
+                => new UserWatchedMoviesGetRequest
+                {
+                    Id = usernameOrSlug,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktWatchedShow>> GetWatchedShowsImplAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+        private Task<TraktPagedResponse<TraktWatchedShow>> GetWatchedShowsImplAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
             var request = new UserWatchedShowsGetRequest
             {
                 Id = usernameOrSlug,
-                ExtendedInfo = extendedInfo
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
             };
 
-            return RequestHandler.ExecuteListRequestAsync<TraktWatchedShow>(_context, request, cancellationToken);
+            return RequestHandler.ExecutePagedListRequestAsync<TraktWatchedShow>(_context, request, (page, limit)
+                => new UserWatchedShowsGetRequest
+                {
+                    Id = usernameOrSlug,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
         }
 
         private Task<TraktResponse<TraktUserStatistics>> GetStatisticsImplAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
@@ -568,12 +610,11 @@ namespace TraktNET
                 Reason = reason,
                 Message = message
             };
-            content.Validate();
 
             var request = new UserReportPostRequest
             {
                 Id = usernameOrSlug,
-                Content = JsonContent.Create(content)
+                TraktUserReportPost = content
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
@@ -582,14 +623,11 @@ namespace TraktNET
         private Task<TraktResponse<TraktUserPersonalListItemsPostResponse>> AddPersonalListItemsImplAsync(string usernameOrSlug, string listIdOrSlug,
             TraktUserPersonalListItemsPost listItemsPost, CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(listItemsPost);
-            listItemsPost.Validate();
-
             var request = new UserPersonalListItemsAddPostRequest
             {
                 Id = usernameOrSlug,
                 ListId = listIdOrSlug,
-                Content = JsonContent.Create(listItemsPost)
+                TraktUserPersonalListItemsPost = listItemsPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserPersonalListItemsPostResponse>(_context, request, cancellationToken);
@@ -705,16 +743,14 @@ namespace TraktNET
         private Task<TraktResponse<TraktUserPersonalListItemsRemovePostResponse>> RemovePersonalListItemsImplAsync(string usernameOrSlug, string listIdOrSlug,
             TraktUserPersonalListItemsRemovePost listItemsRemovePost, CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(listItemsRemovePost);
-            listItemsRemovePost.Validate();
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserPersonalListItemsRemovePostResponse>(_context, new UserPersonalListItemsRemovePostRequest
+            var request = new UserPersonalListItemsRemovePostRequest
             {
                 Id = usernameOrSlug,
                 ListId = listIdOrSlug,
-                Content = JsonContent.Create(listItemsRemovePost)
-            },
-            cancellationToken);
+                TraktUserPersonalListItemsRemovePost = listItemsRemovePost
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserPersonalListItemsRemovePostResponse>(_context, request, cancellationToken);
         }
 
         private Task<TraktResponse<TraktListItemsReorderPostResponse>> ReorderPersonalListItemsImplAsync(string usernameOrSlug, string listIdOrSlug,
@@ -724,13 +760,12 @@ namespace TraktNET
             {
                 Rank = reorderedListItemsRank
             };
-            content.Validate();
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktListItemsReorderPostResponse>(_context, new UserPersonalListItemsReorderPostRequest
             {
                 Id = usernameOrSlug,
                 ListId = listIdOrSlug,
-                Content = JsonContent.Create(content)
+                TraktListItemsReorderPost = content
             },
             cancellationToken);
         }
@@ -755,7 +790,7 @@ namespace TraktNET
             {
                 Id = usernameOrSlug,
                 ListId = listIdOrSlug,
-                Content = JsonContent.Create(personalListPost)
+                Content = System.Net.Http.Json.JsonContent.Create(personalListPost)
             },
             cancellationToken);
         }
@@ -773,7 +808,7 @@ namespace TraktNET
                 Id = usernameOrSlug,
                 ListId = listIdOrSlug,
                 ListItemId = listItemId,
-                Content = JsonContent.Create(content)
+                TraktListItemUpdatePost = content
             }, cancellationToken);
         }
     }

@@ -35,12 +35,7 @@
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetListItemsAsync(string listIdOrSlug, TraktListItemType? listItemType = null,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(page);
-            ArgumentValidator.ThrowIfNull(limit);
-
-            return GetListItemsImplAsync(listIdOrSlug, listItemType, extendedInfo, page, limit, cancellationToken);
-        }
+            => GetListItemsImplAsync(listIdOrSlug, listItemType, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets the items on a list.</summary>
         /// <param name="traktListId">The list's Trakt-ID. See also <seealso cref="TraktListIDs" />.</param>

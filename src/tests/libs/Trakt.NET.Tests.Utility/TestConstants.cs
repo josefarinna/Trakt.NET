@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public static class TestConstants
     {
@@ -12,22 +12,56 @@
         public const string DeviceVerificationURL = "https://trakt.tv/activate";
         public const uint DeviceExpiresIn = 600;
         public const uint DeviceInterval = 6;
-        public static readonly TraktDevice MockDevice = new()
-        {
-            DeviceCode = MockDeviceCode,
-            UserCode = MockUserCode,
-            VerificationUrl = DeviceVerificationURL,
-            ExpiresIn = DeviceExpiresIn,
-            Interval = DeviceInterval
-        };
+        private static readonly object LockObject = new();
+        private static TraktDevice? _mockDevice;
+        private static DateTime _mockDeviceLastCreated;
+        private static TraktAuthorization? _mockAuthorization;
+        private static DateTime _mockAuthorizationLastCreated;
 
-        public static readonly TraktAuthorization MockAuthorization = new()
+        public static TraktDevice MockDevice
         {
-            CreatedAt = (ulong)new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(),
-            AccessToken = MockAccessToken,
-            ExpiresIn = 3600U,
-            RefreshToken = MockRefreshToken
-        };
+            get
+            {
+                lock (LockObject)
+                {
+                    if (_mockDevice == null || DateTime.UtcNow - _mockDeviceLastCreated > TimeSpan.FromSeconds(5))
+                    {
+                        _mockDevice = new TraktDevice
+                        {
+                            DeviceCode = MockDeviceCode,
+                            UserCode = MockUserCode,
+                            VerificationUrl = DeviceVerificationURL,
+                            ExpiresIn = DeviceExpiresIn,
+                            Interval = DeviceInterval
+                        };
+                        _mockDeviceLastCreated = DateTime.UtcNow;
+                    }
+                    return _mockDevice;
+                }
+            }
+        }
+
+        public static TraktAuthorization MockAuthorization
+        {
+            get
+            {
+                lock (LockObject)
+                {
+                    if (_mockAuthorization == null || DateTime.UtcNow - _mockAuthorizationLastCreated > TimeSpan.FromSeconds(5))
+                    {
+                        _mockAuthorization = new TraktAuthorization
+                        {
+                            CreatedAt = (ulong)new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(),
+                            AccessToken = MockAccessToken,
+                            ExpiresIn = 3600U,
+                            RefreshToken = MockRefreshToken
+                        };
+                        _mockAuthorizationLastCreated = DateTime.UtcNow;
+                    }
+                    return _mockAuthorization;
+                }
+            }
+        }
 
         public static class Movies
         {
