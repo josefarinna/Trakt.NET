@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to languages.<para />
@@ -18,7 +18,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/languages/list/get-languages">
+        /// <para><see href="https://docs.trakt.tv/reference/getlanguageslist">
         /// Trakt API Documentation: Languages: List - Get languages
         /// </see></para>
         /// </remarks>
@@ -38,7 +38,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/languages/list/get-languages">
+        /// <para><see href="https://docs.trakt.tv/reference/getlanguageslist">
         /// Trakt API Documentation: Languages: List - Get languages
         /// </see></para>
         /// </remarks>

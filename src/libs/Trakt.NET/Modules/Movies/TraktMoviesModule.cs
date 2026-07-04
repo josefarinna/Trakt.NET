@@ -27,7 +27,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/trending/get-trending-movies">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviestrending">
         /// Trakt API Documentation: Movies: Trending - Get trending movies
         /// </see></para>
         /// </remarks>
@@ -79,7 +79,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/popular/get-popular-movies">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviespopular">
         /// Trakt API Documentation: Movies: Popular - Get popular movies
         /// </see></para>
         /// </remarks>
@@ -135,7 +135,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/favorited/get-the-most-favorited-movies">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesfavorited">
         /// Trakt API Documentation: Movies: Favorited - Get the most favorited movies
         /// </see></para>
         /// </remarks>
@@ -194,7 +194,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/played/get-the-most-played-movies">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesplayed">
         /// Trakt API Documentation: Movies: Played - Get the most played movies
         /// </see></para>
         /// </remarks>
@@ -253,7 +253,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/watched/get-the-most-watched-movies">
+        /// <para><see href="https://docs.trakt.tv/reference/getmovieswatched">
         /// Trakt API Documentation: Movies: Watched - Get the most watched movies
         /// </see></para>
         /// </remarks>
@@ -312,7 +312,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/collected/get-the-most-collected-movies">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviescollected">
         /// Trakt API Documentation: Movies: Collected - Get the most collected movies
         /// </see></para>
         /// </remarks>
@@ -367,7 +367,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/anticipated/get-the-most-anticipated-movies">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesanticipated">
         /// Trakt API Documentation: Movies: Anticipated - Get the most anticipated movies
         /// </see></para>
         /// </remarks>
@@ -410,7 +410,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/box-office/get-the-weekend-box-office">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesboxoffice">
         /// Trakt API Documentation: Movies: Box Office - Get the weekend box office movies
         /// </see></para>
         /// </remarks>
@@ -448,7 +448,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/updates/get-recently-updated-movies">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesupdates">
         /// Trakt API Documentation: Movies: Updates - Get recently updated movies
         /// </see></para>
         /// </remarks>
@@ -493,7 +493,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/updated-ids/get-recently-updated-movie-trakt-ids">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesupdatedids">
         /// Trakt API Documentation: Movies: Updated IDS - Get recently updated movie Trakt IDs
         /// </see></para>
         /// </remarks>

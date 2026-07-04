@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to people.<para />
@@ -24,7 +24,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/updated-ids/get-recently-updated-people-trakt-ids">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeopleupdatedids">
         /// Trakt API Documentation: People: Updated Ids
         /// </see></para>
         /// </remarks>
@@ -55,7 +55,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/updates/get-recently-updated-people">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeopleupdates">
         /// Trakt API Documentation: People: Updates
         /// </see></para>
         /// </remarks>

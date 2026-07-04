@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to networks.<para />
@@ -18,7 +18,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/networks/list/get-networks">
+        /// <para><see href="https://docs.trakt.tv/reference/getnetworkslist">
         /// Trakt API Documentation: Networks: List
         /// </see></para>
         /// </remarks>

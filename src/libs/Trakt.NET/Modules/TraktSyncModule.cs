@@ -18,7 +18,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/last-activities/get-last-activity">
+        /// <para><see href="https://docs.trakt.tv/reference/getsynclastactivities">
         /// Trakt API Documentation: Sync: Last Activities
         /// </see></para>
         /// </remarks>
@@ -56,7 +56,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-favorites/get-favorites">
+        /// <para><see href="https://docs.trakt.tv/reference/getsyncfavoritesget">
         /// Trakt API Documentation: Sync: Get Favorites
         /// </see></para>
         /// </remarks>
@@ -79,7 +79,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/reorder-favorites/reorder-favorited-items">
+        /// <para><see href="https://docs.trakt.tv/reference/postsyncfavoritesreorder">
         /// Trakt API Documentation: Sync: Reorder Favorites
         /// </see></para>
         /// </remarks>
@@ -100,7 +100,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-favorite-item/update-a-favorite-item">
+        /// <para><see href="https://docs.trakt.tv/reference/putsyncfavoritesupdateitem">
         /// Trakt API Documentation: Sync: Update Favorite Item
         /// </see></para>
         /// </remarks>
@@ -129,7 +129,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/playback/get-playback-progress">
+        /// <para><see href="https://docs.trakt.tv/reference/getsyncprogressplayback">
         /// Trakt API Documentation: Sync: Playback
         /// </see></para>
         /// </remarks>
@@ -147,7 +147,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-playback/remove-a-playback-item">
+        /// <para><see href="https://docs.trakt.tv/reference/deletesyncprogressdropmovie">
         /// Trakt API Documentation: Sync: Remove Playback
         /// </see></para>
         /// </remarks>
@@ -172,7 +172,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-collection/get-collection">
+        /// <para><see href="https://docs.trakt.tv/reference/getsynccollectionall">
         /// Trakt API Documentation: Sync: Get Collection
         /// </see></para>
         /// </remarks>
@@ -197,7 +197,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-collection/get-collection">
+        /// <para><see href="https://docs.trakt.tv/reference/getsynccollectionall">
         /// Trakt API Documentation: Sync: Get Collection
         /// </see></para>
         /// </remarks>
@@ -220,7 +220,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/add-to-collection/add-items-to-collection">
+        /// <para><see href="https://docs.trakt.tv/reference/postsynccollectionadd">
         /// Trakt API Documentation: Sync: Add to Collection
         /// </see></para>
         /// </remarks>
@@ -244,7 +244,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-from-collection/remove-items-from-collection">
+        /// <para><see href="https://docs.trakt.tv/reference/postsynccollectionremove">
         /// Trakt API Documentation: Sync: Remove from Collection
         /// </see></para>
         /// </remarks>
@@ -271,7 +271,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-watched/get-watched">
+        /// <para><see href="https://docs.trakt.tv/reference/getsyncwatched">
         /// Trakt API Documentation: Sync: Get Watched
         /// </see></para>
         /// </remarks>
@@ -296,7 +296,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-watched/get-watched">
+        /// <para><see href="https://docs.trakt.tv/reference/getsyncwatched">
         /// Trakt API Documentation: Sync: Get Watched
         /// </see></para>
         /// </remarks>
@@ -330,7 +330,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-history/get-watched-history">
+        /// <para><see href="https://docs.trakt.tv/reference/getsynchistoryget">
         /// Trakt API Documentation: Sync: Get History
         /// </see></para>
         /// </remarks>
@@ -353,7 +353,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/add-to-history/add-items-to-watched-history">
+        /// <para><see href="https://docs.trakt.tv/reference/postsynchistoryadd">
         /// Trakt API Documentation: Sync: Add to History
         /// </see></para>
         /// </remarks>
@@ -377,7 +377,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-from-history/remove-items-from-history">
+        /// <para><see href="https://docs.trakt.tv/reference/postsynchistoryremove">
         /// Trakt API Documentation: Sync: Remove from History
         /// </see></para>
         /// </remarks>
@@ -415,7 +415,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-ratings/get-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/getsyncratingsget">
         /// Trakt API Documentation: Sync: Get Ratings
         /// </see></para>
         /// </remarks>
@@ -438,7 +438,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/add-ratings/add-new-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/postsyncratingsadd">
         /// Trakt API Documentation: Sync: Add Ratings
         /// </see></para>
         /// </remarks>
@@ -462,7 +462,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-ratings/remove-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/postsyncratingsremove">
         /// Trakt API Documentation: Sync: Remove Ratings
         /// </see></para>
         /// </remarks>
@@ -486,7 +486,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-favorites/add-items-to-favorites">
+        /// <para><see href="https://docs.trakt.tv/reference/postsyncfavoritesadd">
         /// Trakt API Documentation: Sync: Add to Favorites
         /// </see></para>
         /// </remarks>
@@ -510,7 +510,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-from-favorites/remove-items-from-favorites">
+        /// <para><see href="https://docs.trakt.tv/reference/postsyncfavoritesremove">
         /// Trakt API Documentation: Sync: Remove from Favorites
         /// </see></para>
         /// </remarks>
@@ -536,7 +536,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-favorites/update-favorites">
+        /// <para><see href="https://docs.trakt.tv/reference/putsyncfavoritesupdate">
         /// Trakt API Documentation: Sync: Update Favorites
         /// </see></para>
         /// </remarks>
@@ -572,7 +572,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/get-watchlist/get-watchlist">
+        /// <para><see href="https://docs.trakt.tv/reference/getsyncwatchlistget">
         /// Trakt API Documentation: Sync: Get Watchlist
         /// </see></para>
         /// </remarks>
@@ -595,7 +595,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/reorder-watchlist/reorder-watchlist-items">
+        /// <para><see href="https://docs.trakt.tv/reference/postsyncwatchlistreorder">
         /// Trakt API Documentation: Sync: Reorder Watchlist
         /// </see></para>
         /// </remarks>
@@ -617,7 +617,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-watchlist-item/update-a-watchlist-item">
+        /// <para><see href="https://docs.trakt.tv/reference/putsyncwatchlistupdateitem">
         /// Trakt API Documentation: Sync: Update Watchlist Item
         /// </see></para>
         /// </remarks>
@@ -640,7 +640,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-watchlist/add-items-to-watchlist">
+        /// <para><see href="https://docs.trakt.tv/reference/postsyncwatchlistadd">
         /// Trakt API Documentation: Sync: Add to Watchlist
         /// </see></para>
         /// </remarks>
@@ -664,7 +664,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/remove-from-watchlist/remove-items-from-watchlist">
+        /// <para><see href="https://docs.trakt.tv/reference/postsyncwatchlistremove">
         /// Trakt API Documentation: Sync: Remove from Watchlist
         /// </see></para>
         /// </remarks>
@@ -690,7 +690,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/sync/update-watchlist/update-watchlist">
+        /// <para><see href="https://docs.trakt.tv/reference/putsyncwatchlistupdate">
         /// Trakt API Documentation: Sync: Update Watchlist
         /// </see></para>
         /// </remarks>

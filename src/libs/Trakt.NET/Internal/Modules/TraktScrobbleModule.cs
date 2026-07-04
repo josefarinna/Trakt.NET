@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to scrobbles.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/scrobble">"Trakt API Documentation - Scrobble"</a> section.
+    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-scrobble">"Trakt API Documentation - Scrobble"</a> section.
     /// </summary>
     public sealed partial class TraktScrobbleModule(TraktContext context) : BaseModule(context)
     {

@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to notes.<para />
@@ -19,7 +19,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/note/get-a-note">
+        /// <para><see href="https://docs.trakt.tv/reference/getnotessummary">
         /// Trakt API Documentation: Note: Get a note
         /// </see></para>
         /// </remarks>
@@ -44,7 +44,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/note/update-a-note">
+        /// <para><see href="https://docs.trakt.tv/reference/putnotesupdate">
         /// Trakt API Documentation: Note: Update a note
         /// </see></para>
         /// </remarks>
@@ -64,7 +64,7 @@
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/note/delete-a-note">
+        /// <para><see href="https://docs.trakt.tv/reference/deletenotesdelete">
         /// Trakt API Documentation: Note: Delete a note
         /// </see></para>
         /// </remarks>
@@ -90,7 +90,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/item/get-the-attached-item">
+        /// <para><see href="https://docs.trakt.tv/reference/getnotesitem">
         /// Trakt API Documentation: Item: Get the attached item
         /// </see></para>
         /// </remarks>

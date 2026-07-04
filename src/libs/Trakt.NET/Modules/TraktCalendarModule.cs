@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to calendars.<para />
@@ -164,7 +164,7 @@
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMovie}" /> containing the queried calendar movies.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/calendars/my-streaming/get-streaming-releases">
+        /// <para><see href="https://docs.trakt.tv/reference/getcalendarsstreaming">
         /// Trakt API Documentation: Calendars: My Streaming - Get streaming releases
         /// </see></para>
         /// </remarks>
@@ -360,7 +360,7 @@
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMovie}" /> containing the queried calendar movies.</returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/calendars/all-streaming/get-streaming-releases">
+        /// <para><see href="https://docs.trakt.tv/reference/getcalendarsstreaming">
         /// Trakt API Documentation: Calendars: All Streaming - Get streaming releases
         /// </see></para>
         /// </remarks>

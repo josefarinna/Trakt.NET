@@ -37,7 +37,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/search/text-query/get-text-query-results">
+        /// <para><see href="https://docs.trakt.tv/reference/getsearchquery">
         /// Trakt API Documentation: Search: Text Query.
         /// </see></para>
         /// </remarks>
@@ -72,7 +72,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/search/id-lookup/get-id-lookup-results">
+        /// <para><see href="https://docs.trakt.tv/reference/getsearchlookup">
         /// Trakt API Documentation: Search: ID Lookup.
         /// </see></para>
         /// </remarks>

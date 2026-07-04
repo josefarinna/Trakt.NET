@@ -1,8 +1,8 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to scrobbles.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/scrobble">"Trakt API Documentation - Scrobble"</a> section.
+    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-scrobble">"Trakt API Documentation - Scrobble"</a> section.
     /// </summary>
     public sealed partial class TraktScrobbleModule
     {
@@ -19,7 +19,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/scrobble/start/start-watching-in-a-media-center">
+        /// <para><see href="https://docs.trakt.tv/reference/postscrobblestart">
         /// Trakt API Documentation: Scrobble: Start
         /// </see></para>
         /// </remarks>
@@ -43,8 +43,8 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/scrobble/stop/stop-or-finish-watching-in-a-media-center">
-        /// Trakt API Documentation: Scrobble: Stop or Finish
+        /// <para><see href="https://docs.trakt.tv/reference/postscrobblepause">
+        /// Trakt API Documentation: Scrobble: Pause
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -67,7 +67,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/scrobble/stop/stop-or-finish-watching-in-a-media-center">
+        /// <para><see href="https://docs.trakt.tv/reference/postscrobblestop">
         /// Trakt API Documentation: Scrobble: Stop or Finish
         /// </see></para>
         /// </remarks>
@@ -91,7 +91,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/scrobble/start/start-watching-in-a-media-center">
+        /// <para><see href="https://docs.trakt.tv/reference/postscrobblestart">
         /// Trakt API Documentation: Scrobble: Start
         /// </see></para>
         /// </remarks>
@@ -115,8 +115,8 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/scrobble/stop/stop-or-finish-watching-in-a-media-center">
-        /// Trakt API Documentation: Scrobble: Stop or Finish
+        /// <para><see href="https://docs.trakt.tv/reference/postscrobblepause">
+        /// Trakt API Documentation: Scrobble: Pause
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
@@ -139,7 +139,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/scrobble/stop/stop-or-finish-watching-in-a-media-center">
+        /// <para><see href="https://docs.trakt.tv/reference/postscrobblestop">
         /// Trakt API Documentation: Scrobble: Stop or Finish
         /// </see></para>
         /// </remarks>>

@@ -18,7 +18,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/settings/retrieve-settings">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserssettings">
         /// Trakt API Documentation: Users: Settings
         /// </see></para>
         /// </remarks>
@@ -42,7 +42,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/follower-requests/get-follow-requests">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersrequestsfollow">
         /// Trakt API Documentation: Users: Follower Requests
         /// </see></para>
         /// </remarks>
@@ -67,7 +67,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/following-requests/get-pending-following-requests">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersrequestsfollowing">
         /// Trakt API Documentation: Users: Following Requests
         /// </see></para>
         /// </remarks>
@@ -99,7 +99,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/hidden-items/get-hidden-items">
+        /// <para><see href="https://docs.trakt.tv/reference/getusershiddenget">
         /// Trakt API Documentation: Users: Hidden Items
         /// </see></para>
         /// </remarks>
@@ -129,7 +129,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/saved-filters/get-saved-filters">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersfilterssaved">
         /// Trakt API Documentation: Users: Saved Filters
         /// </see></para>
         /// </remarks>
@@ -152,7 +152,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/add-hidden-items/add-hidden-items">
+        /// <para><see href="https://docs.trakt.tv/reference/postusershiddenadd">
         /// Trakt API Documentation: Users: Add Hidden Items
         /// </see></para>
         /// </remarks>
@@ -177,7 +177,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/remove-hidden-items/remove-hidden-items">
+        /// <para><see href="https://docs.trakt.tv/reference/postusershiddenremovesection">
         /// Trakt API Documentation: Users: Remove Hidden Items
         /// </see></para>
         /// </remarks>
@@ -207,7 +207,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/likes/get-likes">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslikes">
         /// Trakt API Documentation: Users: Likes
         /// </see></para>
         /// </remarks>
@@ -233,7 +233,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/profile/get-user-profile">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersprofile">
         /// Trakt API Documentation: Users: Profile
         /// </see></para>
         /// </remarks>
@@ -265,7 +265,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/collection/get-collection">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserscollection">
         /// Trakt API Documentation: Users: Collection
         /// </see></para>
         /// </remarks>
@@ -297,7 +297,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/collection/get-collection">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserscollection">
         /// Trakt API Documentation: Users: Collection
         /// </see></para>
         /// </remarks>
@@ -332,7 +332,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/comments/get-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserscomments">
         /// Trakt API Documentation: Users: Comments
         /// </see></para>
         /// </remarks>
@@ -356,7 +356,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/lists/get-a-user's-personal-lists">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistsummary">
         /// Trakt API Documentation: Users: Lists
         /// </see></para>
         /// </remarks>
@@ -379,7 +379,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/lists/create-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistscreate">
         /// Trakt API Documentation: Users: Lists
         /// </see></para>
         /// </remarks>
@@ -404,7 +404,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/reorder-lists/reorder-a-user's-lists">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistsreorder">
         /// Trakt API Documentation: Users: Reorder Lists
         /// </see></para>
         /// </remarks>
@@ -428,7 +428,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/collaborations/get-all-lists-a-user-can-collaborate-on">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistscollaborations">
         /// Trakt API Documentation: Users: Collaborations
         /// </see></para>
         /// </remarks>
@@ -454,7 +454,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/followers/get-followers">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersfollowers">
         /// Trakt API Documentation: Users: Followers
         /// </see></para>
         /// </remarks>
@@ -481,7 +481,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/following/get-following">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersfollowing">
         /// Trakt API Documentation: Users: Following
         /// </see></para>
         /// </remarks>
@@ -508,7 +508,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/friends/get-friends">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersfriends">
         /// Trakt API Documentation: Users: Friends
         /// </see></para>
         /// </remarks>
@@ -531,7 +531,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/follow/follow-this-user">
+        /// <para><see href="https://docs.trakt.tv/reference/postusersfollow">
         /// Trakt API Documentation: Users: Follow
         /// </see></para>
         /// </remarks>
@@ -549,7 +549,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/follow/unfollow-this-user">
+        /// <para><see href="https://docs.trakt.tv/reference/deleteusersunfollow">
         /// Trakt API Documentation: Users: Follow
         /// </see></para>
         /// </remarks>
@@ -571,7 +571,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/approve-or-deny-follower-requests/approve-follow-request">
+        /// <para><see href="https://docs.trakt.tv/reference/postusersrequestsapprove">
         /// Trakt API Documentation: Users: Approve or Deny Follower Requests
         /// </see></para>
         /// </remarks>
@@ -589,7 +589,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/approve-or-deny-follower-requests/deny-follow-request">
+        /// <para><see href="https://docs.trakt.tv/reference/deleteusersrequestsdeny">
         /// Trakt API Documentation: Users: Approve or Deny Follower Requests
         /// </see></para>
         /// </remarks>
@@ -624,7 +624,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/history/get-watched-history">
+        /// <para><see href="https://docs.trakt.tv/reference/getusershistoryall">
         /// Trakt API Documentation: Users: History
         /// </see></para>
         /// </remarks>
@@ -661,7 +661,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/favorites/get-favorites">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersfavoritesmedia">
         /// Trakt API Documentation: Users: Favorites
         /// </see></para>
         /// </remarks>
@@ -691,7 +691,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/favorites-comments/get-all-favorites-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersfavoritescomments">
         /// Trakt API Documentation: Users: Favorites Comments
         /// </see></para>
         /// </remarks>
@@ -729,7 +729,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/ratings/get-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersratingsall">
         /// Trakt API Documentation: Users: Ratings
         /// </see></para>
         /// </remarks>
@@ -766,7 +766,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watchlist/get-watchlist">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserswatchlist">
         /// Trakt API Documentation: Users: Watchlist
         /// </see></para>
         /// </remarks>
@@ -796,7 +796,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watchlist-comments/get-all-watchlist-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserswatchlistcomments">
         /// Trakt API Documentation: Users: Watchlist Comments
         /// </see></para>
         /// </remarks>
@@ -823,7 +823,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watching/get-watching">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserswatching">
         /// Trakt API Documentation: Users: Watching
         /// </see></para>
         /// </remarks>
@@ -855,7 +855,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watched/get-watched">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserswatched">
         /// Trakt API Documentation: Users: Watched
         /// </see></para>
         /// </remarks>
@@ -887,7 +887,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watched/get-watched">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserswatched">
         /// Trakt API Documentation: Users: Watched
         /// </see></para>
         /// </remarks>
@@ -910,7 +910,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/stats/get-stats">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersstats">
         /// Trakt API Documentation: Users: Stats
         /// </see></para>
         /// </remarks>
@@ -942,7 +942,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/notes/get-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersnotes">
         /// Trakt API Documentation: Users: Notes
         /// </see></para>
         /// </remarks>
@@ -963,7 +963,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/watched/report-a-user">
+        /// <para><see href="https://docs.trakt.tv/reference/postusersreport">
         /// Trakt API Documentation: Users: Report a User
         /// </see></para>
         /// </remarks>

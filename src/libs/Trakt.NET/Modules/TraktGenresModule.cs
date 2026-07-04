@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to genres.<para />
@@ -22,7 +22,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/genres/list/get-genres">
+        /// <para><see href="https://docs.trakt.tv/reference/getgenreslist">
         /// Trakt API Documentation: Genres: List
         /// </see></para>
         /// </remarks>
@@ -47,7 +47,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/genres/list/get-genres">
+        /// <para><see href="https://docs.trakt.tv/reference/getgenreslist">
         /// Trakt API Documentation: Genres: List
         /// </see></para>
         /// </remarks>

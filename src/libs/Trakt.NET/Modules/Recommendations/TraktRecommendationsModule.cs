@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to recommendations.<para />
@@ -29,7 +29,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/recommendations/movies/get-movie-recommendations">
+        /// <para><see href="https://docs.trakt.tv/reference/getrecommendationsmoviesrecommend">
         /// Trakt API Documentation: Recommendations: Movies
         /// </see></para>
         /// </remarks>
@@ -61,7 +61,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="http://trakt.docs.apiary.io/#reference/recommendations/shows/get-show-recommendations">
+        /// <para><see href="https://docs.trakt.tv/reference/getrecommendationsshowsrecommend">
         /// Trakt API Documentation: Recommendations: Shows
         /// </see></para>
         /// </remarks>

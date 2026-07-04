@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to shows.<para />
@@ -31,7 +31,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/trending/get-trending-shows">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowstrending">
         /// Trakt API Documentation: Shows: Trending - Get trending shows
         /// </see></para>
         /// </remarks>
@@ -83,7 +83,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/popular/get-popular-shows">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowspopular">
         /// Trakt API Documentation: Shows: Popular - Get popular shows
         /// </see></para>
         /// </remarks>
@@ -140,7 +140,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/favorited/get-the-most-favorited-shows">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsfavorited">
         /// Trakt API Documentation: Shows: Favorited - Get the most favorited shows
         /// </see></para>
         /// </remarks>
@@ -200,7 +200,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/played/get-the-most-played-shows">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsplayed">
         /// Trakt API Documentation: Shows: Played - Get the most played shows
         /// </see></para>
         /// </remarks>
@@ -257,7 +257,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/watched/get-the-most-watched-shows">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowswatched">
         /// Trakt API Documentation: Shows: Watched - Get the most watched shows
         /// </see></para>
         /// </remarks>
@@ -314,7 +314,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/collected/get-the-most-collected-shows">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowscollected">
         /// Trakt API Documentation: Shows: Collected - Get the most collected shows
         /// </see></para>
         /// </remarks>
@@ -366,7 +366,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/anticipated/get-the-most-anticipated-shows">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsanticipated">
         /// Trakt API Documentation: Shows: Anticipated - Get the most anticipated shows
         /// </see></para>
         /// </remarks>
@@ -415,7 +415,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/updates/get-recently-updated-shows">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsupdates">
         /// Trakt API Documentation: Shows: Updates - Get recently updated shows
         /// </see></para>
         /// </remarks>
@@ -460,7 +460,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/updates/get-recently-updated-show-ids">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsupdatedids">
         /// Trakt API Documentation: Shows: Updates - Get recently updated show IDs
         /// </see></para>
         /// </remarks>

@@ -22,7 +22,7 @@ namespace TraktNET
         /// <returns>The created authorization URL.</returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
         /// Trakt API Documentation: OAuth: Authorize
         /// </see></para>
         /// </remarks>
@@ -36,7 +36,7 @@ namespace TraktNET
         /// <returns>The created authorization URL.</returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
         /// Trakt API Documentation: OAuth: Authorize
         /// </see></para>
         /// </remarks>
@@ -51,7 +51,7 @@ namespace TraktNET
         /// <returns>The created authorization URL.</returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
         /// Trakt API Documentation: OAuth: Authorize
         /// </see></para>
         /// </remarks>
@@ -70,7 +70,7 @@ namespace TraktNET
         /// <returns>The created authorization URL.</returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
         /// Trakt API Documentation: OAuth: Authorize
         /// </see></para>
         /// </remarks>
@@ -83,7 +83,7 @@ namespace TraktNET
         /// <returns>The created authorization URL.</returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
         /// Trakt API Documentation: OAuth: Authorize
         /// </see></para>
         /// </remarks>
@@ -97,7 +97,7 @@ namespace TraktNET
         /// <returns>The created authorization URL.</returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
         /// Trakt API Documentation: OAuth: Authorize
         /// </see></para>
         /// </remarks>
@@ -112,7 +112,7 @@ namespace TraktNET
         /// <returns>The created authorization URL.</returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/authorize/authorize-application">
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
         /// Trakt API Documentation: OAuth: Authorize
         /// </see></para>
         /// </remarks>
@@ -532,7 +532,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/revoke-token/revoke-an-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthrevoke">
         /// Trakt API Documentation: OAuth: Revoke Token
         /// </see></para>
         /// </remarks>
@@ -564,7 +564,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/revoke-token/revoke-an-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthrevoke">
         /// Trakt API Documentation: OAuth: Revoke Token
         /// </see></para>
         /// </remarks>
@@ -597,7 +597,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/revoke-token/revoke-an-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthrevoke">
         /// Trakt API Documentation: OAuth: Revoke Token
         /// </see></para>
         /// </remarks>
@@ -630,7 +630,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/authentication-oauth/revoke-token/revoke-an-access_token">
+        /// <para><see href="https://docs.trakt.tv/reference/postoauthrevoke">
         /// Trakt API Documentation: OAuth: Revoke Token
         /// </see></para>
         /// </remarks>

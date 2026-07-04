@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to lists.<para />
@@ -27,7 +27,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/trending/get-trending-lists">
+        /// <para><see href="https://docs.trakt.tv/reference/getliststrending">
         /// Trakt API Documentation: Lists: Trending
         /// </see></para>
         /// </remarks>
@@ -57,7 +57,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/lists/popular/get-popular-lists">
+        /// <para><see href="https://docs.trakt.tv/reference/getlistspopular">
         /// Trakt API Documentation: Lists: Popular
         /// </see></para>
         /// </remarks>

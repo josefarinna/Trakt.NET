@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to countries.<para />
@@ -18,7 +18,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/countries/list/get-countries">
+        /// <para><see href="https://docs.trakt.tv/reference/getcountrieslist">
         /// Trakt API Documentation: Countries: List
         /// </see></para>
         /// </remarks>
@@ -38,7 +38,7 @@
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/countries/list/get-countries">
+        /// <para><see href="https://docs.trakt.tv/reference/getcountrieslist">
         /// Trakt API Documentation: Countries: List
         /// </see></para>
         /// </remarks>
