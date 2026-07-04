@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SyncModule
 {
@@ -7,21 +7,21 @@ namespace TraktNET.SyncModule
         private const string GetWatchlistUri = "sync/watchlist";
 
         [Theory]
-        [InlineData(null, null, null, null, null, null, GetWatchlistUri)]
-        [InlineData(TraktSyncItemType.Movie, null, null, null, null, null, $"{GetWatchlistUri}/movies")]
-        [InlineData(null, TraktSortBy.Rank, null, null, null, null, $"{GetWatchlistUri}/rank")]
-        [InlineData(null, TraktSortBy.Added, TraktSortHow.Ascending, null, null, null, $"{GetWatchlistUri}/added/asc")]
-        [InlineData(null, null, null, TraktExtendedInfo.Full, null, null, $"{GetWatchlistUri}?extended=full")]
-        [InlineData(null, null, null, null, 2U, null, $"{GetWatchlistUri}?page=2")]
-        [InlineData(null, null, null, null, null, 5U, $"{GetWatchlistUri}?limit=5")]
-        [InlineData(TraktSyncItemType.Show, TraktSortBy.Rank, null, null, 2U, null, $"{GetWatchlistUri}/shows/rank?page=2")]
+        [InlineData(null, null, null, null, 1U, 10U, $"{GetWatchlistUri}?page=1&limit=10")]
+        [InlineData(TraktSyncItemType.Movie, null, null, null, 1U, 10U, $"{GetWatchlistUri}/movies?page=1&limit=10")]
+        [InlineData(null, TraktSortBy.Rank, null, null, 1U, 10U, $"{GetWatchlistUri}/rank?page=1&limit=10")]
+        [InlineData(null, TraktSortBy.Added, TraktSortHow.Ascending, null, 1U, 10U, $"{GetWatchlistUri}/added/asc?page=1&limit=10")]
+        [InlineData(null, null, null, TraktExtendedInfo.Full, 1U, 10U, $"{GetWatchlistUri}?extended=full&page=1&limit=10")]
+        [InlineData(null, null, null, null, 2U, 10U, $"{GetWatchlistUri}?page=2&limit=10")]
+        [InlineData(null, null, null, null, 1U, 5U, $"{GetWatchlistUri}?page=1&limit=5")]
+        [InlineData(TraktSyncItemType.Show, TraktSortBy.Rank, null, null, 2U, 10U, $"{GetWatchlistUri}/shows/rank?page=2&limit=10")]
         [InlineData(TraktSyncItemType.Movie, TraktSortBy.Added, TraktSortHow.Descending, TraktExtendedInfo.Full, 3U, 10U, $"{GetWatchlistUri}/movies/added/desc?extended=full&page=3&limit=10")]
         public async Task TestGetWatchlist(TraktSyncItemType? type, TraktSortBy? sortBy, TraktSortHow? sortHow,
-            TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string expectedUri)
+            TraktExtendedInfo? extendedInfo, uint page, uint limit, string expectedUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
-            uint expectedPage = page ?? 1U;
-            uint expectedLimit = limit ?? 10U;
+            uint expectedPage = page;
+            uint expectedLimit = limit;
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(expectedUri, responseContent, expectedPage, 1, expectedLimit, 10);
 
@@ -66,10 +66,22 @@ namespace TraktNET.SyncModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetWatchlistThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GetWatchlistUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}?page=1&limit=10", statusCode);
 
-            Func<Task<TraktPagedResponse<TraktWatchlistItem>>> act = () => client.Sync.GetWatchlistAsync(cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktWatchlistItem>>> act = () => client.Sync.GetWatchlistAsync(page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistThrowsArgumentExceptions()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetWatchlistUri, HttpStatusCode.OK);
+
+            Func<Task<TraktPagedResponse<TraktWatchlistItem>>> act = () => client.Sync.GetWatchlistAsync(page: null, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Sync.GetWatchlistAsync(page: 1U, limit: null, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
         }
     }
 }

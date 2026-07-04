@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SyncModule
 {
@@ -7,21 +7,21 @@ namespace TraktNET.SyncModule
         private const string GetFavoritesUri = "sync/favorites";
 
         [Theory]
-        [InlineData(null, null, null, null, null, null, GetFavoritesUri)]
-        [InlineData(TraktFavoriteObjectType.Movie, null, null, null, null, null, $"{GetFavoritesUri}/movies")]
-        [InlineData(null, TraktSortBy.Rank, null, null, null, null, $"{GetFavoritesUri}/rank")]
-        [InlineData(null, TraktSortBy.Added, TraktSortHow.Ascending, null, null, null, $"{GetFavoritesUri}/added/asc")]
-        [InlineData(null, null, null, TraktExtendedInfo.Full, null, null, $"{GetFavoritesUri}?extended=full")]
-        [InlineData(null, null, null, null, 2U, null, $"{GetFavoritesUri}?page=2")]
-        [InlineData(null, null, null, null, null, 5U, $"{GetFavoritesUri}?limit=5")]
-        [InlineData(TraktFavoriteObjectType.Show, TraktSortBy.Rank, null, null, 2U, null, $"{GetFavoritesUri}/shows/rank?page=2")]
+        [InlineData(null, null, null, null, 1U, 10U, $"{GetFavoritesUri}?page=1&limit=10")]
+        [InlineData(TraktFavoriteObjectType.Movie, null, null, null, 1U, 10U, $"{GetFavoritesUri}/movies?page=1&limit=10")]
+        [InlineData(null, TraktSortBy.Rank, null, null, 1U, 10U, $"{GetFavoritesUri}/rank?page=1&limit=10")]
+        [InlineData(null, TraktSortBy.Added, TraktSortHow.Ascending, null, 1U, 10U, $"{GetFavoritesUri}/added/asc?page=1&limit=10")]
+        [InlineData(null, null, null, TraktExtendedInfo.Full, 1U, 10U, $"{GetFavoritesUri}?extended=full&page=1&limit=10")]
+        [InlineData(null, null, null, null, 2U, 10U, $"{GetFavoritesUri}?page=2&limit=10")]
+        [InlineData(null, null, null, null, 1U, 5U, $"{GetFavoritesUri}?page=1&limit=5")]
+        [InlineData(TraktFavoriteObjectType.Show, TraktSortBy.Rank, null, null, 2U, 10U, $"{GetFavoritesUri}/shows/rank?page=2&limit=10")]
         [InlineData(TraktFavoriteObjectType.Movie, TraktSortBy.Added, TraktSortHow.Descending, TraktExtendedInfo.Full, 3U, 10U, $"{GetFavoritesUri}/movies/added/desc?extended=full&page=3&limit=10")]
         public async Task TestGetFavoritesParametrized(TraktFavoriteObjectType? type, TraktSortBy? sortBy, TraktSortHow? sortHow,
-            TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string expectedUri)
+            TraktExtendedInfo? extendedInfo, uint page, uint limit, string expectedUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Favorites\\syncfavorites.json");
-            uint expectedPage = page ?? 1U;
-            uint expectedLimit = limit ?? 10U;
+            uint expectedPage = page;
+            uint expectedLimit = limit;
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(expectedUri, responseContent, expectedPage, 1, expectedLimit, 10);
 
@@ -64,10 +64,22 @@ namespace TraktNET.SyncModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetFavoritesThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GetFavoritesUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetFavoritesUri}?page=1&limit=10", statusCode);
 
-            Func<Task<TraktPagedResponse<TraktFavorite>>> act = () => client.Sync.GetFavoritesAsync(cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktFavorite>>> act = () => client.Sync.GetFavoritesAsync(page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetFavoritesThrowsArgumentExceptions()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetFavoritesUri, HttpStatusCode.OK);
+
+            Func<Task<TraktPagedResponse<TraktFavorite>>> act = () => client.Sync.GetFavoritesAsync(page: null, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
+
+            act = () => client.Sync.GetFavoritesAsync(page: 1U, limit: null, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentNullException>();
         }
     }
 }
