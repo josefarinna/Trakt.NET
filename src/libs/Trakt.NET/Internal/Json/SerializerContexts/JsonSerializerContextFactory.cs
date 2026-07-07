@@ -1,4 +1,4 @@
-﻿#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER
 using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -175,6 +175,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[WatchlistContextCacheKey];
             }
 
+            if (s_watchnowJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(WatchnowContextCacheKey));
+                return s_jsonSerializerContexts[WatchnowContextCacheKey];
+            }
+
             throw new NotSupportedException($"Json type {nameof(TJsonObjectType)} has no registered json serializer context.");
         }
 
@@ -205,6 +211,7 @@ namespace TraktNET
         private const string UsersContextCacheKey = "users";
         private const string WatchedContextCacheKey = "watched";
         private const string WatchlistContextCacheKey = "watchlist";
+        private const string WatchnowContextCacheKey = "watchnow";
 
         // NOTE: JsonSerializerOptions needs to be copied, because the constructor
         //       of JsonSerializerContext makes JsonSerializerOptions readonly,
@@ -240,7 +247,8 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(SyncsContextCacheKey, new SyncsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(WatchedContextCacheKey, new WatchedJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
-            new KeyValuePair<string, JsonSerializerContext>(WatchlistContextCacheKey, new WatchlistJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)))
+            new KeyValuePair<string, JsonSerializerContext>(WatchlistContextCacheKey, new WatchlistJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(WatchnowContextCacheKey, new WatchnowJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)))
         }, StringComparer.OrdinalIgnoreCase);
 
         private static readonly FrozenSet<Type> s_authenticationJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -638,7 +646,30 @@ namespace TraktNET
             typeof(TraktUserSavedFilter),
             typeof(TraktUserSettings),
             typeof(TraktUserWatchingItem),
-            typeof(TraktUserWatchlistLimits)
+            typeof(TraktUserWatchlistLimits),
+            typeof(TraktUserBlockedUser),
+            typeof(TraktUserBrowsingSettings),
+            typeof(TraktUserWatchnowSettings),
+            typeof(TraktUserSettingsPost),
+            typeof(TraktUserSettingsUserPost),
+            typeof(TraktUserSettingsBrowsingPost),
+            typeof(TraktUserBrowsingSpoilersSettings),
+            typeof(TraktUserBrowsingCalendarSettings),
+            typeof(TraktUserBrowsingProgressSettings),
+            typeof(TraktUserBrowsingProgressOnDeckSettings),
+            typeof(TraktUserBrowsingProgressWatchedSettings),
+            typeof(TraktUserBrowsingProgressCollectedSettings),
+            typeof(TraktUserBrowsingWelcomeSettings),
+            typeof(TraktUserBrowsingGenresSettings),
+            typeof(TraktUserBrowsingCommentsSettings),
+            typeof(TraktUserBrowsingRecommendationsSettings),
+            typeof(TraktUserBrowsingRewatchingSettings),
+            typeof(TraktUserBrowsingProfileSettings),
+            typeof(TraktUserBrowsingProfileFavoritesSettings),
+            typeof(TraktUserBrowsingProfileShowsSettings),
+            typeof(TraktUserBrowsingProfileMoviesSettings),
+            typeof(TraktUserBrowsingSearchSettings),
+            typeof(TraktUserBrowsingRecentQuery)
         });
 
         private static readonly FrozenSet<Type> s_watchedJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -652,6 +683,22 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_watchlistJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktWatchlistItem)
+        });
+
+        private static readonly FrozenSet<Type> s_watchnowJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktWatchnowSource),
+            typeof(TraktWatchnowSourceImages),
+            typeof(TraktWatchnowSources),
+            typeof(Dictionary<string, TraktWatchnowSources>),
+            typeof(Dictionary<string, IReadOnlyList<TraktWatchnowSource>>),
+            typeof(IReadOnlyList<Dictionary<string, IReadOnlyList<TraktWatchnowSource>>>),
+            typeof(Dictionary<string, string>),
+            typeof(TraktStreamingRank),
+            typeof(TraktWatchnowOffer),
+            typeof(TraktWatchnowPrices),
+            typeof(TraktWatchnowWebos),
+            typeof(TraktWatchnowWebosParams)
         });
 #else
         private static readonly Dictionary<string, JsonSerializerContext> s_jsonSerializerContexts = new()
@@ -682,7 +729,8 @@ namespace TraktNET
             { SyncsContextCacheKey, new SyncsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { WatchedContextCacheKey, new WatchedJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
-            { WatchlistContextCacheKey, new WatchlistJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) }
+            { WatchlistContextCacheKey, new WatchlistJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { WatchnowContextCacheKey, new WatchnowJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) }
         };
 
         private static readonly HashSet<Type> s_authenticationJsonTypes = [
@@ -1055,7 +1103,30 @@ namespace TraktNET
             typeof(TraktUserSavedFilter),
             typeof(TraktUserSettings),
             typeof(TraktUserWatchingItem),
-            typeof(TraktUserWatchlistLimits)
+            typeof(TraktUserWatchlistLimits),
+            typeof(TraktUserBlockedUser),
+            typeof(TraktUserBrowsingSettings),
+            typeof(TraktUserWatchnowSettings),
+            typeof(TraktUserSettingsPost),
+            typeof(TraktUserSettingsUserPost),
+            typeof(TraktUserSettingsBrowsingPost),
+            typeof(TraktUserBrowsingSpoilersSettings),
+            typeof(TraktUserBrowsingCalendarSettings),
+            typeof(TraktUserBrowsingProgressSettings),
+            typeof(TraktUserBrowsingProgressOnDeckSettings),
+            typeof(TraktUserBrowsingProgressWatchedSettings),
+            typeof(TraktUserBrowsingProgressCollectedSettings),
+            typeof(TraktUserBrowsingWelcomeSettings),
+            typeof(TraktUserBrowsingGenresSettings),
+            typeof(TraktUserBrowsingCommentsSettings),
+            typeof(TraktUserBrowsingRecommendationsSettings),
+            typeof(TraktUserBrowsingRewatchingSettings),
+            typeof(TraktUserBrowsingProfileSettings),
+            typeof(TraktUserBrowsingProfileFavoritesSettings),
+            typeof(TraktUserBrowsingProfileShowsSettings),
+            typeof(TraktUserBrowsingProfileMoviesSettings),
+            typeof(TraktUserBrowsingSearchSettings),
+            typeof(TraktUserBrowsingRecentQuery)
         ];
 
         private static readonly HashSet<Type> s_watchedJsonTypes = [
@@ -1067,6 +1138,21 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_watchlistJsonTypes = [
             typeof(TraktWatchlistItem)
+        ];
+
+        private static readonly HashSet<Type> s_watchnowJsonTypes = [
+            typeof(TraktWatchnowSource),
+            typeof(TraktWatchnowSourceImages),
+            typeof(TraktWatchnowSources),
+            typeof(Dictionary<string, TraktWatchnowSources>),
+            typeof(Dictionary<string, IReadOnlyList<TraktWatchnowSource>>),
+            typeof(IReadOnlyList<Dictionary<string, IReadOnlyList<TraktWatchnowSource>>>),
+            typeof(Dictionary<string, string>),
+            typeof(TraktStreamingRank),
+            typeof(TraktWatchnowOffer),
+            typeof(TraktWatchnowPrices),
+            typeof(TraktWatchnowWebos),
+            typeof(TraktWatchnowWebosParams)
         ];
 #endif
     }

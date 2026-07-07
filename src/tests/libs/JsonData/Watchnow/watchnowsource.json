@@ -1,0 +1,13 @@
+{
+  "source": "netflix",
+  "name": "Netflix",
+  "free": false,
+  "cinema": false,
+  "amazon": false,
+  "color": "#E50914",
+  "link_count": 12,
+  "images": {
+    "logo": "https://images.trakt.tv/logo.png",
+    "channel": "https://images.trakt.tv/channel.png"
+  }
+}

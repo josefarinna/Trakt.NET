@@ -19,12 +19,34 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para><see href="https://docs.trakt.tv/reference/getuserssettings">
-        /// Trakt API Documentation: Users: Settings
+        /// Trakt API Documentation: Users: Retrieve settings
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktResponse<TraktUserSettings>> GetSettingsAsync(CancellationToken cancellationToken = default)
             => GetSettingsImplAsync(cancellationToken);
+
+        /// <summary>Updates/saves the user's settings.</summary>
+        /// <param name="settings">The settings to update. See also <seealso cref="TraktUserSettingsPost" />.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the updated user's settings.
+        /// <para />
+        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserSettings" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/putuserssavesettings">
+        /// Trakt API Documentation: Users: Update settings
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktUserSettings>> UpdateSettingsAsync(TraktUserSettingsPost settings, CancellationToken cancellationToken = default)
+            => UpdateSettingsImplAsync(settings, cancellationToken);
 
         /// <summary>Gets the user's pending follow requests.</summary>
         /// <param name="extendedInfo">
@@ -971,5 +993,61 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> ReportUserAsync(string usernameOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
             => ReportUserImplAsync(usernameOrSlug, reason, message, cancellationToken);
+
+        /// <summary>Gets a list of users you have blocked.</summary>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the blocked users.
+        /// <para />
+        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktUserBlockedUser" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getusersblocked">
+        /// Trakt API Documentation: Users: Get blocked users
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktListResponse<TraktUserBlockedUser>> GetBlockedUsersAsync(CancellationToken cancellationToken = default)
+            => GetBlockedUsersImplAsync(cancellationToken);
+
+        /// <summary>Blocks a user.</summary>
+        /// <param name="usernameOrSlug">The username or slug of the user to block.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>A <see cref="TraktResponse" />.</returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/postusersblock">
+        /// Trakt API Documentation: Users: Block this user
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse> BlockUserAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
+            => BlockUserImplAsync(usernameOrSlug, cancellationToken);
+
+        /// <summary>Unblocks a user.</summary>
+        /// <param name="usernameOrSlug">The username or slug of the user to unblock.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>A <see cref="TraktResponse" />.</returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/deleteusersunblock">
+        /// Trakt API Documentation: Users: Unblock this user
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse> UnblockUserAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
+            => UnblockUserImplAsync(usernameOrSlug, cancellationToken);
     }
 }

@@ -1,0 +1,110 @@
+{
+  "watch_popup_action": "checkin",
+  "hide_watching_now": false,
+  "list_popup_action": "add",
+  "week_start_day": "monday",
+  "watch_after_rating": "always",
+  "watch_only_once": true,
+  "show_rating_prompt": false,
+  "other_site_ratings": true,
+  "release_date_ignore_runtime": false,
+  "display_early_ratings": true,
+  "hide_episode_type_tags": false,
+  "hide_unsaved_filters_prompt": true,
+  "spoilers": {
+    "episodes": "hide",
+    "shows": "hide",
+    "movies": "hide",
+    "comments": "hide",
+    "ratings": "hide",
+    "actors": "hide"
+  },
+  "calendar": {
+    "period": "month",
+    "start_day": "today",
+    "layout": "grid",
+    "image_type": "fanart",
+    "hide_specials": true,
+    "autoscroll": false
+  },
+  "progress": {
+    "on_deck": {
+      "sort": "recent",
+      "sort_how": "desc",
+      "refresh": true,
+      "simple_progress": false,
+      "only_favorites": true
+    },
+    "watched": {
+      "refresh": true,
+      "simple_progress": false,
+      "include_specials": true,
+      "include_watchlisted": false,
+      "include_collected": true,
+      "sort": "title",
+      "sort_how": "asc",
+      "use_last_activity": true,
+      "grid_view": false
+    },
+    "collected": {
+      "refresh": true,
+      "simple_progress": false,
+      "include_specials": true,
+      "include_watchlisted": false,
+      "include_watched": true,
+      "sort": "title",
+      "sort_how": "asc",
+      "use_last_activity": true,
+      "grid_view": false
+    }
+  },
+  "watchnow": {
+    "country": "us",
+    "favorites": [ "netflix", "hulu" ],
+    "only_favorites": false
+  },
+  "dark_knight": "always",
+  "app_theme": "dark",
+  "welcome": {
+    "completed_at": "2024-01-01T00:00:00.000Z",
+    "exit_step": "profile"
+  },
+  "genres": {
+    "favorites": [ "action", "comedy" ],
+    "disliked": [ "horror" ]
+  },
+  "comments": {
+    "blocked_uids": [ "annoying_user" ]
+  },
+  "recommendations": {
+    "ignore_collected": true,
+    "ignore_watchlisted": true
+  },
+  "rewatching": {
+    "adjust_percentage": false
+  },
+  "profile": {
+    "favorites": {
+      "sort_by": "rank",
+      "sort_how": "asc"
+    },
+    "most_watched_shows": {
+      "sort_by": "plays",
+      "tab": "weekly"
+    },
+    "most_watched_movies": {
+      "sort_by": "plays",
+      "tab": "weekly"
+    }
+  },
+  "search": {
+    "image_type": "poster",
+    "recent_queries": [
+      {
+        "query": "star wars",
+        "type": "movie",
+        "created_at": 1719878400000
+      }
+    ]
+  }
+}

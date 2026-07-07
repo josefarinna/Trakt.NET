@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to movies.<para />
@@ -197,6 +197,33 @@
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetMovieWatchnowImplAsync(
+            string movieIDOrSlug, string country, bool? links = null, TraktExtendedInfo? extendedInfo = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new MovieWatchnowGetRequest
+            {
+                Id = movieIDOrSlug,
+                Country = country,
+                Links = links,
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, TraktWatchnowSources>>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<Dictionary<string, string>>> GetMovieJustwatchLinksImplAsync(
+            string movieIDOrSlug, string country, CancellationToken cancellationToken = default)
+        {
+            var request = new MovieJustwatchLinksGetRequest
+            {
+                Id = movieIDOrSlug,
+                Country = country
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, string>>(_context, request, cancellationToken);
         }
     }
 }

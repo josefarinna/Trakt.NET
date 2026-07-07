@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Users
+namespace TraktNET.Json.Users
 {
     public sealed class TraktUserSettingsTests
     {
@@ -12,6 +12,8 @@
             userSettings.Connections.ShouldBeNull();
             userSettings.SharingText.ShouldBeNull();
             userSettings.Limits.ShouldBeNull();
+            userSettings.Permissions.ShouldBeNull();
+            userSettings.Browsing.ShouldBeNull();
         }
 
         [Fact]
@@ -73,67 +75,40 @@
             userSettings.Limits.Watchlist.ItemCount.ShouldBe(10000U);
             userSettings.Limits.Recommendations.ShouldNotBeNull();
             userSettings.Limits.Recommendations.ItemCount.ShouldBe(50U);
-        }
 
-        private const string JSON =
-            @"{
-                ""user"": {
-                  ""username"": ""sean"",
-                  ""private"": false,
-                  ""name"": ""Sean Rudford"",
-                  ""vip"": true,
-                  ""vip_ep"": true,
-                  ""ids"": {
-                    ""slug"": ""sean"",
-                    ""uuid"": ""3528009dgf0dfhkasghsgng00ds7g0907hfdslsha0070""
-                  },
-                  ""joined_at"": ""2010-09-25T17:49:25.000Z"",
-                  ""location"": ""SF"",
-                  ""about"": ""I have all your cassette tapes."",
-                  ""gender"": ""male"",
-                  ""age"": 35,
-                  ""images"": {
-                    ""avatar"": {
-                      ""full"": ""https://walter-dev.trakt.tv/images/users/000/000/001/avatars/large/0ba3f72910.jpg""
-                    }
-                  },
-                  ""vip_og"": true,
-                  ""vip_years"": 5,
-                  ""vip_cover_image"": ""https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg""
-                },
-                ""account"": {
-                  ""timezone"": ""America/Los_Angeles"",
-                  ""date_format"": ""dmy"",
-                  ""time_24hr"": true,
-                  ""cover_image"": ""https://walter.trakt.us/images/movies/000/001/545/fanarts/original/0abb604492.jpg?1406095042"",
-                  ""token"": ""60fa34c4f5e7f093ecc5a2d16d691e24""
-                },
-                ""connections"": {
-                  ""twitter"": true,
-                  ""google"": true,
-                  ""tumblr"": true,
-                  ""medium"": true,
-                  ""slack"": true,
-                  ""facebook"": true,
-                  ""apple"": true
-                },
-                ""sharing_text"": {
-                  ""watching"": ""I'm watching [item]"",
-                  ""watched"": ""I just watched [item]"",
-                  ""rated"": ""[item] [stars]""
-                },
-                ""limits"": {
-                    ""list"": {
-                        ""count"": 9999,
-                        ""item_count"": 10000
-                    },
-                    ""watchlist"": {
-                        ""item_count"": 10000
-                    },
-                    ""recommendations"": {
-                        ""item_count"": 50
-                    }
-                }
-              }";
+            userSettings.Permissions.ShouldNotBeNull();
+            userSettings.Permissions.Commenting.ShouldBe(true);
+            userSettings.Permissions.Liking.ShouldBe(true);
+            userSettings.Permissions.Following.ShouldBe(true);
+
+            userSettings.Browsing.ShouldNotBeNull();
+            userSettings.Browsing.WatchPopupAction.ShouldBe("checkin");
+            userSettings.Browsing.HideWatchingNow.ShouldBe(false);
+            userSettings.Browsing.ListPopupAction.ShouldBe("add");
+            userSettings.Browsing.WeekStartDay.ShouldBe("monday");
+            userSettings.Browsing.WatchAfterRating.ShouldBe("always");
+            userSettings.Browsing.WatchOnlyOnce.ShouldBe(true);
+            userSettings.Browsing.ShowRatingPrompt.ShouldBe(false);
+            userSettings.Browsing.OtherSiteRatings.ShouldBe(true);
+            userSettings.Browsing.ReleaseDateIgnoreRuntime.ShouldBe(false);
+            userSettings.Browsing.DisplayEarlyRatings.ShouldBe(true);
+            userSettings.Browsing.HideEpisodeTypeTags.ShouldBe(false);
+            userSettings.Browsing.HideUnsavedFiltersPrompt.ShouldBe(true);
+            
+            userSettings.Browsing.Spoilers.ShouldNotBeNull();
+            userSettings.Browsing.Spoilers.Episodes.ShouldBe("hide");
+            
+            userSettings.Browsing.Calendar.ShouldNotBeNull();
+            userSettings.Browsing.Calendar.Period.ShouldBe("month");
+            
+            userSettings.Browsing.Progress.ShouldNotBeNull();
+            userSettings.Browsing.Progress.OnDeck.ShouldNotBeNull();
+            userSettings.Browsing.Progress.OnDeck.Sort.ShouldBe("recent");
+
+            userSettings.Browsing.Watchnow.ShouldNotBeNull();
+            userSettings.Browsing.Watchnow.Country.ShouldBe("us");
+            userSettings.Browsing.Watchnow.Favorites.ShouldBe([ "netflix", "hulu" ]);
+            userSettings.Browsing.Watchnow.OnlyFavorites.ShouldBe(false);
+        }
     }
 }

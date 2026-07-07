@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>Represents Trakt user settings.</summary>
     public record class TraktUserSettings
@@ -38,5 +38,11 @@
         /// See also <seealso cref="TraktPermissions" />.
         /// </summary>
         public TraktPermissions? Permissions { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user's browsing settings.
+        /// See also <seealso cref="TraktUserBrowsingSettings" />.
+        /// </summary>
+        public TraktUserBrowsingSettings? Browsing { get; set; }
     }
 }

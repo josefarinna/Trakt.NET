@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     // -------------------------------------------------------
     // GET Requests
@@ -63,6 +63,11 @@
 
     [TraktGetRequest("users/requests", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserFollowRequestsGetRequest
+    {
+    }
+
+    [TraktGetRequest("users/blocked", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserBlockedUsersGetRequest
     {
     }
 
@@ -245,6 +250,11 @@
     {
     }
 
+    [TraktPostRequest("users/{id!!}/block", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserBlockUserPostRequest
+    {
+    }
+
     [TraktPostRequest("users/hidden", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserHiddenItemsAddPostRequest
     {
@@ -324,6 +334,13 @@
     // PUT Requests
     // -------------------------------------------------------
 
+    [TraktPutRequest("users/settings", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSettingsSavePutRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktUserSettingsPost TraktUserSettingsPost { get; set; }
+    }
+
     [TraktPutRequest("users/{id!!}/lists/{list_id!!}/items", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserPersonalListItemUpdatePutRequest
     {
@@ -368,6 +385,11 @@
 
     [TraktDeleteRequest("users/{id!!}/follow", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserUnfollowUserDeleteRequest
+    {
+    }
+
+    [TraktDeleteRequest("users/{id!!}/block", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserUnblockUserDeleteRequest
     {
     }
 }

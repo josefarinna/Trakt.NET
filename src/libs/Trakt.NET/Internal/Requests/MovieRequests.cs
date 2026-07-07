@@ -178,6 +178,21 @@ namespace TraktNET
         public TraktFilter? Filter { get; set; }
     }
 
+    [TraktGetRequest("movies/{id!!}/watchnow/{country!!}", SupportsExtendedInfo = true)]
+    internal sealed partial class MovieWatchnowGetRequest
+    {
+        [TraktRequestQuery("links")]
+        internal bool? Links { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
+    }
+
+    [TraktGetRequest("movies/{id!!}/watchnow/justwatch_links/{country!!}")]
+    internal sealed partial class MovieJustwatchLinksGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
+    }
+
     // -------------------------------------------------------
     // POST Requests
     // -------------------------------------------------------

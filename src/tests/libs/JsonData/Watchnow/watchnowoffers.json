@@ -1,0 +1,27 @@
+[
+  {
+    "source": "netflix",
+    "link": "https://netflix.com",
+    "uhd": true,
+    "currency": "USD",
+    "prices": {
+      "rent": "1.99",
+      "purchase": "9.99"
+    },
+    "link_tvos": "netflix-tvos://watch",
+    "link_direct": "https://netflix.com/direct",
+    "link_android": "netflix-android://watch",
+    "link_webos": {
+      "id": "com.netflix.webos",
+      "params": {
+        "content_target": "netflix://watch/12345"
+      }
+    }
+  },
+  {
+    "source": "hulu",
+    "link": "https://hulu.com",
+    "uhd": false,
+    "currency": "USD"
+  }
+]

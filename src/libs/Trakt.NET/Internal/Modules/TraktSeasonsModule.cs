@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to seasons.<para />
@@ -175,6 +175,19 @@
             };
 
             return RequestHandler.ExecuteListRequestAsync<TraktVideo>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<Dictionary<string, string>>> GetSeasonJustwatchLinksImplAsync(
+            string showIDOrSlug, uint seasonNumber, string country, CancellationToken cancellationToken = default)
+        {
+            var request = new SeasonJustwatchLinksGetRequest
+            {
+                ShowId = showIDOrSlug,
+                SeasonNumber = seasonNumber,
+                Country = country
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, string>>(_context, request, cancellationToken);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
@@ -93,6 +93,30 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktUserSettings))]
     [JsonSerializable(typeof(TraktUserWatchingItem))]
     [JsonSerializable(typeof(TraktUserWatchlistLimits))]
+    [JsonSerializable(typeof(TraktUserBlockedUser))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktUserBlockedUser>))]
+    [JsonSerializable(typeof(TraktUserBrowsingSettings))]
+    [JsonSerializable(typeof(TraktUserWatchnowSettings))]
+    [JsonSerializable(typeof(TraktUserSettingsPost))]
+    [JsonSerializable(typeof(TraktUserSettingsUserPost))]
+    [JsonSerializable(typeof(TraktUserSettingsBrowsingPost))]
+    [JsonSerializable(typeof(TraktUserBrowsingSpoilersSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingCalendarSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingProgressSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingProgressOnDeckSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingProgressWatchedSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingProgressCollectedSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingWelcomeSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingGenresSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingCommentsSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingRecommendationsSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingRewatchingSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingProfileSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingProfileFavoritesSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingProfileShowsSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingProfileMoviesSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingSearchSettings))]
+    [JsonSerializable(typeof(TraktUserBrowsingRecentQuery))]
     public sealed partial class UsersJsonSerializerContext : JsonSerializerContext
     {
     }

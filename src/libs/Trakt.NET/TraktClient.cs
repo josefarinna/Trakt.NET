@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to all functionality of this library.<para/>
@@ -117,6 +117,9 @@
 
         /// <summary>Provides access to the sync module. See <seealso cref="TraktSyncModule" />.</summary>
         public TraktSyncModule Sync => _context.Sync;
+
+        /// <summary>Provides access to the watchnow module. See <seealso cref="TraktWatchnowModule" />.</summary>
+        public TraktWatchnowModule Watchnow => _context.Watchnow;
 
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
         public TraktUsersModule Users => _context.Users;

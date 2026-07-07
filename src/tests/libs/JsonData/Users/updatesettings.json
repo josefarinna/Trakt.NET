@@ -1,0 +1,19 @@
+{
+    "user": {
+        "username": "sean"
+    },
+    "browsing": {
+        "watchnow": {
+            "country": "us",
+            "favorites": [ "1" ],
+            "only_favorites": true
+        },
+        "calendar": {
+            "period": "weekly",
+            "layout": "list"
+        },
+        "spoilers": {
+            "episodes": "hide"
+        }
+    }
+}

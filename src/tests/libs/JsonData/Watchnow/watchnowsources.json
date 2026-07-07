@@ -1,0 +1,37 @@
+{
+  "cable": [
+    {
+      "source": "netflix",
+      "link": "https://netflix.com"
+    }
+  ],
+  "free": [
+    {
+      "source": "hulu",
+      "link": "https://hulu.com"
+    }
+  ],
+  "cinema": [
+    {
+      "source": "disney",
+      "link": "https://disney.com"
+    }
+  ],
+  "subscription": [
+    {
+      "source": "apple",
+      "link": "https://apple.com"
+    }
+  ],
+  "purchase": [
+    {
+      "source": "amazon",
+      "link": "https://amazon.com"
+    }
+  ],
+  "streaming_ranks": {
+    "rank": 5,
+    "delta": 2,
+    "link": "https://trakt.tv/shows/trending/rank"
+  }
+}

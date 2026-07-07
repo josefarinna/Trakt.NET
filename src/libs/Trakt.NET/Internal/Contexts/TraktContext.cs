@@ -103,6 +103,9 @@ namespace TraktNET
         /// <summary>Provides access to the sync module. See <seealso cref="TraktSyncModule" />.</summary>
         public TraktSyncModule Sync { get; }
 
+        /// <summary>Provides access to the watchnow module. See <seealso cref="TraktWatchnowModule" />.</summary>
+        public TraktWatchnowModule Watchnow { get; }
+
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
         public TraktUsersModule Users { get; }
 
@@ -160,6 +163,7 @@ namespace TraktNET
             Shows = new TraktShowsModule(this);
             Sync = new TraktSyncModule(this);
             Users = new TraktUsersModule(this);
+            Watchnow = new TraktWatchnowModule(this);
         }
 
         internal HttpClient GetHttpClient(bool baseAuthRequest = false) => HttpClientProvider.GetHttpClient(this, baseAuthRequest);

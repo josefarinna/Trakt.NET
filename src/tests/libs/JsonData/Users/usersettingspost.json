@@ -1,0 +1,16 @@
+{
+  "user": {
+    "name": "Sean New Name",
+    "about": "New about section text",
+    "location": "Paris, France",
+    "private": true,
+    "dob": "1990-05-15"
+  },
+  "browsing": {
+    "watchnow": {
+      "country": "fr",
+      "favorites": [ "netflix" ],
+      "only_favorites": true
+    }
+  }
+}

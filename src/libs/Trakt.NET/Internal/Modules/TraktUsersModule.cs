@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to users.<para />
@@ -9,6 +9,16 @@
         private Task<TraktResponse<TraktUserSettings>> GetSettingsImplAsync(CancellationToken cancellationToken = default)
         {
             var request = new UserSettingsGetRequest();
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserSettings>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<TraktUserSettings>> UpdateSettingsImplAsync(TraktUserSettingsPost settings, CancellationToken cancellationToken = default)
+        {
+            var request = new UserSettingsSavePutRequest
+            {
+                TraktUserSettingsPost = settings
+            };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserSettings>(_context, request, cancellationToken);
         }
@@ -811,5 +821,14 @@
                 TraktListItemUpdatePost = content
             }, cancellationToken);
         }
+
+        private Task<TraktListResponse<TraktUserBlockedUser>> GetBlockedUsersImplAsync(CancellationToken cancellationToken = default)
+            => RequestHandler.ExecuteListRequestAsync<TraktUserBlockedUser>(_context, new UserBlockedUsersGetRequest(), cancellationToken);
+
+        private Task<TraktResponse> BlockUserImplAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
+            => RequestHandler.ExecuteNoContentRequestAsync(_context, new UserBlockUserPostRequest { Id = usernameOrSlug }, cancellationToken);
+
+        private Task<TraktResponse> UnblockUserImplAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
+            => RequestHandler.ExecuteNoContentRequestAsync(_context, new UserUnblockUserDeleteRequest { Id = usernameOrSlug }, cancellationToken);
     }
 }

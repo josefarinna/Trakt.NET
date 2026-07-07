@@ -1,0 +1,6 @@
+{
+  "id": "com.netflix.webos",
+  "params": {
+    "content_target": "netflix://watch/12345"
+  }
+}

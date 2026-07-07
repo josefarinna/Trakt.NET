@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to episodes.<para />
@@ -158,6 +158,38 @@
             };
 
             return RequestHandler.ExecuteListRequestAsync<TraktUser>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetEpisodeWatchnowImplAsync(
+            string showIdOrSlug, uint seasonNumber, uint episodeNumber, string country, bool? links = null,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+        {
+            var request = new EpisodeWatchnowGetRequest
+            {
+                ShowId = showIdOrSlug,
+                SeasonNumber = seasonNumber,
+                EpisodeNumber = episodeNumber,
+                Country = country,
+                Links = links,
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, TraktWatchnowSources>>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetEpisodeByIdWatchnowImplAsync(
+            string globalEpisodeID, string country, bool? links = null, TraktExtendedInfo? extendedInfo = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new EpisodeByIdWatchnowGetRequest
+            {
+                Id = globalEpisodeID,
+                Country = country,
+                Links = links,
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, TraktWatchnowSources>>(_context, request, cancellationToken);
         }
     }
 }

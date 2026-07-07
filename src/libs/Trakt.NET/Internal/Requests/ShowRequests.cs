@@ -218,6 +218,21 @@
         public TraktFilter? Filter { get; set; }
     }
 
+    [TraktGetRequest("shows/{id!!}/watchnow/{country!!}", SupportsExtendedInfo = true)]
+    internal sealed partial class ShowWatchnowGetRequest
+    {
+        [TraktRequestQuery("links")]
+        internal bool? Links { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
+    }
+
+    [TraktGetRequest("shows/{id!!}/watchnow/justwatch_links/{country!!}")]
+    internal sealed partial class ShowJustwatchLinksGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
+    }
+
     // -------------------------------------------------------
     // POST Requests
     // -------------------------------------------------------

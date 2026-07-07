@@ -1,0 +1,10 @@
+{
+    "us": {
+        "subscription": [
+            {
+                "source": "netflix",
+                "link": "https://netflix.com"
+            }
+        ]
+    }
+}

@@ -71,4 +71,22 @@
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Episode;
     }
+
+    [TraktGetRequest("shows/{show_id!!}/seasons/{season_number:uint}/episodes/{episode_number:uint!!}/watchnow/{country!!}", SupportsExtendedInfo = true)]
+    internal sealed partial class EpisodeWatchnowGetRequest
+    {
+        [TraktRequestQuery("links")]
+        internal bool? Links { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Episode;
+    }
+
+    [TraktGetRequest("episodes/{id!!}/watchnow/{country!!}", SupportsExtendedInfo = true)]
+    internal sealed partial class EpisodeByIdWatchnowGetRequest
+    {
+        [TraktRequestQuery("links")]
+        internal bool? Links { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Episode;
+    }
 }

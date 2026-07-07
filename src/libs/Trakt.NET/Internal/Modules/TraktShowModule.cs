@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to shows.<para />
@@ -272,6 +272,33 @@
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>> GetShowWatchnowImplAsync(
+            string showIDOrSlug, string country, bool? links = null, TraktExtendedInfo? extendedInfo = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new ShowWatchnowGetRequest
+            {
+                Id = showIDOrSlug,
+                Country = country,
+                Links = links,
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, TraktWatchnowSources>>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<Dictionary<string, string>>> GetShowJustwatchLinksImplAsync(
+            string showIDOrSlug, string country, CancellationToken cancellationToken = default)
+        {
+            var request = new ShowJustwatchLinksGetRequest
+            {
+                Id = showIDOrSlug,
+                Country = country
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, string>>(_context, request, cancellationToken);
         }
     }
 }

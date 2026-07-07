@@ -1,0 +1,30 @@
+[
+    {
+        "blocked_at": "2024-01-15T10:30:00.000Z",
+        "user": {
+            "username": "baduser",
+            "private": false,
+            "name": "Bad User",
+            "vip": false,
+            "vip_ep": false,
+            "ids": {
+                "slug": "baduser",
+                "trakt": 12345
+            }
+        }
+    },
+    {
+        "blocked_at": "2024-03-20T08:00:00.000Z",
+        "user": {
+            "username": "spammer",
+            "private": true,
+            "name": null,
+            "vip": false,
+            "vip_ep": false,
+            "ids": {
+                "slug": "spammer",
+                "trakt": 67890
+            }
+        }
+    }
+]
