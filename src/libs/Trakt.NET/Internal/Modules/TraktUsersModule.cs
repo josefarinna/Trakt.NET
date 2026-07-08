@@ -800,7 +800,7 @@ namespace TraktNET
             {
                 Id = usernameOrSlug,
                 ListId = listIdOrSlug,
-                Content = System.Net.Http.Json.JsonContent.Create(personalListPost)
+                Content = System.Net.Http.Json.JsonContent.Create(personalListPost, options: Constants.Json.JsonOptions)
             },
             cancellationToken);
         }

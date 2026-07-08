@@ -47,7 +47,7 @@ namespace TraktNET.WatchnowModule
         }
 
         [Theory]
-        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiException))]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
         [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
         [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
@@ -93,10 +93,10 @@ namespace TraktNET.WatchnowModule
             TraktClient client = ModuleTestUtility.GetClient(SourcesCountryUri, HttpStatusCode.OK);
 
             Func<Task<TraktListResponse<Dictionary<string, IReadOnlyList<TraktWatchnowSource>>>>> act = () => client.Watchnow.GetWatchnowSourcesAsync(string.Empty, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.Watchnow.GetWatchnowSourcesAsync("   ", cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }
 }

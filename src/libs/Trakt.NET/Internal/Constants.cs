@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 using System.Text.Json;
 
 namespace TraktNET
@@ -154,6 +154,7 @@ namespace TraktNET
                     new TraktSearchFieldJsonConverter(),
                     new TraktSearchIDTypeJsonConverter(),
                     new TraktSearchResultTypeJsonConverter(),
+                    new TraktSearchRecentTypeJsonConverter(),
                     new TraktShowStatusJsonConverter(),
                     new TraktSortByJsonConverter(),
                     new TraktSortHowJsonConverter(),

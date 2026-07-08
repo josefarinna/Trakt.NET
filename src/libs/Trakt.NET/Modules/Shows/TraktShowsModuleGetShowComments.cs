@@ -72,7 +72,7 @@
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetShowCommentsAsync(uint traktShowID, TraktCommentSortOrder? commentSortOrder = null,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetShowCommentsImplAsync(traktShowID.ToInvariantCultureString(), commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            => GetShowCommentsAsync(traktShowID.ToInvariantCultureString(), commentSortOrder, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets all top level comments for a <see cref="TraktShow" /> with the specified <see cref="TraktShowIDs" />.</summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
@@ -118,7 +118,7 @@
                 throw new ArgumentException($"{nameof(showIDs)} has not any IDs set", nameof(showIDs));
             }
 
-            return GetShowCommentsImplAsync(showIDs.BestID, commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            return GetShowCommentsAsync(showIDs.BestID, commentSortOrder, extendedInfo, page, limit, cancellationToken);
         }
     }
 }

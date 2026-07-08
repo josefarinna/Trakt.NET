@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to search.<para />
@@ -60,6 +60,38 @@
                     Limit = limit
                 },
                 cancellationToken);
+        }
+
+        private Task<TraktResponse> AddRecentSearchImplAsync(string searchQuery, uint itemId, TraktSearchRecentType type,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new SearchRecentAddPostRequest
+            {
+                TraktSearchRecentPost = new TraktSearchRecentPost
+                {
+                    Query = searchQuery,
+                    Id = itemId,
+                    Type = type
+                }
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> RemoveRecentSearchImplAsync(string searchQuery, uint itemId, TraktSearchRecentType type,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new SearchRecentRemovePostRequest
+            {
+                TraktSearchRecentPost = new TraktSearchRecentPost
+                {
+                    Query = searchQuery,
+                    Id = itemId,
+                    Type = type
+                }
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
     }
 }

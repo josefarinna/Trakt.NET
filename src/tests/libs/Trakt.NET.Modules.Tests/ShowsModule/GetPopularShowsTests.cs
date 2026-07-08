@@ -2,22 +2,22 @@ using System.Net;
 
 namespace TraktNET.ShowsModule
 {
-    public sealed class GetMostAnticipatedShowsTests
+    public sealed class GetPopularShowsTests
     {
-        private const string GetMostAnticipatedShowsUri = "shows/anticipated";
+        private const string GetPopularShowsUri = "shows/popular";
         private const uint ListItemCount = 2U;
         private const uint Page = 2U;
         private const uint Limit = 4U;
         private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
-        public async Task TestGetMostAnticipatedShows()
+        public async Task TestGetPopularShows()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetMostAnticipatedShowsUri, responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(GetPopularShowsUri, responseContent, 1, 1, 10, ListItemCount);
             
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -31,13 +31,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsWithExtendedInfo()
+        public async Task TestGetPopularShowsWithExtendedInfo()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -51,13 +51,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsWithFilter()
+        public async Task TestGetPopularShowsWithFilter()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?genres=fantasy,drama&years=2011", responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?genres=fantasy,drama&years=2011", responseContent, 1, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(null, TestConstants.Shows.Filter, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(null, TestConstants.Shows.Filter, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -71,13 +71,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsWithPage()
+        public async Task TestGetPopularShowsWithPage()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(null, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -91,13 +91,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsWithLimit()
+        public async Task TestGetPopularShowsWithLimit()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(null, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(null, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -111,13 +111,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsWithPageAndLimit()
+        public async Task TestGetPopularShowsWithPageAndLimit()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(null, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -131,13 +131,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsWithExtendedInfoAndPage()
+        public async Task TestGetPopularShowsWithExtendedInfoAndPage()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(ExtendedInfo, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(ExtendedInfo, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -151,13 +151,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsWithExtendedInfoAndLimit()
+        public async Task TestGetPopularShowsWithExtendedInfoAndLimit()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -171,13 +171,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsWithExtendedInfoAndPageAndLimit()
+        public async Task TestGetPopularShowsWithExtendedInfoAndPageAndLimit()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -191,13 +191,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsComplete()
+        public async Task TestGetPopularShowsComplete()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?extended={ExtendedInfo.ToURI()}&genres=fantasy,drama&years=2011&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?extended={ExtendedInfo.ToURI()}&genres=fantasy,drama&years=2011&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(ExtendedInfo, TestConstants.Shows.Filter, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(ExtendedInfo, TestConstants.Shows.Filter, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -211,13 +211,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsPagingHasPreviousPageAndHasNextPage()
+        public async Task TestGetPopularShowsPagingHasPreviousPageAndHasNextPage()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -233,13 +233,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsPagingOnlyHasPreviousPage()
+        public async Task TestGetPopularShowsPagingOnlyHasPreviousPage()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -255,13 +255,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsPagingOnlyHasNextPage()
+        public async Task TestGetPopularShowsPagingOnlyHasNextPage()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -277,13 +277,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsPagingNotHasPreviousPageOrHasNextPage()
+        public async Task TestGetPopularShowsPagingNotHasPreviousPageOrHasNextPage()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -299,13 +299,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsPagingGetPreviousPage()
+        public async Task TestGetPopularShowsPagingGetPreviousPage()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -319,7 +319,7 @@ namespace TraktNET.ShowsModule
             response.HasPreviousPage.ShouldBeTrue();
             response.HasNextPage.ShouldBeFalse();
 
-            ModuleTestUtility.SetClient(client, $"{GetMostAnticipatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+            ModuleTestUtility.SetClient(client, $"{GetPopularShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
@@ -337,13 +337,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetMostAnticipatedShowsPagingGetNextPage()
+        public async Task TestGetPopularShowsPagingGetNextPage()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostanticipatedshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostAnticipatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktMostAnticipatedShow> response = await client.Shows.GetMostAnticipatedShowsAsync(null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetPopularShowsAsync(null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -357,7 +357,7 @@ namespace TraktNET.ShowsModule
             response.HasPreviousPage.ShouldBeFalse();
             response.HasNextPage.ShouldBeTrue();
 
-            ModuleTestUtility.SetClient(client, $"{GetMostAnticipatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+            ModuleTestUtility.SetClient(client, $"{GetPopularShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
@@ -400,11 +400,11 @@ namespace TraktNET.ShowsModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetMostAnticipatedShowsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetPopularShowsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetMostAnticipatedShowsUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetPopularShowsUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktMostAnticipatedShow>>> act = () => client.Shows.GetMostAnticipatedShowsAsync(cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktShow>>> act = () => client.Shows.GetPopularShowsAsync(cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }

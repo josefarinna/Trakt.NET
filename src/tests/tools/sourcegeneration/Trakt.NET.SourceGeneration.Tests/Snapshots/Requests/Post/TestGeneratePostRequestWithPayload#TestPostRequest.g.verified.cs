@@ -22,7 +22,7 @@ namespace SourceGeneraterTestNamespace
 
             if (Payload != null)
             {
-                Content = System.Net.Http.Json.JsonContent.Create(Payload, Payload.GetType());
+                Content = System.Net.Http.Json.JsonContent.Create(Payload, Payload.GetType(), options: Constants.Json.JsonOptions);
             }
         }
     }

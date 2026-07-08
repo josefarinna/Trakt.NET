@@ -812,14 +812,14 @@ namespace TraktNET.SourceGeneration.Requests
                     _sourceWriter.WriteEmptyLine();
                     if (_requestPayload.IsRequired)
                     {
-                        _sourceWriter.WriteLine($"Content = System.Net.Http.Json.JsonContent.Create({_requestPayload.Name}, {_requestPayload.Name}.GetType());");
+                        _sourceWriter.WriteLine($"Content = System.Net.Http.Json.JsonContent.Create({_requestPayload.Name}, {_requestPayload.Name}.GetType(), options: Constants.Json.JsonOptions);");
                     }
                     else
                     {
                         _sourceWriter.WriteLine($"if ({_requestPayload.Name} != null)");
                         _sourceWriter.WriteLine('{');
                         _sourceWriter.Indent();
-                        _sourceWriter.WriteLine($"Content = System.Net.Http.Json.JsonContent.Create({_requestPayload.Name}, {_requestPayload.Name}.GetType());");
+                        _sourceWriter.WriteLine($"Content = System.Net.Http.Json.JsonContent.Create({_requestPayload.Name}, {_requestPayload.Name}.GetType(), options: Constants.Json.JsonOptions);");
                         _sourceWriter.DecrementIndent();
                         _sourceWriter.WriteLine('}');
                     }

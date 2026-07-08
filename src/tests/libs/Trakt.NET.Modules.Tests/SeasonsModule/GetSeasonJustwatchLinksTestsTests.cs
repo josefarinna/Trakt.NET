@@ -2,7 +2,7 @@ using System.Net;
 
 namespace TraktNET.SeasonsModule
 {
-    public sealed class GetSeasonWatchnowTests
+    public sealed class GetSeasonJustwatchLinksTests
     {
         private const uint SeasonNumber = 1U;
         private const string Country = "us";
@@ -57,7 +57,7 @@ namespace TraktNET.SeasonsModule
         }
 
         [Theory]
-        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiSeasonNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
         [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
         [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
@@ -86,15 +86,8 @@ namespace TraktNET.SeasonsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(SeasonJustwatchLinksUri, statusCode);
 
-            try
-            {
-                await client.Seasons.GetSeasonJustwatchLinksAsync(TestConstants.Shows.TraktShowID, SeasonNumber, Country, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktResponse<Dictionary<string, string>>>> act = () => client.Seasons.GetSeasonJustwatchLinksAsync(TestConstants.Shows.TraktShowID, SeasonNumber, Country, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
@@ -108,20 +101,17 @@ namespace TraktNET.SeasonsModule
             act = () => client.Seasons.GetSeasonJustwatchLinksAsync(new TraktShowIDs(), SeasonNumber, Country, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Seasons.GetSeasonJustwatchLinksAsync(0, SeasonNumber, Country, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
-
             act = () => client.Seasons.GetSeasonJustwatchLinksAsync(string.Empty, SeasonNumber, Country, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.Seasons.GetSeasonJustwatchLinksAsync("   ", SeasonNumber, Country, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.Seasons.GetSeasonJustwatchLinksAsync(TestConstants.Shows.ShowSlug, SeasonNumber, string.Empty, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.Seasons.GetSeasonJustwatchLinksAsync(TestConstants.Shows.ShowSlug, SeasonNumber, "   ", cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }
 }

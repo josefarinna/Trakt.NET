@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ShowsModule
 {
@@ -7,92 +7,407 @@ namespace TraktNET.ShowsModule
         private const string GetRecentlyUpdatedShowsUri = "shows/updates";
         private static readonly DateTime StartDate = new(2026, 2, 22, 0, 0, 0, DateTimeKind.Utc);
         private const string StartDateValue = "2026-02-22T00:00:00Z";
+        private const uint ListItemCount = 2U;
+        private const uint Page = 2U;
+        private const uint Limit = 4U;
+        private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, null, null, GetRecentlyUpdatedShowsUri, "Shows\\updatedshows_minimal.json")]
-        [InlineData(TraktExtendedInfo.None, null, null, GetRecentlyUpdatedShowsUri, "Shows\\updatedshows_minimal.json")]
-        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetRecentlyUpdatedShowsUri}?extended=full", "Shows\\updatedshows.json")]
-        [InlineData(null, 4U, null, $"{GetRecentlyUpdatedShowsUri}?page=4", "Shows\\updatedshows_minimal.json")]
-        [InlineData(null, null, 20U, $"{GetRecentlyUpdatedShowsUri}?limit=20", "Shows\\updatedshows_minimal.json")]
-        [InlineData(null, 4U, 20U, $"{GetRecentlyUpdatedShowsUri}?page=4&limit=20", "Shows\\updatedshows_minimal.json")]
-        public async Task TestGetRecentlyUpdatedShows(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShows()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
 
-            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(GetRecentlyUpdatedShowsUri, responseContent, 1, 1, 10, ListItemCount);
+            
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response, page ?? 1U, limit ?? 10U, extendedInfo == TraktExtendedInfo.Full);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
         }
 
         [Fact]
         public async Task TestGetRecentlyUpdatedShowsWithStartDate()
         {
-            string requestUri = $"{GetRecentlyUpdatedShowsUri}/{StartDateValue}";
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}/{StartDateValue}", responseContent, 1, 1, 10, ListItemCount);
 
             TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(null, StartDate, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response, null, null, false);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
         }
 
-        private static void ValidateResponse(TraktPagedResponse<TraktUpdatedShow> response, uint? page, uint? limit, bool isFullExtendedInfo)
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsWithPage()
         {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, Page, null, TestContext.Current.CancellationToken);
+
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Count.ShouldBe(2);
-            response.Page.ShouldBe(page);
-            response.Limit.ShouldBe(limit);
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
 
-            IReadOnlyList<TraktUpdatedShow> updatedShows = response.Content!;
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            updatedShows[0].ShouldNotBeNull();
-            updatedShows[0].UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-22T00:31:21.000Z"));
-            updatedShows[0].Show.ShouldNotBeNull();
-            updatedShows[0].Show!.Title.ShouldBe("Medalist");
-            updatedShows[0].Show!.IDs!.Trakt.ShouldBe(223571U);
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, null, Limit, TestContext.Current.CancellationToken);
 
-            if (isFullExtendedInfo)
-            {
-                updatedShows[0].Show!.Overview.ShouldStartWith("Tsukasa Akeuraji, a frustrated skater");
-                updatedShows[0].Show!.Network.ShouldBe("Iwate Asahi TV");
-            }
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
 
-            updatedShows[1].ShouldNotBeNull();
-            updatedShows[1].UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-22T00:37:47.000Z"));
-            updatedShows[1].Show.ShouldNotBeNull();
-            updatedShows[1].Show!.Title.ShouldBe("Scrubs");
-            updatedShows[1].Show!.Year.ShouldBe(2026U);
-            updatedShows[1].Show!.IDs!.Slug.ShouldBe("scrubs-2026");
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsWithPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            if (isFullExtendedInfo)
-            {
-                updatedShows[1].Show!.Airs.ShouldNotBeNull();
-                updatedShows[1].Show!.Airs!.Day.ShouldBe(TraktDayOfWeek.Wednesday);
-                updatedShows[1].Show!.Status.ShouldBe(TraktShowStatus.ReturningSeries);
-            }
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsWithExtendedInfoAndPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(ExtendedInfo, null, Page, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsWithExtendedInfoAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsWithExtendedInfoAndPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsComplete()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}/{StartDateValue}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(ExtendedInfo, StartDate, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(5U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetRecentlyUpdatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedShowsPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\updatedshows_minimal.json");
+            
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktUpdatedShow> response = await client.Shows.GetRecentlyUpdatedShowsAsync(null, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+
+            ModuleTestUtility.SetClient(client, $"{GetRecentlyUpdatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
         [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetRecentlyUpdatedShowsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetRecentlyUpdatedShowsUri, statusCode);
 
-            try
-            {
-                await client.Shows.GetRecentlyUpdatedShowsAsync(cancellationToken: TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktPagedResponse<TraktUpdatedShow>>> act = () => client.Shows.GetRecentlyUpdatedShowsAsync(cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }
 }

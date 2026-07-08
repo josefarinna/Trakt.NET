@@ -136,15 +136,8 @@ namespace TraktNET.MoviesModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetMovieWatchnowUri, statusCode);
 
-            try
-            {
-                await client.Movies.GetMovieWatchnowAsync(TestConstants.Movies.TraktMovieID, Country, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>>> act = () => client.Movies.GetMovieWatchnowAsync(TestConstants.Movies.TraktMovieID, Country, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
@@ -158,20 +151,17 @@ namespace TraktNET.MoviesModule
             act = () => client.Movies.GetMovieWatchnowAsync(new TraktMovieIDs(), Country, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Movies.GetMovieWatchnowAsync(0, Country, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
-
             act = () => client.Movies.GetMovieWatchnowAsync(string.Empty, Country, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.Movies.GetMovieWatchnowAsync("   ", Country, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.Movies.GetMovieWatchnowAsync(TestConstants.Movies.MovieSlug, string.Empty, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.Movies.GetMovieWatchnowAsync(TestConstants.Movies.MovieSlug, "   ", cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }
 }

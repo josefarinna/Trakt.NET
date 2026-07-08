@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     // -------------------------------------------------------
     // GET Requests
@@ -32,5 +32,23 @@
 
         [TraktRequestQuery]
         public TraktSearchResultType? ResultTypes { get; set; }
+    }
+
+    // -------------------------------------------------------
+    // POST Requests
+    // -------------------------------------------------------
+
+    [TraktPostRequest("search/recent", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SearchRecentAddPostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktSearchRecentPost TraktSearchRecentPost { get; set; }
+    }
+
+    [TraktPostRequest("search/recent/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SearchRecentRemovePostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktSearchRecentPost TraktSearchRecentPost { get; set; }
     }
 }

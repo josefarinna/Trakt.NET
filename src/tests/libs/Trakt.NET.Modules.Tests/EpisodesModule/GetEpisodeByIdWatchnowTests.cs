@@ -1,21 +1,28 @@
 using System.Net;
 
-namespace TraktNET.ShowsModule
+namespace TraktNET.EpisodesModule
 {
-    public sealed class GetShowWatchnowTests
+    public sealed class GetEpisodeByIdWatchnowTests
     {
+        private const uint SeasonNr = 1U;
+        private const uint EpisodeNr = 1U;
         private const string Country = "us";
-        private static readonly string GetShowWatchnowUri = $"shows/{TestConstants.Shows.TraktShowID}/watchnow/{Country}";
-        private static readonly string GetShowWatchnowUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/watchnow/{Country}";
+        private const uint TraktEpisodeID = 73640U;
+        private static readonly string EpisodeByIdWatchnowUri = $"episodes/{TraktEpisodeID}/watchnow/{Country}";
+
+        private static readonly TraktEpisodeIDs EpisodeIDs = new()
+        {
+            Trakt = TraktEpisodeID
+        };
 
         [Fact]
-        public async Task TestGetShowWatchnowWithID()
+        public async Task TestGetEpisodeByIdWatchnowWithID()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Watchnow\\watchnow.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchnowUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(EpisodeByIdWatchnowUri, responseContent);
 
             TraktResponse<Dictionary<string, TraktWatchnowSources>> response =
-                await client.Shows.GetShowWatchnowAsync(TestConstants.Shows.TraktShowID, Country, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Episodes.GetEpisodeByIdWatchnowAsync(TraktEpisodeID, Country, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -28,28 +35,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowWatchnowWithSlug()
+        public async Task TestGetEpisodeByIdWatchnowWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Watchnow\\watchnow.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchnowUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(EpisodeByIdWatchnowUri, responseContent);
 
             TraktResponse<Dictionary<string, TraktWatchnowSources>> response =
-                await client.Shows.GetShowWatchnowAsync(TestConstants.Shows.ShowSlug, Country, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetShowWatchnowWithIDs()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Watchnow\\watchnow.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchnowUriWithSlug, responseContent);
-
-            TraktResponse<Dictionary<string, TraktWatchnowSources>> response =
-                await client.Shows.GetShowWatchnowAsync(TestConstants.Shows.ShowIDs, Country, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Episodes.GetEpisodeByIdWatchnowAsync(EpisodeIDs, Country, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -58,7 +50,7 @@ namespace TraktNET.ShowsModule
         }
 
         [Theory]
-        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiEpisodeNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
         [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
         [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
@@ -83,35 +75,35 @@ namespace TraktNET.ShowsModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetShowWatchnowThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetEpisodeByIdWatchnowThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchnowUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(EpisodeByIdWatchnowUri, statusCode);
 
-            Func<Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>>> act = () => client.Shows.GetShowWatchnowAsync(TestConstants.Shows.TraktShowID, Country, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>>> act = () => client.Episodes.GetEpisodeByIdWatchnowAsync(TraktEpisodeID, Country, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestGetShowWatchnowThrowsArgumentException()
+        public async Task TestGetEpisodeByIdWatchnowThrowsArgumentException()
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchnowUri, HttpStatusCode.OK);
+            TraktClient client = ModuleTestUtility.GetClient(EpisodeByIdWatchnowUri, HttpStatusCode.OK);
 
-            Func<Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>>> act = () => client.Shows.GetShowWatchnowAsync(default(TraktShowIDs)!, Country, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<Dictionary<string, TraktWatchnowSources>>>> act = () => client.Episodes.GetEpisodeByIdWatchnowAsync(default(TraktEpisodeIDs)!, Country, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowWatchnowAsync(new TraktShowIDs(), Country, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.GetEpisodeByIdWatchnowAsync(new TraktEpisodeIDs(), Country, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Shows.GetShowWatchnowAsync(string.Empty, Country, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.GetEpisodeByIdWatchnowAsync(string.Empty, Country, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Shows.GetShowWatchnowAsync("   ", Country, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.GetEpisodeByIdWatchnowAsync("   ", Country, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Shows.GetShowWatchnowAsync(TestConstants.Shows.ShowSlug, string.Empty, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.GetEpisodeByIdWatchnowAsync(TraktEpisodeID, string.Empty, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Shows.GetShowWatchnowAsync(TestConstants.Shows.ShowSlug, "   ", cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.GetEpisodeByIdWatchnowAsync(TraktEpisodeID, "   ", cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }

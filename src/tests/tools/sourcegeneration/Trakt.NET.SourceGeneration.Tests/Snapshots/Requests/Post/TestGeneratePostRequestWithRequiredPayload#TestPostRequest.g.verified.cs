@@ -20,7 +20,7 @@ namespace SourceGeneraterTestNamespace
             string requestUri = $"notes";
             RequestUri = new Uri(requestUri, UriKind.Relative);
 
-            Content = System.Net.Http.Json.JsonContent.Create(Payload, Payload.GetType());
+            Content = System.Net.Http.Json.JsonContent.Create(Payload, Payload.GetType(), options: Constants.Json.JsonOptions);
         }
 
         internal override void Validate()
