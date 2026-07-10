@@ -4,14 +4,12 @@ namespace TraktNET.ShowsModule
 {
     public sealed class GetShowRelatedShowsTests
     {
-        private const string GetShowRelatedShowsUriPrefix = "shows";
-        private const string GetShowRelatedShowsUriSuffix = "related";
-        private const string GetShowRelatedShowsUriWithSlug = GetShowRelatedShowsUriPrefix + "/" + TestConstants.Shows.ShowSlug + "/" + GetShowRelatedShowsUriSuffix;
-        private static readonly string GetShowRelatedShowsUri = $"{GetShowRelatedShowsUriPrefix}/{TestConstants.Shows.ShowID}/{GetShowRelatedShowsUriSuffix}";
+        private const string GetShowRelatedShowsUri = $"shows/{TestConstants.Shows.ShowID}/related";
+        private const string GetShowRelatedShowsUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/related";
         private const uint ListItemCount = 2U;
         private const uint Page = 2U;
         private const uint Limit = 4U;
-        private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
         public async Task TestGetShowRelatedShows()

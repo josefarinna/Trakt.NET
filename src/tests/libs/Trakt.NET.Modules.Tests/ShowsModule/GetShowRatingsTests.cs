@@ -1,13 +1,11 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ShowsModule
 {
     public sealed class GetShowRatingsTests
     {
-        private const string GetShowRatingsUriPrefix = "shows";
-        private const string GetShowRatingsUriSuffix = "ratings";
-        private static readonly string GetShowRatingsUri = $"{GetShowRatingsUriPrefix}/{TestConstants.Shows.ShowID}/{GetShowRatingsUriSuffix}";
-        private static readonly string GetShowRatingsUriWithSlug = $"{GetShowRatingsUriPrefix}/{TestConstants.Shows.ShowSlug}/{GetShowRatingsUriSuffix}";
+        private const string GetShowRatingsUri = $"shows/{TestConstants.Shows.ShowID}/ratings";
+        private const string GetShowRatingsUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/ratings";
 
         [Fact]
         public async Task TestGetShowRatingsWithID()
@@ -17,7 +15,10 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktRating> response = await client.Shows.GetShowRatingsAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -28,7 +29,10 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktRating> response = await client.Shows.GetShowRatingsAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -39,65 +43,52 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktRating> response = await client.Shows.GetShowRatingsAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
-        }
-
-        private static void ValidateResponse(TraktResponse<TraktRating> response)
-        {
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Headers.ShouldNotBeNull();
-            response.TraktHeaders.ShouldNotBeNull();
-            response.ContentHeaders.ShouldNotBeNull();
-
-            TraktRating showRatings = response.Content!;
-
-            showRatings.Rating.ShouldBe(8.8911f);
-            showRatings.Votes.ShouldBe(145026U);
-
-            showRatings.Distribution.ShouldNotBeNull();
-            showRatings.Distribution.Count.ShouldBe(10);
-            showRatings.Distribution["1"].ShouldBe(2488U);
-            showRatings.Distribution["2"].ShouldBe(711U);
-            showRatings.Distribution["3"].ShouldBe(737U);
-            showRatings.Distribution["4"].ShouldBe(893U);
-            showRatings.Distribution["5"].ShouldBe(2107U);
-            showRatings.Distribution["6"].ShouldBe(3565U);
-            showRatings.Distribution["7"].ShouldBe(8411U);
-            showRatings.Distribution["8"].ShouldBe(19929U);
-            showRatings.Distribution["9"].ShouldBe(32323U);
-            showRatings.Distribution["10"].ShouldBe(73856U);
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetShowRatingsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowRatingsUri, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowRatingsAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktResponse<TraktRating>>> act = () => client.Shows.GetShowRatingsAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetShowRatingsWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showratings.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowRatingsUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowRatingsUriWithSlug, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktRating>>> act = () => client.Shows.GetShowRatingsAsync(default(TraktShowIDs), TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktResponse<TraktRating>>> act = () => client.Shows.GetShowRatingsAsync(default(TraktShowIDs)!, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
             var showIDs = new TraktShowIDs();

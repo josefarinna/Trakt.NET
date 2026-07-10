@@ -63,13 +63,13 @@ namespace TraktNET.SearchModule
             TraktClient client = ModuleTestUtility.GetOAuthClient(AddRecentSearchUri, HttpStatusCode.Created);
 
             Func<Task<TraktResponse>> act = () => client.Search.AddRecentSearchAsync(null!, Id, Type, TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<TraktRequestValidationException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             act = () => client.Search.AddRecentSearchAsync(string.Empty, Id, Type, TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<TraktRequestValidationException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             act = () => client.Search.AddRecentSearchAsync("  ", Id, Type, TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<TraktRequestValidationException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             act = () => client.Search.AddRecentSearchAsync(Query, 0, Type, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();

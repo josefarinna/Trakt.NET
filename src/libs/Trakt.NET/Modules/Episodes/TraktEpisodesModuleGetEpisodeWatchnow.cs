@@ -25,7 +25,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodewatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodewatchnow">
         /// Trakt API Documentation: Episodes: Watch Now - Get episode watch now sources
         /// </see></para>
         /// </remarks>
@@ -59,7 +59,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodewatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodewatchnow">
         /// Trakt API Documentation: Episodes: Watch Now - Get episode watch now sources
         /// </see></para>
         /// </remarks>
@@ -93,7 +93,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodewatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodewatchnow">
         /// Trakt API Documentation: Episodes: Watch Now - Get episode watch now sources
         /// </see></para>
         /// </remarks>
@@ -136,7 +136,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getepisodeswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getepisodeswatchnow">
         /// Trakt API Documentation: Episodes: Watch Now - Get episode watch now sources by global ID
         /// </see></para>
         /// </remarks>
@@ -168,7 +168,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getepisodeswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getepisodeswatchnow">
         /// Trakt API Documentation: Episodes: Watch Now - Get episode watch now sources by global ID
         /// </see></para>
         /// </remarks>
@@ -200,7 +200,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getepisodeswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getepisodeswatchnow">
         /// Trakt API Documentation: Episodes: Watch Now - Get episode watch now sources by global ID
         /// </see></para>
         /// </remarks>

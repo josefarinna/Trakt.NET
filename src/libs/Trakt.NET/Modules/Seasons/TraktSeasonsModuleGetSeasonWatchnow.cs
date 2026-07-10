@@ -17,7 +17,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getshowswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonjustwatchlink">
         /// Trakt API Documentation: Seasons: Watch Now - Get season JustWatch links
         /// </see></para>
         /// </remarks>
@@ -42,7 +42,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getshowswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonjustwatchlink">
         /// Trakt API Documentation: Seasons: Watch Now - Get season JustWatch links
         /// </see></para>
         /// </remarks>
@@ -67,7 +67,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getshowswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonjustwatchlink">
         /// Trakt API Documentation: Seasons: Watch Now - Get season JustWatch links
         /// </see></para>
         /// </remarks>

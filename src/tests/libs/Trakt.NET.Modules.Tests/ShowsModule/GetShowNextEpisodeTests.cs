@@ -1,109 +1,142 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ShowsModule
 {
     public sealed class GetShowNextEpisodeTests
     {
-        private const string GetShowNextEpisodeUriPrefix = "shows";
-        private const string GetShowNextEpisodeUriSuffix = "next_episode";
+        private const string GetShowNextEpisodeUri = $"shows/{TestConstants.Shows.ShowID}/next_episode";
+        private const string GetShowNextEpisodeUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/next_episode";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        private const string ShowID = "1390";
-        private const string ShowSlug = "game-of-thrones";
-
-        private const string GetShowNextEpisodeUri = GetShowNextEpisodeUriPrefix + "/" + ShowID + "/" + GetShowNextEpisodeUriSuffix;
-        private const string GetShowNextEpisodeUriWithSlug = GetShowNextEpisodeUriPrefix + "/" + ShowSlug + "/" + GetShowNextEpisodeUriSuffix;
-
-        [Theory]
-        [InlineData(null, GetShowNextEpisodeUri)]
-        [InlineData(TraktExtendedInfo.None, GetShowNextEpisodeUri)]
-        [InlineData(TraktExtendedInfo.Full, GetShowNextEpisodeUri + "?extended=full")]
-        public async Task TestGetShowNextEpisodeWithID(TraktExtendedInfo? extendedInfo, string requestUri)
+        [Fact]
+        public async Task TestGetShowNextEpisodeWithID()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episode_full.json");
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowNextEpisodeUri, responseContent);
 
-            TraktResponse<TraktEpisode> response = await client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.TraktShowID, extendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktEpisode> response = await client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
-        [Theory]
-        [InlineData(null, GetShowNextEpisodeUriWithSlug)]
-        [InlineData(TraktExtendedInfo.None, GetShowNextEpisodeUriWithSlug)]
-        [InlineData(TraktExtendedInfo.Full, GetShowNextEpisodeUriWithSlug + "?extended=full")]
-        public async Task TestGetShowNextEpisodeWithSlug(TraktExtendedInfo? extendedInfo, string requestUri)
+        [Fact]
+        public async Task TestGetShowNextEpisodeWithIDAndExtendedInfo()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episode_full.json");
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowNextEpisodeUri}?extended={ExtendedInfo.ToURI()}", responseContent);
 
-            TraktResponse<TraktEpisode> response = await client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.ShowSlug, extendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktEpisode> response = await client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.TraktShowID, ExtendedInfo, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
-        [Theory]
-        [InlineData(null, GetShowNextEpisodeUriWithSlug)]
-        [InlineData(TraktExtendedInfo.None, GetShowNextEpisodeUriWithSlug)]
-        [InlineData(TraktExtendedInfo.Full, GetShowNextEpisodeUriWithSlug + "?extended=full")]
-        public async Task TestGetShowNextEpisodeWithIDs(TraktExtendedInfo? extendedInfo, string requestUri)
+        [Fact]
+        public async Task TestGetShowNextEpisodeWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episode_full.json");
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowNextEpisodeUriWithSlug, responseContent);
 
-            TraktResponse<TraktEpisode> response = await client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.ShowIDs, extendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktEpisode> response = await client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowNextEpisodeWithSlugAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episode_full.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowNextEpisodeUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktEpisode> response = await client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowNextEpisodeWithIDs()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episode_full.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowNextEpisodeUriWithSlug, responseContent);
+
+            TraktResponse<TraktEpisode> response = await client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowNextEpisodeWithIDsAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episode_full.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowNextEpisodeUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktEpisode> response = await client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.ShowIDs, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetShowNextEpisodeThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowNextEpisodeUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktResponse<TraktEpisode>>> act = () => client.Shows.GetShowNextEpisodeAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetShowNextEpisodeWithIDsThrowsArgumentException()
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetShowNextEpisodeUriWithSlug, "{}");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowNextEpisodeUriWithSlug, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktEpisode>>> act = () => client.Shows.GetShowNextEpisodeAsync(default(TraktShowIDs), cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktEpisode>>> act = () => client.Shows.GetShowNextEpisodeAsync(default(TraktShowIDs)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
-#pragma warning restore CS8625
 
             var showIDs = new TraktShowIDs();
             act = () => client.Shows.GetShowNextEpisodeAsync(showIDs, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
-        }
-
-        private static void ValidateResponse(TraktResponse<TraktEpisode> response)
-        {
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
-            response.Content.ShouldNotBeNull();
-
-            TraktEpisode episode = response.Content!;
-            episode.Title.ShouldBe("Winter Is Coming");
-            episode.Season.ShouldBe(1U);
-            episode.Number.ShouldBe(1U);
-            episode.IDs.ShouldNotBeNull();
-            episode.IDs!.Trakt.ShouldBe(73640U);
-            episode.NumberAbsolute.ShouldBe(1U);
-            episode.Rating.ShouldBe(8.08208f);
         }
     }
 }

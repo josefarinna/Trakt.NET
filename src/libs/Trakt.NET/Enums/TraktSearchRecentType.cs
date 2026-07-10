@@ -1,7 +1,7 @@
 namespace TraktNET
 {
     /// <summary>Determines the search recent type.</summary>
-    [TraktEnum]
+    [TraktEnum(HasPathSupport = true)]
     public enum TraktSearchRecentType
     {
         /// <summary>An invalid type.</summary>

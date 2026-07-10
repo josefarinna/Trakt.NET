@@ -5,8 +5,8 @@ namespace TraktNET.ShowsModule
     public sealed class GetShowWatchnowTests
     {
         private const string Country = "us";
-        private static readonly string GetShowWatchnowUri = $"shows/{TestConstants.Shows.TraktShowID}/watchnow/{Country}";
-        private static readonly string GetShowWatchnowUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/watchnow/{Country}";
+        private const string GetShowWatchnowUri = $"shows/{TestConstants.Shows.ShowID}/watchnow/{Country}";
+        private const string GetShowWatchnowUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/watchnow/{Country}";
 
         [Fact]
         public async Task TestGetShowWatchnowWithID()

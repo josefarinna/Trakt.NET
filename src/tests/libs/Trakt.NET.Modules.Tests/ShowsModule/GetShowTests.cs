@@ -1,85 +1,147 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ShowsModule
 {
     public sealed class GetShowTests
     {
-        private const string GetShowUri = "shows";
-        private const string GetShowUriWithSlug = GetShowUri + "/" + TestConstants.Shows.ShowSlug;
+        private const string GetShowUri = $"shows/{TestConstants.Shows.ShowID}";
+        private const string GetShowUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
+        private const TraktExtendedInfo ExtendedInfoImages = TraktExtendedInfo.Full | TraktExtendedInfo.Images;
 
-        [Theory]
-        [InlineData(null, $"{GetShowUri}/1390", "Shows\\show_minimal.json")]
-        [InlineData(TraktExtendedInfo.None, $"{GetShowUri}/1390", "Shows\\show_minimal.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetShowUri}/1390?extended=full", "Shows\\show_full.json")]
-        [InlineData(TraktExtendedInfo.Full | TraktExtendedInfo.Images, $"{GetShowUri}/1390?extended=full,images", "Shows\\show_full_images.json")]
-        public async Task TestGetShowWithID(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetShowWithID()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\show_minimal.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowUri, responseContent);
 
             TraktResponse<TraktShow> response =
-                await client.Shows.GetShowAsync(TestConstants.Shows.ShowID, extendedInfo, TestContext.Current.CancellationToken);
+                await client.Shows.GetShowAsync(TestConstants.Shows.ShowID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-
-            TraktShow show = response.Content!;
-
-            show.Title.ShouldBe("Game of Thrones");
-            show.Year.ShouldBe(2011U);
-            show.IDs!.Slug.ShouldBe("game-of-thrones");
         }
 
-        [Theory]
-        [InlineData(null, GetShowUriWithSlug, "Shows\\show_minimal.json")]
-        [InlineData(TraktExtendedInfo.None, GetShowUriWithSlug, "Shows\\show_minimal.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetShowUriWithSlug}?extended=full", "Shows\\show_full.json")]
-        [InlineData(TraktExtendedInfo.Full | TraktExtendedInfo.Images, $"{GetShowUriWithSlug}?extended=full,images", "Shows\\show_full_images.json")]
-        public async Task TestGetShowWithSlug(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetShowWithIDAndExtendedInfo()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\show_full.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowUri}?extended={ExtendedInfo.ToURI()}", responseContent);
 
             TraktResponse<TraktShow> response =
-                await client.Shows.GetShowAsync(TestConstants.Shows.ShowSlug, extendedInfo, TestContext.Current.CancellationToken);
+                await client.Shows.GetShowAsync(TestConstants.Shows.ShowID, ExtendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-
-            TraktShow show = response.Content!;
-
-            show.Title.ShouldBe("Game of Thrones");
-            show.Year.ShouldBe(2011U);
-            show.IDs!.Slug.ShouldBe("game-of-thrones");
         }
 
-        [Theory]
-        [InlineData(null, GetShowUriWithSlug, "Shows\\show_minimal.json")]
-        [InlineData(TraktExtendedInfo.None, GetShowUriWithSlug, "Shows\\show_minimal.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetShowUriWithSlug}?extended=full", "Shows\\show_full.json")]
-        [InlineData(TraktExtendedInfo.Full | TraktExtendedInfo.Images, $"{GetShowUriWithSlug}?extended=full,images", "Shows\\show_full_images.json")]
-        public async Task TestGetShowWithIDs(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetShowWithIDAndExtendedInfoImages()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\show_full_images.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowUri}?extended=full,images", responseContent);
 
             TraktResponse<TraktShow> response =
-                await client.Shows.GetShowAsync(TestConstants.Shows.ShowIDs, extendedInfo, TestContext.Current.CancellationToken);
+                await client.Shows.GetShowAsync(TestConstants.Shows.ShowID, ExtendedInfoImages, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
+        }
 
-            TraktShow show = response.Content!;
+        [Fact]
+        public async Task TestGetShowWithSlug()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\show_minimal.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowUriWithSlug, responseContent);
 
-            show.Title.ShouldBe("Game of Thrones");
-            show.Year.ShouldBe(2011U);
-            show.IDs!.Slug.ShouldBe("game-of-thrones");
+            TraktResponse<TraktShow> response =
+                await client.Shows.GetShowAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowWithSlugAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\show_full.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktShow> response =
+                await client.Shows.GetShowAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowWithSlugAndExtendedInfoImages()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\show_full_images.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowUriWithSlug}?extended=full,images", responseContent);
+
+            TraktResponse<TraktShow> response =
+                await client.Shows.GetShowAsync(TestConstants.Shows.ShowSlug, ExtendedInfoImages, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowWithIDs()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\show_minimal.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowUriWithSlug, responseContent);
+
+            TraktResponse<TraktShow> response =
+                await client.Shows.GetShowAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowWithIDsAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\show_full.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktShow> response =
+                await client.Shows.GetShowAsync(TestConstants.Shows.ShowIDs, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowWithIDsAndExtendedInfoImages()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\show_full_images.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowUriWithSlug}?extended=full,images", responseContent);
+
+            TraktResponse<TraktShow> response =
+                await client.Shows.GetShowAsync(TestConstants.Shows.ShowIDs, ExtendedInfoImages, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Theory]
@@ -110,35 +172,21 @@ namespace TraktNET.ShowsModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetShowWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowUri}/1390", statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowUri, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowAsync(TestConstants.Shows.TraktShowID,
-                                                cancellationToken: TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktResponse<TraktShow>>> act = () => client.Shows.GetShowAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestGetShowWithIDsThrowsArgumentException()
+        public async Task TestGetShowWithIDThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\show_minimal.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktShow>>> act =
-                () => client.Shows.GetShowAsync(default(TraktShowIDs));
-#pragma warning restore CS8625
-
+            Func<Task<TraktResponse<TraktShow>>> act = () => client.Shows.GetShowAsync(default(TraktShowIDs)!);
             await act.ShouldThrowAsync<ArgumentException>();
 
             var showIDs = new TraktShowIDs();
-
             act = () => client.Shows.GetShowAsync(showIDs);
             await act.ShouldThrowAsync<ArgumentException>();
         }

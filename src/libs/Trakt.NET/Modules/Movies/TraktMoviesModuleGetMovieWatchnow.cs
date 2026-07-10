@@ -23,7 +23,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getmovieswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getmovieswatchnow">
         /// Trakt API Documentation: Movies: Watch Now - Get movie watch now sources
         /// </see></para>
         /// </remarks>
@@ -55,7 +55,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getmovieswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getmovieswatchnow">
         /// Trakt API Documentation: Movies: Watch Now - Get movie watch now sources
         /// </see></para>
         /// </remarks>
@@ -87,7 +87,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getmovieswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getmovieswatchnow">
         /// Trakt API Documentation: Movies: Watch Now - Get movie watch now sources
         /// </see></para>
         /// </remarks>
@@ -123,7 +123,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getmovieswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesjustwatchlink">
         /// Trakt API Documentation: Movies: Watch Now - Get movie JustWatch links
         /// </see></para>
         /// </remarks>
@@ -147,7 +147,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getmovieswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesjustwatchlink">
         /// Trakt API Documentation: Movies: Watch Now - Get movie JustWatch links
         /// </see></para>
         /// </remarks>
@@ -171,7 +171,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getmovieswatchnow.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesjustwatchlink">
         /// Trakt API Documentation: Movies: Watch Now - Get movie JustWatch links
         /// </see></para>
         /// </remarks>

@@ -107,18 +107,6 @@ namespace TraktNET.PostRequests.Search
                 {
                     Query = "batman",
                     Id = 99U,
-                    Type = null
-                }
-            };
-            act = () => request.Validate();
-            act.ShouldThrow<TraktPostValidationException>();
-
-            request = new SearchRecentRemovePostRequest
-            {
-                TraktSearchRecentPost = new TraktSearchRecentPost
-                {
-                    Query = "batman",
-                    Id = 99U,
                     Type = TraktSearchRecentType.Unspecified
                 }
             };

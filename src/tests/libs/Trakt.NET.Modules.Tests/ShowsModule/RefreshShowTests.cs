@@ -4,15 +4,13 @@ namespace TraktNET.ShowsModule
 {
     public sealed class RefreshShowTests
     {
-        private const string RefreshShowUriPrefix = "shows";
-        private const string RefreshShowUriSuffix = "refresh";
-        private const string RefreshShowUriWithSlug = RefreshShowUriPrefix + "/" + TestConstants.Shows.ShowSlug + "/" + RefreshShowUriSuffix;
-        private static readonly string RefreshShowUri = $"{RefreshShowUriPrefix}/{TestConstants.Shows.ShowID}/{RefreshShowUriSuffix}";
+        private const string RefreshShowUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/refresh";
+        private const string RefreshShowUri = $"shows/{TestConstants.Shows.ShowID}/refresh";
 
         [Fact]
         public async Task TestRefreshShowWithID()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{RefreshShowUriPrefix}/{TestConstants.Shows.TraktShowID}/{RefreshShowUriSuffix}", HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshShowUri, HttpStatusCode.Created);
 
             TraktResponse response = await client.Shows.RefreshShowAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
@@ -78,15 +76,8 @@ namespace TraktNET.ShowsModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshShowUri, statusCode);
 
-            try
-            {
-                await client.Shows.RefreshShowAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktResponse>> act = () => client.Shows.RefreshShowAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]

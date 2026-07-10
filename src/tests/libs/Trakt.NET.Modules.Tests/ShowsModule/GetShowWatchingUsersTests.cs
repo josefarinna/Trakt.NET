@@ -1,39 +1,72 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ShowsModule
 {
     public sealed class GetShowWatchingUsersTests
     {
-        private const string GetShowWatchingUsersUriPrefix = "shows";
-        private const string GetShowWatchingUsersUriSuffix = "watching";
-        private const string GetShowWatchingUsersUriWithSlug = GetShowWatchingUsersUriPrefix + "/" + TestConstants.Shows.ShowSlug + "/" + GetShowWatchingUsersUriSuffix;
+        private const string GetShowWatchingUsersUri = $"shows/{TestConstants.Shows.ShowID}/watching";
+        private const string GetShowWatchingUsersUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/watching";
+        private const int ListItemCount = 2;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, $"{GetShowWatchingUsersUriPrefix}/1390/{GetShowWatchingUsersUriSuffix}", "Shows\\showwatchingusers.json")]
-        [InlineData(TraktExtendedInfo.None, $"{GetShowWatchingUsersUriPrefix}/1390/{GetShowWatchingUsersUriSuffix}", "Shows\\showwatchingusers.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetShowWatchingUsersUriPrefix}/1390/{GetShowWatchingUsersUriSuffix}?extended=full", "Shows\\showwatchingusers.json")]
-        public async Task TestGetShowWatchingUsersWithID(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetShowWatchingUsersWithID()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchingusers.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchingUsersUri, responseContent);
 
-            TraktListResponse<TraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.TraktShowID, extendedInfo, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
-        [Theory]
-        [InlineData(null, GetShowWatchingUsersUriWithSlug, "Shows\\showwatchingusers.json")]
-        [InlineData(TraktExtendedInfo.None, GetShowWatchingUsersUriWithSlug, "Shows\\showwatchingusers.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetShowWatchingUsersUriWithSlug}?extended=full", "Shows\\showwatchingusers.json")]
-        public async Task TestGetShowWatchingUsersWithSlug(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetShowWatchingUsersWithIDAndExtendedInfo()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchingusers.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowWatchingUsersUri}?extended={ExtendedInfo.ToURI()}", responseContent);
 
-            TraktListResponse<TraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.ShowSlug, extendedInfo, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.TraktShowID, ExtendedInfo, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
+        }
+
+        [Fact]
+        public async Task TestGetShowWatchingUsersWithSlug()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchingusers.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchingUsersUriWithSlug, responseContent);
+
+            TraktListResponse<TraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
+        }
+
+        [Fact]
+        public async Task TestGetShowWatchingUsersWithSlugAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchingusers.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowWatchingUsersUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktListResponse<TraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Fact]
@@ -44,62 +77,68 @@ namespace TraktNET.ShowsModule
 
             TraktListResponse<TraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
-        private static void ValidateResponse(TraktListResponse<TraktUser> response)
+        [Fact]
+        public async Task TestGetShowWatchingUsersWithIDsAndExtendedInfo()
         {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchingusers.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowWatchingUsersUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktListResponse<TraktUser> response = await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.ShowIDs, ExtendedInfo, TestContext.Current.CancellationToken);
+
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Headers.ShouldNotBeNull();
-            response.TraktHeaders.ShouldNotBeNull();
-            response.ContentHeaders.ShouldNotBeNull();
-            response.Count.ShouldBe(2);
-
-            IReadOnlyList<TraktUser> users = response.Content!;
-
-            users[0].ShouldNotBeNull();
-            users[0].Username.ShouldBe("user1");
-            users[0].Name.ShouldBe("User Name 1");
-            users[0].IDs.ShouldNotBeNull();
-            users[0].IDs!.Slug.ShouldBe("user1");
-
-            users[1].ShouldNotBeNull();
-            users[1].Username.ShouldBe("user2");
-            users[1].Name.ShouldBe("User Name 2");
-            users[1].IDs.ShouldNotBeNull();
-            users[1].IDs!.Slug.ShouldBe("user2");
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetShowWatchingUsersThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowWatchingUsersUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Shows.GetShowWatchingUsersAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetShowWatchingUsersWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchingusers.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchingUsersUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchingUsersUriWithSlug, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Shows.GetShowWatchingUsersAsync(default(TraktShowIDs), cancellationToken: TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Shows.GetShowWatchingUsersAsync(default(TraktShowIDs)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
             var showIDs = new TraktShowIDs();

@@ -34,6 +34,29 @@ namespace TraktNET
         public TraktSearchResultType? ResultTypes { get; set; }
     }
 
+    [TraktGetRequest("search", SupportsExtendedInfo = true, SupportsPagination = true)]
+    internal sealed partial class SearchExactTextQueryGetRequest
+    {
+        [TraktRequestParameter]
+        public TraktSearchResultType Type { get; set; }
+
+        [TraktRequestParameter]
+        private static string Exact => "exact";
+
+        [TraktRequestQuery("query")]
+        public required string Query { get; set; }
+    }
+
+    [TraktGetRequest("search/recent_by_id/global", SupportsExtendedInfo = true, SupportsPagination = true)]
+    internal sealed partial class SearchTrendingGetRequest
+    {
+        [TraktRequestParameter]
+        public TraktSearchRecentType Type { get; set; }
+
+        [TraktRequestQuery("query")]
+        public string? Query { get; set; }
+    }
+
     // -------------------------------------------------------
     // POST Requests
     // -------------------------------------------------------

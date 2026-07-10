@@ -1,21 +1,21 @@
 using System.Net;
 
-namespace TraktNET.ShowsModule
+namespace TraktNET.MoviesModule
 {
-    public sealed class GetShowJustwatchLinksTests
+    public sealed class GetMovieJustwatchLinksTests
     {
         private const string Country = "us";
-        private const string GetShowJustwatchLinksUri = $"shows/{TestConstants.Shows.ShowID}/watchnow/justwatch_links/{Country}";
-        private const string GetShowJustwatchLinksUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/watchnow/justwatch_links/{Country}";
+        private static readonly string GetMovieJustwatchLinksUri = $"movies/{TestConstants.Movies.TraktMovieID}/watchnow/justwatch_links/{Country}";
+        private static readonly string GetMovieJustwatchLinksUriWithSlug = $"movies/{TestConstants.Movies.MovieSlug}/watchnow/justwatch_links/{Country}";
 
         [Fact]
-        public async Task TestGetShowJustwatchLinksWithID()
+        public async Task TestGetMovieJustwatchLinksWithID()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Watchnow\\justwatch_links.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowJustwatchLinksUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieJustwatchLinksUri, responseContent);
 
             TraktResponse<Dictionary<string, string>> response =
-                await client.Shows.GetShowJustwatchLinksAsync(TestConstants.Shows.TraktShowID, Country, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Movies.GetMovieJustwatchLinksAsync(TestConstants.Movies.TraktMovieID, Country, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -26,13 +26,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowJustwatchLinksWithSlug()
+        public async Task TestGetMovieJustwatchLinksWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Watchnow\\justwatch_links.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowJustwatchLinksUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieJustwatchLinksUriWithSlug, responseContent);
 
             TraktResponse<Dictionary<string, string>> response =
-                await client.Shows.GetShowJustwatchLinksAsync(TestConstants.Shows.ShowSlug, Country, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Movies.GetMovieJustwatchLinksAsync(TestConstants.Movies.MovieSlug, Country, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -41,13 +41,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowJustwatchLinksWithIDs()
+        public async Task TestGetMovieJustwatchLinksWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Watchnow\\justwatch_links.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowJustwatchLinksUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieJustwatchLinksUriWithSlug, responseContent);
 
             TraktResponse<Dictionary<string, string>> response =
-                await client.Shows.GetShowJustwatchLinksAsync(TestConstants.Shows.ShowIDs, Country, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Movies.GetMovieJustwatchLinksAsync(TestConstants.Movies.MovieIDs, Country, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -56,7 +56,7 @@ namespace TraktNET.ShowsModule
         }
 
         [Theory]
-        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiMovieNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
         [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
         [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
@@ -81,35 +81,35 @@ namespace TraktNET.ShowsModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetShowJustwatchLinksThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetMovieJustwatchLinksThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetShowJustwatchLinksUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieJustwatchLinksUri, statusCode);
 
-            Func<Task<TraktResponse<Dictionary<string, string>>>> act = () => client.Shows.GetShowJustwatchLinksAsync(TestConstants.Shows.TraktShowID, Country, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<Dictionary<string, string>>>> act = () => client.Movies.GetMovieJustwatchLinksAsync(TestConstants.Movies.TraktMovieID, Country, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestGetShowJustwatchLinksThrowsArgumentException()
+        public async Task TestGetMovieJustwatchLinksThrowsArgumentException()
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetShowJustwatchLinksUri, HttpStatusCode.OK);
+            TraktClient client = ModuleTestUtility.GetClient(GetMovieJustwatchLinksUri, HttpStatusCode.OK);
 
-            Func<Task<TraktResponse<Dictionary<string, string>>>> act = () => client.Shows.GetShowJustwatchLinksAsync(default(TraktShowIDs)!, Country, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<Dictionary<string, string>>>> act = () => client.Movies.GetMovieJustwatchLinksAsync(default(TraktMovieIDs)!, Country, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.Shows.GetShowJustwatchLinksAsync(new TraktShowIDs(), Country, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Movies.GetMovieJustwatchLinksAsync(new TraktMovieIDs(), Country, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Shows.GetShowJustwatchLinksAsync(string.Empty, Country, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Movies.GetMovieJustwatchLinksAsync(string.Empty, Country, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Shows.GetShowJustwatchLinksAsync("   ", Country, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Movies.GetMovieJustwatchLinksAsync("   ", Country, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Shows.GetShowJustwatchLinksAsync(TestConstants.Shows.ShowSlug, string.Empty, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Movies.GetMovieJustwatchLinksAsync(TestConstants.Movies.MovieSlug, string.Empty, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Shows.GetShowJustwatchLinksAsync(TestConstants.Shows.ShowSlug, "   ", cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Movies.GetMovieJustwatchLinksAsync(TestConstants.Movies.MovieSlug, "   ", cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }

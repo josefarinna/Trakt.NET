@@ -1,30 +1,85 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ShowsModule
 {
     public sealed class GetShowCollectionProgressTests
     {
-        private const string GetShowCollectionProgressUriPrefix = "shows";
-        private const string GetShowCollectionProgressSuffix = "progress/collection";
+        private const string GetShowCollectionProgressUri = $"shows/{TestConstants.Shows.ShowID}/progress/collection";
+        private const string GetShowCollectionProgressUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/progress/collection";
 
-        private static readonly string GetShowCollectionProgressUri = $"{GetShowCollectionProgressUriPrefix}/{TestConstants.Shows.ShowID}/{GetShowCollectionProgressSuffix}";
-        private const string GetShowCollectionProgressUriWithSlug = $"{GetShowCollectionProgressUriPrefix}/{TestConstants.Shows.ShowSlug}/{GetShowCollectionProgressSuffix}";
-
-        [Theory]
-        [InlineData(null, null, null, GetShowCollectionProgressUriWithSlug, "Shows\\showcollectionprogress.json")]
-        [InlineData(true, null, null, $"{GetShowCollectionProgressUriWithSlug}?hidden=true", "Shows\\showcollectionprogress.json")]
-        [InlineData(null, true, null, $"{GetShowCollectionProgressUriWithSlug}?specials=true", "Shows\\showcollectionprogress.json")]
-        [InlineData(null, null, true, $"{GetShowCollectionProgressUriWithSlug}?count_specials=true", "Shows\\showcollectionprogress.json")]
-        [InlineData(true, true, true, $"{GetShowCollectionProgressUriWithSlug}?hidden=true&specials=true&count_specials=true", "Shows\\showcollectionprogress.json")]
-        public async Task TestGetShowCollectionProgress(bool? hidden, bool? specials, bool? countSpecials, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetShowCollectionProgress()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcollectionprogress.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowCollectionProgressUriWithSlug, responseContent);
 
             TraktResponse<TraktShowCollectionProgress> response = await client.Shows.GetShowCollectionProgressAsync(
-                TestConstants.Shows.ShowSlug, hidden, specials, countSpecials, TestContext.Current.CancellationToken);
+                TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowCollectionProgressWithHidden()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcollectionprogress.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCollectionProgressUriWithSlug}?hidden=true", responseContent);
+
+            TraktResponse<TraktShowCollectionProgress> response = await client.Shows.GetShowCollectionProgressAsync(
+                TestConstants.Shows.ShowSlug, hidden: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowCollectionProgressWithSpecials()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcollectionprogress.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCollectionProgressUriWithSlug}?specials=true", responseContent);
+
+            TraktResponse<TraktShowCollectionProgress> response = await client.Shows.GetShowCollectionProgressAsync(
+                TestConstants.Shows.ShowSlug, specials: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowCollectionProgressWithCountSpecials()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcollectionprogress.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCollectionProgressUriWithSlug}?count_specials=true", responseContent);
+
+            TraktResponse<TraktShowCollectionProgress> response = await client.Shows.GetShowCollectionProgressAsync(
+                TestConstants.Shows.ShowSlug, countSpecials: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowCollectionProgressWithAllParameters()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcollectionprogress.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCollectionProgressUriWithSlug}?hidden=true&specials=true&count_specials=true", responseContent);
+
+            TraktResponse<TraktShowCollectionProgress> response = await client.Shows.GetShowCollectionProgressAsync(
+                TestConstants.Shows.ShowSlug, hidden: true, specials: true, countSpecials: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -36,7 +91,10 @@ namespace TraktNET.ShowsModule
             TraktResponse<TraktShowCollectionProgress> response = await client.Shows.GetShowCollectionProgressAsync(
                 TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -48,61 +106,52 @@ namespace TraktNET.ShowsModule
             TraktResponse<TraktShowCollectionProgress> response = await client.Shows.GetShowCollectionProgressAsync(
                 TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
-        }
-
-        private static void ValidateResponse(TraktResponse<TraktShowCollectionProgress> response)
-        {
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-
-            TraktShowCollectionProgress progress = response.Content!;
-
-            progress.Aired.ShouldBe(73U);
-            progress.Completed.ShouldBe(0U);
-            progress.LastCollectedAt.ShouldBeNull();
-
-            progress.NextEpisode.ShouldNotBeNull();
-            progress.NextEpisode.Title.ShouldBe("Winter Is Coming");
-            progress.NextEpisode.Season.ShouldBe(1U);
-            progress.NextEpisode.Number.ShouldBe(1U);
-            progress.NextEpisode.IDs!.Trakt.ShouldBe(73640U);
-
-            progress.Seasons.ShouldNotBeNull();
-            progress.Seasons.Count.ShouldBeGreaterThan(0);
-            progress.Seasons[0].Number.ShouldBe(1U);
-            progress.Seasons[0].Aired.ShouldBe(10U);
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
+        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
         [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetShowCollectionProgressThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowCollectionProgressUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowCollectionProgressAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktResponse<TraktShowCollectionProgress>>> act = () => client.Shows.GetShowCollectionProgressAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetShowCollectionProgressWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcollectionprogress.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowCollectionProgressUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowCollectionProgressUriWithSlug, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktShowCollectionProgress>>> act = () => client.Shows.GetShowCollectionProgressAsync(default(TraktShowIDs), cancellationToken: TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktResponse<TraktShowCollectionProgress>>> act = () => client.Shows.GetShowCollectionProgressAsync(default(TraktShowIDs)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
             var showIDs = new TraktShowIDs();

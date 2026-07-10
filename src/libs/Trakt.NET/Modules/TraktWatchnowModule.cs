@@ -18,7 +18,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getwatchnowsourcesall.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getwatchnowsourcesall">
         /// Trakt API Documentation: Watch Now - Get watch now sources
         /// </see></para>
         /// </remarks>
@@ -39,7 +39,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://docs.trakt.tv/reference/getwatchnowsourcescountry.md">
+        /// <para><see href="https://docs.trakt.tv/reference/getwatchnowsourcescountry">
         /// Trakt API Documentation: Watch Now - Get watch now sources by country
         /// </see></para>
         /// </remarks>

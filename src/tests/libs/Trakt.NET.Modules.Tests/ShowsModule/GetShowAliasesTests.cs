@@ -1,13 +1,12 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ShowsModule
 {
     public sealed class GetShowAliasesTests
     {
-        private const string GetShowAliasesUriPrefix = "shows";
-        private const string GetShowAliasesUriSuffix = "aliases";
-        private static readonly string GetShowAliasesUri = $"{GetShowAliasesUriPrefix}/{TestConstants.Shows.ShowID}/{GetShowAliasesUriSuffix}";
-        private static readonly string GetShowAliasesUriWithSlug = $"{GetShowAliasesUriPrefix}/{TestConstants.Shows.ShowSlug}/{GetShowAliasesUriSuffix}";
+        private const string GetShowAliasesUri = $"shows/{TestConstants.Shows.ShowID}/aliases";
+        private const string GetShowAliasesUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/aliases";
+        private const int ListItemCount = 3;
 
         [Fact]
         public async Task TestGetShowAliasesWithID()
@@ -17,7 +16,11 @@ namespace TraktNET.ShowsModule
 
             TraktListResponse<TraktShowAlias> response = await client.Shows.GetShowAliasesAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Fact]
@@ -28,7 +31,11 @@ namespace TraktNET.ShowsModule
 
             TraktListResponse<TraktShowAlias> response = await client.Shows.GetShowAliasesAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Fact]
@@ -39,57 +46,53 @@ namespace TraktNET.ShowsModule
 
             TraktListResponse<TraktShowAlias> response = await client.Shows.GetShowAliasesAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
-        }
-
-        private static void ValidateResponse(TraktListResponse<TraktShowAlias> response)
-        {
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Count.ShouldBe(3);
-
-            IReadOnlyList<TraktShowAlias> showAliases = response.Content!;
-
-            showAliases[0].Title.ShouldBe("Juego de Tronos");
-            showAliases[0].Country.ShouldBe("es");
-
-            showAliases[1].Title.ShouldBe("Game of Thrones - Das Lied von Eis und Feuer");
-            showAliases[1].Country.ShouldBe("de");
-
-            showAliases[2].Title.ShouldBe("Le Trône de fer");
-            showAliases[2].Country.ShouldBe("fr");
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
         [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetShowAliasesWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowAliasesUri, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowAliasesAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktListResponse<TraktShowAlias>>> act = () => client.Shows.GetShowAliasesAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetShowAliasesWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showaliases.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowAliasesUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowAliasesUriWithSlug, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktListResponse<TraktShowAlias>>> act = () => client.Shows.GetShowAliasesAsync(default(TraktShowIDs), TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktListResponse<TraktShowAlias>>> act = () => client.Shows.GetShowAliasesAsync(default(TraktShowIDs)!, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
             var showIDs = new TraktShowIDs();

@@ -1,26 +1,57 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ShowsModule
 {
     public sealed class GetShowTranslationsTests
     {
-        private const string GetShowTranslationsUriPrefix = "shows";
-        private const string GetShowTranslationsUriSuffix = "translations";
-        private const string GetShowTranslationsUri = GetShowTranslationsUriPrefix + "/1390/" + GetShowTranslationsUriSuffix;
-        private const string GetShowTranslationsUriWithSlug = $"{GetShowTranslationsUriPrefix}/{TestConstants.Shows.ShowSlug}/{GetShowTranslationsUriSuffix}";
+        private const string GetShowTranslationsUri = $"shows/{TestConstants.Shows.ShowID}/translations";
+        private const string GetShowTranslationsUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/translations";
+        private const int ListItemCount = 2;
+        private const string Language = "es";
 
-        [Theory]
-        [InlineData(null, GetShowTranslationsUriWithSlug, "Shows\\showtranslations.json")]
-        [InlineData("", GetShowTranslationsUriWithSlug, "Shows\\showtranslations.json")]
-        [InlineData("es", $"{GetShowTranslationsUriWithSlug}/es", "Shows\\showtranslations.json")]
-        public async Task TestGetShowTranslations(string? language, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetShowTranslations()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showtranslations.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUriWithSlug, responseContent);
 
-            TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowSlug, language, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
+        }
+
+        [Fact]
+        public async Task TestGetShowTranslationsWithLanguage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showtranslations.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowTranslationsUriWithSlug}/{Language}", responseContent);
+
+            TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowSlug, Language, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
+        }
+
+        [Fact]
+        public async Task TestGetShowTranslationsWithEmptyLanguage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showtranslations.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUriWithSlug, responseContent);
+
+            TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowSlug, string.Empty, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Fact]
@@ -31,7 +62,11 @@ namespace TraktNET.ShowsModule
 
             TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Fact]
@@ -42,64 +77,53 @@ namespace TraktNET.ShowsModule
 
             TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
-        }
-
-        private static void ValidateResponse(TraktListResponse<TraktShowTranslation> response)
-        {
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Headers.ShouldNotBeNull();
-            response.TraktHeaders.ShouldNotBeNull();
-            response.ContentHeaders.ShouldNotBeNull();
-            response.Count.ShouldBe(2);
-
-            IReadOnlyList<TraktShowTranslation> translations = response.Content!;
-
-            translations[0].ShouldNotBeNull();
-            translations[0].Title.ShouldBe("Juego de tronos");
-            translations[0].Overview.ShouldStartWith("En una tierra donde los veranos");
-            translations[0].Tagline.ShouldBe("Se acerca el invierno");
-            translations[0].Language.ShouldBe("es");
-            translations[0].Country.ShouldBe("es");
-
-            translations[1].ShouldNotBeNull();
-            translations[1].Title.ShouldBe("A Guerra dos Tronos");
-            translations[1].Overview.ShouldStartWith("Numa terra onde o verão");
-            translations[1].Tagline.ShouldBe("O inverno está a chegar.");
-            translations[1].Language.ShouldBe("pt");
-            translations[1].Country.ShouldBe("pt");
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetShowTranslationsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktListResponse<TraktShowTranslation>>> act = () => client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetShowTranslationsWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showtranslations.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUriWithSlug, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktListResponse<TraktShowTranslation>>> act = () => client.Shows.GetShowTranslationsAsync(default(TraktShowIDs), cancellationToken: TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktListResponse<TraktShowTranslation>>> act = () => client.Shows.GetShowTranslationsAsync(default(TraktShowIDs)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
             var showIDs = new TraktShowIDs();

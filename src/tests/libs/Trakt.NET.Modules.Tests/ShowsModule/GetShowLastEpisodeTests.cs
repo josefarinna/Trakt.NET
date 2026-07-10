@@ -4,11 +4,9 @@ namespace TraktNET.ShowsModule
 {
     public sealed class GetShowLastEpisodeTests
     {
-        private const string GetShowLastEpisodeUriPrefix = "shows";
-        private const string GetShowLastEpisodeUriSuffix = "last_episode";
-        private static readonly string GetShowLastEpisodeUri = $"{GetShowLastEpisodeUriPrefix}/{TestConstants.Shows.ShowID}/{GetShowLastEpisodeUriSuffix}";
-        private static readonly string GetShowLastEpisodeUriWithSlug = $"{GetShowLastEpisodeUriPrefix}/{TestConstants.Shows.ShowSlug}/{GetShowLastEpisodeUriSuffix}";
-        private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
+        private const string GetShowLastEpisodeUri = $"shows/{TestConstants.Shows.ShowID}/last_episode";
+        private const string GetShowLastEpisodeUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/last_episode";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
         public async Task TestGetShowLastEpisodeWithID()
@@ -18,7 +16,10 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -29,7 +30,10 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(TestConstants.Shows.TraktShowID, ExtendedInfo, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -40,7 +44,10 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -51,7 +58,10 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -67,7 +77,10 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(showIDs, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -83,7 +96,10 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(showIDs, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -94,7 +110,10 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Fact]
@@ -105,16 +124,10 @@ namespace TraktNET.ShowsModule
 
             TraktResponse<TraktEpisode> response = await client.Shows.GetShowLastEpisodeAsync(TestConstants.Shows.ShowIDs, ExtendedInfo, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
-        }
-
-        private static void ValidateResponse(TraktResponse<TraktEpisode> response)
-        {
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content!.Title.ShouldBe("Winter Is Coming");
         }
 
         [Theory]

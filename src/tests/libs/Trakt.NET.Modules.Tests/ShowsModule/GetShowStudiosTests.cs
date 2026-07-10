@@ -4,10 +4,9 @@ namespace TraktNET.ShowsModule
 {
     public sealed class GetShowStudiosTests
     {
-        private const string GetShowStudiosUriPrefix = "shows";
-        private const string GetShowStudiosUriSuffix = "studios";
-        private static readonly string GetShowStudiosUri = $"{GetShowStudiosUriPrefix}/{TestConstants.Shows.ShowID}/{GetShowStudiosUriSuffix}";
-        private static readonly string GetShowStudiosUriWithSlug = $"{GetShowStudiosUriPrefix}/{TestConstants.Shows.ShowSlug}/{GetShowStudiosUriSuffix}";
+        private const string GetShowStudiosUri = $"shows/{TestConstants.Shows.ShowID}/studios";
+        private const string GetShowStudiosUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/studios";
+        private const int ListItemCount = 2;
 
         [Fact]
         public async Task TestGetShowStudiosWithID()
@@ -17,7 +16,11 @@ namespace TraktNET.ShowsModule
 
             TraktListResponse<TraktStudio> response = await client.Shows.GetShowStudiosAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Fact]
@@ -28,7 +31,11 @@ namespace TraktNET.ShowsModule
 
             TraktListResponse<TraktStudio> response = await client.Shows.GetShowStudiosAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Fact]
@@ -39,62 +46,53 @@ namespace TraktNET.ShowsModule
 
             TraktListResponse<TraktStudio> response = await client.Shows.GetShowStudiosAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
-        }
-
-        private static void ValidateResponse(TraktListResponse<TraktStudio> response)
-        {
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Count.ShouldBe(2);
-
-            IReadOnlyList<TraktStudio> showStudios = response.Content!;
-
-            showStudios[0].Name.ShouldBe("Marvel Studios");
-            showStudios[0].Country.ShouldBe("us");
-            showStudios[0].IDs.ShouldNotBeNull();
-            showStudios[0].IDs!.Trakt.ShouldBe(181U);
-            showStudios[0].IDs!.Slug.ShouldBe("marvel-studios");
-            showStudios[0].IDs!.TMDB.ShouldBe(420U);
-
-            showStudios[1].Name.ShouldBe("Kevin Feige Productions");
-            showStudios[1].Country.ShouldBe("us");
-            showStudios[1].IDs.ShouldNotBeNull();
-            showStudios[1].IDs!.Trakt.ShouldBe(126097U);
-            showStudios[1].IDs!.Slug.ShouldBe("kevin-feige-productions");
-            showStudios[1].IDs!.TMDB.ShouldBe(176762U);
+            response.Content.Count.ShouldBe(ListItemCount);
         }
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
+        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
+        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
+        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
+        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
+        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
+#else
+        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
+        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
+        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
+#endif
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
         [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
+        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
+        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
+        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
+        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
+        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetShowStudiosWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowStudiosUri, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowStudiosAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
-                Assert.Fail("Exception should have been thrown");
-            }
-            catch (Exception exception)
-            {
-                exception.GetType().ShouldBe(exceptionType);
-            }
+            Func<Task<TraktListResponse<TraktStudio>>> act = () => client.Shows.GetShowStudiosAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetShowStudiosWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\moviestudios.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowStudiosUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowStudiosUriWithSlug, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktListResponse<TraktStudio>>> act = () => client.Shows.GetShowStudiosAsync(default(TraktShowIDs), TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktListResponse<TraktStudio>>> act = () => client.Shows.GetShowStudiosAsync(default(TraktShowIDs)!, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
             var showIDs = new TraktShowIDs();

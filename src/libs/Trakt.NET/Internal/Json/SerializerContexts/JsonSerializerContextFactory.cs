@@ -452,7 +452,8 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_searchsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktSearchResult),
-            typeof(TraktSearchRecentPost)
+            typeof(TraktSearchRecentPost),
+            typeof(TraktTrendingSearchResult)
         });
 
         private static readonly FrozenSet<Type> s_seasonsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -914,7 +915,8 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_searchsJsonTypes = [
             typeof(TraktSearchResult),
-            typeof(TraktSearchRecentPost)
+            typeof(TraktSearchRecentPost),
+            typeof(TraktTrendingSearchResult)
         ];
 
         private static readonly HashSet<Type> s_seasonsJsonTypes = [

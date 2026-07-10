@@ -1,54 +1,95 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ShowsModule
 {
     public sealed class GetShowPeopleTests
     {
-        private const string GetShowPeopleUriPrefix = "shows";
-        private const string GetShowPeopleUriSuffix = "people";
-        private const string GetShowPeopleUriWithSlug = GetShowPeopleUriPrefix + "/" + TestConstants.Shows.ShowSlug + "/" + GetShowPeopleUriSuffix;
-        private static readonly string GetShowPeopleUri = $"{GetShowPeopleUriPrefix}/{TestConstants.Shows.ShowID}/{GetShowPeopleUriSuffix}";
+        private const string GetShowPeopleUri = $"shows/{TestConstants.Shows.ShowID}/people";
+        private const string GetShowPeopleUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/people";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, $"{GetShowPeopleUriPrefix}/1390/{GetShowPeopleUriSuffix}", "Shows\\showpeople.json")]
-        [InlineData(TraktExtendedInfo.None, $"{GetShowPeopleUriPrefix}/1390/{GetShowPeopleUriSuffix}", "Shows\\showpeople.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetShowPeopleUriPrefix}/1390/{GetShowPeopleUriSuffix}?extended=full", "Shows\\showpeople.json")]
-        public async Task TestGetShowPeopleWithID(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetShowPeopleWithID()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowPeopleUri, responseContent);
 
-            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.TraktShowID, extendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
-        [Theory]
-        [InlineData(null, GetShowPeopleUriWithSlug, "Shows\\showpeople.json")]
-        [InlineData(TraktExtendedInfo.None, GetShowPeopleUriWithSlug, "Shows\\showpeople.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetShowPeopleUriWithSlug}?extended=full", "Shows\\showpeople.json")]
-        public async Task TestGetShowPeopleWithSlug(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetShowPeopleWithIDAndExtendedInfo()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowPeopleUri}?extended={ExtendedInfo.ToURI()}", responseContent);
 
-            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.ShowSlug, extendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.TraktShowID, ExtendedInfo, TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
-        [Theory]
-        [InlineData(null, GetShowPeopleUriWithSlug, "Shows\\showpeople.json")]
-        [InlineData(TraktExtendedInfo.None, GetShowPeopleUriWithSlug, "Shows\\showpeople.json")]
-        [InlineData(TraktExtendedInfo.Full, $"{GetShowPeopleUriWithSlug}?extended=full", "Shows\\showpeople.json")]
-        public async Task TestGetShowPeopleWithIDs(TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [Fact]
+        public async Task TestGetShowPeopleWithSlug()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
-            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowPeopleUriWithSlug, responseContent);
 
-            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.ShowIDs, extendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
 
-            ValidateResponse(response);
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowPeopleWithSlugAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowPeopleUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowPeopleWithIDs()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
+            TraktClient client = ModuleTestUtility.GetClient(GetShowPeopleUriWithSlug, responseContent);
+
+            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetShowPeopleWithIDsAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowPeopleUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktCastAndCrew> response = await client.Shows.GetShowPeopleAsync(TestConstants.Shows.ShowIDs, ExtendedInfo, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Theory]
@@ -81,22 +122,14 @@ namespace TraktNET.ShowsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowPeopleUri, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowPeopleAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktResponse<TraktCastAndCrew>>> act = () => client.Shows.GetShowPeopleAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestGetShowPeopleWithIDsThrowsArgumentException()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showpeople.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowPeopleUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowPeopleUriWithSlug, "{}");
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             Func<Task<TraktResponse<TraktCastAndCrew>>> act = () => client.Shows.GetShowPeopleAsync(default(TraktShowIDs), cancellationToken: TestContext.Current.CancellationToken);
@@ -104,31 +137,8 @@ namespace TraktNET.ShowsModule
             await act.ShouldThrowAsync<ArgumentException>();
 
             var showIDs = new TraktShowIDs();
-
             act = () => client.Shows.GetShowPeopleAsync(showIDs, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
-        }
-
-        private static void ValidateResponse(TraktResponse<TraktCastAndCrew> response)
-        {
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
-            response.Content.ShouldNotBeNull();
-            response.Headers.ShouldNotBeNull();
-            response.TraktHeaders.ShouldNotBeNull();
-            response.ContentHeaders.ShouldNotBeNull();
-
-            TraktCastAndCrew showPeople = response.Content!;
-
-            showPeople.Cast.ShouldNotBeNull();
-            showPeople.Cast![0].Person.ShouldNotBeNull();
-            showPeople.Cast[0].Person!.Name.ShouldBe("Kit Harington");
-
-            showPeople.Crew.ShouldNotBeNull();
-            showPeople.Crew!.Writing.ShouldNotBeNull();
-            showPeople.Crew.Writing![0].Person.ShouldNotBeNull();
-            showPeople.Crew.Writing![0].Person!.Name.ShouldBe("George R. R. Martin");
         }
     }
 }

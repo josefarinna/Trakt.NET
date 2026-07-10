@@ -8,7 +8,7 @@ namespace TraktNET.ShowsModule
         private const uint ListItemCount = 2U;
         private const uint Page = 2U;
         private const uint Limit = 4U;
-        private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
         public async Task TestGetTrendingShows()

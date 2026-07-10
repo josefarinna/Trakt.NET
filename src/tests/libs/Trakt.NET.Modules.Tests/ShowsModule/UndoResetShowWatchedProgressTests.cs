@@ -4,11 +4,8 @@ namespace TraktNET.ShowsModule
 {
     public sealed class UndoResetShowWatchedProgressTests
     {
-        private const string UndoResetShowWatchedProgressUriPrefix = "shows";
-        private const string UndoResetShowWatchedProgressUriSuffix = "progress/watched/reset";
-
-        private static readonly string UndoResetShowWatchedProgressUri = $"{UndoResetShowWatchedProgressUriPrefix}/{TestConstants.Shows.ShowID}/{UndoResetShowWatchedProgressUriSuffix}";
-        private const string UndoResetShowWatchedProgressUriWithSlug = UndoResetShowWatchedProgressUriPrefix + "/" + TestConstants.Shows.ShowSlug + "/" + UndoResetShowWatchedProgressUriSuffix;
+        private const string UndoResetShowWatchedProgressUri = $"shows/{TestConstants.Shows.ShowID}/progress/watched/reset";
+        private const string UndoResetShowWatchedProgressUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/progress/watched/reset";
 
         [Fact]
         public async Task TestUndoResetShowWatchedProgressWithID()
@@ -67,9 +64,7 @@ namespace TraktNET.ShowsModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(UndoResetShowWatchedProgressUriWithSlug, HttpStatusCode.NoContent);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse>> act = () => client.Shows.UndoResetShowWatchedProgressAsync(default(TraktShowIDs), TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktResponse>> act = () => client.Shows.UndoResetShowWatchedProgressAsync(default(TraktShowIDs)!, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
             var showIDs = new TraktShowIDs();

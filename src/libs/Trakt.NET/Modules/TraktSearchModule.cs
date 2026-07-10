@@ -132,5 +132,68 @@ namespace TraktNET
         public Task<TraktResponse> RemoveRecentSearchAsync(string searchQuery, uint itemId, TraktSearchRecentType type,
             CancellationToken cancellationToken = default)
             => RemoveRecentSearchImplAsync(searchQuery, itemId, type, cancellationToken);
+
+        /// <summary>Searches for exact movie or show matches with the given search query.</summary>
+        /// <param name="searchResultTypes">
+        /// The object type(s), for which will be searched. See also <seealso cref="TraktSearchResultType" />.
+        /// Multiple <see cref="TraktSearchResultType" /> values can be combined with a binary operator, like this: TraktSearchResultType.Movie | TraktSearchResultType.Show.
+        /// </param>
+        /// <param name="searchQuery">The query, for which will be searched.</param>
+        /// <param name="extendedInfo">
+        /// The extended info, which determines how much data about the movies or shows should be queried.
+        /// See also <seealso cref="TraktExtendedInfo" />.
+        /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the search results.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSearchResult" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsearchexact">
+        /// Trakt API Documentation: Search: Exact Text Query.
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
+        public Task<TraktPagedResponse<TraktSearchResult>> GetExactTextQueryResultsAsync(TraktSearchResultType searchResultTypes, string searchQuery,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetExactTextQueryResultsImplAsync(searchResultTypes, searchQuery, extendedInfo, page, limit, cancellationToken);
+
+        /// <summary>Returns globally trending recent searches by type.</summary>
+        /// <param name="type">The search recent type. See also <seealso cref="TraktSearchRecentType" />.</param>
+        /// <param name="searchQuery">Optional search query to narrow the search text.</param>
+        /// <param name="extendedInfo">
+        /// The extended info, which determines how much data about the movies, shows or people should be queried.
+        /// See also <seealso cref="TraktExtendedInfo" />.
+        /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the trending search results.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktTrendingSearchResult" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsearchtrending">
+        /// Trakt API Documentation: Search: Trending.
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
+        public Task<TraktPagedResponse<TraktTrendingSearchResult>> GetTrendingSearchResultsAsync(TraktSearchRecentType type, string? searchQuery = null,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetTrendingSearchResultsImplAsync(type, searchQuery, extendedInfo, page, limit, cancellationToken);
     }
 }

@@ -63,30 +63,18 @@ namespace TraktNET.SearchModule
             TraktClient client = ModuleTestUtility.GetOAuthClient(RemoveRecentSearchUri, HttpStatusCode.NoContent);
 
             Func<Task<TraktResponse>> act = () => client.Search.RemoveRecentSearchAsync(null!, Id, Type, TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<TraktRequestValidationException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             act = () => client.Search.RemoveRecentSearchAsync(string.Empty, Id, Type, TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<TraktRequestValidationException>();
+            await act.ShouldThrowAsync<ArgumentException>();
 
             act = () => client.Search.RemoveRecentSearchAsync("  ", Id, Type, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
+
+            act = () => client.Search.RemoveRecentSearchAsync(Query, 0, Type, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
-        }
 
-        [Fact]
-        public async Task TestRemoveRecentSearchThrowsArgumentExceptionForId()
-        {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RemoveRecentSearchUri, HttpStatusCode.NoContent);
-
-            Func<Task<TraktResponse>> act = () => client.Search.RemoveRecentSearchAsync(Query, 0, Type, TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<TraktRequestValidationException>();
-        }
-
-        [Fact]
-        public async Task TestRemoveRecentSearchThrowsArgumentExceptionForType()
-        {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RemoveRecentSearchUri, HttpStatusCode.NoContent);
-
-            Func<Task<TraktResponse>> act = () => client.Search.RemoveRecentSearchAsync(Query, Id, TraktSearchRecentType.Unspecified, TestContext.Current.CancellationToken);
+            act = () => client.Search.RemoveRecentSearchAsync(Query, Id, TraktSearchRecentType.Unspecified, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }

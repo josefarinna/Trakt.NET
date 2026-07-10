@@ -8,6 +8,8 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktSearchResult))]
     [JsonSerializable(typeof(IReadOnlyList<TraktSearchResult>))]
     [JsonSerializable(typeof(TraktSearchRecentPost))]
+    [JsonSerializable(typeof(TraktTrendingSearchResult))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktTrendingSearchResult>))]
     public sealed partial class SearchsJsonSerializerContext : JsonSerializerContext
     {
     }

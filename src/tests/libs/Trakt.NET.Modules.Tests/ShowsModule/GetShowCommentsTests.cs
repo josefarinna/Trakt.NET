@@ -4,14 +4,12 @@ namespace TraktNET.ShowsModule
 {
     public sealed class GetShowCommentsTests
     {
-        private const string GetShowCommentsUriPrefix = "shows";
-        private const string GetShowCommentsUriSuffix = "comments";
-        private const string GetShowCommentsUriWithSlug = GetShowCommentsUriPrefix + "/" + TestConstants.Shows.ShowSlug + "/" + GetShowCommentsUriSuffix;
-        private static readonly string GetShowCommentsUri = $"{GetShowCommentsUriPrefix}/{TestConstants.Shows.ShowID}/{GetShowCommentsUriSuffix}";
+        private const string GetShowCommentsUri = $"shows/{TestConstants.Shows.ShowID}/comments";
+        private const string GetShowCommentsUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/comments";
         private const uint ListItemCount = 2U;
         private const uint Page = 2U;
         private const uint Limit = 4U;
-        private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
         private const TraktCommentSortOrder SortOrder = TraktCommentSortOrder.Newest;
 
         [Fact]

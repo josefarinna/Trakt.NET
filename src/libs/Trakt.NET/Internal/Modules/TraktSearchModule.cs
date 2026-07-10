@@ -93,5 +93,58 @@ namespace TraktNET
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
+
+        private Task<TraktPagedResponse<TraktSearchResult>> GetExactTextQueryResultsImplAsync(TraktSearchResultType searchResultTypes, string searchQuery,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new SearchExactTextQueryGetRequest
+            {
+                Type = searchResultTypes,
+                Query = searchQuery,
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktSearchResult>(_context, request, (page, limit)
+                => new SearchExactTextQueryGetRequest
+                {
+                    Type = searchResultTypes,
+                    Query = searchQuery,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                },
+                cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktTrendingSearchResult>> GetTrendingSearchResultsImplAsync(TraktSearchRecentType type, string? searchQuery = null,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            if (type == TraktSearchRecentType.Unspecified || type == TraktSearchRecentType.List)
+            {
+                throw new TraktRequestValidationException(nameof(type), "type is not valid");
+            }
+
+            var request = new SearchTrendingGetRequest
+            {
+                Type = type,
+                Query = searchQuery,
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktTrendingSearchResult>(_context, request, (page, limit)
+                => new SearchTrendingGetRequest
+                {
+                    Type = type,
+                    Query = searchQuery,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                },
+                cancellationToken);
+        }
     }
 }

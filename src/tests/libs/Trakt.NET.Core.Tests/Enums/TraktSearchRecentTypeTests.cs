@@ -32,7 +32,7 @@
             TraktSearchRecentType.Movie.DisplayName().ShouldBe("Movies");
             TraktSearchRecentType.Show.DisplayName().ShouldBe("Shows");
             TraktSearchRecentType.Person.DisplayName().ShouldBe("People");
-            TraktSearchRecentType.List.DisplayName().ShouldBe("List");
+            TraktSearchRecentType.List.DisplayName().ShouldBe("Lists");
         }
     }
 }
