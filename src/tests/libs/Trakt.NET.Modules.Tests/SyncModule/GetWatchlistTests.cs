@@ -5,37 +5,317 @@ namespace TraktNET.SyncModule
     public sealed class GetWatchlistTests
     {
         private const string GetWatchlistUri = "sync/watchlist";
+        private const uint Page = 2U;
+        private const uint Limit = 4U;
+        private const uint ItemCount = 10U;
+        private const uint ResponseCount = 4U;
+        private const TraktSyncItemType WatchlistType = TraktSyncItemType.Movie;
+        private const TraktSortBy SortBy = TraktSortBy.Rank;
+        private const TraktSortHow SortHow = TraktSortHow.Ascending;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(null, null, null, null, 1U, 10U, $"{GetWatchlistUri}?page=1&limit=10")]
-        [InlineData(TraktSyncItemType.Movie, null, null, null, 1U, 10U, $"{GetWatchlistUri}/movies?page=1&limit=10")]
-        [InlineData(null, TraktSortBy.Rank, null, null, 1U, 10U, $"{GetWatchlistUri}/rank?page=1&limit=10")]
-        [InlineData(null, TraktSortBy.Added, TraktSortHow.Ascending, null, 1U, 10U, $"{GetWatchlistUri}/added/asc?page=1&limit=10")]
-        [InlineData(null, null, null, TraktExtendedInfo.Full, 1U, 10U, $"{GetWatchlistUri}?extended=full&page=1&limit=10")]
-        [InlineData(null, null, null, null, 2U, 10U, $"{GetWatchlistUri}?page=2&limit=10")]
-        [InlineData(null, null, null, null, 1U, 5U, $"{GetWatchlistUri}?page=1&limit=5")]
-        [InlineData(TraktSyncItemType.Show, TraktSortBy.Rank, null, null, 2U, 10U, $"{GetWatchlistUri}/shows/rank?page=2&limit=10")]
-        [InlineData(TraktSyncItemType.Movie, TraktSortBy.Added, TraktSortHow.Descending, TraktExtendedInfo.Full, 3U, 10U, $"{GetWatchlistUri}/movies/added/desc?extended=full&page=3&limit=10")]
-        public async Task TestGetWatchlist(TraktSyncItemType? type, TraktSortBy? sortBy, TraktSortHow? sortHow,
-            TraktExtendedInfo? extendedInfo, uint page, uint limit, string expectedUri)
+        [Fact]
+        public async Task TestGetWatchlist()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
-            uint expectedPage = page;
-            uint expectedLimit = limit;
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(expectedUri, responseContent, expectedPage, 1, expectedLimit, 10);
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(
-                type, sortBy, sortHow, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(4);
-            response.ItemCount.ShouldBe(10U);
-            response.Page.ShouldBe(expectedPage);
-            response.Limit.ShouldBe(expectedLimit);
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistWithWatchlistType()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}/{WatchlistType.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(WatchlistType, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistWithSort()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}/{SortBy.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(null, SortBy, null, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistWithSortHow()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}/{SortBy.ToURI()}/{SortHow.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(null, SortBy, SortHow, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(null, null, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistWithWatchlistTypeAndSort()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}/shows/{SortBy.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(TraktSyncItemType.Show, SortBy, null, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistWithWatchlistTypeAndSortAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}/movies/added/desc?extended=full&page=3&limit=10", responseContent, 3, 1, 10, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(TraktSyncItemType.Movie, TraktSortBy.Added, TraktSortHow.Descending, TraktExtendedInfo.Full, 3U, 10U, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(3U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(null, null, null, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(5U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(null, null, null, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(null, null, null, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(null, null, null, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(null, null, null, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetWatchlistUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlist.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Sync.GetWatchlistAsync(null, null, null, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+
+            ModuleTestUtility.SetClient(client, $"{GetWatchlistUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
+
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Theory]

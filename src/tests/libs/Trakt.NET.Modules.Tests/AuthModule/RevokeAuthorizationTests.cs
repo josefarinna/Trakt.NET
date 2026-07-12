@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.AuthModule
 {
@@ -95,6 +95,16 @@ namespace TraktNET.AuthModule
 
             Func<Task<TraktResponse>> act = () => client.Auth.RevokeAuthorizationAsync(TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);
+        }
+
+        [Fact]
+        public async Task TestRevokeAuthorizationWithAuthorizationNullThrowsArgumentException()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RevokeAuthorizationUri);
+            client.Authorization = null;
+
+            Func<Task<TraktResponse>> act = () => client.Auth.RevokeAuthorizationAsync(TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
         }
 
         private static void ValidateRevokedState(TraktClient client)

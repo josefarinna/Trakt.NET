@@ -16,7 +16,7 @@ namespace TraktNET.SyncModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\synchistorypostresponse.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(AddWatchedHistoryItemsUri, responseContent, null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(AddWatchedHistoryItemsUri, responseContent);
 
             TraktResponse<TraktSyncHistoryPostResponse> response = await client.Sync.AddWatchedHistoryItemsAsync(content, TestContext.Current.CancellationToken);
 

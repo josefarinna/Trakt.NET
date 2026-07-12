@@ -12,7 +12,7 @@ namespace TraktNET.SyncModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitemsreorderpostresponse.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ReorderWatchlistItemsUri, responseContent, null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ReorderWatchlistItemsUri, responseContent);
             TraktResponse<TraktListItemsReorderPostResponse> response = await client.Sync.ReorderWatchlistItemsAsync(ReorderedItems, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();

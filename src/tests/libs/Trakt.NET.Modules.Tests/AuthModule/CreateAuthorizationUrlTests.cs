@@ -71,6 +71,11 @@
             string createdUrl = client.Auth.CreateAuthorizationUrl(CustomClientID, CustomRedirectUri);
             createdUrl.ShouldNotBeNullOrEmpty();
             createdUrl.ShouldBe(encodedUrl);
+
+            client.Auth.RedirectUri = CustomRedirectUri;
+            createdUrl = client.Auth.CreateAuthorizationUrl(CustomClientID);
+            createdUrl.ShouldNotBeNullOrEmpty();
+            createdUrl.ShouldBe(encodedUrl);
         }
 
         [Fact]
@@ -89,9 +94,7 @@
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
 
-#pragma warning disable CS8625
-            Action act = () => client.Auth.CreateAuthorizationUrl(clientId: null);
-#pragma warning restore CS8625
+            Action act = () => client.Auth.CreateAuthorizationUrl(clientId: default!);
             act.ShouldThrow<ArgumentException>();
 
             act = () => client.Auth.CreateAuthorizationUrl(string.Empty);

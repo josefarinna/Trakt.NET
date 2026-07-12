@@ -31,7 +31,7 @@ namespace TraktNET.AuthModule
         }
 
         [Theory]
-        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiAuthenticationDeviceException))] // En v4, 404 suele ser NotFoundException
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiAuthenticationDeviceException))]
         [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
         [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]

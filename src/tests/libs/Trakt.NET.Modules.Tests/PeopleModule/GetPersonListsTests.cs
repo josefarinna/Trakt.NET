@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.PeopleModule
 {
@@ -12,36 +12,175 @@ namespace TraktNET.PeopleModule
         private const TraktListSortOrder ListSortOrder = TraktListSortOrder.Comments;
         private const TraktListType ListType = TraktListType.Official;
 
-        [Theory]
-        // type | sortOrder | useExtended | page | limit | expectedUri
-        [InlineData(null, null, null, null, null, GetPersonListsUri)]
-        [InlineData(TraktListType.Official, null, null, null, null, $"{GetPersonListsUri}/official")]
-        [InlineData(null, TraktListSortOrder.Comments, null, null, null, $"{GetPersonListsUri}/comments")]
-        [InlineData(null, null, TraktExtendedInfo.Full, null, null, $"{GetPersonListsUri}?extended=full")]
-        [InlineData(null, null, null, 2U, null, $"{GetPersonListsUri}?page=2")]
-        [InlineData(null, null, null, null, 4U, $"{GetPersonListsUri}?limit=4")]
-        [InlineData(TraktListType.Official, TraktListSortOrder.Comments, null, null, null, $"{GetPersonListsUri}/official/comments")]
-        [InlineData(TraktListType.Official, null, TraktExtendedInfo.Full, null, null, $"{GetPersonListsUri}/official?extended=full")]
-        [InlineData(TraktListType.Official, TraktListSortOrder.Comments, TraktExtendedInfo.Full, 2U, 4U, $"{GetPersonListsUri}/official/comments?extended=full&page=2&limit=4")]
-        public async Task TestGetPersonListsParametrized(TraktListType? type, TraktListSortOrder? sortOrder, TraktExtendedInfo? extendedInfo,
-            uint? page, uint? limit, string expectedUri)
+        [Fact]
+        public async Task TestGetPersonLists()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personlist.json");
-            uint expectedPage = page ?? 1U;
-            uint expectedLimit = limit ?? 10U;
 
-            TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, expectedPage, 1, expectedLimit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(GetPersonListsUri, responseContent, 1U, 1, 10U, ListItemCount);
 
             TraktPagedResponse<TraktList> response = await client.People.GetPersonListsAsync(
-                PersonID, type, sortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+                PersonID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ListItemCount);
-            response.Page.ShouldBe(expectedPage);
-            response.Limit.ShouldBe(expectedLimit);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonListsWithType()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personlist.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonListsUri}/{ListType.ToURI()}", responseContent, 1U, 1, 10U, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.People.GetPersonListsAsync(
+                PersonID, listType: ListType, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonListsWithSortOrder()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personlist.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonListsUri}/{ListSortOrder.ToURI()}", responseContent, 1U, 1, 10U, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.People.GetPersonListsAsync(
+                PersonID, listSortOrder: ListSortOrder, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonListsWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personlist.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonListsUri}?extended=full", responseContent, 1U, 1, 10U, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.People.GetPersonListsAsync(
+                PersonID, extendedInfo: TraktExtendedInfo.Full, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonListsWithPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personlist.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonListsUri}?page=2", responseContent, 2U, 1, 10U, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.People.GetPersonListsAsync(
+                PersonID, page: 2U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonListsWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personlist.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonListsUri}?limit=4", responseContent, 1U, 1, 4U, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.People.GetPersonListsAsync(
+                PersonID, limit: 4U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(4U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonListsWithTypeAndSortOrder()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personlist.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}", responseContent, 1U, 1, 10U, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.People.GetPersonListsAsync(
+                PersonID, ListType, ListSortOrder, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonListsWithTypeAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personlist.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonListsUri}/{ListType.ToURI()}?extended=full", responseContent, 1U, 1, 10U, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.People.GetPersonListsAsync(
+                PersonID, listType: ListType, extendedInfo: TraktExtendedInfo.Full, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonListsWithTypeAndSortOrderAndExtendedInfoAndPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personlist.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonListsUri}/{ListType.ToURI()}/{ListSortOrder.ToURI()}?extended=full&page=2&limit=4", responseContent, 2U, 1, 4U, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.People.GetPersonListsAsync(
+                PersonID, ListType, ListSortOrder, TraktExtendedInfo.Full, 2U, 4U, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(4U);
         }
 
         [Fact]

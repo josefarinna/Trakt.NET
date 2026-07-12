@@ -16,7 +16,7 @@ namespace TraktNET.SyncModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Watchlist\\syncwatchlistpostresponse.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(AddWatchlistItemsUri, responseContent, null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(AddWatchlistItemsUri, responseContent);
             TraktResponse<TraktSyncWatchlistPostResponse> response = await client.Sync.AddWatchlistItemsAsync(content, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();

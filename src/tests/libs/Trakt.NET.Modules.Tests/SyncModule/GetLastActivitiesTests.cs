@@ -11,7 +11,7 @@ namespace TraktNET.SyncModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Activities\\synclastactivities.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GetLastActivitiesUri, responseContent, null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetLastActivitiesUri, responseContent);
             TraktResponse<TraktSyncLastActivities> response = await client.Sync.GetLastActivitiesAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();

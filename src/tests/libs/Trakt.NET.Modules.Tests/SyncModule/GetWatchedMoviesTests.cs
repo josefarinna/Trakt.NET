@@ -1,20 +1,34 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SyncModule
 {
     public sealed class GetWatchedMoviesTests
     {
         private const string GetWatchedMoviesUri = "sync/watched/movies";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(GetWatchedMoviesUri, null)]
-        [InlineData($"{GetWatchedMoviesUri}?extended=full", TraktExtendedInfo.Full)]
-        public async Task TestGetWatchedMovies(string uri, TraktExtendedInfo? extendedInfo)
+        [Fact]
+        public async Task TestGetWatchedMovies()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedmovies.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(uri, responseContent, null, null, null, null);
-            TraktListResponse<TraktWatchedMovie> response = await client.Sync.GetWatchedMoviesAsync(extendedInfo, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetWatchedMoviesUri, responseContent, null, null, null, null);
+            TraktListResponse<TraktWatchedMovie> response = await client.Sync.GetWatchedMoviesAsync(null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public async Task TestGetWatchedMoviesWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedMoviesUri}?extended={ExtendedInfo.ToURI()}", responseContent, null, null, null, null);
+            TraktListResponse<TraktWatchedMovie> response = await client.Sync.GetWatchedMoviesAsync(ExtendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();

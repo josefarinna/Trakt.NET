@@ -16,7 +16,7 @@ namespace TraktNET.SyncModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Ratings\\syncratingspostresponse.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(AddRatingsUri, responseContent, null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(AddRatingsUri, responseContent);
             TraktResponse<TraktSyncRatingsPostResponse> response = await client.Sync.AddRatingsAsync(content, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();

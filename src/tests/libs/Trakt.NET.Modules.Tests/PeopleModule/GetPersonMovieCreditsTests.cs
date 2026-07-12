@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.PeopleModule
 {
@@ -121,12 +121,12 @@ namespace TraktNET.PeopleModule
         }
 
         [Fact]
-        public async Task TestGetPersonMovieCreditsWithTraktID()
+        public async Task TestGetPersonMovieCreditsWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personmoviecredits.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetPersonMovieCreditsUri, responseContent);
-            TraktResponse<TraktPersonMovieCredits> response = await client.People.GetPersonMovieCreditsAsync(PersonID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient($"people/{PersonSlug}/movies", responseContent);
+            TraktResponse<TraktPersonMovieCredits> response = await client.People.GetPersonMovieCreditsAsync(PersonSlug, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -366,17 +366,26 @@ namespace TraktNET.PeopleModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonMovieCreditsUri, HttpStatusCode.OK);
 
-            Func<Task<TraktResponse<TraktPersonMovieCredits>>> act = () => client.People.GetPersonMovieCreditsAsync(default(TraktPersonIDs)!);
+            Func<Task<TraktResponse<TraktPersonMovieCredits>>> act = () => client.People.GetPersonMovieCreditsAsync(default(TraktPersonIDs)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.People.GetPersonMovieCreditsAsync(default(TraktPerson)!);
+            act = () => client.People.GetPersonMovieCreditsAsync(default(TraktPerson)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.People.GetPersonMovieCreditsAsync(new TraktPersonIDs());
+            act = () => client.People.GetPersonMovieCreditsAsync(new TraktPersonIDs(), cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.People.GetPersonMovieCreditsAsync(0);
+            act = () => client.People.GetPersonMovieCreditsAsync(0, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
+
+            act = () => client.People.GetPersonMovieCreditsAsync(default(string)!, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.People.GetPersonMovieCreditsAsync(string.Empty, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.People.GetPersonMovieCreditsAsync("person id", cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }
 }

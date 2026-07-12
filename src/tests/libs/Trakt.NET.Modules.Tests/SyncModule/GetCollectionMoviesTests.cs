@@ -1,20 +1,34 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SyncModule
 {
     public sealed class GetCollectionMoviesTests
     {
         private const string GetCollectionMoviesUri = "sync/collection/movies";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(GetCollectionMoviesUri, null)]
-        [InlineData($"{GetCollectionMoviesUri}?extended=full", TraktExtendedInfo.Full)]
-        public async Task TestGetCollectionMovies(string uri, TraktExtendedInfo? extendedInfo)
+        [Fact]
+        public async Task TestGetCollectionMovies()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionmovies.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(uri, responseContent, null, null, null, null);
-            TraktListResponse<TraktSyncCollectionMovie> response = await client.Sync.GetCollectionMoviesAsync(extendedInfo, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetCollectionMoviesUri, responseContent, null, null, null, null);
+            TraktListResponse<TraktSyncCollectionMovie> response = await client.Sync.GetCollectionMoviesAsync(null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public async Task TestGetCollectionMoviesWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionMoviesUri}?extended={ExtendedInfo.ToURI()}", responseContent, null, null, null, null);
+            TraktListResponse<TraktSyncCollectionMovie> response = await client.Sync.GetCollectionMoviesAsync(ExtendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();

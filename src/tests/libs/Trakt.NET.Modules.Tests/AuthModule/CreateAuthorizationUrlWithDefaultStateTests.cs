@@ -88,9 +88,7 @@
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
 
-#pragma warning disable CS8625
-            Action act = () => client.Auth.CreateAuthorizationUrlWithDefaultState(clientId: null);
-#pragma warning restore CS8625
+            Action act = () => client.Auth.CreateAuthorizationUrlWithDefaultState(clientId: default!);
             act.ShouldThrow<ArgumentException>();
 
             act = () => client.Auth.CreateAuthorizationUrlWithDefaultState(string.Empty);

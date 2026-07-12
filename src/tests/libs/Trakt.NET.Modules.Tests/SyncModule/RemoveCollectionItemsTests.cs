@@ -16,7 +16,7 @@ namespace TraktNET.SyncModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionremove.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RemoveCollectionItemsUri, responseContent, null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RemoveCollectionItemsUri, responseContent);
             TraktResponse<TraktSyncCollectionRemovePostResponse> response = await client.Sync.RemoveCollectionItemsAsync(content, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();

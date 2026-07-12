@@ -1,20 +1,34 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SyncModule
 {
     public sealed class GetCollectionShowsTests
     {
         private const string GetCollectionsShowUri = "sync/collection/shows";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(GetCollectionsShowUri, null)]
-        [InlineData($"{GetCollectionsShowUri}?extended=full", TraktExtendedInfo.Full)]
-        public async Task TestGetCollectionShows(string uri, TraktExtendedInfo? extendedInfo)
+        [Fact]
+        public async Task TestGetCollectionShows()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionshows.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(uri, responseContent, null, null, null, null);
-            TraktListResponse<TraktSyncCollectionShow> response = await client.Sync.GetCollectionShowsAsync(extendedInfo, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetCollectionsShowUri, responseContent, null, null, null, null);
+            TraktListResponse<TraktSyncCollectionShow> response = await client.Sync.GetCollectionShowsAsync(null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public async Task TestGetCollectionShowsWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionsShowUri}?extended={ExtendedInfo.ToURI()}", responseContent, null, null, null, null);
+            TraktListResponse<TraktSyncCollectionShow> response = await client.Sync.GetCollectionShowsAsync(ExtendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();

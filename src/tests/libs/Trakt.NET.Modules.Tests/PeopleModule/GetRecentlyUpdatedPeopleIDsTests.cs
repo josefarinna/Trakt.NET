@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.PeopleModule
 {
@@ -8,43 +8,160 @@ namespace TraktNET.PeopleModule
         private const uint UpdatedIdsCount = 4U;
         private static readonly DateTime Today = DateTime.UtcNow;
 
-        [Theory]
-        // useStartDate | page | limit | expectedUri
-        [InlineData(false, null, null, GetRecentlyUpdatedPeopleIdsUri)]
-        [InlineData(true, null, null, "people/updates/id/today")]
-        [InlineData(false, 2U, null, $"{GetRecentlyUpdatedPeopleIdsUri}?page=2")]
-        [InlineData(false, null, 4U, $"{GetRecentlyUpdatedPeopleIdsUri}?limit=4")]
-        [InlineData(true, 2U, null, "people/updates/id/today?page=2")]
-        [InlineData(true, null, 4U, "people/updates/id/today?limit=4")]
-        [InlineData(false, 2U, 4U, $"{GetRecentlyUpdatedPeopleIdsUri}?page=2&limit=4")]
-        [InlineData(true, 2U, 4U, "people/updates/id/today?page=2&limit=4")]
-        public async Task TestGetRecentlyUpdatedPeopleIdsParametrized(bool useStartDate, uint? page, uint? limit, string expectedUri)
+        [Fact]
+        public async Task TestGetRecentlyUpdatedPeopleIds()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdatedids.json");
-            uint expectedPage = page ?? 1U;
-            uint expectedLimit = limit ?? 10U;
 
-            DateTime? startDate = null;
-            string finalExpectedUri = expectedUri;
-
-            if (useStartDate)
-            {
-                startDate = Today;
-                finalExpectedUri = expectedUri.Replace("today", $"{Today:yyyy-MM-ddTHH:00:00Z}");
-            }
-
-            TraktClient client = ModuleTestUtility.GetClient(finalExpectedUri, responseContent, expectedPage, 1, expectedLimit, UpdatedIdsCount);
+            TraktClient client = ModuleTestUtility.GetClient(GetRecentlyUpdatedPeopleIdsUri, responseContent, 1U, 1, 10U, UpdatedIdsCount);
 
             TraktPagedResponse<uint> response = await client.People.GetRecentlyUpdatedPeopleIDsAsync(
-                startDate, page, limit, TestContext.Current.CancellationToken);
+                cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)UpdatedIdsCount);
-            response.Page.ShouldBe(expectedPage);
-            response.Limit.ShouldBe(expectedLimit);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedPeopleIdsWithStartDate()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdatedids.json");
+            string expectedUri = $"{GetRecentlyUpdatedPeopleIdsUri}/{Today:yyyy-MM-ddTHH:00:00Z}";
+
+            TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, 1U, 1, 10U, UpdatedIdsCount);
+
+            TraktPagedResponse<uint> response = await client.People.GetRecentlyUpdatedPeopleIDsAsync(
+                Today, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)UpdatedIdsCount);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedPeopleIdsWithPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdatedids.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedPeopleIdsUri}?page=2", responseContent, 2U, 1, 10U, UpdatedIdsCount);
+
+            TraktPagedResponse<uint> response = await client.People.GetRecentlyUpdatedPeopleIDsAsync(
+                page: 2U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)UpdatedIdsCount);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedPeopleIdsWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdatedids.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedPeopleIdsUri}?limit=4", responseContent, 1U, 1, 4U, UpdatedIdsCount);
+
+            TraktPagedResponse<uint> response = await client.People.GetRecentlyUpdatedPeopleIDsAsync(
+                limit: 4U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)UpdatedIdsCount);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(4U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedPeopleIdsWithStartDateAndPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdatedids.json");
+            string expectedUri = $"{GetRecentlyUpdatedPeopleIdsUri}/{Today:yyyy-MM-ddTHH:00:00Z}?page=2";
+
+            TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, 2U, 1, 10U, UpdatedIdsCount);
+
+            TraktPagedResponse<uint> response = await client.People.GetRecentlyUpdatedPeopleIDsAsync(
+                Today, page: 2U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)UpdatedIdsCount);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedPeopleIdsWithStartDateAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdatedids.json");
+            string expectedUri = $"{GetRecentlyUpdatedPeopleIdsUri}/{Today:yyyy-MM-ddTHH:00:00Z}?limit=4";
+
+            TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, 1U, 1, 4U, UpdatedIdsCount);
+
+            TraktPagedResponse<uint> response = await client.People.GetRecentlyUpdatedPeopleIDsAsync(
+                Today, limit: 4U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)UpdatedIdsCount);
+            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(4U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedPeopleIdsWithPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdatedids.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetRecentlyUpdatedPeopleIdsUri}?page=2&limit=4", responseContent, 2U, 1, 4U, UpdatedIdsCount);
+
+            TraktPagedResponse<uint> response = await client.People.GetRecentlyUpdatedPeopleIDsAsync(
+                page: 2U, limit: 4U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)UpdatedIdsCount);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(4U);
+        }
+
+        [Fact]
+        public async Task TestGetRecentlyUpdatedPeopleIdsWithStartDateAndPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdatedids.json");
+            string expectedUri = $"{GetRecentlyUpdatedPeopleIdsUri}/{Today:yyyy-MM-ddTHH:00:00Z}?page=2&limit=4";
+
+            TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, 2U, 1, 4U, UpdatedIdsCount);
+
+            TraktPagedResponse<uint> response = await client.People.GetRecentlyUpdatedPeopleIDsAsync(
+                Today, 2U, 4U, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)UpdatedIdsCount);
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(4U);
         }
 
         [Fact]

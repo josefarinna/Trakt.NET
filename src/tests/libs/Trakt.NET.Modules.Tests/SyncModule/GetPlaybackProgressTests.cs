@@ -1,43 +1,302 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SyncModule
 {
     public sealed class GetPlaybackProgressTests
     {
         private const string GetPlaybackUri = "sync/playback";
+        private const uint Page = 2U;
+        private const uint Limit = 4U;
+        private const uint ItemCount = 10U;
+        private const uint ResponseCount = 2U;
+        private const TraktSyncType SyncType = TraktSyncType.Movie;
+        private static readonly DateTime StartAt = new(2015, 2, 18, 12, 54, 39, DateTimeKind.Utc);
+        private static readonly DateTime EndAt = new(2016, 11, 7, 3, 11, 0, DateTimeKind.Utc);
+        private const string StartAtString = "2015-02-18T12:54:39.000Z";
+        private const string EndAtString = "2016-11-07T03:11:00.000Z";
 
-        [Theory]
-        [InlineData(null, null, null, null, null, GetPlaybackUri)]
-        [InlineData(TraktSyncType.Movie, null, null, null, null, $"{GetPlaybackUri}/movies")]
-        [InlineData(null, "2015-02-18T12:54:39.000Z", null, null, null, $"{GetPlaybackUri}?start_at=2015-02-18T12:54:39.000Z")]
-        [InlineData(null, "2015-02-18T12:54:39.000Z", "2016-11-07T03:11:00.000Z", null, null, $"{GetPlaybackUri}?start_at=2015-02-18T12:54:39.000Z&end_at=2016-11-07T03:11:00.000Z")]
-        [InlineData(null, null, null, 2U, null, $"{GetPlaybackUri}?page=2")]
-        [InlineData(null, null, null, null, 5U, $"{GetPlaybackUri}?limit=5")]
-        [InlineData(TraktSyncType.Episode, "2015-02-18T12:54:39.000Z", null, 2U, null, $"{GetPlaybackUri}/episodes?start_at=2015-02-18T12:54:39.000Z")]
-        [InlineData(TraktSyncType.Movie, "2015-02-18T12:54:39.000Z", "2016-11-07T03:11:00.000Z", 3U, 10U, $"{GetPlaybackUri}/movies?start_at=2015-02-18T12:54:39.000Z&end_at=2016-11-07T03:11:00.000Z&page=3&limit=10")]
-        public async Task TestGetPlaybackProgress(TraktSyncType? type, string? startAtStr, string? endAtStr,
-            uint? page, uint? limit, string expectedUri)
+        [Fact]
+        public async Task TestGetPlaybackProgress()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
-            uint expectedPage = page ?? 1U;
-            uint expectedLimit = limit ?? 10U;
 
-            DateTime? startAt = startAtStr != null ? TestUtility.ParseUTCDateTime(startAtStr) : null;
-            DateTime? endAt = endAtStr != null ? TestUtility.ParseUTCDateTime(endAtStr) : null;
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(expectedUri, responseContent, expectedPage, 1, expectedLimit, 10);
-
-            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(type, startAt, endAt, expectedPage, expectedLimit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(2);
-            response.ItemCount.ShouldBe(10U);
-            response.Limit.ShouldBe(expectedLimit);
-            response.Page.ShouldBe(expectedPage);
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
             response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressWithSyncType()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}/{SyncType.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(SyncType, null, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressWithStartAt()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?start_at={StartAtString}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, StartAt, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressWithStartAtAndEndAt()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?start_at={StartAtString}&end_at={EndAtString}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, StartAt, EndAt, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressWithSyncTypeAndStartAt()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}/episodes?start_at={StartAtString}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(TraktSyncType.Episode, StartAt, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressComplete()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}/movies?start_at={StartAtString}&end_at={EndAtString}&page=3&limit=10", responseContent, 3, 1, 10, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(TraktSyncType.Movie, StartAt, EndAt, 3U, 10U, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(3U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(5U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, 2, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetPlaybackUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetPlaybackProgressPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(null, null, null, 1, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+
+            ModuleTestUtility.SetClient(client, $"{GetPlaybackUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
+
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ResponseCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Theory]

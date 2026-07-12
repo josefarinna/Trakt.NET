@@ -16,7 +16,7 @@ namespace TraktNET.SyncModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Favorites\\syncfavoritespostresponse.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(AddFavoriteItemsUri, responseContent, null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(AddFavoriteItemsUri, responseContent);
             TraktResponse<TraktSyncFavoritesPostResponse> response = await client.Sync.AddFavoriteItemsAsync(content, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();

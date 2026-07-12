@@ -92,6 +92,16 @@ namespace TraktNET.AuthModule
             (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);
         }
 
+        [Fact]
+        public async Task TestRefreshAuthorizationWithAuthorizationNullThrowsArgumentException()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAuthorizationUri);
+            client.Authorization = null;
+
+            Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.RefreshAuthorizationAsync(TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
+        }
+
         private static void ValidateResponse(TraktResponse<TraktAuthorization> response, TraktClient client)
         {
             response.ShouldNotBeNull();

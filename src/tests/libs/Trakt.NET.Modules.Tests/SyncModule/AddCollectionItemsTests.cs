@@ -16,7 +16,7 @@ namespace TraktNET.SyncModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionpostresponse.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(AddCollectionItemsUri, responseContent, null, null, null, null);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(AddCollectionItemsUri, responseContent);
             TraktResponse<TraktSyncCollectionPostResponse> response = await client.Sync.AddCollectionItemsAsync(content, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();

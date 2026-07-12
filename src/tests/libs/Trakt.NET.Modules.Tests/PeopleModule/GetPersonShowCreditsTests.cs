@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.PeopleModule
 {
@@ -121,12 +121,12 @@ namespace TraktNET.PeopleModule
         }
 
         [Fact]
-        public async Task TestGetPersonShowCreditsWithTraktID()
+        public async Task TestGetPersonShowCreditsWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\personshowcredits.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetPersonShowCreditsUri, responseContent);
-            TraktResponse<TraktPersonShowCredits> response = await client.People.GetPersonShowCreditsAsync(PersonID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient($"people/{PersonSlug}/shows", responseContent);
+            TraktResponse<TraktPersonShowCredits> response = await client.People.GetPersonShowCreditsAsync(PersonSlug, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -366,17 +366,26 @@ namespace TraktNET.PeopleModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonShowCreditsUri, HttpStatusCode.OK);
 
-            Func<Task<TraktResponse<TraktPersonShowCredits>>> act = () => client.People.GetPersonShowCreditsAsync(default(TraktPersonIDs)!);
+            Func<Task<TraktResponse<TraktPersonShowCredits>>> act = () => client.People.GetPersonShowCreditsAsync(default(TraktPersonIDs)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.People.GetPersonShowCreditsAsync(default(TraktPerson)!);
+            act = () => client.People.GetPersonShowCreditsAsync(default(TraktPerson)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.People.GetPersonShowCreditsAsync(new TraktPersonIDs());
+            act = () => client.People.GetPersonShowCreditsAsync(new TraktPersonIDs(), cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.People.GetPersonShowCreditsAsync(0);
+            act = () => client.People.GetPersonShowCreditsAsync(0, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
+
+            act = () => client.People.GetPersonShowCreditsAsync(default(string)!, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.People.GetPersonShowCreditsAsync(string.Empty, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.People.GetPersonShowCreditsAsync("person id", cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }
 }

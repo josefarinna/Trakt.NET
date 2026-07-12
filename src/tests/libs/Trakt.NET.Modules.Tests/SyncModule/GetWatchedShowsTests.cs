@@ -1,20 +1,34 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SyncModule
 {
     public sealed class GetWatchedShowsTests
     {
         private const string GetWatchedShowsUri = "sync/watched/shows";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Theory]
-        [InlineData(GetWatchedShowsUri, null)]
-        [InlineData($"{GetWatchedShowsUri}?extended=full", TraktExtendedInfo.Full)]
-        public async Task TestGetWatchedShows(string uri, TraktExtendedInfo? extendedInfo)
+        [Fact]
+        public async Task TestGetWatchedShows()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedshows.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(uri, responseContent, null, null, null, null);
-            TraktListResponse<TraktWatchedShow> response = await client.Sync.GetWatchedShowsAsync(extendedInfo, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetWatchedShowsUri, responseContent, null, null, null, null);
+            TraktListResponse<TraktWatchedShow> response = await client.Sync.GetWatchedShowsAsync(null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public async Task TestGetWatchedShowsWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedShowsUri}?extended={ExtendedInfo.ToURI()}", responseContent, null, null, null, null);
+            TraktListResponse<TraktWatchedShow> response = await client.Sync.GetWatchedShowsAsync(ExtendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();

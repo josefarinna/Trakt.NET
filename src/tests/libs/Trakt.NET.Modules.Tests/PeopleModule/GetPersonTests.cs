@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.PeopleModule
 {
@@ -32,15 +32,16 @@ namespace TraktNET.PeopleModule
         }
 
         [Fact]
-        public async Task TestGetPersonWithTraktID()
+        public async Task TestGetPersonWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\person_minimal.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetPersonUri, responseContent);
-            TraktResponse<TraktPerson> response = await client.People.GetPersonAsync(PersonID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient($"people/{PersonSlug}", responseContent);
+            TraktResponse<TraktPerson> response = await client.People.GetPersonAsync(PersonSlug, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
         }
 
@@ -180,9 +181,7 @@ namespace TraktNET.PeopleModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonUri, HttpStatusCode.OK);
 
-#pragma warning disable CS8625
-            Func<Task<TraktResponse<TraktPerson>>> act = () => client.People.GetPersonAsync(default(TraktPersonIDs), cancellationToken: TestContext.Current.CancellationToken);
-#pragma warning restore CS8625
+            Func<Task<TraktResponse<TraktPerson>>> act = () => client.People.GetPersonAsync(default(TraktPersonIDs)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
             act = () => client.People.GetPersonAsync(new TraktPersonIDs(), cancellationToken: TestContext.Current.CancellationToken);
@@ -190,6 +189,15 @@ namespace TraktNET.PeopleModule
 
             act = () => client.People.GetPersonAsync(0, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
+
+            act = () => client.People.GetPersonAsync(default(string)!, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.People.GetPersonAsync(string.Empty, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.People.GetPersonAsync("person id", cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }
 }
