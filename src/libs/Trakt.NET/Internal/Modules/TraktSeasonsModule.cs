@@ -189,5 +189,23 @@ namespace TraktNET
 
             return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, string>>(_context, request, cancellationToken);
         }
+
+        private Task<TraktResponse> ReportSeasonImplAsync(string showIdOrSlug, uint seasonNumber, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        {
+            var content = new TraktReportPost
+            {
+                Reason = reason,
+                Message = message
+            };
+
+            var request = new SeasonReportPostRequest
+            {
+                ShowId = showIdOrSlug,
+                SeasonNumber = seasonNumber,
+                TraktReportPost = content
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
     }
 }

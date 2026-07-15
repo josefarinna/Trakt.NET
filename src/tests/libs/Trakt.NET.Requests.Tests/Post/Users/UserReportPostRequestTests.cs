@@ -14,7 +14,7 @@ namespace TraktNET.PostRequests.Users
             var userReportPostRequest = new UserReportPostRequest
             {
                 Id = "123",
-                TraktUserReportPost = new TraktUserReportPost()
+                TraktReportPost = new TraktReportPost()
             };
 
             userReportPostRequest.BuildUri();
@@ -24,48 +24,48 @@ namespace TraktNET.PostRequests.Users
         [Fact]
         public void TestUserReportPostRequestHasValidOAuthRequirement()
         {
-            var userReportPostRequest = new UserReportPostRequest { Id = default!, TraktUserReportPost = default! };
+            var userReportPostRequest = new UserReportPostRequest { Id = default!, TraktReportPost = default! };
             userReportPostRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestUserReportPostRequestIsPostRequest()
         {
-            var userReportPostRequest = new UserReportPostRequest { Id = default!, TraktUserReportPost = default! };
+            var userReportPostRequest = new UserReportPostRequest { Id = default!, TraktReportPost = default! };
             userReportPostRequest.Method.ShouldBe(HttpMethod.Post);
         }
 
         [Fact]
         public void TestUserReportPostRequestHasCorrectRequestObjectType()
         {
-            var userReportPostRequest = new UserReportPostRequest { Id = default!, TraktUserReportPost = default! };
+            var userReportPostRequest = new UserReportPostRequest { Id = default!, TraktReportPost = default! };
             userReportPostRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
 
         [Fact]
         public void TestUserReportPostRequestValidate()
         {
-            var userReportPostRequest = new UserReportPostRequest { Id = string.Empty, TraktUserReportPost = default! };
+            var userReportPostRequest = new UserReportPostRequest { Id = string.Empty, TraktReportPost = default! };
             Action act = () => userReportPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userReportPostRequest = new UserReportPostRequest { Id = "  ", TraktUserReportPost = default! };
+            userReportPostRequest = new UserReportPostRequest { Id = "  ", TraktReportPost = default! };
             act = () => userReportPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userReportPostRequest = new UserReportPostRequest { Id = "id with spaces", TraktUserReportPost = default! };
+            userReportPostRequest = new UserReportPostRequest { Id = "id with spaces", TraktReportPost = default! };
             act = () => userReportPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userReportPostRequest = new UserReportPostRequest { Id = "id", TraktUserReportPost = default! };
+            userReportPostRequest = new UserReportPostRequest { Id = "id", TraktReportPost = default! };
             act = () => userReportPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userReportPostRequest = new UserReportPostRequest { Id = "id", TraktUserReportPost = new TraktUserReportPost() };
+            userReportPostRequest = new UserReportPostRequest { Id = "id", TraktReportPost = new TraktReportPost() };
             act = () => userReportPostRequest.Validate();
             act.ShouldThrow<TraktPostValidationException>();
 
-            userReportPostRequest = new UserReportPostRequest { Id = "id", TraktUserReportPost = new TraktUserReportPost { Reason = TraktReason.Other } };
+            userReportPostRequest = new UserReportPostRequest { Id = "id", TraktReportPost = new TraktReportPost { Reason = TraktReason.Other } };
             act = () => userReportPostRequest.Validate();
             act.ShouldThrow<TraktPostValidationException>();
         }

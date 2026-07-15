@@ -225,5 +225,32 @@ namespace TraktNET
 
             return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, string>>(_context, request, cancellationToken);
         }
+
+        private Task<TraktResponse> ReportMovieImplAsync(string movieIdOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        {
+            var content = new TraktReportPost
+            {
+                Reason = reason,
+                Message = message
+            };
+
+            var request = new MovieReportPostRequest
+            {
+                Id = movieIdOrSlug,
+                TraktReportPost = content
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> RefreshMovieJustWatchLinksImplAsync(string movieIdOrSlug, CancellationToken cancellationToken = default)
+        {
+            var request = new MovieRefreshJustWatchPostRequest
+            {
+                Id = movieIdOrSlug
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
     }
 }

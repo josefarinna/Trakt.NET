@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 
 namespace TraktNET
 {
@@ -459,5 +459,31 @@ namespace TraktNET
         public Task<TraktPagedResponse<TraktComment>> GetCommentRepliesAsync(uint commentId, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetCommentRepliesImplAsync(commentId, extendedInfo, page, limit, cancellationToken);
+
+        /// <summary>Reports a comment for moderator review with the specified comment ID.</summary>
+        /// <param name="commentId">The comment's id.</param>
+        /// <param name="reason">The reason for reporting the comment. See also <seealso cref="TraktReason" />.</param>
+        /// <param name="message">An optional message providing additional context for the report.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>A <see cref="TraktResponse" />.</returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentsreport">
+        /// Trakt API Documentation: Comments: Report a comment
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
+        /// <exception cref="ArgumentException">Thrown, if the given <paramref name="commentId"/> is 0.</exception>
+        public Task<TraktResponse> ReportCommentAsync(uint commentId, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        {
+            if (commentId == 0)
+                throw new ArgumentException("commentId must not be 0", nameof(commentId));
+
+            return ReportCommentImplAsync(commentId, reason, message, cancellationToken);
+        }
     }
 }

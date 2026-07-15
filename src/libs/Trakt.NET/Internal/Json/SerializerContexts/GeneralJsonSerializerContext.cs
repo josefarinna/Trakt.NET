@@ -1,4 +1,4 @@
-﻿#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
@@ -22,6 +22,7 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktStudioIDs))]
     [JsonSerializable(typeof(IReadOnlyList<TraktVideo>))]
     [JsonSerializable(typeof(TraktVideo))]
+    [JsonSerializable(typeof(TraktReportPost))]
     public sealed partial class GeneralJsonSerializerContext : JsonSerializerContext
     {
     }

@@ -327,7 +327,8 @@ namespace TraktNET
             typeof(TraktRating),
             typeof(TraktStudio),
             typeof(TraktStudioIDs),
-            typeof(TraktVideo)
+            typeof(TraktVideo),
+            typeof(TraktReportPost)
         });
 
         private static readonly FrozenSet<Type> s_genresJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -803,7 +804,8 @@ namespace TraktNET
             typeof(TraktRating),
             typeof(TraktStudio),
             typeof(TraktStudioIDs),
-            typeof(TraktVideo)
+            typeof(TraktVideo),
+            typeof(TraktReportPost)
         ];
 
         private static readonly HashSet<Type> s_genresJsonTypes = [

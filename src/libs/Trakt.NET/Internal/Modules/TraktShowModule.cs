@@ -300,5 +300,32 @@ namespace TraktNET
 
             return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, string>>(_context, request, cancellationToken);
         }
+
+        private Task<TraktResponse> ReportShowImplAsync(string showIdOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        {
+            var content = new TraktReportPost
+            {
+                Reason = reason,
+                Message = message
+            };
+
+            var request = new ShowReportPostRequest
+            {
+                Id = showIdOrSlug,
+                TraktReportPost = content
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> RefreshShowJustWatchLinksImplAsync(string showIdOrSlug, CancellationToken cancellationToken = default)
+        {
+            var request = new ShowRefreshJustWatchPostRequest
+            {
+                Id = showIdOrSlug
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     // -------------------------------------------------------
     // GET Requests
@@ -59,6 +59,15 @@
     [TraktPostRequest("people/{id!!}/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class PersonRefreshPostRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Person;
+    }
+
+    [TraktPostRequest("people/{id!!}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class PersonReportPostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktReportPost TraktReportPost { get; set; }
+
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Person;
     }
 }

@@ -202,4 +202,19 @@ namespace TraktNET
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
+
+    [TraktPostRequest("movies/{id!!}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class MovieReportPostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktReportPost TraktReportPost { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
+    }
+
+    [TraktPostRequest("movies/{id!!}/justwatch/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class MovieRefreshJustWatchPostRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
+    }
 }

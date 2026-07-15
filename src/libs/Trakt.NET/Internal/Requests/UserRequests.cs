@@ -284,6 +284,15 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
+    [TraktPostRequest("users/{id!!}/lists/{list_id!!}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserPersonalListReportPostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktReportPost TraktReportPost { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
+    }
+
     [TraktPostRequest("users/{id!!}/lists", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserPersonalListAddPostRequest
     {
@@ -327,7 +336,7 @@ namespace TraktNET
     internal sealed partial class UserReportPostRequest
     {
         [TraktRequestPayload]
-        internal required TraktUserReportPost TraktUserReportPost { get; set; }
+        internal required TraktReportPost TraktReportPost { get; set; }
     }
 
     // -------------------------------------------------------

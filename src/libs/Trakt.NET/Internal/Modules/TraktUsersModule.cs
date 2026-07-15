@@ -615,7 +615,7 @@ namespace TraktNET
 
         private Task<TraktResponse> ReportUserImplAsync(string usernameOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
         {
-            var content = new TraktUserReportPost
+            var content = new TraktReportPost
             {
                 Reason = reason,
                 Message = message
@@ -624,7 +624,25 @@ namespace TraktNET
             var request = new UserReportPostRequest
             {
                 Id = usernameOrSlug,
-                TraktUserReportPost = content
+                TraktReportPost = content
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> ReportUserListImplAsync(string usernameOrSlug, string listIdOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        {
+            var content = new TraktReportPost
+            {
+                Reason = reason,
+                Message = message
+            };
+
+            var request = new UserPersonalListReportPostRequest
+            {
+                Id = usernameOrSlug,
+                ListId = listIdOrSlug,
+                TraktReportPost = content
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);

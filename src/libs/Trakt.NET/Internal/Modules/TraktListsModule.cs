@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to lists.<para />
@@ -146,6 +146,23 @@
             var request = new ListUnlikeDeleteRequest
             {
                 Id = listIdOrSlug
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> ReportListImplAsync(string listIdOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        {
+            var content = new TraktReportPost
+            {
+                Reason = reason,
+                Message = message
+            };
+
+            var request = new ListReportPostRequest
+            {
+                Id = listIdOrSlug,
+                TraktReportPost = content
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);

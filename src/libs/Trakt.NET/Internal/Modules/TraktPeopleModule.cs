@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to people.<para />
@@ -111,6 +111,23 @@
             var request = new PersonRefreshPostRequest
             {
                 Id = personIDOrSlug
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> ReportPersonImplAsync(string personIdOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        {
+            var content = new TraktReportPost
+            {
+                Reason = reason,
+                Message = message
+            };
+
+            var request = new PersonReportPostRequest
+            {
+                Id = personIdOrSlug,
+                TraktReportPost = content
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);

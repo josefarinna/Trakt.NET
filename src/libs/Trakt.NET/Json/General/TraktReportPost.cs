@@ -1,19 +1,20 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
-    /// An reason to report an user.
+    /// A post body for reporting a media item, person, list, comment, or user.
     /// </summary>
-    public record class TraktUserReportPost
+    public record class TraktReportPost
     {
-        /// <summary>The reason for the user's report.</summary>
+        /// <summary>The reason for the report. See also <seealso cref="TraktReason" />.</summary>
         public TraktReason? Reason { get; set; }
 
         /// <summary>An optional message providing additional context for the report.</summary>
         public string? Message { get; set; }
 
+        /// <summary>Validates the report post data.</summary>
         public void Validate()
         {
-            if (Reason == null)
+            if (Reason == null || Reason == TraktReason.Unspecified)
                 throw new TraktPostValidationException("no reason set");
             if (Reason == TraktReason.Other && string.IsNullOrEmpty(Message))
                 throw new TraktPostValidationException("no message set for 'Other' reason");

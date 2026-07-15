@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     // -------------------------------------------------------
     // GET Requests
@@ -92,6 +92,19 @@
     [TraktGetRequest("shows/{show_id!!}/seasons/{season_number:uint}/watchnow/justwatch_links/{country!!}")]
     internal sealed partial class SeasonJustwatchLinksGetRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
+    }
+
+    // -------------------------------------------------------
+    // POST Requests
+    // -------------------------------------------------------
+
+    [TraktPostRequest("shows/{show_id!!}/seasons/{season_number:uint}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SeasonReportPostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktReportPost TraktReportPost { get; set; }
+
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 }

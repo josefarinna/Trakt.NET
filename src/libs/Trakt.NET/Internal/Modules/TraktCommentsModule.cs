@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to comments.<para />
@@ -271,6 +271,23 @@
                     Page = page,
                     Limit = limit,
                 }, cancellationToken);
+        }
+
+        private Task<TraktResponse> ReportCommentImplAsync(uint commentId, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        {
+            var content = new TraktReportPost
+            {
+                Reason = reason,
+                Message = message
+            };
+
+            var request = new CommentReportPostRequest
+            {
+                Id = commentId.ToInvariantCultureString(),
+                TraktReportPost = content
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
     }
 }

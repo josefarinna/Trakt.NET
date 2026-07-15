@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     // -------------------------------------------------------
     // GET Requests
@@ -249,6 +249,21 @@
         [TraktRequestQuery("reset_at", UseCacheEfficientDateTime = true)]
         internal DateTime? ResetAt { get; set; }
 
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
+    }
+
+    [TraktPostRequest("shows/{id!!}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class ShowReportPostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktReportPost TraktReportPost { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
+    }
+
+    [TraktPostRequest("shows/{id!!}/justwatch/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class ShowRefreshJustWatchPostRequest
+    {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
