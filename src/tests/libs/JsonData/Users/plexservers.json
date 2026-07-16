@@ -1,0 +1,13 @@
+{
+  "servers": [
+    {
+      "id": "server1",
+      "name": "My Server",
+      "connection_count": 1,
+      "connection_timeout": 5,
+      "ports": [32400],
+      "owned": true,
+      "url": "http://127.0.0.1:32400"
+    }
+  ]
+}

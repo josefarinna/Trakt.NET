@@ -1,7 +1,6 @@
-using System;
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
-using Shouldly;
-using Xunit;
+#endif
 
 namespace TraktNET.PutRequests.Users
 {

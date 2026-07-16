@@ -64,6 +64,34 @@ namespace TraktNET.PostRequests.Users
             userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = "id", TraktUserPersonalListPost = new TraktUserPersonalListPost() };
             act = () => userPersonalListAddPostRequest.Validate();
             act.ShouldThrow<ArgumentException>();
+
+            userPersonalListAddPostRequest = new UserPersonalListAddPostRequest { Id = "id", TraktUserPersonalListPost = new TraktUserPersonalListPost { Name = "  " } };
+            act = () => userPersonalListAddPostRequest.Validate();
+            act.ShouldThrow<ArgumentException>();
+
+            userPersonalListAddPostRequest = new UserPersonalListAddPostRequest
+            {
+                Id = "id",
+                TraktUserPersonalListPost = new TraktUserPersonalListPost
+                {
+                    Name = "listname",
+                    Privacy = TraktListPrivacy.Unspecified
+                }
+            };
+            act = () => userPersonalListAddPostRequest.Validate();
+            act.ShouldThrow<TraktPostValidationException>();
+
+            userPersonalListAddPostRequest = new UserPersonalListAddPostRequest
+            {
+                Id = "id",
+                TraktUserPersonalListPost = new TraktUserPersonalListPost
+                {
+                    Name = "listname",
+                    Privacy = TraktListPrivacy.Private
+                }
+            };
+            act = () => userPersonalListAddPostRequest.Validate();
+            act.ShouldNotThrow();
         }
     }
 }

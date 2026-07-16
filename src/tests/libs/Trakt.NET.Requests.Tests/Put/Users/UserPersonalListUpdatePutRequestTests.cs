@@ -77,6 +77,36 @@ namespace TraktNET.PutRequests.Users
             userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = "listid", TraktUserPersonalListPost = new TraktUserPersonalListPost() };
             act = () => userPersonalListUpdatePutRequest.Validate();
             act.ShouldThrow<ArgumentException>();
+
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest { Id = "id", ListId = "listid", TraktUserPersonalListPost = new TraktUserPersonalListPost { Name = "  " } };
+            act = () => userPersonalListUpdatePutRequest.Validate();
+            act.ShouldThrow<ArgumentException>();
+
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest
+            {
+                Id = "id",
+                ListId = "listid",
+                TraktUserPersonalListPost = new TraktUserPersonalListPost
+                {
+                    Name = "listname",
+                    Privacy = TraktListPrivacy.Unspecified
+                }
+            };
+            act = () => userPersonalListUpdatePutRequest.Validate();
+            act.ShouldThrow<TraktPostValidationException>();
+
+            userPersonalListUpdatePutRequest = new UserPersonalListUpdatePutRequest
+            {
+                Id = "id",
+                ListId = "listid",
+                TraktUserPersonalListPost = new TraktUserPersonalListPost
+                {
+                    Name = "listname",
+                    Privacy = TraktListPrivacy.Private
+                }
+            };
+            act = () => userPersonalListUpdatePutRequest.Validate();
+            act.ShouldNotThrow();
         }
     }
 }

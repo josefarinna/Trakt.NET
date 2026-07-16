@@ -1,0 +1,70 @@
+{
+  "connection": {
+    "connected": true,
+    "username": "plex_user"
+  },
+  "webhook": {
+    "url": "https://webhook.url",
+    "last_event_at": "2026-07-16T00:00:00.000Z",
+    "event_count": 42,
+    "home_users": "home_user1,home_user2"
+  },
+  "sync": {
+    "configured": true,
+    "error": false,
+    "selection": {
+      "server_ids": ["server1"],
+      "library_ids": [
+        {
+          "server_id": "server1",
+          "uuid": "uuid1"
+        }
+      ],
+      "user_ids": ["user1"]
+    },
+    "toggles": {
+      "movie": {
+        "watching": true,
+        "watched": true,
+        "rated": true,
+        "collected": true,
+        "watchlist": true
+      },
+      "show": {
+        "rated": true,
+        "watchlist": true
+      },
+      "season": {
+        "rated": true
+      },
+      "episode": {
+        "watching": true,
+        "watched": true,
+        "rated": true,
+        "collected": true
+      }
+    }
+  },
+  "scrobbler": {
+    "toggles": {
+      "movie": {
+        "watching": true,
+        "watched": true,
+        "rated": true,
+        "collected": true
+      },
+      "show": {
+        "rated": true
+      },
+      "season": {
+        "rated": true
+      },
+      "episode": {
+        "watching": true,
+        "watched": true,
+        "rated": true,
+        "collected": true
+      }
+    }
+  }
+}

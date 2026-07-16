@@ -59,6 +59,10 @@ namespace TraktNET.PostRequests.Episodes
             act = () => episodeReportPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
+            episodeReportPostRequest = new EpisodeReportPostRequest { ShowId = "id", SeasonNumber = 1, EpisodeNumber = 0, TraktReportPost = default! };
+            act = () => episodeReportPostRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
             episodeReportPostRequest = new EpisodeReportPostRequest { ShowId = "id", SeasonNumber = 1, EpisodeNumber = 2, TraktReportPost = default! };
             act = () => episodeReportPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
