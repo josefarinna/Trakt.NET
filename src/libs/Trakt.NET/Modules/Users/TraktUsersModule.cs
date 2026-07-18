@@ -1049,5 +1049,44 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> UnblockUserAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
             => UnblockUserImplAsync(usernameOrSlug, cancellationToken);
+
+        /// <summary>Updates the authenticated user's avatar.</summary>
+        /// <param name="avatar">The avatar image data in base64.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>A <see cref="TraktResponse" />.</returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/putusersavatar">
+        /// Trakt API Documentation: Users: Update avatar
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse> UpdateAvatarAsync(string avatar, CancellationToken cancellationToken = default)
+            => UpdateAvatarImplAsync(avatar, cancellationToken);
+
+        /// <summary>Updates the authenticated user's cover image.</summary>
+        /// <param name="coverType">The type of the cover image. See also <seealso cref="TraktCoverType" />.</param>
+        /// <param name="coverId">The Trakt ID of the movie, show, or episode.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>A <see cref="TraktResponse" />.</returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/putuserscover">
+        /// Trakt API Documentation: Users: Update cover image
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse> UpdateCoverImageAsync(TraktCoverType coverType, uint coverId, CancellationToken cancellationToken = default)
+            => UpdateCoverImageImplAsync(coverType, coverId, cancellationToken);
     }
 }

@@ -1,33 +1,20 @@
 using System.Net;
-using Shouldly;
-using Xunit;
 
-namespace TraktNET.YounifyModule
+namespace TraktNET.UsersModule
 {
-    public sealed class ConnectTests
+    public sealed class UpdateAvatarTests
     {
-        private const string ConnectUri = "younify/connect";
+        private const string UpdateAvatarUri = "users/avatar";
 
         [Fact]
-        public async Task TestConnect()
+        public async Task TestUpdateAvatar()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Younify\\connect.json");
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ConnectUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(UpdateAvatarUri, HttpStatusCode.NoContent);
 
-            var post = new TraktYounifyConnectPost
-            {
-                ServiceId = "netflix",
-                ReturnUrl = "https://trakt.tv/return"
-            };
-
-            TraktResponse<TraktYounifyConnectResponse> response =
-                await client.Younify.ConnectAsync(post, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Users.UpdateAvatarAsync("base64imagecontent", TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Url.ShouldBe("https://younify.trakt.tv/connect/netflix?token=abcdef");
         }
 
         [Theory]
@@ -56,26 +43,27 @@ namespace TraktNET.YounifyModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestConnectThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestUpdateAvatarThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
         {
-            var post = new TraktYounifyConnectPost
-            {
-                ServiceId = "netflix",
-                ReturnUrl = "https://trakt.tv/return"
-            };
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ConnectUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(UpdateAvatarUri, statusCode);
 
-            Func<Task<TraktResponse<TraktYounifyConnectResponse>>> act = () => client.Younify.ConnectAsync(post, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Users.UpdateAvatarAsync("base64", TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestConnectThrowsArgumentNullException()
+        public async Task TestUpdateAvatarArgumentExceptions()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ConnectUri, HttpStatusCode.OK);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(UpdateAvatarUri, HttpStatusCode.NoContent);
 
-            Func<Task<TraktResponse<TraktYounifyConnectResponse>>> act = () => client.Younify.ConnectAsync(null!, TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<TraktRequestValidationException>();
+            Func<Task<TraktResponse>> act = () => client.Users.UpdateAvatarAsync(default!, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
+
+            act = () => client.Users.UpdateAvatarAsync(string.Empty, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
+
+            act = () => client.Users.UpdateAvatarAsync("   ", TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }

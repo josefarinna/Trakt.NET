@@ -160,6 +160,10 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktPlexLibraryInfo))]
     [JsonSerializable(typeof(IReadOnlyList<TraktPlexLibraryInfo>))]
     [JsonSerializable(typeof(TraktPlexSyncPost))]
+    [JsonSerializable(typeof(TraktUserAvatarPost))]
+    [JsonSerializable(typeof(TraktUserAvatarPostUser))]
+    [JsonSerializable(typeof(TraktUserCoverPost))]
+    [JsonSerializable(typeof(TraktCoverType))]
     public sealed partial class UsersJsonSerializerContext : JsonSerializerContext
     {
     }

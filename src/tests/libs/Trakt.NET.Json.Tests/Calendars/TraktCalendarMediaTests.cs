@@ -17,7 +17,7 @@ namespace TraktNET.Json.Calendars
         [Fact]
         public async Task TestTraktCalendarMediaFromJson()
         {
-            IReadOnlyList<TraktCalendarMedia>? calendarMediaList = await TestUtility.DeserializeJsonAsync<IReadOnlyList<TraktCalendarMedia>>("Calendars\\calendarmedia.json");
+            IReadOnlyList<TraktCalendarMedia>? calendarMediaList = await TestUtility.DeserializeJsonListAsync<TraktCalendarMedia>("Calendars\\calendarmedia.json");
 
             calendarMediaList.ShouldNotBeNull();
             calendarMediaList!.Count.ShouldBe(2);

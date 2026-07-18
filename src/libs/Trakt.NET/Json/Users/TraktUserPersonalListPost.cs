@@ -40,15 +40,5 @@
             if (Privacy != null && Privacy == TraktListPrivacy.Unspecified)
                 throw new TraktPostValidationException(nameof(Privacy), "Privacy must not be unspecified");
         }
-
-        /// <summary>Returns whether the post has any values set.</summary>
-        public bool HasAnyValuesSet()
-        {
-            return !string.IsNullOrEmpty(Name) || !string.IsNullOrEmpty(Description)
-                || (Privacy != null && Privacy != TraktListPrivacy.Unspecified)
-                || DisplayNumbers.HasValue || AllowComments.HasValue
-                || (SortBy != null && SortBy != TraktSortBy.Unspecified)
-                || (SortHow != null && SortHow != TraktSortHow.Unspecified);
-        }
     }
 }

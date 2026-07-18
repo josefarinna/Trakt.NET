@@ -277,7 +277,7 @@ namespace TraktNET
         {
             typeof(TraktCalendarShow),
             typeof(TraktCalendarMovie),
-            typeof(TraktCalendarMedia),
+            typeof(TraktCalendarMedia)
         });
 
         private static readonly FrozenSet<Type> s_certificationsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -734,14 +734,15 @@ namespace TraktNET
             typeof(TraktPlexConnectPost),
             typeof(TraktPlexConnectResponse),
             typeof(TraktPlexServer),
-            typeof(IReadOnlyList<TraktPlexServer>),
             typeof(TraktPlexServersResponse),
             typeof(TraktPlexServerAccountsAndLibraries),
             typeof(TraktPlexAccount),
-            typeof(IReadOnlyList<TraktPlexAccount>),
             typeof(TraktPlexLibraryInfo),
-            typeof(IReadOnlyList<TraktPlexLibraryInfo>),
-            typeof(TraktPlexSyncPost)
+            typeof(TraktPlexSyncPost),
+            typeof(TraktUserAvatarPost),
+            typeof(TraktUserAvatarPostUser),
+            typeof(TraktUserCoverPost),
+            typeof(TraktCoverType)
         });
 
         private static readonly FrozenSet<Type> s_watchedJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -824,7 +825,7 @@ namespace TraktNET
         private static readonly HashSet<Type> s_calendarssJsonTypes = [
             typeof(TraktCalendarShow),
             typeof(TraktCalendarMovie),
-            typeof(TraktCalendarMedia),
+            typeof(TraktCalendarMedia)
         ];
 
         private static readonly HashSet<Type> s_certificationsJsonTypes = [
@@ -1257,14 +1258,15 @@ namespace TraktNET
             typeof(TraktPlexConnectPost),
             typeof(TraktPlexConnectResponse),
             typeof(TraktPlexServer),
-            typeof(IReadOnlyList<TraktPlexServer>),
             typeof(TraktPlexServersResponse),
             typeof(TraktPlexServerAccountsAndLibraries),
             typeof(TraktPlexAccount),
-            typeof(IReadOnlyList<TraktPlexAccount>),
             typeof(TraktPlexLibraryInfo),
-            typeof(IReadOnlyList<TraktPlexLibraryInfo>),
-            typeof(TraktPlexSyncPost)
+            typeof(TraktPlexSyncPost),
+            typeof(TraktUserAvatarPost),
+            typeof(TraktUserAvatarPostUser),
+            typeof(TraktUserCoverPost),
+            typeof(TraktCoverType)
         ];
 
         private static readonly HashSet<Type> s_watchedJsonTypes = [

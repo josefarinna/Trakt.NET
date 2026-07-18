@@ -428,6 +428,20 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
+    [TraktPutRequest("users/avatar", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserAvatarPutRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktUserAvatarPost TraktUserAvatarPost { get; set; }
+    }
+
+    [TraktPutRequest("users/set_cover", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserCoverPutRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktUserCoverPost TraktUserCoverPost { get; set; }
+    }
+
     // -------------------------------------------------------
     // DELETE Requests
     // -------------------------------------------------------

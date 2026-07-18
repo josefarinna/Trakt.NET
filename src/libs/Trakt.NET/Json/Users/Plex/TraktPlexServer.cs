@@ -18,7 +18,7 @@ namespace TraktNET
         public int ConnectionTimeout { get; set; }
 
         /// <summary>Gets or sets the list of ports.</summary>
-        public IReadOnlyList<int>? Ports { get; set; }
+        public List<int>? Ports { get; set; }
 
         /// <summary>Gets or sets whether the user owns the server.</summary>
         public bool Owned { get; set; }
@@ -31,6 +31,6 @@ namespace TraktNET
     public record class TraktPlexServersResponse
     {
         /// <summary>Gets or sets the Plex servers.</summary>
-        public IReadOnlyList<TraktPlexServer>? Servers { get; set; }
+        public List<TraktPlexServer>? Servers { get; set; }
     }
 }

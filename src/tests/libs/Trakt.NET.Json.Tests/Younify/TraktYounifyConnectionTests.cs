@@ -26,7 +26,7 @@ namespace TraktNET.Json.Younify
         public async Task TestTraktYounifyConnectionFromJson()
         {
             IReadOnlyList<TraktYounifyConnection>? connections =
-                await TestUtility.DeserializeJsonAsync<IReadOnlyList<TraktYounifyConnection>>("Younify\\connections.json");
+                await TestUtility.DeserializeJsonListAsync<TraktYounifyConnection>("Younify\\connections.json");
 
             connections.ShouldNotBeNull();
             connections.Count.ShouldBe(1);

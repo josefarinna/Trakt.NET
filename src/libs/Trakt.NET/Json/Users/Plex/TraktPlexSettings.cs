@@ -65,13 +65,13 @@ namespace TraktNET
     public record class TraktPlexSelection
     {
         /// <summary>Gets or sets the server IDs.</summary>
-        public IReadOnlyList<string>? ServerIds { get; set; }
+        public List<string>? ServerIds { get; set; }
 
         /// <summary>Gets or sets the library IDs.</summary>
-        public IReadOnlyList<TraktPlexLibrary>? LibraryIds { get; set; }
+        public List<TraktPlexLibrary>? LibraryIds { get; set; }
 
         /// <summary>Gets or sets the user IDs.</summary>
-        public IReadOnlyList<string>? UserIds { get; set; }
+        public List<string>? UserIds { get; set; }
     }
 
     /// <summary>Represents a Plex library identifier.</summary>

@@ -886,5 +886,39 @@ namespace TraktNET
                 Id = usernameOrSlug,
                 ListId = listIdOrSlug
             }, cancellationToken);
+
+        private Task<TraktResponse> UpdateAvatarImplAsync(string avatar, CancellationToken cancellationToken = default)
+        {
+            var avatarPost = new TraktUserAvatarPost
+            {
+                User = new TraktUserAvatarPostUser
+                {
+                    Avatar = avatar
+                }
+            };
+
+            var request = new UserAvatarPutRequest
+            {
+                TraktUserAvatarPost = avatarPost
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> UpdateCoverImageImplAsync(TraktCoverType coverType, uint coverId, CancellationToken cancellationToken = default)
+        {
+            var coverPost = new TraktUserCoverPost
+            {
+                CoverType = coverType,
+                CoverId = coverId
+            };
+
+            var request = new UserCoverPutRequest
+            {
+                TraktUserCoverPost = coverPost
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
     }
 }

@@ -6,10 +6,10 @@ namespace TraktNET
     public record class TraktPlexServerAccountsAndLibraries
     {
         /// <summary>Gets or sets the home accounts on the server.</summary>
-        public IReadOnlyList<TraktPlexAccount>? Accounts { get; set; }
+        public List<TraktPlexAccount>? Accounts { get; set; }
 
         /// <summary>Gets or sets the syncable libraries on the server.</summary>
-        public IReadOnlyList<TraktPlexLibraryInfo>? Libraries { get; set; }
+        public List<TraktPlexLibraryInfo>? Libraries { get; set; }
     }
 
     /// <summary>Represents a Plex account.</summary>

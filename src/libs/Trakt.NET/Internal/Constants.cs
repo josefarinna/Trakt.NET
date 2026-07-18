@@ -124,6 +124,7 @@ namespace TraktNET
                     new TraktCommentObjectTypeJsonConverter(),
                     new TraktCommentSortOrderJsonConverter(),
                     new TraktCommentTypeJsonConverter(),
+                    new TraktCoverTypeJsonConverter(),
                     new TraktDateFormatJsonConverter(),
                     new TraktDayOfWeekJsonConverter(),
                     new TraktEpisodeTypeJsonConverter(),
