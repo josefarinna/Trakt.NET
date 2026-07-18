@@ -127,6 +127,9 @@ namespace TraktNET
         /// <summary>Provides access to the smart lists module. See <seealso cref="TraktSmartListsModule" />.</summary>
         public TraktSmartListsModule SmartLists => _context.SmartLists;
 
+        /// <summary>Provides access to the Younify module. See <seealso cref="TraktYounifyModule" />.</summary>
+        public TraktYounifyModule Younify => _context.Younify;
+
         /// <summary>
         /// Create the a <see cref="TraktClient" /> with the given <paramref name="clientID" /> and <paramref name="clientSecret" />.
         /// </summary>

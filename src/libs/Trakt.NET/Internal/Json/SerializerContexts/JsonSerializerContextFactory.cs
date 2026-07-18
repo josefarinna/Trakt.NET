@@ -181,6 +181,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[WatchlistContextCacheKey];
             }
 
+            if (s_younifyJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(YounifyContextCacheKey));
+                return s_jsonSerializerContexts[YounifyContextCacheKey];
+            }
+
             if (s_watchnowJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(WatchnowContextCacheKey));
@@ -218,6 +224,7 @@ namespace TraktNET
         private const string UsersContextCacheKey = "users";
         private const string WatchedContextCacheKey = "watched";
         private const string WatchlistContextCacheKey = "watchlist";
+        private const string YounifyContextCacheKey = "younify";
         private const string WatchnowContextCacheKey = "watchnow";
 
         // NOTE: JsonSerializerOptions needs to be copied, because the constructor
@@ -256,6 +263,7 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(WatchedContextCacheKey, new WatchedJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(WatchlistContextCacheKey, new WatchlistJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(YounifyContextCacheKey, new YounifyJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(WatchnowContextCacheKey, new WatchnowJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)))
         }, StringComparer.OrdinalIgnoreCase);
 
@@ -763,6 +771,15 @@ namespace TraktNET
             typeof(TraktWatchnowWebos),
             typeof(TraktWatchnowWebosParams)
         });
+
+        private static readonly FrozenSet<Type> s_younifyJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktYounifyConnection),
+            typeof(IReadOnlyList<TraktYounifyConnection>),
+            typeof(TraktYounifyConnectionImages),
+            typeof(TraktYounifyConnectPost),
+            typeof(TraktYounifyConnectResponse)
+        });
 #else
         private static readonly Dictionary<string, JsonSerializerContext> s_jsonSerializerContexts = new()
         {
@@ -794,6 +811,7 @@ namespace TraktNET
             { UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { WatchedContextCacheKey, new WatchedJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { WatchlistContextCacheKey, new WatchlistJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { YounifyContextCacheKey, new YounifyJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { WatchnowContextCacheKey, new WatchnowJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) }
         };
 
@@ -1271,6 +1289,14 @@ namespace TraktNET
             typeof(TraktWatchnowPrices),
             typeof(TraktWatchnowWebos),
             typeof(TraktWatchnowWebosParams)
+        ];
+
+        private static readonly HashSet<Type> s_younifyJsonTypes = [
+            typeof(TraktYounifyConnection),
+            typeof(IReadOnlyList<TraktYounifyConnection>),
+            typeof(TraktYounifyConnectionImages),
+            typeof(TraktYounifyConnectPost),
+            typeof(TraktYounifyConnectResponse)
         ];
 #endif
     }

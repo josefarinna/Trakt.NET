@@ -100,17 +100,20 @@ namespace TraktNET
         /// <summary>Provides access to the shows module. See <seealso cref="TraktShowsModule" />.</summary>
         public TraktShowsModule Shows { get; }
 
+        /// <summary>Provides access to the smart lists module. See <seealso cref="TraktSmartListsModule" />.</summary>
+        public TraktSmartListsModule SmartLists { get; }
+
         /// <summary>Provides access to the sync module. See <seealso cref="TraktSyncModule" />.</summary>
         public TraktSyncModule Sync { get; }
-
-        /// <summary>Provides access to the watchnow module. See <seealso cref="TraktWatchnowModule" />.</summary>
-        public TraktWatchnowModule Watchnow { get; }
 
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
         public TraktUsersModule Users { get; }
 
-        /// <summary>Provides access to the smart lists module. See <seealso cref="TraktSmartListsModule" />.</summary>
-        public TraktSmartListsModule SmartLists { get; }
+        /// <summary>Provides access to the watchnow module. See <seealso cref="TraktWatchnowModule" />.</summary>
+        public TraktWatchnowModule Watchnow { get; }
+
+        /// <summary>Provides access to the Younify module. See <seealso cref="TraktYounifyModule" />.</summary>
+        public TraktYounifyModule Younify { get; }
 
         public static TraktContext Create(string clientID, string clientSecret, string? userAgent = null)
             => new TraktDefaultContext(clientID, clientSecret, userAgent);
@@ -164,10 +167,11 @@ namespace TraktNET
             Search = new TraktSearchModule(this);
             Seasons = new TraktSeasonsModule(this);
             Shows = new TraktShowsModule(this);
+            SmartLists = new TraktSmartListsModule(this);
             Sync = new TraktSyncModule(this);
             Users = new TraktUsersModule(this);
-            SmartLists = new TraktSmartListsModule(this);
             Watchnow = new TraktWatchnowModule(this);
+            Younify = new TraktYounifyModule(this);
         }
 
         internal HttpClient GetHttpClient(bool baseAuthRequest = false) => HttpClientProvider.GetHttpClient(this, baseAuthRequest);

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "netflix",
+    "name": "Netflix",
+    "vip": false,
+    "color": "#e50914",
+    "images": {
+      "logo": "https://walter.trakt.tv/images/younify/netflix.png"
+    },
+    "connectable": true,
+    "connected": true,
+    "active": true,
+    "profile": "John Doe",
+    "last_synced_at": "2026-07-18T12:00:00.000Z"
+  }
+]
