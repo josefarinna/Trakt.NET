@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     // -------------------------------------------------------
     // GET Requests
@@ -101,4 +101,56 @@
         [TraktRequestQuery("filter")]
         internal TraktFilter? Filter { get; set; }
     }
+
+    [TraktGetRequest("calendars/releases/hot/{start_date}/{days:uint!!}", SupportsExtendedInfo = true)]
+    internal sealed partial class CalendarAllReleasesHotGetRequest
+    {
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
+
+        [TraktRequestQuery("type")]
+        internal TraktCalendarMediaType? Type { get; set; }
+    }
+
+    [TraktGetRequest("calendars/my/media/{start_date}/{days:uint!!}", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class CalendarUserMediaGetRequest
+    {
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
+
+        [TraktRequestQuery("type")]
+        internal TraktCalendarMediaType? Type { get; set; }
+    }
+
+    [TraktGetRequest("calendars/all/media/{start_date}/{days:uint!!}", SupportsExtendedInfo = true)]
+    internal sealed partial class CalendarAllMediaGetRequest
+    {
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
+
+        [TraktRequestQuery("type")]
+        internal TraktCalendarMediaType? Type { get; set; }
+    }
+
+    [TraktGetRequest("calendars/releases/hot/premieres/{start_date}/{days:uint!!}", SupportsExtendedInfo = true)]
+    internal sealed partial class CalendarAllReleasesHotPremieresGetRequest
+    {
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
+    }
+
+    [TraktGetRequest("calendars/releases/hot/finales/{start_date}/{days:uint!!}", SupportsExtendedInfo = true)]
+    internal sealed partial class CalendarAllReleasesHotFinalesGetRequest
+    {
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
+    }
+
+    [TraktGetRequest("calendars/releases/hot/new/{start_date}/{days:uint!!}", SupportsExtendedInfo = true)]
+    internal sealed partial class CalendarAllReleasesHotNewGetRequest
+    {
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
+    }
 }
+

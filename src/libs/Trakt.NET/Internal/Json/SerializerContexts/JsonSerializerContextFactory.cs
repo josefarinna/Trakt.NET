@@ -276,7 +276,8 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_calendarssJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktCalendarShow),
-            typeof(TraktCalendarMovie)
+            typeof(TraktCalendarMovie),
+            typeof(TraktCalendarMedia),
         });
 
         private static readonly FrozenSet<Type> s_certificationsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -822,7 +823,8 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_calendarssJsonTypes = [
             typeof(TraktCalendarShow),
-            typeof(TraktCalendarMovie)
+            typeof(TraktCalendarMovie),
+            typeof(TraktCalendarMedia),
         ];
 
         private static readonly HashSet<Type> s_certificationsJsonTypes = [

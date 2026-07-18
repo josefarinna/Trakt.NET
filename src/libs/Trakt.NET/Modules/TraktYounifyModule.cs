@@ -47,11 +47,7 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="post"/> is null.</exception>
         public Task<TraktResponse<TraktYounifyConnectResponse>> ConnectAsync(TraktYounifyConnectPost post, CancellationToken cancellationToken = default)
-        {
-            ArgumentValidator.ThrowIfNull(post);
-            post.Validate();
-            return ConnectImplAsync(post, cancellationToken);
-        }
+            => ConnectImplAsync(post, cancellationToken);
 
         /// <summary>Queues a re-sync of a connected streaming service for the authenticated user.</summary>
         /// <param name="serviceId">The streaming service id (e.g. "netflix").</param>
