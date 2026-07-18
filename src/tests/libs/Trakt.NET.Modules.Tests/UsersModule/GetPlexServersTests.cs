@@ -1,8 +1,4 @@
-using System;
 using System.Net;
-using System.Threading.Tasks;
-using Shouldly;
-using Xunit;
 
 namespace TraktNET.UsersModule
 {

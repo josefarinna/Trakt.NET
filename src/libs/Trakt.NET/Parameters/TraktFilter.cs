@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>A collection of optional filters for refining results.</summary>
     public sealed partial class TraktFilter
@@ -68,5 +68,20 @@
 
         /// <summary>Collection of episode types.</summary>
         public TraktEpisodeType[]? EpisodeTypes { get; set; }
+
+        /// <summary>Gets or sets whether watched items should be ignored.</summary>
+        public bool? IgnoreWatched { get; set; }
+
+        /// <summary>Gets or sets whether collected items should be ignored.</summary>
+        public bool? IgnoreCollected { get; set; }
+
+        /// <summary>Gets or sets whether watchlisted items should be ignored.</summary>
+        public bool? IgnoreWatchlisted { get; set; }
+
+        /// <summary>Gets or sets the start date constraint.</summary>
+        public DateTime? StartDate { get; set; }
+
+        /// <summary>Gets or sets the end date constraint.</summary>
+        public DateTime? EndDate { get; set; }
     }
 }

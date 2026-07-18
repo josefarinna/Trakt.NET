@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 
 namespace TraktNET
 {
@@ -25,6 +25,11 @@ namespace TraktNET
         private const string NetworkIDsName = "network_ids";
         private const string StatusName = "status";
         private const string EpisodeTypesName = "episode_types";
+        private const string IgnoreWatchedName = "ignore_watched";
+        private const string IgnoreCollectedName = "ignore_collected";
+        private const string IgnoreWatchlistedName = "ignore_watchlisted";
+        private const string StartDateName = "start_date";
+        private const string EndDateName = "end_date";
 
         public override string ToString()
         {
@@ -119,6 +124,31 @@ namespace TraktNET
                 }
 
                 values.Add($"{EpisodeTypesName}={string.Join(",", episodeTypesValues)}");
+            }
+
+            if (IgnoreWatched.HasValue)
+            {
+                values.Add($"{IgnoreWatchedName}={IgnoreWatched.Value.ToString().ToLower(CultureInfo.CurrentCulture)}");
+            }
+
+            if (IgnoreCollected.HasValue)
+            {
+                values.Add($"{IgnoreCollectedName}={IgnoreCollected.Value.ToString().ToLower(CultureInfo.CurrentCulture)}");
+            }
+
+            if (IgnoreWatchlisted.HasValue)
+            {
+                values.Add($"{IgnoreWatchlistedName}={IgnoreWatchlisted.Value.ToString().ToLower(CultureInfo.CurrentCulture)}");
+            }
+
+            if (StartDate.HasValue)
+            {
+                values.Add($"{StartDateName}={StartDate.Value.ToTraktSortDateTimeString()}");
+            }
+
+            if (EndDate.HasValue)
+            {
+                values.Add($"{EndDateName}={EndDate.Value.ToTraktSortDateTimeString()}");
             }
 
             return string.Join("&", values);

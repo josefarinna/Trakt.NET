@@ -18,7 +18,6 @@ namespace TraktNET
 
         [TraktRequestQuery("filter")]
         public TraktFilter? Filter { get; set; }
-
     }
 
     [TraktGetRequest("search", SupportsExtendedInfo = true, SupportsPagination = true)]
@@ -34,15 +33,9 @@ namespace TraktNET
         public TraktSearchResultType? ResultTypes { get; set; }
     }
 
-    [TraktGetRequest("search", SupportsExtendedInfo = true, SupportsPagination = true)]
+    [TraktGetRequest("search/{type!!}/exact", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class SearchExactTextQueryGetRequest
     {
-        [TraktRequestParameter]
-        public TraktSearchResultType Type { get; set; }
-
-        [TraktRequestParameter]
-        private static string Exact => "exact";
-
         [TraktRequestQuery("query")]
         public required string Query { get; set; }
     }

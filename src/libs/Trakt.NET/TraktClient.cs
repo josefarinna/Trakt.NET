@@ -124,6 +124,9 @@ namespace TraktNET
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
         public TraktUsersModule Users => _context.Users;
 
+        /// <summary>Provides access to the smart lists module. See <seealso cref="TraktSmartListsModule" />.</summary>
+        public TraktSmartListsModule SmartLists => _context.SmartLists;
+
         /// <summary>
         /// Create the a <see cref="TraktClient" /> with the given <paramref name="clientID" /> and <paramref name="clientSecret" />.
         /// </summary>

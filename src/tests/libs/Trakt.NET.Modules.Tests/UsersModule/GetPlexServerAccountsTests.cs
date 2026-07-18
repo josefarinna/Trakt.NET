@@ -1,15 +1,11 @@
-using System;
 using System.Net;
-using System.Threading.Tasks;
-using Shouldly;
-using Xunit;
 
 namespace TraktNET.UsersModule
 {
     public sealed class GetPlexServerAccountsTests
     {
         private const string ServerId = "some_server_id";
-        private const string GetPlexServerAccountsUri = "users/settings/plex/servers/some_server_id";
+        private const string GetPlexServerAccountsUri = $"users/settings/plex/servers/{ServerId}";
 
         [Fact]
         public async Task TestGetPlexServerAccounts()

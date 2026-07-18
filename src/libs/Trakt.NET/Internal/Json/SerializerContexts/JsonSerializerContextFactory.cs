@@ -151,6 +151,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[ShowsContextCacheKey];
             }
 
+            if (s_smartListsJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(SmartListsContextCacheKey));
+                return s_jsonSerializerContexts[SmartListsContextCacheKey];
+            }
+
             if (s_syncsJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(SyncsContextCacheKey));
@@ -207,6 +213,7 @@ namespace TraktNET
         private const string SearchsContextCacheKey = "searchs";
         private const string SeasonsContextCacheKey = "seasons";
         private const string ShowsContextCacheKey = "shows";
+        private const string SmartListsContextCacheKey = "smartlists";
         private const string SyncsContextCacheKey = "syncs";
         private const string UsersContextCacheKey = "users";
         private const string WatchedContextCacheKey = "watched";
@@ -244,6 +251,7 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(ShowsContextCacheKey, new ShowsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(SmartListsContextCacheKey, new SmartListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SyncsContextCacheKey, new SyncsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(WatchedContextCacheKey, new WatchedJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
@@ -497,6 +505,15 @@ namespace TraktNET
             typeof(TraktShowWatchedProgress),
             typeof(TraktTrendingShow),
             typeof(TraktUpdatedShow)
+        });
+
+        private static readonly FrozenSet<Type> s_smartListsJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktSmartList),
+            typeof(TraktSmartListImages),
+            typeof(TraktSmartListFilters),
+            typeof(TraktSmartListPost),
+            typeof(TraktSmartListPostResponse)
         });
 
         private static readonly FrozenSet<Type> s_syncsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -772,6 +789,7 @@ namespace TraktNET
             { SearchsContextCacheKey, new SearchsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ShowsContextCacheKey, new ShowsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { SmartListsContextCacheKey, new SmartListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SyncsContextCacheKey, new SyncsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { WatchedContextCacheKey, new WatchedJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -1002,6 +1020,14 @@ namespace TraktNET
             typeof(TraktShowWatchedProgress),
             typeof(TraktTrendingShow),
             typeof(TraktUpdatedShow)
+        ];
+
+        private static readonly HashSet<Type> s_smartListsJsonTypes = [
+            typeof(TraktSmartList),
+            typeof(TraktSmartListImages),
+            typeof(TraktSmartListFilters),
+            typeof(TraktSmartListPost),
+            typeof(TraktSmartListPostResponse)
         ];
 
         private static readonly HashSet<Type> s_syncsJsonTypes = [

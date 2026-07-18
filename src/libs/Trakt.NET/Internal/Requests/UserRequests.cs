@@ -250,6 +250,17 @@ namespace TraktNET
     {
     }
 
+    [TraktGetRequest("users/{id!!}/smart-lists", OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    internal sealed partial class UserSmartListsGetRequest
+    {
+    }
+
+    [TraktGetRequest("users/{id!!}/smart-lists/{list_id!!}", OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    internal sealed partial class UserSmartListGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
+    }
+
     // -------------------------------------------------------
     // POST Requests
     // -------------------------------------------------------
@@ -280,15 +291,9 @@ namespace TraktNET
         internal required TraktUserHiddenItemsPost TraktUserHiddenItemsPost { get; set; }
     }
 
-    [TraktPostRequest("users/hidden", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("users/hidden/{section!!}/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserHiddenItemsRemovePostRequest
     {
-        [TraktRequestParameter]
-        internal TraktHiddenItemsSection Section { get; set; }
-
-        [TraktRequestParameter]
-        private static string Remove => "remove";
-
         [TraktRequestPayload]
         internal required TraktUserHiddenItemsRemovePost TraktUserHiddenItemsRemovePost { get; set; }
     }
@@ -368,6 +373,13 @@ namespace TraktNET
         internal required TraktPlexSyncPost TraktPlexSyncPost { get; set; }
     }
 
+    [TraktPostRequest("users/{id!!}/smart-lists", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSmartListAddPostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktSmartListPost TraktSmartListPost { get; set; }
+    }
+
     // -------------------------------------------------------
     // PUT Requests
     // -------------------------------------------------------
@@ -407,6 +419,15 @@ namespace TraktNET
         internal required TraktPlexSettingsUpdate TraktPlexSettingsUpdate { get; set; }
     }
 
+    [TraktPutRequest("users/{id!!}/smart-lists/{list_id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSmartListUpdatePutRequest
+    {
+        [TraktRequestPayload]
+        internal TraktSmartListPost? TraktSmartListPost { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
+    }
+
     // -------------------------------------------------------
     // DELETE Requests
     // -------------------------------------------------------
@@ -441,5 +462,11 @@ namespace TraktNET
     [TraktDeleteRequest("users/settings/plex/disconnect", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserPlexDisconnectDeleteRequest
     {
+    }
+
+    [TraktDeleteRequest("users/{id!!}/smart-lists/{list_id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSmartListDeleteRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 }

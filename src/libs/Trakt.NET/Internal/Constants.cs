@@ -157,6 +157,8 @@ namespace TraktNET
                     new TraktSearchResultTypeJsonConverter(),
                     new TraktSearchRecentTypeJsonConverter(),
                     new TraktShowStatusJsonConverter(),
+                    new TraktSmartListMediaTypeJsonConverter(),
+                    new TraktSmartListSourceJsonConverter(),
                     new TraktSortByJsonConverter(),
                     new TraktSortHowJsonConverter(),
                     new TraktSyncItemTypeJsonConverter(),

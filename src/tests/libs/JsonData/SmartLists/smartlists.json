@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Sci-Fi Movies",
+    "privacy": "public",
+    "created_at": "2026-07-17T00:00:00.000Z",
+    "updated_at": "2026-07-17T01:00:00.000Z",
+    "ids": {
+      "trakt": 123456,
+      "slug": "sci-fi-movies"
+    },
+    "images": {
+      "posters": [
+        "https://example.com/poster.jpg"
+      ]
+    },
+    "source": "popular",
+    "media_type": "movies",
+    "filters": {
+      "genres": [
+        "science-fiction"
+      ]
+    }
+  }
+]

@@ -109,6 +109,9 @@ namespace TraktNET
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
         public TraktUsersModule Users { get; }
 
+        /// <summary>Provides access to the smart lists module. See <seealso cref="TraktSmartListsModule" />.</summary>
+        public TraktSmartListsModule SmartLists { get; }
+
         public static TraktContext Create(string clientID, string clientSecret, string? userAgent = null)
             => new TraktDefaultContext(clientID, clientSecret, userAgent);
 
@@ -163,6 +166,7 @@ namespace TraktNET
             Shows = new TraktShowsModule(this);
             Sync = new TraktSyncModule(this);
             Users = new TraktUsersModule(this);
+            SmartLists = new TraktSmartListsModule(this);
             Watchnow = new TraktWatchnowModule(this);
         }
 

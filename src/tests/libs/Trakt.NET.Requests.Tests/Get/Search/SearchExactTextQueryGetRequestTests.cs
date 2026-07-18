@@ -23,7 +23,7 @@ namespace TraktNET.GetRequests.Search
         {
             var request = new SearchExactTextQueryGetRequest
             {
-                Type = TraktSearchResultType.Movie,
+                Type = TraktSearchResultType.Movie.AsPathParameter(),
                 Query = "123",
                 ExtendedInfo = extendedInfo,
                 Page = (uint?)page,
@@ -37,29 +37,33 @@ namespace TraktNET.GetRequests.Search
         [Fact]
         public void TestSearchExactTextQueryGetRequestHasValidOAuthRequirement()
         {
-            var request = new SearchExactTextQueryGetRequest { Query = default! };
+            var request = new SearchExactTextQueryGetRequest { Type = TraktSearchResultType.Movie.AsPathParameter(), Query = default! };
             request.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestSearchExactTextQueryGetRequestIsGetRequest()
         {
-            var request = new SearchExactTextQueryGetRequest { Query = default! };
+            var request = new SearchExactTextQueryGetRequest { Type = TraktSearchResultType.Movie.AsPathParameter(), Query = default! };
             request.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestSearchExactTextQueryGetRequestHasCorrectRequestObjectType()
         {
-            var request = new SearchExactTextQueryGetRequest { Query = default! };
+            var request = new SearchExactTextQueryGetRequest { Type = TraktSearchResultType.Movie.AsPathParameter(), Query = default! };
             request.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
 
         [Fact]
         public void TestSearchExactTextQueryGetRequestValidate()
         {
-            var request = new SearchExactTextQueryGetRequest { Query = default! };
+            var request = new SearchExactTextQueryGetRequest { Type = "type with spaces", Query = default! };
             Action act = () => request.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            request = new SearchExactTextQueryGetRequest { Type = TraktSearchResultType.Movie.AsPathParameter(), Query = default! };
+            act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

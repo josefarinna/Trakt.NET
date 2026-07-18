@@ -105,7 +105,7 @@ namespace TraktNET
         {
             var request = new UserHiddenItemsRemovePostRequest
             {
-                Section = hiddenItemsSection,
+                Section = hiddenItemsSection.AsPathParameter(),
                 TraktUserHiddenItemsRemovePost = hiddenItemsRemovePost
             };
 
@@ -848,5 +848,43 @@ namespace TraktNET
 
         private Task<TraktResponse> UnblockUserImplAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
             => RequestHandler.ExecuteNoContentRequestAsync(_context, new UserUnblockUserDeleteRequest { Id = usernameOrSlug }, cancellationToken);
+
+        private Task<TraktListResponse<TraktSmartList>> GetSmartListsImplAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
+            => RequestHandler.ExecuteListRequestAsync<TraktSmartList>(_context, new UserSmartListsGetRequest { Id = usernameOrSlug }, cancellationToken);
+
+        private Task<TraktResponse<TraktSmartListPostResponse>> CreateSmartListImplAsync(string usernameOrSlug, TraktSmartListPost smartListPost, CancellationToken cancellationToken = default)
+        {
+            ArgumentValidator.ThrowIfNull(smartListPost);
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktSmartListPostResponse>(_context, new UserSmartListAddPostRequest
+            {
+                Id = usernameOrSlug,
+                TraktSmartListPost = smartListPost
+            }, cancellationToken);
+        }
+
+        private Task<TraktResponse<TraktSmartList>> GetSmartListImplAsync(string usernameOrSlug, string listIdOrSlug, CancellationToken cancellationToken = default)
+            => RequestHandler.ExecuteSingleItemRequestAsync<TraktSmartList>(_context, new UserSmartListGetRequest
+            {
+                Id = usernameOrSlug,
+                ListId = listIdOrSlug
+            }, cancellationToken);
+
+        private Task<TraktResponse<TraktSmartList>> UpdateSmartListImplAsync(string usernameOrSlug, string listIdOrSlug, TraktSmartListPost smartListPost, CancellationToken cancellationToken = default)
+        {
+            ArgumentValidator.ThrowIfNull(smartListPost);
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktSmartList>(_context, new UserSmartListUpdatePutRequest
+            {
+                Id = usernameOrSlug,
+                ListId = listIdOrSlug,
+                TraktSmartListPost = smartListPost
+            }, cancellationToken);
+        }
+
+        private Task<TraktResponse> DeleteSmartListImplAsync(string usernameOrSlug, string listIdOrSlug, CancellationToken cancellationToken = default)
+            => RequestHandler.ExecuteNoContentRequestAsync(_context, new UserSmartListDeleteRequest
+            {
+                Id = usernameOrSlug,
+                ListId = listIdOrSlug
+            }, cancellationToken);
     }
 }
