@@ -1,0 +1,22 @@
+[
+  {
+    "kind": "history",
+    "type": "movie",
+    "service_id": "plex_1",
+    "content_id": "movie_123",
+    "profile_id": "profile_1",
+    "tmdb_id": 550,
+    "watched_at": "2024-11-20T12:00:00.000Z",
+    "progress": 45.5,
+    "movie": {
+      "title": "Fight Club",
+      "year": 1999,
+      "ids": {
+        "trakt": 550,
+        "slug": "fight-club-1999",
+        "imdb": "tt0137523",
+        "tmdb": 550
+      }
+    }
+  }
+]

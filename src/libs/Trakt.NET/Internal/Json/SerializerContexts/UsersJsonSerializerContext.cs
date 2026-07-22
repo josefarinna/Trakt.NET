@@ -164,6 +164,16 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktUserAvatarPostUser))]
     [JsonSerializable(typeof(TraktUserCoverPost))]
     [JsonSerializable(typeof(TraktCoverType))]
+    [JsonSerializable(typeof(TraktUserActivity))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktUserActivity>))]
+    [JsonSerializable(typeof(TraktUserSyncType))]
+    [JsonSerializable(typeof(TraktUserSyncItemKind))]
+    [JsonSerializable(typeof(TraktUserSyncCountGroup))]
+    [JsonSerializable(typeof(TraktUserSyncItemsCount))]
+    [JsonSerializable(typeof(TraktUserSync))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktUserSync>))]
+    [JsonSerializable(typeof(TraktUserSyncItem))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktUserSyncItem>))]
     public sealed partial class UsersJsonSerializerContext : JsonSerializerContext
     {
     }

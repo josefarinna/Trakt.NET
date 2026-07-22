@@ -261,6 +261,39 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
+    [TraktGetRequest("users/{id!!}/{type_path!!}/activities", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    internal sealed partial class UserActivitiesGetRequest
+    {
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
+    }
+
+    [TraktGetRequest("users/syncs", SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSyncsGetRequest
+    {
+    }
+
+    [TraktGetRequest("users/syncs/{type_path!!}", SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSyncsByTypeGetRequest
+    {
+    }
+
+    [TraktGetRequest("users/syncs/{id:ulong!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSyncDetailsGetRequest
+    {
+    }
+
+    [TraktGetRequest("users/syncs/{id:ulong!!}/paused", SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSyncPausedGetRequest
+    {
+    }
+
+    [TraktGetRequest("users/syncs/{id:ulong!!}/skipped", SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSyncSkippedGetRequest
+    {
+    }
+
     // -------------------------------------------------------
     // POST Requests
     // -------------------------------------------------------
@@ -482,5 +515,10 @@ namespace TraktNET
     internal sealed partial class UserSmartListDeleteRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
+    }
+
+    [TraktDeleteRequest("users/syncs/{id:ulong!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSyncUndoDeleteRequest
+    {
     }
 }

@@ -1088,5 +1088,203 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> UpdateCoverImageAsync(TraktCoverType coverType, uint coverId, CancellationToken cancellationToken = default)
             => UpdateCoverImageImplAsync(coverType, coverId, cancellationToken);
+
+        /// <summary>Gets recent activity for an user's social graph.</summary>
+        /// <param name="usernameOrSlug">The username or slug of the user, for which the activities should be queried, or "me" for the authenticated user.</param>
+        /// <param name="activityType">Determines the type of social activity to query. See also <seealso cref="TraktUserSocialActivityType" />.</param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the activity items.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="filter">
+        /// Optional filters for refining results.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried user activities.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktUserActivity" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para><see href="https://docs.trakt.tv/reference/getusersactivities">
+        /// Trakt API Documentation: Users: Get social activity
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktPagedResponse<TraktUserActivity>> GetActivitiesAsync(string usernameOrSlug,
+            TraktUserSocialActivityType activityType, TraktExtendedInfo? extendedInfo = null, TraktFilter? filter = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetActivitiesImplAsync(usernameOrSlug, activityType, extendedInfo, filter, page, limit, cancellationToken);
+
+        /// <summary>Gets data syncs for the authenticated user across all connected apps.</summary>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried user data syncs.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktUserSync" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getuserssyncs">
+        /// Trakt API Documentation: Users: Get data syncs
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
+        public Task<TraktPagedResponse<TraktUserSync>> GetSyncsAsync(uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+            => GetSyncsImplAsync(page, limit, cancellationToken);
+
+        /// <summary>Gets data syncs for the authenticated user filtered by app type.</summary>
+        /// <param name="syncType">The sync type filter. See also <seealso cref="TraktUserSyncType" />.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried user data syncs.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktUserSync" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getuserssyncstype">
+        /// Trakt API Documentation: Users: Get data syncs by type
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
+        public Task<TraktPagedResponse<TraktUserSync>> GetSyncsAsync(TraktUserSyncType syncType,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetSyncsByTypeImplAsync(syncType, page, limit, cancellationToken);
+
+        /// <summary>Gets details for a single data sync.</summary>
+        /// <param name="syncId">The numeric ID of the data sync.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried user data sync.
+        /// <para />
+        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserSync" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getuserssyncsid">
+        /// Trakt API Documentation: Users: Get data sync
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktUserSync>> GetSyncDetailsAsync(ulong syncId,
+            CancellationToken cancellationToken = default)
+            => GetSyncDetailsImplAsync(syncId, cancellationToken);
+
+        /// <summary>Undoes a data sync for the authenticated user.</summary>
+        /// <param name="syncId">The numeric ID of the data sync to undo.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse" />.
+        /// <para />
+        /// See also <seealso cref="TraktResponse" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/deleteuserssyncsid">
+        /// Trakt API Documentation: Users: Undo data sync
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse> UndoSyncAsync(ulong syncId, CancellationToken cancellationToken = default)
+            => UndoSyncImplAsync(syncId, cancellationToken);
+
+        /// <summary>Gets paused items for a data sync.</summary>
+        /// <param name="syncId">The numeric ID of the data sync.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried paused sync items.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktUserSyncItem" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getuserssyncspaused">
+        /// Trakt API Documentation: Users: Get paused items
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktPagedResponse<TraktUserSyncItem>> GetSyncPausedItemsAsync(ulong syncId,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetSyncPausedItemsImplAsync(syncId, page, limit, cancellationToken);
+
+        /// <summary>Gets skipped items for a data sync.</summary>
+        /// <param name="syncId">The numeric ID of the data sync.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried skipped sync items.
+        /// <para />
+        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// and maximum item count.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktUserSyncItem" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getuserssyncsskipped">
+        /// Trakt API Documentation: Users: Get skipped items
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktPagedResponse<TraktUserSyncItem>> GetSyncSkippedItemsAsync(ulong syncId,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetSyncSkippedItemsImplAsync(syncId, page, limit, cancellationToken);
     }
 }

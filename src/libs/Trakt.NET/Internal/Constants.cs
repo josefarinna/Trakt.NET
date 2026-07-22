@@ -166,6 +166,9 @@ namespace TraktNET
                     new TraktSyncTypeJsonConverter(),
                     new TraktTimePeriodJsonConverter(),
                     new TraktUserLikeTypeJsonConverter(),
+                    new TraktUserSocialActivityTypeJsonConverter(),
+                    new TraktUserSyncItemKindJsonConverter(),
+                    new TraktUserSyncTypeJsonConverter(),
                     new TraktVideoTypeJsonConverter()
                 }
             };

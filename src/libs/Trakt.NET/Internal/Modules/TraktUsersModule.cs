@@ -920,5 +920,126 @@ namespace TraktNET
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
+
+        private Task<TraktPagedResponse<TraktUserActivity>> GetActivitiesImplAsync(string usernameOrSlug,
+            TraktUserSocialActivityType activityType, TraktExtendedInfo? extendedInfo = null, TraktFilter? filter = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new UserActivitiesGetRequest
+            {
+                Id = usernameOrSlug,
+                TypePath = activityType.AsPathParameter(),
+                ExtendedInfo = extendedInfo,
+                Filter = filter,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktUserActivity>(_context, request, (page, limit)
+                => new UserActivitiesGetRequest
+                {
+                    Id = usernameOrSlug,
+                    TypePath = activityType.AsPathParameter(),
+                    ExtendedInfo = extendedInfo,
+                    Filter = filter,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktUserSync>> GetSyncsImplAsync(uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new UserSyncsGetRequest
+            {
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktUserSync>(_context, request, (page, limit)
+                => new UserSyncsGetRequest
+                {
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktUserSync>> GetSyncsByTypeImplAsync(TraktUserSyncType syncType,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new UserSyncsByTypeGetRequest
+            {
+                TypePath = syncType.AsPathParameter(),
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktUserSync>(_context, request, (page, limit)
+                => new UserSyncsByTypeGetRequest
+                {
+                    TypePath = syncType.AsPathParameter(),
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
+
+        private Task<TraktResponse<TraktUserSync>> GetSyncDetailsImplAsync(ulong syncId,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new UserSyncDetailsGetRequest
+            {
+                Id = syncId
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserSync>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> UndoSyncImplAsync(ulong syncId, CancellationToken cancellationToken = default)
+        {
+            var request = new UserSyncUndoDeleteRequest
+            {
+                Id = syncId
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktUserSyncItem>> GetSyncPausedItemsImplAsync(ulong syncId,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new UserSyncPausedGetRequest
+            {
+                Id = syncId,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktUserSyncItem>(_context, request, (page, limit)
+                => new UserSyncPausedGetRequest
+                {
+                    Id = syncId,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktUserSyncItem>> GetSyncSkippedItemsImplAsync(ulong syncId,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new UserSyncSkippedGetRequest
+            {
+                Id = syncId,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktUserSyncItem>(_context, request, (page, limit)
+                => new UserSyncSkippedGetRequest
+                {
+                    Id = syncId,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
     }
 }
