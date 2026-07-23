@@ -71,6 +71,12 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
+    [TraktGetRequest("movies/{id!!}/sentiments")]
+    internal sealed partial class MovieSentimentsGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
+    }
+
     [TraktGetRequest("movies/{id!!}/studios")]
     internal sealed partial class MovieStudiosGetRequest
     {

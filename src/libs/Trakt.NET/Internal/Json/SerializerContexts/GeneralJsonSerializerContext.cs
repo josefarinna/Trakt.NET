@@ -18,6 +18,8 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktRateLimitInfo))]
     [JsonSerializable(typeof(TraktRating))]
     [JsonSerializable(typeof(IReadOnlyList<TraktStudio>))]
+    [JsonSerializable(typeof(TraktSentimentItem))]
+    [JsonSerializable(typeof(TraktSentiments))]
     [JsonSerializable(typeof(TraktStudio))]
     [JsonSerializable(typeof(TraktStudioIDs))]
     [JsonSerializable(typeof(IReadOnlyList<TraktVideo>))]

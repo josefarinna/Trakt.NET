@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿#if NET7_0_OR_GREATER
+using System.Globalization;
+#endif
 using System.Text.Json.Serialization;
 
 namespace TraktNET

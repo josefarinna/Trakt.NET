@@ -98,6 +98,12 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
+    [TraktGetRequest("shows/{id!!}/sentiments")]
+    internal sealed partial class ShowSentimentsGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
+    }
+
     [TraktGetRequest("shows/{id!!}/studios")]
     internal sealed partial class ShowStudiosGetRequest
     {

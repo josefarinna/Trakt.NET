@@ -70,6 +70,16 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktShowStatistics>(_context, request, cancellationToken);
         }
 
+        private Task<TraktResponse<TraktSentiments>> GetShowSentimentsImplAsync(string showIDOrSlug, CancellationToken cancellationToken = default)
+        {
+            var request = new ShowSentimentsGetRequest
+            {
+                Id = showIDOrSlug
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktSentiments>(_context, request, cancellationToken);
+        }
+
         private Task<TraktListResponse<TraktVideo>> GetShowVideosImplAsync(string movieIDOrSlug, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {

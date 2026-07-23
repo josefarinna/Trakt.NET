@@ -1,0 +1,21 @@
+{
+  "good": [
+    {
+      "sentiment": "funny",
+      "comment_ids": [
+        123,
+        456
+      ]
+    }
+  ],
+  "bad": [
+    {
+      "sentiment": "boring",
+      "comment_ids": [
+        789
+      ]
+    }
+  ],
+  "analyzed_at": "2026-07-23T12:34:56.000Z",
+  "comment_count": 100
+}
