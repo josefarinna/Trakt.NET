@@ -88,6 +88,9 @@ namespace TraktNET
         /// <summary>Provides access to the lists module. See <seealso cref="TraktListsModule" />.</summary>
         public TraktListsModule Lists => _context.Lists;
 
+        /// <summary>Provides access to the media module. See <seealso cref="TraktMediaModule" />.</summary>
+        public TraktMediaModule Media => _context.Media;
+
         /// <summary>Provides access to the movies module. See <seealso cref="TraktMoviesModule" />.</summary>
         public TraktMoviesModule Movies => _context.Movies;
 

@@ -85,6 +85,12 @@ namespace TraktNET
                 return s_jsonSerializerContexts[ListsContextCacheKey];
             }
 
+            if (s_mediaJsonTypes.Contains(typeof(TJsonObjectType)))
+            {
+                Debug.Assert(s_jsonSerializerContexts.ContainsKey(MediaContextCacheKey));
+                return s_jsonSerializerContexts[MediaContextCacheKey];
+            }
+
             if (s_movieJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(MoviesContextCacheKey));
@@ -208,6 +214,7 @@ namespace TraktNET
         private const string HistoryContextCacheKey = "history";
         private const string LanguagesContextCacheKey = "languages";
         private const string ListsContextCacheKey = "lists";
+        private const string MediaContextCacheKey = "media";
         private const string MoviesContextCacheKey = "movies";
         private const string NetworksContextCacheKey = "networks";
         private const string NotesContextCacheKey = "notes";
@@ -247,6 +254,7 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(HistoryContextCacheKey, new HistoryJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(LanguagesContextCacheKey, new LanguagesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(ListsContextCacheKey, new ListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
+            new KeyValuePair<string, JsonSerializerContext>(MediaContextCacheKey, new MediaJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(MoviesContextCacheKey, new MoviesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(NetworksContextCacheKey, new NetworksJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(NotesContextCacheKey, new NotesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
@@ -379,6 +387,13 @@ namespace TraktNET
             typeof(TraktPopularList),
             typeof(TraktTrendingList),
             typeof(TraktTrendingOrPopularList)
+        });
+
+        private static readonly FrozenSet<Type> s_mediaJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktTrendingMedia),
+            typeof(TraktAnticipatedMedia),
+            typeof(TraktPopularMedia)
         });
 
         private static readonly FrozenSet<Type> s_movieJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -806,6 +821,7 @@ namespace TraktNET
             { HistoryContextCacheKey, new HistoryJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { LanguagesContextCacheKey, new LanguagesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ListsContextCacheKey, new ListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
+            { MediaContextCacheKey, new MediaJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { MoviesContextCacheKey, new MoviesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { NetworksContextCacheKey, new NetworksJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { NotesContextCacheKey, new NotesJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -926,6 +942,12 @@ namespace TraktNET
             typeof(TraktPopularList),
             typeof(TraktTrendingList),
             typeof(TraktTrendingOrPopularList)
+        ];
+
+        private static readonly HashSet<Type> s_mediaJsonTypes = [
+            typeof(TraktTrendingMedia),
+            typeof(TraktAnticipatedMedia),
+            typeof(TraktPopularMedia)
         ];
 
         private static readonly HashSet<Type> s_movieJsonTypes = [

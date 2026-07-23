@@ -73,6 +73,9 @@ namespace TraktNET
         /// <summary>Provides access to the lists module. See <seealso cref="TraktListsModule" />.</summary>
         public TraktListsModule Lists { get; }
 
+        /// <summary>Provides access to the media module. See <seealso cref="TraktMediaModule" />.</summary>
+        public TraktMediaModule Media { get; }
+
         /// <summary>Provides access to the movies module. See <seealso cref="TraktMoviesModule" />.</summary>
         public TraktMoviesModule Movies { get; }
 
@@ -158,6 +161,7 @@ namespace TraktNET
             Genres = new TraktGenresModule(this);
             Languages = new TraktLanguagesModule(this);
             Lists = new TraktListsModule(this);
+            Media = new TraktMediaModule(this);
             Movies = new TraktMoviesModule(this);
             Networks = new TraktNetworksModule(this);
             Notes = new TraktNotesModule(this);

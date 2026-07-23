@@ -1,0 +1,26 @@
+[
+  {
+    "watchers": 150,
+    "type": "movie",
+    "movie": {
+      "title": "TRON: Legacy",
+      "year": 2010,
+      "ids": {
+        "trakt": 1,
+        "slug": "tron-legacy-2010"
+      }
+    }
+  },
+  {
+    "watchers": 250,
+    "type": "show",
+    "show": {
+      "title": "Breaking Bad",
+      "year": 2008,
+      "ids": {
+        "trakt": 1,
+        "slug": "breaking-bad"
+      }
+    }
+  }
+]

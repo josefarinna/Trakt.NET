@@ -6,7 +6,7 @@ namespace TraktNET.Json.General
         public void TestTraktSentimentItemConstructor()
         {
             var item = new TraktSentimentItem();
-            item.Sentiment.ShouldBe(string.Empty);
+            item.Sentiment.ShouldBeNull();
             item.CommentIDs.ShouldBeNull();
         }
 
