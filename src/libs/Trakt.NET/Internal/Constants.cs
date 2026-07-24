@@ -150,6 +150,7 @@ namespace TraktNET
                     new TraktMovieStatusJsonConverter(),
                     new TraktNotesObjectTypeJsonConverter(),
                     new TraktRatingsItemTypeJsonConverter(),
+                    new TraktReactionTypeJsonConverter(),
                     new TraktReasonJsonConverter(),
                     new TraktReleaseTypeJsonConverter(),
                     new TraktScrobbleActionTypeJsonConverter(),

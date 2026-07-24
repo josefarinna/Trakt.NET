@@ -2,22 +2,22 @@ using System.Net;
 
 namespace TraktNET.UsersModule
 {
-    public sealed class GetSyncsTests
+    public sealed class GetSyncsByTypeTests
     {
-        private const string GetSyncsUri = "users/syncs";
+        private const string GetSyncsUri = "users/syncs/plex";
         private const uint Page = 2;
         private const uint Limit = 4;
         private const uint ItemCount = 1;
 
         [Fact]
-        public async Task TestGetSyncs()
+        public async Task TestGetSyncsByType()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\syncs.json");
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetSyncsUri, responseContent, 1, 1, 10, ItemCount);
 
-            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsAsync(
-                cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -34,7 +34,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetSyncsWithPage()
+        public async Task TestGetSyncsByTypeWithPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\syncs.json");
 
@@ -42,8 +42,8 @@ namespace TraktNET.UsersModule
                 $"{GetSyncsUri}?page={Page}",
                 responseContent, Page, 1, 10, ItemCount);
 
-            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsAsync(
-                page: Page, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, page: Page, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -53,7 +53,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetSyncsWithLimit()
+        public async Task TestGetSyncsByTypeWithLimit()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\syncs.json");
 
@@ -61,8 +61,8 @@ namespace TraktNET.UsersModule
                 $"{GetSyncsUri}?limit={Limit}",
                 responseContent, 1, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsAsync(
-                limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -72,7 +72,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetSyncsWithPageAndLimit()
+        public async Task TestGetSyncsByTypeWithPageAndLimit()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\syncs.json");
 
@@ -80,8 +80,8 @@ namespace TraktNET.UsersModule
                 $"{GetSyncsUri}?page={Page}&limit={Limit}",
                 responseContent, Page, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsAsync(
-                page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -92,7 +92,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetSyncsPagingHasPreviousPageAndHasNextPage()
+        public async Task TestGetSyncsByTypePagingHasPreviousPageAndHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\syncs.json");
 
@@ -100,8 +100,8 @@ namespace TraktNET.UsersModule
                 $"{GetSyncsUri}?page=2&limit={Limit}",
                 responseContent, 2, 5, Limit, ItemCount);
 
-            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsAsync(
-                page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -110,7 +110,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetSyncsPagingOnlyHasPreviousPage()
+        public async Task TestGetSyncsByTypePagingOnlyHasPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\syncs.json");
 
@@ -118,8 +118,8 @@ namespace TraktNET.UsersModule
                 $"{GetSyncsUri}?page=2&limit={Limit}",
                 responseContent, 2, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsAsync(
-                page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -128,7 +128,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetSyncsPagingOnlyHasNextPage()
+        public async Task TestGetSyncsByTypePagingOnlyHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\syncs.json");
 
@@ -136,8 +136,8 @@ namespace TraktNET.UsersModule
                 $"{GetSyncsUri}?page=1&limit={Limit}",
                 responseContent, 1, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsAsync(
-                page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -146,7 +146,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetSyncsPagingNotHasPreviousPageOrHasNextPage()
+        public async Task TestGetSyncsByTypePagingNotHasPreviousPageOrHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\syncs.json");
 
@@ -154,8 +154,8 @@ namespace TraktNET.UsersModule
                 $"{GetSyncsUri}?page=1&limit={Limit}",
                 responseContent, 1, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsAsync(
-                page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -164,7 +164,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetSyncsPagingGetPreviousPage()
+        public async Task TestGetSyncsByTypePagingGetPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\syncs.json");
 
@@ -172,8 +172,8 @@ namespace TraktNET.UsersModule
                 $"{GetSyncsUri}?page=2&limit={Limit}",
                 responseContent, 2, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsAsync(
-                page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -192,7 +192,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetSyncsPagingGetNextPage()
+        public async Task TestGetSyncsByTypePagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\syncs.json");
 
@@ -200,8 +200,8 @@ namespace TraktNET.UsersModule
                 $"{GetSyncsUri}?page=1&limit={Limit}",
                 responseContent, 1, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsAsync(
-                page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktUserSync> response = await client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -217,6 +217,17 @@ namespace TraktNET.UsersModule
             response.Page.ShouldBe(2U);
             response.HasPreviousPage.ShouldBeTrue();
             response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetSyncsByTypeThrowsRequestValidationException()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetSyncsUri, HttpStatusCode.OK);
+
+            Func<Task<TraktPagedResponse<TraktUserSync>>> act = () => client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Unspecified, cancellationToken: TestContext.Current.CancellationToken);
+
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
 
         [Theory]
@@ -245,12 +256,12 @@ namespace TraktNET.UsersModule
         [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetSyncsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetSyncsByTypeThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetSyncsUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktUserSync>>> act = () => client.Users.GetSyncsAsync(
-                cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktUserSync>>> act = () => client.Users.GetSyncsByTypeAsync(
+                TraktUserSyncType.Plex, cancellationToken: TestContext.Current.CancellationToken);
 
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }

@@ -1178,7 +1178,7 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
-        public Task<TraktPagedResponse<TraktUserSync>> GetSyncsAsync(TraktUserSyncType syncType,
+        public Task<TraktPagedResponse<TraktUserSync>> GetSyncsByTypeAsync(TraktUserSyncType syncType,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetSyncsByTypeImplAsync(syncType, page, limit, cancellationToken);
 

@@ -485,5 +485,123 @@ namespace TraktNET
 
             return ReportCommentImplAsync(commentId, reason, message, cancellationToken);
         }
+
+        /// <summary>Gets reaction totals for a comment, grouped by reaction type.</summary>
+        /// <param name="commentId">The comment's id.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the comment's reaction summary.
+        /// <para />
+        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCommentReactionSummary" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getcommentsreactionssummary">
+        /// Trakt API Documentation: Comments: Get reaction summary
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktCommentReactionSummary>> GetCommentReactionSummaryAsync(uint commentId, CancellationToken cancellationToken = default)
+        {
+            if (commentId == 0)
+                throw new ArgumentException("commentId must not be 0", nameof(commentId));
+
+            return GetCommentReactionSummaryImplAsync(commentId, cancellationToken);
+        }
+
+        /// <summary>Gets users and reaction details for every reaction on a comment.</summary>
+        /// <param name="commentId">The comment's id.</param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the comment's reactions.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried comment reactions.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktCommentUserReaction" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getcommentsreactionsall">
+        /// Trakt API Documentation: Comments: Get comment reactions
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        /// <exception cref="ArgumentException">Thrown, if the given <paramref name="commentId"/> is 0.</exception>
+        public Task<TraktPagedResponse<TraktCommentUserReaction>> GetCommentReactionsAsync(uint commentId, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            if (commentId == 0)
+                throw new ArgumentException("commentId must not be 0", nameof(commentId));
+
+            return GetCommentReactionsImplAsync(commentId, extendedInfo, page, limit, cancellationToken);
+        }
+
+        /// <summary>Adds a reaction to a comment with the given comment id.</summary>
+        /// <param name="commentId">The id of the comment to react to.</param>
+        /// <param name="reactionType">The type of reaction to add. See also <seealso cref="TraktReactionType" />.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>A <see cref="TraktResponse" />.</returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentsreactionsadd">
+        /// Trakt API Documentation: Comments: Add comment reaction
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        /// <exception cref="ArgumentException">Thrown, if the given <paramref name="commentId"/> is 0 or <paramref name="reactionType"/> is unspecified.</exception>
+        public Task<TraktResponse> AddCommentReactionAsync(uint commentId, TraktReactionType reactionType, CancellationToken cancellationToken = default)
+        {
+            if (commentId == 0)
+                throw new ArgumentException("commentId must not be 0", nameof(commentId));
+
+            if (reactionType == TraktReactionType.Unspecified)
+                throw new ArgumentException("reactionType must not be unspecified", nameof(reactionType));
+
+            return AddCommentReactionImplAsync(commentId, reactionType, cancellationToken);
+        }
+
+        /// <summary>Removes a reaction from a comment with the given comment id.</summary>
+        /// <param name="commentId">The id of the comment to remove the reaction from.</param>
+        /// <param name="reactionType">The type of reaction to remove. See also <seealso cref="TraktReactionType" />.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>A <see cref="TraktResponse" />.</returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/deletecommentsreactionsremove">
+        /// Trakt API Documentation: Comments: Remove comment reaction
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        /// <exception cref="ArgumentException">Thrown, if the given <paramref name="commentId"/> is 0 or <paramref name="reactionType"/> is unspecified.</exception>
+        public Task<TraktResponse> RemoveCommentReactionAsync(uint commentId, TraktReactionType reactionType, CancellationToken cancellationToken = default)
+        {
+            if (commentId == 0)
+                throw new ArgumentException("commentId must not be 0", nameof(commentId));
+
+            if (reactionType == TraktReactionType.Unspecified)
+                throw new ArgumentException("reactionType must not be unspecified", nameof(reactionType));
+
+            return RemoveCommentReactionImplAsync(commentId, reactionType, cancellationToken);
+        }
     }
 }

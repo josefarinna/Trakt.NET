@@ -969,7 +969,7 @@ namespace TraktNET
         {
             var request = new UserSyncsByTypeGetRequest
             {
-                TypePath = syncType.AsPathParameter(),
+                Type = syncType,
                 Page = page,
                 Limit = limit
             };
@@ -977,7 +977,7 @@ namespace TraktNET
             return RequestHandler.ExecutePagedListRequestAsync<TraktUserSync>(_context, request, (page, limit)
                 => new UserSyncsByTypeGetRequest
                 {
-                    TypePath = syncType.AsPathParameter(),
+                    Type = syncType,
                     Page = page,
                     Limit = limit
                 }, cancellationToken);

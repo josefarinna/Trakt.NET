@@ -317,7 +317,10 @@ namespace TraktNET
             typeof(TraktListCommentPost),
             typeof(TraktMovieCommentPost),
             typeof(TraktSeasonCommentPost),
-            typeof(TraktShowCommentPost)
+            typeof(TraktShowCommentPost),
+            typeof(TraktCommentReaction),
+            typeof(TraktCommentUserReaction),
+            typeof(TraktCommentReactionSummary)
         });
 
         private static readonly FrozenSet<Type> s_countriesJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -879,7 +882,10 @@ namespace TraktNET
             typeof(TraktListCommentPost),
             typeof(TraktMovieCommentPost),
             typeof(TraktSeasonCommentPost),
-            typeof(TraktShowCommentPost)
+            typeof(TraktShowCommentPost),
+            typeof(TraktCommentReaction),
+            typeof(TraktCommentUserReaction),
+            typeof(TraktCommentReactionSummary)
         ];
 
         private static readonly HashSet<Type> s_countriesJsonTypes = [

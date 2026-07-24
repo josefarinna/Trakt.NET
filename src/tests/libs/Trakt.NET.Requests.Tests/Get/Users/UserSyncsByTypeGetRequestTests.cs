@@ -17,7 +17,7 @@ namespace TraktNET.GetRequests.Users
         {
             var request = new UserSyncsByTypeGetRequest
             {
-                TypePath = TraktUserSyncType.Plex.AsPathParameter(),
+                Type = TraktUserSyncType.Plex,
                 Page = (uint?)page,
                 Limit = (uint?)limit
             };
@@ -29,21 +29,21 @@ namespace TraktNET.GetRequests.Users
         [Fact]
         public void TestUserSyncsByTypeGetRequestHasValidOAuthRequirement()
         {
-            var request = new UserSyncsByTypeGetRequest { TypePath = default! };
+            var request = new UserSyncsByTypeGetRequest { Type = default! };
             request.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestUserSyncsByTypeGetRequestIsGetRequest()
         {
-            var request = new UserSyncsByTypeGetRequest { TypePath = default! };
+            var request = new UserSyncsByTypeGetRequest { Type = default! };
             request.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
         public void TestUserSyncsByTypeGetRequestHasCorrectRequestObjectType()
         {
-            var request = new UserSyncsByTypeGetRequest { TypePath = default! };
+            var request = new UserSyncsByTypeGetRequest { Type = default! };
             request.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
     }

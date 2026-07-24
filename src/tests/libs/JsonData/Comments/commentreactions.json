@@ -1,0 +1,19 @@
+[
+  {
+    "reacted_at": "2024-01-01T00:00:00.000Z",
+    "reaction": {
+      "type": "like"
+    },
+    "user": {
+      "username": "sean",
+      "private": false,
+      "name": "Sean Rudford",
+      "vip": true,
+      "vip_ep": false,
+      "ids": {
+        "slug": "sean",
+        "trakt": 1
+      }
+    }
+  }
+]

@@ -1,4 +1,4 @@
-﻿#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
@@ -15,6 +15,10 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktUserComment))]
     [JsonSerializable(typeof(IReadOnlyList<TraktUserComment>))]
     [JsonSerializable(typeof(TraktCommentPostResponse))]
+    [JsonSerializable(typeof(TraktCommentReaction))]
+    [JsonSerializable(typeof(TraktCommentUserReaction))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktCommentUserReaction>))]
+    [JsonSerializable(typeof(TraktCommentReactionSummary))]
     public sealed partial class CommentsJsonSerializerContext : JsonSerializerContext
     {
     }

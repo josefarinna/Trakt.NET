@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET
 {
@@ -64,6 +64,16 @@ namespace TraktNET
             httpClientProvider.SetupOAuthMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount, noOauthHeaders);
             client.HttpClientProvider = httpClientProvider;
             return client;
+        }
+
+        public static void SetOAuthClient(TraktClient client, string requestUri, string responseContent, uint? page = null, uint? pageCount = null,
+            uint? limit = null, uint? itemCount = null, bool noOauthHeaders = false)
+        {
+            string baseUrl = requestUri == "oauth/authorize" ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
+
+            var httpClientProvider = new TestHttpClientProvider(baseUrl);
+            httpClientProvider.SetupOAuthMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount, noOauthHeaders);
+            client.HttpClientProvider = httpClientProvider;
         }
 
         public static TraktClient GetOAuthClient(string requestUri, HttpStatusCode statusCode, bool noOauthHeaders = false)

@@ -289,5 +289,58 @@ namespace TraktNET
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
+
+        private Task<TraktResponse<TraktCommentReactionSummary>> GetCommentReactionSummaryImplAsync(uint commentId, CancellationToken cancellationToken = default)
+        {
+            var request = new CommentReactionsSummaryGetRequest
+            {
+                Id = commentId.ToInvariantCultureString()
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentReactionSummary>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktCommentUserReaction>> GetCommentReactionsImplAsync(uint commentId, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new CommentReactionsGetRequest
+            {
+                Id = commentId.ToInvariantCultureString(),
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktCommentUserReaction>(_context, request, (page, limit)
+                => new CommentReactionsGetRequest
+                {
+                    Id = commentId.ToInvariantCultureString(),
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
+
+        private Task<TraktResponse> AddCommentReactionImplAsync(uint commentId, TraktReactionType reactionType, CancellationToken cancellationToken = default)
+        {
+            var request = new CommentReactionAddPostRequest
+            {
+                Id = commentId.ToInvariantCultureString(),
+                Type = reactionType
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> RemoveCommentReactionImplAsync(uint commentId, TraktReactionType reactionType, CancellationToken cancellationToken = default)
+        {
+            var request = new CommentReactionRemoveDeleteRequest
+            {
+                Id = commentId.ToInvariantCultureString(),
+                Type = reactionType
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
     }
 }

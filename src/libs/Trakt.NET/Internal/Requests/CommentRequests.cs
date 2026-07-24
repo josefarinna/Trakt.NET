@@ -29,6 +29,18 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
+    [TraktGetRequest("comments/{id!!}/reactions/summary")]
+    internal sealed partial class CommentReactionsSummaryGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
+    }
+
+    [TraktGetRequest("comments/{id!!}/reactions", SupportsExtendedInfo = true, SupportsPagination = true)]
+    internal sealed partial class CommentReactionsGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
+    }
+
     [TraktGetRequest("comments/trending", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class CommentsTrendingGetRequest
     {
@@ -111,6 +123,15 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
+    [TraktPostRequest("comments/{id!!}/reactions", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class CommentReactionAddPostRequest
+    {
+        [TraktRequestParameter]
+        internal required TraktReactionType Type { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
+    }
+
     // -------------------------------------------------------
     // PUT Requests
     // -------------------------------------------------------
@@ -137,6 +158,15 @@ namespace TraktNET
     [TraktDeleteRequest("comments/{id!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CommentUnlikeDeleteRequest
     {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
+    }
+
+    [TraktDeleteRequest("comments/{id!!}/reactions", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class CommentReactionRemoveDeleteRequest
+    {
+        [TraktRequestParameter]
+        internal required TraktReactionType Type { get; set; }
+
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 }

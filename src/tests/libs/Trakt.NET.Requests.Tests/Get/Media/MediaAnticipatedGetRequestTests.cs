@@ -8,13 +8,30 @@ namespace TraktNET.GetRequests.Media
     {
         private const string URIPath = "media/anticipated";
 
-        [Fact]
-        public void TestMediaAnticipatedGetRequestHasValidURIPath()
+        [Theory]
+        [InlineData(null, null, null, URIPath)]
+        [InlineData(TraktExtendedInfo.None, null, null, URIPath)]
+        [InlineData(TraktExtendedInfo.Full, null, null, $"{URIPath}?extended=full")]
+        [InlineData(null, 10, null, $"{URIPath}?page=10")]
+        [InlineData(null, null, 20, $"{URIPath}?limit=20")]
+        [InlineData(null, 10, 20, $"{URIPath}?page=10&limit=20")]
+        [InlineData(TraktExtendedInfo.None, 10, null, $"{URIPath}?page=10")]
+        [InlineData(TraktExtendedInfo.Full, 10, null, $"{URIPath}?extended=full&page=10")]
+        [InlineData(TraktExtendedInfo.None, null, 20, $"{URIPath}?limit=20")]
+        [InlineData(TraktExtendedInfo.Full, null, 20, $"{URIPath}?extended=full&limit=20")]
+        [InlineData(TraktExtendedInfo.None, 10, 20, $"{URIPath}?page=10&limit=20")]
+        [InlineData(TraktExtendedInfo.Full, 10, 20, $"{URIPath}?extended=full&page=10&limit=20")]
+        public void TestMediaAnticipatedGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, int? page, int? limit, string expectedURIPath)
         {
-            var mediaAnticipatedGetRequest = new MediaAnticipatedGetRequest();
+            var mediaAnticipatedGetRequest = new MediaAnticipatedGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                Page = (uint?)page,
+                Limit = (uint?)limit
+            };
 
             mediaAnticipatedGetRequest.BuildUri();
-            mediaAnticipatedGetRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            mediaAnticipatedGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
@@ -29,6 +46,26 @@ namespace TraktNET.GetRequests.Media
         {
             var mediaAnticipatedGetRequest = new MediaAnticipatedGetRequest();
             mediaAnticipatedGetRequest.Method.ShouldBe(HttpMethod.Get);
+        }
+
+        [Fact]
+        public void TestMediaAnticipatedGetRequestHasCorrectRequestObjectType()
+        {
+            var mediaAnticipatedGetRequest = new MediaAnticipatedGetRequest();
+            mediaAnticipatedGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
+        }
+
+        [Fact]
+        public void TestMediaAnticipatedGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            var mediaAnticipatedGetRequest = new MediaAnticipatedGetRequest
+            {
+                Filter = filter
+            };
+
+            mediaAnticipatedGetRequest.BuildUri();
+            mediaAnticipatedGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?query=batman", UriKind.Relative));
         }
     }
 }

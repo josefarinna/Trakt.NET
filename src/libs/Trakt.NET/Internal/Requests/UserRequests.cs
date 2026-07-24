@@ -274,9 +274,11 @@ namespace TraktNET
     {
     }
 
-    [TraktGetRequest("users/syncs/{type_path!!}", SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktGetRequest("users/syncs", SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserSyncsByTypeGetRequest
     {
+        [TraktRequestParameter]
+        internal required TraktUserSyncType Type { get; set; }
     }
 
     [TraktGetRequest("users/syncs/{id:ulong!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
