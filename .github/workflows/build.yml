@@ -76,6 +76,7 @@ jobs:
         with:
           dotnet-version: |
             ${{ env.DOTNET_VERSION_CURRENT_STABLE }}
+            ${{ env.DOTNET_9_VERSION_STABLE }}
             ${{ env.DOTNET_8_VERSION_STABLE }}
             ${{ env.DOTNET_7_VERSION_STABLE }}
             ${{ env.DOTNET_6_VERSION_STABLE }}
@@ -144,7 +145,7 @@ jobs:
 
       - name: Push NuGet packages to Github Package Registry
         if: ${{ inputs.push_nuget_package && !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
-        run: dotnet nuget push '**/Trakt.NET*.nupkg' --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/henrikfroehling --skip-duplicate
+        run: dotnet nuget push '**/Trakt.NET*.nupkg' --api-key ${{ secrets.GITHUB_TOKEN }} --source https://nuget.pkg.github.com/jose.farinna --skip-duplicate
         working-directory: ${{ inputs.working_directory }}
   
       - name: Push packages to NuGet
