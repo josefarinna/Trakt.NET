@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Game of Thrones",
+    "year": 2011,
+    "ids": {
+      "trakt": 1390,
+      "slug": "game-of-thrones",
+      "tvdb": 121361,
+      "imdb": "tt0944947",
+      "tmdb": 1399
+    },
+    "favorited_by": [
+      {
+        "username": "sean",
+        "private": false,
+        "name": "Sean Rudford",
+        "vip": true,
+        "vip_tier": "vip_og",
+        "ids": {
+          "slug": "sean"
+        }
+      }
+    ],
+    "recommended_by": [
+      {
+        "username": "sean",
+        "private": false,
+        "name": "Sean Rudford",
+        "vip": true,
+        "vip_tier": "vip_og",
+        "ids": {
+          "slug": "sean"
+        }
+      }
+    ]
+  }
+]

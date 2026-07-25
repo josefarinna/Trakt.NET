@@ -121,14 +121,20 @@ namespace TraktNET
         /// <summary>Provides access to the sync module. See <seealso cref="TraktSyncModule" />.</summary>
         public TraktSyncModule Sync => _context.Sync;
 
-        /// <summary>Provides access to the watchnow module. See <seealso cref="TraktWatchnowModule" />.</summary>
-        public TraktWatchnowModule Watchnow => _context.Watchnow;
+        /// <summary>Provides access to the team module. See <seealso cref="TraktTeamModule" />.</summary>
+        public TraktTeamModule Team => _context.Team;
 
         /// <summary>Provides access to the users module. See <seealso cref="TraktUsersModule" />.</summary>
         public TraktUsersModule Users => _context.Users;
 
         /// <summary>Provides access to the smart lists module. See <seealso cref="TraktSmartListsModule" />.</summary>
         public TraktSmartListsModule SmartLists => _context.SmartLists;
+
+        /// <summary>Provides access to the social recommendations module. See <seealso cref="TraktSocialRecommendationsModule" />.</summary>
+        public TraktSocialRecommendationsModule SocialRecommendations => _context.SocialRecommendations;
+
+        /// <summary>Provides access to the watchnow module. See <seealso cref="TraktWatchnowModule" />.</summary>
+        public TraktWatchnowModule Watchnow => _context.Watchnow;
 
         /// <summary>Provides access to the Younify module. See <seealso cref="TraktYounifyModule" />.</summary>
         public TraktYounifyModule Younify => _context.Younify;

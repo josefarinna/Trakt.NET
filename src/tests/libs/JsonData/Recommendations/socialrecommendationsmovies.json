@@ -1,0 +1,36 @@
+[
+  {
+    "title": "Star Wars: The Force Awakens",
+    "year": 2015,
+    "ids": {
+      "trakt": 94024,
+      "slug": "star-wars-the-force-awakens-2015",
+      "imdb": "tt2488496",
+      "tmdb": 140607
+    },
+    "favorited_by": [
+      {
+        "username": "sean",
+        "private": false,
+        "name": "Sean Rudford",
+        "vip": true,
+        "vip_tier": "vip_og",
+        "ids": {
+          "slug": "sean"
+        }
+      }
+    ],
+    "recommended_by": [
+      {
+        "username": "sean",
+        "private": false,
+        "name": "Sean Rudford",
+        "vip": true,
+        "vip_tier": "vip_og",
+        "ids": {
+          "slug": "sean"
+        }
+      }
+    ]
+  }
+]
