@@ -6,21 +6,80 @@ namespace TraktNET.GetRequests.Auth
 {
     public sealed class AuthorizeRequestTests
     {
-        private const string URIPath = "oauth/authorize/123?response_type=123&client_id=123&redirect_uri=123";
-
         [Fact]
-        public void TestAuthorizeRequestHasValidURIPath()
+        public void TestAuthorizeRequestHasValidURIPathWithoutOptionalParameters()
         {
             var authorizeRequest = new AuthorizeRequest
             {
-                ResponseType = "123",
-                ClientId = "123",
-                RedirectUri = "123",
-                Prompt = "123"
+                ResponseType = "code",
+                ClientId = "client_id_123",
+                RedirectUri = "https://example.com/callback"
             };
 
             authorizeRequest.BuildUri();
-            authorizeRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize?response_type=code&client_id=client_id_123&redirect_uri=https://example.com/callback", UriKind.Relative));
+        }
+
+        [Fact]
+        public void TestAuthorizeRequestHasValidURIPathWithState()
+        {
+            var authorizeRequest = new AuthorizeRequest
+            {
+                ResponseType = "code",
+                ClientId = "client_id_123",
+                RedirectUri = "https://example.com/callback",
+                State = "state123"
+            };
+
+            authorizeRequest.BuildUri();
+            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize?response_type=code&client_id=client_id_123&redirect_uri=https://example.com/callback&state=state123", UriKind.Relative));
+        }
+
+        [Fact]
+        public void TestAuthorizeRequestHasValidURIPathWithSignup()
+        {
+            var authorizeRequest = new AuthorizeRequest
+            {
+                ResponseType = "code",
+                ClientId = "client_id_123",
+                RedirectUri = "https://example.com/callback",
+                Signup = true
+            };
+
+            authorizeRequest.BuildUri();
+            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize/true?response_type=code&client_id=client_id_123&redirect_uri=https://example.com/callback", UriKind.Relative));
+        }
+
+        [Fact]
+        public void TestAuthorizeRequestHasValidURIPathWithPrompt()
+        {
+            var authorizeRequest = new AuthorizeRequest
+            {
+                ResponseType = "code",
+                ClientId = "client_id_123",
+                RedirectUri = "https://example.com/callback",
+                Prompt = "login"
+            };
+
+            authorizeRequest.BuildUri();
+            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize/login?response_type=code&client_id=client_id_123&redirect_uri=https://example.com/callback", UriKind.Relative));
+        }
+
+        [Fact]
+        public void TestAuthorizeRequestHasValidURIPathWithAllParameters()
+        {
+            var authorizeRequest = new AuthorizeRequest
+            {
+                ResponseType = "code",
+                ClientId = "client_id_123",
+                RedirectUri = "https://example.com/callback",
+                Signup = true,
+                Prompt = "login",
+                State = "state123"
+            };
+
+            authorizeRequest.BuildUri();
+            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize/true/login?response_type=code&client_id=client_id_123&redirect_uri=https://example.com/callback&state=state123", UriKind.Relative));
         }
 
         [Fact]
@@ -44,12 +103,56 @@ namespace TraktNET.GetRequests.Auth
             authorizeRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
 
-        [Fact]
-        public void TestAuthorizeRequestValidate()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("   ")]
+        public void TestAuthorizeRequestValidateThrowsExceptionWhenResponseTypeIsInvalid(string? responseType)
         {
-            var authorizeRequest = new AuthorizeRequest { ResponseType = default!, ClientId = default!, RedirectUri = default! };
+            var authorizeRequest = new AuthorizeRequest
+            {
+                ResponseType = responseType!,
+                ClientId = "client_id_123",
+                RedirectUri = "https://example.com/callback"
+            };
+
+            Action act = () => authorizeRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+        }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("   ")]
+        public void TestAuthorizeRequestValidateThrowsExceptionWhenClientIdIsInvalid(string? clientId)
+        {
+            var authorizeRequest = new AuthorizeRequest
+            {
+                ResponseType = "code",
+                ClientId = clientId!,
+                RedirectUri = "https://example.com/callback"
+            };
+
+            Action act = () => authorizeRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+        }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData("   ")]
+        public void TestAuthorizeRequestValidateThrowsExceptionWhenRedirectUriIsInvalid(string? redirectUri)
+        {
+            var authorizeRequest = new AuthorizeRequest
+            {
+                ResponseType = "code",
+                ClientId = "client_id_123",
+                RedirectUri = redirectUri!
+            };
+
             Action act = () => authorizeRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }
+

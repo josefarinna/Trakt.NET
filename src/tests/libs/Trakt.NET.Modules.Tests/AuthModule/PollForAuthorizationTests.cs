@@ -125,6 +125,49 @@ namespace TraktNET.AuthModule
             (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);
         }
 
+        [Fact]
+        public async Task TestPollForAuthorizationThrowsValidationExceptionWhenDeviceIsNull()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri);
+
+            Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.PollForAuthorizationAsync(TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+        }
+
+        [Fact]
+        public async Task TestPollForAuthorizationThrowsValidationExceptionWhenDeviceIsExpiredUnused()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri);
+            var expiredDevice = new TraktDevice
+            {
+                DeviceCode = TestConstants.MockDeviceCode,
+                UserCode = TestConstants.MockUserCode,
+                VerificationUrl = TestConstants.DeviceVerificationURL,
+                ExpiresIn = 0,
+                Interval = TestConstants.DeviceInterval
+            };
+
+            Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.PollForAuthorizationAsync(expiredDevice, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+        }
+
+        [Fact]
+        public async Task TestPollForAuthorizationThrowsValidationExceptionWhenDeviceIsInvalid()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri);
+            var invalidDevice = new TraktDevice
+            {
+                DeviceCode = "",
+                UserCode = TestConstants.MockUserCode,
+                VerificationUrl = TestConstants.DeviceVerificationURL,
+                ExpiresIn = TestConstants.DeviceExpiresIn,
+                Interval = TestConstants.DeviceInterval
+            };
+
+            Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.PollForAuthorizationAsync(invalidDevice, TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+        }
+
         private static void ValidateSuccessResponse(TraktResponse<TraktAuthorization> response, TraktClient client)
         {
             response.ShouldNotBeNull();

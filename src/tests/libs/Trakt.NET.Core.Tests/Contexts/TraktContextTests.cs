@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Contexts
+namespace TraktNET.Contexts
 {
     public class TraktContextTests
     {
@@ -33,6 +33,60 @@
         }
 
         [Fact]
+        public void TestTraktContextCreate()
+        {
+            TraktContext context = TraktContext.Create(ClientID, ClientSecret);
+
+            context.ShouldNotBeNull();
+            context.ShouldBeOfType<TraktDefaultContext>();
+            context.ID.ShouldNotBeNullOrEmpty();
+            context.ClientID.ShouldBe(ClientID);
+            context.ClientSecret.ShouldBe(ClientSecret);
+            context.BaseUri.AbsoluteUri.ShouldBe("https://api.trakt.tv/");
+            context.BaseAuthorizationUri.AbsoluteUri.ShouldBe("https://trakt.tv/");
+        }
+
+        [Fact]
+        public void TestTraktContextCreateWithUserAgent()
+        {
+            const string customUserAgent = "CustomUserAgent/1.0";
+            TraktContext context = TraktContext.Create(ClientID, ClientSecret, customUserAgent);
+
+            context.ShouldNotBeNull();
+            context.ShouldBeOfType<TraktDefaultContext>();
+            context.ClientID.ShouldBe(ClientID);
+            context.ClientSecret.ShouldBe(ClientSecret);
+            context.UserAgent.ShouldBe(customUserAgent);
+        }
+
+        [Fact]
+        public void TestTraktContextCreateForSandbox()
+        {
+            TraktContext context = TraktContext.CreateForSandbox(ClientID, ClientSecret);
+
+            context.ShouldNotBeNull();
+            context.ShouldBeOfType<TraktSandboxContext>();
+            context.ID.ShouldNotBeNullOrEmpty();
+            context.ClientID.ShouldBe(ClientID);
+            context.ClientSecret.ShouldBe(ClientSecret);
+            context.BaseUri.AbsoluteUri.ShouldBe("https://api-staging.trakt.tv/");
+            context.BaseAuthorizationUri.AbsoluteUri.ShouldBe("https://staging.trakt.tv/");
+        }
+
+        [Fact]
+        public void TestTraktContextCreateForSandboxWithUserAgent()
+        {
+            const string customUserAgent = "CustomUserAgent/1.0";
+            TraktContext context = TraktContext.CreateForSandbox(ClientID, ClientSecret, customUserAgent);
+
+            context.ShouldNotBeNull();
+            context.ShouldBeOfType<TraktSandboxContext>();
+            context.ClientID.ShouldBe(ClientID);
+            context.ClientSecret.ShouldBe(ClientSecret);
+            context.UserAgent.ShouldBe(customUserAgent);
+        }
+
+        [Fact]
         public void TestTraktContextInvalidClientID()
         {
             Action act = () => _ = new TraktDefaultContext(string.Empty, ClientSecret, null);
@@ -59,3 +113,4 @@
         }
     }
 }
+
