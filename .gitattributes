@@ -3,6 +3,11 @@
 ###############################################################################
 * text=auto
 
+# Force LF line endings for Verify snapshot files
+*.verified.cs text eol=lf
+*.verified.txt text eol=lf
+
+
 ###############################################################################
 # Set default behavior for command prompt diff.
 #
