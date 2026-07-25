@@ -1,4 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis;
 using TraktNET.SourceGeneration.Common;
 
 namespace TraktNET.SourceGeneration.Enums
@@ -26,6 +26,7 @@ namespace TraktNET.SourceGeneration.Enums
         private string _queryName = string.Empty;
         private bool _hasPathSupport;
         private bool _hasQuerySupport;
+        private bool _supportNumberDeserialization;
 
         private List<EnumMemberGenerationSpecification> _enumMembers = [];
 
@@ -59,6 +60,7 @@ namespace TraktNET.SourceGeneration.Enums
             _queryName = enumGenerationSpecification.QueryName;
             _hasPathSupport = enumGenerationSpecification.HasPathSupport;
             _hasQuerySupport = enumGenerationSpecification.HasQuerySupport;
+            _supportNumberDeserialization = enumGenerationSpecification.SupportNumberDeserialization;
             _enumMembers = enumGenerationSpecification.Members;
 
             _hasUnspecifiedMember = _enumMembers.Any(m => m.Name == UnspecifiedValue);
@@ -444,22 +446,31 @@ namespace TraktNET.SourceGeneration.Enums
             _sourceWriter.WriteLine($"public override {_enumName} Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)");
             _sourceWriter.WriteLine('{');
             _sourceWriter.Indent();
-            _sourceWriter.WriteLine("if (reader.TokenType == JsonTokenType.String)");
-            _sourceWriter.WriteLine('{');
-            _sourceWriter.Indent();
-            _sourceWriter.WriteLine("string? enumValue = reader.GetString();");
-            _sourceWriter.WriteLine($"return string.IsNullOrEmpty(enumValue) ? default : enumValue.To{_enumName}();");
-            _sourceWriter.DecrementIndent();
-            _sourceWriter.WriteLine('}');
-            _sourceWriter.WriteEmptyLine();
-            _sourceWriter.WriteLine("if (reader.TokenType == JsonTokenType.Number && reader.TryGetInt32(out int intValue))");
-            _sourceWriter.WriteLine('{');
-            _sourceWriter.Indent();
-            _sourceWriter.WriteLine($"return System.Enum.IsDefined(typeof({_enumName}), intValue) ? ({_enumName})intValue : default;");
-            _sourceWriter.DecrementIndent();
-            _sourceWriter.WriteLine('}');
-            _sourceWriter.WriteEmptyLine();
-            _sourceWriter.WriteLine("return default;");
+            if (_supportNumberDeserialization)
+            {
+                _sourceWriter.WriteLine("if (reader.TokenType == JsonTokenType.String)");
+                _sourceWriter.WriteLine('{');
+                _sourceWriter.Indent();
+                _sourceWriter.WriteLine("string? enumValue = reader.GetString();");
+                _sourceWriter.WriteLine($"return string.IsNullOrEmpty(enumValue) ? default : enumValue.To{_enumName}();");
+                _sourceWriter.DecrementIndent();
+                _sourceWriter.WriteLine('}');
+                _sourceWriter.WriteEmptyLine();
+                _sourceWriter.WriteLine("if (reader.TokenType == JsonTokenType.Number && reader.TryGetInt32(out int intValue))");
+                _sourceWriter.WriteLine('{');
+                _sourceWriter.Indent();
+                _sourceWriter.WriteLine($"return System.Enum.IsDefined(typeof({_enumName}), intValue) ? ({_enumName})intValue : default;");
+                _sourceWriter.DecrementIndent();
+                _sourceWriter.WriteLine('}');
+                _sourceWriter.WriteEmptyLine();
+                _sourceWriter.WriteLine("return default;");
+            }
+            else
+            {
+                _sourceWriter.WriteLine("string? enumValue = reader.GetString();");
+                _sourceWriter.WriteLine($"return string.IsNullOrEmpty(enumValue) ? default : enumValue.To{_enumName}();");
+            }
+
             _sourceWriter.DecrementIndent();
             _sourceWriter.WriteLine('}');
             _sourceWriter.WriteEmptyLine();

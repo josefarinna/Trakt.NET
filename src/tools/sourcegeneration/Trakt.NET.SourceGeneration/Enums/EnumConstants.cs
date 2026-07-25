@@ -1,4 +1,4 @@
-﻿using TraktNET.SourceGeneration.Common;
+using TraktNET.SourceGeneration.Common;
 
 namespace TraktNET.SourceGeneration.Enums
 {
@@ -19,6 +19,8 @@ namespace TraktNET.SourceGeneration.Enums
         internal const string TraktEnumPropertyHasPathSupport = "HasPathSupport";
 
         internal const string TraktEnumPropertyHasQuerySupport = "HasQuerySupport";
+
+        internal const string TraktEnumPropertySupportNumberDeserialization = "SupportNumberDeserialization";
 
         internal const string TraktEnumMemberPropertyJsonValue = "JsonValue";
 

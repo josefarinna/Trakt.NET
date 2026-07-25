@@ -1,4 +1,4 @@
-﻿namespace TraktNET.SourceGeneration.Enums
+namespace TraktNET.SourceGeneration.Enums
 {
     public sealed class TraktEnumGeneratorTests
     {
@@ -22,6 +22,28 @@
 
             return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
                 "SourceGeneration.EnumTests", source, customFilename: nameof(TestGeneratesEnumExtensions));
+        }
+
+        [Fact]
+        public Task TestGeneratesEnumExtensionsWithSupportNumberDeserialization()
+        {
+            string source = """
+                using TraktNET;
+
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktEnum(SupportNumberDeserialization = true)]
+                    public enum TestEnum
+                    {
+                        Unspecified,
+                        ValueOne,
+                        ValueTwo
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktEnumSourceGenerator>("Enums/Enum",
+                "SourceGeneration.EnumSupportNumberDeserializationTests", source, customFilename: nameof(TestGeneratesEnumExtensionsWithSupportNumberDeserialization));
         }
 
         [Fact]

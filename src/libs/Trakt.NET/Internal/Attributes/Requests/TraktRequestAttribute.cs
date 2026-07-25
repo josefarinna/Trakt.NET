@@ -1,5 +1,8 @@
-﻿namespace TraktNET
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace TraktNET
 {
+    [ExcludeFromCodeCoverage]
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     internal abstract class TraktRequestAttribute(HttpMethod method, string path) : Attribute
     {

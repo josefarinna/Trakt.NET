@@ -1,6 +1,9 @@
-﻿namespace TraktNET
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace TraktNET
 {
     /// <summary>Can be used to provide a custom Json value, URI value and / or display name for an enum member.</summary>
+    [ExcludeFromCodeCoverage]
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
     internal sealed class TraktEnumMemberAttribute() : Attribute
     {

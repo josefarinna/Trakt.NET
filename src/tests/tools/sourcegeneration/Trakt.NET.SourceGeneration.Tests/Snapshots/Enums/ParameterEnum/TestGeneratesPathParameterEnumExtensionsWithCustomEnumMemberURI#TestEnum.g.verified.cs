@@ -74,18 +74,8 @@ namespace SourceGeneraterTestNamespace
 
         public override TestEnum Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            if (reader.TokenType == JsonTokenType.String)
-            {
-                string? enumValue = reader.GetString();
-                return string.IsNullOrEmpty(enumValue) ? default : enumValue.ToTestEnum();
-            }
-
-            if (reader.TokenType == JsonTokenType.Number && reader.TryGetInt32(out int intValue))
-            {
-                return System.Enum.IsDefined(typeof(TestEnum), intValue) ? (TestEnum)intValue : default;
-            }
-
-            return default;
+            string? enumValue = reader.GetString();
+            return string.IsNullOrEmpty(enumValue) ? default : enumValue.ToTestEnum();
         }
 
         public override void Write(Utf8JsonWriter writer, TestEnum value, JsonSerializerOptions options)

@@ -1,4 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Collections.Immutable;
 using System.Diagnostics;
@@ -17,6 +17,7 @@ namespace TraktNET.SourceGeneration.Enums
         private string _queryName = string.Empty;
         private bool _hasPathSupport;
         private bool _hasQuerySupport;
+        private bool _supportNumberDeserialization;
         private readonly List<EnumMemberGenerationSpecification> _enumMembers = [];
         private string _customJsonSeparator = "_";
 
@@ -58,6 +59,7 @@ namespace TraktNET.SourceGeneration.Enums
                 QueryName = _queryName,
                 HasPathSupport = _hasPathSupport,
                 HasQuerySupport = _hasQuerySupport,
+                SupportNumberDeserialization = _supportNumberDeserialization,
                 Members = _enumMembers
             };
         }
@@ -127,6 +129,12 @@ namespace TraktNET.SourceGeneration.Enums
                         && hasQuerySupportConstant.Value is bool hasQuerySupport)
                     {
                         _hasQuerySupport = hasQuerySupport;
+                    }
+
+                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertySupportNumberDeserialization, out TypedConstant supportNumberDeserializationConstant)
+                        && supportNumberDeserializationConstant.Value is bool supportNumberDeserialization)
+                    {
+                        _supportNumberDeserialization = supportNumberDeserialization;
                     }
                 }
             }

@@ -1,4 +1,6 @@
-﻿namespace TraktNET
+using System.Diagnostics.CodeAnalysis;
+
+namespace TraktNET
 {
     /// <summary>
     /// Provides extension methods and a Json converter for an enum.
@@ -8,6 +10,7 @@
     /// <para />
     /// Default values can be overridden by using <see cref="TraktEnumMemberAttribute" /> on an enum member.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     [AttributeUsage(AttributeTargets.Enum, AllowMultiple = false, Inherited = false)]
     internal sealed class TraktEnumAttribute() : Attribute
     {
@@ -22,5 +25,8 @@
 
         /// <summary>Enables or disables generating extension methods for providing URI query values.</summary>
         public bool HasQuerySupport { get; set; }
+
+        /// <summary>Enables or disables generating JsonTokenType.Number parsing support in the Json converter.</summary>
+        public bool SupportNumberDeserialization { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace SourceGeneraterTestNamespace
             {
                 TestEnum.Unspecified => null,
                 TestEnum.ValueOne => "value_one",
-                TestEnum.ValueTwo => "second_value",
+                TestEnum.ValueTwo => "value_two",
                 _ => null,
             };
 
@@ -31,7 +31,7 @@ namespace SourceGeneraterTestNamespace
             {
                 "unspecified" => TestEnum.Unspecified,
                 "value_one" => TestEnum.ValueOne,
-                "second_value" => TestEnum.ValueTwo,
+                "value_two" => TestEnum.ValueTwo,
                 _ => TestEnum.Unspecified,
             };
 
@@ -41,41 +41,9 @@ namespace SourceGeneraterTestNamespace
             {
                 TestEnum.Unspecified => "Unspecified",
                 TestEnum.ValueOne => "Value One",
-                TestEnum.ValueTwo => "Value Nr. 2",
+                TestEnum.ValueTwo => "Value Two",
                 _ => value.ToString(),
             };
-
-        /// <summary>Returns the URI value for <see cref="TestEnum" />.</summary>
-        public static string ToURI(this TestEnum value)
-            => value switch
-            {
-                TestEnum.Unspecified => string.Empty,
-                TestEnum.ValueOne => "first_value_uri",
-                TestEnum.ValueTwo => "second_value",
-                _ => string.Empty,
-            };
-
-        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI path parameter.</summary>
-        public static string AsPathParameter(this TestEnum value)
-        {
-            if (value == TestEnum.Unspecified)
-            {
-                return string.Empty;
-            }
-
-            return value.ToURI();
-        }
-
-        /// <summary>Converts a <see cref="TestEnum" /> to a valid URI query.</summary>
-        public static string AsQuery(this TestEnum value)
-        {
-            if (value == TestEnum.Unspecified)
-            {
-                return string.Empty;
-            }
-
-            return "testenum=" + value.ToURI();
-        }
     }
 
     /// <summary>JSON converter for <see cref="TestEnum" />.</summary>
@@ -85,8 +53,18 @@ namespace SourceGeneraterTestNamespace
 
         public override TestEnum Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            string? enumValue = reader.GetString();
-            return string.IsNullOrEmpty(enumValue) ? default : enumValue.ToTestEnum();
+            if (reader.TokenType == JsonTokenType.String)
+            {
+                string? enumValue = reader.GetString();
+                return string.IsNullOrEmpty(enumValue) ? default : enumValue.ToTestEnum();
+            }
+
+            if (reader.TokenType == JsonTokenType.Number && reader.TryGetInt32(out int intValue))
+            {
+                return System.Enum.IsDefined(typeof(TestEnum), intValue) ? (TestEnum)intValue : default;
+            }
+
+            return default;
         }
 
         public override void Write(Utf8JsonWriter writer, TestEnum value, JsonSerializerOptions options)

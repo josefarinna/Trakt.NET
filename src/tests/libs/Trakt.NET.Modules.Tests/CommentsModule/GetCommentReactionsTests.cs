@@ -99,14 +99,107 @@ namespace TraktNET.CommentsModule
         }
 
         [Fact]
-        public async Task TestGetCommentReactionsThrowsArgumentException()
+        public async Task TestGetCommentReactionsPagingHasPreviousPageAndHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreactions.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetCommentReactionsUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentReactionsUri}?page=2&limit=10", responseContent, 2, 5, 10, 1);
+            TraktPagedResponse<TraktCommentUserReaction> response = await client.Comments.GetCommentReactionsAsync(CommentID, page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
 
-            Func<Task<TraktPagedResponse<TraktCommentUserReaction>>> act = () => client.Comments.GetCommentReactionsAsync(0, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetCommentReactionsPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreactions.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentReactionsUri}?page=2&limit=10", responseContent, 2, 2, 10, 1);
+            TraktPagedResponse<TraktCommentUserReaction> response = await client.Comments.GetCommentReactionsAsync(CommentID, page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetCommentReactionsPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreactions.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentReactionsUri}?page=1&limit=10", responseContent, 1, 2, 10, 1);
+            TraktPagedResponse<TraktCommentUserReaction> response = await client.Comments.GetCommentReactionsAsync(CommentID, page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetCommentReactionsPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreactions.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentReactionsUri}?page=1&limit=10", responseContent, 1, 1, 10, 1);
+            TraktPagedResponse<TraktCommentUserReaction> response = await client.Comments.GetCommentReactionsAsync(CommentID, page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetCommentReactionsPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreactions.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentReactionsUri}?page=2&limit=10", responseContent, 2, 2, 10, 1);
+            TraktPagedResponse<TraktCommentUserReaction> response = await client.Comments.GetCommentReactionsAsync(CommentID, page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetCommentReactionsUri}?page=1&limit=10", responseContent, 1, 2, 10, 1);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetCommentReactionsPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentreactions.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetCommentReactionsUri}?page=1&limit=10", responseContent, 1, 2, 10, 1);
+            TraktPagedResponse<TraktCommentUserReaction> response = await client.Comments.GetCommentReactionsAsync(CommentID, page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+
+            ModuleTestUtility.SetClient(client, $"{GetCommentReactionsUri}?page=2&limit=10", responseContent, 2, 2, 10, 1);
+
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Theory]
@@ -141,6 +234,15 @@ namespace TraktNET.CommentsModule
 
             Func<Task<TraktPagedResponse<TraktCommentUserReaction>>> act = () => client.Comments.GetCommentReactionsAsync(CommentID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetCommentReactionsThrowsArgumentException()
+        {
+            TraktClient client = ModuleTestUtility.GetClient(GetCommentReactionsUri, HttpStatusCode.OK);
+
+            Func<Task<TraktPagedResponse<TraktCommentUserReaction>>> act = () => client.Comments.GetCommentReactionsAsync(0, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<ArgumentException>();
         }
     }
 }
