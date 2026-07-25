@@ -109,5 +109,34 @@ namespace TraktNET
                 Year = 2011U
             };
         }
+
+        public static class Seasons
+        {
+            public const string SeasonID = "3967";
+
+            public const uint TraktSeasonID = 3967U;
+
+            public static readonly TraktSeasonIDs SeasonIDs = new()
+            {
+                Trakt = 3967U,
+                TMDB = 3624U,
+                TVDB = 30272U
+            };
+        }
+
+        public static class Episodes
+        {
+            public const string EpisodeID = "73640";
+
+            public const uint TraktEpisodeID = 73640U;
+
+            public static readonly TraktEpisodeIDs EpisodeIDs = new()
+            {
+                Trakt = 73640U,
+                IMDB = "tt1480055",
+                TMDB = 63056U,
+                TVDB = 3254641U
+            };
+        }
     }
 }

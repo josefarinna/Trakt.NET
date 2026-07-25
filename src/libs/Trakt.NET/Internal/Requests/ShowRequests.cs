@@ -267,6 +267,24 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
+    [TraktPostRequest("shows/{show_id!!}/seasons/{season_number:uint}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class ShowSeasonReportPostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktReportPost TraktReportPost { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
+    }
+
+    [TraktPostRequest("shows/{show_id!!}/seasons/{season_number:uint}/episodes/{episode_number:uint!!}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class ShowEpisodeReportPostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktReportPost TraktReportPost { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Episode;
+    }
+
     [TraktPostRequest("shows/{id!!}/justwatch/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class ShowRefreshJustWatchPostRequest
     {

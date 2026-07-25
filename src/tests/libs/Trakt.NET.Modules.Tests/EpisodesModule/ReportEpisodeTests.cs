@@ -4,17 +4,14 @@ namespace TraktNET.EpisodesModule
 {
     public sealed class ReportEpisodeTests
     {
-        private const string ReportEpisodeUri = $"shows/{TestConstants.Shows.ShowID}/seasons/1/episodes/1/report";
-        private const string ReportEpisodeUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/seasons/1/episodes/1/report";
-        private const uint SeasonNr = 1U;
-        private const uint EpisodeNr = 1U;
+        private const string ReportEpisodeUri = $"episodes/{TestConstants.Episodes.EpisodeID}/report";
 
         [Fact]
         public async Task TestReportEpisodeWithID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(ReportEpisodeUri, HttpStatusCode.Created);
 
-            TraktResponse response = await client.Episodes.ReportEpisodeAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Episodes.ReportEpisodeAsync(TestConstants.Episodes.TraktEpisodeID, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -25,9 +22,9 @@ namespace TraktNET.EpisodesModule
         [Fact]
         public async Task TestReportEpisodeWithSlug()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportEpisodeUriWithSlug, HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportEpisodeUri, HttpStatusCode.Created);
 
-            TraktResponse response = await client.Episodes.ReportEpisodeAsync(TestConstants.Shows.ShowSlug, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Episodes.ReportEpisodeAsync(TestConstants.Episodes.EpisodeID, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -38,9 +35,9 @@ namespace TraktNET.EpisodesModule
         [Fact]
         public async Task TestReportEpisodeWithIDs()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportEpisodeUriWithSlug, HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportEpisodeUri, HttpStatusCode.Created);
 
-            TraktResponse response = await client.Episodes.ReportEpisodeAsync(TestConstants.Shows.ShowIDs, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Episodes.ReportEpisodeAsync(TestConstants.Episodes.EpisodeIDs, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -78,46 +75,46 @@ namespace TraktNET.EpisodesModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(ReportEpisodeUri, statusCode);
 
-            Func<Task<TraktResponse>> act = () => client.Episodes.ReportEpisodeAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Episodes.ReportEpisodeAsync(TestConstants.Episodes.TraktEpisodeID, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
         public async Task TestReportEpisodeThrowsArgumentExceptions()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportEpisodeUriWithSlug, HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportEpisodeUri, HttpStatusCode.Created);
 
-            Func<Task<TraktResponse>> act = () => client.Episodes.ReportEpisodeAsync(default(TraktShowIDs)!, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Episodes.ReportEpisodeAsync(default(TraktEpisodeIDs)!, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.Episodes.ReportEpisodeAsync(new TraktShowIDs(), SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.ReportEpisodeAsync(new TraktEpisodeIDs(), TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Episodes.ReportEpisodeAsync(0, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.ReportEpisodeAsync(0, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Episodes.ReportEpisodeAsync(default(string)!, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.ReportEpisodeAsync(default(string)!, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Episodes.ReportEpisodeAsync(string.Empty, SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.ReportEpisodeAsync(string.Empty, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Episodes.ReportEpisodeAsync("show id", SeasonNr, EpisodeNr, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.ReportEpisodeAsync("episode id", TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
 
         [Fact]
         public async Task TestReportEpisodeThrowsPostValidationExceptions()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportEpisodeUriWithSlug, HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ReportEpisodeUri, HttpStatusCode.Created);
 
-            Func<Task<TraktResponse>> act = () => client.Episodes.ReportEpisodeAsync(TestConstants.Shows.ShowSlug, SeasonNr, EpisodeNr, TraktReason.Unspecified, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Episodes.ReportEpisodeAsync(TestConstants.Episodes.EpisodeID, TraktReason.Unspecified, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktPostValidationException>();
 
-            act = () => client.Episodes.ReportEpisodeAsync(TestConstants.Shows.ShowSlug, SeasonNr, EpisodeNr, TraktReason.Other, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.ReportEpisodeAsync(TestConstants.Episodes.EpisodeID, TraktReason.Other, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktPostValidationException>();
 
-            act = () => client.Episodes.ReportEpisodeAsync(TestConstants.Shows.ShowSlug, SeasonNr, EpisodeNr, TraktReason.Other, string.Empty, cancellationToken: TestContext.Current.CancellationToken);
+            act = () => client.Episodes.ReportEpisodeAsync(TestConstants.Episodes.EpisodeID, TraktReason.Other, string.Empty, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktPostValidationException>();
         }
     }

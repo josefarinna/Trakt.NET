@@ -1,11 +1,12 @@
 namespace TraktNET
 {
-    public sealed partial class TraktSeasonsModule
+    public sealed partial class TraktShowsModule
     {
         /// <summary>
         /// Reports a <see cref="TraktSeason" /> for moderator review with the specified Trakt-ID or -Slug.
         /// </summary>
-        /// <param name="traktSeasonIDOrSlug">The season's Trakt-ID or -Slug.</param>
+        /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
+        /// <param name="seasonNumber">The number of the season which should be reported.</param>
         /// <param name="reason">The reason for reporting the season. See also <seealso cref="TraktReason" />.</param>
         /// <param name="message">An optional message providing additional context for the report.</param>
         /// <param name="cancellationToken">
@@ -15,19 +16,20 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://docs.trakt.tv/reference/postseasonsreport">
-        /// Trakt API Documentation: Seasons: Report a season
+        /// <para><see href="https://docs.trakt.tv/reference/postshowsseasonreport">
+        /// Trakt API Documentation: Shows: Report a season
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        public Task<TraktResponse> ReportSeasonAsync(string traktSeasonIDOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
-            => ReportSeasonImplAsync(traktSeasonIDOrSlug, reason, message, cancellationToken);
+        public Task<TraktResponse> ReportShowSeasonAsync(string traktShowIDOrSlug, uint seasonNumber, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+            => ReportShowSeasonImplAsync(traktShowIDOrSlug, seasonNumber, reason, message, cancellationToken);
 
         /// <summary>
         /// Reports a <see cref="TraktSeason" /> for moderator review with the specified Trakt-ID.
         /// </summary>
-        /// <param name="traktSeasonID">The season's Trakt-ID.</param>
+        /// <param name="traktShowID">The show's Trakt-ID.</param>
+        /// <param name="seasonNumber">The number of the season which should be reported.</param>
         /// <param name="reason">The reason for reporting the season. See also <seealso cref="TraktReason" />.</param>
         /// <param name="message">An optional message providing additional context for the report.</param>
         /// <param name="cancellationToken">
@@ -37,25 +39,26 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://docs.trakt.tv/reference/postseasonsreport">
-        /// Trakt API Documentation: Seasons: Report a season
+        /// <para><see href="https://docs.trakt.tv/reference/postshowsseasonreport">
+        /// Trakt API Documentation: Shows: Report a season
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktSeasonID"/> is 0.</exception>
-        public Task<TraktResponse> ReportSeasonAsync(uint traktSeasonID, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktShowID"/> is 0.</exception>
+        public Task<TraktResponse> ReportShowSeasonAsync(uint traktShowID, uint seasonNumber, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
         {
-            if (traktSeasonID == 0)
-                throw new ArgumentException("season id must not be 0", nameof(traktSeasonID));
+            if (traktShowID == 0)
+                throw new ArgumentException("show id must not be 0", nameof(traktShowID));
 
-            return ReportSeasonAsync(traktSeasonID.ToInvariantCultureString(), reason, message, cancellationToken);
+            return ReportShowSeasonAsync(traktShowID.ToInvariantCultureString(), seasonNumber, reason, message, cancellationToken);
         }
 
         /// <summary>
-        /// Reports a <see cref="TraktSeason" /> for moderator review with the specified <see cref="TraktSeasonIDs" />.
+        /// Reports a <see cref="TraktSeason" /> for moderator review with the specified <see cref="TraktShowIDs" />.
         /// </summary>
-        /// <param name="seasonIDs">The season's IDs. See also <seealso cref="TraktSeasonIDs" />.</param>
+        /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
+        /// <param name="seasonNumber">The number of the season which should be reported.</param>
         /// <param name="reason">The reason for reporting the season. See also <seealso cref="TraktReason" />.</param>
         /// <param name="message">An optional message providing additional context for the report.</param>
         /// <param name="cancellationToken">
@@ -65,22 +68,22 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://docs.trakt.tv/reference/postseasonsreport">
-        /// Trakt API Documentation: Seasons: Report a season
+        /// <para><see href="https://docs.trakt.tv/reference/postshowsseasonreport">
+        /// Trakt API Documentation: Shows: Report a season
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
-        /// <exception cref="ArgumentException">Throw if the given <paramref name="seasonIDs" /> has not set any IDs.</exception>
-        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="seasonIDs" /> is null.</exception>
-        public Task<TraktResponse> ReportSeasonAsync(TraktSeasonIDs seasonIDs, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentException">Throw if the given <paramref name="showIDs" /> has not set any IDs.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="showIDs" /> is null.</exception>
+        public Task<TraktResponse> ReportShowSeasonAsync(TraktShowIDs showIDs, uint seasonNumber, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
         {
-            ArgumentValidator.ThrowIfNull(seasonIDs);
+            ArgumentValidator.ThrowIfNull(showIDs);
 
-            if (!seasonIDs.HasAnyID)
-                throw new ArgumentException($"{nameof(seasonIDs)} has not any IDs set", nameof(seasonIDs));
+            if (!showIDs.HasAnyID)
+                throw new ArgumentException($"{nameof(showIDs)} has not any IDs set", nameof(showIDs));
 
-            return ReportSeasonAsync(seasonIDs.BestID, reason, message, cancellationToken);
+            return ReportShowSeasonAsync(showIDs.BestID, seasonNumber, reason, message, cancellationToken);
         }
     }
 }

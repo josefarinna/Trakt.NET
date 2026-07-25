@@ -190,7 +190,7 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, string>>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse> ReportSeasonImplAsync(string showIdOrSlug, uint seasonNumber, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        private Task<TraktResponse> ReportSeasonImplAsync(string seasonIdOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
         {
             var content = new TraktReportPost
             {
@@ -200,8 +200,7 @@ namespace TraktNET
 
             var request = new SeasonReportPostRequest
             {
-                ShowId = showIdOrSlug,
-                SeasonNumber = seasonNumber,
+                Id = seasonIdOrSlug,
                 TraktReportPost = content
             };
 

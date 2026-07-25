@@ -328,6 +328,43 @@ namespace TraktNET
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
 
+        private Task<TraktResponse> ReportShowSeasonImplAsync(string showIdOrSlug, uint seasonNumber, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        {
+            var content = new TraktReportPost
+            {
+                Reason = reason,
+                Message = message
+            };
+
+            var request = new ShowSeasonReportPostRequest
+            {
+                ShowId = showIdOrSlug,
+                SeasonNumber = seasonNumber,
+                TraktReportPost = content
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> ReportShowEpisodeImplAsync(string showIdOrSlug, uint seasonNumber, uint episodeNumber, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
+        {
+            var content = new TraktReportPost
+            {
+                Reason = reason,
+                Message = message
+            };
+
+            var request = new ShowEpisodeReportPostRequest
+            {
+                ShowId = showIdOrSlug,
+                SeasonNumber = seasonNumber,
+                EpisodeNumber = episodeNumber,
+                TraktReportPost = content
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
         private Task<TraktResponse> RefreshShowJustWatchLinksImplAsync(string showIdOrSlug, CancellationToken cancellationToken = default)
         {
             var request = new ShowRefreshJustWatchPostRequest

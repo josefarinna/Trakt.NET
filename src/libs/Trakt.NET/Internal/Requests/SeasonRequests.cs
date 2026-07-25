@@ -99,7 +99,7 @@ namespace TraktNET
     // POST Requests
     // -------------------------------------------------------
 
-    [TraktPostRequest("shows/{show_id!!}/seasons/{season_number:uint}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("seasons/{id!!}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SeasonReportPostRequest
     {
         [TraktRequestPayload]
