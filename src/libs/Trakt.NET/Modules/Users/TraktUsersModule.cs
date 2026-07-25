@@ -1149,7 +1149,6 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
         public Task<TraktPagedResponse<TraktUserSync>> GetSyncsAsync(uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
             => GetSyncsImplAsync(page, limit, cancellationToken);
@@ -1177,7 +1176,6 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
         public Task<TraktPagedResponse<TraktUserSync>> GetSyncsByTypeAsync(TraktUserSyncType syncType,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetSyncsByTypeImplAsync(syncType, page, limit, cancellationToken);
@@ -1200,7 +1198,6 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktUserSync>> GetSyncDetailsAsync(ulong syncId,
             CancellationToken cancellationToken = default)
@@ -1224,7 +1221,6 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> UndoSyncAsync(ulong syncId, CancellationToken cancellationToken = default)
             => UndoSyncImplAsync(syncId, cancellationToken);
@@ -1252,7 +1248,6 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktUserSyncItem>> GetSyncPausedItemsAsync(ulong syncId,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
@@ -1281,7 +1276,6 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        /// <exception cref="TraktAuthorizationException">Thrown, if the request is unauthorized.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktUserSyncItem>> GetSyncSkippedItemsAsync(ulong syncId,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)

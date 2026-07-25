@@ -6,19 +6,26 @@ namespace TraktNET.DeleteRequests.Comments
 {
     public sealed class CommentReactionRemoveDeleteRequestTests
     {
-        private const string URIPath = "comments/123/reactions/like";
+        private const string BaseURIPath = "comments/123/reactions";
 
-        [Fact]
-        public void TestCommentReactionRemoveDeleteRequestHasValidURIPath()
+        [Theory]
+        [InlineData(TraktReactionType.Like, $"{BaseURIPath}/like")]
+        [InlineData(TraktReactionType.Dislike, $"{BaseURIPath}/dislike")]
+        [InlineData(TraktReactionType.Love, $"{BaseURIPath}/love")]
+        [InlineData(TraktReactionType.Laugh, $"{BaseURIPath}/laugh")]
+        [InlineData(TraktReactionType.Shocked, $"{BaseURIPath}/shocked")]
+        [InlineData(TraktReactionType.Bravo, $"{BaseURIPath}/bravo")]
+        [InlineData(TraktReactionType.Spoiler, $"{BaseURIPath}/spoiler")]
+        public void TestCommentReactionRemoveDeleteRequestHasValidURIPath(TraktReactionType type, string expectedURIPath)
         {
             var request = new CommentReactionRemoveDeleteRequest
             {
                 Id = "123",
-                Type = TraktReactionType.Like
+                Type = type
             };
 
             request.BuildUri();
-            request.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            request.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
@@ -49,9 +56,17 @@ namespace TraktNET.DeleteRequests.Comments
             Action act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
+            request = new CommentReactionRemoveDeleteRequest { Id = "  ", Type = TraktReactionType.Like };
+            act = () => request.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            request = new CommentReactionRemoveDeleteRequest { Id = "id with spaces", Type = TraktReactionType.Like };
+            act = () => request.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
             request = new CommentReactionRemoveDeleteRequest { Id = "123", Type = TraktReactionType.Unspecified };
-            Action act2 = () => request.Validate();
-            act2.ShouldThrow<TraktRequestValidationException>();
+            act = () => request.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }

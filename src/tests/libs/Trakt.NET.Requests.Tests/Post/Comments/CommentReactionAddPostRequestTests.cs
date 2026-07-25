@@ -6,19 +6,26 @@ namespace TraktNET.PostRequests.Comments
 {
     public sealed class CommentReactionAddPostRequestTests
     {
-        private const string URIPath = "comments/123/reactions/like";
+        private const string BaseURIPath = "comments/123/reactions";
 
-        [Fact]
-        public void TestCommentReactionAddPostRequestHasValidURIPath()
+        [Theory]
+        [InlineData(TraktReactionType.Like, $"{BaseURIPath}/like")]
+        [InlineData(TraktReactionType.Dislike, $"{BaseURIPath}/dislike")]
+        [InlineData(TraktReactionType.Love, $"{BaseURIPath}/love")]
+        [InlineData(TraktReactionType.Laugh, $"{BaseURIPath}/laugh")]
+        [InlineData(TraktReactionType.Shocked, $"{BaseURIPath}/shocked")]
+        [InlineData(TraktReactionType.Bravo, $"{BaseURIPath}/bravo")]
+        [InlineData(TraktReactionType.Spoiler, $"{BaseURIPath}/spoiler")]
+        public void TestCommentReactionAddPostRequestHasValidURIPath(TraktReactionType type, string expectedURIPath)
         {
             var request = new CommentReactionAddPostRequest
             {
                 Id = "123",
-                Type = TraktReactionType.Like
+                Type = type
             };
 
             request.BuildUri();
-            request.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            request.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
@@ -47,6 +54,14 @@ namespace TraktNET.PostRequests.Comments
         {
             var request = new CommentReactionAddPostRequest { Id = string.Empty, Type = TraktReactionType.Like };
             Action act = () => request.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            request = new CommentReactionAddPostRequest { Id = "  ", Type = TraktReactionType.Like };
+            act = () => request.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            request = new CommentReactionAddPostRequest { Id = "id with spaces", Type = TraktReactionType.Like };
+            act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             request = new CommentReactionAddPostRequest { Id = "123", Type = TraktReactionType.Unspecified };

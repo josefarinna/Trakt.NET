@@ -58,6 +58,21 @@ namespace TraktNET.GetRequests.Users
         }
 
         [Fact]
+        public void TestUserActivitiesGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            var request = new UserActivitiesGetRequest
+            {
+                Id = "123",
+                TypePath = TraktUserSocialActivityType.Friends.AsPathParameter(),
+                Filter = filter
+            };
+
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"{URIPath}?query=batman", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestUserActivitiesGetRequestValidate()
         {
             var request = new UserActivitiesGetRequest { Id = string.Empty, TypePath = "friends" };
@@ -69,6 +84,18 @@ namespace TraktNET.GetRequests.Users
             act.ShouldThrow<TraktRequestValidationException>();
 
             request = new UserActivitiesGetRequest { Id = "id with spaces", TypePath = "friends" };
+            act = () => request.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            request = new UserActivitiesGetRequest { Id = "123", TypePath = string.Empty };
+            act = () => request.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            request = new UserActivitiesGetRequest { Id = "123", TypePath = "  " };
+            act = () => request.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
+
+            request = new UserActivitiesGetRequest { Id = "123", TypePath = "type with spaces" };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
