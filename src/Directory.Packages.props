@@ -6,10 +6,10 @@
 
   <!-- Libraries Dependencies -->
   <ItemGroup>
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.300" />
-    <PackageVersion Include="Nerdbank.GitVersioning" Version="3.10.85" />
-    <PackageVersion Include="System.Text.Json" Version="10.0.9" />
-    <PackageVersion Include="System.Net.Http.Json" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.301" />
+    <PackageVersion Include="Nerdbank.GitVersioning" Version="3.10.91" />
+    <PackageVersion Include="System.Text.Json" Version="10.0.10" />
+    <PackageVersion Include="System.Net.Http.Json" Version="10.0.10" />
   </ItemGroup>
 
   <!-- HttpClientFactory Dependencies -->
@@ -32,22 +32,22 @@
   </ItemGroup>
 
   <ItemGroup Condition="('$(TargetFramework)' == 'net9.0')">
-    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.1" />
-    <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.1" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.18" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.18" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.18" />
   </ItemGroup>
 
   <ItemGroup Condition="('$(TargetFramework)' == 'net10.0') OR $(DefineConstants.Contains(TRAKT_NETSTANDARD_TARGET))">
-    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.9" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.9" />
-    <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.10" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.10" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.10" />
   </ItemGroup>
 
   <!-- Tests Dependencies -->
   <ItemGroup>
     <PackageVersion Include="coverlet.collector" Version="10.0.1" />
     <PackageVersion Include="coverlet.msbuild" Version="10.0.1" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.7.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
     <PackageVersion Include="RichardSzalay.MockHttp" Version="7.0.0" />
     <PackageVersion Include="Shouldly" Version="4.3.0" />
     <PackageVersion Include="System.Net.Http" Version="4.3.4" />
@@ -57,16 +57,16 @@
 
   <!-- Tools Source Generators Dependencies -->
   <ItemGroup>
-    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="5.3.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.3.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="5.6.0" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.6.0" />
   </ItemGroup>
 
   <!-- Tests Source Generators Dependencies -->
   <ItemGroup>
-    <PackageVersion Include="Basic.Reference.Assemblies" Version="1.8.9" />
-    <PackageVersion Include="Verify.DiffPlex" Version="3.2.0" />
+    <PackageVersion Include="Basic.Reference.Assemblies" Version="1.8.10" />
+    <PackageVersion Include="Verify.DiffPlex" Version="3.3.1" />
     <PackageVersion Include="Verify.SourceGenerators" Version="2.5.0" />
-    <PackageVersion Include="Verify.XunitV3" Version="31.20.0" />
+    <PackageVersion Include="Verify.XunitV3" Version="31.27.0" />
   </ItemGroup>
 
 </Project>
