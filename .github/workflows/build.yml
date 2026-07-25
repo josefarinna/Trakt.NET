@@ -136,7 +136,7 @@ jobs:
 
       - name: Upload artifacts
         if: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.artifacts_archive_name }}-${{ github.run_number }}-${{ github.sha }}
           retention-days: 14

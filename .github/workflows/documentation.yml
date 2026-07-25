@@ -61,7 +61,7 @@ jobs:
         run: cd docs && docfx metadata && docfx build
   
       - name: Upload documentation artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.artifacts_archive_name }}-${{ github.run_number }}-${{ github.sha }}
           retention-days: 14
