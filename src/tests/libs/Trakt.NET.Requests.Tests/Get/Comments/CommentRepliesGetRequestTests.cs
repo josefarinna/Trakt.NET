@@ -25,7 +25,7 @@ namespace TraktNET.GetRequests.Comments
         {
             var commentRepliesGetRequest = new CommentRepliesGetRequest
             {
-                Id = "123",
+                Id = 123,
                 ExtendedInfo = extendedInfo,
                 Page = (uint?)page,
                 Limit = (uint?)limit
@@ -59,16 +59,8 @@ namespace TraktNET.GetRequests.Comments
         [Fact]
         public void TestCommentRepliesGetRequestValidate()
         {
-            var commentRepliesGetRequest = new CommentRepliesGetRequest { Id = string.Empty };
+            var commentRepliesGetRequest = new CommentRepliesGetRequest { Id = 0 };
             Action act = () => commentRepliesGetRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentRepliesGetRequest = new CommentRepliesGetRequest { Id = "  " };
-            act = () => commentRepliesGetRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentRepliesGetRequest = new CommentRepliesGetRequest { Id = "id with spaces" };
-            act = () => commentRepliesGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

@@ -859,39 +859,72 @@ namespace TraktNET.SourceGeneration.Requests
             // Validate placeholders (string/int/enum-like types are determined via the valueType string)
             foreach (PlaceHolder placeholder in _uriPlaceHolders)
             {
-                if (!placeholder.NeedsVerification)
+                if (!placeholder.NeedsVerification && !placeholder.IsRequired)
                     continue;
-
-                EnsureEmptyLine();
 
                 string name = placeholder.Name;
                 string valueType = placeholder.ValueType;
 
                 if (valueType.Contains("string"))
                 {
-                    _sourceWriter.WriteLine($"if (string.IsNullOrWhiteSpace({name}))");
-                    EmitThrow(name, $"{name} must not be null or empty");
+                    if (placeholder.NeedsVerification)
+                    {
+                        EnsureEmptyLine();
 
-                    _sourceWriter.WriteEmptyLine();
+                        _sourceWriter.WriteLine($"if (string.IsNullOrWhiteSpace({name}))");
+                        EmitThrow(name, $"{name} must not be null or empty");
 
-                    _sourceWriter.WriteLine($"if ({name}.ContainsSpace())");
-                    EmitThrow(name, $"{name} must not contain any spaces");
+                        _sourceWriter.WriteEmptyLine();
+
+                        _sourceWriter.WriteLine($"if ({name}.ContainsSpace())");
+                        EmitThrow(name, $"{name} must not contain any spaces");
+
+                        needsEmptyLine = true;
+                    }
                 }
                 else if (valueType.Contains("uint") || valueType.Contains("int") || valueType.Contains("ulong") || valueType.Contains("long"))
                 {
-                    if (placeholder.IsRequired)
+                    if (placeholder.NeedsVerification)
                     {
-                        _sourceWriter.WriteLine($"if ({name} == 0)");
-                    }
-                    else
-                    {
-                        _sourceWriter.WriteLine($"if ({name}.HasValue && {name}.Value == 0)");
-                    }
+                        EnsureEmptyLine();
 
-                    EmitThrow(name, $"{name} must not be zero");
+                        if (placeholder.IsRequired)
+                        {
+                            _sourceWriter.WriteLine($"if ({name} == 0)");
+                        }
+                        else
+                        {
+                            _sourceWriter.WriteLine($"if ({name}.HasValue && {name}.Value == 0)");
+                        }
+
+                        EmitThrow(name, $"{name} must not be zero");
+
+                        needsEmptyLine = true;
+                    }
                 }
+                else if (IsTraktEnum(valueType))
+                {
+                    string cleanValueType = valueType.TrimEnd('?');
 
-                needsEmptyLine = true;
+                    if (placeholder.IsRequired && !valueType.Contains("?"))
+                    {
+                        EnsureEmptyLine();
+
+                        _sourceWriter.WriteLine($"if ({name} == {cleanValueType}.Unspecified)");
+                        EmitThrow(name, $"{name} must not be Unspecified");
+
+                        needsEmptyLine = true;
+                    }
+                    else if (placeholder.NeedsVerification)
+                    {
+                        EnsureEmptyLine();
+
+                        _sourceWriter.WriteLine($"if (!{name}.HasValue || {name}.Value == {cleanValueType}.Unspecified)");
+                        EmitThrow(name, $"{name} must not be null or Unspecified");
+
+                        needsEmptyLine = true;
+                    }
+                }
             }
 
             // Helper to validate generated members (parameters/queries)
@@ -968,6 +1001,14 @@ namespace TraktNET.SourceGeneration.Requests
 
             _sourceWriter.DecrementIndent();
             _sourceWriter.WriteLine('}');
+        }
+
+        private static bool IsTraktEnum(string valueType)
+        {
+            string cleanType = valueType.TrimEnd('?');
+            return cleanType.StartsWith("Trakt", StringComparison.Ordinal)
+                && !cleanType.Equals("TraktId", StringComparison.Ordinal)
+                && !cleanType.Equals("TraktExtendedInfo", StringComparison.Ordinal);
         }
 
         private void ParseRequestUri()
@@ -1078,9 +1119,6 @@ namespace TraktNET.SourceGeneration.Requests
                         switch (currentCharacter)
                         {
                             case '}':
-                                WriteChar(currentCharacter, ref destination);
-                                state = UriParserState.Default;
-
                                 placeHolderType = uriPath.Slice(placeHolderTypeStartPosition, i - placeHolderTypeStartPosition).ToString();
                                 placeHolderTypeStartPosition = -1;
 
@@ -1092,6 +1130,18 @@ namespace TraktNET.SourceGeneration.Requests
                                 {
                                     placeHolderType = placeHolderType.Substring(0, placeHolderType.Length - 2);
                                 }
+
+                                if (IsTraktEnum(placeHolderType))
+                                {
+                                    string extensionMethod = isOptional ? "?.AsPathParameter()" : ".AsPathParameter()";
+                                    foreach (char c in extensionMethod)
+                                    {
+                                        WriteChar(c, ref destination);
+                                    }
+                                }
+
+                                WriteChar(currentCharacter, ref destination);
+                                state = UriParserState.Default;
 
                                 _uriPlaceHolders.Add(new PlaceHolder
                                 {

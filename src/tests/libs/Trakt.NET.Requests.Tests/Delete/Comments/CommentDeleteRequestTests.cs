@@ -13,7 +13,7 @@ namespace TraktNET.DeleteRequests.Comments
         {
             var commentDeleteRequest = new CommentDeleteRequest
             {
-                Id = "123"
+                Id = 123
             };
 
             commentDeleteRequest.BuildUri();
@@ -44,16 +44,8 @@ namespace TraktNET.DeleteRequests.Comments
         [Fact]
         public void TestCommentDeleteRequestValidate()
         {
-            var commentDeleteRequest = new CommentDeleteRequest { Id = string.Empty };
+            var commentDeleteRequest = new CommentDeleteRequest { Id = 0 };
             Action act = () => commentDeleteRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentDeleteRequest = new CommentDeleteRequest { Id = "  " };
-            act = () => commentDeleteRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentDeleteRequest = new CommentDeleteRequest { Id = "id with spaces" };
-            act = () => commentDeleteRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

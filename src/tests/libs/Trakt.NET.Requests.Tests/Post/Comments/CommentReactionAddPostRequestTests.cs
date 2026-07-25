@@ -20,7 +20,7 @@ namespace TraktNET.PostRequests.Comments
         {
             var request = new CommentReactionAddPostRequest
             {
-                Id = "123",
+                Id = 123,
                 Type = type
             };
 
@@ -52,19 +52,11 @@ namespace TraktNET.PostRequests.Comments
         [Fact]
         public void TestCommentReactionAddPostRequestValidate()
         {
-            var request = new CommentReactionAddPostRequest { Id = string.Empty, Type = TraktReactionType.Like };
+            var request = new CommentReactionAddPostRequest { Id = 0, Type = TraktReactionType.Like };
             Action act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new CommentReactionAddPostRequest { Id = "  ", Type = TraktReactionType.Like };
-            act = () => request.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            request = new CommentReactionAddPostRequest { Id = "id with spaces", Type = TraktReactionType.Like };
-            act = () => request.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            request = new CommentReactionAddPostRequest { Id = "123", Type = TraktReactionType.Unspecified };
+            request = new CommentReactionAddPostRequest { Id = 123, Type = TraktReactionType.Unspecified };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

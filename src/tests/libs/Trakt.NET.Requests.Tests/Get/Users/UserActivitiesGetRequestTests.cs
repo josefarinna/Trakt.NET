@@ -26,7 +26,7 @@ namespace TraktNET.GetRequests.Users
             var request = new UserActivitiesGetRequest
             {
                 Id = "123",
-                TypePath = TraktUserSocialActivityType.Friends.AsPathParameter(),
+                TypePath = TraktUserSocialActivityType.Friends,
                 ExtendedInfo = extendedInfo,
                 Page = (uint?)page,
                 Limit = (uint?)limit
@@ -64,7 +64,7 @@ namespace TraktNET.GetRequests.Users
             var request = new UserActivitiesGetRequest
             {
                 Id = "123",
-                TypePath = TraktUserSocialActivityType.Friends.AsPathParameter(),
+                TypePath = TraktUserSocialActivityType.Friends,
                 Filter = filter
             };
 
@@ -75,27 +75,19 @@ namespace TraktNET.GetRequests.Users
         [Fact]
         public void TestUserActivitiesGetRequestValidate()
         {
-            var request = new UserActivitiesGetRequest { Id = string.Empty, TypePath = "friends" };
+            var request = new UserActivitiesGetRequest { Id = string.Empty, TypePath = TraktUserSocialActivityType.Friends };
             Action act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new UserActivitiesGetRequest { Id = "  ", TypePath = "friends" };
+            request = new UserActivitiesGetRequest { Id = "  ", TypePath = TraktUserSocialActivityType.Friends };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new UserActivitiesGetRequest { Id = "id with spaces", TypePath = "friends" };
+            request = new UserActivitiesGetRequest { Id = "id with spaces", TypePath = TraktUserSocialActivityType.Friends };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new UserActivitiesGetRequest { Id = "123", TypePath = string.Empty };
-            act = () => request.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            request = new UserActivitiesGetRequest { Id = "123", TypePath = "  " };
-            act = () => request.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            request = new UserActivitiesGetRequest { Id = "123", TypePath = "type with spaces" };
+            request = new UserActivitiesGetRequest { Id = "123", TypePath = TraktUserSocialActivityType.Unspecified };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

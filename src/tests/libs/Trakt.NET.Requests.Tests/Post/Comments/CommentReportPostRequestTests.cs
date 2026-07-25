@@ -13,7 +13,7 @@ namespace TraktNET.PostRequests.Comments
         {
             var commentReportPostRequest = new CommentReportPostRequest
             {
-                Id = "123",
+                Id = 123,
                 TraktReportPost = new TraktReportPost()
             };
 
@@ -45,27 +45,19 @@ namespace TraktNET.PostRequests.Comments
         [Fact]
         public void TestCommentReportPostRequestValidate()
         {
-            var commentReportPostRequest = new CommentReportPostRequest { Id = string.Empty, TraktReportPost = default! };
+            var commentReportPostRequest = new CommentReportPostRequest { Id = 0, TraktReportPost = default! };
             Action act = () => commentReportPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            commentReportPostRequest = new CommentReportPostRequest { Id = "  ", TraktReportPost = default! };
+            commentReportPostRequest = new CommentReportPostRequest { Id = 123, TraktReportPost = default! };
             act = () => commentReportPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            commentReportPostRequest = new CommentReportPostRequest { Id = "id with spaces", TraktReportPost = default! };
-            act = () => commentReportPostRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentReportPostRequest = new CommentReportPostRequest { Id = "id", TraktReportPost = default! };
-            act = () => commentReportPostRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentReportPostRequest = new CommentReportPostRequest { Id = "id", TraktReportPost = new TraktReportPost() };
+            commentReportPostRequest = new CommentReportPostRequest { Id = 123, TraktReportPost = new TraktReportPost() };
             act = () => commentReportPostRequest.Validate();
             act.ShouldThrow<TraktPostValidationException>();
 
-            commentReportPostRequest = new CommentReportPostRequest { Id = "id", TraktReportPost = new TraktReportPost { Reason = TraktReason.Other } };
+            commentReportPostRequest = new CommentReportPostRequest { Id = 123, TraktReportPost = new TraktReportPost { Reason = TraktReason.Other } };
             act = () => commentReportPostRequest.Validate();
             act.ShouldThrow<TraktPostValidationException>();
         }

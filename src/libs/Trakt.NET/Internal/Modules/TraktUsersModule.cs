@@ -105,7 +105,7 @@ namespace TraktNET
         {
             var request = new UserHiddenItemsRemovePostRequest
             {
-                Section = hiddenItemsSection.AsPathParameter(),
+                Section = hiddenItemsSection,
                 TraktUserHiddenItemsRemovePost = hiddenItemsRemovePost
             };
 
@@ -331,7 +331,7 @@ namespace TraktNET
         {
             var request = new UserApproveFollowerPostRequest
             {
-                Id = followerRequestId.ToInvariantCultureString()
+                Id = followerRequestId
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserFollower>(_context, request, cancellationToken);
@@ -341,7 +341,7 @@ namespace TraktNET
         {
             var request = new UserDenyFollowerDeleteRequest
             {
-                Id = followerRequestId.ToInvariantCultureString()
+                Id = followerRequestId
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
@@ -928,7 +928,7 @@ namespace TraktNET
             var request = new UserActivitiesGetRequest
             {
                 Id = usernameOrSlug,
-                TypePath = activityType.AsPathParameter(),
+                TypePath = activityType,
                 ExtendedInfo = extendedInfo,
                 Filter = filter,
                 Page = page,
@@ -939,7 +939,7 @@ namespace TraktNET
                 => new UserActivitiesGetRequest
                 {
                     Id = usernameOrSlug,
-                    TypePath = activityType.AsPathParameter(),
+                    TypePath = activityType,
                     ExtendedInfo = extendedInfo,
                     Filter = filter,
                     Page = page,

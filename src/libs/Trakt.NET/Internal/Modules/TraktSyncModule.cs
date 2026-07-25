@@ -104,7 +104,7 @@ namespace TraktNET
 
             var request = new SyncPlaybackDeleteRequest
             {
-                Id = playbackId.ToInvariantCultureString()
+                Id = playbackId
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);

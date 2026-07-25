@@ -4,38 +4,38 @@ namespace TraktNET
     // GET Requests
     // -------------------------------------------------------
 
-    [TraktGetRequest("comments/{id!!}", SupportsExtendedInfo = true)]
+    [TraktGetRequest("comments/{id:uint!!}", SupportsExtendedInfo = true)]
     internal sealed partial class CommentSummaryGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
-    [TraktGetRequest("comments/{id!!}/replies", SupportsExtendedInfo = true, SupportsPagination = true,
+    [TraktGetRequest("comments/{id:uint!!}/replies", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.Optional)]
     internal sealed partial class CommentRepliesGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
-    [TraktGetRequest("comments/{id!!}/item", SupportsExtendedInfo = true)]
+    [TraktGetRequest("comments/{id:uint!!}/item", SupportsExtendedInfo = true)]
     internal sealed partial class CommentItemGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
-    [TraktGetRequest("comments/{id!!}/likes", SupportsExtendedInfo = true, SupportsPagination = true)]
+    [TraktGetRequest("comments/{id:uint!!}/likes", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class CommentLikesGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
-    [TraktGetRequest("comments/{id!!}/reactions/summary")]
+    [TraktGetRequest("comments/{id:uint!!}/reactions/summary")]
     internal sealed partial class CommentReactionsSummaryGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
-    [TraktGetRequest("comments/{id!!}/reactions", SupportsExtendedInfo = true, SupportsPagination = true)]
+    [TraktGetRequest("comments/{id:uint!!}/reactions", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class CommentReactionsGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
@@ -99,7 +99,7 @@ namespace TraktNET
         internal required TraktCommentPost TraktCommentPost { get; set; }
     }
 
-    [TraktPostRequest("comments/{id!!}/replies", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("comments/{id:uint!!}/replies", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CommentReplyPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
@@ -108,13 +108,13 @@ namespace TraktNET
         internal required TraktCommentReplyPost TraktCommentReplyPost { get; set; }
     }
 
-    [TraktPostRequest("comments/{id!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("comments/{id:uint!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CommentLikePostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
-    [TraktPostRequest("comments/{id!!}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("comments/{id:uint!!}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CommentReportPostRequest
     {
         [TraktRequestPayload]
@@ -123,7 +123,7 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
-    [TraktPostRequest("comments/{id!!}/reactions", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("comments/{id:uint!!}/reactions", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CommentReactionAddPostRequest
     {
         [TraktRequestParameter]
@@ -136,7 +136,7 @@ namespace TraktNET
     // PUT Requests
     // -------------------------------------------------------
 
-    [TraktPutRequest("comments/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPutRequest("comments/{id:uint!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CommentUpdatePutRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
@@ -149,19 +149,19 @@ namespace TraktNET
     // DELETE Requests
     // -------------------------------------------------------
 
-    [TraktDeleteRequest("comments/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("comments/{id:uint!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CommentDeleteRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
-    [TraktDeleteRequest("comments/{id!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("comments/{id:uint!!}/like", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CommentUnlikeDeleteRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Comment;
     }
 
-    [TraktDeleteRequest("comments/{id!!}/reactions", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("comments/{id:uint!!}/reactions", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CommentReactionRemoveDeleteRequest
     {
         [TraktRequestParameter]

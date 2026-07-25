@@ -14,7 +14,7 @@ namespace TraktNET.PutRequests.Comments
             var commentUpdatePutRequest = new CommentUpdatePutRequest
             {
                 TraktCommentUpdatePost = new TraktCommentUpdatePost { Comment = default! },
-                Id = "123"
+                Id = 123
             };
 
             commentUpdatePutRequest.BuildUri();
@@ -45,25 +45,17 @@ namespace TraktNET.PutRequests.Comments
         [Fact]
         public void TestCommentUpdatePutRequestValidate()
         {
-            var commentUpdatePutRequest = new CommentUpdatePutRequest { TraktCommentUpdatePost = default!, Id = string.Empty };
+            var commentUpdatePutRequest = new CommentUpdatePutRequest { TraktCommentUpdatePost = default!, Id = 0 };
             Action act = () => commentUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            commentUpdatePutRequest = new CommentUpdatePutRequest { TraktCommentUpdatePost = default!, Id = "  " };
+            commentUpdatePutRequest = new CommentUpdatePutRequest { TraktCommentUpdatePost = default!, Id = 123 };
             act = () => commentUpdatePutRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            commentUpdatePutRequest = new CommentUpdatePutRequest { TraktCommentUpdatePost = default!, Id = "id with spaces" };
+            commentUpdatePutRequest = new CommentUpdatePutRequest { TraktCommentUpdatePost = new TraktCommentUpdatePost { Comment = default! }, Id = 123 };
             act = () => commentUpdatePutRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentUpdatePutRequest = new CommentUpdatePutRequest { TraktCommentUpdatePost = default!, Id = default! };
-            act = () => commentUpdatePutRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentUpdatePutRequest = new CommentUpdatePutRequest { TraktCommentUpdatePost = default!, Id = "id" };
-            act = () => commentUpdatePutRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
+            act.ShouldThrow<TraktPostValidationException>();
         }
     }
 }

@@ -10,7 +10,9 @@ namespace TraktNET.GetRequests.Users
 
         [Theory]
         [InlineData(null, null, URIPath)]
+        [InlineData(0, null, URIPath)]
         [InlineData(10, null, $"{URIPath}?page=10")]
+        [InlineData(null, 0, URIPath)]
         [InlineData(null, 20, $"{URIPath}?limit=20")]
         [InlineData(10, 20, $"{URIPath}?page=10&limit=20")]
         public void TestUserSyncPausedGetRequestHasValidURIPath(int? page, int? limit, string expectedURIPath)

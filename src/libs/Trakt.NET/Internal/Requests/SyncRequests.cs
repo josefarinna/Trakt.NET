@@ -228,7 +228,7 @@
     // DELETE Requests
     // -------------------------------------------------------
 
-    [TraktDeleteRequest("sync/playback/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("sync/playback/{id:uint!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncPlaybackDeleteRequest
     {
     }

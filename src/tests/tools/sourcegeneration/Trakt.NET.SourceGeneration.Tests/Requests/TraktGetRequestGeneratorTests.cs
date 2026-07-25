@@ -1,4 +1,4 @@
-﻿namespace TraktNET.SourceGeneration.Requests
+namespace TraktNET.SourceGeneration.Requests
 {
     public sealed class TraktGetRequestGeneratorTests
     {
@@ -247,6 +247,25 @@
 
             return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestMultipleParameterTypeDefault",
                 source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithMultipleParametersDefaultTypeString));
+        }
+
+        [Fact]
+        public Task TestGenerateGetRequestWithEnumParameter()
+        {
+            string source = """
+                using TraktNET;
+                
+                namespace SourceGeneraterTestNamespace
+                {
+                    [TraktGetRequest("comments/{type:TraktReactionType!!}")]
+                    public sealed partial class TestGetRequest
+                    {
+                    }
+                }
+                """;
+
+            return TestHelper.Verify<TraktGetRequestSourceGenerator>("Requests", "SourceGeneration.GetRequestEnumParameter",
+                source, RequestTestType.GetRequest, nameof(TestGenerateGetRequestWithEnumParameter));
         }
 
         [Fact]

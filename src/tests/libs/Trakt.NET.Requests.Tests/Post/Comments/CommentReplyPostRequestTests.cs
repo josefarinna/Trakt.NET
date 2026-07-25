@@ -14,7 +14,7 @@ namespace TraktNET.PostRequests.Comments
             var commentReplyPostRequest = new CommentReplyPostRequest
             {
                 TraktCommentReplyPost = new TraktCommentReplyPost { Comment = default! },
-                Id = "123"
+                Id = 123
             };
 
             commentReplyPostRequest.BuildUri();
@@ -45,25 +45,17 @@ namespace TraktNET.PostRequests.Comments
         [Fact]
         public void TestCommentReplyPostRequestValidate()
         {
-            var commentReplyPostRequest = new CommentReplyPostRequest { TraktCommentReplyPost = default!, Id = string.Empty };
+            var commentReplyPostRequest = new CommentReplyPostRequest { TraktCommentReplyPost = default!, Id = 0 };
             Action act = () => commentReplyPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            commentReplyPostRequest = new CommentReplyPostRequest { TraktCommentReplyPost = default!, Id = "  " };
+            commentReplyPostRequest = new CommentReplyPostRequest { TraktCommentReplyPost = default!, Id = 123 };
             act = () => commentReplyPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            commentReplyPostRequest = new CommentReplyPostRequest { TraktCommentReplyPost = default!, Id = "id with spaces" };
+            commentReplyPostRequest = new CommentReplyPostRequest { TraktCommentReplyPost = new TraktCommentReplyPost { Comment = default! }, Id = 123 };
             act = () => commentReplyPostRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentReplyPostRequest = new CommentReplyPostRequest { TraktCommentReplyPost = default!, Id = default! };
-            act = () => commentReplyPostRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentReplyPostRequest = new CommentReplyPostRequest { TraktCommentReplyPost = default!, Id = "id" };
-            act = () => commentReplyPostRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
+            act.ShouldThrow<TraktPostValidationException>();
         }
     }
 }

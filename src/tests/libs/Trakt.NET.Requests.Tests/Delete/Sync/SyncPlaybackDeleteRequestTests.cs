@@ -13,7 +13,7 @@ namespace TraktNET.DeleteRequests.Sync
         {
             var syncPlaybackDeleteRequest = new SyncPlaybackDeleteRequest
             {
-                Id = "123"
+                Id = 123
             };
 
             syncPlaybackDeleteRequest.BuildUri();
@@ -44,16 +44,8 @@ namespace TraktNET.DeleteRequests.Sync
         [Fact]
         public void TestSyncPlaybackDeleteRequestValidate()
         {
-            var syncPlaybackDeleteRequest = new SyncPlaybackDeleteRequest { Id = string.Empty };
+            var syncPlaybackDeleteRequest = new SyncPlaybackDeleteRequest { Id = 0 };
             Action act = () => syncPlaybackDeleteRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            syncPlaybackDeleteRequest = new SyncPlaybackDeleteRequest { Id = "  " };
-            act = () => syncPlaybackDeleteRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            syncPlaybackDeleteRequest = new SyncPlaybackDeleteRequest { Id = "id with spaces" };
-            act = () => syncPlaybackDeleteRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

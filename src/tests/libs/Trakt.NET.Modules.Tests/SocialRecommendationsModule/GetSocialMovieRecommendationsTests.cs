@@ -39,6 +39,234 @@ namespace TraktNET.SocialRecommendationsModule
             item.RecommendedBy[0].Username.ShouldBe("sean");
         }
 
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsWithWatchWindow()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?watch_window=7", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(watchWindow: 7U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsWithIgnoreWatched()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?ignore_watched=true", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(ignoreWatched: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsWithIgnoreCollected()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?ignore_collected=true", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(ignoreCollected: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsWithIgnoreWatchlisted()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?ignore_watchlisted=true", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(ignoreWatchlisted: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?extended=full", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(extendedInfo: TraktExtendedInfo.Full, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsWithPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?page=2", responseContent, 2, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(page: 2U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(2U);
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?limit=10", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsWithPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?page=2&limit=10", responseContent, 2, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsWithAllParameters()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(
+                $"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?watch_window=7&ignore_watched=true&ignore_collected=true&ignore_watchlisted=true&extended=full&page=2&limit=10",
+                responseContent, 2, 1, 10, ItemCount);
+
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(
+                watchWindow: 7U, ignoreWatched: true, ignoreCollected: true, ignoreWatchlisted: true,
+                extendedInfo: TraktExtendedInfo.Full, page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?page=2&limit=10", responseContent, 2, 5, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?page=2&limit=10", responseContent, 2, 2, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?page=1&limit=10", responseContent, 1, 2, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?page=1&limit=10", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?page=2&limit=10", responseContent, 2, 2, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetOAuthClient(client, $"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?page=1&limit=10", responseContent, 1, 2, 10, ItemCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialMovieRecommendationsPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsmovies.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?page=1&limit=10", responseContent, 1, 2, 10, ItemCount);
+            TraktPagedResponse<TraktSocialMovieRecommendation> response = await client.SocialRecommendations.GetMovieRecommendationsAsync(page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+
+            ModuleTestUtility.SetOAuthClient(client, $"{GET_SOCIAL_MOVIE_RECOMMENDATIONS_URI}?page=2&limit=10", responseContent, 2, 2, 10, ItemCount);
+
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]

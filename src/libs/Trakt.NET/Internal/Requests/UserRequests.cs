@@ -261,7 +261,7 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
-    [TraktGetRequest("users/{id!!}/{type_path!!}/activities", SupportsExtendedInfo = true, SupportsPagination = true,
+    [TraktGetRequest("users/{id!!}/{type_path:TraktUserSocialActivityType!!}/activities", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserActivitiesGetRequest
     {
@@ -300,7 +300,7 @@ namespace TraktNET
     // POST Requests
     // -------------------------------------------------------
 
-    [TraktPostRequest("users/requests/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("users/requests/{id:uint!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserApproveFollowerPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.User;
@@ -326,7 +326,7 @@ namespace TraktNET
         internal required TraktUserHiddenItemsPost TraktUserHiddenItemsPost { get; set; }
     }
 
-    [TraktPostRequest("users/hidden/{section!!}/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("users/hidden/{section:TraktHiddenItemsSection!!}/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserHiddenItemsRemovePostRequest
     {
         [TraktRequestPayload]
@@ -481,7 +481,7 @@ namespace TraktNET
     // DELETE Requests
     // -------------------------------------------------------
 
-    [TraktDeleteRequest("users/requests/{id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktDeleteRequest("users/requests/{id:uint!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserDenyFollowerDeleteRequest
     {
     }

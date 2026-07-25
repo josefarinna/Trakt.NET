@@ -13,7 +13,7 @@ namespace TraktNET.DeleteRequests.Users
         {
             var userDenyFollowerDeleteRequest = new UserDenyFollowerDeleteRequest
             {
-                Id = "123"
+                Id = 123
             };
 
             userDenyFollowerDeleteRequest.BuildUri();
@@ -44,16 +44,8 @@ namespace TraktNET.DeleteRequests.Users
         [Fact]
         public void TestUserDenyFollowerDeleteRequestValidate()
         {
-            var userDenyFollowerDeleteRequest = new UserDenyFollowerDeleteRequest { Id = string.Empty };
+            var userDenyFollowerDeleteRequest = new UserDenyFollowerDeleteRequest { Id = 0 };
             Action act = () => userDenyFollowerDeleteRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            userDenyFollowerDeleteRequest = new UserDenyFollowerDeleteRequest { Id = "  " };
-            act = () => userDenyFollowerDeleteRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            userDenyFollowerDeleteRequest = new UserDenyFollowerDeleteRequest { Id = "id with spaces" };
-            act = () => userDenyFollowerDeleteRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

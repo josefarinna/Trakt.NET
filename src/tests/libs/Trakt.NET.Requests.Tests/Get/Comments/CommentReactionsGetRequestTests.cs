@@ -12,14 +12,17 @@ namespace TraktNET.GetRequests.Comments
         [InlineData(null, null, null, URIPath)]
         [InlineData(TraktExtendedInfo.None, null, null, URIPath)]
         [InlineData(TraktExtendedInfo.Full, null, null, $"{URIPath}?extended=full")]
+        [InlineData(null, 0, null, URIPath)]
         [InlineData(null, 1, null, $"{URIPath}?page=1")]
+        [InlineData(null, null, 0, URIPath)]
         [InlineData(null, null, 10, $"{URIPath}?limit=10")]
+        [InlineData(null, 2, 20, $"{URIPath}?page=2&limit=20")]
         [InlineData(TraktExtendedInfo.Full, 1, 10, $"{URIPath}?extended=full&page=1&limit=10")]
         public void TestCommentReactionsGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, int? page, int? limit, string expectedURIPath)
         {
             var request = new CommentReactionsGetRequest
             {
-                Id = "123",
+                Id = 123,
                 ExtendedInfo = extendedInfo,
                 Page = (uint?)page,
                 Limit = (uint?)limit
@@ -53,16 +56,8 @@ namespace TraktNET.GetRequests.Comments
         [Fact]
         public void TestCommentReactionsGetRequestValidate()
         {
-            var request = new CommentReactionsGetRequest { Id = string.Empty };
+            var request = new CommentReactionsGetRequest { Id = 0 };
             Action act = () => request.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            request = new CommentReactionsGetRequest { Id = "  " };
-            act = () => request.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            request = new CommentReactionsGetRequest { Id = "id with spaces" };
-            act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

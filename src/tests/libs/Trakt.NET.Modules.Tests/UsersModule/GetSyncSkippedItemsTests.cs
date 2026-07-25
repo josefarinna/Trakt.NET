@@ -28,6 +28,40 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
+        public async Task TestGetSyncSkippedItemsWithPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\sync_paused.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(
+                $"{GetSyncSkippedItemsUri}?page={Page}",
+                responseContent, Page, 1, 10, ItemCount);
+
+            TraktPagedResponse<TraktUserSyncItem> response = await client.Users.GetSyncSkippedItemsAsync(
+                SyncId, page: Page, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(Page);
+        }
+
+        [Fact]
+        public async Task TestGetSyncSkippedItemsWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\sync_paused.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(
+                $"{GetSyncSkippedItemsUri}?limit={Limit}",
+                responseContent, 1, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktUserSyncItem> response = await client.Users.GetSyncSkippedItemsAsync(
+                SyncId, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Limit.ShouldBe(Limit);
+        }
+
+        [Fact]
         public async Task TestGetSyncSkippedItemsWithPageAndLimit()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\sync_paused.json");
@@ -61,6 +95,116 @@ namespace TraktNET.UsersModule
             response.IsSuccess.ShouldBeTrue();
             response.HasPreviousPage.ShouldBeTrue();
             response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSyncSkippedItemsPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\sync_paused.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(
+                $"{GetSyncSkippedItemsUri}?page=2&limit={Limit}",
+                responseContent, 2, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktUserSyncItem> response = await client.Users.GetSyncSkippedItemsAsync(
+                SyncId, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetSyncSkippedItemsPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\sync_paused.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(
+                $"{GetSyncSkippedItemsUri}?page=1&limit={Limit}",
+                responseContent, 1, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktUserSyncItem> response = await client.Users.GetSyncSkippedItemsAsync(
+                SyncId, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSyncSkippedItemsPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\sync_paused.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(
+                $"{GetSyncSkippedItemsUri}?page=1&limit={Limit}",
+                responseContent, 1, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktUserSyncItem> response = await client.Users.GetSyncSkippedItemsAsync(
+                SyncId, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetSyncSkippedItemsPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\sync_paused.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(
+                $"{GetSyncSkippedItemsUri}?page=2&limit={Limit}",
+                responseContent, 2, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktUserSyncItem> response = await client.Users.GetSyncSkippedItemsAsync(
+                SyncId, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetOAuthClient(client, $"{GetSyncSkippedItemsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSyncSkippedItemsPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\sync_paused.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(
+                $"{GetSyncSkippedItemsUri}?page=1&limit={Limit}",
+                responseContent, 1, 2, Limit, ItemCount);
+
+            TraktPagedResponse<TraktUserSyncItem> response = await client.Users.GetSyncSkippedItemsAsync(
+                SyncId, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+
+            ModuleTestUtility.SetOAuthClient(client, $"{GetSyncSkippedItemsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
+
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Theory]

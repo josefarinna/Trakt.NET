@@ -11,7 +11,7 @@ namespace TraktNET
         {
             var request = new CommentSummaryGetRequest
             {
-                Id = commentId.ToInvariantCultureString(),
+                Id = commentId,
                 ExtendedInfo = extendedInfo
             };
 
@@ -23,7 +23,7 @@ namespace TraktNET
         {
             var request = new CommentItemGetRequest
             {
-                Id = commentId.ToInvariantCultureString(),
+                Id = commentId,
                 ExtendedInfo = extendedInfo
             };
 
@@ -35,7 +35,7 @@ namespace TraktNET
         {
             var request = new CommentLikesGetRequest
             {
-                Id = commentId.ToInvariantCultureString(),
+                Id = commentId,
                 ExtendedInfo = extendedInfo,
                 Page = page,
                 Limit = limit
@@ -44,7 +44,7 @@ namespace TraktNET
             return RequestHandler.ExecutePagedListRequestAsync<TraktCommentLike>(_context, request, (page, limit)
                 => new CommentLikesGetRequest
                 {
-                    Id = commentId.ToInvariantCultureString(),
+                    Id = commentId,
                     ExtendedInfo = extendedInfo,
                     Page = page,
                     Limit = limit
@@ -197,7 +197,7 @@ namespace TraktNET
 
             var request = new CommentUpdatePutRequest
             {
-                Id = commentId.ToInvariantCultureString(),
+                Id = commentId,
                 TraktCommentUpdatePost = content
             };
 
@@ -215,7 +215,7 @@ namespace TraktNET
 
             var request = new CommentReplyPostRequest
             {
-                Id = commentId.ToInvariantCultureString(),
+                Id = commentId,
                 TraktCommentReplyPost = content
             };
 
@@ -226,7 +226,7 @@ namespace TraktNET
         {
             var request = new CommentDeleteRequest
             {
-                Id = commentId.ToInvariantCultureString()
+                Id = commentId
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
@@ -236,7 +236,7 @@ namespace TraktNET
         {
             var request = new CommentLikePostRequest
             {
-                Id = commentId.ToInvariantCultureString()
+                Id = commentId
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
@@ -246,7 +246,7 @@ namespace TraktNET
         {
             var request = new CommentUnlikeDeleteRequest
             {
-                Id = commentId.ToInvariantCultureString()
+                Id = commentId
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
@@ -257,7 +257,7 @@ namespace TraktNET
         {
             var request = new CommentRepliesGetRequest
             {
-                Id = commentId.ToInvariantCultureString(),
+                Id = commentId,
                 ExtendedInfo = extendedInfo,
                 Page = page,
                 Limit = limit,
@@ -266,7 +266,7 @@ namespace TraktNET
             return RequestHandler.ExecutePagedListRequestAsync<TraktComment>(_context, request, (page, limit)
                 => new CommentRepliesGetRequest
                 {
-                    Id = commentId.ToInvariantCultureString(),
+                    Id = commentId,
                     ExtendedInfo = extendedInfo,
                     Page = page,
                     Limit = limit,
@@ -283,7 +283,7 @@ namespace TraktNET
 
             var request = new CommentReportPostRequest
             {
-                Id = commentId.ToInvariantCultureString(),
+                Id = commentId,
                 TraktReportPost = content
             };
 
@@ -294,7 +294,7 @@ namespace TraktNET
         {
             var request = new CommentReactionsSummaryGetRequest
             {
-                Id = commentId.ToInvariantCultureString()
+                Id = commentId
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentReactionSummary>(_context, request, cancellationToken);
@@ -305,7 +305,7 @@ namespace TraktNET
         {
             var request = new CommentReactionsGetRequest
             {
-                Id = commentId.ToInvariantCultureString(),
+                Id = commentId,
                 ExtendedInfo = extendedInfo,
                 Page = page,
                 Limit = limit
@@ -314,7 +314,7 @@ namespace TraktNET
             return RequestHandler.ExecutePagedListRequestAsync<TraktCommentUserReaction>(_context, request, (page, limit)
                 => new CommentReactionsGetRequest
                 {
-                    Id = commentId.ToInvariantCultureString(),
+                    Id = commentId,
                     ExtendedInfo = extendedInfo,
                     Page = page,
                     Limit = limit
@@ -325,7 +325,7 @@ namespace TraktNET
         {
             var request = new CommentReactionAddPostRequest
             {
-                Id = commentId.ToInvariantCultureString(),
+                Id = commentId,
                 Type = reactionType
             };
 
@@ -336,7 +336,7 @@ namespace TraktNET
         {
             var request = new CommentReactionRemoveDeleteRequest
             {
-                Id = commentId.ToInvariantCultureString(),
+                Id = commentId,
                 Type = reactionType
             };
 

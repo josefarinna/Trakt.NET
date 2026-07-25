@@ -33,7 +33,7 @@ namespace TraktNET
         public TraktSearchResultType? ResultTypes { get; set; }
     }
 
-    [TraktGetRequest("search/{type!!}/exact", SupportsExtendedInfo = true, SupportsPagination = true)]
+    [TraktGetRequest("search/{type:TraktSearchResultType!!}/exact", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class SearchExactTextQueryGetRequest
     {
         [TraktRequestQuery("query")]

@@ -13,7 +13,7 @@ namespace TraktNET.GetRequests.Comments
         {
             var request = new CommentReactionsSummaryGetRequest
             {
-                Id = "123"
+                Id = 123
             };
 
             request.BuildUri();
@@ -44,16 +44,8 @@ namespace TraktNET.GetRequests.Comments
         [Fact]
         public void TestCommentReactionsSummaryGetRequestValidate()
         {
-            var request = new CommentReactionsSummaryGetRequest { Id = string.Empty };
+            var request = new CommentReactionsSummaryGetRequest { Id = 0 };
             Action act = () => request.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            request = new CommentReactionsSummaryGetRequest { Id = "  " };
-            act = () => request.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            request = new CommentReactionsSummaryGetRequest { Id = "id with spaces" };
-            act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

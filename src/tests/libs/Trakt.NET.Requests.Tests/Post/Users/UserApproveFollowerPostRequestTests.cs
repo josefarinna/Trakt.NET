@@ -13,7 +13,7 @@ namespace TraktNET.PostRequests.Users
         {
             var userApproveFollowerPostRequest = new UserApproveFollowerPostRequest
             {
-                Id = "123"
+                Id = 123
             };
 
             userApproveFollowerPostRequest.BuildUri();
@@ -44,16 +44,8 @@ namespace TraktNET.PostRequests.Users
         [Fact]
         public void TestUserApproveFollowerPostRequestValidate()
         {
-            var userApproveFollowerPostRequest = new UserApproveFollowerPostRequest { Id = string.Empty };
+            var userApproveFollowerPostRequest = new UserApproveFollowerPostRequest { Id = 0 };
             Action act = () => userApproveFollowerPostRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            userApproveFollowerPostRequest = new UserApproveFollowerPostRequest { Id = "  " };
-            act = () => userApproveFollowerPostRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            userApproveFollowerPostRequest = new UserApproveFollowerPostRequest { Id = "id with spaces" };
-            act = () => userApproveFollowerPostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

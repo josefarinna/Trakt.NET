@@ -25,7 +25,7 @@ namespace TraktNET.GetRequests.SmartLists
             var request = new SmartListItemsGetRequest
             {
                 ListId = "123",
-                Type = "movies",
+                Type = TraktSmartListMediaType.Movies,
                 SortBy = sortBy,
                 SortHow = sortHow,
                 Watchnow = watchnow,
@@ -45,7 +45,7 @@ namespace TraktNET.GetRequests.SmartLists
             var request = new SmartListItemsGetRequest
             {
                 ListId = "123",
-                Type = "movies",
+                Type = TraktSmartListMediaType.Movies,
                 SortBy = TraktSortBy.Rank,
                 SortHow = TraktSortHow.Ascending,
                 Filter = filter
@@ -79,39 +79,31 @@ namespace TraktNET.GetRequests.SmartLists
         [Fact]
         public void TestSmartListItemsGetRequestValidate()
         {
-            var request = new SmartListItemsGetRequest { ListId = string.Empty, Type = "movies", SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
+            var request = new SmartListItemsGetRequest { ListId = string.Empty, Type = TraktSmartListMediaType.Movies, SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
             Action act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new SmartListItemsGetRequest { ListId = "  ", Type = "movies", SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
+            request = new SmartListItemsGetRequest { ListId = "  ", Type = TraktSmartListMediaType.Movies, SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new SmartListItemsGetRequest { ListId = "id with spaces", Type = "movies", SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
+            request = new SmartListItemsGetRequest { ListId = "id with spaces", Type = TraktSmartListMediaType.Movies, SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new SmartListItemsGetRequest { ListId = "id", Type = string.Empty, SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
+            request = new SmartListItemsGetRequest { ListId = "id", Type = TraktSmartListMediaType.Unspecified, SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new SmartListItemsGetRequest { ListId = "id", Type = "  ", SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
+            request = new SmartListItemsGetRequest { ListId = "id", Type = TraktSmartListMediaType.Movies, SortBy = TraktSortBy.Unspecified, SortHow = TraktSortHow.Ascending };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new SmartListItemsGetRequest { ListId = "id", Type = "type with spaces", SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
+            request = new SmartListItemsGetRequest { ListId = "id", Type = TraktSmartListMediaType.Movies, SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Unspecified };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new SmartListItemsGetRequest { ListId = "id", Type = "movies", SortBy = TraktSortBy.Unspecified, SortHow = TraktSortHow.Ascending };
-            act = () => request.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            request = new SmartListItemsGetRequest { ListId = "id", Type = "movies", SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Unspecified };
-            act = () => request.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            request = new SmartListItemsGetRequest { ListId = "id", Type = "movies", SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
+            request = new SmartListItemsGetRequest { ListId = "id", Type = TraktSmartListMediaType.Movies, SortBy = TraktSortBy.Rank, SortHow = TraktSortHow.Ascending };
             act = () => request.Validate();
             act.ShouldNotThrow();
         }

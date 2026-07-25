@@ -22,7 +22,7 @@ namespace TraktNET
             var request = new SmartListItemsGetRequest
             {
                 ListId = listIdOrSlug,
-                Type = type.AsPathParameter(),
+                Type = type,
                 SortBy = sortBy,
                 SortHow = sortHow,
                 Filter = filter,
@@ -36,7 +36,7 @@ namespace TraktNET
                 => new SmartListItemsGetRequest
                 {
                     ListId = listIdOrSlug,
-                    Type = type.AsPathParameter(),
+                    Type = type,
                     SortBy = sortBy,
                     SortHow = sortHow,
                     Filter = filter,

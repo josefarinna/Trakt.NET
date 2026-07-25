@@ -20,7 +20,7 @@ namespace TraktNET.PostRequests.Users
         {
             var userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest
             {
-                Section = section.AsPathParameter(),
+                Section = section,
                 TraktUserHiddenItemsRemovePost = new TraktUserHiddenItemsRemovePost()
             };
 
@@ -31,40 +31,40 @@ namespace TraktNET.PostRequests.Users
         [Fact]
         public void TestUserHiddenItemsRemovePostRequestHasValidOAuthRequirement()
         {
-            var userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar.AsPathParameter(), TraktUserHiddenItemsRemovePost = default! };
+            var userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar, TraktUserHiddenItemsRemovePost = default! };
             userHiddenItemsRemovePostRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
 
         [Fact]
         public void TestUserHiddenItemsRemovePostRequestIsPostRequest()
         {
-            var userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar.AsPathParameter(), TraktUserHiddenItemsRemovePost = default! };
+            var userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar, TraktUserHiddenItemsRemovePost = default! };
             userHiddenItemsRemovePostRequest.Method.ShouldBe(HttpMethod.Post);
         }
 
         [Fact]
         public void TestUserHiddenItemsRemovePostRequestHasCorrectRequestObjectType()
         {
-            var userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar.AsPathParameter(), TraktUserHiddenItemsRemovePost = default! };
+            var userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar, TraktUserHiddenItemsRemovePost = default! };
             userHiddenItemsRemovePostRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
 
         [Fact]
         public void TestUserHiddenItemsRemovePostRequestValidate()
         {
-            var userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = default!, TraktUserHiddenItemsRemovePost = default! };
+            var userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Unspecified, TraktUserHiddenItemsRemovePost = default! };
             Action act = () => userHiddenItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar.AsPathParameter(), TraktUserHiddenItemsRemovePost = default! };
+            userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar, TraktUserHiddenItemsRemovePost = default! };
             act = () => userHiddenItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar.AsPathParameter(), TraktUserHiddenItemsRemovePost = default! };
+            userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar, TraktUserHiddenItemsRemovePost = default! };
             act = () => userHiddenItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar.AsPathParameter(), TraktUserHiddenItemsRemovePost = new TraktUserHiddenItemsRemovePost() };
+            userHiddenItemsRemovePostRequest = new UserHiddenItemsRemovePostRequest { Section = TraktHiddenItemsSection.Calendar, TraktUserHiddenItemsRemovePost = new TraktUserHiddenItemsRemovePost() };
             act = () => userHiddenItemsRemovePostRequest.Validate();
             act.ShouldThrow<TraktPostValidationException>();
         }

@@ -39,6 +39,234 @@ namespace TraktNET.SocialRecommendationsModule
             item.RecommendedBy[0].Username.ShouldBe("sean");
         }
 
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsWithWatchWindow()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?watch_window=7", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(watchWindow: 7U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsWithIgnoreWatched()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?ignore_watched=true", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(ignoreWatched: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsWithIgnoreCollected()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?ignore_collected=true", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(ignoreCollected: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsWithIgnoreWatchlisted()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?ignore_watchlisted=true", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(ignoreWatchlisted: true, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?extended=full", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(extendedInfo: TraktExtendedInfo.Full, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsWithPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?page=2", responseContent, 2, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(page: 2U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(2U);
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?limit=10", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsWithPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?page=2&limit=10", responseContent, 2, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsWithAllParameters()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(
+                $"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?watch_window=7&ignore_watched=true&ignore_collected=true&ignore_watchlisted=true&extended=full&page=2&limit=10",
+                responseContent, 2, 1, 10, ItemCount);
+
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(
+                watchWindow: 7U, ignoreWatched: true, ignoreCollected: true, ignoreWatchlisted: true,
+                extendedInfo: TraktExtendedInfo.Full, page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(2U);
+            response.Limit.ShouldBe(10U);
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsPagingHasPreviousPageAndHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?page=2&limit=10", responseContent, 2, 5, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsPagingOnlyHasPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?page=2&limit=10", responseContent, 2, 2, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsPagingOnlyHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?page=1&limit=10", responseContent, 1, 2, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsPagingNotHasPreviousPageOrHasNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?page=1&limit=10", responseContent, 1, 1, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?page=2&limit=10", responseContent, 2, 2, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(page: 2U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetOAuthClient(client, $"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?page=1&limit=10", responseContent, 1, 2, 10, ItemCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(1U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetSocialShowRecommendationsPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Recommendations\\socialrecommendationsshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?page=1&limit=10", responseContent, 1, 2, 10, ItemCount);
+            TraktPagedResponse<TraktSocialShowRecommendation> response = await client.SocialRecommendations.GetShowRecommendationsAsync(page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+
+            ModuleTestUtility.SetOAuthClient(client, $"{GET_SOCIAL_SHOW_RECOMMENDATIONS_URI}?page=2&limit=10", responseContent, 2, 2, 10, ItemCount);
+
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.Page.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]

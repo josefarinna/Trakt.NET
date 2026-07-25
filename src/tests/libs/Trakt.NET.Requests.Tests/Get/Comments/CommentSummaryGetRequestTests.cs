@@ -16,7 +16,7 @@ namespace TraktNET.GetRequests.Comments
         {
             var commentSummaryGetRequest = new CommentSummaryGetRequest
             {
-                Id = "123",
+                Id = 123,
                 ExtendedInfo = extendedInfo
             };
 
@@ -48,16 +48,8 @@ namespace TraktNET.GetRequests.Comments
         [Fact]
         public void TestCommentSummaryGetRequestValidate()
         {
-            var commentSummaryGetRequest = new CommentSummaryGetRequest { Id = string.Empty };
+            var commentSummaryGetRequest = new CommentSummaryGetRequest { Id = 0 };
             Action act = () => commentSummaryGetRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentSummaryGetRequest = new CommentSummaryGetRequest { Id = "  " };
-            act = () => commentSummaryGetRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentSummaryGetRequest = new CommentSummaryGetRequest { Id = "id with spaces" };
-            act = () => commentSummaryGetRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

@@ -10,7 +10,7 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
-    [TraktGetRequest("smart-lists/{list_id!!}/items/{type!!}",
+    [TraktGetRequest("smart-lists/{list_id!!}/items/{type:TraktSmartListMediaType!!}",
         SupportsExtendedInfo = true, SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class SmartListItemsGetRequest
     {

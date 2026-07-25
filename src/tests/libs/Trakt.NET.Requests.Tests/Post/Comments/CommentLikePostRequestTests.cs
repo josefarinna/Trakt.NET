@@ -13,7 +13,7 @@ namespace TraktNET.PostRequests.Comments
         {
             var commentLikePostRequest = new CommentLikePostRequest
             {
-                Id = "123"
+                Id = 123
             };
 
             commentLikePostRequest.BuildUri();
@@ -44,16 +44,8 @@ namespace TraktNET.PostRequests.Comments
         [Fact]
         public void TestCommentLikePostRequestValidate()
         {
-            var commentLikePostRequest = new CommentLikePostRequest { Id = string.Empty };
+            var commentLikePostRequest = new CommentLikePostRequest { Id = 0 };
             Action act = () => commentLikePostRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentLikePostRequest = new CommentLikePostRequest { Id = "  " };
-            act = () => commentLikePostRequest.Validate();
-            act.ShouldThrow<TraktRequestValidationException>();
-
-            commentLikePostRequest = new CommentLikePostRequest { Id = "id with spaces" };
-            act = () => commentLikePostRequest.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
     }

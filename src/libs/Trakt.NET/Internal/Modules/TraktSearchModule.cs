@@ -99,7 +99,7 @@ namespace TraktNET
         {
             var request = new SearchExactTextQueryGetRequest
             {
-                Type = searchResultTypes.AsPathParameter(),
+                Type = searchResultTypes,
                 Query = searchQuery,
                 ExtendedInfo = extendedInfo,
                 Page = page,
@@ -109,7 +109,7 @@ namespace TraktNET
             return RequestHandler.ExecutePagedListRequestAsync<TraktSearchResult>(_context, request, (page, limit)
                 => new SearchExactTextQueryGetRequest
                 {
-                    Type = searchResultTypes.AsPathParameter(),
+                    Type = searchResultTypes,
                     Query = searchQuery,
                     ExtendedInfo = extendedInfo,
                     Page = page,
