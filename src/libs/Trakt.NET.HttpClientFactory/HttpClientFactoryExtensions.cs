@@ -93,6 +93,7 @@ namespace TraktNET
         /// <param name="services">The services collection to which the <see cref="TraktClient" /> is added.</param>
         /// <param name="clientID">The value for the <see cref="TraktClient.ClientID" />.</param>
         /// <param name="clientSecret">The value for the <see cref="TraktClient.ClientSecret" />.</param>
+        /// <param name="userAgent">The value for the <see cref="TraktClient.UserAgent" />.</param>
         /// <returns>A <see cref="IHttpClientBuilder" /> instance.</returns>
         public static IHttpClientBuilder AddTraktClient(this IServiceCollection services, string clientID, string clientSecret, string? userAgent = null)
         {

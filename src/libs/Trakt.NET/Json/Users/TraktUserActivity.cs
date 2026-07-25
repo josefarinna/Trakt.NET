@@ -52,13 +52,13 @@ namespace TraktNET
         public TraktEpisode? Episode { get; set; }
 
         /// <summary>
-        /// Gets or sets the list, if <see cref="Type" /> is <see cref="TraktSyncItemType.List" />.
+        /// Gets or sets the list, if applicable.
         /// See also <seealso cref="TraktList" />.
         /// </summary>
         public TraktList? List { get; set; }
 
         /// <summary>
-        /// Gets or sets the comment, if <see cref="Type" /> is <see cref="TraktSyncItemType.Comment" />.
+        /// Gets or sets the comment, if applicable.
         /// See also <seealso cref="TraktComment" />.
         /// </summary>
         public TraktComment? Comment { get; set; }

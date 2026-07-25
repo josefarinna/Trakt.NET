@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -76,8 +76,8 @@ namespace TraktNET
             return value;
         }
 
-        /// <summary>Gets a string representation of the access token in the Bearer: <access-token> format.</summary>
-        /// <returns>A string representation of the access token in the Bearer: <access-token> format.</returns>
+        /// <summary>Gets a string representation of the access token in the Bearer: &lt;access-token&gt; format.</summary>
+        /// <returns>A string representation of the access token in the Bearer: &lt;access-token&gt; format.</returns>
         public string AsBearerToken() => $"Bearer: {AccessToken ?? "invalid access token"}";
 
         /// <summary>Creates a new <see cref="TraktAuthorization" /> instance with the given values.</summary>

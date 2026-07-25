@@ -1,9 +1,9 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <inheritdoc />
     public record class TraktMostFavoritedShow : TraktCollectionShow
     {
-        /// <summary>Gets or sets the user count for the <see cref="Show" />.</summary>
+        /// <summary>Gets or sets the user count for the <see cref="TraktShow" />.</summary>
         public uint? UserCount { get; set; }
 
         /// <summary>Gets a string representation of the show.</summary>

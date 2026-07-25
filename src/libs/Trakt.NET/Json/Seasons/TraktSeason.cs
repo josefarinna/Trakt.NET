@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <inheritdoc />
     public record class TraktSeason : TraktSeasonMinimal
@@ -37,7 +37,7 @@
         /// <remarks>
         /// This property is set automatically if this season is in a collection
         /// of seasons and this collection was returned by
-        /// <see cref="TraktSeasonsModule.GetAllSeasonsAsync(string, TraktExtendedInfo, string, CancellationToken)" />
+        /// <see cref="TraktSeasonsModule" />
         /// and the optional <see cref="TraktExtendedInfo" /> has
         /// <see cref="TraktExtendedInfo.Episodes" /> set.
         /// </remarks>

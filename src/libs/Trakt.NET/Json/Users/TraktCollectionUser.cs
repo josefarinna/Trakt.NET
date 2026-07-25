@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -31,7 +31,7 @@ namespace TraktNET
             set => User?.Deleted = value;
         }
 
-        /// <summary>Gets or sets the collection of ids for the user. See also <seealso cref="TraktUserIds" />.</summary>
+        /// <summary>Gets or sets the collection of ids for the user. See also <seealso cref="TraktUserIDs" />.</summary>
         [JsonIgnore]
         public TraktUserIDs? IDs
         {

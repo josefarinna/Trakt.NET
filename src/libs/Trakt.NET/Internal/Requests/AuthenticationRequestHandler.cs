@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET
 {
@@ -154,7 +154,7 @@ namespace TraktNET
             if (forceLoginPrompt.HasValue && forceLoginPrompt.Value)
                 uriParams.Add("prompt", "login");
 
-            var encodedUriContent = new FormUrlEncodedContent(uriParams);
+            var encodedUriContent = new FormUrlEncodedContent(uriParams!);
             string encodedUri = encodedUriContent.ReadAsStringAsync().Result;
 
             if (string.IsNullOrEmpty(encodedUri))

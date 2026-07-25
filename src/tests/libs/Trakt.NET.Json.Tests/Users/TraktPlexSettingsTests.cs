@@ -96,8 +96,8 @@ namespace TraktNET.Json.Users
             response.Servers[0].ConnectionCount.ShouldBe(1);
             response.Servers[0].ConnectionTimeout.ShouldBe(5);
             response.Servers[0].Ports.ShouldNotBeNull();
-            response.Servers[0].Ports.Count.ShouldBe(1);
-            response.Servers[0].Ports[0].ShouldBe(32400);
+            response.Servers[0].Ports!.Count.ShouldBe(1);
+            response.Servers[0].Ports![0].ShouldBe(32400);
             response.Servers[0].Owned.ShouldBeTrue();
             response.Servers[0].Url.ShouldBe("http://127.0.0.1:32400");
         }

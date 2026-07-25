@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -17,7 +17,7 @@ namespace TraktNET
         /// <summary>A list of crew members in the art category. See also <seealso cref="TraktCrewMember" />.</summary>
         public List<TraktCrewMember>? Art { get; set; }
 
-        /// <summary>A list of crew members in the costume & make-up category. See also <seealso cref="TraktCrewMember" />.</summary>
+        /// <summary>A list of crew members in the costume &amp; make-up category. See also <seealso cref="TraktCrewMember" />.</summary>
         [JsonPropertyName("costume & make-up")]
         public List<TraktCrewMember>? CostumeAndMakeUp { get; set; }
 

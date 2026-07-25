@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -51,10 +51,10 @@ namespace TraktNET
         /// This property is set automatically if this episode is in a
         /// <see cref="TraktSeason.Episodes" /> collection and the episode's season
         /// is in a collection of seasons returned by
-        /// <see cref="TraktSeasonsModule.GetAllSeasonsAsync(string, TraktExtendedInfo, string, CancellationToken)" />
+        /// <see cref="TraktSeasonsModule" />
         /// and a translation language code was specified.
         /// This property is also set automatically if this episode is in
-        /// a collection returned by <see cref="TraktSeasonsModule.GetSeasonAsync(string, uint, TraktExtendedInfo, string, CancellationToken)" />
+        /// a collection returned by <see cref="TraktSeasonsModule" />
         /// and a translation language code was specified.
         /// </remarks>
         public List<TraktEpisodeTranslation>? Translations { get; set; }
