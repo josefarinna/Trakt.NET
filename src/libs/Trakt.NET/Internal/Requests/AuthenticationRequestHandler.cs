@@ -167,7 +167,7 @@ namespace TraktNET
             bool? showSignupPage = null, bool? forceLoginPrompt = null)
         {
             string encodedUriParams = CreateEncodedAuthorizationUriParameters(clientId, redirectUri, state, showSignupPage, forceLoginPrompt);
-            return $"{context.BaseAuthorizationUri}/oauth/authorize{encodedUriParams}";
+            return $"{context.BaseAuthorizationUri}oauth/authorize{encodedUriParams}";
         }
 
         private static void ValidateAuthorizationUrlArguments(string clientId, string redirectUri)

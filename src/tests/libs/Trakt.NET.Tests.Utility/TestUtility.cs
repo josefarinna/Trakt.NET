@@ -105,7 +105,7 @@ namespace TraktNET
             var encodedUriContent = new FormUrlEncodedContent(uriParams);
             string encodedUri = await encodedUriContent.ReadAsStringAsync();
 
-            return $"{baseUrl}/oauth/authorize?{encodedUri}";
+            return $"{baseUrl}oauth/authorize?{encodedUri}";
         }
     }
 }

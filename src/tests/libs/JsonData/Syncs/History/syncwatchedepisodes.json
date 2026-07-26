@@ -1,0 +1,18 @@
+[
+  {
+    "plays": 1,
+    "last_watched_at": "2026-04-23T19:02:00.000Z",
+    "last_updated_at": "2026-04-23T19:02:00.000Z",
+    "episode": {
+      "season": 4,
+      "number": 8,
+      "title": "Episode 8",
+      "ids": {
+        "trakt": 14007201,
+        "tvdb": 11572740,
+        "imdb": "tt39848785",
+        "tmdb": 6951284
+      }
+    }
+  }
+]
