@@ -154,26 +154,70 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncCollectionRemovePostResponse>(_context, request, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktWatchedMovie>> GetWatchedMoviesImplAsync(TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+        private Task<TraktPagedResponse<TraktWatchedMovie>> GetWatchedMoviesImplAsync(TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
             var request = new SyncWatchedMoviesGetRequest
             {
-                ExtendedInfo = extendedInfo
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
             };
 
-            return RequestHandler.ExecuteListRequestAsync<TraktWatchedMovie>(_context, request, cancellationToken);
+            return RequestHandler.ExecutePagedListRequestAsync<TraktWatchedMovie>(_context, request, (page, limit)
+                => new SyncWatchedMoviesGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktWatchedShow>> GetWatchedShowsImplAsync(TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+        private Task<TraktPagedResponse<TraktWatchedShow>> GetWatchedShowsImplAsync(TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
             var request = new SyncWatchedShowsGetRequest
             {
-                ExtendedInfo = extendedInfo
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
             };
 
-            return RequestHandler.ExecuteListRequestAsync<TraktWatchedShow>(_context, request, cancellationToken);
+            return RequestHandler.ExecutePagedListRequestAsync<TraktWatchedShow>(_context, request, (page, limit)
+                => new SyncWatchedShowsGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktWatchedEpisode>> GetWatchedEpisodesImplAsync(TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
+            var request = new SyncWatchedEpisodesGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktWatchedEpisode>(_context, request, (page, limit)
+                => new SyncWatchedEpisodesGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
         }
 
         private Task<TraktPagedResponse<TraktHistoryItem>> GetWatchedHistoryImplAsync(TraktSyncItemType? historyItemType = null, uint? itemId = null,

@@ -803,6 +803,7 @@ namespace TraktNET
         {
             typeof(TraktWatchedMovie),
             typeof(TraktWatchedShow),
+            typeof(TraktWatchedEpisode),
             typeof(TraktWatchedShowEpisode),
             typeof(TraktWatchedShowSeason)
         });
@@ -1356,6 +1357,7 @@ namespace TraktNET
         private static readonly HashSet<Type> s_watchedJsonTypes = [
             typeof(TraktWatchedMovie),
             typeof(TraktWatchedShow),
+            typeof(TraktWatchedEpisode),
             typeof(TraktWatchedShowEpisode),
             typeof(TraktWatchedShowSeason)
         ];

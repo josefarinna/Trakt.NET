@@ -580,6 +580,30 @@ namespace TraktNET
                 }, cancellationToken);
         }
 
+        private Task<TraktPagedResponse<TraktWatchedEpisode>> GetWatchedEpisodesImplAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
+            var request = new UserWatchedEpisodesGetRequest
+            {
+                Id = usernameOrSlug,
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktWatchedEpisode>(_context, request, (page, limit)
+                => new UserWatchedEpisodesGetRequest
+                {
+                    Id = usernameOrSlug,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
+
         private Task<TraktResponse<TraktUserStatistics>> GetStatisticsImplAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
         {
             var request = new UserStatisticsGetRequest

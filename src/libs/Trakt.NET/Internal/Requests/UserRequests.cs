@@ -209,6 +209,12 @@ namespace TraktNET
     {
     }
 
+    [TraktGetRequest("users/{id!!}/watched/episodes", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    internal sealed partial class UserWatchedEpisodesGetRequest
+    {
+    }
+
     [TraktGetRequest("users/{id!!}/watching", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserWatchingGetRequest
     {

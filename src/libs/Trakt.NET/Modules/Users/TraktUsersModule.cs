@@ -919,6 +919,35 @@ namespace TraktNET
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetWatchedShowsImplAsync(usernameOrSlug, extendedInfo, page, limit, cancellationToken);
 
+        /// <summary>Gets all episodes an user has watched, sorted by most plays.</summary>
+        /// <param name="usernameOrSlug">The username or slug of the user, for which the watched episodes should be queried.</param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the episodes.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
+        /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried watched episodes.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedEpisode" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para><see href="https://docs.trakt.tv/reference/getuserswatched">
+        /// Trakt API Documentation: Users: Watched
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktPagedResponse<TraktWatchedEpisode>> GetWatchedEpisodesAsync(string usernameOrSlug, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetWatchedEpisodesImplAsync(usernameOrSlug, extendedInfo, page, limit, cancellationToken);
+
         /// <summary>Gets statistics about the movies, shows and episodes an user has watched.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the statistics should be queried.</param>
         /// <param name="cancellationToken">

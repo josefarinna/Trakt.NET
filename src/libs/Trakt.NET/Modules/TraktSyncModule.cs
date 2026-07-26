@@ -260,14 +260,16 @@ namespace TraktNET
         /// Specifies how much data should be queried about the movies.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
+        /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried box office movies.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried watched movies.
         /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedMovie" />.
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedMovie" />.
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -276,23 +278,25 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
-        public Task<TraktListResponse<TraktWatchedMovie>> GetWatchedMoviesAsync(TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetWatchedMoviesImplAsync(extendedInfo, cancellationToken);
+        public Task<TraktPagedResponse<TraktWatchedMovie>> GetWatchedMoviesAsync(TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetWatchedMoviesImplAsync(extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets all shows the user has watched, sorted by most plays.</summary>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the shows.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
+        /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.<para/>
         /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
         /// </param>
         /// <returns>
-        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried box office movies.
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried watched shows.
         /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedShow" />.
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedShow" />.
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -301,9 +305,36 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktException">Thrown, if the request fails.</exception>
-        public Task<TraktListResponse<TraktWatchedShow>> GetWatchedShowsAsync(TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetWatchedShowsImplAsync(extendedInfo, cancellationToken);
+        public Task<TraktPagedResponse<TraktWatchedShow>> GetWatchedShowsAsync(TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetWatchedShowsImplAsync(extendedInfo, page, limit, cancellationToken);
+
+        /// <summary>Gets all episodes the user has watched, sorted by most plays.</summary>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the episodes.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
+        /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried watched episodes.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedEpisode" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsyncwatched">
+        /// Trakt API Documentation: Sync: Get Watched
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktWatchedEpisode>> GetWatchedEpisodesAsync(TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetWatchedEpisodesImplAsync(extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets all movies, shows, seasons and / or episodes the user has watched, sorted by most recent.</summary>
         /// <param name="historyItemType">Determines, which type of history items should be queried. See also <seealso cref="TraktSyncItemType" />.</param>

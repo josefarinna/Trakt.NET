@@ -1,4 +1,4 @@
-﻿#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
@@ -9,6 +9,8 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktWatchedMovie>))]
     [JsonSerializable(typeof(TraktWatchedShow))]
     [JsonSerializable(typeof(IReadOnlyList<TraktWatchedShow>))]
+    [JsonSerializable(typeof(TraktWatchedEpisode))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktWatchedEpisode>))]
     [JsonSerializable(typeof(TraktWatchedShowEpisode))]
     [JsonSerializable(typeof(IReadOnlyList<TraktWatchedShowEpisode>))]
     [JsonSerializable(typeof(TraktWatchedShowSeason))]

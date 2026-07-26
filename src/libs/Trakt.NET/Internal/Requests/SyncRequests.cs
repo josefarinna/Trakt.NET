@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     // -------------------------------------------------------
     // GET Requests
@@ -74,13 +74,21 @@
         internal DateTime? EndAt { get; set; }
     }
 
-    [TraktGetRequest("sync/watched/movies", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktGetRequest("sync/watched/movies", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncWatchedMoviesGetRequest
     {
     }
 
-    [TraktGetRequest("sync/watched/shows", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktGetRequest("sync/watched/shows", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncWatchedShowsGetRequest
+    {
+    }
+
+    [TraktGetRequest("sync/watched/episodes", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SyncWatchedEpisodesGetRequest
     {
     }
 
