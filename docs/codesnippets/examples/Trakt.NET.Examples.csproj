@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Source\Lib\Trakt.NET\Trakt.NET.Ex.csproj" />
+    <ProjectReference Include="..\..\..\src\libs\Trakt.NET\Trakt.NET.Ex.csproj" />
   </ItemGroup>
 
 </Project>

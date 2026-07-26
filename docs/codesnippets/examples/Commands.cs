@@ -1,4 +1,4 @@
-﻿using Spectre.Console;
+using Spectre.Console;
 using Spectre.Console.Cli;
 using System.ComponentModel;
 using Trakt.NET.Examples.Authentication;
@@ -57,9 +57,6 @@ public sealed class RunShowsModuleExampleCommand : AsyncCommand<ExampleSettings>
                 break;
             case Constants.Commands.Modules.Shows.GetTrendingShowsPaged:
                 await TrendingShowsPagedExample.RunAsync();
-                break;
-            case Constants.Commands.Modules.Shows.GetMultipleShows:
-                await GetShowsStreamExample.RunAsync();
                 break;
             default:
                 break;

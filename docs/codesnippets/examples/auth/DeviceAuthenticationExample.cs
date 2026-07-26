@@ -1,8 +1,5 @@
 using Trakt.NET.Examples.Helper;
-using TraktNet;
-using TraktNet.Exceptions;
-using TraktNet.Objects.Authentication;
-using TraktNet.Responses;
+using TraktNET;
 
 namespace Trakt.NET.Examples.Authentication;
 
@@ -19,14 +16,13 @@ internal static class AuthenticationDeviceExample
         Console.WriteLine("Please enter your Trakt Client-Secret:");
         string? clientSecret = Console.ReadLine();
 
-        var client = new TraktClient(clientID, clientSecret);
+        var client = new TraktClient(clientID!, clientSecret!);
 
         try
         {
-            // Create a new device
-            TraktResponse<ITraktDevice> deviceResponse = await client.Authentication.GenerateDeviceAsync();
+            TraktResponse<TraktDevice> deviceResponse = await client.Auth.GenerateDeviceAsync();
 
-            ITraktDevice device = deviceResponse.Value;
+            TraktDevice device = deviceResponse.Content!;
 
             if (device.IsValid)
             {
@@ -40,19 +36,12 @@ internal static class AuthenticationDeviceExample
                 Console.WriteLine("-------------------------------------------------------");
 
                 Console.WriteLine("You have to authenticate this application.");
-                Console.WriteLine($"Please visit the following webpage: {device.VerificationUrl}"); // Verification website
-                Console.WriteLine($"Sign in or sign up on that webpage and enter the following code: {device.UserCode}"); // User code needs to be entered on the verification website
+                Console.WriteLine($"Please visit the following webpage: {device.VerificationUrl}");
+                Console.WriteLine($"Sign in or sign up on that webpage and enter the following code: {device.UserCode}");
 
-                TraktResponse<ITraktAuthorization> authorizationResponse = await client.Authentication.PollForAuthorizationAsync();
+                TraktResponse<TraktAuthorization> authorizationResponse = await client.Auth.PollForAuthorizationAsync();
 
-                // NOTE: We do not need to explicitly set the authorization in the client.
-                // This is not necessary, since it's automatically set.
-                // client.Authorization = authorizationResponse.Value;
-
-                ITraktAuthorization authorization = authorizationResponse.Value;
-
-                // or
-                // ITraktAuthorization authorization = client.Authorization;
+                TraktAuthorization authorization = authorizationResponse.Content!;
 
                 if (authorization.IsValid)
                 {
@@ -70,9 +59,9 @@ internal static class AuthenticationDeviceExample
 
                 if (yesNo != null && yesNo.Equals("y", StringComparison.OrdinalIgnoreCase))
                 {
-                    TraktResponse<ITraktAuthorization> newAuthorizationResponse = await client.Authentication.RefreshAuthorizationAsync();
+                    TraktResponse<TraktAuthorization> newAuthorizationResponse = await client.Auth.RefreshAuthorizationAsync();
 
-                    ITraktAuthorization newAuthorization = newAuthorizationResponse.Value;
+                    TraktAuthorization newAuthorization = newAuthorizationResponse.Content!;
 
                     if (newAuthorization.IsValid)
                     {
@@ -91,9 +80,8 @@ internal static class AuthenticationDeviceExample
 
                 if (yesNo != null && yesNo.Equals("y", StringComparison.OrdinalIgnoreCase))
                 {
-                    TraktNoContentResponse response = await client.Authentication.RevokeAuthorizationAsync();
+                    TraktResponse response = await client.Auth.RevokeAuthorizationAsync();
 
-                    // If no exception was thrown, revoking was successfull
                     Console.WriteLine("-----------------------------------");
                     Console.WriteLine("Authorization revoked successfully");
                     Console.WriteLine("-----------------------------------");
@@ -104,11 +92,6 @@ internal static class AuthenticationDeviceExample
         {
             Console.WriteLine("-------------- Trakt Exception --------------");
             Console.WriteLine($"Exception message: {ex.Message}");
-            Console.WriteLine($"Status code: {ex.StatusCode}");
-            Console.WriteLine($"Request URL: {ex.RequestUrl}");
-            Console.WriteLine($"Request message: {ex.RequestBody}");
-            Console.WriteLine($"Request response: {ex.Response}");
-            Console.WriteLine($"Server Reason Phrase: {ex.ServerReasonPhrase}");
             Console.WriteLine("---------------------------------------------");
         }
 

@@ -1,8 +1,5 @@
 using Trakt.NET.Examples.Helper;
-using TraktNet;
-using TraktNet.Exceptions;
-using TraktNet.Objects.Authentication;
-using TraktNet.Responses;
+using TraktNET;
 
 namespace Trakt.NET.Examples.Authentication;
 
@@ -19,11 +16,11 @@ internal static class AuthenticationOAuthExample
         Console.WriteLine("Please enter your Trakt Client-Secret:");
         string? clientSecret = Console.ReadLine();
 
-        var client = new TraktClient(clientID, clientSecret);
+        var client = new TraktClient(clientID!, clientSecret!);
 
         try
         {
-            string authorizationUrl = client.Authentication.CreateAuthorizationUrl();
+            string authorizationUrl = client.Auth.CreateAuthorizationUrl();
 
             if (!string.IsNullOrEmpty(authorizationUrl))
             {
@@ -36,16 +33,9 @@ internal static class AuthenticationOAuthExample
 
                 if (!string.IsNullOrEmpty(code))
                 {
-                    TraktResponse<ITraktAuthorization> authorizationResponse = await client.Authentication.GetAuthorizationAsync(code);
+                    TraktResponse<TraktAuthorization> authorizationResponse = await client.Auth.GetAuthorizationAsync(code);
 
-                    // NOTE: We do not need to explicitly set the authorization in the client.
-                    // This is not necessary, since it's automatically set.
-                    // client.Authorization = authorizationResponse.Value;
-
-                    ITraktAuthorization authorization = authorizationResponse.Value;
-
-                    // or
-                    // ITraktAuthorization authorization = client.Authorization;
+                    TraktAuthorization authorization = authorizationResponse.Content!;
 
                     if (authorization.IsValid)
                     {
@@ -63,9 +53,9 @@ internal static class AuthenticationOAuthExample
 
                     if (yesNo != null && yesNo.Equals("y", StringComparison.OrdinalIgnoreCase))
                     {
-                        TraktResponse<ITraktAuthorization> newAuthorizationResponse = await client.Authentication.RefreshAuthorizationAsync();
+                        TraktResponse<TraktAuthorization> newAuthorizationResponse = await client.Auth.RefreshAuthorizationAsync();
 
-                        ITraktAuthorization newAuthorization = newAuthorizationResponse.Value;
+                        TraktAuthorization newAuthorization = newAuthorizationResponse.Content!;
 
                         if (newAuthorization.IsValid)
                         {
@@ -84,9 +74,8 @@ internal static class AuthenticationOAuthExample
 
                     if (yesNo != null && yesNo.Equals("y", StringComparison.OrdinalIgnoreCase))
                     {
-                        TraktNoContentResponse response = await client.Authentication.RevokeAuthorizationAsync();
+                        TraktResponse response = await client.Auth.RevokeAuthorizationAsync();
 
-                        // If no exception was thrown, revoking was successfull
                         Console.WriteLine("-----------------------------------");
                         Console.WriteLine("Authorization revoked successfully");
                         Console.WriteLine("-----------------------------------");
@@ -98,11 +87,6 @@ internal static class AuthenticationOAuthExample
         {
             Console.WriteLine("-------------- Trakt Exception --------------");
             Console.WriteLine($"Exception message: {ex.Message}");
-            Console.WriteLine($"Status code: {ex.StatusCode}");
-            Console.WriteLine($"Request URL: {ex.RequestUrl}");
-            Console.WriteLine($"Request message: {ex.RequestBody}");
-            Console.WriteLine($"Request response: {ex.Response}");
-            Console.WriteLine($"Server Reason Phrase: {ex.ServerReasonPhrase}");
             Console.WriteLine("---------------------------------------------");
         }
 

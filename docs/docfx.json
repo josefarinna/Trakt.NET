@@ -5,7 +5,7 @@
         {
           "files": [ "**/*.csproj" ],
           "exclude": [ "**/bin/**", "**/obj/**" ],
-          "src": "../Source/Lib"
+          "src": "../src/libs"
         }
       ],
       "dest": "api",

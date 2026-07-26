@@ -3,6 +3,8 @@ namespace TraktNET
     /// <summary>
     /// Provides access to data retrieving methods specific to watch now sources.<para />
     /// This module contains all methods of the "Trakt API Documentation - Watch Now" section.
+    /// <para />
+    /// Note: These methods are provided for API completeness and visibility; functionality or data availability may vary depending on Trakt.tv backend support and API access tier.
     /// </summary>
     public sealed partial class TraktWatchnowModule
     {
@@ -18,6 +20,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>Note: Provided for API visibility and completeness; availability depends on Trakt.tv API backend support.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getwatchnowsourcesall">
         /// Trakt API Documentation: Watch Now - Get watch now sources
         /// </see></para>
@@ -39,6 +42,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>Note: Provided for API visibility and completeness; availability depends on Trakt.tv API backend support.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getwatchnowsourcescountry">
         /// Trakt API Documentation: Watch Now - Get watch now sources by country
         /// </see></para>

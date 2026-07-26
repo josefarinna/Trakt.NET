@@ -1,4 +1,4 @@
-﻿namespace Trakt.NET.Examples;
+namespace Trakt.NET.Examples;
 
 internal static class Constants
 {
@@ -33,7 +33,6 @@ internal static class Constants
 
                 internal const string GetTrendingShowsPaged = "get-trending-shows-paged";
 
-                internal const string GetMultipleShows = "get-multiple-shows";
             }
         }
 

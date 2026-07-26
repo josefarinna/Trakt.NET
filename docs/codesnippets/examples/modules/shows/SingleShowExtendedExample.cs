@@ -1,8 +1,4 @@
-using TraktNet;
-using TraktNet.Exceptions;
-using TraktNet.Objects.Get.Shows;
-using TraktNet.Parameters;
-using TraktNet.Responses;
+using TraktNET;
 
 namespace Trakt.NET.Examples.Modules.Shows;
 
@@ -14,34 +10,33 @@ internal static class SingleShowExtendedExample
         Console.WriteLine();
 
         Console.WriteLine("Please enter your Trakt Client-ID:");
-        string? clientID = Console.ReadLine();
+        string clientID = Console.ReadLine() ?? "";
 
-        var client = new TraktClient(clientID);
+        var client = new TraktClient(clientID, "");
 
         Console.WriteLine("Enter the Trakt-Id or -Slug of the Show:");
         string? showIdOrSlug = Console.ReadLine();
 
-        showIdOrSlug = string.IsNullOrEmpty(showIdOrSlug) ? "game-of-thrones" : showIdOrSlug; // Game of Thrones as fallback
+        showIdOrSlug = string.IsNullOrEmpty(showIdOrSlug) ? "game-of-thrones" : showIdOrSlug;
 
         try
         {
-            TraktResponse<ITraktShow> showResponse = await client.Shows.GetShowAsync(showIdOrSlug, new TraktExtendedInfo().SetFull());
+            TraktResponse<TraktShow> showResponse = await client.Shows.GetShowAsync(showIdOrSlug, TraktExtendedInfo.Full | TraktExtendedInfo.Images);
 
-            ITraktShow show = showResponse.Value;
+            TraktShow show = showResponse.Content!;
 
             Console.WriteLine($"Title: {show.Title}");
             Console.WriteLine($"Year: {show.Year ?? 0}");
 
-            ITraktShowIds ids = show.Ids;
+            TraktShowIDs? ids = show.IDs;
 
             if (ids != null)
             {
                 Console.WriteLine($"Trakt-Id: {ids.Trakt}");
                 Console.WriteLine($"Slug: {ids.Slug}");
-                Console.WriteLine($"ImDB-Id: {ids.Imdb}");
-                Console.WriteLine($"TmDB-Id: {ids.Tmdb ?? 0}");
-                Console.WriteLine($"TVDB-Id: {ids.Tvdb ?? 0}");
-                Console.WriteLine($"TVRage-Id: {ids.TvRage ?? 0}");
+                Console.WriteLine($"ImDB-Id: {ids.IMDB}");
+                Console.WriteLine($"TmDB-Id: {ids.TMDB ?? 0}");
+                Console.WriteLine($"TVDB-Id: {ids.TVDB ?? 0}");
             }
 
             Console.WriteLine($"Overview: {show.Overview}");
@@ -51,13 +46,13 @@ internal static class SingleShowExtendedExample
                 Console.WriteLine($"First Aired (UTC): {show.FirstAired.Value}");
             }
 
-            ITraktShowAirs airs = show.Airs;
+            TraktShowAirs? airs = show.Airs;
 
             if (airs != null)
             {
                 Console.WriteLine($"Airs on: {airs.Day}");
                 Console.WriteLine($"Airs at: {airs.Time}");
-                Console.WriteLine($"Airs in: {airs.TimeZoneId}");
+                Console.WriteLine($"Airs in: {airs.Timezone}");
             }
 
             Console.WriteLine($"Runtime: {show.Runtime ?? 0} Minutes");
@@ -69,26 +64,25 @@ internal static class SingleShowExtendedExample
 
             Console.WriteLine($"Certification: {show.Certification}");
             Console.WriteLine($"Network: {show.Network}");
-            Console.WriteLine($"Aired Episodes: {show.AiredEpisodes ?? 0}");
 
             if (show.Status != null)
             {
-                Console.WriteLine($"Status: {show.Status.DisplayName}");
+                Console.WriteLine($"Status: {show.Status}");
             }
 
             Console.WriteLine($"Rating: {show.Rating ?? 0.0f}");
             Console.WriteLine($"Votes: {show.Votes ?? 0}");
-            Console.WriteLine($"Country Code: {show.CountryCode}");
-            Console.WriteLine($"Language Code: {show.LanguageCode}");
+            Console.WriteLine($"Country Code: {show.Country}");
+            Console.WriteLine($"Language Code: {show.Language}");
 
-            if (show.UpdatedAt.HasValue)
+            if (show.AvailableTranslations != null)
             {
-                Console.WriteLine($"Updated At (UTC): {show.UpdatedAt.Value}");
+                Console.WriteLine($"Available Translation Languages: {string.Join(", ", show.AvailableTranslations)}");
             }
 
-            if (show.AvailableTranslationLanguageCodes != null)
+            if (show.Images != null)
             {
-                Console.WriteLine($"Available Translation Languages: {string.Join(", ", show.AvailableTranslationLanguageCodes)}");
+                Console.WriteLine($"Poster Image: {show.Images.Poster?.FirstOrDefault()}");
             }
 
             Console.WriteLine($"Trailer: {show.Trailer}");
@@ -98,11 +92,6 @@ internal static class SingleShowExtendedExample
         {
             Console.WriteLine("-------------- Trakt Exception --------------");
             Console.WriteLine($"Exception message: {ex.Message}");
-            Console.WriteLine($"Status code: {ex.StatusCode}");
-            Console.WriteLine($"Request URL: {ex.RequestUrl}");
-            Console.WriteLine($"Request message: {ex.RequestBody}");
-            Console.WriteLine($"Request response: {ex.Response}");
-            Console.WriteLine($"Server Reason Phrase: {ex.ServerReasonPhrase}");
             Console.WriteLine("---------------------------------------------");
         }
 

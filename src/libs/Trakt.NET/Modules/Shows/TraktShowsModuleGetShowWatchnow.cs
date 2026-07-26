@@ -23,6 +23,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>Note: Provided for API visibility and completeness; availability depends on Trakt.tv API backend support.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getshowswatchnow">
         /// Trakt API Documentation: Shows: Watch Now - Get show watch now sources
         /// </see></para>
@@ -55,6 +56,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>Note: Provided for API visibility and completeness; availability depends on Trakt.tv API backend support.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getshowswatchnow">
         /// Trakt API Documentation: Shows: Watch Now - Get show watch now sources
         /// </see></para>
@@ -87,6 +89,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>Note: Provided for API visibility and completeness; availability depends on Trakt.tv API backend support.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getshowswatchnow">
         /// Trakt API Documentation: Shows: Watch Now - Get show watch now sources
         /// </see></para>
@@ -123,6 +126,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>Note: Provided for API visibility and completeness; availability depends on Trakt.tv API backend support.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getshowsjustwatchlink">
         /// Trakt API Documentation: Shows: Watch Now - Get show JustWatch links
         /// </see></para>
@@ -147,6 +151,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>Note: Provided for API visibility and completeness; availability depends on Trakt.tv API backend support.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getshowsjustwatchlink">
         /// Trakt API Documentation: Shows: Watch Now - Get show JustWatch links
         /// </see></para>
@@ -171,6 +176,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>Note: Provided for API visibility and completeness; availability depends on Trakt.tv API backend support.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getshowsjustwatchlink">
         /// Trakt API Documentation: Shows: Watch Now - Get show JustWatch links
         /// </see></para>
