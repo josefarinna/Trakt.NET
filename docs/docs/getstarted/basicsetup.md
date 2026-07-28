@@ -1,6 +1,6 @@
 # Basic Setup
 
-The main entry point to the library is a [`TraktClient`](xref:TraktNet.TraktClient) instance.
+The main entry point to the library is a [`TraktClient`](xref:TraktNET.TraktClient) instance.
 
 There are three different ways to create a new instance of it and which way to choose depends on how you want to use the library.
 
@@ -18,7 +18,7 @@ There are three different ways to create a new instance of it and which way to c
 If you just want to use requests, which do not require the OAuth authorization of [Trakt.tv](https://trakt.tv/), you will only have to provide the Client-ID of your [Trakt application](https://trakt.tv/oauth/applications):
 
 ```csharp
-using TraktNet;
+using TraktNET;
 
 var client = new TraktClient("Your Trakt Client Id");
 
@@ -50,7 +50,7 @@ Requests with Authorization possible: false
 If you also want to [authenticate](../essentials/auth.md) your application users, the Client-Secret of your [Trakt application](https://trakt.tv/oauth/applications) will also be needed additionally:
 
 ```csharp
-using TraktNet;
+using TraktNET;
 
 var client = new TraktClient("Your Trakt Client Id", "Your Trakt Client Secret");
 
@@ -85,7 +85,7 @@ If you want to use requests, which do require OAuth authorization, you will also
 Read the [Authentication section](../essentials/auth.md) on how to get a new [Trakt.tv](https://trakt.tv/) OAuth authorization, including access token and refresh token, or provide an existing access token:
 
 ```csharp
-using TraktNet;
+using TraktNET;
 
 var client = new TraktClient("Your Trakt Client Id", "Your Trakt Client Secret")
 {

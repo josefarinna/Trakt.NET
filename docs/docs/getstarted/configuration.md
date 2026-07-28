@@ -3,7 +3,7 @@
 The **Trakt.NET** library has some default behaviour, which you can configure to your needs.
 
 ```csharp
-using TraktNet;
+using TraktNET;
 
 var client = new TraktClient("ClientID", "ClientSecret");
 ```

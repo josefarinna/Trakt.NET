@@ -1,74 +1,63 @@
-# Post Builder
+# Post Objects
 
-The [Trakt.tv](https://trakt.tv/) [API](http://trakt.docs.apiary.io/#) has many requests which require the user to send data.
-These post objects can be filled manually with data like if you are creating a new object.
+The [Trakt.tv API](https://docs.trakt.tv/) has many requests which require sending structured post objects (such as adding favorites, history, collection items, or notes).
 
-But **Trakt.NET** also provides some helper classes for creating these post objects.
+In **Trakt.NET** v2.0, post objects are concrete record models (such as `TraktSyncFavoritesPost`, `TraktSyncHistoryPost`, etc.) and are instantiated directly using standard C# object and collection initializers.
 
-## Usage
+## Usage Example
 
-First, get some data which is used to add to the user's favorites.
-
-```csharp
-using TraktNet.Objects.Get.Movies;
-using TraktNet.Objects.Get.Shows;
-using TraktNet.Responses;
-
-// Get some sample data.
-TraktPagedResponse<ITraktTrendingMovie> trendingMovies = await client.Movies.GetTrendingMoviesAsync();
-TraktPagedResponse<ITraktTrendingShow> trendingShows = await client.Shows.GetTrendingShowsAsync();
-```
-
-Here is the approach for creating a new instance of a post object.
+The following example demonstrates how to construct a `TraktSyncFavoritesPost` object and send it to Trakt.tv:
 
 ```csharp
-using TraktNet.Objects.Post.Syncs.Favorites;
+using TraktNET;
 
-ITraktSyncFavoritesPost favoritesPost = new TraktSyncFavoritesPost
+// 1. Retrieve items from Trakt
+TraktPagedResponse<TraktTrendingMovie> trendingMovies = await client.Movies.GetTrendingMoviesAsync();
+TraktPagedResponse<TraktTrendingShow> trendingShows = await client.Shows.GetTrendingShowsAsync();
+
+// 2. Create the post object
+var favoritesPost = new TraktSyncFavoritesPost
 {
+    // Note: The Movies and Shows properties are typed as List<T>?, so .ToList() is used when projecting via LINQ .Select()
     Movies = trendingMovies.Select(movie => new TraktSyncFavoritesPostMovie
     {
-        Ids = movie.Ids,
+        IDs = movie.IDs,
         Title = movie.Title,
         Year = movie.Year,
         Notes = "A new favorite movie!"
-    })
-    .ToList<ITraktSyncFavoritesPostMovie>(),
-    
+    }).ToList(),
+
     Shows = trendingShows.Select(show => new TraktSyncFavoritesPostShow
     {
-        Ids = show.Ids,
+        IDs = show.IDs,
         Title = show.Title,
         Year = show.Year,
         Notes = "A new favorite show!"
-    })
-    .ToList<ITraktSyncFavoritesPostShow>()
+    }).ToList()
 };
+
+// 3. Send the request to Trakt.tv (requires valid OAuth authorization)
+TraktResponse<TraktSyncFavoritesPostResponse> response = await client.Sync.AddFavoriteItemsAsync(favoritesPost);
 ```
 
-And now the same with the help of the post builder provided by the library.
+### Direct Initialization Example
+
+You can also construct post objects directly using collection initializers:
 
 ```csharp
-using TraktNet.PostBuilder;
+using TraktNET;
 
-// Create the favorites post by using its post builder.
-ITraktSyncFavoritesPost favoritesPost = TraktPost.NewSyncFavoritesPost()
-    // Add all movies.
-    .WithMoviesWithNotes(trendingMovies.Select(movie => new MovieWithNotes(movie, "A new favorite movie!")))
-    // Add all shows.
-    .WithShowsWithNotes(trendingShows.Select(show => new ShowWithNotes(show, "A new favorite show!")))
-    // Creates the favorites post with the added movies and shows.
-    .Build();
+var favoritesPost = new TraktSyncFavoritesPost
+{
+    Movies = new List<TraktSyncFavoritesPostMovie>
+    {
+        new()
+        {
+            IDs = new TraktMovieIDs { Trakt = 1 },
+            Notes = "My favorite movie"
+        }
+    }
+};
+
+TraktResponse<TraktSyncFavoritesPostResponse> response = await client.Sync.AddFavoriteItemsAsync(favoritesPost);
 ```
-
-And now actually posting the data to [Trakt.tv](https://trakt.tv/).
-
-```csharp
-using TraktNet.Objects.Post.Syncs.Favorites.Responses;
-
-// Using the post in the request.
-// NOTE: This call needs a valid authorization, which is not set in this example.
-TraktResponse<ITraktSyncFavoritesPostResponse> response = await client.Sync.AddFavoriteItemsAsync(favoritesPost);
-```
-
-An overview of all post builders can be found in the [references section](../references/requestparameters.md#post-objects-post-builder).

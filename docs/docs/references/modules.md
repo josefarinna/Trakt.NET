@@ -1,129 +1,165 @@
 # Modules
 
-The modules in the library represent each a section in the official [Trakt API documentation](http://trakt.docs.apiary.io/). You can not create a new instance of any module. The only way to access a module is through a [`TraktClient`](xref:TraktNet.TraktClient) instance.
+The modules in the library represent each section in the official [Trakt API documentation](https://docs.trakt.tv/). You do not create a new instance of any module directly. Access each module through a [`TraktClient`](xref:TraktNET.TraktClient) instance.
 
 ## Authentication
 
-This module contains all methods, that are described in [Trakt API Authentication - OAuth](http://trakt.docs.apiary.io/#reference/authentication-oauth) and in [Trakt API Authentication - Devices](http://trakt.docs.apiary.io/#reference/authentication-devices) sections.
+This module contains all methods described in the Trakt API OAuth and Device Authentication sections.
 
-Access this module via [`TraktClient.Authentication`](xref:TraktNet.TraktClient.Authentication).
+Access this module via [`TraktClient.Auth`](xref:TraktNET.TraktClient.Auth).
 
 ## Calendar
 
-This module contains all methods, that are described in the [Trakt API Calendar section](https://trakt.docs.apiary.io/#reference/calendars).
+This module contains all methods described in the Trakt API Calendar section.
 
-Access this module via [`TraktClient.Calendar`](xref:TraktNet.TraktClient.Calendar).
+Access this module via [`TraktClient.Calendar`](xref:TraktNET.TraktClient.Calendar).
 
 ## Certifications
 
-This module contains all methods, that are described in the [Trakt API Certifications section](http://trakt.docs.apiary.io/#reference/certifications).
+This module contains all methods described in the Trakt API Certifications section.
 
-Access this module via [`TraktClient.Certifications`](xref:TraktNet.TraktClient.Certifications).
+Access this module via [`TraktClient.Certifications`](xref:TraktNET.TraktClient.Certifications).
 
 ## Checkins
 
-This module contains all methods, that are described in the [Trakt API Checkin section](https://trakt.docs.apiary.io/#reference/checkin).
+This module contains all methods described in the Trakt API Checkin section.
 
-Access this module via [`TraktClient.Checkins`](xref:TraktNet.TraktClient.Checkins).
+Access this module via [`TraktClient.Checkins`](xref:TraktNET.TraktClient.Checkins).
 
 ## Comments
 
-This module contains all methods, that are described in the [Trakt API Comments section](https://trakt.docs.apiary.io/#reference/comments).
+This module contains all methods described in the Trakt API Comments section.
 
-Access this module via [`TraktClient.Comments`](xref:TraktNet.TraktClient.Comments).
+Access this module via [`TraktClient.Comments`](xref:TraktNET.TraktClient.Comments).
 
 ## Countries
 
-This module contains all methods, that are described in the [Trakt API Countries section](https://trakt.docs.apiary.io/#reference/countries).
+This module contains all methods described in the Trakt API Countries section.
 
-Access this module via [`TraktClient.Countries`](xref:TraktNet.TraktClient.Countries).
+Access this module via [`TraktClient.Countries`](xref:TraktNET.TraktClient.Countries).
 
 ## Genres
 
-This module contains all methods, that are described in the [Trakt API Genres section](https://trakt.docs.apiary.io/#reference/genres).
+This module contains all methods described in the Trakt API Genres section.
 
-Access this module via [`TraktClient.Genres`](xref:TraktNet.TraktClient.Genres).
+Access this module via [`TraktClient.Genres`](xref:TraktNET.TraktClient.Genres).
 
 ## Languages
 
-This module contains all methods, that are described in the [Trakt API Languages section](https://trakt.docs.apiary.io/#reference/languages).
+This module contains all methods described in the Trakt API Languages section.
 
-Access this module via [`TraktClient.Languages`](xref:TraktNet.TraktClient.Languages).
+Access this module via [`TraktClient.Languages`](xref:TraktNET.TraktClient.Languages).
 
 ## Lists
 
-This module contains all methods, that are described in the [Trakt API Lists section](https://trakt.docs.apiary.io/#reference/lists).
+This module contains all methods described in the Trakt API Lists section.
 
-Access this module via [`TraktClient.Lists`](xref:TraktNet.TraktClient.Lists).
+Access this module via [`TraktClient.Lists`](xref:TraktNET.TraktClient.Lists).
+
+## Media
+
+This module contains all methods described in the Trakt API Media section (including anticipated, popular, and trending media).
+
+Access this module via [`TraktClient.Media`](xref:TraktNET.TraktClient.Media).
 
 ## Movies
 
-This module contains all methods, that are described in the [Trakt API Movies section](https://trakt.docs.apiary.io/#reference/movies).
+This module contains all methods described in the Trakt API Movies section.
 
-Access this module via [`TraktClient.Movies`](xref:TraktNet.TraktClient.Movies).
+Access this module via [`TraktClient.Movies`](xref:TraktNET.TraktClient.Movies).
 
 ## Networks
 
-This module contains all methods, that are described in the [Trakt API Networks section](https://trakt.docs.apiary.io/#reference/networks).
+This module contains all methods described in the Trakt API Networks section.
 
-Access this module via [`TraktClient.Networks`](xref:TraktNet.TraktClient.Networks).
+Access this module via [`TraktClient.Networks`](xref:TraktNET.TraktClient.Networks).
 
 ## Notes
 
-This module contains all methods, that are described in the [Trakt API Notes section](https://trakt.docs.apiary.io/#reference/notes).
+This module contains all methods described in the Trakt API Notes section.
 
-Access this module via [`TraktClient.Notes`](xref:TraktNet.TraktClient.Notes).
+Access this module via [`TraktClient.Notes`](xref:TraktNET.TraktClient.Notes).
 
 ## People
 
-This module contains all methods, that are described in the [Trakt API People section](https://trakt.docs.apiary.io/#reference/people).
+This module contains all methods described in the Trakt API People section.
 
-Access this module via [`TraktClient.People`](xref:TraktNet.TraktClient.People).
+Access this module via [`TraktClient.People`](xref:TraktNET.TraktClient.People).
 
 ## Recommendations
 
-This module contains all methods, that are described in the [Trakt API Recommendations section](https://trakt.docs.apiary.io/#reference/recommendations).
+This module contains all methods described in the Trakt API Recommendations section.
 
-Access this module via [`TraktClient.Recommendations`](xref:TraktNet.TraktClient.Recommendations).
+Access this module via [`TraktClient.Recommendations`](xref:TraktNET.TraktClient.Recommendations).
 
 ## Scrobble
 
-This module contains all methods, that are described in the [Trakt API Scrobble section](https://trakt.docs.apiary.io/#reference/scrobble).
+This module contains all methods described in the Trakt API Scrobble section.
 
-Access this module via [`TraktClient.Scrobble`](xref:TraktNet.TraktClient.Scrobble).
+Access this module via [`TraktClient.Scrobble`](xref:TraktNET.TraktClient.Scrobble).
 
 ## Search
 
-This module contains all methods, that are described in the [Trakt API Search section](https://trakt.docs.apiary.io/#reference/search).
+This module contains all methods described in the Trakt API Search section.
 
-Access this module via [`TraktClient.Search`](xref:TraktNet.TraktClient.Search).
+Access this module via [`TraktClient.Search`](xref:TraktNET.TraktClient.Search).
 
 ## Shows
 
-This module contains all methods, that are described in the [Trakt API Shows section](https://trakt.docs.apiary.io/#reference/shows).
+This module contains all methods described in the Trakt API Shows section.
 
-Access this module via [`TraktClient.Shows`](xref:TraktNet.TraktClient.Shows).
+Access this module via [`TraktClient.Shows`](xref:TraktNET.TraktClient.Shows).
 
 ## Seasons
 
-This module contains all methods, that are described in the [Trakt API Seasons section](https://trakt.docs.apiary.io/#reference/seasons).
+This module contains all methods described in the Trakt API Seasons section.
 
-Access this module via [`TraktClient.Seasons`](xref:TraktNet.TraktClient.Seasons).
+Access this module via [`TraktClient.Seasons`](xref:TraktNET.TraktClient.Seasons).
 
 ## Episodes
 
-This module contains all methods, that are described in the [Trakt API Episodes section](https://trakt.docs.apiary.io/#reference/episodes).
+This module contains all methods described in the Trakt API Episodes section.
 
-Access this module via [`TraktClient.Episodes`](xref:TraktNet.TraktClient.Episodes).
+Access this module via [`TraktClient.Episodes`](xref:TraktNET.TraktClient.Episodes).
+
+## Smart Lists
+
+This module contains all methods described in the Trakt API Smart Lists section.
+
+Access this module via [`TraktClient.SmartLists`](xref:TraktNET.TraktClient.SmartLists).
+
+## Social Recommendations
+
+This module contains all methods described in the Trakt API Social Recommendations section.
+
+Access this module via [`TraktClient.SocialRecommendations`](xref:TraktNET.TraktClient.SocialRecommendations).
 
 ## Sync
 
-This module contains all methods, that are described in the [Trakt API Sync section](https://trakt.docs.apiary.io/#reference/sync).
+This module contains all methods described in the Trakt API Sync section (including watched progress `GetWatchedProgressAsync`, up next `GetUpNextProgressAsync`, up next nitro `GetUpNextNitroProgressAsync`, collections, history, and ratings).
 
-Access this module via [`TraktClient.Sync`](xref:TraktNet.TraktClient.Sync).
+Access this module via [`TraktClient.Sync`](xref:TraktNET.TraktClient.Sync).
+
+## Team
+
+This module contains all methods described in the Trakt API Team section.
+
+Access this module via [`TraktClient.Team`](xref:TraktNET.TraktClient.Team).
 
 ## Users
 
-This module contains all methods, that are described in the [Trakt API Users section](https://trakt.docs.apiary.io/#reference/users).
+This module contains all methods described in the Trakt API Users section.
 
-Access this module via [`TraktClient.Users`](xref:TraktNet.TraktClient.Users).
+Access this module via [`TraktClient.Users`](xref:TraktNET.TraktClient.Users).
+
+## Watch Now
+
+This module contains all methods described in the Trakt API Watch Now section.
+
+Access this module via [`TraktClient.Watchnow`](xref:TraktNET.TraktClient.Watchnow).
+
+## Younify
+
+This module contains all methods described in the Trakt API Younify section.
+
+Access this module via [`TraktClient.Younify`](xref:TraktNET.TraktClient.Younify).
