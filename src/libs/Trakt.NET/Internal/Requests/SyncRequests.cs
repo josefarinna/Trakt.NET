@@ -86,6 +86,66 @@ namespace TraktNET
     {
     }
 
+    [TraktGetRequest("sync/progress/watched", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SyncWatchedProgressGetRequest
+    {
+        [TraktRequestQuery("sort_by")]
+        internal TraktSortBy? SortBy { get; set; }
+
+        [TraktRequestQuery("sort_how")]
+        internal TraktSortHow? SortHow { get; set; }
+
+        [TraktRequestQuery("lifetime_stats")]
+        internal bool? LifetimeStats { get; set; }
+
+        [TraktRequestQuery("hide_completed")]
+        internal bool? HideCompleted { get; set; }
+
+        [TraktRequestQuery("hide_not_completed")]
+        internal bool? HideNotCompleted { get; set; }
+
+        [TraktRequestQuery("only_rewatching")]
+        internal bool? OnlyRewatching { get; set; }
+    }
+
+    [TraktGetRequest("sync/progress/up_next", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SyncUpNextProgressGetRequest
+    {
+        [TraktRequestQuery("sort_by")]
+        internal TraktSortBy? SortBy { get; set; }
+
+        [TraktRequestQuery("sort_how")]
+        internal TraktSortHow? SortHow { get; set; }
+
+        [TraktRequestQuery("include_stats")]
+        internal bool? IncludeStats { get; set; }
+
+        [TraktRequestQuery("lifetime_stats")]
+        internal bool? LifetimeStats { get; set; }
+    }
+
+    [TraktGetRequest("sync/progress/up_next_nitro", SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SyncUpNextNitroProgressGetRequest
+    {
+        [TraktRequestQuery("sort_by")]
+        internal TraktSortBy? SortBy { get; set; }
+
+        [TraktRequestQuery("sort_how")]
+        internal TraktSortHow? SortHow { get; set; }
+
+        [TraktRequestQuery("intent")]
+        internal TraktUpNextIntent? Intent { get; set; }
+
+        [TraktRequestQuery("watchnow")]
+        internal string? WatchNow { get; set; }
+
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
+    }
+
     [TraktGetRequest("sync/watched/episodes", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncWatchedEpisodesGetRequest

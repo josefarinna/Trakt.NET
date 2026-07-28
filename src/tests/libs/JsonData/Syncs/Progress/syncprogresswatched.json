@@ -1,0 +1,38 @@
+[
+    {
+        "show": {
+            "title": "Breaking Bad",
+            "year": 2008,
+            "ids": {
+                "trakt": 1,
+                "slug": "breaking-bad",
+                "tvdb": 81189,
+                "imdb": "tt0903747",
+                "tmdb": 1396
+            }
+        },
+        "progress": {
+            "aired": 62,
+            "completed": 62,
+            "last_watched_at": "2014-10-13T17:00:54.000Z",
+            "reset_at": null,
+            "next_episode": null,
+            "last_episode": {
+                "season": 5,
+                "number": 16,
+                "title": "Felina",
+                "ids": {
+                    "trakt": 107,
+                    "tvdb": 4627451,
+                    "imdb": "tt2301451",
+                    "tmdb": 62161
+                }
+            },
+            "stats": {
+                "play_count": 62,
+                "minutes_watched": 2980,
+                "minutes_left": 0
+            }
+        }
+    }
+]

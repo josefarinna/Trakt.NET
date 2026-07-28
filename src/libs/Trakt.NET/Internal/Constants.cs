@@ -168,6 +168,7 @@ namespace TraktNET
                     new TraktSyncItemTypeJsonConverter(),
                     new TraktSyncTypeJsonConverter(),
                     new TraktTimePeriodJsonConverter(),
+                    new TraktUpNextIntentJsonConverter(),
                     new TraktUserLikeTypeJsonConverter(),
                     new TraktUserSocialActivityTypeJsonConverter(),
                     new TraktUserSyncItemKindJsonConverter(),

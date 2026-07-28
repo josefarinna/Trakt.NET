@@ -22,7 +22,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Last Activities
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktResponse<TraktSyncLastActivities>> GetLastActivitiesAsync(CancellationToken cancellationToken = default)
             => GetLastActivitiesImplAsync(cancellationToken);
 
@@ -60,7 +60,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Get Favorites
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktFavorite>> GetFavoritesAsync(TraktFavoriteObjectType? favoriteObjectType = null,
             TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
@@ -83,7 +83,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Reorder Favorites
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktListItemsReorderPostResponse>> ReorderFavoritedItemsAsync(List<uint> reorderedFavoritedItemRanks,
@@ -104,7 +104,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Update Favorite Item
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> UpdateFavoriteItemAsync(uint listItemId, string? notes = null, CancellationToken cancellationToken = default)
             => UpdateFavoriteItemImplAsync(listItemId, notes, cancellationToken);
@@ -133,7 +133,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Playback
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktSyncPlaybackProgressItem>> GetPlaybackProgressAsync(TraktSyncType? objectType = null,
             DateTime? startAt = null, DateTime? endAt = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetPlaybackProgressImplAsync(objectType, startAt, endAt, page, limit, cancellationToken);
@@ -151,7 +151,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Remove Playback
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> RemovePlaybackItemAsync(uint playbackId, CancellationToken cancellationToken = default)
             => RemovePlaybackItemImplAsync(playbackId, cancellationToken);
@@ -176,7 +176,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Get Collection
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktListResponse<TraktSyncCollectionMovie>> GetCollectionMoviesAsync(TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
             => GetCollectionMoviesImplAsync(extendedInfo, cancellationToken);
@@ -201,7 +201,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Get Collection
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktListResponse<TraktSyncCollectionShow>> GetCollectionShowsAsync(TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
             => GetCollectionShowsImplAsync(extendedInfo, cancellationToken);
@@ -224,7 +224,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Add to Collection
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktSyncCollectionPostResponse>> AddCollectionItemsAsync(TraktSyncCollectionPost collectionPost,
@@ -248,7 +248,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Remove from Collection
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktSyncCollectionRemovePostResponse>> RemoveCollectionItemsAsync(TraktSyncCollectionRemovePost collectionRemovePost,
@@ -277,7 +277,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Get Watched
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktWatchedMovie>> GetWatchedMoviesAsync(TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetWatchedMoviesImplAsync(extendedInfo, page, limit, cancellationToken);
@@ -304,10 +304,113 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Get Watched
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktWatchedShow>> GetWatchedShowsAsync(TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetWatchedShowsImplAsync(extendedInfo, page, limit, cancellationToken);
+
+        /// <summary>Gets watched progress for the authenticated user.</summary>
+        /// <param name="sortBy">The field to sort by. See also <seealso cref="TraktSortBy" />.</param>
+        /// <param name="sortHow">The direction to sort in. See also <seealso cref="TraktSortHow" />.</param>
+        /// <param name="lifetimeStats">
+        /// When true, progress.completed and progress.stats reflect lifetime totals across all watches of the show.
+        /// </param>
+        /// <param name="hideCompleted">Specifies whether completed shows should be hidden.</param>
+        /// <param name="hideNotCompleted">Specifies whether incomplete shows should be hidden.</param>
+        /// <param name="onlyRewatching">
+        /// When true, restrict the list to shows the user is currently rewatching.
+        /// </param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the shows.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
+        /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried show watched progress items.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncProgressWatchedItem" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsyncprogresswatched">
+        /// Trakt API Documentation: Sync: Get watched progress
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktSyncProgressWatchedItem>> GetWatchedProgressAsync(TraktSortBy? sortBy = null,
+            TraktSortHow? sortHow = null, bool? lifetimeStats = null, bool? hideCompleted = null, bool? hideNotCompleted = null,
+            bool? onlyRewatching = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+            => GetWatchedProgressImplAsync(sortBy, sortHow, lifetimeStats, hideCompleted, hideNotCompleted, onlyRewatching, extendedInfo, page, limit, cancellationToken);
+
+        /// <summary>Gets up next progress for the authenticated user.</summary>
+        /// <param name="sortBy">The field to sort by. See also <seealso cref="TraktSortBy" />.</param>
+        /// <param name="sortHow">The direction to sort in. See also <seealso cref="TraktSortHow" />.</param>
+        /// <param name="includeStats">Specifies whether to include watch stats in the response.</param>
+        /// <param name="lifetimeStats">
+        /// When true, progress.completed and progress.stats reflect lifetime totals across all watches of the show.
+        /// </param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the shows.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
+        /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried show up next progress items.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncProgressWatchedItem" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsyncprogressupnextstandard">
+        /// Trakt API Documentation: Sync: Get up next
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktSyncProgressWatchedItem>> GetUpNextProgressAsync(TraktSortBy? sortBy = null,
+            TraktSortHow? sortHow = null, bool? includeStats = null, bool? lifetimeStats = null,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+            => GetUpNextProgressImplAsync(sortBy, sortHow, includeStats, lifetimeStats, extendedInfo, page, limit, cancellationToken);
+
+        /// <summary>Gets up next nitro progress for the authenticated user.</summary>
+        /// <param name="sortBy">The field to sort by. See also <seealso cref="TraktSortBy" />.</param>
+        /// <param name="sortHow">The direction to sort in. See also <seealso cref="TraktSortHow" />.</param>
+        /// <param name="intent">The intent of the up next request. See also <seealso cref="TraktUpNextIntent" />.</param>
+        /// <param name="watchNow">Watch now filter parameter.</param>
+        /// <param name="filter">Optional filters. See also <seealso cref="TraktFilter" />.</param>
+        /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
+        /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.<para/>
+        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried show up next nitro progress items.
+        /// <para />
+        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncProgressWatchedItem" />.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsyncprogressupnextnitro">
+        /// Trakt API Documentation: Sync: Get up next nitro
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktSyncProgressWatchedItem>> GetUpNextNitroProgressAsync(TraktSortBy? sortBy = null,
+            TraktSortHow? sortHow = null, TraktUpNextIntent? intent = null, string? watchNow = null, TraktFilter? filter = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetUpNextNitroProgressImplAsync(sortBy, sortHow, intent, watchNow, filter, page, limit, cancellationToken);
 
         /// <summary>Gets all episodes the user has watched, sorted by most plays.</summary>
         /// <param name="extendedInfo">
@@ -331,7 +434,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Get Watched
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktWatchedEpisode>> GetWatchedEpisodesAsync(TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetWatchedEpisodesImplAsync(extendedInfo, page, limit, cancellationToken);
@@ -365,7 +468,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Get History
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktHistoryItem>> GetWatchedHistoryAsync(TraktSyncItemType? historyItemType = null, uint? itemId = null,
             DateTime? startAt = null, DateTime? endAt = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
@@ -388,7 +491,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Add to History
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktSyncHistoryPostResponse>> AddWatchedHistoryItemsAsync(TraktSyncHistoryPost historyPost,
@@ -412,7 +515,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Remove from History
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktSyncHistoryRemovePostResponse>> RemoveWatchedHistoryItemsAsync(TraktSyncHistoryRemovePost historyRemovePost,
@@ -450,7 +553,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Get Ratings
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktRatingsItem>> GetRatingsAsync(TraktRatingsItemType? ratingsItemType = null,
             int[]? ratingsFilter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
@@ -473,7 +576,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Add Ratings
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktSyncRatingsPostResponse>> AddRatingsAsync(TraktSyncRatingsPost ratingsPost,
@@ -497,7 +600,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Remove Ratings
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktSyncRatingsRemovePostResponse>> RemoveRatingsAsync(TraktSyncRatingsRemovePost ratingsRemovePost,
@@ -521,7 +624,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Add to Favorites
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktSyncFavoritesPostResponse>> AddFavoriteItemsAsync(TraktSyncFavoritesPost favoritesPost,
@@ -545,7 +648,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Remove from Favorites
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktSyncFavoritesRemovePostResponse>> RemoveFavoriteItemsAsync(TraktSyncFavoritesRemovePost favoritesRemovePost,
@@ -571,7 +674,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Update Favorites
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktList>> UpdateFavoritesAsync(string description, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null,
@@ -607,7 +710,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Get Watchlist
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktWatchlistItem>> GetWatchlistAsync(TraktSyncItemType? watchlistItemType = null,
             TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
@@ -630,7 +733,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Reorder Watchlist
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktListItemsReorderPostResponse>> ReorderWatchlistItemsAsync(List<uint> reorderedWatchlistItemRanks,
@@ -652,7 +755,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Update Watchlist Item
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse> UpdateWatchlistItemAsync(uint listItemId, string? notes = null, CancellationToken cancellationToken = default)
             => UpdateWatchlistItemImplAsync(listItemId, notes, cancellationToken);
@@ -675,7 +778,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Add to Watchlist
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktSyncWatchlistPostResponse>> AddWatchlistItemsAsync(TraktSyncWatchlistPost watchlistPost,
@@ -699,7 +802,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Remove from Watchlist
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktSyncWatchlistRemovePostResponse>> RemoveWatchlistItemsAsync(TraktSyncWatchlistRemovePost watchlistRemovePost,
@@ -725,7 +828,7 @@ namespace TraktNET
         /// Trakt API Documentation: Sync: Update Watchlist
         /// </see></para>
         /// </remarks>
-        /// <exception cref="TraktException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktList>> UpdateWatchlistAsync(string description, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null,

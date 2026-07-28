@@ -1,4 +1,4 @@
-﻿#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
@@ -58,6 +58,8 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktUpdateListPost))]
     [JsonSerializable(typeof(TraktSyncPlaybackProgressItem))]
     [JsonSerializable(typeof(IReadOnlyList<TraktSyncPlaybackProgressItem>))]
+    [JsonSerializable(typeof(TraktSyncProgressWatchedItem))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktSyncProgressWatchedItem>))]
     [JsonSerializable(typeof(TraktSyncRatingsPost))]
     [JsonSerializable(typeof(TraktSyncRatingsPostEpisode))]
     [JsonSerializable(typeof(TraktSyncRatingsPostMovie))]

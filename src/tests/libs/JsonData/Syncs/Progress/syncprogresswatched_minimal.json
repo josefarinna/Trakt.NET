@@ -1,0 +1,15 @@
+{
+    "show": {
+        "title": "Breaking Bad",
+        "ids": {
+            "trakt": 1
+        }
+    },
+    "progress": {
+        "aired": 62,
+        "completed": 62,
+        "reset_at": null,
+        "next_episode": null,
+        "last_episode": null
+    }
+}

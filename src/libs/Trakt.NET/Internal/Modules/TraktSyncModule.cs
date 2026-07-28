@@ -198,6 +198,105 @@ namespace TraktNET
                 }, cancellationToken);
         }
 
+        private Task<TraktPagedResponse<TraktSyncProgressWatchedItem>> GetWatchedProgressImplAsync(TraktSortBy? sortBy = null,
+            TraktSortHow? sortHow = null, bool? lifetimeStats = null, bool? hideCompleted = null, bool? hideNotCompleted = null,
+            bool? onlyRewatching = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+        {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
+            var request = new SyncWatchedProgressGetRequest
+            {
+                SortBy = sortBy,
+                SortHow = sortHow,
+                LifetimeStats = lifetimeStats,
+                HideCompleted = hideCompleted,
+                HideNotCompleted = hideNotCompleted,
+                OnlyRewatching = onlyRewatching,
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktSyncProgressWatchedItem>(_context, request, (page, limit)
+                => new SyncWatchedProgressGetRequest
+                {
+                    SortBy = sortBy,
+                    SortHow = sortHow,
+                    LifetimeStats = lifetimeStats,
+                    HideCompleted = hideCompleted,
+                    HideNotCompleted = hideNotCompleted,
+                    OnlyRewatching = onlyRewatching,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktSyncProgressWatchedItem>> GetUpNextProgressImplAsync(TraktSortBy? sortBy = null,
+            TraktSortHow? sortHow = null, bool? includeStats = null, bool? lifetimeStats = null,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+        {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
+            var request = new SyncUpNextProgressGetRequest
+            {
+                SortBy = sortBy,
+                SortHow = sortHow,
+                IncludeStats = includeStats,
+                LifetimeStats = lifetimeStats,
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktSyncProgressWatchedItem>(_context, request, (page, limit)
+                => new SyncUpNextProgressGetRequest
+                {
+                    SortBy = sortBy,
+                    SortHow = sortHow,
+                    IncludeStats = includeStats,
+                    LifetimeStats = lifetimeStats,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktSyncProgressWatchedItem>> GetUpNextNitroProgressImplAsync(TraktSortBy? sortBy = null,
+            TraktSortHow? sortHow = null, TraktUpNextIntent? intent = null, string? watchNow = null, TraktFilter? filter = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            ArgumentValidator.ThrowIfNull(page);
+            ArgumentValidator.ThrowIfNull(limit);
+
+            var request = new SyncUpNextNitroProgressGetRequest
+            {
+                SortBy = sortBy,
+                SortHow = sortHow,
+                Intent = intent,
+                WatchNow = watchNow,
+                Filter = filter,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktSyncProgressWatchedItem>(_context, request, (page, limit)
+                => new SyncUpNextNitroProgressGetRequest
+                {
+                    SortBy = sortBy,
+                    SortHow = sortHow,
+                    Intent = intent,
+                    WatchNow = watchNow,
+                    Filter = filter,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
+        }
+
         private Task<TraktPagedResponse<TraktWatchedEpisode>> GetWatchedEpisodesImplAsync(TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
