@@ -59,7 +59,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"josefarinna_Trakt.NET" /o:"josefarinna" /n:"Trakt.NET" /d:sonar.exclusions="**/docs/**" /d:sonar.coverage.exclusions="**/tests/**,**/Tests/**" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml" /d:sonar.sourceEncoding="UTF-8" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build 'src/Trakt.NET.sln' --configuration Release
-          dotnet test 'src/Trakt.NET.sln' --configuration Release --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"josefarinna_Trakt.NET" /o:"josefarinna" /n:"Trakt.NET" /d:sonar.exclusions="**/docs/**" /d:sonar.coverage.exclusions="**/tests/**,**/Tests/**" /d:sonar.cs.opencover.reportsPaths="**/*.opencover.xml" /d:sonar.sourceEncoding="UTF-8" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet test 'src/Trakt.NET.sln' --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
