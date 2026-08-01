@@ -16,7 +16,6 @@ on:
 jobs:
   sonarcloud:
     name: SonarCloud
-    if: ${{ github.actor == 'henrikfroehling' }}
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -52,7 +51,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"henrikfroehling_Trakt.NET" /o:"henrikfroehling-github" /n:"Trakt.NET" /d:sonar.exclusions="**/docs/**,**/Tests/**,**/tests/**," /d:sonar.sourceEncoding="UTF-8" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build 'Source/Trakt.NET.sln' --configuration Release
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"josefarinna_Trakt.NET" /o:"josefarinna" /n:"Trakt.NET" /d:sonar.exclusions="**/docs/**,**/Tests/**,**/tests/**," /d:sonar.sourceEncoding="UTF-8" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build 'src/Trakt.NET.sln' --configuration Release
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
