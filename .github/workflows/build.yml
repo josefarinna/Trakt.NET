@@ -42,7 +42,7 @@ on:
 
 jobs:
   build:
-    if: inputs.should_run
+    if: ${{ inputs.should_run }}
     runs-on: windows-latest
     environment: ${{ inputs.environment_name }}
     steps:
@@ -94,11 +94,11 @@ jobs:
         working-directory: ${{ inputs.working_directory }}
 
       - name: Upload coverage reports to Codecov
-        if: inputs.upload_codecov
+        if: ${{ inputs.upload_codecov }}
         uses: codecov/codecov-action@v7
 
       - name: Create NuGet packages
-        if: !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]'
+        if: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
         shell: pwsh
         run: |
           $projectNames = "${{ inputs.project_names }}" -split ";"
@@ -107,7 +107,7 @@ jobs:
           }
 
       - name: Copy binaries to artifacts directory
-        if: !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]'
+        if: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
         shell: pwsh
         run: |
           $binariesRootDirectories = "${{ inputs.binaries_root_directories }}" -split ";"
@@ -136,7 +136,7 @@ jobs:
           }
 
       - name: Upload artifacts
-        if: !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]'
+        if: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
         uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.artifacts_archive_name }}-${{ github.run_number }}-${{ github.sha }}
@@ -144,7 +144,7 @@ jobs:
           path: '${{ inputs.artifacts_root_directory }}/'
 
       - name: Push NuGet packages to Github Package Registry
-        if: inputs.push_nuget_package && !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]'
+        if: ${{ inputs.push_nuget_package && !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: pwsh
@@ -152,7 +152,7 @@ jobs:
         working-directory: ${{ inputs.working_directory }}
   
       - name: Push packages to NuGet
-        if: inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v')
+        if: ${{ inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         shell: pwsh

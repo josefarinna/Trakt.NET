@@ -21,7 +21,7 @@ on:
 
 jobs:
   build:
-    if: inputs.should_run
+    if: ${{ inputs.should_run }}
     runs-on: windows-latest
     permissions:
       contents: write
@@ -76,7 +76,7 @@ jobs:
 
       - name: Deploy documentation
         uses: peaceiris/actions-gh-pages@v4
-        if: github.ref_name == 'main' || (github.event_name == 'workflow_dispatch' && github.ref_name == 'main')
+        if: ${{ github.ref_name == 'main' || (github.event_name == 'workflow_dispatch' && github.ref_name == 'main') }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: 'docs/_site'
