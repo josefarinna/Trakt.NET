@@ -4,7 +4,7 @@
 
 ## Response Types
 
-- [`TraktNoContentResponse`](xref:TraktNET.TraktNoContentResponse) for Trakt responses without content (HTTP Code 204 No Content)
+- [`TraktResponse`](xref:TraktNET.TraktResponse) for Trakt responses without content (HTTP Code 204 No Content)
 - [`TraktResponse<TContentType>`](xref:TraktNET.TraktResponse`1) for Trakt responses that return a single object, where `TContentType` is the type of that object
 - [`TraktListResponse<TContentType>`](xref:TraktNET.TraktListResponse`1) for Trakt responses that return a list of objects, where `TContentType` is the type of a list item object
 - [`TraktPagedResponse<TContentType>`](xref:TraktNET.TraktPagedResponse`1) for Trakt responses that return a list with pagination headers, where `TContentType` is the type of a list item object
@@ -24,7 +24,7 @@ By default, the library throws a [`TraktException`](xref:TraktNET.TraktException
 
 ## Response Headers
 
-Every response type except [`TraktNoContentResponse`](xref:TraktNET.TraktNoContentResponse) exposes response metadata headers returned by the Trakt API:
+Every response type exposes response metadata headers returned by the Trakt API:
 
 - `TraktSortBy? SortBy`
 - `TraktSortHow? SortHow`

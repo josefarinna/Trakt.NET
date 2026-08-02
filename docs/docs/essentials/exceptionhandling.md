@@ -27,7 +27,7 @@ try
 {
     var response = await client.Movies.GetMovieAsync("unknown-slug");
 }
-catch (TraktMovieNotFoundException ex) // Specific exception thrown when a movie is not found
+catch (TraktApiMovieNotFoundException ex) // Specific exception thrown when a movie is not found
 {
     // Do something with the exception
 } 
@@ -54,7 +54,7 @@ using TraktNET;
 TraktResponse<TraktShow> show = await client.Shows.GetShowAsync("unknown-slug");
 ```
 
-could throw a [`TraktShowNotFoundException`](xref:TraktNET.TraktShowNotFoundException).
+could throw a [`TraktApiShowNotFoundException`](xref:TraktNET.TraktApiShowNotFoundException).
 
 Each not-found exception has a property `ObjectId` that tells you the ID which was not found.
 
@@ -62,22 +62,22 @@ For more information on responses see the [Responses Section](responses.md).
 
 ## Rate Limit Exception
 
-Rate limits can be caught with the exception [`TraktRateLimitException`](xref:TraktNET.TraktRateLimitException).
+Rate limits can be caught with the exception [`TraktApiRateLimitException`](xref:TraktNET.TraktApiRateLimitException).
 This exception provides detailed information about the rate limit.
 
 ## Failed VIP Validation Exception
 
 The Trakt.tv API provides requests which can only be used by VIP users.
-If a non-VIP user tries to use such a request, a [`TraktFailedVIPValidationException`](xref:TraktNET.TraktFailedVIPValidationException) is thrown.
+If a non-VIP user tries to use such a request, a [`TraktApiVIPValidationException`](xref:TraktNET.TraktApiVIPValidationException) is thrown.
 This exception provides an `UpgradeURL` where the user can sign up for Trakt.tv VIP.
 
 ## User Account Limit Exception
 
-A [`TraktUserAccountLimitException`](xref:TraktNET.TraktUserAccountLimitException) is thrown when a user has exceeded their account limits, such as list counts, item counts, etc.
+A [`TraktApiAccountLimitException`](xref:TraktNET.TraktApiAccountLimitException) is thrown when a user has exceeded their account limits, such as list counts, item counts, etc.
 
 ## Locked User Account Exception
 
-If an OAuth authorized user has a locked user account, a [`TraktLockedUserAccountException`](xref:TraktNET.TraktLockedUserAccountException) is thrown.
+If an OAuth authorized user has a locked user account, a [`TraktApiLockedUserAccountException`](xref:TraktNET.TraktApiLockedUserAccountException) is thrown.
 
 ## Request Validation Exception
 

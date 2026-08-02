@@ -3,41 +3,45 @@
 
 `Trakt.NET` is a modernized, high-performance .NET wrapper library with which developers can build .NET applications that integrate with the [Trakt.tv API](https://trakt.docs.apiary.io/#).
 
-### Install latest Trakt.NET package
+## Install latest Trakt.NET package
+
 ```ps
 dotnet add package Trakt.NET.Ex --version 2.0.0-alpha.1
 ```
 
-### Get basic info about the show "[The Last of Us](https://trakt.tv/shows/the-last-of-us)" (including media images)
+## Get basic info about the show "[The Last of Us](https://trakt.tv/shows/the-last-of-us)" (including media images)
 
 ```csharp
 using System;
 using System.Linq;
 using System.Text.Json;
 using TraktNET;
-using TraktNET.Enums;
-using TraktNET.Exceptions;
-using TraktNET.Responses;
 
-var client = new TraktClient("Your Trakt Client ID");
+var client = new TraktClient("Your Trakt Client ID", "Your Trakt Client Secret");
 
 try
 {
     TraktExtendedInfo extendedInfo = TraktExtendedInfo.Full | TraktExtendedInfo.Images;
     TraktResponse<TraktShow> showResponse = await client.Shows.GetShowAsync("the-last-of-us", extendedInfo);
-    TraktShow show = showResponse.Value;
-    
-    Console.WriteLine($"Title: {show.Title}");
-    Console.WriteLine($"Year: {show.Year}");
-    
-    if (show.Images != null)
-    {
-        Console.WriteLine($"Fanart: {show.Images.Fanart?.FirstOrDefault()}");
-        Console.WriteLine($"Poster: {show.Images.Poster?.FirstOrDefault()}");
-    }
 
-    string json = JsonSerializer.Serialize(show, new JsonSerializerOptions { WriteIndented = true });
-    Console.WriteLine(json);
+    if (showResponse.IsSuccess && showResponse.HasValue)
+    {
+        TraktShow show = showResponse.Content!;
+        
+        Console.WriteLine($"Title: {show.Title}");
+        Console.WriteLine($"Year: {show.Year}");
+        
+        if (show.Images != null)
+        {
+            Console.WriteLine($"Fanart: {show.Images.Fanart?.FirstOrDefault()}");
+            Console.WriteLine($"Poster: {show.Images.Poster?.FirstOrDefault()}");
+        }
+
+        Console.WriteLine();
+
+        string json = JsonSerializer.Serialize(show, new JsonSerializerOptions { WriteIndented = true });
+        Console.WriteLine(json);
+    }
 }
 catch (TraktException ex)
 {
@@ -45,7 +49,7 @@ catch (TraktException ex)
 }
 ```
 
-#### Output:
+### Output
 
 ```ps
 Title: The Last of Us
