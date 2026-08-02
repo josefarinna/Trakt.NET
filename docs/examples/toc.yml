@@ -1,26 +1,32 @@
 - name: Overview
   href: index.md
 - name: Authentication
+  expanded: true
   items:
   - name: Device Authentication
     href: auth/device-authentication.md
   - name: OAuth Authentication
     href: auth/oauth-authentication.md
 - name: Modules
+  expanded: true
   items:
   - name: Shows Module
+    expanded: true
     items:
     - name: Get Trending Shows
       href: modules/shows/get-trending-shows.md
     - name: Get Single Show
       href: modules/shows/get-single-show.md
 - name: Parameters
+  expanded: true
   items:
   - name: Filter
+    expanded: true
     items:
     - name: Calendar Filter
       href: parameters/filter/calendar-filter.md
   - name: Post Builder
+    expanded: true
     items:
     - name: Favorites Post Builder
       href: parameters/postbuilder/favorites-post-builder.md

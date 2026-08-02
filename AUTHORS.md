@@ -1,6 +1,6 @@
 Trakt.NET is maintained by:
 
-* [Henrik Fröhling](https://github.com/henrikfroehling) [(github@henrikfroehling.com)](mailto:github@henrikfroehling.com)
+* [José Fariña](https://github.com/josefarinna) [(github@henrikfroehling.com)](mailto:github@henrikfroehling.com)
 
 Contributors include:
 

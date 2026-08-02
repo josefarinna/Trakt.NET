@@ -1,11 +1,11 @@
 Contributing Guidelines
 ===
 
-### **First off, thank you for considering contributing to** [Trakt.NET](https://github.com/henrikfroehling/Trakt.NET)**.**
+### **First off, thank you for considering contributing to** [Trakt.NET](https://github.com/josefarinna/Trakt.NET)**.**
 
-[Trakt.NET](https://github.com/henrikfroehling/Trakt.NET) is an open source project and there are many ways to contribute, from improving the documentation, submitting bug reports and feature requests or writing new feature implementations which can be incorporated into [Trakt.NET](https://github.com/henrikfroehling/Trakt.NET).
+[Trakt.NET](https://github.com/josefarinna/Trakt.NET) is an open source project and there are many ways to contribute, from improving the documentation, submitting bug reports and feature requests or writing new feature implementations which can be incorporated into [Trakt.NET](https://github.com/henrikfroehling/Trakt.NET).
 
-**Please do not use the issue tracker for support questions.** If you have questions regarding on how to use the library, [start a discussion](https://github.com/henrikfroehling/Trakt.NET/discussions).
+**Please do not use the issue tracker for support questions.** If you have questions regarding on how to use the library, [start a discussion](https://github.com/josefarinna/Trakt.NET/discussions).
 
 ---
 
@@ -14,7 +14,7 @@ Contributing Guidelines
 2. Do the changes in your fork
    - Create a branch for the change with a descriptive name.
 3. If you like your change, send a pull request
-   - Be sure you have followed the [General Requirements](https://github.com/henrikfroehling/Trakt.NET/blob/develop/CONTRIBUTING.md#general-requirements)
+   - Be sure you have followed the [General Requirements](https://github.com/josefarinna/Trakt.NET/blob/develop/CONTRIBUTING.md#general-requirements)
 
 ---
 
@@ -41,4 +41,4 @@ Please **DO NOT** target the `main` branch.
 ---
 
 ### **Cross-platform compatibility**
-- [Trakt.NET](https://github.com/henrikfroehling/Trakt.NET) is built against .NET Standard 2.0
+- [Trakt.NET](https://github.com/josefarinna/Trakt.NET) is built against .NET Standard 2.0

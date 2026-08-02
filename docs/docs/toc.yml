@@ -2,41 +2,50 @@
   href: ../index.md
 
 - name: Get started
-- name: Installation
-  href: getstarted/installation.md
-- name: Basic Setup
-  href: getstarted/basicsetup.md
-- name: Configuration
-  href: getstarted/configuration.md
+  expanded: true
+  items:
+  - name: Installation
+    href: getstarted/installation.md
+  - name: Basic Setup
+    href: getstarted/basicsetup.md
+  - name: Configuration
+    href: getstarted/configuration.md
 
 - name: Essentials
-- name: Authentication and Authorization
-  href: essentials/auth.md
-- name: Responses
-  href: essentials/responses.md
-- name: Exception Handling
-  href: essentials/exceptionhandling.md
-- name: Paging
-  href: essentials/paging.md
-- name: Null Handling
-  href: essentials/nullhandling.md
-- name: Async / Await
-  href: essentials/async.md
+  expanded: true
+  items:
+  - name: Authentication and Authorization
+    href: essentials/auth.md
+  - name: Responses
+    href: essentials/responses.md
+  - name: Exception Handling
+    href: essentials/exceptionhandling.md
+  - name: Paging
+    href: essentials/paging.md
+  - name: Null Handling
+    href: essentials/nullhandling.md
+  - name: Async / Await
+    href: essentials/async.md
 
 - name: Utilities
-- name: Serialization
-  href: utilities/serialization.md
-- name: Post Builder
-  href: utilities/postbuilder.md
-- name: Filter Builder
-  href: utilities/filterbuilder.md
+  expanded: true
+  items:
+  - name: Serialization
+    href: utilities/serialization.md
+  - name: Post Builder
+    href: utilities/postbuilder.md
+  - name: Filter Builder
+    href: utilities/filterbuilder.md
 
 - name: Reference
-- name: Modules
-  href: references/modules.md
-- name: Request Parameters
-  href: references/requestparameters.md
-- name: Namespaces
-  href: references/namespaces.md
-- name: Build from Source
-  href: references/building.md
+  expanded: true
+  items:
+  - name: Modules
+    href: references/modules.md
+  - name: Request Parameters
+    href: references/requestparameters.md
+  - name: Namespaces
+    href: references/namespaces.md
+  - name: Build from Source
+    href: references/building.md
+

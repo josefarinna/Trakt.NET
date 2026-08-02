@@ -3,7 +3,7 @@ export default {
     iconLinks: [
       {
         icon: 'github',
-        href: 'https://github.com/henrikfroehling/Trakt.NET',
+        href: 'https://github.com/josefarinna/Trakt.NET',
         title: 'Trakt.NET on GitHub'
       }
     ]
