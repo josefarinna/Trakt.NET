@@ -50,7 +50,9 @@ jobs:
             ${{ env.DOTNET_6_VERSION_STABLE }}
 
       - name: Setup DocFX
-        run: dotnet tool update -g docfx
+        run: |
+          dotnet tool update -g docfx || dotnet tool install -g docfx
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
 
       - name: Restore dependencies
         run: dotnet restore ${{ inputs.project_name }}
@@ -59,7 +61,10 @@ jobs:
         run: dotnet build ${{ inputs.project_name }} --configuration ${{ inputs.build_configuration }} --no-restore
 
       - name: Build documentation
-        run: cd docs && docfx metadata && docfx build
+        working-directory: docs
+        run: |
+          dotnet docfx metadata
+          dotnet docfx build
   
       - name: Upload documentation artifacts
         uses: actions/upload-artifact@v7

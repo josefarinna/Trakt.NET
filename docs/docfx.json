@@ -3,8 +3,7 @@
     {
       "src": [
         {
-          "files": [ "**/*.csproj" ],
-          "exclude": [ "**/bin/**", "**/obj/**" ],
+          "files": [ "**/bin/Release/net9.0/Trakt.NET*.dll" ],
           "src": "../src/libs"
         }
       ],
