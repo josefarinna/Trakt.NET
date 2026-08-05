@@ -825,7 +825,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktApiException",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktApiException.yml\" sourcestartlinenumber=\"1\">        Base class for all Trakt.NET API exceptions.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktApiException.yml\" sourcestartlinenumber=\"4\">        Can contain additional information like the response's status code, the request's url, a reason phrase of the server,\n        the request body, if it was a post or put request and the actual response content.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktApiException.yml\" sourcestartlinenumber=\"1\">Base class for all Trakt.NET API exceptions.</p>\n<p>Can contain additional information like the response's status code, the request's url, a reason phrase of the server,</p>\n<p sourcefile=\"api/TraktNET.TraktApiException.yml\" sourcestartlinenumber=\"5\">the request body, if it was a post or put request and the actual response content.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1091,7 +1091,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktAuthModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktAuthModule.yml\" sourcestartlinenumber=\"1\">        Provides access to OAuth and device authentication and authorization.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktAuthModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://docs.trakt.tv/reference/authentication#user-content-authentication&quot;&gt;&quot;Trakt API Documentation - Authentication - OAuth&quot;&lt;/a&gt; section\n        and the &lt;a href=&quot;https://docs.trakt.tv/reference/authentication#user-content-device-code-flow&quot;&gt;&quot;Trakt API Documentation - Authentication - Devices&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktAuthModule.yml\" sourcestartlinenumber=\"1\">Provides access to OAuth and device authentication and authorization.</p>\n<p>This module contains all methods of the <a href=\"https://docs.trakt.tv/reference/auth\">Trakt API Documentation - Authentication</a> section</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1189,7 +1189,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktCalendarModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktCalendarModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to calendars.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktCalendarModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://docs.trakt.tv/reference/about-calendars&quot;&gt;&quot;Trakt API Documentation - Calendars&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCalendarModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to calendars.</p>\n<p>This module contains all methods of the <a href=\"https://docs.trakt.tv/reference/about-calendars\">Trakt API Documentation - Calendars</a> section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1287,7 +1287,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktCertificationsModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktCertificationsModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to certifications.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktCertificationsModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/certifications&quot;&gt;&quot;Trakt API Documentation - Certifications&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCertificationsModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to certifications.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Certification\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1343,7 +1343,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktCheckinsModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktCheckinsModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to checkins.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktCheckinsModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://docs.trakt.tv/reference/about-checkin&quot;&gt;&quot;Trakt API Documentation - Checkin&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCheckinsModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to checkins.</p>\n<p>This module contains all methods of the <a href=\"https://docs.trakt.tv/reference/about-checkin\">Trakt API Documentation - Checkins</a> section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1357,7 +1357,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktClient",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktClient.yml\" sourcestartlinenumber=\"1\">        Provides access to all functionality of this library.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktClient.yml\" sourcestartlinenumber=\"4\">        Provides the only access to all of the library's modules.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktClient.yml\" sourcestartlinenumber=\"1\">Provides access to all functionality of this library.</p>\n<p>Provides the only access to all of the library's modules.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1707,7 +1707,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktCommentsModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktCommentsModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to comments.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktCommentsModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://docs.trakt.tv/reference/about-comments&quot;&gt;&quot;Trakt API Documentation - Comments&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCommentsModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to comments.</p>\n<p>This module contains all methods of the <a href=\"https://docs.trakt.tv/reference/about-comments\">Trakt API Documentation - Comments</a> section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1749,7 +1749,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktCountriesModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktCountriesModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to countries.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktCountriesModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/countries&quot;&gt;&quot;Trakt API Documentation - Countries&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCountriesModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to countries.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Countries\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2211,7 +2211,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktEpisodesModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktEpisodesModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to episodes.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktEpisodesModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/episodes&quot;&gt;&quot;Trakt API Documentation - Episodes&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktEpisodesModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to episodes.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Episodes\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2239,7 +2239,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktExtendedInfo",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktExtendedInfo.yml\" sourcestartlinenumber=\"1\">        Determines the possible extended options for Trakt API requests, allowing retrieving of additional data.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktExtendedInfo.yml\" sourcestartlinenumber=\"4\">        This enum can be used as a flag and multiple values can be combined.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktExtendedInfo.yml\" sourcestartlinenumber=\"7\">        See &lt;a href=&quot;https://trakt.docs.apiary.io/#introduction/extended-info&quot;&gt;&quot;Trakt API Documentation - Extended Info&quot;&lt;/a&gt; for more information.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktExtendedInfo.yml\" sourcestartlinenumber=\"1\">Determines the possible extended options for Trakt API requests, allowing retrieving of additional data.</p>\n<p>This enum can be used as a flag and multiple values can be combined.</p>\n<p>See <a href=\"https://docs.trakt.tv/docs/extended-info\">Trakt API Documentation - Extended Info</a> for more information.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2505,7 +2505,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktGenresModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktGenresModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to genres.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktGenresModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/genres&quot;&gt;&quot;Trakt API Documentation - Genres&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktGenresModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to genres.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Genres\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2757,7 +2757,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktLanguagesModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktLanguagesModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to languages.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktLanguagesModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/languages&quot;&gt;&quot;Trakt API Documentation - Languages&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktLanguagesModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to languages.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Languages\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3121,7 +3121,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktListsModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktListsModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to lists.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktListsModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/lists&quot;&gt;&quot;Trakt API Documentation - Lists&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktListsModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to lists.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Lists\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3261,7 +3261,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktMediaModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktMediaModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to media (movies and shows).\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktMediaModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the Trakt API Documentation - Media section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktMediaModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to media (movies and shows).</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Media\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3779,7 +3779,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktMoviesModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktMoviesModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to movies.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktMoviesModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/movies&quot;&gt;&quot;Trakt API Documentation - Movies&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktMoviesModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to movies.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Movies\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3821,7 +3821,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktNetworksModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktNetworksModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to networks.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktNetworksModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/networks&quot;&gt;&quot;Trakt API Documentation - Networks&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktNetworksModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to networks.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Networks\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3891,7 +3891,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktNotesModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktNotesModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to notes.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktNotesModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/notes&quot;&gt;&quot;Trakt API Documentation - Notes&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktNotesModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to notes.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Notes\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -3961,7 +3961,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktPeopleModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktPeopleModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to people.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktPeopleModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/people&quot;&gt;&quot;Trakt API Documentation - People&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktPeopleModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to people.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - People\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -5053,7 +5053,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktRecommendationsModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktRecommendationsModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to recommendations.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktRecommendationsModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/recommendations&quot;&gt;&quot;Trakt API Documentation - Recommendations&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktRecommendationsModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to recommendations.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Recommendations\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -5263,7 +5263,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktScrobbleModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktScrobbleModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to scrobbles.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktScrobbleModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://docs.trakt.tv/reference/about-scrobble&quot;&gt;&quot;Trakt API Documentation - Scrobble&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktScrobbleModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to scrobbles.</p>\n<p>This module contains all methods of the <a href=\"https://docs.trakt.tv/reference/about-scrobble\">Trakt API Documentation - Scrobble</a> section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -5389,7 +5389,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSearchModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktSearchModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to search.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktSearchModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/search&quot;&gt;&quot;Trakt API Documentation - Search&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSearchModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to search.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Search\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -5669,7 +5669,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSeasonsModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktSeasonsModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to seasons.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktSeasonsModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/seasons&quot;&gt;&quot;Trakt API Documentation - Seasons&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSeasonsModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to seasons.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Seasons\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -5991,7 +5991,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktShowsModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktShowsModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to shows.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktShowsModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/shows&quot;&gt;&quot;Trakt API Documentation - Shows&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktShowsModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to shows.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Shows\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -6159,7 +6159,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSmartListsModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktSmartListsModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to smart lists.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktSmartListsModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the Trakt API Documentation - SmartLists section relating to smart lists.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartListsModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to smart lists.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Smart Lists\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -6187,7 +6187,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSocialRecommendationsModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktSocialRecommendationsModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to social recommendations.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktSocialRecommendationsModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://docs.trakt.tv/reference/getsocial_recommendationsmoviesrecommend&quot;&gt;&quot;Trakt API Documentation - Social Recommendations&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSocialRecommendationsModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to social recommendations.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Social Recommendations\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -6971,7 +6971,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktSyncModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to sync.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktSyncModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/sync&quot;&gt;&quot;Trakt API Documentation - Sync&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to sync.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Sync\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -7629,7 +7629,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktTeamModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktTeamModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to the Trakt team.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktTeamModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://docs.trakt.tv/reference/getteammembers&quot;&gt;&quot;Trakt API Documentation - Team&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktTeamModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to the Trakt team.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Team\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -9309,7 +9309,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktUsersModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktUsersModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to users.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktUsersModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/users&quot;&gt;&quot;Trakt API Documentation - Users&quot;&lt;/a&gt; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUsersModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to users.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Users\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -9463,7 +9463,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktWatchnowModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktWatchnowModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to watch now sources.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktWatchnowModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the &quot;Trakt API Documentation - Watch Now&quot; section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktWatchnowModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to watch now sources.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Watch Now\" section.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -9631,7 +9631,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktYounifyModule",
-      "Summary": "<pre><code sourcefile=\"api/TraktNET.TraktYounifyModule.yml\" sourcestartlinenumber=\"1\">        Provides access to data retrieving methods specific to Younify streaming connections.\n</code></pre>\n<p></p>\n<pre><code sourcefile=\"api/TraktNET.TraktYounifyModule.yml\" sourcestartlinenumber=\"4\">        This module contains all methods of the Trakt API Documentation - Younify section.\n</code></pre>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktYounifyModule.yml\" sourcestartlinenumber=\"1\">Provides access to data retrieving methods specific to Younify connections.</p>\n<p>This module contains all methods of the \"Trakt API Documentation - Younify\" section.</p>\n"
     },
     {
       "type": "ManagedReference",

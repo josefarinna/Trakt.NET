@@ -107,7 +107,7 @@ TraktAuthorization authorization = TraktAuthorization.CreateWith(createdAt, expi
 <pre><code class="lang-csharp">client.Authorization = authorization;
 </code></pre>
 <h2 id="oauth-authentication">OAuth Authentication</h2>
-<p>The workflow for authenticating users with the <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth">traditional OAuth method</a> is the following:</p>
+<p>The workflow for authenticating users with the <a href="https://docs.trakt.tv/referencereference/authentication-oauth">traditional OAuth method</a> is the following:</p>
 <ol>
 <li>Create an authorization URL: <code>string authorizationUrl = client.Auth.CreateAuthorizationUrl();</code></li>
 <li>Your users need to visit the <code>authorizationUrl</code>'s webpage.</li>
@@ -126,7 +126,7 @@ TraktAuthorization authorization = authorizationResponse.Content!;
 </div>
 <p><a href="../../examples/auth/oauth-authentication.html">Here</a> is an example of how to authenticate a user with OAuth Authentication.</p>
 <h2 id="device-authentication">Device Authentication</h2>
-<p>The workflow for authenticating users with the <a href="https://trakt.docs.apiary.io/#reference/authentication-devices">Device method</a> is the following:</p>
+<p>The workflow for authenticating users with the <a href="https://docs.trakt.tv/referencereference/authentication-devices">Device method</a> is the following:</p>
 <ol>
 <li>Create a new <a class="xref" href="../../api/TraktNET.TraktDevice.html"><code>TraktDevice</code></a>: <code>TraktResponse&lt;TraktDevice&gt; deviceResponse = await client.Auth.GenerateDeviceAsync();</code> The returned <a class="xref" href="../../api/TraktNET.TraktDevice.html"><code>TraktDevice</code></a> is valid for about ten minutes and contains a device code and a verification URL.</li>
 <li>Your users need to visit the <code>device.VerificationUrl</code> web page and enter the <code>device.UserCode</code> on that web page.</li>
