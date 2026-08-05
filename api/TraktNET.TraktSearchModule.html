@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TraktSearchModule | Trakt.NET </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TraktSearchModule | Trakt.NET ">
+    
+    <meta name="description" content="Provides access to data retrieving methods specific to search.           This module contains all methods of the &amp;lt;a href=&amp;quot;https://trakt.docs.apiary.io/#reference/search&amp;quot;&amp;gt;&amp;quot;Trakt API Documentation - Search&amp;quot;&amp;lt;/a&amp;gt; section.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Trakt.NET">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="TraktNET.TraktSearchModule">
+
+
+
+  <h1 id="TraktNET_TraktSearchModule" data-uid="TraktNET.TraktSearchModule" class="text-break">Class TraktSearchModule</h1>
+  <div class="markdown level0 summary"><pre><code>        Provides access to data retrieving methods specific to search.
+</code></pre>
+<p></p>
+<pre><code>        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/search&quot;&gt;&quot;Trakt API Documentation - Search&quot;&lt;/a&gt; section.
+</code></pre>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="TraktNET.BaseModule.html">BaseModule</a></div>
+    <div class="level2"><span class="xref">TraktSearchModule</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="TraktNET.html">TraktNET</a></h6>
+  <h6><strong>Assembly</strong>: Trakt.NET.Ex.dll</h6>
+  <h5 id="TraktNET_TraktSearchModule_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class TraktSearchModule : BaseModule</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktSearchModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktSearchModule__ctor_" data-uid="TraktNET.TraktSearchModule.#ctor*"></a>
+  <h4 id="TraktNET_TraktSearchModule__ctor_TraktNET_TraktContext_" data-uid="TraktNET.TraktSearchModule.#ctor(TraktNET.TraktContext)">TraktSearchModule(TraktContext)</h4>
+  <div class="markdown level1 summary"><pre><code>        Provides access to data retrieving methods specific to search.
+</code></pre>
+<p></p>
+<pre><code>        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/search&quot;&gt;&quot;Trakt API Documentation - Search&quot;&lt;/a&gt; section.
+</code></pre>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktSearchModule(TraktContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktContext.html">TraktContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSearchModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktSearchModule_AddRecentSearchAsync_" data-uid="TraktNET.TraktSearchModule.AddRecentSearchAsync*"></a>
+  <h4 id="TraktNET_TraktSearchModule_AddRecentSearchAsync_System_String_System_UInt32_TraktNET_TraktSearchRecentType_System_Threading_CancellationToken_" data-uid="TraktNET.TraktSearchModule.AddRecentSearchAsync(System.String,System.UInt32,TraktNET.TraktSearchRecentType,System.Threading.CancellationToken)">AddRecentSearchAsync(string, uint, TraktSearchRecentType, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds a recent search query to the history of the authenticated user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; AddRecentSearchAsync(string searchQuery, uint itemId, TraktSearchRecentType type, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">searchQuery</span></td>
+        <td><p>The search query to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The Trakt ID of the item.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSearchRecentType.html">TraktSearchRecentType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The type of the search item. See also <a class="xref" href="TraktNET.TraktSearchRecentType.html">TraktSearchRecentType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktSearchModule_AddRecentSearchAsync_System_String_System_UInt32_TraktNET_TraktSearchRecentType_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postsearchrecentadd">
+Trakt API Documentation: Search: Add recent search
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSearchModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktSearchModule_GetExactTextQueryResultsAsync_" data-uid="TraktNET.TraktSearchModule.GetExactTextQueryResultsAsync*"></a>
+  <h4 id="TraktNET_TraktSearchModule_GetExactTextQueryResultsAsync_TraktNET_TraktSearchResultType_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSearchModule.GetExactTextQueryResultsAsync(TraktNET.TraktSearchResultType,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetExactTextQueryResultsAsync(TraktSearchResultType, string, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Searches for exact movie or show matches with the given search query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSearchResult&gt;&gt; GetExactTextQueryResultsAsync(TraktSearchResultType searchResultTypes, string searchQuery, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSearchResultType.html">TraktSearchResultType</a></td>
+        <td><span class="parametername">searchResultTypes</span></td>
+        <td><p>The object type(s), for which will be searched. See also <a class="xref" href="TraktNET.TraktSearchResultType.html">TraktSearchResultType</a>.
+Multiple <a class="xref" href="TraktNET.TraktSearchResultType.html">TraktSearchResultType</a> values can be combined with a binary operator, like this: TraktSearchResultType.Movie | TraktSearchResultType.Show.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">searchQuery</span></td>
+        <td><p>The query, for which will be searched.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>The extended info, which determines how much data about the movies or shows should be queried.
+See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktSearchResult.html">TraktSearchResult</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the search results.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSearchResult.html">TraktSearchResult</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktSearchModule_GetExactTextQueryResultsAsync_TraktNET_TraktSearchResultType_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getsearchexact">
+Trakt API Documentation: Search: Exact Text Query.
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSearchModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktSearchModule_GetIdLookupResultsAsync_" data-uid="TraktNET.TraktSearchModule.GetIdLookupResultsAsync*"></a>
+  <h4 id="TraktNET_TraktSearchModule_GetIdLookupResultsAsync_TraktNET_TraktSearchIDType_System_String_System_Nullable_TraktNET_TraktSearchResultType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSearchModule.GetIdLookupResultsAsync(TraktNET.TraktSearchIDType,System.String,System.Nullable{TraktNET.TraktSearchResultType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetIdLookupResultsAsync(TraktSearchIDType, string, TraktSearchResultType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Looks up items by their Trakt-, IMDB-, TMDB-, TVDB- or TVRage-Id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSearchResult&gt;&gt; GetIdLookupResultsAsync(TraktSearchIDType searchIdType, string lookupId, TraktSearchResultType? searchResultTypes = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSearchIDType.html">TraktSearchIDType</a></td>
+        <td><span class="parametername">searchIdType</span></td>
+        <td><p>The id type, which should be looked up. See also <a class="xref" href="TraktNET.TraktSearchIDType.html">TraktSearchIDType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">lookupId</span></td>
+        <td><p>The Trakt-, IMDB-, TMDB-, TVDB- or TVRage-Id, which will be looked up.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSearchResultType.html">TraktSearchResultType</a>?</td>
+        <td><span class="parametername">searchResultTypes</span></td>
+        <td><p>The object type(s), which will be looked up. See also <a class="xref" href="TraktNET.TraktSearchResultType.html">TraktSearchResultType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>The extended info, which determines how much data about the movies, shows, episodes, people and / or lists should be queried.
+See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktSearchResult.html">TraktSearchResult</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the search results.</p>
+<p></p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count
+and maximum item count.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSearchResult.html">TraktSearchResult</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktSearchModule_GetIdLookupResultsAsync_TraktNET_TraktSearchIDType_System_String_System_Nullable_TraktNET_TraktSearchResultType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getsearchlookup">
+Trakt API Documentation: Search: ID Lookup.
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSearchModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktSearchModule_GetTextQueryResultsAsync_" data-uid="TraktNET.TraktSearchModule.GetTextQueryResultsAsync*"></a>
+  <h4 id="TraktNET_TraktSearchModule_GetTextQueryResultsAsync_TraktNET_TraktSearchResultType_System_String_System_Nullable_TraktNET_TraktSearchField__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType,System.String,System.Nullable{TraktNET.TraktSearchField},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetTextQueryResultsAsync(TraktSearchResultType, string, TraktSearchField?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Searches for movies, shows, episodes, people and / or lists with the given search query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSearchResult&gt;&gt; GetTextQueryResultsAsync(TraktSearchResultType searchResultTypes, string searchQuery, TraktSearchField? searchFields = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSearchResultType.html">TraktSearchResultType</a></td>
+        <td><span class="parametername">searchResultTypes</span></td>
+        <td><p>The object type(s), for which will be searched. See also <a class="xref" href="TraktNET.TraktSearchResultType.html">TraktSearchResultType</a>.
+Multiple <a class="xref" href="TraktNET.TraktSearchResultType.html">TraktSearchResultType</a> values can be combined with a binary operator, like this: TraktSearchResultType.Movie | TraktSearchResultType.Show.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">searchQuery</span></td>
+        <td><p>The query, for which will be searched.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSearchField.html">TraktSearchField</a>?</td>
+        <td><span class="parametername">searchFields</span></td>
+        <td><p>Determines the text fields, which will be searched. See also <a class="xref" href="TraktNET.TraktSearchField.html">TraktSearchField</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>Specifies optional filter for genres, languages, year, runtimes, ratings, etc.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>The extended info, which determines how much data about the movies, shows, episodes, people and / or lists should be queried.
+See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktSearchResult.html">TraktSearchResult</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the search results.</p>
+<p></p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count
+and maximum item count.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSearchResult.html">TraktSearchResult</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktSearchModule_GetTextQueryResultsAsync_TraktNET_TraktSearchResultType_System_String_System_Nullable_TraktNET_TraktSearchField__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getsearchquery">
+Trakt API Documentation: Search: Text Query.
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSearchModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktSearchModule_GetTrendingSearchResultsAsync_" data-uid="TraktNET.TraktSearchModule.GetTrendingSearchResultsAsync*"></a>
+  <h4 id="TraktNET_TraktSearchModule_GetTrendingSearchResultsAsync_TraktNET_TraktSearchRecentType_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSearchModule.GetTrendingSearchResultsAsync(TraktNET.TraktSearchRecentType,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetTrendingSearchResultsAsync(TraktSearchRecentType, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Returns globally trending recent searches by type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktTrendingSearchResult&gt;&gt; GetTrendingSearchResultsAsync(TraktSearchRecentType type, string? searchQuery = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSearchRecentType.html">TraktSearchRecentType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The search recent type. See also <a class="xref" href="TraktNET.TraktSearchRecentType.html">TraktSearchRecentType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">searchQuery</span></td>
+        <td><p>Optional search query to narrow the search text.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>The extended info, which determines how much data about the movies, shows or people should be queried.
+See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktTrendingSearchResult.html">TraktTrendingSearchResult</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the trending search results.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktTrendingSearchResult.html">TraktTrendingSearchResult</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktSearchModule_GetTrendingSearchResultsAsync_TraktNET_TraktSearchRecentType_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getsearchtrending">
+Trakt API Documentation: Search: Trending.
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSearchModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktSearchModule_RemoveRecentSearchAsync_" data-uid="TraktNET.TraktSearchModule.RemoveRecentSearchAsync*"></a>
+  <h4 id="TraktNET_TraktSearchModule_RemoveRecentSearchAsync_System_String_System_UInt32_TraktNET_TraktSearchRecentType_System_Threading_CancellationToken_" data-uid="TraktNET.TraktSearchModule.RemoveRecentSearchAsync(System.String,System.UInt32,TraktNET.TraktSearchRecentType,System.Threading.CancellationToken)">RemoveRecentSearchAsync(string, uint, TraktSearchRecentType, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Removes a recent search query from the history of the authenticated user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RemoveRecentSearchAsync(string searchQuery, uint itemId, TraktSearchRecentType type, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">searchQuery</span></td>
+        <td><p>The search query to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">itemId</span></td>
+        <td><p>The Trakt ID of the item.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSearchRecentType.html">TraktSearchRecentType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The type of the search item. See also <a class="xref" href="TraktNET.TraktSearchRecentType.html">TraktSearchRecentType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktSearchModule_RemoveRecentSearchAsync_System_String_System_UInt32_TraktNET_TraktSearchRecentType_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postsearchrecentremove">
+Trakt API Documentation: Search: Remove recent search
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktSearchModule.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Made with <a href='https://dotnet.github.io/docfx/'>docfx</a></span><br>Copyright © 2026 - Current José Fariña et al.
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

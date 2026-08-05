@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TraktMovie | Trakt.NET </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TraktMovie | Trakt.NET ">
+    
+    <meta name="description" content="A Trakt movie.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Trakt.NET">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="TraktNET.TraktMovie">
+
+
+
+  <h1 id="TraktNET_TraktMovie" data-uid="TraktNET.TraktMovie" class="text-break">Class TraktMovie</h1>
+  <div class="markdown level0 summary"><p>A Trakt movie.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="TraktNET.TraktMovieMinimal.html">TraktMovieMinimal</a></div>
+    <div class="level2"><span class="xref">TraktMovie</span></div>
+      <div class="level3"><a class="xref" href="TraktNET.TraktRecommendedMovie.html">TraktRecommendedMovie</a></div>
+      <div class="level3"><a class="xref" href="TraktNET.TraktSocialMovieRecommendation.html">TraktSocialMovieRecommendation</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="TraktNET.TraktMovieMinimal.html">TraktMovieMinimal</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="TraktNET.TraktMovieMinimal.html#TraktNET_TraktMovieMinimal_Title">TraktMovieMinimal.Title</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktMovieMinimal.html#TraktNET_TraktMovieMinimal_Year">TraktMovieMinimal.Year</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktMovieMinimal.html#TraktNET_TraktMovieMinimal_IDs">TraktMovieMinimal.IDs</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktMovieMinimal.html#TraktNET_TraktMovieMinimal_Images">TraktMovieMinimal.Images</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="TraktNET.html">TraktNET</a></h6>
+  <h6><strong>Assembly</strong>: Trakt.NET.Ex.dll</h6>
+  <h5 id="TraktNET_TraktMovie_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public record TraktMovie : TraktMovieMinimal, IEquatable&lt;TraktMovieMinimal&gt;, IEquatable&lt;TraktMovie&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie__ctor_" data-uid="TraktNET.TraktMovie.#ctor*"></a>
+  <h4 id="TraktNET_TraktMovie__ctor" data-uid="TraktNET.TraktMovie.#ctor">TraktMovie()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktMovie()</code></pre>
+  </div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie__ctor_" data-uid="TraktNET.TraktMovie.#ctor*"></a>
+  <h4 id="TraktNET_TraktMovie__ctor_TraktNET_TraktMovie_" data-uid="TraktNET.TraktMovie.#ctor(TraktNET.TraktMovie)">TraktMovie(TraktMovie)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TraktMovie(TraktMovie original)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a></td>
+        <td><span class="parametername">original</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_AfterCredits_" data-uid="TraktNET.TraktMovie.AfterCredits*"></a>
+  <h4 id="TraktNET_TraktMovie_AfterCredits" data-uid="TraktNET.TraktMovie.AfterCredits">AfterCredits</h4>
+  <div class="markdown level1 summary"><p>Extra scene after the credits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? AfterCredits { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_AvailableTranslations_" data-uid="TraktNET.TraktMovie.AvailableTranslations*"></a>
+  <h4 id="TraktNET_TraktMovie_AvailableTranslations" data-uid="TraktNET.TraktMovie.AvailableTranslations">AvailableTranslations</h4>
+  <div class="markdown level1 summary"><p>The list of translation language codes of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt;? AvailableTranslations { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Certification_" data-uid="TraktNET.TraktMovie.Certification*"></a>
+  <h4 id="TraktNET_TraktMovie_Certification" data-uid="TraktNET.TraktMovie.Certification">Certification</h4>
+  <div class="markdown level1 summary"><p>The content certification of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Certification { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Colors_" data-uid="TraktNET.TraktMovie.Colors*"></a>
+  <h4 id="TraktNET_TraktMovie_Colors" data-uid="TraktNET.TraktMovie.Colors">Colors</h4>
+  <div class="markdown level1 summary"><p>The movie colors. See also <a class="xref" href="TraktNET.TraktColors.html">TraktColors</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktColors? Colors { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktColors.html">TraktColors</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_CommentCount_" data-uid="TraktNET.TraktMovie.CommentCount*"></a>
+  <h4 id="TraktNET_TraktMovie_CommentCount" data-uid="TraktNET.TraktMovie.CommentCount">CommentCount</h4>
+  <div class="markdown level1 summary"><p>The comment count of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? CommentCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Country_" data-uid="TraktNET.TraktMovie.Country*"></a>
+  <h4 id="TraktNET_TraktMovie_Country" data-uid="TraktNET.TraktMovie.Country">Country</h4>
+  <div class="markdown level1 summary"><p>The country code of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Country { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_DuringCredits_" data-uid="TraktNET.TraktMovie.DuringCredits*"></a>
+  <h4 id="TraktNET_TraktMovie_DuringCredits" data-uid="TraktNET.TraktMovie.DuringCredits">DuringCredits</h4>
+  <div class="markdown level1 summary"><p>Extra scene during the credits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? DuringCredits { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_EqualityContract_" data-uid="TraktNET.TraktMovie.EqualityContract*"></a>
+  <h4 id="TraktNET_TraktMovie_EqualityContract" data-uid="TraktNET.TraktMovie.EqualityContract">EqualityContract</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Type EqualityContract { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="TraktNET.TraktMovieMinimal.html#TraktNET_TraktMovieMinimal_EqualityContract">TraktMovieMinimal.EqualityContract</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Genres_" data-uid="TraktNET.TraktMovie.Genres*"></a>
+  <h4 id="TraktNET_TraktMovie_Genres" data-uid="TraktNET.TraktMovie.Genres">Genres</h4>
+  <div class="markdown level1 summary"><p>The collection of Trakt genre slugs of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt;? Genres { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Homepage_" data-uid="TraktNET.TraktMovie.Homepage*"></a>
+  <h4 id="TraktNET_TraktMovie_Homepage" data-uid="TraktNET.TraktMovie.Homepage">Homepage</h4>
+  <div class="markdown level1 summary"><p>The web address of the homepage of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Homepage { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Language_" data-uid="TraktNET.TraktMovie.Language*"></a>
+  <h4 id="TraktNET_TraktMovie_Language" data-uid="TraktNET.TraktMovie.Language">Language</h4>
+  <div class="markdown level1 summary"><p>The language code of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Language { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Languages_" data-uid="TraktNET.TraktMovie.Languages*"></a>
+  <h4 id="TraktNET_TraktMovie_Languages" data-uid="TraktNET.TraktMovie.Languages">Languages</h4>
+  <div class="markdown level1 summary"><p>The list of language codes of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt;? Languages { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_OriginalTitle_" data-uid="TraktNET.TraktMovie.OriginalTitle*"></a>
+  <h4 id="TraktNET_TraktMovie_OriginalTitle" data-uid="TraktNET.TraktMovie.OriginalTitle">OriginalTitle</h4>
+  <div class="markdown level1 summary"><p>The movie original title.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? OriginalTitle { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Overview_" data-uid="TraktNET.TraktMovie.Overview*"></a>
+  <h4 id="TraktNET_TraktMovie_Overview" data-uid="TraktNET.TraktMovie.Overview">Overview</h4>
+  <div class="markdown level1 summary"><p>The synopsis of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Overview { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Rating_" data-uid="TraktNET.TraktMovie.Rating*"></a>
+  <h4 id="TraktNET_TraktMovie_Rating" data-uid="TraktNET.TraktMovie.Rating">Rating</h4>
+  <div class="markdown level1 summary"><p>The average user rating of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float? Rating { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Released_" data-uid="TraktNET.TraktMovie.Released*"></a>
+  <h4 id="TraktNET_TraktMovie_Released" data-uid="TraktNET.TraktMovie.Released">Released</h4>
+  <div class="markdown level1 summary"><p>The date when the movie was released.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateOnly? Released { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Runtime_" data-uid="TraktNET.TraktMovie.Runtime*"></a>
+  <h4 id="TraktNET_TraktMovie_Runtime" data-uid="TraktNET.TraktMovie.Runtime">Runtime</h4>
+  <div class="markdown level1 summary"><p>The runtime of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? Runtime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_SocialIDs_" data-uid="TraktNET.TraktMovie.SocialIDs*"></a>
+  <h4 id="TraktNET_TraktMovie_SocialIDs" data-uid="TraktNET.TraktMovie.SocialIDs">SocialIDs</h4>
+  <div class="markdown level1 summary"><p>A collection of social IDs for various web services for the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;social_ids&quot;)]
+public TraktMovieSocialIDs? SocialIDs { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovieSocialIDs.html">TraktMovieSocialIDs</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Status_" data-uid="TraktNET.TraktMovie.Status*"></a>
+  <h4 id="TraktNET_TraktMovie_Status" data-uid="TraktNET.TraktMovie.Status">Status</h4>
+  <div class="markdown level1 summary"><p>The movie's current status. See also <a class="xref" href="TraktNET.TraktMovieStatus.html">TraktMovieStatus</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktMovieStatus? Status { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovieStatus.html">TraktMovieStatus</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Subgenres_" data-uid="TraktNET.TraktMovie.Subgenres*"></a>
+  <h4 id="TraktNET_TraktMovie_Subgenres" data-uid="TraktNET.TraktMovie.Subgenres">Subgenres</h4>
+  <div class="markdown level1 summary"><p>The list of Trakt subgenre slugs of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt;? Subgenres { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Tagline_" data-uid="TraktNET.TraktMovie.Tagline*"></a>
+  <h4 id="TraktNET_TraktMovie_Tagline" data-uid="TraktNET.TraktMovie.Tagline">Tagline</h4>
+  <div class="markdown level1 summary"><p>The movie tagline.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Tagline { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Trailer_" data-uid="TraktNET.TraktMovie.Trailer*"></a>
+  <h4 id="TraktNET_TraktMovie_Trailer" data-uid="TraktNET.TraktMovie.Trailer">Trailer</h4>
+  <div class="markdown level1 summary"><p>The web address of a trailer of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Trailer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_UpdatedAt_" data-uid="TraktNET.TraktMovie.UpdatedAt*"></a>
+  <h4 id="TraktNET_TraktMovie_UpdatedAt" data-uid="TraktNET.TraktMovie.UpdatedAt">UpdatedAt</h4>
+  <div class="markdown level1 summary"><p>The UTC datetime when the movie was last updated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? UpdatedAt { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Votes_" data-uid="TraktNET.TraktMovie.Votes*"></a>
+  <h4 id="TraktNET_TraktMovie_Votes" data-uid="TraktNET.TraktMovie.Votes">Votes</h4>
+  <div class="markdown level1 summary"><p>The number of votes of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? Votes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Equals_" data-uid="TraktNET.TraktMovie.Equals*"></a>
+  <h4 id="TraktNET_TraktMovie_Equals_System_Object_" data-uid="TraktNET.TraktMovie.Equals(System.Object)">Equals(object?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="TraktNET.TraktMovieMinimal.html#TraktNET_TraktMovieMinimal_Equals_System_Object_">TraktMovieMinimal.Equals(object?)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Equals_" data-uid="TraktNET.TraktMovie.Equals*"></a>
+  <h4 id="TraktNET_TraktMovie_Equals_TraktNET_TraktMovie_" data-uid="TraktNET.TraktMovie.Equals(TraktNET.TraktMovie)">Equals(TraktMovie?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool Equals(TraktMovie? other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_Equals_" data-uid="TraktNET.TraktMovie.Equals*"></a>
+  <h4 id="TraktNET_TraktMovie_Equals_TraktNET_TraktMovieMinimal_" data-uid="TraktNET.TraktMovie.Equals(TraktNET.TraktMovieMinimal)">Equals(TraktMovieMinimal?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override sealed bool Equals(TraktMovieMinimal? other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovieMinimal.html">TraktMovieMinimal</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="TraktNET.TraktMovieMinimal.html#TraktNET_TraktMovieMinimal_Equals_TraktNET_TraktMovieMinimal_">TraktMovieMinimal.Equals(TraktMovieMinimal?)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_GetHashCode_" data-uid="TraktNET.TraktMovie.GetHashCode*"></a>
+  <h4 id="TraktNET_TraktMovie_GetHashCode" data-uid="TraktNET.TraktMovie.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="TraktNET.TraktMovieMinimal.html#TraktNET_TraktMovieMinimal_GetHashCode">TraktMovieMinimal.GetHashCode()</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_PrintMembers_" data-uid="TraktNET.TraktMovie.PrintMembers*"></a>
+  <h4 id="TraktNET_TraktMovie_PrintMembers_System_Text_StringBuilder_" data-uid="TraktNET.TraktMovie.PrintMembers(System.Text.StringBuilder)">PrintMembers(StringBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool PrintMembers(StringBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="TraktNET.TraktMovieMinimal.html#TraktNET_TraktMovieMinimal_PrintMembers_System_Text_StringBuilder_">TraktMovieMinimal.PrintMembers(StringBuilder)</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_ToString_" data-uid="TraktNET.TraktMovie.ToString*"></a>
+  <h4 id="TraktNET_TraktMovie_ToString" data-uid="TraktNET.TraktMovie.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Gets a string representation of the movie.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>A string representation of the movie.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="TraktNET.TraktMovieMinimal.html#TraktNET_TraktMovieMinimal_ToString">TraktMovieMinimal.ToString()</a></div>
+  <h3 id="operators">Operators
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_op_Equality_" data-uid="TraktNET.TraktMovie.op_Equality*"></a>
+  <h4 id="TraktNET_TraktMovie_op_Equality_TraktNET_TraktMovie_TraktNET_TraktMovie_" data-uid="TraktNET.TraktMovie.op_Equality(TraktNET.TraktMovie,TraktNET.TraktMovie)">operator ==(TraktMovie?, TraktMovie?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(TraktMovie? left, TraktMovie? right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMovie_op_Inequality_" data-uid="TraktNET.TraktMovie.op_Inequality*"></a>
+  <h4 id="TraktNET_TraktMovie_op_Inequality_TraktNET_TraktMovie_TraktNET_TraktMovie_" data-uid="TraktNET.TraktMovie.op_Inequality(TraktNET.TraktMovie,TraktNET.TraktMovie)">operator !=(TraktMovie?, TraktMovie?)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(TraktMovie? left, TraktMovie? right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Movies/TraktMovie.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Made with <a href='https://dotnet.github.io/docfx/'>docfx</a></span><br>Copyright © 2026 - Current José Fariña et al.
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

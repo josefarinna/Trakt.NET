@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Quick Start | Trakt.NET </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Quick Start | Trakt.NET ">
+    
+    
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="styles/docfx.css">
+      <link rel="stylesheet" href="styles/main.css">
+      <meta property="docfx:navrel" content="toc.html">
+      <meta property="docfx:tocrel" content="docs/toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="Trakt.NET">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="quick-start">Quick Start</h1>
+
+<p><a href="https://www.nuget.org/packages/Trakt.NET.Ex/2.0.0-alpha.1"><img src="https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v2.0.0--alpha.1-blue.svg?style=flat" alt="NuGet Package"></a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat" alt="License"></a></p>
+<p><code>Trakt.NET</code> is a modernized, high-performance .NET wrapper library with which developers can build .NET applications that integrate with the <a href="https://trakt.docs.apiary.io/#">Trakt.tv API</a>.</p>
+<h2 id="install-latest-traktnet-package">Install latest Trakt.NET package</h2>
+<pre><code class="lang-ps">dotnet add package Trakt.NET.Ex --version 2.0.0-alpha.1
+</code></pre>
+<h2 id="get-basic-info-about-the-show-the-last-of-us-including-media-images">Get basic info about the show &quot;<a href="https://trakt.tv/shows/the-last-of-us">The Last of Us</a>&quot; (including media images)</h2>
+<pre><code class="lang-csharp">using System;
+using System.Linq;
+using System.Text.Json;
+using TraktNET;
+
+var client = new TraktClient(&quot;Your Trakt Client ID&quot;, &quot;Your Trakt Client Secret&quot;);
+
+try
+{
+    TraktExtendedInfo extendedInfo = TraktExtendedInfo.Full | TraktExtendedInfo.Images;
+    TraktResponse&lt;TraktShow&gt; showResponse = await client.Shows.GetShowAsync(&quot;the-last-of-us&quot;, extendedInfo);
+
+    if (showResponse.IsSuccess &amp;&amp; showResponse.HasValue)
+    {
+        TraktShow show = showResponse.Content!;
+        
+        Console.WriteLine($&quot;Title: {show.Title}&quot;);
+        Console.WriteLine($&quot;Year: {show.Year}&quot;);
+        
+        if (show.Images != null)
+        {
+            Console.WriteLine($&quot;Fanart: {show.Images.Fanart?.FirstOrDefault()}&quot;);
+            Console.WriteLine($&quot;Poster: {show.Images.Poster?.FirstOrDefault()}&quot;);
+        }
+
+        Console.WriteLine();
+
+        string json = JsonSerializer.Serialize(show, new JsonSerializerOptions { WriteIndented = true });
+        Console.WriteLine(json);
+    }
+}
+catch (TraktException ex)
+{
+    Console.WriteLine($&quot;Trakt API Error: {ex.Message}&quot;);
+}
+</code></pre>
+<h3 id="output">Output</h3>
+<pre><code class="lang-ps">Title: The Last of Us
+Year: 2023
+Fanart: https://walter.trakt.tv/images/shows/000/158/947/fanarts/medium/e17e47ef6b.jpg
+Poster: https://walter.trakt.tv/images/shows/000/158/947/posters/medium/e17e47ef6b.jpg
+</code></pre>
+<pre><code class="lang-json">{
+  &quot;title&quot;: &quot;The Last of Us&quot;,
+  &quot;year&quot;: 2023,
+  &quot;ids&quot;: {
+    &quot;trakt&quot;: 158947,
+    &quot;slug&quot;: &quot;the-last-of-us&quot;,
+    &quot;tvdb&quot;: 392256,
+    &quot;imdb&quot;: &quot;tt3581920&quot;,
+    &quot;tmdb&quot;: 100088
+  }
+}
+</code></pre>
+<h2 id="what-can-i-do-with-this-library">What can I do with this library?</h2>
+<p>Some examples that <strong>Trakt.NET</strong> can be used for include:</p>
+<ul>
+<li>Retrieve information about movies and TV shows, including details such as titles, descriptions, ratings, release dates, and full media image URLs</li>
+<li>Track TV shows and movies a user is watching, has watched, or wants to watch</li>
+<li>Recommendations for TV shows and movies based on watch history and social networks</li>
+<li>Build custom TV show and movie lists, including Smart Lists and personal Notes</li>
+</ul>
+<p>To use <strong>Trakt.NET</strong>, you will need to <a href="https://trakt.tv/oauth/applications">obtain an API key</a> from Trakt and follow the guidelines for using the <a href="https://trakt.docs.apiary.io/#">API</a>.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Full Trakt.tv API Coverage &amp; Expanded Modules (Smart Lists, Social Recommendations, Notes, Team, WatchNow, Younify)</li>
+<li>Concrete Record Class Models (<code>TraktShow</code>, <code>TraktMovie</code>, <code>TraktEpisode</code>, etc.) without interface overhead</li>
+<li>Media Image Support across all supported Trakt objects (<code>TraktExtendedInfo.Images</code>)</li>
+<li>System.Text.Json Source Generation for zero-reflection serialization (<code>Trakt.NET.SourceGeneration</code>)</li>
+<li>Native AOT (<code>IsAotCompatible</code>) and Assembly Trimming (<code>IsTrimmable</code>) support</li>
+<li>Authentication and Authorization Support (OAuth 2.0 and Device)</li>
+<li>Completely asynchronous architecture</li>
+</ul>
+<h2 id="supported-platforms">Supported Platforms</h2>
+<ul>
+<li>.NET 6.0, .NET 7.0, .NET 8.0, .NET 9.0, .NET 10.0</li>
+<li>.NET Standard 2.0, .NET Standard 2.1</li>
+<li>.NET Framework &gt;= 4.7.2</li>
+<li>.NET MAUI / iOS / Android / macOS / Mac Catalyst</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/docs/index.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Made with <a href='https://dotnet.github.io/docfx/'>docfx</a></span><br>Copyright © 2026 - Current José Fariña et al.
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

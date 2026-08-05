@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class PeopleJsonSerializerContext | Trakt.NET </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class PeopleJsonSerializerContext | Trakt.NET ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Trakt.NET">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="TraktNET.PeopleJsonSerializerContext">
+
+
+
+  <h1 id="TraktNET_PeopleJsonSerializerContext" data-uid="TraktNET.PeopleJsonSerializerContext" class="text-break">Class PeopleJsonSerializerContext</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext">JsonSerializerContext</a></div>
+    <div class="level2"><span class="xref">PeopleJsonSerializerContext</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.ijsontypeinforesolver">IJsonTypeInfoResolver</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.options">JsonSerializerContext.Options</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="TraktNET.html">TraktNET</a></h6>
+  <h6><strong>Assembly</strong>: Trakt.NET.Ex.dll</h6>
+  <h5 id="TraktNET_PeopleJsonSerializerContext_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ExcludeFromCodeCoverage]
+[JsonSerializable(typeof(TraktPerson))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPerson&gt;))]
+[JsonSerializable(typeof(TraktPersonIDs))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonIDs&gt;))]
+[JsonSerializable(typeof(TraktPersonImages))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonImages&gt;))]
+[JsonSerializable(typeof(TraktPersonMinimal))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonMinimal&gt;))]
+[JsonSerializable(typeof(TraktPersonMovieCredits))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonMovieCredits&gt;))]
+[JsonSerializable(typeof(TraktPersonMovieCreditsCastItem))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonMovieCreditsCastItem&gt;))]
+[JsonSerializable(typeof(TraktPersonMovieCreditsCrew))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonMovieCreditsCrew&gt;))]
+[JsonSerializable(typeof(TraktPersonMovieCreditsCrewItem))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonMovieCreditsCrewItem&gt;))]
+[JsonSerializable(typeof(TraktPersonShowCredits))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonShowCredits&gt;))]
+[JsonSerializable(typeof(TraktPersonShowCreditsCastItem))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonShowCreditsCastItem&gt;))]
+[JsonSerializable(typeof(TraktPersonShowCreditsCrew))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonShowCreditsCrew&gt;))]
+[JsonSerializable(typeof(TraktPersonShowCreditsCrewItem))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonShowCreditsCrewItem&gt;))]
+[JsonSerializable(typeof(TraktPersonSocialIDs))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktPersonSocialIDs&gt;))]
+[JsonSerializable(typeof(TraktRecentlyUpdatedPerson))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktRecentlyUpdatedPerson&gt;))]
+public sealed class PeopleJsonSerializerContext : JsonSerializerContext, IJsonTypeInfoResolver</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext__ctor_" data-uid="TraktNET.PeopleJsonSerializerContext.#ctor*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext__ctor" data-uid="TraktNET.PeopleJsonSerializerContext.#ctor">PeopleJsonSerializerContext()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PeopleJsonSerializerContext()</code></pre>
+  </div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext__ctor_" data-uid="TraktNET.PeopleJsonSerializerContext.#ctor*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext__ctor_System_Text_Json_JsonSerializerOptions_" data-uid="TraktNET.PeopleJsonSerializerContext.#ctor(System.Text.Json.JsonSerializerOptions)">PeopleJsonSerializerContext(JsonSerializerOptions)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PeopleJsonSerializerContext(JsonSerializerOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions">JsonSerializerOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.Boolean.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_Boolean_" data-uid="TraktNET.PeopleJsonSerializerContext.Boolean*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_Boolean" data-uid="TraktNET.PeopleJsonSerializerContext.Boolean">Boolean</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;bool&gt; Boolean { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.DateOnly.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_DateOnly_" data-uid="TraktNET.PeopleJsonSerializerContext.DateOnly*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_DateOnly" data-uid="TraktNET.PeopleJsonSerializerContext.DateOnly">DateOnly</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;DateOnly&gt; DateOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.DateTime.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_DateTime_" data-uid="TraktNET.PeopleJsonSerializerContext.DateTime*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_DateTime" data-uid="TraktNET.PeopleJsonSerializerContext.DateTime">DateTime</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;DateTime&gt; DateTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_Default_" data-uid="TraktNET.PeopleJsonSerializerContext.Default*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_Default" data-uid="TraktNET.PeopleJsonSerializerContext.Default">Default</h4>
+  <div class="markdown level1 summary"><p>The default <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext">JsonSerializerContext</a> associated with a default <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions">JsonSerializerOptions</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PeopleJsonSerializerContext Default { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.PeopleJsonSerializerContext.html">PeopleJsonSerializerContext</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_GeneratedSerializerOptions_" data-uid="TraktNET.PeopleJsonSerializerContext.GeneratedSerializerOptions*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_GeneratedSerializerOptions" data-uid="TraktNET.PeopleJsonSerializerContext.GeneratedSerializerOptions">GeneratedSerializerOptions</h4>
+  <div class="markdown level1 summary"><p>The source-generated options associated with this context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override JsonSerializerOptions? GeneratedSerializerOptions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions">JsonSerializerOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.generatedserializeroptions">JsonSerializerContext.GeneratedSerializerOptions</a></div>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPerson.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPerson_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPerson*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPerson" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPerson">IReadOnlyListTraktPerson</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPerson&gt;&gt; IReadOnlyListTraktPerson { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonIDs.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonIDs_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonIDs*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonIDs" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonIDs">IReadOnlyListTraktPersonIDs</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonIDs&gt;&gt; IReadOnlyListTraktPersonIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonImages.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonImages_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonImages*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonImages" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonImages">IReadOnlyListTraktPersonImages</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonImages&gt;&gt; IReadOnlyListTraktPersonImages { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonImages.html">TraktPersonImages</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonMinimal.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonMinimal_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonMinimal*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonMinimal" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonMinimal">IReadOnlyListTraktPersonMinimal</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonMinimal&gt;&gt; IReadOnlyListTraktPersonMinimal { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonMinimal.html">TraktPersonMinimal</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCredits.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonMovieCredits_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCredits*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonMovieCredits" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCredits">IReadOnlyListTraktPersonMovieCredits</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonMovieCredits&gt;&gt; IReadOnlyListTraktPersonMovieCredits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCredits.html">TraktPersonMovieCredits</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCreditsCastItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonMovieCreditsCastItem_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCreditsCastItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonMovieCreditsCastItem" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCreditsCastItem">IReadOnlyListTraktPersonMovieCreditsCastItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonMovieCreditsCastItem&gt;&gt; IReadOnlyListTraktPersonMovieCreditsCastItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCreditsCastItem.html">TraktPersonMovieCreditsCastItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCreditsCrew.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonMovieCreditsCrew_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCreditsCrew*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonMovieCreditsCrew" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCreditsCrew">IReadOnlyListTraktPersonMovieCreditsCrew</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonMovieCreditsCrew&gt;&gt; IReadOnlyListTraktPersonMovieCreditsCrew { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCreditsCrew.html">TraktPersonMovieCreditsCrew</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCreditsCrewItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonMovieCreditsCrewItem_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCreditsCrewItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonMovieCreditsCrewItem" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonMovieCreditsCrewItem">IReadOnlyListTraktPersonMovieCreditsCrewItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonMovieCreditsCrewItem&gt;&gt; IReadOnlyListTraktPersonMovieCreditsCrewItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCreditsCrewItem.html">TraktPersonMovieCreditsCrewItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCredits.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonShowCredits_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCredits*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonShowCredits" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCredits">IReadOnlyListTraktPersonShowCredits</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonShowCredits&gt;&gt; IReadOnlyListTraktPersonShowCredits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCredits.html">TraktPersonShowCredits</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCreditsCastItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonShowCreditsCastItem_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCreditsCastItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonShowCreditsCastItem" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCreditsCastItem">IReadOnlyListTraktPersonShowCreditsCastItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonShowCreditsCastItem&gt;&gt; IReadOnlyListTraktPersonShowCreditsCastItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCreditsCastItem.html">TraktPersonShowCreditsCastItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCreditsCrew.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonShowCreditsCrew_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCreditsCrew*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonShowCreditsCrew" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCreditsCrew">IReadOnlyListTraktPersonShowCreditsCrew</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonShowCreditsCrew&gt;&gt; IReadOnlyListTraktPersonShowCreditsCrew { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCreditsCrew.html">TraktPersonShowCreditsCrew</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCreditsCrewItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonShowCreditsCrewItem_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCreditsCrewItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonShowCreditsCrewItem" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonShowCreditsCrewItem">IReadOnlyListTraktPersonShowCreditsCrewItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonShowCreditsCrewItem&gt;&gt; IReadOnlyListTraktPersonShowCreditsCrewItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCreditsCrewItem.html">TraktPersonShowCreditsCrewItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktPersonSocialIDs.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonSocialIDs_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonSocialIDs*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktPersonSocialIDs" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktPersonSocialIDs">IReadOnlyListTraktPersonSocialIDs</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktPersonSocialIDs&gt;&gt; IReadOnlyListTraktPersonSocialIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktPersonSocialIDs.html">TraktPersonSocialIDs</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.IReadOnlyListTraktRecentlyUpdatedPerson.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktRecentlyUpdatedPerson_" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktRecentlyUpdatedPerson*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_IReadOnlyListTraktRecentlyUpdatedPerson" data-uid="TraktNET.PeopleJsonSerializerContext.IReadOnlyListTraktRecentlyUpdatedPerson">IReadOnlyListTraktRecentlyUpdatedPerson</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktRecentlyUpdatedPerson&gt;&gt; IReadOnlyListTraktRecentlyUpdatedPerson { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktRecentlyUpdatedPerson.html">TraktRecentlyUpdatedPerson</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.Int32.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_Int32_" data-uid="TraktNET.PeopleJsonSerializerContext.Int32*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_Int32" data-uid="TraktNET.PeopleJsonSerializerContext.Int32">Int32</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;int&gt; Int32 { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.ListString.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_ListString_" data-uid="TraktNET.PeopleJsonSerializerContext.ListString*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_ListString" data-uid="TraktNET.PeopleJsonSerializerContext.ListString">ListString</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;List&lt;string&gt;&gt; ListString { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.ListTraktPersonMovieCreditsCastItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_ListTraktPersonMovieCreditsCastItem_" data-uid="TraktNET.PeopleJsonSerializerContext.ListTraktPersonMovieCreditsCastItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_ListTraktPersonMovieCreditsCastItem" data-uid="TraktNET.PeopleJsonSerializerContext.ListTraktPersonMovieCreditsCastItem">ListTraktPersonMovieCreditsCastItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;List&lt;TraktPersonMovieCreditsCastItem&gt;&gt; ListTraktPersonMovieCreditsCastItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCreditsCastItem.html">TraktPersonMovieCreditsCastItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.ListTraktPersonMovieCreditsCrewItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_ListTraktPersonMovieCreditsCrewItem_" data-uid="TraktNET.PeopleJsonSerializerContext.ListTraktPersonMovieCreditsCrewItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_ListTraktPersonMovieCreditsCrewItem" data-uid="TraktNET.PeopleJsonSerializerContext.ListTraktPersonMovieCreditsCrewItem">ListTraktPersonMovieCreditsCrewItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;List&lt;TraktPersonMovieCreditsCrewItem&gt;&gt; ListTraktPersonMovieCreditsCrewItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCreditsCrewItem.html">TraktPersonMovieCreditsCrewItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.ListTraktPersonShowCreditsCastItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_ListTraktPersonShowCreditsCastItem_" data-uid="TraktNET.PeopleJsonSerializerContext.ListTraktPersonShowCreditsCastItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_ListTraktPersonShowCreditsCastItem" data-uid="TraktNET.PeopleJsonSerializerContext.ListTraktPersonShowCreditsCastItem">ListTraktPersonShowCreditsCastItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;List&lt;TraktPersonShowCreditsCastItem&gt;&gt; ListTraktPersonShowCreditsCastItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCreditsCastItem.html">TraktPersonShowCreditsCastItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.ListTraktPersonShowCreditsCrewItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_ListTraktPersonShowCreditsCrewItem_" data-uid="TraktNET.PeopleJsonSerializerContext.ListTraktPersonShowCreditsCrewItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_ListTraktPersonShowCreditsCrewItem" data-uid="TraktNET.PeopleJsonSerializerContext.ListTraktPersonShowCreditsCrewItem">ListTraktPersonShowCreditsCrewItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;List&lt;TraktPersonShowCreditsCrewItem&gt;&gt; ListTraktPersonShowCreditsCrewItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCreditsCrewItem.html">TraktPersonShowCreditsCrewItem</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableBoolean.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableBoolean_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableBoolean*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableBoolean" data-uid="TraktNET.PeopleJsonSerializerContext.NullableBoolean">NullableBoolean</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;bool?&gt; NullableBoolean { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableDateOnly.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableDateOnly_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableDateOnly*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableDateOnly" data-uid="TraktNET.PeopleJsonSerializerContext.NullableDateOnly">NullableDateOnly</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;DateOnly?&gt; NullableDateOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.dateonly">DateOnly</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableDateTime.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableDateTime_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableDateTime*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableDateTime" data-uid="TraktNET.PeopleJsonSerializerContext.NullableDateTime">NullableDateTime</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;DateTime?&gt; NullableDateTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableSingle.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableSingle_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableSingle*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableSingle" data-uid="TraktNET.PeopleJsonSerializerContext.NullableSingle">NullableSingle</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;float?&gt; NullableSingle { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableTimeOnly.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableTimeOnly_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTimeOnly*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableTimeOnly" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTimeOnly">NullableTimeOnly</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TimeOnly?&gt; NullableTimeOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeonly">TimeOnly</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableTraktDayOfWeek.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableTraktDayOfWeek_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTraktDayOfWeek*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableTraktDayOfWeek" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTraktDayOfWeek">NullableTraktDayOfWeek</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktDayOfWeek?&gt; NullableTraktDayOfWeek { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktDayOfWeek.html">TraktDayOfWeek</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableTraktGender.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableTraktGender_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTraktGender*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableTraktGender" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTraktGender">NullableTraktGender</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktGender?&gt; NullableTraktGender { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktGender.html">TraktGender</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableTraktKnownForDepartment.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableTraktKnownForDepartment_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTraktKnownForDepartment*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableTraktKnownForDepartment" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTraktKnownForDepartment">NullableTraktKnownForDepartment</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktKnownForDepartment?&gt; NullableTraktKnownForDepartment { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktKnownForDepartment.html">TraktKnownForDepartment</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableTraktMovieStatus.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableTraktMovieStatus_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTraktMovieStatus*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableTraktMovieStatus" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTraktMovieStatus">NullableTraktMovieStatus</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktMovieStatus?&gt; NullableTraktMovieStatus { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktMovieStatus.html">TraktMovieStatus</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableTraktShowStatus.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableTraktShowStatus_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTraktShowStatus*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableTraktShowStatus" data-uid="TraktNET.PeopleJsonSerializerContext.NullableTraktShowStatus">NullableTraktShowStatus</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktShowStatus?&gt; NullableTraktShowStatus { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktShowStatus.html">TraktShowStatus</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.NullableUInt32.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_NullableUInt32_" data-uid="TraktNET.PeopleJsonSerializerContext.NullableUInt32*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_NullableUInt32" data-uid="TraktNET.PeopleJsonSerializerContext.NullableUInt32">NullableUInt32</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;uint?&gt; NullableUInt32 { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.Single.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_Single_" data-uid="TraktNET.PeopleJsonSerializerContext.Single*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_Single" data-uid="TraktNET.PeopleJsonSerializerContext.Single">Single</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;float&gt; Single { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.String.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_String_" data-uid="TraktNET.PeopleJsonSerializerContext.String*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_String" data-uid="TraktNET.PeopleJsonSerializerContext.String">String</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;string&gt; String { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TimeOnly.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TimeOnly_" data-uid="TraktNET.PeopleJsonSerializerContext.TimeOnly*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TimeOnly" data-uid="TraktNET.PeopleJsonSerializerContext.TimeOnly">TimeOnly</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TimeOnly&gt; TimeOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timeonly">TimeOnly</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktColors.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktColors_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktColors*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktColors" data-uid="TraktNET.PeopleJsonSerializerContext.TraktColors">TraktColors</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktColors&gt; TraktColors { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktColors.html">TraktColors</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktDayOfWeek.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktDayOfWeek_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktDayOfWeek*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktDayOfWeek" data-uid="TraktNET.PeopleJsonSerializerContext.TraktDayOfWeek">TraktDayOfWeek</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktDayOfWeek&gt; TraktDayOfWeek { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktDayOfWeek.html">TraktDayOfWeek</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktGender.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktGender_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktGender*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktGender" data-uid="TraktNET.PeopleJsonSerializerContext.TraktGender">TraktGender</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktGender&gt; TraktGender { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktGender.html">TraktGender</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktKnownForDepartment.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktKnownForDepartment_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktKnownForDepartment*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktKnownForDepartment" data-uid="TraktNET.PeopleJsonSerializerContext.TraktKnownForDepartment">TraktKnownForDepartment</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktKnownForDepartment&gt; TraktKnownForDepartment { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktKnownForDepartment.html">TraktKnownForDepartment</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktMovie.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktMovie_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktMovie*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktMovie" data-uid="TraktNET.PeopleJsonSerializerContext.TraktMovie">TraktMovie</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktMovie&gt; TraktMovie { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktMovieIDs.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktMovieIDs_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktMovieIDs*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktMovieIDs" data-uid="TraktNET.PeopleJsonSerializerContext.TraktMovieIDs">TraktMovieIDs</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktMovieIDs&gt; TraktMovieIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktMovieIDs.html">TraktMovieIDs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktMovieImages.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktMovieImages_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktMovieImages*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktMovieImages" data-uid="TraktNET.PeopleJsonSerializerContext.TraktMovieImages">TraktMovieImages</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktMovieImages&gt; TraktMovieImages { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktMovieImages.html">TraktMovieImages</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktMovieSocialIDs.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktMovieSocialIDs_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktMovieSocialIDs*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktMovieSocialIDs" data-uid="TraktNET.PeopleJsonSerializerContext.TraktMovieSocialIDs">TraktMovieSocialIDs</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktMovieSocialIDs&gt; TraktMovieSocialIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktMovieSocialIDs.html">TraktMovieSocialIDs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktMovieStatus.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktMovieStatus_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktMovieStatus*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktMovieStatus" data-uid="TraktNET.PeopleJsonSerializerContext.TraktMovieStatus">TraktMovieStatus</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktMovieStatus&gt; TraktMovieStatus { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktMovieStatus.html">TraktMovieStatus</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPerson.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPerson_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPerson*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPerson" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPerson">TraktPerson</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPerson&gt; TraktPerson { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonIDs.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonIDs_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonIDs*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonIDs" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonIDs">TraktPersonIDs</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonIDs&gt; TraktPersonIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonImages.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonImages_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonImages*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonImages" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonImages">TraktPersonImages</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonImages&gt; TraktPersonImages { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonImages.html">TraktPersonImages</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonMinimal.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonMinimal_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonMinimal*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonMinimal" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonMinimal">TraktPersonMinimal</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonMinimal&gt; TraktPersonMinimal { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonMinimal.html">TraktPersonMinimal</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonMovieCredits.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonMovieCredits_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonMovieCredits*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonMovieCredits" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonMovieCredits">TraktPersonMovieCredits</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonMovieCredits&gt; TraktPersonMovieCredits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCredits.html">TraktPersonMovieCredits</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonMovieCreditsCastItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonMovieCreditsCastItem_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonMovieCreditsCastItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonMovieCreditsCastItem" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonMovieCreditsCastItem">TraktPersonMovieCreditsCastItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonMovieCreditsCastItem&gt; TraktPersonMovieCreditsCastItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCreditsCastItem.html">TraktPersonMovieCreditsCastItem</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonMovieCreditsCrew.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonMovieCreditsCrew_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonMovieCreditsCrew*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonMovieCreditsCrew" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonMovieCreditsCrew">TraktPersonMovieCreditsCrew</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonMovieCreditsCrew&gt; TraktPersonMovieCreditsCrew { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCreditsCrew.html">TraktPersonMovieCreditsCrew</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonMovieCreditsCrewItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonMovieCreditsCrewItem_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonMovieCreditsCrewItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonMovieCreditsCrewItem" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonMovieCreditsCrewItem">TraktPersonMovieCreditsCrewItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonMovieCreditsCrewItem&gt; TraktPersonMovieCreditsCrewItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCreditsCrewItem.html">TraktPersonMovieCreditsCrewItem</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonShowCredits.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonShowCredits_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonShowCredits*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonShowCredits" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonShowCredits">TraktPersonShowCredits</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonShowCredits&gt; TraktPersonShowCredits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCredits.html">TraktPersonShowCredits</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonShowCreditsCastItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonShowCreditsCastItem_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonShowCreditsCastItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonShowCreditsCastItem" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonShowCreditsCastItem">TraktPersonShowCreditsCastItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonShowCreditsCastItem&gt; TraktPersonShowCreditsCastItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCreditsCastItem.html">TraktPersonShowCreditsCastItem</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonShowCreditsCrew.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonShowCreditsCrew_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonShowCreditsCrew*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonShowCreditsCrew" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonShowCreditsCrew">TraktPersonShowCreditsCrew</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonShowCreditsCrew&gt; TraktPersonShowCreditsCrew { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCreditsCrew.html">TraktPersonShowCreditsCrew</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonShowCreditsCrewItem.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonShowCreditsCrewItem_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonShowCreditsCrewItem*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonShowCreditsCrewItem" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonShowCreditsCrewItem">TraktPersonShowCreditsCrewItem</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonShowCreditsCrewItem&gt; TraktPersonShowCreditsCrewItem { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCreditsCrewItem.html">TraktPersonShowCreditsCrewItem</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktPersonSocialIDs.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktPersonSocialIDs_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonSocialIDs*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktPersonSocialIDs" data-uid="TraktNET.PeopleJsonSerializerContext.TraktPersonSocialIDs">TraktPersonSocialIDs</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktPersonSocialIDs&gt; TraktPersonSocialIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktPersonSocialIDs.html">TraktPersonSocialIDs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktRecentlyUpdatedPerson.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktRecentlyUpdatedPerson_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktRecentlyUpdatedPerson*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktRecentlyUpdatedPerson" data-uid="TraktNET.PeopleJsonSerializerContext.TraktRecentlyUpdatedPerson">TraktRecentlyUpdatedPerson</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktRecentlyUpdatedPerson&gt; TraktRecentlyUpdatedPerson { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktRecentlyUpdatedPerson.html">TraktRecentlyUpdatedPerson</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktShow.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktShow_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShow*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktShow" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShow">TraktShow</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktShow&gt; TraktShow { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktShow.html">TraktShow</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktShowAirs.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktShowAirs_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShowAirs*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktShowAirs" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShowAirs">TraktShowAirs</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktShowAirs&gt; TraktShowAirs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktShowAirs.html">TraktShowAirs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktShowIDs.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktShowIDs_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShowIDs*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktShowIDs" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShowIDs">TraktShowIDs</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktShowIDs&gt; TraktShowIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktShowImages.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktShowImages_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShowImages*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktShowImages" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShowImages">TraktShowImages</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktShowImages&gt; TraktShowImages { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktShowImages.html">TraktShowImages</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktShowSocialIDs.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktShowSocialIDs_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShowSocialIDs*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktShowSocialIDs" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShowSocialIDs">TraktShowSocialIDs</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktShowSocialIDs&gt; TraktShowSocialIDs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktShowSocialIDs.html">TraktShowSocialIDs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.TraktShowStatus.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_TraktShowStatus_" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShowStatus*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_TraktShowStatus" data-uid="TraktNET.PeopleJsonSerializerContext.TraktShowStatus">TraktShowStatus</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktShowStatus&gt; TraktShowStatus { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktShowStatus.html">TraktShowStatus</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.UInt32.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_UInt32_" data-uid="TraktNET.PeopleJsonSerializerContext.UInt32*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_UInt32" data-uid="TraktNET.PeopleJsonSerializerContext.UInt32">UInt32</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;uint&gt; UInt32 { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/PeopleJsonSerializerContext.GetJsonTypeInfo.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_PeopleJsonSerializerContext_GetTypeInfo_" data-uid="TraktNET.PeopleJsonSerializerContext.GetTypeInfo*"></a>
+  <h4 id="TraktNET_PeopleJsonSerializerContext_GetTypeInfo_System_Type_" data-uid="TraktNET.PeopleJsonSerializerContext.GetTypeInfo(System.Type)">GetTypeInfo(Type)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override JsonTypeInfo? GetTypeInfo(Type type)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo">JsonTypeInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.gettypeinfo">JsonSerializerContext.GetTypeInfo(Type)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.ijsontypeinforesolver">IJsonTypeInfoResolver</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Json/SerializerContexts/PeopleJsonSerializerContext.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Made with <a href='https://dotnet.github.io/docfx/'>docfx</a></span><br>Copyright © 2026 - Current José Fariña et al.
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Exception Handling | Trakt.NET </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Exception Handling | Trakt.NET ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="Trakt.NET">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="exception-handling">Exception Handling</h1>
+
+<p><strong>Trakt.NET</strong> uses exceptions extensively. Every exception in the library inherits from <a class="xref" href="../../api/TraktNET.TraktException.html"><code>TraktException</code></a>. That means you don't need to catch every single exception thrown by the library, only <a class="xref" href="../../api/TraktNET.TraktException.html"><code>TraktException</code></a>:</p>
+<h2 id="usage">Usage</h2>
+<p>The library usage looks like this:</p>
+<pre><code class="lang-csharp">using TraktNET;
+
+try
+{
+    var response = await client.Shows.GetShowAsync(&quot;game-of-thrones&quot;);
+}
+catch (TraktException ex)
+{
+    Console.WriteLine($&quot;Exception message: {ex.Message}&quot;);
+    Console.WriteLine($&quot;Status code: {ex.StatusCode}&quot;);
+}
+</code></pre>
+<p>If you want to catch a specific exception, the usage looks like this:</p>
+<pre><code class="lang-csharp">try
+{
+    var response = await client.Movies.GetMovieAsync(&quot;unknown-slug&quot;);
+}
+catch (TraktApiMovieNotFoundException ex) // Specific exception thrown when a movie is not found
+{
+    // Do something with the exception
+} 
+catch (TraktException ex) // Base exception type
+{
+    // Do something with the exception
+}
+</code></pre>
+<h2 id="argument-exceptions">Argument Exceptions</h2>
+<p>Exceptions to be aware of before requests are sent include <a href="https://learn.microsoft.com/en-us/dotnet/api/system.argumentnullexception"><code>ArgumentNullException</code></a>, <a href="https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception"><code>ArgumentException</code></a> and <a href="https://learn.microsoft.com/en-us/dotnet/api/system.argumentoutofrangeexception"><code>ArgumentOutOfRangeException</code></a>. They are thrown if invalid arguments are passed to library methods.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Trakt.NET checks all input parameters before any actual Trakt API request is made.</p>
+</div>
+<h2 id="not-found-exceptions">Not Found Exceptions</h2>
+<p>For every possible Trakt media object (show, movie, person, etc.), there is also an exception if the object was not found, e.g. a call to</p>
+<pre><code class="lang-csharp">using TraktNET;
+
+TraktResponse&lt;TraktShow&gt; show = await client.Shows.GetShowAsync(&quot;unknown-slug&quot;);
+</code></pre>
+<p>could throw a <a class="xref" href="../../api/TraktNET.TraktApiShowNotFoundException.html"><code>TraktApiShowNotFoundException</code></a>.</p>
+<p>Each not-found exception has a property <code>ObjectId</code> that tells you the ID which was not found.</p>
+<p>For more information on responses see the <a href="responses.html">Responses Section</a>.</p>
+<h2 id="rate-limit-exception">Rate Limit Exception</h2>
+<p>Rate limits can be caught with the exception <a class="xref" href="../../api/TraktNET.TraktApiRateLimitException.html"><code>TraktApiRateLimitException</code></a>.
+This exception provides detailed information about the rate limit.</p>
+<h2 id="failed-vip-validation-exception">Failed VIP Validation Exception</h2>
+<p>The Trakt.tv API provides requests which can only be used by VIP users.
+If a non-VIP user tries to use such a request, a <a class="xref" href="../../api/TraktNET.TraktApiVIPValidationException.html"><code>TraktApiVIPValidationException</code></a> is thrown.
+This exception provides an <code>UpgradeURL</code> where the user can sign up for Trakt.tv VIP.</p>
+<h2 id="user-account-limit-exception">User Account Limit Exception</h2>
+<p>A <a class="xref" href="../../api/TraktNET.TraktApiAccountLimitException.html"><code>TraktApiAccountLimitException</code></a> is thrown when a user has exceeded their account limits, such as list counts, item counts, etc.</p>
+<h2 id="locked-user-account-exception">Locked User Account Exception</h2>
+<p>If an OAuth authorized user has a locked user account, a <a class="xref" href="../../api/TraktNET.TraktApiLockedUserAccountException.html"><code>TraktApiLockedUserAccountException</code></a> is thrown.</p>
+<h2 id="request-validation-exception">Request Validation Exception</h2>
+<p>Any argument given to a module method is validated before actually executing the request.
+If an ID is not valid, a <a class="xref" href="../../api/TraktNET.TraktRequestValidationException.html"><code>TraktRequestValidationException</code></a> is thrown.</p>
+<h2 id="post-validation-exception">Post Validation Exception</h2>
+<p>For post requests where data is sent to the Trakt.tv API, a <a class="xref" href="../../api/TraktNET.TraktPostValidationException.html"><code>TraktPostValidationException</code></a> might be thrown if the post object contains invalid data.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/docs/docs/essentials/exceptionhandling.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Made with <a href='https://dotnet.github.io/docfx/'>docfx</a></span><br>Copyright © 2026 - Current José Fariña et al.
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

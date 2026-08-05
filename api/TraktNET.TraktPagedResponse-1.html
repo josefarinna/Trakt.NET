@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TraktPagedResponse&lt;TResponseContentType&gt; | Trakt.NET </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TraktPagedResponse&lt;TResponseContentType&gt; | Trakt.NET ">
+    
+    <meta name="description" content="A Trakt paged list response with items of content type TResponseContentType.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Trakt.NET">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="TraktNET.TraktPagedResponse`1">
+
+
+
+  <h1 id="TraktNET_TraktPagedResponse_1" data-uid="TraktNET.TraktPagedResponse`1" class="text-break">Class TraktPagedResponse&lt;TResponseContentType&gt;</h1>
+  <div class="markdown level0 summary"><p>A Trakt paged list response with items of content type <code class="typeparamref">TResponseContentType</code>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a></div>
+    <div class="level2"><a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TResponseContentType&gt;&gt;</div>
+    <div class="level3"><a class="xref" href="TraktNET.TraktListResponse-1.html">TraktListResponse</a>&lt;TResponseContentType&gt;</div>
+    <div class="level4"><span class="xref">TraktPagedResponse&lt;TResponseContentType&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="TraktNET.ITraktResponseHeaders.html">ITraktResponseHeaders</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;TResponseContentType&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;TResponseContentType&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TResponseContentType&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    <div><a class="xref" href="TraktNET.ITraktPagedResponseHeaders.html">ITraktPagedResponseHeaders</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="TraktNET.TraktListResponse-1.html#TraktNET_TraktListResponse_1_GetEnumerator">TraktListResponse&lt;TResponseContentType&gt;.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktListResponse-1.html#TraktNET_TraktListResponse_1_Item_System_Int32_">TraktListResponse&lt;TResponseContentType&gt;.this[int]</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktListResponse-1.html#TraktNET_TraktListResponse_1_Count">TraktListResponse&lt;TResponseContentType&gt;.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse-1.html#TraktNET_TraktResponse_1_HasValue">TraktResponse&lt;IReadOnlyList&lt;TResponseContentType&gt;&gt;.HasValue</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse-1.html#TraktNET_TraktResponse_1_Content">TraktResponse&lt;IReadOnlyList&lt;TResponseContentType&gt;&gt;.Content</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse-1.html#TraktNET_TraktResponse_1_ContentHeaders">TraktResponse&lt;IReadOnlyList&lt;TResponseContentType&gt;&gt;.ContentHeaders</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_TraktHeaders">TraktResponse.TraktHeaders</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_Headers">TraktResponse.Headers</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_StatusCode">TraktResponse.StatusCode</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_IsSuccess">TraktResponse.IsSuccess</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_SortBy">TraktResponse.SortBy</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_SortHow">TraktResponse.SortHow</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_AppliedSortBy">TraktResponse.AppliedSortBy</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_AppliedSortHow">TraktResponse.AppliedSortHow</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_StartDate">TraktResponse.StartDate</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_EndDate">TraktResponse.EndDate</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_TrendingUserCount">TraktResponse.TrendingUserCount</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_Page">TraktResponse.Page</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_Limit">TraktResponse.Limit</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_IsPrivateUser">TraktResponse.IsPrivateUser</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_ItemID">TraktResponse.ItemID</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_ItemType">TraktResponse.ItemType</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_RateLimit">TraktResponse.RateLimit</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_RetryAfter">TraktResponse.RetryAfter</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_UpgradeURL">TraktResponse.UpgradeURL</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_IsVIPUser">TraktResponse.IsVIPUser</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_AccountLimit">TraktResponse.AccountLimit</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_IsAccountLocked">TraktResponse.IsAccountLocked</a>
+    </div>
+    <div>
+      <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_IsAccountDeactivated">TraktResponse.IsAccountDeactivated</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="TraktNET.html">TraktNET</a></h6>
+  <h6><strong>Assembly</strong>: Trakt.NET.Ex.dll</h6>
+  <h5 id="TraktNET_TraktPagedResponse_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TraktPagedResponse&lt;TResponseContentType&gt; : TraktListResponse&lt;TResponseContentType&gt;, ITraktResponseHeaders, IReadOnlyList&lt;TResponseContentType&gt;, IReadOnlyCollection&lt;TResponseContentType&gt;, IEnumerable&lt;TResponseContentType&gt;, IEnumerable, ITraktPagedResponseHeaders</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponseContentType</span></td>
+        <td><p>The content type of the list items.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPagedResponse_1__ctor_" data-uid="TraktNET.TraktPagedResponse`1.#ctor*"></a>
+  <h4 id="TraktNET_TraktPagedResponse_1__ctor" data-uid="TraktNET.TraktPagedResponse`1.#ctor">TraktPagedResponse()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktPagedResponse()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktPagedResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPagedResponse_1_HasNextPage_" data-uid="TraktNET.TraktPagedResponse`1.HasNextPage*"></a>
+  <h4 id="TraktNET_TraktPagedResponse_1_HasNextPage" data-uid="TraktNET.TraktPagedResponse`1.HasNextPage">HasNextPage</h4>
+  <div class="markdown level1 summary"><p>Returns whether the response can retrieve the next page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasNextPage { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktPagedResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPagedResponse_1_HasPreviousPage_" data-uid="TraktNET.TraktPagedResponse`1.HasPreviousPage*"></a>
+  <h4 id="TraktNET_TraktPagedResponse_1_HasPreviousPage" data-uid="TraktNET.TraktPagedResponse`1.HasPreviousPage">HasPreviousPage</h4>
+  <div class="markdown level1 summary"><p>Returns whether the response can retrieve the previous page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasPreviousPage { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktPagedResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPagedResponse_1_ItemCount_" data-uid="TraktNET.TraktPagedResponse`1.ItemCount*"></a>
+  <h4 id="TraktNET_TraktPagedResponse_1_ItemCount" data-uid="TraktNET.TraktPagedResponse`1.ItemCount">ItemCount</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Pagination-Item-Count&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? ItemCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktPagedResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPagedResponse_1_PageCount_" data-uid="TraktNET.TraktPagedResponse`1.PageCount*"></a>
+  <h4 id="TraktNET_TraktPagedResponse_1_PageCount" data-uid="TraktNET.TraktPagedResponse`1.PageCount">PageCount</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Pagination-Page-Count&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? PageCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktPagedResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPagedResponse_1_GetNextPageAsync_" data-uid="TraktNET.TraktPagedResponse`1.GetNextPageAsync*"></a>
+  <h4 id="TraktNET_TraktPagedResponse_1_GetNextPageAsync_System_Threading_CancellationToken_" data-uid="TraktNET.TraktPagedResponse`1.GetNextPageAsync(System.Threading.CancellationToken)">GetNextPageAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets the next retrievable page for this response, if <a class="xref" href="TraktNET.TraktPagedResponse-1.html#TraktNET_TraktPagedResponse_1_HasNextPage">HasNextPage</a> is true.</p>
+<p>
+If this response is already the last page response or if there are no more next pages to retrieve,
+this response instance will be returned.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TResponseContentType&gt;&gt; GetNextPageAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;TResponseContentType&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the items of the next page.</p>
+<p></p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count
+and maximum item count.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktPagedResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPagedResponse_1_GetPreviousPageAsync_" data-uid="TraktNET.TraktPagedResponse`1.GetPreviousPageAsync*"></a>
+  <h4 id="TraktNET_TraktPagedResponse_1_GetPreviousPageAsync_System_Threading_CancellationToken_" data-uid="TraktNET.TraktPagedResponse`1.GetPreviousPageAsync(System.Threading.CancellationToken)">GetPreviousPageAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets the previous retrievable page for this response, if <a class="xref" href="TraktNET.TraktPagedResponse-1.html#TraktNET_TraktPagedResponse_1_HasPreviousPage">HasPreviousPage</a> is true.</p>
+<p>
+If this response is already the first page response or if there are no more previous pages to retrieve,
+this response instance will be returned.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TResponseContentType&gt;&gt; GetPreviousPageAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;TResponseContentType&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the items of the previous page.</p>
+<p></p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count
+and maximum item count.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktPagedResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPagedResponse_1_op_Implicit_" data-uid="TraktNET.TraktPagedResponse`1.op_Implicit*"></a>
+  <h4 id="TraktNET_TraktPagedResponse_1_op_Implicit_TraktNET_TraktPagedResponse__0___System_Boolean" data-uid="TraktNET.TraktPagedResponse`1.op_Implicit(TraktNET.TraktPagedResponse{`0})~System.Boolean">implicit operator bool(TraktPagedResponse&lt;TResponseContentType&gt;)</h4>
+  <div class="markdown level1 summary"><p>Implicit conversion to bool for this response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator bool(TraktPagedResponse&lt;TResponseContentType&gt; response)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;TResponseContentType&gt;</td>
+        <td><span class="parametername">response</span></td>
+        <td><p>The <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> instance, which will be converted to bool.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="TraktNET.ITraktResponseHeaders.html">ITraktResponseHeaders</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>
+  </div>
+  <div>
+      <a class="xref" href="TraktNET.ITraktPagedResponseHeaders.html">ITraktPagedResponseHeaders</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Responses/TraktResponse.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Made with <a href='https://dotnet.github.io/docfx/'>docfx</a></span><br>Copyright © 2026 - Current José Fariña et al.
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

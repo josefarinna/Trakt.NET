@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TraktPeopleModule | Trakt.NET </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TraktPeopleModule | Trakt.NET ">
+    
+    <meta name="description" content="Provides access to data retrieving methods specific to people.           This module contains all methods of the &amp;lt;a href=&amp;quot;https://trakt.docs.apiary.io/#reference/people&amp;quot;&amp;gt;&amp;quot;Trakt API Documentation - People&amp;quot;&amp;lt;/a&amp;gt; section.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Trakt.NET">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="TraktNET.TraktPeopleModule">
+
+
+
+  <h1 id="TraktNET_TraktPeopleModule" data-uid="TraktNET.TraktPeopleModule" class="text-break">Class TraktPeopleModule</h1>
+  <div class="markdown level0 summary"><pre><code>        Provides access to data retrieving methods specific to people.
+</code></pre>
+<p></p>
+<pre><code>        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/people&quot;&gt;&quot;Trakt API Documentation - People&quot;&lt;/a&gt; section.
+</code></pre>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="TraktNET.BaseModule.html">BaseModule</a></div>
+    <div class="level2"><span class="xref">TraktPeopleModule</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="TraktNET.html">TraktNET</a></h6>
+  <h6><strong>Assembly</strong>: Trakt.NET.Ex.dll</h6>
+  <h5 id="TraktNET_TraktPeopleModule_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class TraktPeopleModule : BaseModule</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktPeopleModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule__ctor_" data-uid="TraktNET.TraktPeopleModule.#ctor*"></a>
+  <h4 id="TraktNET_TraktPeopleModule__ctor_TraktNET_TraktContext_" data-uid="TraktNET.TraktPeopleModule.#ctor(TraktNET.TraktContext)">TraktPeopleModule(TraktContext)</h4>
+  <div class="markdown level1 summary"><pre><code>        Provides access to data retrieving methods specific to people.
+</code></pre>
+<p></p>
+<pre><code>        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/people&quot;&gt;&quot;Trakt API Documentation - People&quot;&lt;/a&gt; section.
+</code></pre>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktPeopleModule(TraktContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktContext.html">TraktContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPerson.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonAsync(string, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the given Trakt-Id or -Slug.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPerson&gt;&gt; GetPersonAsync(string personIdOrSlug, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">personIdOrSlug</span></td>
+        <td><p>The person's Trakt-Id or -Slug. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the person.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's data.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/summary/get-a-single-person">
+Trakt API Documentation: People: Summary
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPerson.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonAsync(uint, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the given Trakt-Id or -Slug.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPerson&gt;&gt; GetPersonAsync(uint traktPersonId, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">traktPersonId</span></td>
+        <td><p>The person's Trakt-Id. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the person.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's data.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/summary/get-a-single-person">
+Trakt API Documentation: People: Summary
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">traktPersonId</code> is 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPerson.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync(TraktNET.TraktPersonIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonAsync(TraktPersonIDs, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the given Trakt-Id or -Slug.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPerson&gt;&gt; GetPersonAsync(TraktPersonIDs personIds, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a></td>
+        <td><span class="parametername">personIds</span></td>
+        <td><p>The person's ids. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the person.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's data.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/summary/get-a-single-person">
+Trakt API Documentation: People: Summary
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">personIds</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">personIds</code> has not any ids set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonLists.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonListsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonListsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonListsAsync_System_String_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonListsAsync(System.String,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonListsAsync(string, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all <a class="xref" href="TraktNET.TraktList.html">TraktList</a>s containing a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the given Trakt-Id or -Slug.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktList&gt;&gt; GetPersonListsAsync(string personIdOrSlug, TraktListType? listType = null, TraktListSortOrder? listSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">personIdOrSlug</span></td>
+        <td><p>The person's Trakt-Id or -Slug. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListType.html">TraktListType</a>?</td>
+        <td><span class="parametername">listType</span></td>
+        <td><p>The type of lists, that should be queried. Defaults to personal lists.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListSortOrder.html">TraktListSortOrder</a>?</td>
+        <td><span class="parametername">listSortOrder</span></td>
+        <td><p>The list sort order. See also <a class="xref" href="TraktNET.TraktListSortOrder.html">TraktListSortOrder</a>. Defaults to sorted by popularity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the person.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktList.html">TraktList</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the queried person lists.</p>
+<p></p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count
+and maximum item count.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktList.html">TraktList</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonListsAsync_System_String_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
+Trakt API Documentation: People: Lists
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonLists.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonListsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonListsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonListsAsync_System_UInt32_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonListsAsync(System.UInt32,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonListsAsync(uint, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all <a class="xref" href="TraktNET.TraktList.html">TraktList</a>s containing a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the given Trakt-Id or -Slug.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktList&gt;&gt; GetPersonListsAsync(uint traktPersonId, TraktListType? listType = null, TraktListSortOrder? listSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">traktPersonId</span></td>
+        <td><p>The person's Trakt-Id. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListType.html">TraktListType</a>?</td>
+        <td><span class="parametername">listType</span></td>
+        <td><p>The type of lists, that should be queried. Defaults to personal lists.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListSortOrder.html">TraktListSortOrder</a>?</td>
+        <td><span class="parametername">listSortOrder</span></td>
+        <td><p>The list sort order. See also <a class="xref" href="TraktNET.TraktListSortOrder.html">TraktListSortOrder</a>. Defaults to sorted by popularity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the person.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktList.html">TraktList</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the queried person lists.</p>
+<p></p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count
+and maximum item count.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktList.html">TraktList</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonListsAsync_System_UInt32_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
+Trakt API Documentation: People: Lists
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">traktPersonId</code> is 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonLists.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonListsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonListsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonListsAsync_TraktNET_TraktPerson_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonListsAsync(TraktNET.TraktPerson,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonListsAsync(TraktPerson, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all <a class="xref" href="TraktNET.TraktList.html">TraktList</a>s containing a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the given Trakt-Id or -Slug.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktList&gt;&gt; GetPersonListsAsync(TraktPerson person, TraktListType? listType = null, TraktListSortOrder? listSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a></td>
+        <td><span class="parametername">person</span></td>
+        <td><p>The person. See also <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListType.html">TraktListType</a>?</td>
+        <td><span class="parametername">listType</span></td>
+        <td><p>The type of lists, that should be queried. Defaults to personal lists.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListSortOrder.html">TraktListSortOrder</a>?</td>
+        <td><span class="parametername">listSortOrder</span></td>
+        <td><p>The list sort order. See also <a class="xref" href="TraktNET.TraktListSortOrder.html">TraktListSortOrder</a>. Defaults to sorted by popularity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the person.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktList.html">TraktList</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the queried person lists.</p>
+<p></p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count
+and maximum item count.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktList.html">TraktList</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonListsAsync_TraktNET_TraktPerson_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
+Trakt API Documentation: People: Lists
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">person</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonLists.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonListsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonListsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonListsAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonListsAsync(TraktNET.TraktPersonIDs,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonListsAsync(TraktPersonIDs, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all <a class="xref" href="TraktNET.TraktList.html">TraktList</a>s containing a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the given Trakt-Id or -Slug.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktList&gt;&gt; GetPersonListsAsync(TraktPersonIDs personIds, TraktListType? listType = null, TraktListSortOrder? listSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a></td>
+        <td><span class="parametername">personIds</span></td>
+        <td><p>The person's ids. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListType.html">TraktListType</a>?</td>
+        <td><span class="parametername">listType</span></td>
+        <td><p>The type of lists, that should be queried. Defaults to personal lists.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListSortOrder.html">TraktListSortOrder</a>?</td>
+        <td><span class="parametername">listSortOrder</span></td>
+        <td><p>The list sort order. See also <a class="xref" href="TraktNET.TraktListSortOrder.html">TraktListSortOrder</a>. Defaults to sorted by popularity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the person.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktList.html">TraktList</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the queried person lists.</p>
+<p></p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count
+and maximum item count.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktList.html">TraktList</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonListsAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
+Trakt API Documentation: People: Lists
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">personIds</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">personIds</code> has not any ids set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonMovieCredits.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonMovieCreditsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonMovieCreditsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonMovieCreditsAsync(string, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all movies where a person with the given Trakt-Id or -Slug is in the cast or crew.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPersonMovieCredits&gt;&gt; GetPersonMovieCreditsAsync(string personIdOrSlug, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">personIdOrSlug</span></td>
+        <td><p>The Trakt-Id or -Slug of the person, for which the movies should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the movies.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCredits.html">TraktPersonMovieCredits</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's movie credits.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPersonMovieCredits.html">TraktPersonMovieCredits</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/movies/get-movie-credits">
+Trakt API Documentation: People: Movies
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonMovieCredits.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonMovieCreditsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonMovieCreditsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonMovieCreditsAsync(uint, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all movies where a person with the given Trakt-Id or -Slug is in the cast or crew.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPersonMovieCredits&gt;&gt; GetPersonMovieCreditsAsync(uint traktPersonId, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">traktPersonId</span></td>
+        <td><p>The person's Trakt-Id. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the movies.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCredits.html">TraktPersonMovieCredits</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's movie credits.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPersonMovieCredits.html">TraktPersonMovieCredits</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/movies/get-movie-credits">
+Trakt API Documentation: People: Movies
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">traktPersonId</code> is 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonMovieCredits.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonMovieCreditsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_TraktNET_TraktPerson_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonMovieCreditsAsync(TraktNET.TraktPerson,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonMovieCreditsAsync(TraktPerson, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all movies where a person with the given Trakt-Id or -Slug is in the cast or crew.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPersonMovieCredits&gt;&gt; GetPersonMovieCreditsAsync(TraktPerson person, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a></td>
+        <td><span class="parametername">person</span></td>
+        <td><p>The person. See also <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the movies.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCredits.html">TraktPersonMovieCredits</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's movie credits.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPersonMovieCredits.html">TraktPersonMovieCredits</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_TraktNET_TraktPerson_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/movies/get-movie-credits">
+Trakt API Documentation: People: Movies
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">person</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonMovieCredits.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonMovieCreditsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonMovieCreditsAsync(TraktNET.TraktPersonIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonMovieCreditsAsync(TraktPersonIDs, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all movies where a person with the given Trakt-Id or -Slug is in the cast or crew.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPersonMovieCredits&gt;&gt; GetPersonMovieCreditsAsync(TraktPersonIDs personIds, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a></td>
+        <td><span class="parametername">personIds</span></td>
+        <td><p>The person's ids. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the movies.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPersonMovieCredits.html">TraktPersonMovieCredits</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's movie credits.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPersonMovieCredits.html">TraktPersonMovieCredits</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/movies/get-movie-credits">
+Trakt API Documentation: People: Movies
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">personIds</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">personIds</code> has not any ids set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonShowCredits.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonShowCreditsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonShowCreditsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonShowCreditsAsync(string, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all shows where a person with the given Trakt-Id or -Slug is in the cast or crew.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPersonShowCredits&gt;&gt; GetPersonShowCreditsAsync(string personIdOrSlug, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">personIdOrSlug</span></td>
+        <td><p>The Trakt-Id or -Slug of the person, for which the shows should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the shows.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCredits.html">TraktPersonShowCredits</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's show credits.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPersonShowCredits.html">TraktPersonShowCredits</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
+Trakt API Documentation: People: Shows
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonShowCredits.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonShowCreditsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonShowCreditsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonShowCreditsAsync(uint, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all shows where a person with the given Trakt-Id or -Slug is in the cast or crew.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPersonShowCredits&gt;&gt; GetPersonShowCreditsAsync(uint traktPersonId, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">traktPersonId</span></td>
+        <td><p>The person's Trakt-Id. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the shows.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCredits.html">TraktPersonShowCredits</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's show credits.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPersonShowCredits.html">TraktPersonShowCredits</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
+Trakt API Documentation: People: Shows
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">traktPersonId</code> is 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonShowCredits.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonShowCreditsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_TraktNET_TraktPerson_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonShowCreditsAsync(TraktNET.TraktPerson,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonShowCreditsAsync(TraktPerson, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all shows where a person with the given Trakt-Id or -Slug is in the cast or crew.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPersonShowCredits&gt;&gt; GetPersonShowCreditsAsync(TraktPerson person, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a></td>
+        <td><span class="parametername">person</span></td>
+        <td><p>The person. See also <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the shows.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCredits.html">TraktPersonShowCredits</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's show credits.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPersonShowCredits.html">TraktPersonShowCredits</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_TraktNET_TraktPerson_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
+Trakt API Documentation: People: Shows
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">person</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPersonShowCredits.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonShowCreditsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonShowCreditsAsync(TraktNET.TraktPersonIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonShowCreditsAsync(TraktPersonIDs, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all shows where a person with the given Trakt-Id or -Slug is in the cast or crew.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPersonShowCredits&gt;&gt; GetPersonShowCreditsAsync(TraktPersonIDs personIds, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a></td>
+        <td><span class="parametername">personIds</span></td>
+        <td><p>The person's ids. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the shows.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktPersonShowCredits.html">TraktPersonShowCredits</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried person's show credits.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktPersonShowCredits.html">TraktPersonShowCredits</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonShowCreditsAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
+Trakt API Documentation: People: Shows
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">personIds</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">personIds</code> has not any ids set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetRecentlyUpdatedPeopleAsync_" data-uid="TraktNET.TraktPeopleModule.GetRecentlyUpdatedPeopleAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetRecentlyUpdatedPeopleAsync_System_Nullable_System_DateTime__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetRecentlyUpdatedPeopleAsync(System.Nullable{System.DateTime},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetRecentlyUpdatedPeopleAsync(DateTime?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets updated people since the given <code class="paramref">startDate</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktRecentlyUpdatedPerson&gt;&gt; GetRecentlyUpdatedPeopleAsync(DateTime? startDate = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">startDate</span></td>
+        <td><p>The start date, after which updated people should be queried. Will be converted to the Trakt UTC-datetime and -format.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the people.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktRecentlyUpdatedPerson.html">TraktRecentlyUpdatedPerson</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the queried updated people.</p>
+<p></p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count
+and maximum item count.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktRecentlyUpdatedPerson.html">TraktRecentlyUpdatedPerson</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetRecentlyUpdatedPeopleAsync_System_Nullable_System_DateTime__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getpeopleupdates">
+Trakt API Documentation: People: Updates
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_GetRecentlyUpdatedPeopleIDsAsync_" data-uid="TraktNET.TraktPeopleModule.GetRecentlyUpdatedPeopleIDsAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_GetRecentlyUpdatedPeopleIDsAsync_System_Nullable_System_DateTime__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetRecentlyUpdatedPeopleIDsAsync(System.Nullable{System.DateTime},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetRecentlyUpdatedPeopleIDsAsync(DateTime?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets recently updated people ids since the given <code class="paramref">startDate</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;uint&gt;&gt; GetRecentlyUpdatedPeopleIDsAsync(DateTime? startDate = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><span class="parametername">startDate</span></td>
+        <td><p>The start date, after which updated people ids should be queried. Will be converted to the Trakt UTC-datetime and -format.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the queried updated people ids.</p>
+<p></p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count
+and maximum item count.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_GetRecentlyUpdatedPeopleIDsAsync_System_Nullable_System_DateTime__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getpeopleupdatedids">
+Trakt API Documentation: People: Updated Ids
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleRefreshPerson.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_RefreshPersonAsync_" data-uid="TraktNET.TraktPeopleModule.RefreshPersonAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_RefreshPersonAsync_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.RefreshPersonAsync(System.String,System.Threading.CancellationToken)">RefreshPersonAsync(string, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the specified Trakt-ID or -Slug.</p>
+<p>Queues a person for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RefreshPersonAsync(string traktPersonIDOrSlug, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">traktPersonIDOrSlug</span></td>
+        <td><p>The person's Trakt-ID or -Slug.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_RefreshPersonAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/refresh/refresh-person-metadata">
+Trakt API Documentation: People: Refresh - Refresh person metadata
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleRefreshPerson.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_RefreshPersonAsync_" data-uid="TraktNET.TraktPeopleModule.RefreshPersonAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_RefreshPersonAsync_System_UInt32_System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.RefreshPersonAsync(System.UInt32,System.Threading.CancellationToken)">RefreshPersonAsync(uint, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified Trakt-ID.</p>
+<p>Queues a person for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RefreshPersonAsync(uint traktPersonId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">traktPersonId</span></td>
+        <td><p>The person's Trakt-ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_RefreshPersonAsync_System_UInt32_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/refresh/refresh-person-metadata">
+Trakt API Documentation: People: Refresh - Refresh person metadata
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">traktPersonId</code> is 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleRefreshPerson.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_RefreshPersonAsync_" data-uid="TraktNET.TraktPeopleModule.RefreshPersonAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_RefreshPersonAsync_TraktNET_TraktPersonIDs_System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.RefreshPersonAsync(TraktNET.TraktPersonIDs,System.Threading.CancellationToken)">RefreshPersonAsync(TraktPersonIDs, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the specified <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+<p>Queues a person for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RefreshPersonAsync(TraktPersonIDs personIds, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a></td>
+        <td><span class="parametername">personIds</span></td>
+        <td><p>The person's id's. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_RefreshPersonAsync_TraktNET_TraktPersonIDs_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/people/refresh/refresh-person-metadata">
+Trakt API Documentation: People: Refresh - Refresh person metadata
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Throw if the given <code class="paramref">personIds</code> has not set any IDs.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if the given <code class="paramref">personIds</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleReportPerson.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_ReportPersonAsync_" data-uid="TraktNET.TraktPeopleModule.ReportPersonAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_ReportPersonAsync_System_String_TraktNET_TraktReason_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.ReportPersonAsync(System.String,TraktNET.TraktReason,System.String,System.Threading.CancellationToken)">ReportPersonAsync(string, TraktReason, string?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Reports a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> for moderator review with the specified Trakt-ID or -Slug.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; ReportPersonAsync(string traktPersonIDOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">traktPersonIDOrSlug</span></td>
+        <td><p>The person's Trakt-ID or -Slug.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktReason.html">TraktReason</a></td>
+        <td><span class="parametername">reason</span></td>
+        <td><p>The reason for reporting the person. See also <a class="xref" href="TraktNET.TraktReason.html">TraktReason</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>An optional message providing additional context for the report.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_ReportPersonAsync_System_String_TraktNET_TraktReason_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postpeoplereport">
+Trakt API Documentation: People: Report a person
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleReportPerson.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_ReportPersonAsync_" data-uid="TraktNET.TraktPeopleModule.ReportPersonAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_ReportPersonAsync_System_UInt32_TraktNET_TraktReason_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.ReportPersonAsync(System.UInt32,TraktNET.TraktReason,System.String,System.Threading.CancellationToken)">ReportPersonAsync(uint, TraktReason, string?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Reports a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> for moderator review with the specified Trakt-ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; ReportPersonAsync(uint traktPersonId, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">traktPersonId</span></td>
+        <td><p>The person's Trakt-ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktReason.html">TraktReason</a></td>
+        <td><span class="parametername">reason</span></td>
+        <td><p>The reason for reporting the person. See also <a class="xref" href="TraktNET.TraktReason.html">TraktReason</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>An optional message providing additional context for the report.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_ReportPersonAsync_System_UInt32_TraktNET_TraktReason_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postpeoplereport">
+Trakt API Documentation: People: Report a person
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">traktPersonId</code> is 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleReportPerson.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktPeopleModule_ReportPersonAsync_" data-uid="TraktNET.TraktPeopleModule.ReportPersonAsync*"></a>
+  <h4 id="TraktNET_TraktPeopleModule_ReportPersonAsync_TraktNET_TraktPersonIDs_TraktNET_TraktReason_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.ReportPersonAsync(TraktNET.TraktPersonIDs,TraktNET.TraktReason,System.String,System.Threading.CancellationToken)">ReportPersonAsync(TraktPersonIDs, TraktReason, string?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Reports a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> for moderator review with the specified <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; ReportPersonAsync(TraktPersonIDs personIds, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a></td>
+        <td><span class="parametername">personIds</span></td>
+        <td><p>The person's id's. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktReason.html">TraktReason</a></td>
+        <td><span class="parametername">reason</span></td>
+        <td><p>The reason for reporting the person. See also <a class="xref" href="TraktNET.TraktReason.html">TraktReason</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>An optional message providing additional context for the report.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktPeopleModule_ReportPersonAsync_TraktNET_TraktPersonIDs_TraktNET_TraktReason_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postpeoplereport">
+Trakt API Documentation: People: Report a person
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Throw if the given <code class="paramref">personIds</code> has not set any IDs.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if the given <code class="paramref">personIds</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktPeopleModule.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Made with <a href='https://dotnet.github.io/docfx/'>docfx</a></span><br>Copyright © 2026 - Current José Fariña et al.
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

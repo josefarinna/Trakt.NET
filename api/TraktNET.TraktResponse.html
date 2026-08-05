@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TraktResponse | Trakt.NET </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TraktResponse | Trakt.NET ">
+    
+    <meta name="description" content="A Trakt response with no content.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Trakt.NET">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="TraktNET.TraktResponse">
+
+
+
+  <h1 id="TraktNET_TraktResponse" data-uid="TraktNET.TraktResponse" class="text-break">Class TraktResponse</h1>
+  <div class="markdown level0 summary"><p>A Trakt response with no content.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">TraktResponse</span></div>
+      <div class="level2"><a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="TraktNET.ITraktResponseHeaders.html">ITraktResponseHeaders</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="TraktNET.html">TraktNET</a></h6>
+  <h6><strong>Assembly</strong>: Trakt.NET.Ex.dll</h6>
+  <h5 id="TraktNET_TraktResponse_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TraktResponse : ITraktResponseHeaders</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse__ctor_" data-uid="TraktNET.TraktResponse.#ctor*"></a>
+  <h4 id="TraktNET_TraktResponse__ctor" data-uid="TraktNET.TraktResponse.#ctor">TraktResponse()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktResponse()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_AccountLimit_" data-uid="TraktNET.TraktResponse.AccountLimit*"></a>
+  <h4 id="TraktNET_TraktResponse_AccountLimit" data-uid="TraktNET.TraktResponse.AccountLimit">AccountLimit</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Account-Limit&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? AccountLimit { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_AppliedSortBy_" data-uid="TraktNET.TraktResponse.AppliedSortBy*"></a>
+  <h4 id="TraktNET_TraktResponse_AppliedSortBy" data-uid="TraktNET.TraktResponse.AppliedSortBy">AppliedSortBy</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Applied-Sort-By&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktSortBy? AppliedSortBy { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortBy.html">TraktSortBy</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_AppliedSortHow_" data-uid="TraktNET.TraktResponse.AppliedSortHow*"></a>
+  <h4 id="TraktNET_TraktResponse_AppliedSortHow" data-uid="TraktNET.TraktResponse.AppliedSortHow">AppliedSortHow</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Applied-Sort-How&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktSortHow? AppliedSortHow { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortHow.html">TraktSortHow</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_EndDate_" data-uid="TraktNET.TraktResponse.EndDate*"></a>
+  <h4 id="TraktNET_TraktResponse_EndDate" data-uid="TraktNET.TraktResponse.EndDate">EndDate</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-End-Date&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? EndDate { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_Headers_" data-uid="TraktNET.TraktResponse.Headers*"></a>
+  <h4 id="TraktNET_TraktResponse_Headers" data-uid="TraktNET.TraktResponse.Headers">Headers</h4>
+  <div class="markdown level1 summary"><p>The headers of the response message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HttpResponseHeaders? Headers { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.headers.httpresponseheaders">HttpResponseHeaders</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_IsAccountDeactivated_" data-uid="TraktNET.TraktResponse.IsAccountDeactivated*"></a>
+  <h4 id="TraktNET_TraktResponse_IsAccountDeactivated" data-uid="TraktNET.TraktResponse.IsAccountDeactivated">IsAccountDeactivated</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Account-Deactivated&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IsAccountDeactivated { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_IsAccountLocked_" data-uid="TraktNET.TraktResponse.IsAccountLocked*"></a>
+  <h4 id="TraktNET_TraktResponse_IsAccountLocked" data-uid="TraktNET.TraktResponse.IsAccountLocked">IsAccountLocked</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Account-Locked&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IsAccountLocked { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_IsPrivateUser_" data-uid="TraktNET.TraktResponse.IsPrivateUser*"></a>
+  <h4 id="TraktNET_TraktResponse_IsPrivateUser" data-uid="TraktNET.TraktResponse.IsPrivateUser">IsPrivateUser</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Private-User&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IsPrivateUser { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_IsSuccess_" data-uid="TraktNET.TraktResponse.IsSuccess*"></a>
+  <h4 id="TraktNET_TraktResponse_IsSuccess" data-uid="TraktNET.TraktResponse.IsSuccess">IsSuccess</h4>
+  <div class="markdown level1 summary"><p>Gets, whether the request for this response was successful.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[MemberNotNullWhen(true, &quot;TraktHeaders&quot;)]
+[MemberNotNullWhen(true, &quot;Headers&quot;)]
+public bool IsSuccess { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_IsVIPUser_" data-uid="TraktNET.TraktResponse.IsVIPUser*"></a>
+  <h4 id="TraktNET_TraktResponse_IsVIPUser" data-uid="TraktNET.TraktResponse.IsVIPUser">IsVIPUser</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-VIP-User&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? IsVIPUser { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_ItemID_" data-uid="TraktNET.TraktResponse.ItemID*"></a>
+  <h4 id="TraktNET_TraktResponse_ItemID" data-uid="TraktNET.TraktResponse.ItemID">ItemID</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Item-ID&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? ItemID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_ItemType_" data-uid="TraktNET.TraktResponse.ItemType*"></a>
+  <h4 id="TraktNET_TraktResponse_ItemType" data-uid="TraktNET.TraktResponse.ItemType">ItemType</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Item-Type&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ItemType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_Limit_" data-uid="TraktNET.TraktResponse.Limit*"></a>
+  <h4 id="TraktNET_TraktResponse_Limit" data-uid="TraktNET.TraktResponse.Limit">Limit</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Pagination-Limit&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? Limit { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_Page_" data-uid="TraktNET.TraktResponse.Page*"></a>
+  <h4 id="TraktNET_TraktResponse_Page" data-uid="TraktNET.TraktResponse.Page">Page</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Pagination-Page&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? Page { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_RateLimit_" data-uid="TraktNET.TraktResponse.RateLimit*"></a>
+  <h4 id="TraktNET_TraktResponse_RateLimit" data-uid="TraktNET.TraktResponse.RateLimit">RateLimit</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-RateLimit&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktRateLimitInfo? RateLimit { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRateLimitInfo.html">TraktRateLimitInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_RetryAfter_" data-uid="TraktNET.TraktResponse.RetryAfter*"></a>
+  <h4 id="TraktNET_TraktResponse_RetryAfter" data-uid="TraktNET.TraktResponse.RetryAfter">RetryAfter</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;Retry-After&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? RetryAfter { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_SortBy_" data-uid="TraktNET.TraktResponse.SortBy*"></a>
+  <h4 id="TraktNET_TraktResponse_SortBy" data-uid="TraktNET.TraktResponse.SortBy">SortBy</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Sort-By&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktSortBy? SortBy { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortBy.html">TraktSortBy</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_SortHow_" data-uid="TraktNET.TraktResponse.SortHow*"></a>
+  <h4 id="TraktNET_TraktResponse_SortHow" data-uid="TraktNET.TraktResponse.SortHow">SortHow</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Sort-How&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktSortHow? SortHow { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortHow.html">TraktSortHow</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_StartDate_" data-uid="TraktNET.TraktResponse.StartDate*"></a>
+  <h4 id="TraktNET_TraktResponse_StartDate" data-uid="TraktNET.TraktResponse.StartDate">StartDate</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Start-Date&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime? StartDate { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_StatusCode_" data-uid="TraktNET.TraktResponse.StatusCode*"></a>
+  <h4 id="TraktNET_TraktResponse_StatusCode" data-uid="TraktNET.TraktResponse.StatusCode">StatusCode</h4>
+  <div class="markdown level1 summary"><p>The status code of the response message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HttpStatusCode StatusCode { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.httpstatuscode">HttpStatusCode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_TraktHeaders_" data-uid="TraktNET.TraktResponse.TraktHeaders*"></a>
+  <h4 id="TraktNET_TraktResponse_TraktHeaders" data-uid="TraktNET.TraktResponse.TraktHeaders">TraktHeaders</h4>
+  <div class="markdown level1 summary"><p>A collection of already parsed Trakt headers from <a class="xref" href="TraktNET.TraktResponse.html#TraktNET_TraktResponse_Headers">Headers</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktResponseHeaders? TraktHeaders { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktResponseHeaders.html">TraktResponseHeaders</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_TrendingUserCount_" data-uid="TraktNET.TraktResponse.TrendingUserCount*"></a>
+  <h4 id="TraktNET_TraktResponse_TrendingUserCount" data-uid="TraktNET.TraktResponse.TrendingUserCount">TrendingUserCount</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Trending-User-Count&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? TrendingUserCount { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_UpgradeURL_" data-uid="TraktNET.TraktResponse.UpgradeURL*"></a>
+  <h4 id="TraktNET_TraktResponse_UpgradeURL" data-uid="TraktNET.TraktResponse.UpgradeURL">UpgradeURL</h4>
+  <div class="markdown level1 summary"><p>The Trakt &quot;X-Upgrade-URL&quot; header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? UpgradeURL { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Responses/TraktResponse.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktResponse_op_Implicit_" data-uid="TraktNET.TraktResponse.op_Implicit*"></a>
+  <h4 id="TraktNET_TraktResponse_op_Implicit_TraktNET_TraktResponse__System_Boolean" data-uid="TraktNET.TraktResponse.op_Implicit(TraktNET.TraktResponse)~System.Boolean">implicit operator bool(TraktResponse)</h4>
+  <div class="markdown level1 summary"><p>Implicit conversion to bool for this response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator bool(TraktResponse response)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a></td>
+        <td><span class="parametername">response</span></td>
+        <td><p>The <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a> instance, which will be converted to bool.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="TraktNET.ITraktResponseHeaders.html">ITraktResponseHeaders</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Responses/TraktResponse.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Made with <a href='https://dotnet.github.io/docfx/'>docfx</a></span><br>Copyright © 2026 - Current José Fariña et al.
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

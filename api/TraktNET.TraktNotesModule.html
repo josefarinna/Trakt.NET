@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class TraktNotesModule | Trakt.NET </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class TraktNotesModule | Trakt.NET ">
+    
+    <meta name="description" content="Provides access to data retrieving methods specific to notes.           This module contains all methods of the &amp;lt;a href=&amp;quot;https://trakt.docs.apiary.io/#reference/notes&amp;quot;&amp;gt;&amp;quot;Trakt API Documentation - Notes&amp;quot;&amp;lt;/a&amp;gt; section.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Trakt.NET">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="TraktNET.TraktNotesModule">
+
+
+
+  <h1 id="TraktNET_TraktNotesModule" data-uid="TraktNET.TraktNotesModule" class="text-break">Class TraktNotesModule</h1>
+  <div class="markdown level0 summary"><pre><code>        Provides access to data retrieving methods specific to notes.
+</code></pre>
+<p></p>
+<pre><code>        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/notes&quot;&gt;&quot;Trakt API Documentation - Notes&quot;&lt;/a&gt; section.
+</code></pre>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="TraktNET.BaseModule.html">BaseModule</a></div>
+    <div class="level2"><span class="xref">TraktNotesModule</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="TraktNET.html">TraktNET</a></h6>
+  <h6><strong>Assembly</strong>: Trakt.NET.Ex.dll</h6>
+  <h5 id="TraktNET_TraktNotesModule_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class TraktNotesModule : BaseModule</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktNotesModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule__ctor_" data-uid="TraktNET.TraktNotesModule.#ctor*"></a>
+  <h4 id="TraktNET_TraktNotesModule__ctor_TraktNET_TraktContext_" data-uid="TraktNET.TraktNotesModule.#ctor(TraktNET.TraktContext)">TraktNotesModule(TraktContext)</h4>
+  <div class="markdown level1 summary"><pre><code>        Provides access to data retrieving methods specific to notes.
+</code></pre>
+<p></p>
+<pre><code>        This module contains all methods of the &lt;a href=&quot;https://trakt.docs.apiary.io/#reference/notes&quot;&gt;&quot;Trakt API Documentation - Notes&quot;&lt;/a&gt; section.
+</code></pre>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktNotesModule(TraktContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktContext.html">TraktContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddCollectionMovieNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddCollectionMovieNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddCollectionMovieNoteAsync_TraktNET_TraktMovie_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddCollectionMovieNoteAsync(TraktNET.TraktMovie,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddCollectionMovieNoteAsync(TraktMovie, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for a collection <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddCollectionMovieNoteAsync(TraktMovie movie, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a></td>
+        <td><span class="parametername">movie</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddCollectionMovieNoteAsync_TraktNET_TraktMovie_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">movie</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddCollectionShowNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddCollectionShowNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddCollectionShowNoteAsync_TraktNET_TraktShow_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddCollectionShowNoteAsync(TraktNET.TraktShow,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddCollectionShowNoteAsync(TraktShow, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for a collection <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddCollectionShowNoteAsync(TraktShow show, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktShow.html">TraktShow</a></td>
+        <td><span class="parametername">show</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddCollectionShowNoteAsync_TraktNET_TraktShow_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">show</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddEpisodeNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddEpisodeNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddEpisodeNoteAsync_TraktNET_TraktEpisode_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddEpisodeNoteAsync(TraktNET.TraktEpisode,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddEpisodeNoteAsync(TraktEpisode, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for an <a class="xref" href="TraktNET.TraktEpisode.html">TraktEpisode</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddEpisodeNoteAsync(TraktEpisode episode, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktEpisode.html">TraktEpisode</a></td>
+        <td><span class="parametername">episode</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktEpisode.html">TraktEpisode</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddEpisodeNoteAsync_TraktNET_TraktEpisode_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if the given <code class="paramref">episode</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddHistoryNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddHistoryNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddHistoryNoteAsync_System_UInt64_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddHistoryNoteAsync(System.UInt64,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddHistoryNoteAsync(ulong, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for an history item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddHistoryNoteAsync(ulong historyID, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></td>
+        <td><span class="parametername">historyID</span></td>
+        <td><p>The ID of the history item for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddHistoryNoteAsync_System_UInt64_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddMovieNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddMovieNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddMovieNoteAsync_TraktNET_TraktMovie_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddMovieNoteAsync(TraktNET.TraktMovie,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddMovieNoteAsync(TraktMovie, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddMovieNoteAsync(TraktMovie movie, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a></td>
+        <td><span class="parametername">movie</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddMovieNoteAsync_TraktNET_TraktMovie_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">movie</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddPersonNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddPersonNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddPersonNoteAsync_TraktNET_TraktPerson_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddPersonNoteAsync(TraktNET.TraktPerson,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddPersonNoteAsync(TraktPerson, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddPersonNoteAsync(TraktPerson person, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a></td>
+        <td><span class="parametername">person</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddPersonNoteAsync_TraktNET_TraktPerson_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if the given <code class="paramref">person</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddRatedEpisodeNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddRatedEpisodeNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddRatedEpisodeNoteAsync_TraktNET_TraktEpisode_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddRatedEpisodeNoteAsync(TraktNET.TraktEpisode,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddRatedEpisodeNoteAsync(TraktEpisode, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for a rated <a class="xref" href="TraktNET.TraktEpisode.html">TraktEpisode</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddRatedEpisodeNoteAsync(TraktEpisode episode, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktEpisode.html">TraktEpisode</a></td>
+        <td><span class="parametername">episode</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktEpisode.html">TraktEpisode</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddRatedEpisodeNoteAsync_TraktNET_TraktEpisode_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">episode</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddRatedMovieNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddRatedMovieNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddRatedMovieNoteAsync_TraktNET_TraktMovie_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddRatedMovieNoteAsync(TraktNET.TraktMovie,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddRatedMovieNoteAsync(TraktMovie, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for a rated <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddRatedMovieNoteAsync(TraktMovie movie, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a></td>
+        <td><span class="parametername">movie</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddRatedMovieNoteAsync_TraktNET_TraktMovie_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">movie</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddRatedSeasonNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddRatedSeasonNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddRatedSeasonNoteAsync_TraktNET_TraktSeason_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddRatedSeasonNoteAsync(TraktNET.TraktSeason,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddRatedSeasonNoteAsync(TraktSeason, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for a rated <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddRatedSeasonNoteAsync(TraktSeason season, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a></td>
+        <td><span class="parametername">season</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddRatedSeasonNoteAsync_TraktNET_TraktSeason_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">season</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddRatedShowNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddRatedShowNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddRatedShowNoteAsync_TraktNET_TraktShow_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddRatedShowNoteAsync(TraktNET.TraktShow,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddRatedShowNoteAsync(TraktShow, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for a rated <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddRatedShowNoteAsync(TraktShow show, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktShow.html">TraktShow</a></td>
+        <td><span class="parametername">show</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddRatedShowNoteAsync_TraktNET_TraktShow_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">show</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddSeasonNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddSeasonNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddSeasonNoteAsync_TraktNET_TraktSeason_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddSeasonNoteAsync(TraktNET.TraktSeason,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddSeasonNoteAsync(TraktSeason, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for a <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddSeasonNoteAsync(TraktSeason season, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a></td>
+        <td><span class="parametername">season</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddSeasonNoteAsync_TraktNET_TraktSeason_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if the given <code class="paramref">season</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModuleAddNote.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_AddShowNoteAsync_" data-uid="TraktNET.TraktNotesModule.AddShowNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_AddShowNoteAsync_TraktNET_TraktShow_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.AddShowNoteAsync(TraktNET.TraktShow,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">AddShowNoteAsync(TraktShow, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds notes for a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; AddShowNoteAsync(TraktShow show, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktShow.html">TraktShow</a></td>
+        <td><span class="parametername">show</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> instance for which the notes will be attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The content of the created note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created user notes entry.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_AddShowNoteAsync_TraktNET_TraktShow_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p>VIP enhanced.</p>
+<p><a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+Trakt API Documentation: Notes: Add notes
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">show</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_DeleteNoteAsync_" data-uid="TraktNET.TraktNotesModule.DeleteNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_DeleteNoteAsync_System_UInt64_System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.DeleteNoteAsync(System.UInt64,System.Threading.CancellationToken)">DeleteNoteAsync(ulong, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Delete a single note.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; DeleteNoteAsync(ulong noteId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></td>
+        <td><span class="parametername">noteId</span></td>
+        <td><p>The id of the note which should be deleted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_DeleteNoteAsync_System_UInt64_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p><a href="https://docs.trakt.tv/reference/deletenotesdelete">
+Trakt API Documentation: Note: Delete a note
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_GetNoteAsync_" data-uid="TraktNET.TraktNotesModule.GetNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_GetNoteAsync_System_UInt64_System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.GetNoteAsync(System.UInt64,System.Threading.CancellationToken)">GetNoteAsync(ulong, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Returns a single note.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; GetNoteAsync(ulong noteId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></td>
+        <td><span class="parametername">noteId</span></td>
+        <td><p>The id of the note which should is requested.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the requested note.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_GetNoteAsync_System_UInt64_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p><a href="https://docs.trakt.tv/reference/getnotessummary">
+Trakt API Documentation: Note: Get a note
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_GetNoteItemAsync_" data-uid="TraktNET.TraktNotesModule.GetNoteItemAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_GetNoteItemAsync_System_UInt64_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.GetNoteItemAsync(System.UInt64,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetNoteItemAsync(ulong, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Returns the item this note is attached to.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNoteItem&gt;&gt; GetNoteItemAsync(ulong noteId, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></td>
+        <td><span class="parametername">noteId</span></td>
+        <td><p>The id of the note for which the attached item should is requested.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the note item.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNoteItem.html">TraktNoteItem</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried comment's media item.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNoteItem.html">TraktNoteItem</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_GetNoteItemAsync_System_UInt64_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getnotesitem">
+Trakt API Documentation: Item: Get the attached item
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Notes/TraktNotesModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktNotesModule_UpdateNoteAsync_" data-uid="TraktNET.TraktNotesModule.UpdateNoteAsync*"></a>
+  <h4 id="TraktNET_TraktNotesModule_UpdateNoteAsync_System_UInt64_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_" data-uid="TraktNET.TraktNotesModule.UpdateNoteAsync(System.UInt64,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)">UpdateNoteAsync(ulong, string, bool?, TraktListPrivacy?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Update a single note (500 maximum characters).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktNote&gt;&gt; UpdateNoteAsync(ulong noteId, string notes, bool? spoiler = null, TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></td>
+        <td><span class="parametername">noteId</span></td>
+        <td><p>The id of the note which should be updated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">notes</span></td>
+        <td><p>The new content of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">spoiler</span></td>
+        <td><p>Optional parameter which determines whether the note contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListPrivacy.html">TraktListPrivacy</a>?</td>
+        <td><span class="parametername">privacy</span></td>
+        <td><p>Optional parameter determining the privacy setting of the note.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><pre><code>        Propagates notification that the request should be canceled.
+</code></pre>
+<p></p>
+<pre><code>        If provided, the exception &lt;xref href=&quot;System.OperationCanceledException&quot; data-throw-if-not-resolved=&quot;false&quot;&gt;&lt;/xref&gt; should be catched.
+</code></pre>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the requested note.</p>
+<p></p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktNote.html">TraktNote</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktNotesModule_UpdateNoteAsync_System_UInt64_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization required.</p>
+<p><a href="https://docs.trakt.tv/reference/putnotesupdate">
+Trakt API Documentation: Note: Update a note
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktNotesModule.cs" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Made with <a href='https://dotnet.github.io/docfx/'>docfx</a></span><br>Copyright © 2026 - Current José Fariña et al.
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

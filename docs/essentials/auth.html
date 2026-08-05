@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Authentication and Authorization | Trakt.NET </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Authentication and Authorization | Trakt.NET ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="Trakt.NET">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="authentication-and-authorization">Authentication and Authorization</h1>
+
+<p>Authentication is necessary if you need to call Trakt API requests that require authorization. Every method in the library that requires authorization indicates this in its method documentation.</p>
+<p>The Trakt API provides two methods for authenticating users and both are supported by the library. For more information read the <a href="auth.html#oauth-authentication">OAuth Authentication</a> and <a href="auth.html#device-authentication">Device Authentication</a> sections.</p>
+<h2 id="authorization">Authorization</h2>
+<p>Authorization information for the Trakt API contains not only the access token but also a refresh token, that makes it possible to retrieve new authorization information without authenticating the user again and without the need of the user to interact.</p>
+<p>The <a class="xref" href="../../api/TraktNET.TraktAuthorization.html"><code>TraktAuthorization</code></a> record class represents such authorization information. It also contains the UTC DateTime when it was created and can tell you if it is expired and if the containing authorization information can be <a href="auth.html#refresh-authorization">refreshed</a>. You can get a new TraktAuthorization instance by authenticating the user either with <a href="auth.html#oauth-authentication">OAuth</a>- or <a href="auth.html#device-authentication">Device</a>-Authentication.</p>
+<p>If you already have an access token (and optionally a refresh token), you can create a new <a class="xref" href="../../api/TraktNET.TraktAuthorization.html"><code>TraktAuthorization</code></a> instance in one of the following ways:</p>
+<pre><code class="lang-csharp">using TraktNET;
+
+TraktAuthorization authorization = TraktAuthorization.CreateWith(&quot;existing access token&quot;);
+
+// or
+
+TraktAuthorization authorization = TraktAuthorization.CreateWith(&quot;existing access token&quot;, &quot;existing refresh token&quot;);
+
+// or,
+// if you also have the DateTime, when the authorization was created
+// and the value, after which the authorization expires
+
+DateTime createdAt = DateTime.UtcNow.AddDays(-30); // 30 days ago
+uint expiresInSeconds = 3600 * 24 * 90; // 90 days (default value), has to be in seconds
+
+TraktAuthorization authorization = TraktAuthorization.CreateWith(createdAt, expiresInSeconds, &quot;existing access token&quot;);
+TraktAuthorization authorization = TraktAuthorization.CreateWith(createdAt, expiresInSeconds, &quot;existing access token&quot;, &quot;existing refresh token&quot;);
+</code></pre>
+<p>And then just pass it to your <a class="xref" href="../../api/TraktNET.TraktClient.html"><code>TraktClient</code></a> instance:</p>
+<pre><code class="lang-csharp">client.Authorization = authorization;
+</code></pre>
+<h2 id="oauth-authentication">OAuth Authentication</h2>
+<p>The workflow for authenticating users with the <a href="https://trakt.docs.apiary.io/#reference/authentication-oauth">traditional OAuth method</a> is the following:</p>
+<ol>
+<li>Create an authorization URL: <code>string authorizationUrl = client.Auth.CreateAuthorizationUrl();</code></li>
+<li>Your users need to visit the <code>authorizationUrl</code>'s webpage.</li>
+<li>Your users need to provide you a PIN code that they get from Trakt.tv.</li>
+<li>Get authorization with the PIN code provided by your users:</li>
+</ol>
+<pre><code class="lang-csharp">using TraktNET;
+
+string code = &quot;12345678&quot;; // PIN code from your users
+TraktResponse&lt;TraktAuthorization&gt; authorizationResponse = await client.Auth.GetAuthorizationAsync(code);
+TraktAuthorization authorization = authorizationResponse.Content!;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You don't need to pass the returned <a class="xref" href="../../api/TraktNET.TraktAuthorization.html"><code>TraktAuthorization</code></a> to your <a class="xref" href="../../api/TraktNET.TraktClient.html"><code>TraktClient</code></a> instance. This happens automatically inside the library.</p>
+</div>
+<p><a href="../../examples/auth/oauth-authentication.html">Here</a> is an example of how to authenticate a user with OAuth Authentication.</p>
+<h2 id="device-authentication">Device Authentication</h2>
+<p>The workflow for authenticating users with the <a href="https://trakt.docs.apiary.io/#reference/authentication-devices">Device method</a> is the following:</p>
+<ol>
+<li>Create a new <a class="xref" href="../../api/TraktNET.TraktDevice.html"><code>TraktDevice</code></a>: <code>TraktResponse&lt;TraktDevice&gt; deviceResponse = await client.Auth.GenerateDeviceAsync();</code> The returned <a class="xref" href="../../api/TraktNET.TraktDevice.html"><code>TraktDevice</code></a> is valid for about ten minutes and contains a device code and a verification URL.</li>
+<li>Your users need to visit the <code>device.VerificationUrl</code> web page and enter the <code>device.UserCode</code> on that web page.</li>
+<li>Simultaneously you need to poll for the new authorization:</li>
+</ol>
+<pre><code class="lang-csharp">using TraktNET;
+
+TraktResponse&lt;TraktAuthorization&gt; authorizationResponse = await client.Auth.PollForAuthorizationAsync();
+TraktAuthorization authorization = authorizationResponse.Content!;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You don't need to pass the returned <a class="xref" href="../../api/TraktNET.TraktAuthorization.html"><code>TraktAuthorization</code></a> to your <a class="xref" href="../../api/TraktNET.TraktClient.html"><code>TraktClient</code></a> instance. This happens automatically inside the library.</p>
+</div>
+<p><a href="../../examples/auth/device-authentication.html">Here</a> is an example of how to authenticate a user with Device Authentication.</p>
+<h2 id="refresh-authorization">Refresh Authorization</h2>
+<p>The Trakt authorization information will be valid for 90 days for each one of your users. You need to refresh the authorization before the current one expires. Your <a class="xref" href="../../api/TraktNET.TraktAuthorization.html"><code>TraktAuthorization</code></a> needs to have a valid refresh token set. You can check this with its property <code>IsRefreshPossible</code>. To refresh the current authorization, call:</p>
+<pre><code class="lang-csharp">using TraktNET;
+
+// Precondition: client.Authorization is already set
+TraktResponse&lt;TraktAuthorization&gt; newAuthorizationResponse = await client.Auth.RefreshAuthorizationAsync();
+TraktAuthorization newAuthorization = newAuthorizationResponse.Content!;
+</code></pre>
+<h2 id="revoke-authorization">Revoke Authorization</h2>
+<p>Revoking the current authorization is also very simple:</p>
+<pre><code class="lang-csharp">await client.Auth.RevokeAuthorizationAsync();
+</code></pre>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/docs/docs/essentials/auth.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      <span>Made with <a href='https://dotnet.github.io/docfx/'>docfx</a></span><br>Copyright © 2026 - Current José Fariña et al.
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
