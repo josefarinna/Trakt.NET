@@ -1,5 +1,9 @@
 namespace TraktNET
 {
+    /// <summary>
+    /// Provides access to data retrieving methods specific to media (movies and shows).
+    /// <para>This module contains all methods of the "Trakt API Documentation - Media" section.</para>
+    /// </summary>
     public sealed partial class TraktMediaModule
     {
         /// <summary>Gets anticipated media (movies and shows).</summary>
@@ -14,13 +18,12 @@ namespace TraktNET
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried anticipated media.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktAnticipatedMedia" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktAnticipatedMedia" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -45,13 +48,12 @@ namespace TraktNET
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried popular media.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktPopularMedia" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktPopularMedia" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -76,13 +78,12 @@ namespace TraktNET
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried trending media.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktTrendingMedia" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktTrendingMedia" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

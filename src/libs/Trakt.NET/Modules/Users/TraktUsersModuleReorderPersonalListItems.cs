@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 
 namespace TraktNET
 {
@@ -9,13 +9,12 @@ namespace TraktNET
         /// <param name="listIdOrSlug">The id or slug of the list, for which the items should be reordered.</param>
         /// <param name="reorderedListItemsRank">A collection of list item ids. Represents the new order of an user's personal list items.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the successfully updated personal list items order.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktListItemsReorderPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktListItemsReorderPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -35,13 +34,12 @@ namespace TraktNET
         /// <param name="traktListId">The Trakt-ID of the list, for which the items should be reordered.</param>
         /// <param name="reorderedListItemsRank">A collection of list item ids. Represents the new order of an user's personal list items.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the successfully updated personal list items order.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktListItemsReorderPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktListItemsReorderPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -67,13 +65,12 @@ namespace TraktNET
         /// <param name="listIds">The ids of the list, for which the items should be reordered.</param>
         /// <param name="reorderedListItemsRank">A collection of list item ids. Represents the new order of an user's personal list items.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the successfully updated personal list items order.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktListItemsReorderPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktListItemsReorderPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -102,13 +99,12 @@ namespace TraktNET
         /// <param name="list">The list, for which the items should be reordered.</param>
         /// <param name="reorderedListItemsRank">A collection of list item ids. Represents the new order of an user's personal list items.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the successfully updated personal list items order.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktListItemsReorderPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktListItemsReorderPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.

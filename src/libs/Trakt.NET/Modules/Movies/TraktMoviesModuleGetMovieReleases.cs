@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktMoviesModule
     {
@@ -6,13 +6,12 @@
         /// <param name="traktMovieIDOrSlug">The movie's Trakt-ID or -Slug.</param>
         /// <param name="country">A two character country code.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried movie releases.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktMovieRelease" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktMovieRelease" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -30,13 +29,12 @@
         /// <param name="traktMovieID">The movie's Trakt-ID.</param>
         /// <param name="country">A two character country code.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried movie releases.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktMovieRelease" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktMovieRelease" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -54,13 +52,12 @@
         /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
         /// <param name="country">A two character country code.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried movie releases.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktMovieRelease" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktMovieRelease" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

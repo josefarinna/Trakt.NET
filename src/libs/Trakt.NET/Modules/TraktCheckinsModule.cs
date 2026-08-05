@@ -1,8 +1,8 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to checkins.<para />
-    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-checkin">"Trakt API Documentation - Checkin"</a> section.
+    /// Provides access to data retrieving methods specific to checkins.
+    /// <para>This module contains all methods of the <see href="https://docs.trakt.tv/reference/about-checkin">Trakt API Documentation - Checkins</see> section.</para>
     /// </summary>
     public partial class TraktCheckinsModule
     {
@@ -11,13 +11,12 @@
         /// </summary>
         /// <param name="movieCheckin">An <see cref="TraktMovieCheckin" /> instance, which should be posted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried movie.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieCheckinResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieCheckinResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -36,13 +35,12 @@
         /// </summary>
         /// <param name="episodeCheckin">An <see cref="TraktEpisodeCheckin" /> instance, which should be posted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried episode.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeCheckinResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeCheckinResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -60,8 +58,8 @@
         /// Deletes any active checkins.
         /// </summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// <returns>A <see cref="TraktResponse" />.</returns>

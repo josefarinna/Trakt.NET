@@ -1,20 +1,19 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to countries.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/countries">"Trakt API Documentation - Countries"</a> section.
+    /// Provides access to data retrieving methods specific to countries.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Countries" section.</para>
     /// </summary>
     public sealed partial class TraktCountriesModule
     {
         /// <summary>Gets a list of all movie countries.</summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried countries.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCountry" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCountry" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -28,13 +27,12 @@ namespace TraktNET
 
         /// <summary>Gets a list of all show countries.</summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried countries.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCountry" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCountry" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

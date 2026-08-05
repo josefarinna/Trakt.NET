@@ -1,9 +1,9 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
-    /// Determines the possible extended options for Trakt API requests, allowing retrieving of additional data.<para />
-    /// This enum can be used as a flag and multiple values can be combined.<para />
-    /// See <a href="https://trakt.docs.apiary.io/#introduction/extended-info">"Trakt API Documentation - Extended Info"</a> for more information.
+    /// Determines the possible extended options for Trakt API requests, allowing retrieving of additional data.
+    /// <para>This enum can be used as a flag and multiple values can be combined.</para>
+    /// <para>See <see href="https://docs.trakt.tv/docs/extended-info">Trakt API Documentation - Extended Info</see> for more information.</para>
     /// </summary>
     [TraktEnum(QueryName = "extended", HasQuerySupport = true)]
     [Flags]

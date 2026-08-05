@@ -3,8 +3,8 @@ using System.Net.Http.Json;
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to notes.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/notes">"Trakt API Documentation - Notes"</a> section.
+    /// Provides access to data retrieving methods specific to notes.
+    /// <para>This module contains all methods of the <see href=""></see> section.</para>
     /// </summary>
     public partial class TraktNotesModule
     {
@@ -14,13 +14,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -43,13 +42,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -72,13 +70,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -101,13 +98,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -130,13 +126,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -159,13 +154,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -187,13 +181,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -216,13 +209,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -245,13 +237,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -274,13 +265,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -303,13 +293,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -332,13 +321,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.

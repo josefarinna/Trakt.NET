@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to shows.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/shows">"Trakt API Documentation - Shows"</a> section.
+    /// Provides access to data retrieving methods specific to shows.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Shows" section.</para>
     /// </summary>
     public sealed partial class TraktShowsModule(TraktContext context) : BaseModule(context)
     {

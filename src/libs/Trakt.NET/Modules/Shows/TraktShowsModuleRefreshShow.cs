@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktShowsModule
     {
@@ -7,14 +7,14 @@
         /// </summary>
         /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/refresh/refresh-show-metadata">
+        /// <para><see href="https://docs.trakt.tv/reference/postshowsrefresh">
         /// Trakt API Documentation: Shows: Refresh - Refresh show metadata
         /// </see></para>
         /// </remarks>
@@ -29,14 +29,14 @@
         /// </summary>
         /// <param name="traktShowID">The show's Trakt-ID.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/refresh/refresh-show-metadata">
+        /// <para><see href="https://docs.trakt.tv/reference/postshowsrefresh">
         /// Trakt API Documentation: Shows: Refresh - Refresh show metadata
         /// </see></para>
         /// </remarks>
@@ -57,14 +57,14 @@
         /// </summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/refresh/refresh-show-metadata">
+        /// <para><see href="https://docs.trakt.tv/reference/postshowsrefresh">
         /// Trakt API Documentation: Shows: Refresh - Refresh show metadata
         /// </see></para>
         /// </remarks>

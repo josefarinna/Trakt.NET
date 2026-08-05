@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -40,9 +40,9 @@ namespace TraktNET
         /// Returns, whether this device is valid.
         /// <para>
         /// A Trakt device is valid, as long as the actual <see cref="DeviceCode" />
-        /// is neither null nor empty and as long as this device is not expired.<para />
-        /// See also <seealso cref="ExpiresInSeconds" />.<para />
-        /// See also <seealso cref="IsExpiredUnused" />.<para />
+        /// is neither null nor empty and as long as this device is not expired.
+        /// <para>See also <seealso cref="ExpiresInSeconds" />.<para /></para>
+        /// See also <seealso cref="IsExpiredUnused" />.
         /// </para>
         /// </summary>
         [JsonIgnore]

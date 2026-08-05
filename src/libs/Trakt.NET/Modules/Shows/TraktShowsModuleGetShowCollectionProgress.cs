@@ -13,8 +13,7 @@ namespace TraktNET
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the collection progress information.
-        /// <para/>
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and the appropriate response type for collection progress.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowCollectionProgress" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -39,8 +38,7 @@ namespace TraktNET
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the collection progress information.
-        /// <para/>
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and the appropriate response type for collection progress.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowCollectionProgress" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -65,8 +63,7 @@ namespace TraktNET
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the collection progress information.
-        /// <para/>
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and the appropriate response type for collection progress.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowCollectionProgress" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.

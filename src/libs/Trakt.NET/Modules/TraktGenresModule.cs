@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to genres.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/genres">"Trakt API Documentation - Genres"</a> section.
+    /// Provides access to data retrieving methods specific to genres.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Genres" section.</para>
     /// </summary>
     public sealed partial class TraktGenresModule
     {
@@ -12,13 +12,12 @@ namespace TraktNET
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried genres.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktGenre" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktGenre" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -37,13 +36,12 @@ namespace TraktNET
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried genres.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktGenre" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktGenre" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

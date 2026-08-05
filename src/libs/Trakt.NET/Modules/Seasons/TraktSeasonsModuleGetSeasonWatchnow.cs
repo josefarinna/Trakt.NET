@@ -7,13 +7,12 @@ namespace TraktNET
         /// <param name="seasonNumber">The number of the season.</param>
         /// <param name="country">The 2-character country code (e.g. "us").</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried JustWatch links.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -32,13 +31,12 @@ namespace TraktNET
         /// <param name="seasonNumber">The number of the season.</param>
         /// <param name="country">The 2-character country code (e.g. "us").</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried JustWatch links.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -57,13 +55,12 @@ namespace TraktNET
         /// <param name="seasonNumber">The number of the season.</param>
         /// <param name="country">The 2-character country code (e.g. "us").</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried JustWatch links.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

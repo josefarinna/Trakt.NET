@@ -1,21 +1,20 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to scrobbles.<para />
-    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-scrobble">"Trakt API Documentation - Scrobble"</a> section.
+    /// Provides access to data retrieving methods specific to scrobbles.
+    /// <para>This module contains all methods of the <see href="https://docs.trakt.tv/reference/about-scrobble">Trakt API Documentation - Scrobble</see> section.</para>
     /// </summary>
     public sealed partial class TraktScrobbleModule
     {
         /// <summary>Starts watching a <see cref="TraktMovie" /> in a media center.</summary>
         /// <param name="movieScrobblePost">An <see cref="TraktMovieScrobblePost" /> instance, which should be posted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the successfully scrobbled movie's data.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieScrobblePostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieScrobblePostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -33,13 +32,12 @@ namespace TraktNET
         /// <summary>Pauses watching a <see cref="TraktMovie" /> in a media center.</summary>
         /// <param name="movieScrobblePost">An <see cref="TraktMovieScrobblePost" /> instance, which should be posted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the successfully scrobbled movie's data.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieScrobblePostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieScrobblePostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -57,13 +55,12 @@ namespace TraktNET
         /// <summary>Stops watching a <see cref="TraktMovie" /> in a media center.</summary>
         /// <param name="movieScrobblePost">An <see cref="TraktMovieScrobblePost" /> instance, which should be posted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the successfully scrobbled movie's data.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieScrobblePostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieScrobblePostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -81,13 +78,12 @@ namespace TraktNET
         /// <summary>Starts watching a <see cref="TraktEpisode" /> in a media center.</summary>
         /// <param name="episodeScrobblePost">An <see cref="TraktEpisodeScrobblePost" /> instance, which should be posted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the successfully scrobbled episode's data.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeScrobblePostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeScrobblePostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -105,13 +101,12 @@ namespace TraktNET
         /// <summary>Pauses watching a <see cref="TraktEpisode" /> in a media center.</summary>
         /// <param name="episodeScrobblePost">An <see cref="TraktEpisodeScrobblePost" /> instance, which should be posted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the successfully scrobbled episode's data.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeScrobblePostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeScrobblePostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -129,13 +124,12 @@ namespace TraktNET
         /// <summary>Stops watching a <see cref="TraktEpisode" /> in a media center.</summary>
         /// <param name="episodeScrobblePost">An <see cref="TraktEpisodeScrobblePost" /> instance, which should be posted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the successfully scrobbled episode's data.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeScrobblePostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeScrobblePostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.

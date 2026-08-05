@@ -1,4 +1,4 @@
-﻿#if !NETSTANDARD2_0
+#if !NETSTANDARD2_0
 using System.Net.Mime;
 #endif
 using System.Text;
@@ -6,9 +6,8 @@ using System.Text;
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to OAuth and device authentication and authorization.<para />
-    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/authentication#user-content-authentication">"Trakt API Documentation - Authentication - OAuth"</a> section
-    /// and the <a href="https://docs.trakt.tv/reference/authentication#user-content-device-code-flow">"Trakt API Documentation - Authentication - Devices"</a> section.
+    /// Provides access to OAuth and device authentication and authorization.
+    /// <para>This module contains all methods of the <see href="https://docs.trakt.tv/reference/auth">Trakt API Documentation - Authentication</see> section</para>
     /// </summary>
     public sealed partial class TraktAuthModule(TraktContext context) : BaseModule(context)
     {

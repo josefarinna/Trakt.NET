@@ -1,8 +1,8 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to notes.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/notes">"Trakt API Documentation - Notes"</a> section.
+    /// Provides access to data retrieving methods specific to notes.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Notes" section.</para>
     /// </summary>
     public sealed partial class TraktNotesModule(TraktContext context) : BaseModule(context)
     {

@@ -7,13 +7,12 @@ namespace TraktNET
         /// <param name="seasonNumber">The number of the season containing the episode, for which the statistics should be queried.</param>
         /// <param name="episodeNumber">The number of the episode, for which the statistics should be queried.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried episode statistics.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeStatistics" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeStatistics" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -32,13 +31,12 @@ namespace TraktNET
         /// <param name="seasonNumber">The number of the season containing the episode, for which the statistics should be queried.</param>
         /// <param name="episodeNumber">The number of the episode, for which the statistics should be queried.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried episode statistics.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeStatistics" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeStatistics" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -63,13 +61,12 @@ namespace TraktNET
         /// <param name="seasonNumber">The number of the season containing the episode, for which the statistics should be queried.</param>
         /// <param name="episodeNumber">The number of the episode, for which the statistics should be queried.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried episode statistics.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeStatistics" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeStatistics" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -97,13 +94,12 @@ namespace TraktNET
         /// <param name="seasonNumber">The number of the season containing the episode, for which the statistics should be queried.</param>
         /// <param name="episodeNumber">The number of the episode, for which the statistics should be queried.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried episode statistics.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeStatistics" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeStatistics" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

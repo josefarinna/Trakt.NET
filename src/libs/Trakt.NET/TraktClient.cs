@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to all functionality of this library.<para/>
-    /// Provides the only access to all of the library's modules.
+    /// Provides access to all functionality of this library.
+    /// <para>Provides the only access to all of the library's modules.</para>
     /// </summary>
     public sealed partial class TraktClient
     {
@@ -150,8 +150,7 @@ namespace TraktNET
 
         /// <summary>
         /// Create the a <see cref="TraktClient" /> with the given <paramref name="clientID" /> and <paramref name="clientSecret" />.
-        /// <para />
-        /// The created <see cref="TraktClient" /> uses Trakt's sandbox environment.
+        /// <para>The created <see cref="TraktClient" /> uses Trakt's sandbox environment.</para>
         /// </summary>
         /// <param name="clientID">The Trakt Client ID to be used in the <see cref="TraktClient" />.</param>
         /// <param name="clientSecret">The Trakt Client Secret to be used in the <see cref="TraktClient" />.</param>

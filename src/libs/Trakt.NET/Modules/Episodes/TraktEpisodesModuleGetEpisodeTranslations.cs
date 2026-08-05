@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktEpisodesModule
     {
@@ -8,13 +8,12 @@
         /// <param name="episodeNumber">The number of the episode, for which the translations should be queried.</param>
         /// <param name="language">An optional two letter language code to query a specific translation language.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried episode translations.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeTranslation" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeTranslation" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -34,13 +33,12 @@
         /// <param name="episodeNumber">The number of the episode, for which the translations should be queried.</param>
         /// <param name="language">An optional two letter language code to query a specific translation language.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried episode translations.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeTranslation" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeTranslation" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -66,13 +64,12 @@
         /// <param name="episodeNumber">The number of the episode, for which the translations should be queried.</param>
         /// <param name="language">An optional two letter language code to query a specific translation language.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried episode translations.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeTranslation" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeTranslation" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -101,13 +98,12 @@
         /// <param name="episodeNumber">The number of the episode, for which the translations should be queried.</param>
         /// <param name="language">An optional two letter language code to query a specific translation language.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried episode translations.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeTranslation" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeTranslation" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

@@ -1,12 +1,12 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktListsModule
     {
         /// <summary>Like a list.</summary>
         /// <param name="listIdOrSlug">The id or slug of the list, which will be liked. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -23,8 +23,8 @@
         /// <summary>Like a list.</summary>
         /// <param name="traktListId">The Trakt ID of the list, which will be liked. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -47,8 +47,8 @@
         /// <summary>Like a list.</summary>
         /// <param name="listIds">The ids of the list, which will be liked. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -74,8 +74,8 @@
         /// <summary>Like a list.</summary>
         /// <param name="list">The list, which will be liked. See also <seealso cref="TraktList" />.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>

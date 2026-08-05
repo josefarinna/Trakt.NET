@@ -1,21 +1,20 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to notes.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/notes">"Trakt API Documentation - Notes"</a> section.
+    /// Provides access to data retrieving methods specific to notes.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Notes" section.</para>
     /// </summary>
     public sealed partial class TraktNotesModule
     {
         /// <summary>Returns a single note.</summary>
         /// <param name="noteId">The id of the note which should is requested.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the requested note.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -34,13 +33,12 @@ namespace TraktNET
         /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
         /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the requested note.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization required.
@@ -58,8 +56,8 @@ namespace TraktNET
         /// <summary>Delete a single note.</summary>
         /// <param name="noteId">The id of the note which should be deleted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -80,13 +78,12 @@ namespace TraktNET
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried comment's media item.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNoteItem" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNoteItem" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

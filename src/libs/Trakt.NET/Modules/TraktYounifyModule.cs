@@ -1,20 +1,19 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to Younify streaming connections.<para />
-    /// This module contains all methods of the Trakt API Documentation - Younify section.
+    /// Provides access to data retrieving methods specific to Younify streaming connections.
+    /// <para>This module contains all methods of the Trakt API Documentation - Younify section.</para>
     /// </summary>
     public sealed partial class TraktYounifyModule
     {
         /// <summary>Gets all connectable streaming services with the current user's connection status.</summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing all streaming service connections.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktYounifyConnection" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktYounifyConnection" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -29,13 +28,12 @@ namespace TraktNET
         /// <summary>Creates a Younify streaming connection, minting a signed web-auth URL for the client to open.</summary>
         /// <param name="post">The payload containing the service ID and return URL. See also <seealso cref="TraktYounifyConnectPost" />.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the signed web-auth URL.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktYounifyConnectResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktYounifyConnectResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -52,8 +50,8 @@ namespace TraktNET
         /// <summary>Queues a re-sync of a connected streaming service for the authenticated user.</summary>
         /// <param name="serviceId">The streaming service id (e.g. "netflix").</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -70,8 +68,8 @@ namespace TraktNET
         /// <summary>Queues a full re-sync of a connected streaming service for the authenticated user.</summary>
         /// <param name="serviceId">The streaming service id (e.g. "netflix").</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -88,8 +86,8 @@ namespace TraktNET
         /// <summary>Unlinks a streaming service from the authenticated user.</summary>
         /// <param name="serviceId">The streaming service id (e.g. "netflix").</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktResponse" />.</returns>
         /// <remarks>

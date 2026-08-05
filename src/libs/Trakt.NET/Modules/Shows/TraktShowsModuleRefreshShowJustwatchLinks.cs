@@ -7,8 +7,8 @@ namespace TraktNET
         /// </summary>
         /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -28,8 +28,8 @@ namespace TraktNET
         /// </summary>
         /// <param name="traktShowID">The show's Trakt-ID.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -55,8 +55,8 @@ namespace TraktNET
         /// </summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>

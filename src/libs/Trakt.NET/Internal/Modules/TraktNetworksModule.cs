@@ -1,8 +1,8 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to networks.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/networks">"Trakt API Documentation - Networks"</a> section.
+    /// Provides access to data retrieving methods specific to networks.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Networks" section.</para>
     /// </summary>
     public sealed partial class TraktNetworksModule(TraktContext context) : BaseModule(context)
     {

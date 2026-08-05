@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to comments.<para />
-    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-comments">"Trakt API Documentation - Comments"</a> section.
+    /// Provides access to data retrieving methods specific to comments.
+    /// <para>This module contains all methods of the <see href="https://docs.trakt.tv/reference/about-comments">Trakt API Documentation - Comments</see> section.</para>
     /// </summary>
     public sealed partial class TraktCommentsModule(TraktContext context) : BaseModule(context)
     {

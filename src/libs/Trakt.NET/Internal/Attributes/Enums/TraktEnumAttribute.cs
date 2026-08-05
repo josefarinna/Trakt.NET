@@ -4,11 +4,9 @@ namespace TraktNET
 {
     /// <summary>
     /// Provides extension methods and a Json converter for an enum.
-    /// <para />
-    /// Generates Json values for each enum member in lower snake case format
+    /// <para>Generates Json values for each enum member in lower snake case format</para>
     /// and display names for each enum member value splitted by space for each capital letter.
-    /// <para />
-    /// Default values can be overridden by using <see cref="TraktEnumMemberAttribute" /> on an enum member.
+    /// <para>Default values can be overridden by using <see cref="TraktEnumMemberAttribute" /> on an enum member.</para>
     /// </summary>
     [ExcludeFromCodeCoverage]
     [AttributeUsage(AttributeTargets.Enum, AllowMultiple = false, Inherited = false)]

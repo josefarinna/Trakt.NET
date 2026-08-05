@@ -6,19 +6,18 @@ namespace TraktNET
         /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
         /// <param name="resetAt">The UTC datetime from which the progress should be calculated onwards.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing an optional reset_at UTC date to have it.
         /// calculate progress from that specific date onwards.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowResetWatchedProgress" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowResetWatchedProgress" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para>See <see href="https://trakt.docs.apiary.io/#reference/shows/watched-progress/reset-show-progress">
+        /// <para>See <see href="https://docs.trakt.tv/reference/postshowsprogressreset">
         /// Trakt API Documentation: Shows: Reset Watched Progress
         /// </see></para>
         /// </remarks>
@@ -32,19 +31,18 @@ namespace TraktNET
         /// <param name="traktShowID">The show's Trakt-ID.</param>
         /// <param name="resetAt">The UTC datetime from which the progress should be calculated onwards.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing an optional reset_at UTC date to have it.
         /// calculate progress from that specific date onwards.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowResetWatchedProgress" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowResetWatchedProgress" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para>See <see href="https://trakt.docs.apiary.io/#reference/shows/watched-progress/reset-show-progress">
+        /// <para>See <see href="https://docs.trakt.tv/reference/postshowsprogressreset">
         /// Trakt API Documentation: Shows: Reset Watched Progress
         /// </see></para>
         /// </remarks>
@@ -58,19 +56,18 @@ namespace TraktNET
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
         /// <param name="resetAt">The UTC datetime from which the progress should be calculated onwards.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing an optional reset_at UTC date to have it.
         /// calculate progress from that specific date onwards.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowResetWatchedProgress" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowResetWatchedProgress" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para>See <see href="https://trakt.docs.apiary.io/#reference/shows/watched-progress/reset-show-progress">
+        /// <para>See <see href="https://docs.trakt.tv/reference/postshowsprogressreset">
         /// Trakt API Documentation: Shows: Reset Watched Progress
         /// </see></para>
         /// </remarks>

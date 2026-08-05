@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 
 namespace TraktNET
 {
@@ -10,8 +10,8 @@ namespace TraktNET
         /// <param name="listItemId">The id of the list item which should be updated.</param>
         /// <param name="notes">The new list item's notes value. Can be null to delete the content of the notes.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -32,8 +32,8 @@ namespace TraktNET
         /// <param name="listItemId">The id of the list item which should be updated.</param>
         /// <param name="notes">The new list item's notes value. Can be null to delete the content of the notes.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -60,8 +60,8 @@ namespace TraktNET
         /// <param name="listItemId">The id of the list item which should be updated.</param>
         /// <param name="notes">The new list item's notes value. Can be null to delete the content of the notes.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -91,8 +91,8 @@ namespace TraktNET
         /// <param name="listItemId">The id of the list item which should be updated.</param>
         /// <param name="notes">The new list item's notes value. Can be null to delete the content of the notes.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>

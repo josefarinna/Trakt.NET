@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to movies.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/movies">"Trakt API Documentation - Movies"</a> section.
+    /// Provides access to data retrieving methods specific to movies.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Movies" section.</para>
     /// </summary>
     public sealed partial class TraktMoviesModule(TraktContext context) : BaseModule(context)
     {

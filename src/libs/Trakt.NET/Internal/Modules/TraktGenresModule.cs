@@ -1,8 +1,8 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to genres.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/genres">"Trakt API Documentation - Genres"</a> section.
+    /// Provides access to data retrieving methods specific to genres.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Genres" section.</para>
     /// </summary>
     public sealed partial class TraktGenresModule(TraktContext context) : BaseModule(context)
     {

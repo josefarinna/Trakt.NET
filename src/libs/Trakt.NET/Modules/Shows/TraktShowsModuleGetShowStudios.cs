@@ -1,17 +1,16 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktShowsModule
     {
         /// <summary>Gets all studios for a <see cref="TraktShow" /> with the specified Trakt-ID or -Slug.</summary>
         /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried show studios.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktStudio" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktStudio" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -27,13 +26,12 @@
         /// <summary>Gets all studios for a <see cref="TraktShow" /> with the specified Trakt-ID.</summary>
         /// <param name="traktShowID">The show's Trakt-ID.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried show studios.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktStudio" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktStudio" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -49,13 +47,12 @@
         /// <summary>Gets all studios for a <see cref="TraktShow" /> with the specified <see cref="TraktShowIDs" />.</summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried show studios.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktStudio" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktStudio" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

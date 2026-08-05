@@ -1,20 +1,19 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to sync.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/sync">"Trakt API Documentation - Sync"</a> section.
+    /// Provides access to data retrieving methods specific to sync.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Sync" section.</para>
     /// </summary>
     public sealed partial class TraktSyncModule
     {
         /// <summary>Gets the user's last activities.</summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried last activities.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncLastActivities" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncLastActivities" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -42,16 +41,14 @@ namespace TraktNET
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried updated movies.
-        /// <para />
-        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
         /// and maximum item count.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktFavorite" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktFavorite" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -69,13 +66,12 @@ namespace TraktNET
         /// <summary>Reorder all user's favorites.</summary>
         /// <param name="reorderedFavoritedItemRanks">A collection of list ids. Represents the new order of an user's favorites.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried movie.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktListItemsReorderPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktListItemsReorderPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -94,8 +90,8 @@ namespace TraktNET
         /// <param name="listItemId">The id of the favorite item which should be updated.</param>
         /// <param name="notes">The new favorite item's notes value. Can be null to delete the content of the notes.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -116,16 +112,14 @@ namespace TraktNET
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried popular movies.
-        /// <para />
-        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
         /// and maximum item count.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncPlaybackProgressItem" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncPlaybackProgressItem" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -141,8 +135,8 @@ namespace TraktNET
         /// <summary>Removes a playback progress item from the user's playback progress list.</summary>
         /// <param name="playbackId">The id of the playback progress item, which should be removed.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -162,13 +156,12 @@ namespace TraktNET
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried collected movies.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionMovie" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionMovie" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -187,13 +180,12 @@ namespace TraktNET
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried collected shows.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionShow" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionShow" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -209,13 +201,12 @@ namespace TraktNET
         /// <summary>Adds items to the user's collection. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="collectionPost">An <see cref="TraktSyncCollectionPost" /> instance containing all shows, seasons, episodes and movies, which should be added.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about which items were added and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -234,13 +225,12 @@ namespace TraktNET
         /// <summary>Removes items from the user's collection. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="collectionRemovePost">An <see cref="TraktSyncCollectionRemovePost" /> instance containing all shows, seasons, episodes and movies, which should be removed.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about which items were deleted and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -263,13 +253,12 @@ namespace TraktNET
         /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
         /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried watched movies.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedMovie" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedMovie" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -290,13 +279,12 @@ namespace TraktNET
         /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
         /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried watched shows.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedShow" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedShow" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -327,13 +315,12 @@ namespace TraktNET
         /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
         /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried show watched progress items.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncProgressWatchedItem" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncProgressWatchedItem" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -362,13 +349,12 @@ namespace TraktNET
         /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
         /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried show up next progress items.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncProgressWatchedItem" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncProgressWatchedItem" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -392,13 +378,12 @@ namespace TraktNET
         /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
         /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried show up next nitro progress items.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncProgressWatchedItem" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncProgressWatchedItem" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -420,13 +405,12 @@ namespace TraktNET
         /// <param name="page">Number of page of items to be queried. Will be applied only, if limit is also set.</param>
         /// <param name="limit">Number of items per page to be queried. Will be applied only, if page is also set.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried watched episodes.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedEpisode" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchedEpisode" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -451,16 +435,14 @@ namespace TraktNET
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried history items.
-        /// <para />
-        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
         /// and maximum item count.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktHistoryItem" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktHistoryItem" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -477,13 +459,12 @@ namespace TraktNET
         /// <summary>Adds items to the user's watch history. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="historyPost">An <see cref="TraktSyncHistoryPost" /> instance containing all shows, seasons, episodes and movies, which should be added.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing which items were added and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovie" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovie" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -501,13 +482,12 @@ namespace TraktNET
         /// <summary>Removes items from the user's watch history. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="historyRemovePost">An <see cref="TraktSyncHistoryRemovePost" /> instance containing all shows, seasons, episodes and movies, which should be removed.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing which items were deleted and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncHistoryRemovePostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncHistoryRemovePostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -536,16 +516,14 @@ namespace TraktNET
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried rating items.
-        /// <para />
-        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
         /// and maximum item count.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktRatingsItem" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktRatingsItem" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -562,13 +540,12 @@ namespace TraktNET
         /// <summary>Adds items to the user's ratings. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="ratingsPost">An <see cref="TraktSyncRatingsPost" /> instance containing all shows, seasons, episodes and movies, which should be added.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing which items were added and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncRatingsPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncRatingsPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -586,13 +563,12 @@ namespace TraktNET
         /// <summary>Removes items from the user's ratings. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="ratingsRemovePost">An <see cref="TraktSyncRatingsRemovePost" /> instance containing all shows, seasons, episodes and movies, which should be removed.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing which items were deleted and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncRatingsRemovePostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncRatingsRemovePostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -610,13 +586,12 @@ namespace TraktNET
         /// <summary>Adds items to the user's favorites. Accepts movies and shows.</summary>
         /// <param name="favoritesPost">An <see cref="TraktSyncFavoritesPost" /> instance containing all movies and shows, which should be added.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing which items were added and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncFavoritesPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncFavoritesPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -634,13 +609,12 @@ namespace TraktNET
         /// <summary>Remove items from the user's favorites. Accepts movies and shows.</summary>
         /// <param name="favoritesRemovePost">An <see cref="TraktSyncFavoritesRemovePost" /> instance containing all movies and shows, which should be removed.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing which items were removed and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncFavoritesRemovePostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncFavoritesRemovePostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -660,13 +634,12 @@ namespace TraktNET
         /// <param name="sortBy">Sort by value for the favorites list.</param>
         /// <param name="sortHow">Sort how value for the favorites list.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the updated favorites list.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktList" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -692,16 +665,14 @@ namespace TraktNET
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried watchlist items.
-        /// <para />
-        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
         /// and maximum item count.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchlistItem" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktWatchlistItem" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -719,13 +690,12 @@ namespace TraktNET
         /// <summary>Reorders an user's watchlist.</summary>
         /// <param name="reorderedWatchlistItemRanks">A collection of list ids. Represents the new order of an user's watchlist.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the successfully updated watchlist order.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovie" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovie" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -744,8 +714,8 @@ namespace TraktNET
         /// <param name="listItemId">The id of the watchlist item which should be updated.</param>
         /// <param name="notes">The new watchlist item's notes value. Can be null to delete the content of the notes.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -763,13 +733,12 @@ namespace TraktNET
         /// <summary>Adds items to the user's watchlist. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="watchlistPost">An <see cref="TraktSyncWatchlistPost" /> instance containing all shows, seasons, episodes and movies, which should be added.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about which items were added, existing and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncWatchlistPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncWatchlistPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -788,13 +757,12 @@ namespace TraktNET
         /// <summary>Removes items from the user's watchlist. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="watchlistRemovePost">An <see cref="TraktSyncWatchlistRemovePost" /> instance containing all shows, seasons, episodes and movies, which should be removed.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about which items were deleted and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncWatchlistRemovePostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSyncWatchlistRemovePostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -814,13 +782,12 @@ namespace TraktNET
         /// <param name="sortBy">Sort by value for the watchlist.</param>
         /// <param name="sortHow">Sort how value for the watchlist.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the updated watchlist.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktList" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.

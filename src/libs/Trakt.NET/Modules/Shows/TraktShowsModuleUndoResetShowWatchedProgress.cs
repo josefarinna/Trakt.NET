@@ -5,8 +5,8 @@ namespace TraktNET
         /// <summary>Undoes the reset of watched progress for a <see cref="TraktShow" /> with the given Trakt-ID or -Slug.</summary>
         /// <param name="traktShowIDOrSlug">The show's Trakt-ID or -Slug.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse" />
@@ -14,7 +14,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para>See <see href="https://trakt.docs.apiary.io/#reference/shows/reset-watched-progress/undo-reset-show-progress">
+        /// <para>See <see href="https://docs.trakt.tv/reference/deleteshowsprogressundoreset">
         /// Trakt API Documentation: Shows: Undo Reset Watched Progress
         /// </see></para>
         /// </remarks>
@@ -26,8 +26,8 @@ namespace TraktNET
         /// <summary>Undoes the reset of watched progress for a <see cref="TraktShow" /> with the given Trakt-ID.</summary>
         /// <param name="traktShowID">The show's Trakt-ID.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse" />
@@ -35,7 +35,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para>See <see href="https://trakt.docs.apiary.io/#reference/shows/reset-watched-progress/undo-reset-show-progress">
+        /// <para>See <see href="https://docs.trakt.tv/reference/deleteshowsprogressundoreset">
         /// Trakt API Documentation: Shows: Undo Reset Watched Progress
         /// </see></para>
         /// </remarks>
@@ -47,8 +47,8 @@ namespace TraktNET
         /// <summary>Undoes the reset of watched progress for a <see cref="TraktShow" /> with the given IDs.</summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse" />
@@ -56,7 +56,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para>See <see href="https://trakt.docs.apiary.io/#reference/shows/reset-watched-progress/undo-reset-show-progress">
+        /// <para>See <see href="https://docs.trakt.tv/reference/deleteshowsprogressundoreset">
         /// Trakt API Documentation: Shows: Undo Reset Watched Progress
         /// </see></para>
         /// </remarks>

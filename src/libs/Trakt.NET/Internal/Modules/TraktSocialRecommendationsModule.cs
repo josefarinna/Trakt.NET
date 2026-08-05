@@ -1,5 +1,9 @@
 namespace TraktNET
 {
+    /// <summary>
+    /// Provides access to data retrieving methods specific to social recommendations.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Social Recommendations" section.</para>
+    /// </summary>
     public sealed partial class TraktSocialRecommendationsModule(TraktContext context) : BaseModule(context)
     {
         private Task<TraktPagedResponse<TraktSocialMovieRecommendation>> GetMovieRecommendationsImplAsync(uint? watchWindow = null,

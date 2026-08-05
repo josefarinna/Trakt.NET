@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktShowsModule
     {
@@ -13,12 +13,11 @@
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the watched progress information.
-        /// <para/>
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and the appropriate response type for watched progress.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowWatchedProgress" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/watched-progress/get-show-watched-progress">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsprogresswatched">
         /// Trakt API Documentation: Shows: Watched Progress - Get show watched progress
         /// </see></para>
         /// </remarks>
@@ -39,12 +38,11 @@
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the watched progress information.
-        /// <para/>
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and the appropriate response type for watched progress.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowWatchedProgress" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/watched-progress/get-show-watched-progress">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsprogresswatched">
         /// Trakt API Documentation: Shows: Watched Progress - Get show watched progress
         /// </see></para>
         /// </remarks>
@@ -65,12 +63,11 @@
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the watched progress information.
-        /// <para/>
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and the appropriate response type for watched progress.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktShowWatchedProgress" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/watched-progress/get-show-watched-progress">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsprogresswatched">
         /// Trakt API Documentation: Shows: Watched Progress - Get show watched progress
         /// </see></para>
         /// </remarks>

@@ -1,17 +1,16 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktMoviesModule
     {
         /// <summary>Gets the statistics for a <see cref="TraktMovie" /> with the specified Trakt-ID or -Slug.</summary>
         /// <param name="traktMovieIDOrSlug">The movie's Trakt-ID or -Slug.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried movie statistics.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieStatistics" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieStatistics" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -27,13 +26,12 @@
         /// <summary>Gets the statistics for a <see cref="TraktMovie" /> with the specified Trakt-ID.</summary>
         /// <param name="traktMovieID">The movie's Trakt-ID.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried movie statistics.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieStatistics" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieStatistics" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -49,13 +47,12 @@
         /// <summary>Gets the statistics for a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.</summary>
         /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried movie statistics.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieStatistics" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieStatistics" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

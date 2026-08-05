@@ -1,12 +1,12 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktRecommendationsModule
     {
         /// <summary>Hides a show with the given Trakt-Id or -Slug or IMDB-Id from getting recommended anymore.</summary>
         /// <param name="showIdOrSlug">The Trakt-Id or -Slug or an IMDB-Id of the show, which should be hidden from recommendations.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -23,8 +23,8 @@
         /// <summary>Hides a show with the given Trakt-Id or -Slug or IMDB-Id from getting recommended anymore.</summary>
         /// <param name="traktShowId">The Trakt-Id of the show, which should be hidden from recommendations.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -47,8 +47,8 @@
         /// <summary>Hides a show with the given Trakt-Id or -Slug or IMDB-Id from getting recommended anymore.</summary>
         /// <param name="showIds">The ids of the show, which should be hidden from recommendations.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -74,8 +74,8 @@
         /// <summary>Hides a show with the given Trakt-Id or -Slug or IMDB-Id from getting recommended anymore.</summary>
         /// <param name="show">The show, which should be hidden from recommendations.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>

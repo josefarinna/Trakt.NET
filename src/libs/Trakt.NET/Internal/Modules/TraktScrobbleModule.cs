@@ -1,8 +1,8 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to scrobbles.<para />
-    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-scrobble">"Trakt API Documentation - Scrobble"</a> section.
+    /// Provides access to data retrieving methods specific to scrobbles.
+    /// <para>This module contains all methods of the <see href="https://docs.trakt.tv/reference/about-scrobble">Trakt API Documentation - Scrobble</see> section.</para>
     /// </summary>
     public sealed partial class TraktScrobbleModule(TraktContext context) : BaseModule(context)
     {

@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to seasons.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/seasons">"Trakt API Documentation - Seasons"</a> section.
+    /// Provides access to data retrieving methods specific to seasons.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Seasons" section.</para>
     /// </summary>
     public partial class TraktSeasonsModule(TraktContext context) : BaseModule(context)
     {

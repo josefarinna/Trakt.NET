@@ -1,8 +1,8 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to checkins.<para />
-    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-checkin">"Trakt API Documentation - Checkin"</a> section.
+    /// Provides access to data retrieving methods specific to checkins.
+    /// <para>This module contains all methods of the <see href="https://docs.trakt.tv/reference/about-checkin">Trakt API Documentation - Checkins</see> section.</para>
     /// </summary>
     public sealed partial class TraktCheckinsModule(TraktContext context) : BaseModule(context)
     {

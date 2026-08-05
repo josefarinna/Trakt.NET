@@ -1,11 +1,11 @@
-﻿using System.Net;
+using System.Net;
 using System.Net.Http.Headers;
 
 namespace TraktNET
 {
     /// <summary>
-    /// Base class for all Trakt.NET API exceptions.<para />
-    /// Can contain additional information like the response's status code, the request's url, a reason phrase of the server,
+    /// Base class for all Trakt.NET API exceptions.
+    /// <para>Can contain additional information like the response's status code, the request's url, a reason phrase of the server,</para>
     /// the request body, if it was a post or put request and the actual response content.
     /// </summary>
     public partial class TraktApiException : TraktException

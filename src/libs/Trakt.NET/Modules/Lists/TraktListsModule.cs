@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to lists.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/lists">"Trakt API Documentation - Lists"</a> section.
+    /// Provides access to data retrieving methods specific to lists.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Lists" section.</para>
     /// </summary>
     public sealed partial class TraktListsModule
     {
@@ -14,16 +14,14 @@ namespace TraktNET
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried lists.
-        /// <para />
-        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
         /// and maximum item count.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktTrendingList" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktTrendingList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -44,16 +42,14 @@ namespace TraktNET
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried lists.
-        /// <para />
-        /// The response also contains information about the queried page number, the page's item count, maximum page count
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
         /// and maximum item count.
-        /// <para />
-        /// See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktPopularList" />.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktPopularList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

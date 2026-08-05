@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to episodes.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/episodes">"Trakt API Documentation - Episodes"</a> section.
+    /// Provides access to data retrieving methods specific to episodes.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Episodes" section.</para>
     /// </summary>
     public sealed partial class TraktEpisodesModule(TraktContext context) : BaseModule(context)
     {

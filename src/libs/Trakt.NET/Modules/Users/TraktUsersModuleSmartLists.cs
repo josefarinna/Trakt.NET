@@ -5,13 +5,12 @@ namespace TraktNET
         /// <summary>Gets a user's smart lists.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for whom the smart lists should be queried.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried smart lists.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
@@ -28,13 +27,12 @@ namespace TraktNET
         /// <param name="usernameOrSlug">The username or slug of the user, for whom the smart list should be created.</param>
         /// <param name="smartListPost">An <see cref="TraktSmartListPost" /> instance containing the data about the list to be created.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the successfully created smart list.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartListPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartListPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -53,13 +51,12 @@ namespace TraktNET
         /// <param name="usernameOrSlug">The username or slug of the user, for whom the smart list should be queried.</param>
         /// <param name="listIdOrSlug">The id or slug of the smart list, which should be queried.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried smart list.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
@@ -77,13 +74,12 @@ namespace TraktNET
         /// <param name="usernameOrSlug">The username or slug of the user, for whom the smart list should be queried.</param>
         /// <param name="traktListId">The Trakt-ID of the smart list, which should be queried.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried smart list.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
@@ -107,13 +103,12 @@ namespace TraktNET
         /// <param name="usernameOrSlug">The username or slug of the user, for whom the smart list should be queried.</param>
         /// <param name="listIds">The ids of the smart list, which should be queried.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried smart list.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
@@ -140,13 +135,12 @@ namespace TraktNET
         /// <param name="usernameOrSlug">The username or slug of the user, for whom the smart list should be queried.</param>
         /// <param name="list">The smart list, which should be queried.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried smart list.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
@@ -169,13 +163,12 @@ namespace TraktNET
         /// <param name="listIdOrSlug">The id or slug of the smart list, which should be updated.</param>
         /// <param name="smartListPost">An <see cref="TraktSmartListPost" /> instance containing the data about the list to be updated.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the successfully updated smart list.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -195,13 +188,12 @@ namespace TraktNET
         /// <param name="traktListId">The Trakt-ID of the smart list, which should be updated.</param>
         /// <param name="smartListPost">An <see cref="TraktSmartListPost" /> instance containing the data about the list to be updated.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the successfully updated smart list.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -227,13 +219,12 @@ namespace TraktNET
         /// <param name="listIds">The ids of the smart list, which should be updated.</param>
         /// <param name="smartListPost">An <see cref="TraktSmartListPost" /> instance containing the data about the list to be updated.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the successfully updated smart list.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -262,13 +253,12 @@ namespace TraktNET
         /// <param name="list">The smart list, which should be updated.</param>
         /// <param name="smartListPost">An <see cref="TraktSmartListPost" /> instance containing the data about the list to be updated.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the successfully updated smart list.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktSmartList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -291,8 +281,8 @@ namespace TraktNET
         /// <param name="usernameOrSlug">The username or slug of the user, for whom the smart list should be deleted.</param>
         /// <param name="listIdOrSlug">The id or slug of the smart list, which should be deleted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>A response containing no content.</returns>
         /// <remarks>
@@ -311,8 +301,8 @@ namespace TraktNET
         /// <param name="usernameOrSlug">The username or slug of the user, for whom the smart list should be deleted.</param>
         /// <param name="traktListId">The Trakt-ID of the smart list, which should be deleted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>A response containing no content.</returns>
         /// <remarks>
@@ -337,8 +327,8 @@ namespace TraktNET
         /// <param name="usernameOrSlug">The username or slug of the user, for whom the smart list should be deleted.</param>
         /// <param name="listIds">The ids of the smart list, which should be deleted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>A response containing no content.</returns>
         /// <remarks>
@@ -366,8 +356,8 @@ namespace TraktNET
         /// <param name="usernameOrSlug">The username or slug of the user, for whom the smart list should be deleted.</param>
         /// <param name="list">The smart list, which should be deleted.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be caught.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
         /// </param>
         /// <returns>A response containing no content.</returns>
         /// <remarks>

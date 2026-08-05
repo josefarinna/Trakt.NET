@@ -1,5 +1,9 @@
 namespace TraktNET
 {
+    /// <summary>
+    /// Provides access to data retrieving methods specific to smart lists.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Smart Lists" section.</para>
+    /// </summary>
     public sealed partial class TraktSmartListsModule(TraktContext context) : BaseModule(context)
     {
         private Task<TraktResponse<TraktSmartList>> GetSmartListImplAsync(string listIdOrSlug, TraktExtendedInfo? extendedInfo = null,

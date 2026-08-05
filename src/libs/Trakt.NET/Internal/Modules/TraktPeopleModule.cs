@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to people.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/people">"Trakt API Documentation - People"</a> section.
+    /// Provides access to data retrieving methods specific to people.
+    /// <para>This module contains all methods of the "Trakt API Documentation - People" section.</para>
     /// </summary>
     public sealed partial class TraktPeopleModule(TraktContext context) : BaseModule(context)
     {

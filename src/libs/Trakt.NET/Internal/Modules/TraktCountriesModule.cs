@@ -1,8 +1,8 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to countries.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/countries">"Trakt API Documentation - Countries"</a> section.
+    /// Provides access to data retrieving methods specific to countries.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Countries" section.</para>
     /// </summary>
     public sealed partial class TraktCountriesModule(TraktContext context) : BaseModule(context)
     {

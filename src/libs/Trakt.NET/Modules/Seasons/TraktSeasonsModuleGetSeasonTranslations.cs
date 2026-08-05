@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     public sealed partial class TraktSeasonsModule
     {
@@ -7,13 +7,12 @@
         /// <param name="seasonNumber">The number of the season for which the translations should be queried.</param>
         /// <param name="language">An optional two-character language code to filter the translations.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried season translations.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSeasonTranslation" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSeasonTranslation" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -32,13 +31,12 @@
         /// <param name="seasonNumber">The number of the season for which the translations should be queried.</param>
         /// <param name="language">An optional two-character language code to filter the translations.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried season translations.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSeasonTranslation" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSeasonTranslation" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -63,13 +61,12 @@
         /// <param name="seasonNumber">The number of the season for which the translations should be queried.</param>
         /// <param name="language">An optional two-character language code to filter the translations.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried season translations.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSeasonTranslation" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSeasonTranslation" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -97,13 +94,12 @@
         /// <param name="seasonNumber">The number of the season for which the translations should be queried.</param>
         /// <param name="language">An optional two-character language code to filter the translations.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried season translations.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSeasonTranslation" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSeasonTranslation" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

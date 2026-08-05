@@ -3,9 +3,8 @@ using System.Net;
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to OAuth and device authentication and authorization.<para />
-    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/authentication#user-content-authentication">"Trakt API Documentation - Authentication - OAuth"</a> section
-    /// and the <a href="https://docs.trakt.tv/reference/authentication#user-content-device-code-flow">"Trakt API Documentation - Authentication - Devices"</a> section.
+    /// Provides access to OAuth and device authentication and authorization.
+    /// <para>This module contains all methods of the <see href="https://docs.trakt.tv/reference/auth">Trakt API Documentation - Authentication</see> section</para>
     /// </summary>
     public sealed partial class TraktAuthModule
     {
@@ -126,13 +125,12 @@ namespace TraktNET
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" /> if successful.
         /// </summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -158,13 +156,12 @@ namespace TraktNET
         /// </summary>
         /// <param name="code">The OAuth authorization code, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -191,13 +188,12 @@ namespace TraktNET
         /// <param name="code">The OAuth authorization code, which will be used for the request.</param>
         /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -225,13 +221,12 @@ namespace TraktNET
         /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
         /// <param name="clientSecret">The Trakt Client Secret, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -259,13 +254,12 @@ namespace TraktNET
         /// <param name="clientSecret">The Trakt Client Secret, which will be used for the request.</param>
         /// <param name="redirectUri">The redirect URI, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -289,13 +283,12 @@ namespace TraktNET
         /// Assigns the returned <see cref="TraktDevice" /> instance to <see cref="TraktContext.Device" /> if successful.
         /// </summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried device.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktDevice" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktDevice" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -314,13 +307,12 @@ namespace TraktNET
         /// </summary>
         /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried device.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktDevice" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktDevice" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -340,13 +332,12 @@ namespace TraktNET
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" /> if successful.
         /// </summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -376,13 +367,12 @@ namespace TraktNET
         /// </summary>
         /// <param name="refreshToken">The refresh token, which will be used for the exchange.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -413,13 +403,12 @@ namespace TraktNET
         /// <param name="refreshToken">The refresh token, which will be used for the exchange.</param>
         /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -451,13 +440,12 @@ namespace TraktNET
         /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
         /// <param name="clientSecret">The Trakt Client Secret, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -489,13 +477,12 @@ namespace TraktNET
         /// <param name="clientSecret">The Trakt Client Secret, which will be used for the request.</param>
         /// <param name="redirectUri">The redirect URI, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -524,8 +511,8 @@ namespace TraktNET
         /// Uses the current <see cref="TraktContext.Authorization" />'s access token, <see cref="TraktContext.ClientID" /> and <see cref="TraktContext.ClientSecret" /> for the request.
         /// </summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse" />
@@ -556,8 +543,8 @@ namespace TraktNET
         /// </summary>
         /// <param name="accessToken">The given access token, which will be revoked.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse" />
@@ -589,8 +576,8 @@ namespace TraktNET
         /// <param name="accessToken">The given access token, which will be revoked.</param>
         /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse" />
@@ -622,8 +609,8 @@ namespace TraktNET
         /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
         /// <param name="clientSecret">The Trakt Client Secret, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse" />
@@ -653,13 +640,12 @@ namespace TraktNET
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" /> if successful.
         /// </summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -688,13 +674,12 @@ namespace TraktNET
         /// </summary>
         /// <param name="device">The <see cref="TraktDevice" />, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -724,13 +709,12 @@ namespace TraktNET
         /// <param name="device">The <see cref="TraktDevice" />, which will be used for the request.</param>
         /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -760,13 +744,12 @@ namespace TraktNET
         /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
         /// <param name="clientSecret">The Trakt Client Secret, which will be used for the request.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

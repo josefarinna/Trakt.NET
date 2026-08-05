@@ -1,20 +1,19 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to certifications.<para />
-    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/getcertificationslist">"Trakt API Documentation - Certifications"</a> section.
+    /// Provides access to data retrieving methods specific to certifications.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Certification" section.</para>
     /// </summary>
     public sealed partial class TraktCertificationsModule
     {
         /// <summary>Gets all movie certifications.</summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried movie certifications.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCertifications" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCertifications" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -28,13 +27,12 @@
 
         /// <summary>Gets all show certifications.</summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried show certifications.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCertifications" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCertifications" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

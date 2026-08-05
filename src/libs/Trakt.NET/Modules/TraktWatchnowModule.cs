@@ -1,22 +1,20 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to watch now sources.<para />
-    /// This module contains all methods of the "Trakt API Documentation - Watch Now" section.
-    /// <para />
-    /// Note: These methods are provided for API completeness and visibility; functionality or data availability may vary depending on Trakt.tv backend support and API access tier.
+    /// Provides access to data retrieving methods specific to watch now sources.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Watch Now" section.</para>
+    /// <para>Note: These methods are provided for API completeness and visibility; functionality or data availability may vary depending on Trakt.tv backend support and API access tier.</para>
     /// </summary>
     public sealed partial class TraktWatchnowModule
     {
         /// <summary>Gets all watch now sources supported by Trakt.</summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing all watch now sources.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktWatchnowSource" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktWatchnowSource" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -32,13 +30,12 @@ namespace TraktNET
         /// <summary>Gets watch now sources available in a country.</summary>
         /// <param name="countryCode">The 2-character country code (e.g. "us").</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the watch now sources for the specified country.
-        /// <para />
-        /// See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktWatchnowSource" />.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktWatchnowSource" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

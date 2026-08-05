@@ -1,20 +1,19 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to languages.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/languages">"Trakt API Documentation - Languages"</a> section.
+    /// Provides access to data retrieving methods specific to languages.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Languages" section.</para>
     /// </summary>
     public sealed partial class TraktLanguagesModule
     {
         /// <summary>Gets a list of all movie languages, including the 2 digit code and name.</summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried languages.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktLanguage" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktLanguage" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
@@ -28,13 +27,12 @@ namespace TraktNET
 
         /// <summary>Gets a list of all show languages, including the 2 digit code and name.</summary>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried languages.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktLanguage" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktLanguage" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.

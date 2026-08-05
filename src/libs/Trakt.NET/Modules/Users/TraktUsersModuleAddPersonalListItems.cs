@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 
 namespace TraktNET
 {
@@ -9,13 +9,12 @@ namespace TraktNET
         /// <param name="listIdOrSlug">The id or slug of the personal list, to which items should be added.</param>
         /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes, movies and people, which should be added.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing  information about which items were added, existing and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserPersonalListItemsPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserPersonalListItemsPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -35,13 +34,12 @@ namespace TraktNET
         /// <param name="traktListId">The Trakt-ID of the personal list, to which items should be added.</param>
         /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes, movies and people, which should be added.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing  information about which items were added, existing and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserPersonalListItemsPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserPersonalListItemsPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -67,13 +65,12 @@ namespace TraktNET
         /// <param name="listIds">The ids of the personal list, to which items should be added.</param>
         /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes, movies and people, which should be added.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing  information about which items were added, existing and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserPersonalListItemsPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserPersonalListItemsPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -102,13 +99,12 @@ namespace TraktNET
         /// <param name="list">The personal list, to which items should be added.</param>
         /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes, movies and people, which should be added.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing  information about which items were added, existing and not found.
-        /// <para />
-        /// See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserPersonalListItemsPostResponse" />.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserPersonalListItemsPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.

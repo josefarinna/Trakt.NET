@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to media (movies and shows).<para />
-    /// This module contains all methods of the Trakt API Documentation - Media section.
+    /// Provides access to data retrieving methods specific to media (movies and shows).
+    /// <para>This module contains all methods of the "Trakt API Documentation - Media" section.</para>
     /// </summary>
     public sealed partial class TraktMediaModule(TraktContext context) : BaseModule(context)
     {

@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to calendars.<para />
-    /// This module contains all methods of the <a href="https://docs.trakt.tv/reference/about-calendars">"Trakt API Documentation - Calendars"</a> section.
+    /// Provides access to data retrieving methods specific to calendars.
+    /// <para>This module contains all methods of the <see href=""https://docs.trakt.tv/reference/about-calendars">Trakt API Documentation - Calendars</see> section.</para>
     /// </summary>
     public sealed partial class TraktCalendarModule
     {
@@ -18,8 +18,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>
@@ -46,8 +46,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>
@@ -74,8 +74,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>
@@ -102,8 +102,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>
@@ -130,8 +130,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMovie}" /> containing the queried calendar movies.</returns>
         /// <remarks>
@@ -158,8 +158,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMovie}" /> containing the queried calendar movies.</returns>
         /// <remarks>
@@ -186,8 +186,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMovie}" /> containing the queried calendar movies.</returns>
         /// <remarks>
@@ -214,8 +214,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>
@@ -242,8 +242,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>
@@ -270,8 +270,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>
@@ -298,8 +298,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>
@@ -326,8 +326,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMovie}" /> containing the queried calendar movies.</returns>
         /// <remarks>
@@ -354,8 +354,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMovie}" /> containing the queried calendar movies.</returns>
         /// <remarks>
@@ -382,8 +382,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMovie}" /> containing the queried calendar movies.</returns>
         /// <remarks>
@@ -411,7 +411,7 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
+        /// Propagates notification that the request should be canceled.
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMedia}" /> containing the queried calendar media items.</returns>
         /// <remarks>
@@ -439,7 +439,7 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
+        /// Propagates notification that the request should be canceled.
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMedia}" /> containing the queried calendar media items.</returns>
         /// <remarks>
@@ -467,7 +467,7 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
+        /// Propagates notification that the request should be canceled.
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarMedia}" /> containing the queried calendar media items.</returns>
         /// <remarks>
@@ -494,7 +494,7 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
+        /// Propagates notification that the request should be canceled.
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>
@@ -521,7 +521,7 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
+        /// Propagates notification that the request should be canceled.
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>
@@ -548,7 +548,7 @@ namespace TraktNET
         /// See also <seealso cref="TraktExtendedInfo" />.
         /// </param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
+        /// Propagates notification that the request should be canceled.
         /// </param>
         /// <returns>A response of type <see cref="TraktListResponse{TraktCalendarShow}" /> containing the queried calendar shows.</returns>
         /// <remarks>

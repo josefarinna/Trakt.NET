@@ -1,5 +1,9 @@
 namespace TraktNET
 {
+    /// <summary>
+    /// Provides access to data retrieving methods specific to Younify connections.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Younify" section.</para>
+    /// </summary>
     public sealed partial class TraktYounifyModule(TraktContext context) : BaseModule(context)
     {
         private Task<TraktListResponse<TraktYounifyConnection>> GetConnectionsImplAsync(CancellationToken cancellationToken = default)

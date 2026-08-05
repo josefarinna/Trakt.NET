@@ -1,8 +1,8 @@
 namespace TraktNET
 {
     /// <summary>
-    /// Provides access to data retrieving methods specific to search.<para />
-    /// This module contains all methods of the <a href="https://trakt.docs.apiary.io/#reference/search">"Trakt API Documentation - Search"</a> section.
+    /// Provides access to data retrieving methods specific to search.
+    /// <para>This module contains all methods of the "Trakt API Documentation - Search" section.</para>
     /// </summary>
     public sealed partial class TraktSearchModule(TraktContext context) : BaseModule(context)
     {

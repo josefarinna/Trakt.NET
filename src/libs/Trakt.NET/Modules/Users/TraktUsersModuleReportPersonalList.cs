@@ -8,8 +8,8 @@ namespace TraktNET
         /// <param name="reason">The reason for reporting the list. See also <seealso cref="TraktReason" />.</param>
         /// <param name="message">An optional message providing additional context for the report.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -29,8 +29,8 @@ namespace TraktNET
         /// <param name="reason">The reason for reporting the list. See also <seealso cref="TraktReason" />.</param>
         /// <param name="message">An optional message providing additional context for the report.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -56,8 +56,8 @@ namespace TraktNET
         /// <param name="reason">The reason for reporting the list. See also <seealso cref="TraktReason" />.</param>
         /// <param name="message">An optional message providing additional context for the report.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
@@ -86,8 +86,8 @@ namespace TraktNET
         /// <param name="reason">The reason for reporting the list. See also <seealso cref="TraktReason" />.</param>
         /// <param name="message">An optional message providing additional context for the report.</param>
         /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.<para/>
-        /// If provided, the exception <see cref="OperationCanceledException" /> should be catched.
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
