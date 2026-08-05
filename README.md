@@ -4,7 +4,7 @@
 
 [![NuGet Package](https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v2.0.0--alpha.1-blue.svg?style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex/2.0.0-alpha.1)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
-[![codecov](https://codecov.io/gh/henrikfroehling/Trakt.NET/branch/develop/graph/badge.svg?token=U2B0KXA0QC)](https://codecov.io/gh/henrikfroehling/Trakt.NET)
+[![codecov](https://codecov.io/github/josefarinna/Trakt.NET/graph/badge.svg?token=R66P6V55FL)](https://codecov.io/github/josefarinna/Trakt.NET)
 
 ### Overview
 

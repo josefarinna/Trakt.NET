@@ -45,6 +45,9 @@ jobs:
     if: ${{ inputs.should_run }}
     runs-on: windows-latest
     environment: ${{ inputs.environment_name }}
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -103,7 +106,7 @@ jobs:
         run: |
           $projectNames = "${{ inputs.project_names }}" -split ";"
           foreach ($project in $projectNames) {
-            & dotnet @("pack", "$project", "--configuration", "${{ inputs.build_configuration }}", "--no-build", "--no-restore")
+            dotnet pack "$project" --configuration "${{ inputs.build_configuration }}" --no-build --no-restore
           }
 
       - name: Copy binaries to artifacts directory
@@ -122,16 +125,24 @@ jobs:
           }
           foreach ($rootDirectory in $binariesRootDirectories) {
             $binariesRootDirectory = "$rootDirectory/${{ inputs.build_configuration }}"
-            if ($hasArtifactsSubDirectories) {
-              $filePatterns = "Trakt.NET.*.nupkg|Trakt.NET.*.snupkg"
-              Get-ChildItem -Path $binariesRootDirectory -Recurse | Where-Object { $_.Fullname -match $filePatterns } | Copy-Item -Destination $artifactsRootDirectory
-              $filePatterns = "Trakt.NET.*.dll|Trakt.NET.*.xml|Trakt.NET.*.pdb|Trakt.NET.*.deps.json"
-              foreach ($directory in $artifactsSubDirectories) {
-                Get-ChildItem -Path "$binariesRootDirectory/$directory" -Recurse | Where-Object { $_.Fullname -match $filePatterns } | Copy-Item -Destination "$artifactsRootDirectory/$directory"
+            if (Test-Path $binariesRootDirectory) {
+              if ($hasArtifactsSubDirectories) {
+                $filePatterns = "Trakt.NET.*.nupkg|Trakt.NET.*.snupkg"
+                $nupkgFiles = Get-ChildItem -Path $binariesRootDirectory -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.Fullname -match $filePatterns }
+                if ($nupkgFiles) { $nupkgFiles | Copy-Item -Destination $artifactsRootDirectory }
+                $filePatterns = "Trakt.NET.*.dll|Trakt.NET.*.xml|Trakt.NET.*.pdb|Trakt.NET.*.deps.json"
+                foreach ($directory in $artifactsSubDirectories) {
+                  $subDir = "$binariesRootDirectory/$directory"
+                  if (Test-Path $subDir) {
+                    $subFiles = Get-ChildItem -Path $subDir -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.Fullname -match $filePatterns }
+                    if ($subFiles) { $subFiles | Copy-Item -Destination "$artifactsRootDirectory/$directory" }
+                  }
+                }
+              } else {
+                $filePatterns = "Trakt.NET.*.dll|Trakt.NET.*.xml|Trakt.NET.*.pdb|Trakt.NET.*.deps.json|Trakt.NET.*.nupkg|Trakt.NET.*.snupkg"
+                $allFiles = Get-ChildItem -Path $binariesRootDirectory -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.Fullname -match $filePatterns }
+                if ($allFiles) { $allFiles | Copy-Item -Destination $artifactsRootDirectory }
               }
-            } else {
-              $filePatterns = "Trakt.NET.*.dll|Trakt.NET.*.xml|Trakt.NET.*.pdb|Trakt.NET.*.deps.json|Trakt.NET.*.nupkg|Trakt.NET.*.snupkg"
-              Get-ChildItem -Path $binariesRootDirectory -Recurse | Where-Object { $_.Fullname -match $filePatterns } | Copy-Item -Destination $artifactsRootDirectory
             }
           }
 
@@ -150,10 +161,14 @@ jobs:
         shell: pwsh
         run: dotnet nuget push '**/Trakt.NET*.nupkg' --api-key $env:GITHUB_TOKEN --source https://nuget.pkg.github.com/jose.farinna --skip-duplicate
         working-directory: ${{ inputs.working_directory }}
+
+      - name: NuGet Login (Trusted Publishing via OIDC)
+        if: ${{ inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
+        uses: nuget/login@v1
+        with:
+          owner: jose.farinna
   
       - name: Push packages to NuGet
         if: ${{ inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         shell: pwsh
-        run: dotnet nuget push '**/Trakt.NET*.nupkg' --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push '**/Trakt.NET*.nupkg' --source https://api.nuget.org/v3/index.json --skip-duplicate
