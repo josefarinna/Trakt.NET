@@ -19,7 +19,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/watching/get-users-watching-right-now">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonwatching">
         /// Trakt API Documentation: Seasons: Watching - Get users watching right now
         /// </see></para>
         /// </remarks>
@@ -46,7 +46,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/watching/get-users-watching-right-now">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonwatching">
         /// Trakt API Documentation: Seasons: Watching - Get users watching right now
         /// </see></para>
         /// </remarks>
@@ -79,7 +79,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/watching/get-users-watching-right-now">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonwatching">
         /// Trakt API Documentation: Seasons: Watching - Get users watching right now
         /// </see></para>
         /// </remarks>
@@ -115,7 +115,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/watching/get-users-watching-right-now">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonwatching">
         /// Trakt API Documentation: Seasons: Watching - Get users watching right now
         /// </see></para>
         /// </remarks>

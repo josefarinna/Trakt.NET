@@ -15,7 +15,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/translations/get-all-movie-translations">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviestranslations">
         /// Trakt API Documentation: Movies: Translations - Get all movie translations
         /// </see></para>
         /// </remarks>
@@ -38,7 +38,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/translations/get-all-movie-translations">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviestranslations">
         /// Trakt API Documentation: Movies: Translations - Get all movie translations
         /// </see></para>
         /// </remarks>
@@ -61,7 +61,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/translations/get-all-movie-translations">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviestranslations">
         /// Trakt API Documentation: Movies: Translations - Get all movie translations
         /// </see></para>
         /// </remarks>

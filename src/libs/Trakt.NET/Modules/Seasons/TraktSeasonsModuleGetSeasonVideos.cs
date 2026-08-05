@@ -19,7 +19,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/videos/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonvideos">
         /// Trakt API Documentation: Seasons: Videos - Get all videos
         /// </see></para>
         /// </remarks>
@@ -46,7 +46,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/videos/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonvideos">
         /// Trakt API Documentation: Seasons: Videos - Get all videos
         /// </see></para>
         /// </remarks>
@@ -79,7 +79,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/videos/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonvideos">
         /// Trakt API Documentation: Seasons: Videos - Get all videos
         /// </see></para>
         /// </remarks>
@@ -115,7 +115,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/videos/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonvideos">
         /// Trakt API Documentation: Seasons: Videos - Get all videos
         /// </see></para>
         /// </remarks>

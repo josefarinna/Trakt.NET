@@ -15,7 +15,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/ratings/get-season-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonratings">
         /// Trakt API Documentation: Seasons: Ratings - Get season ratings
         /// </see></para>
         /// </remarks>
@@ -38,7 +38,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/ratings/get-season-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonratings">
         /// Trakt API Documentation: Seasons: Ratings - Get season ratings
         /// </see></para>
         /// </remarks>
@@ -67,7 +67,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/ratings/get-season-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonratings">
         /// Trakt API Documentation: Seasons: Ratings - Get season ratings
         /// </see></para>
         /// </remarks>
@@ -99,7 +99,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/ratings/get-season-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonratings">
         /// Trakt API Documentation: Seasons: Ratings - Get season ratings
         /// </see></para>
         /// </remarks>

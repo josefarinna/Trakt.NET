@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Lists;
@@ -13,7 +13,7 @@
     /// <summary>
     /// Provides access to data retrieving methods specific to lists.
     /// <para>
-    /// This module contains all methods of the <a href ="https://trakt.docs.apiary.io/#reference/lists">"Trakt API Doc - Lists"</a> section.
+    /// This module contains all methods of the <a href ="https://docs.trakt.tv/referencereference/lists">"Trakt API Doc - Lists"</a> section.
     /// </para>
     /// </summary>
     public partial class TraktListsModule : ATraktModule
@@ -26,7 +26,7 @@
         /// Gets trending lists.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/trending/get-trending-lists">"Trakt API Doc - Lists: Trending"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/trending/get-trending-lists">"Trakt API Doc - Lists: Trending"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="extendedInfo">
@@ -64,7 +64,7 @@
         /// Gets popular lists.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/popular/get-popular-lists">"Trakt API Doc - Lists: Popular"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/popular/get-popular-lists">"Trakt API Doc - Lists: Popular"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="extendedInfo">

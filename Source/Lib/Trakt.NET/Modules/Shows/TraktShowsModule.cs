@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Enums;
     using Exceptions;
@@ -14,7 +14,7 @@
     /// <summary>
     /// Provides access to data retrieving methods specific to shows.
     /// <para>
-    /// This module contains all methods of the <a href ="http://trakt.docs.apiary.io/#reference/shows">"Trakt API Doc - Shows"</a> section.
+    /// This module contains all methods of the <a href ="https://docs.trakt.tv/referencereference/shows">"Trakt API Doc - Shows"</a> section.
     /// </para>
     /// </summary>
     public partial class TraktShowsModule : ATraktModule
@@ -27,7 +27,7 @@
         /// Gets trending shows.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/trending/get-trending-shows">"Trakt API Doc - Shows: Trending"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/trending/get-trending-shows">"Trakt API Doc - Shows: Trending"</a> for more information.
         /// </para>
         /// <para>
         /// Use the <see cref="ITraktShowFilterBuilder" /> to create an instance of the optional <see cref="ITraktShowFilter" />.
@@ -72,7 +72,7 @@
         /// Gets popular shows.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/popular/get-popular-shows">"Trakt API Doc - Shows: Popular"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/popular/get-popular-shows">"Trakt API Doc - Shows: Popular"</a> for more information.
         /// </para>
         /// <para>
         /// Use the <see cref="ITraktShowFilterBuilder" /> to create an instance of the optional <see cref="ITraktShowFilter" />.
@@ -117,7 +117,7 @@
         /// Gets the most favorited shows.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/shows/favorited/get-the-most-favorited-shows">"Trakt API Doc - Shows: Favorited"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/favorited/get-the-most-favorited-shows">"Trakt API Doc - Shows: Favorited"</a> for more information.
         /// </para>
         /// <para>
         /// Use the <see cref="ITraktShowFilterBuilder" /> to create an instance of the optional <see cref="ITraktShowFilter" />.
@@ -165,7 +165,7 @@
         /// Gets the most played shows.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/played/get-the-most-played-shows">"Trakt API Doc - Shows: Played"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/played/get-the-most-played-shows">"Trakt API Doc - Shows: Played"</a> for more information.
         /// </para>
         /// <para>
         /// Use the <see cref="ITraktShowFilterBuilder" /> to create an instance of the optional <see cref="ITraktShowFilter" />.
@@ -213,7 +213,7 @@
         /// Gets the most watched shows.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/watched/get-the-most-watched-shows">"Trakt API Doc - Shows: Watched"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/watched/get-the-most-watched-shows">"Trakt API Doc - Shows: Watched"</a> for more information.
         /// </para>
         /// <para>
         /// Use the <see cref="ITraktShowFilterBuilder" /> to create an instance of the optional <see cref="ITraktShowFilter" />.
@@ -261,7 +261,7 @@
         /// Gets the most collected shows.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/collected/get-the-most-collected-shows">"Trakt API Doc - Shows: Collected"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/collected/get-the-most-collected-shows">"Trakt API Doc - Shows: Collected"</a> for more information.
         /// </para>
         /// <para>
         /// Use the <see cref="ITraktShowFilterBuilder" /> to create an instance of the optional <see cref="ITraktShowFilter" />.
@@ -309,7 +309,7 @@
         /// Gets the most anticipated shows.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/anticipated/get-the-most-anticipated-shows">"Trakt API Doc - Shows: Anticipated"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/anticipated/get-the-most-anticipated-shows">"Trakt API Doc - Shows: Anticipated"</a> for more information.
         /// </para>
         /// <para>
         /// Use the <see cref="ITraktShowFilterBuilder" /> to create an instance of the optional <see cref="ITraktShowFilter" />.
@@ -354,7 +354,7 @@
         /// Gets updated shows since the given <paramref name="startDate" />.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/anticipated/get-recently-updated-shows">"Trakt API Doc - Shows: Updates"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/anticipated/get-recently-updated-shows">"Trakt API Doc - Shows: Updates"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="startDate">The start date, after which updated shows should be queried. Will be converted to the Trakt UTC-datetime and -format.</param>
@@ -395,7 +395,7 @@
         /// Gets recently updated show ids since the given <paramref name="startDate" />.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/shows/updated-ids/get-recently-updated-show-trakt-ids">"Trakt API Doc - Shows: Updated Ids"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/updated-ids/get-recently-updated-show-trakt-ids">"Trakt API Doc - Shows: Updated Ids"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="startDate">The start date, after which updated show ids should be queried. Will be converted to the Trakt UTC-datetime and -format.</param>

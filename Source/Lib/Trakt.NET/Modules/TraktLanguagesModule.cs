@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Basic;
@@ -12,7 +12,7 @@
     /// <summary>
     /// Provides access to data retrieving methods specific to languages.
     /// <para>
-    /// This module contains all methods of the <a href ="http://trakt.docs.apiary.io/#reference/languages">"Trakt API Doc - Languages"</a> section.
+    /// This module contains all methods of the <a href ="https://docs.trakt.tv/referencereference/languages">"Trakt API Doc - Languages"</a> section.
     /// </para>
     /// </summary>
     public class TraktLanguagesModule : ATraktModule
@@ -25,7 +25,7 @@
         /// Gets a list of all movie languages.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/languages/list/get-languages">"Trakt API Doc - Languages: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/languages/list/get-languages">"Trakt API Doc - Languages: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -44,7 +44,7 @@
         /// Gets a list of all show languages.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/languages/list/get-languages">"Trakt API Doc - Languages: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/languages/list/get-languages">"Trakt API Doc - Languages: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">

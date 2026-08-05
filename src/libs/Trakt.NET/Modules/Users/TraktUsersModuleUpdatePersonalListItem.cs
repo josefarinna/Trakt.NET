@@ -1,5 +1,3 @@
-using System.Net.Http.Json;
-
 namespace TraktNET
 {
     public sealed partial class TraktUsersModule
@@ -16,7 +14,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">
+        /// <para><see href="https://docs.trakt.tv/reference/putuserslistslistupdateitem">
         /// Trakt API Documentation: Users: Update List Item
         /// </see></para>
         /// </remarks>
@@ -38,7 +36,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">
+        /// <para><see href="https://docs.trakt.tv/reference/putuserslistslistupdateitem">
         /// Trakt API Documentation: Users: Update List Item
         /// </see></para>
         /// </remarks>
@@ -66,7 +64,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">
+        /// <para><see href="https://docs.trakt.tv/reference/putuserslistslistupdateitem">
         /// Trakt API Documentation: Users: Update List Item
         /// </see></para>
         /// </remarks>
@@ -97,7 +95,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">
+        /// <para><see href="https://docs.trakt.tv/reference/putuserslistslistupdateitem">
         /// Trakt API Documentation: Users: Update List Item
         /// </see></para>
         /// </remarks>

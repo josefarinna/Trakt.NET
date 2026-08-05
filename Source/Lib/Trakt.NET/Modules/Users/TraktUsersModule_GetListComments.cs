@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Enums;
     using Exceptions;
@@ -18,7 +18,7 @@
         /// Gets top level comments for an user's list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">"Trakt API Doc - Users: List Comments"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list-comments/get-all-list-comments">"Trakt API Doc - Users: List Comments"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list comments should be queried.</param>
@@ -59,7 +59,7 @@
         /// Gets top level comments for an user's list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">"Trakt API Doc - Users: List Comments"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list-comments/get-all-list-comments">"Trakt API Doc - Users: List Comments"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list comments should be queried.</param>
@@ -95,7 +95,7 @@
         /// Gets top level comments for an user's list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">"Trakt API Doc - Users: List Comments"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list-comments/get-all-list-comments">"Trakt API Doc - Users: List Comments"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list comments should be queried.</param>
@@ -135,7 +135,7 @@
         /// Gets top level comments for an user's list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">"Trakt API Doc - Users: List Comments"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list-comments/get-all-list-comments">"Trakt API Doc - Users: List Comments"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list comments should be queried.</param>

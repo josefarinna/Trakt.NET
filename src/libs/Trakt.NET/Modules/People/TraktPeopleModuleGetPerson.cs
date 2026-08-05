@@ -18,7 +18,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/summary/get-a-single-person">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeoplesummary">
         /// Trakt API Documentation: People: Summary
         /// </see></para>
         /// </remarks>
@@ -44,7 +44,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/summary/get-a-single-person">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeoplesummary">
         /// Trakt API Documentation: People: Summary
         /// </see></para>
         /// </remarks>
@@ -76,7 +76,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/summary/get-a-single-person">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeoplesummary">
         /// Trakt API Documentation: People: Summary
         /// </see></para>
         /// </remarks>

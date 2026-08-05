@@ -40,7 +40,7 @@ client.Authorization = authorization;
 
 ## OAuth Authentication
 
-The workflow for authenticating users with the [traditional OAuth method](https://trakt.docs.apiary.io/#reference/authentication-oauth) is the following:
+The workflow for authenticating users with the [traditional OAuth method](https://docs.trakt.tv/referencereference/authentication-oauth) is the following:
 
 1. Create an authorization URL: `string authorizationUrl = client.Auth.CreateAuthorizationUrl();`
 2. Your users need to visit the `authorizationUrl`'s webpage.
@@ -62,7 +62,7 @@ TraktAuthorization authorization = authorizationResponse.Content!;
 
 ## Device Authentication
 
-The workflow for authenticating users with the [Device method](https://trakt.docs.apiary.io/#reference/authentication-devices) is the following:
+The workflow for authenticating users with the [Device method](https://docs.trakt.tv/referencereference/authentication-devices) is the following:
 
 1. Create a new [`TraktDevice`](xref:TraktNET.TraktDevice): `TraktResponse<TraktDevice> deviceResponse = await client.Auth.GenerateDeviceAsync();` The returned [`TraktDevice`](xref:TraktNET.TraktDevice) is valid for about ten minutes and contains a device code and a verification URL.
 2. Your users need to visit the `device.VerificationUrl` web page and enter the `device.UserCode` on that web page.

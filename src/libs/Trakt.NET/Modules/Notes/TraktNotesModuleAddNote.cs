@@ -4,7 +4,7 @@ namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to notes.
-    /// <para>This module contains all methods of the <see href=""></see> section.</para>
+    /// <para>This module contains all methods of the <see href="https://docs.trakt.tv/reference/postnotescreate">Trakt API Documentation - Notes</see> section.</para>
     /// </summary>
     public partial class TraktNotesModule
     {
@@ -24,7 +24,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -52,7 +52,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -80,7 +80,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -108,7 +108,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -136,7 +136,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -164,7 +164,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -191,7 +191,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -219,7 +219,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -247,7 +247,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -275,7 +275,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -303,7 +303,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>
@@ -331,7 +331,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization required.
         /// <para>VIP enhanced.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
         /// Trakt API Documentation: Notes: Add notes
         /// </see></para>
         /// </remarks>

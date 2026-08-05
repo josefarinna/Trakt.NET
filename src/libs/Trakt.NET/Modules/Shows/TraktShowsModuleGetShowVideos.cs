@@ -18,7 +18,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/videos/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsvideos">
         /// Trakt API Documentation: Shows: Videos - Get all videos
         /// </see></para>
         /// </remarks>
@@ -44,7 +44,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/videos/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsvideos">
         /// Trakt API Documentation: Shows: Videos - Get all videos
         /// </see></para>
         /// </remarks>
@@ -70,7 +70,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/videos/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsvideos">
         /// Trakt API Documentation: Shows: Videos - Get all videos
         /// </see></para>
         /// </remarks>

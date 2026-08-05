@@ -15,7 +15,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/next-episode/get-next-episode">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsnextepisode">
         /// Trakt API Documentation: Shows: Next Episode - Get next episode
         /// </see></para>
         /// </remarks>
@@ -37,7 +37,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/next-episode/get-next-episode">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsnextepisode">
         /// Trakt API Documentation: Shows: Next Episode - Get next episode
         /// </see></para>
         /// </remarks>
@@ -59,7 +59,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/next-episode/get-next-episode">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsnextepisode">
         /// Trakt API Documentation: Shows: Next Episode - Get next episode
         /// </see></para>
         /// </remarks>

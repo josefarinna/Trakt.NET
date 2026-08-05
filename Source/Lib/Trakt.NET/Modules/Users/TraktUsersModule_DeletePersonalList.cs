@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Lists;
@@ -15,7 +15,7 @@
         /// Deletes an user's personal list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/delete-a-user's-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/delete-a-user's-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be deleted.</param>
@@ -43,7 +43,7 @@
         /// Deletes an user's personal list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/delete-a-user's-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/delete-a-user's-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be deleted.</param>
@@ -68,7 +68,7 @@
         /// Deletes an user's personal list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/delete-a-user's-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/delete-a-user's-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be deleted.</param>
@@ -97,7 +97,7 @@
         /// Deletes an user's personal list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/delete-a-user's-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/delete-a-user's-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be deleted.</param>

@@ -20,7 +20,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/watching/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodevideos">
         /// Trakt API Documentation: Episodes: Videos - Get all videos
         /// </see></para>
         /// </remarks>
@@ -48,7 +48,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/watching/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodevideos">
         /// Trakt API Documentation: Episodes: Videos - Get all videos
         /// </see></para>
         /// </remarks>
@@ -81,7 +81,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/watching/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodevideos">
         /// Trakt API Documentation: Episodes: Videos - Get all videos
         /// </see></para>
         /// </remarks>
@@ -118,7 +118,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/watching/get-all-videos">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodevideos">
         /// Trakt API Documentation: Episodes: Videos - Get all videos
         /// </see></para>
         /// </remarks>

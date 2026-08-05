@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Extensions;
@@ -18,7 +18,7 @@
         /// Gets an user's single personal list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/get-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/get-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// <para>See also <seealso cref="GetMultiplePersonalListsAsync(TraktMultipleUserListsQueryParams, CancellationToken)" />.</para>
         /// </summary>
@@ -39,7 +39,7 @@
         /// Gets an user's single personal list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/get-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/get-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// <para>See also <seealso cref="GetMultiplePersonalListsAsync(TraktMultipleUserListsQueryParams, CancellationToken)" />.</para>
         /// </summary>
@@ -66,7 +66,7 @@
         /// Gets an user's single personal list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/get-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/get-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// <para>See also <seealso cref="GetMultiplePersonalListsAsync(TraktMultipleUserListsQueryParams, CancellationToken)" />.</para>
         /// </summary>
@@ -97,7 +97,7 @@
         /// Gets multiple different personal lists for multiple different users at once.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/get-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/get-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// <para>See also <seealso cref="GetPersonalListAsync(string, string, CancellationToken)" />.</para>
         /// </summary>
@@ -132,7 +132,7 @@
         /// Gets multiple different personal lists for multiple different users at once.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/get-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/get-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// <para>See also <seealso cref="GetPersonalListAsync(string, string, CancellationToken)" />.</para>
         /// </summary>

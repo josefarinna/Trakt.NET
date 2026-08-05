@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Lists;
@@ -15,7 +15,7 @@
         /// Unlike a list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-like/like-a-list">"Trakt API Doc - Lists: List Like"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-like/like-a-list">"Trakt API Doc - Lists: List Like"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="listIdOrSlug">The id or slug of the list, which will be unliked. See also <seealso cref="ITraktListIds" />.</param>
@@ -40,7 +40,7 @@
         /// Unlike a list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-like/like-a-list">"Trakt API Doc - Lists: List Like"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-like/like-a-list">"Trakt API Doc - Lists: List Like"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktListId">The Trakt ID of the list, which will be unliked. See also <seealso cref="ITraktListIds" />.</param>
@@ -63,7 +63,7 @@
         /// Unlike a list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-like/like-a-list">"Trakt API Doc - Lists: List Like"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-like/like-a-list">"Trakt API Doc - Lists: List Like"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="listIds">The ids of the list, which will be unliked. See also <seealso cref="ITraktListIds" />.</param>
@@ -90,7 +90,7 @@
         /// Unlike a list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-like/like-a-list">"Trakt API Doc - Lists: List Like"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-like/like-a-list">"Trakt API Doc - Lists: List Like"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="list">The list, which will be unliked. See also <seealso cref="ITraktList" />.</param>

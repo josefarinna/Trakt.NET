@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Enums;
     using Exceptions;
@@ -16,7 +16,7 @@
         /// Gets the collection progress for a <see cref="ITraktShow" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/collection-progress/get-show-collection-progress">"Trakt API Doc - Shows: Collection Progress"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/getshowsprogresscollection">"Trakt API Doc - Shows: Collection Progress"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="showIdOrSlug">The show's Trakt-Id or -Slug. See also <seealso cref="ITraktShowIds" />.</param>
@@ -54,7 +54,7 @@
         /// Gets the collection progress for a <see cref="ITraktShow" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/collection-progress/get-show-collection-progress">"Trakt API Doc - Shows: Collection Progress"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/getshowsprogresscollection">"Trakt API Doc - Shows: Collection Progress"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktShowID">The show's Trakt-Id. See also <seealso cref="ITraktShowIds" />.</param>
@@ -87,7 +87,7 @@
         /// Gets the collection progress for a <see cref="ITraktShow" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/collection-progress/get-show-collection-progress">"Trakt API Doc - Shows: Collection Progress"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/getshowsprogresscollection">"Trakt API Doc - Shows: Collection Progress"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="showIds">The show's ids. See also <seealso cref="ITraktShowIds" />.</param>
@@ -124,7 +124,7 @@
         /// Gets the collection progress for a <see cref="ITraktShow" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/shows/collection-progress/get-show-collection-progress">"Trakt API Doc - Shows: Collection Progress"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/getshowsprogresscollection">"Trakt API Doc - Shows: Collection Progress"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="show">The show. See also <seealso cref="ITraktShow" />.</param>

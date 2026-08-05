@@ -24,7 +24,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeoplelists">
         /// Trakt API Documentation: People: Lists
         /// </see></para>
         /// </remarks>
@@ -57,7 +57,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeoplelists">
         /// Trakt API Documentation: People: Lists
         /// </see></para>
         /// </remarks>
@@ -96,7 +96,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeoplelists">
         /// Trakt API Documentation: People: Lists
         /// </see></para>
         /// </remarks>
@@ -138,7 +138,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeoplelists">
         /// Trakt API Documentation: People: Lists
         /// </see></para>
         /// </remarks>

@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Lists;
@@ -16,7 +16,7 @@
         /// Gets a <see cref="ITraktList" /> with the given Trakt-Id.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list/get-list">"Trakt API Doc - Lists: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list/get-list">"Trakt API Doc - Lists: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="listIdOrSlug">The list's Trakt-Id or -Slug. See also <seealso cref="ITraktListIds" />.</param>
@@ -48,7 +48,7 @@
         /// Gets a <see cref="ITraktList" /> with the given Trakt-Id.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list/get-list">"Trakt API Doc - Lists: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list/get-list">"Trakt API Doc - Lists: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktListId">The list's Trakt-Id. See also <seealso cref="ITraktListIds" />.</param>
@@ -77,7 +77,7 @@
         /// Gets a <see cref="ITraktList" /> with the given Trakt-Id.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list/get-list">"Trakt API Doc - Lists: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list/get-list">"Trakt API Doc - Lists: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="listIds">The list's ids. See also <seealso cref="ITraktListIds" />.</param>

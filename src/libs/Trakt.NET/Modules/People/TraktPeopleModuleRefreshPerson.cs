@@ -15,7 +15,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/refresh/refresh-person-metadata">
+        /// <para><see href="https://docs.trakt.tv/reference/postpeoplerefresh">
         /// Trakt API Documentation: People: Refresh - Refresh person metadata
         /// </see></para>
         /// </remarks>
@@ -37,7 +37,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/refresh/refresh-person-metadata">
+        /// <para><see href="https://docs.trakt.tv/reference/postpeoplerefresh">
         /// Trakt API Documentation: People: Refresh - Refresh person metadata
         /// </see></para>
         /// </remarks>
@@ -65,7 +65,7 @@ namespace TraktNET
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/refresh/refresh-person-metadata">
+        /// <para><see href="https://docs.trakt.tv/reference/postpeoplerefresh">
         /// Trakt API Documentation: People: Refresh - Refresh person metadata
         /// </see></para>
         /// </remarks>

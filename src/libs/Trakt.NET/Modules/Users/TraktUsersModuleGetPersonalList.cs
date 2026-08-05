@@ -15,7 +15,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list/get-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistsummary">
         /// Trakt API Documentation: Users: List
         /// </see></para>
         /// </remarks>
@@ -38,7 +38,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list/get-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistsummary">
         /// Trakt API Documentation: Users: List
         /// </see></para>
         /// </remarks>
@@ -67,7 +67,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list/get-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistsummary">
         /// Trakt API Documentation: Users: List
         /// </see></para>
         /// </remarks>

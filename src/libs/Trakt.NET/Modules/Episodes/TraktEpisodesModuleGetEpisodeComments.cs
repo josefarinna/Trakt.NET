@@ -25,7 +25,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/comments/get-all-episode-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodecomments">
         /// Trakt API Documentation: Episodes: Comments
         /// </see></para>
         /// </remarks>
@@ -59,7 +59,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/comments/get-all-episode-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodecomments">
         /// Trakt API Documentation: Episodes: Comments
         /// </see></para>
         /// </remarks>
@@ -100,7 +100,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/comments/get-all-episode-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodecomments">
         /// Trakt API Documentation: Episodes: Comments
         /// </see></para>
         /// </remarks>
@@ -143,7 +143,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/comments/get-all-episode-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodecomments">
         /// Trakt API Documentation: Episodes: Comments
         /// </see></para>
         /// </remarks>

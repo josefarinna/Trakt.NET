@@ -24,7 +24,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistitemsall">
         /// Trakt API Documentation: Users: List Items - Get items on a personal list
         /// </see></para>
         /// </remarks>
@@ -57,7 +57,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistitemsall">
         /// Trakt API Documentation: Users: List Items - Get items on a personal list
         /// </see></para>
         /// </remarks>
@@ -96,7 +96,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistitemsall">
         /// Trakt API Documentation: Users: List Items - Get items on a personal list
         /// </see></para>
         /// </remarks>
@@ -139,7 +139,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-items/get-items-on-a-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistitemsall">
         /// Trakt API Documentation: Users: List Items - Get items on a personal list
         /// </see></para>
         /// </remarks>

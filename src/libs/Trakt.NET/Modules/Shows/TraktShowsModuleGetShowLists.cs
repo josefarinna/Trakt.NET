@@ -30,7 +30,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/lists/get-lists-containing-this-show">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowslists">
         /// Trakt API Documentation: Shows: Lists - Get lists containing this show
         /// </see></para>
         /// </remarks>
@@ -69,7 +69,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/lists/get-lists-containing-this-show">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowslists">
         /// Trakt API Documentation: Shows: Lists - Get lists containing this show
         /// </see></para>
         /// </remarks>
@@ -108,7 +108,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/lists/get-lists-containing-this-show">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowslists">
         /// Trakt API Documentation: Shows: Lists - Get lists containing this show
         /// </see></para>
         /// </remarks>

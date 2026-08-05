@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Shows;
@@ -16,7 +16,7 @@
         /// <para>OAuth authorization required.</para>
         /// <para>VIP only.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/shows/reset-watched-progress/undo-reset-show-progress">"Trakt API Doc - Shows: Reset Watched Progress"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/reset-watched-progress/undo-reset-show-progress">"Trakt API Doc - Shows: Reset Watched Progress"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="showIdOrSlug">The show's Trakt-Id or -Slug. See also <seealso cref="ITraktShowIds" />.</param>
@@ -42,7 +42,7 @@
         /// <para>OAuth authorization required.</para>
         /// <para>VIP only.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/shows/reset-watched-progress/undo-reset-show-progress">"Trakt API Doc - Shows: Reset Watched Progress"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/reset-watched-progress/undo-reset-show-progress">"Trakt API Doc - Shows: Reset Watched Progress"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktShowID">The show's Trakt-Id. See also <seealso cref="ITraktShowIds" />.</param>
@@ -66,7 +66,7 @@
         /// <para>OAuth authorization required.</para>
         /// <para>VIP only.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/shows/reset-watched-progress/undo-reset-show-progress">"Trakt API Doc - Shows: Reset Watched Progress"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/reset-watched-progress/undo-reset-show-progress">"Trakt API Doc - Shows: Reset Watched Progress"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="showIds">The show's ids. See also <seealso cref="ITraktShowIds" />.</param>
@@ -94,7 +94,7 @@
         /// <para>OAuth authorization required.</para>
         /// <para>VIP only.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/shows/reset-watched-progress/undo-reset-show-progress">"Trakt API Doc - Shows: Reset Watched Progress"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/reset-watched-progress/undo-reset-show-progress">"Trakt API Doc - Shows: Reset Watched Progress"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="show">The show. See also <seealso cref="ITraktShow" />.</param>

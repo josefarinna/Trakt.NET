@@ -10,7 +10,7 @@ var client = new TraktClient("ClientID", "ClientSecret");
 
 ## Sandbox Environment
 
-The library allows you to use the [sandbox environment](https://trakt.docs.apiary.io/#introduction/api-url) of the Trakt API, which is disabled by default.
+The library allows you to use the [sandbox environment](https://docs.trakt.tv/referenceintroduction/api-url) of the Trakt API, which is disabled by default.
 
 You can enable the usage of the sandbox environment with the following setting:
 

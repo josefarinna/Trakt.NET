@@ -16,7 +16,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/translations/get-all-season-translations">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasontranslations">
         /// Trakt API Documentation: Seasons: Translations - Get all season translations
         /// </see></para>
         /// </remarks>
@@ -40,7 +40,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/translations/get-all-season-translations">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasontranslations">
         /// Trakt API Documentation: Seasons: Translations - Get all season translations
         /// </see></para>
         /// </remarks>
@@ -70,7 +70,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/translations/get-all-season-translations">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasontranslations">
         /// Trakt API Documentation: Seasons: Translations - Get all season translations
         /// </see></para>
         /// </remarks>
@@ -103,7 +103,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/translations/get-all-season-translations">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasontranslations">
         /// Trakt API Documentation: Seasons: Translations - Get all season translations
         /// </see></para>
         /// </remarks>

@@ -14,7 +14,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/ratings/get-movie-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesratings">
         /// Trakt API Documentation: Movies: Ratings - Get movie ratings
         /// </see></para>
         /// </remarks>
@@ -35,7 +35,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/ratings/get-movie-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesratings">
         /// Trakt API Documentation: Movies: Ratings - Get movie ratings
         /// </see></para>
         /// </remarks>
@@ -56,7 +56,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/ratings/get-movie-ratings">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesratings">
         /// Trakt API Documentation: Movies: Ratings - Get movie ratings
         /// </see></para>
         /// </remarks>

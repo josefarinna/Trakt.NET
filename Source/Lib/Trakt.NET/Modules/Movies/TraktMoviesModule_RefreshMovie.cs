@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Movies;
@@ -15,7 +15,7 @@
         /// Queue a <see cref="ITraktMovie" /> for a full metadata and image refresh.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/movies/refresh/refresh-movie-metadata">"Trakt API Doc - Refresh: Refresh movie metadata"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/movies/refresh/refresh-movie-metadata">"Trakt API Doc - Refresh: Refresh movie metadata"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="movieIdOrSlug">The movie's Trakt-Id or -Slug. See also <seealso cref="ITraktMovieIds" />.</param>
@@ -40,7 +40,7 @@
         /// Queue a <see cref="ITraktMovie" /> for a full metadata and image refresh.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/movies/refresh/refresh-movie-metadata">"Trakt API Doc - Refresh: Refresh movie metadata"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/movies/refresh/refresh-movie-metadata">"Trakt API Doc - Refresh: Refresh movie metadata"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktMovieId">The movie's Trakt-Id. See also <seealso cref="ITraktMovieIds" />.</param>
@@ -63,7 +63,7 @@
         /// Queue a <see cref="ITraktMovie" /> for a full metadata and image refresh.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/movies/refresh/refresh-movie-metadata">"Trakt API Doc - Refresh: Refresh movie metadata"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/movies/refresh/refresh-movie-metadata">"Trakt API Doc - Refresh: Refresh movie metadata"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="movieIds">The movie's ids. See also <seealso cref="ITraktMovieIds" />.</param>
@@ -90,7 +90,7 @@
         /// Queue a <see cref="ITraktMovie" /> for a full metadata and image refresh.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/movies/refresh/refresh-movie-metadata">"Trakt API Doc - Refresh: Refresh movie metadata"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/movies/refresh/refresh-movie-metadata">"Trakt API Doc - Refresh: Refresh movie metadata"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="movie">The movie. See also <seealso cref="ITraktMovie" />.</param>

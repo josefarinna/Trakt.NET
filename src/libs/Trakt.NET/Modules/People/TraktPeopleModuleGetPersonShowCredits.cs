@@ -18,7 +18,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeopleshows">
         /// Trakt API Documentation: People: Shows
         /// </see></para>
         /// </remarks>
@@ -44,7 +44,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeopleshows">
         /// Trakt API Documentation: People: Shows
         /// </see></para>
         /// </remarks>
@@ -76,7 +76,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeopleshows">
         /// Trakt API Documentation: People: Shows
         /// </see></para>
         /// </remarks>
@@ -111,7 +111,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/people/shows/get-show-credits">
+        /// <para><see href="https://docs.trakt.tv/reference/getpeopleshows">
         /// Trakt API Documentation: People: Shows
         /// </see></para>
         /// </remarks>

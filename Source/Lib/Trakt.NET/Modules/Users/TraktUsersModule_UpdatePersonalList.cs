@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Lists;
@@ -16,7 +16,7 @@
         /// Updates an user's personal list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/update-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/update-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be updated.</param>
@@ -49,7 +49,7 @@
         /// Updates an user's personal list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/update-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/update-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be updated.</param>
@@ -78,7 +78,7 @@
         /// Updates an user's personal list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/update-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/update-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be updated.</param>
@@ -111,7 +111,7 @@
         /// Updates an user's personal list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list/update-personal-list">"Trakt API Doc - Users: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list/update-personal-list">"Trakt API Doc - Users: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be updated.</param>

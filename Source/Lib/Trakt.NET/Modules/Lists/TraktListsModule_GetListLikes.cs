@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Lists;
@@ -15,7 +15,7 @@
         /// <summary>
         /// Gets the users who liked a list.
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Lists: List Likes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Lists: List Likes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="listIdOrSlug">The id or slug of the list, for which the likes should be queried.</param>
@@ -49,7 +49,7 @@
         /// <summary>
         /// Gets the users who liked a list.
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Lists: List Likes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Lists: List Likes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktListId">The list's Trakt-Id. See also <seealso cref="ITraktListIds" />.</param>
@@ -79,7 +79,7 @@
         /// <summary>
         /// Gets the users who liked a list.
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Lists: List Likes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Lists: List Likes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="listIds">The list's ids. See also <seealso cref="ITraktListIds" />.</param>
@@ -113,7 +113,7 @@
         /// <summary>
         /// Gets the users who liked a list.
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Lists: List Likes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Lists: List Likes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="list">The list. See also <seealso cref="ITraktList" />.</param>

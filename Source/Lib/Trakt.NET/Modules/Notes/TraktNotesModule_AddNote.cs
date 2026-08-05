@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using System;
     using System.Threading;
@@ -19,7 +19,7 @@
     /// <summary>
     /// Provides access to data retrieving methods specific to notes.
     /// <para>
-    /// This module contains all methods of the <a href ="https://trakt.docs.apiary.io/#reference/notes">"Trakt API Doc - Notes"</a> section.
+    /// This module contains all methods of the <a href ="https://docs.trakt.tv/referencereference/notes">"Trakt API Doc - Notes"</a> section.
     /// </para>
     /// </summary>
     public partial class TraktNotesModule : ATraktModule
@@ -28,7 +28,7 @@
         /// Adds notes for a <see cref="ITraktMovie" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="movie">An <see cref="ITraktMovie" /> instance for which the notes will be attached.</param>
@@ -70,7 +70,7 @@
         /// Adds notes for a <see cref="ITraktShow" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="show">An <see cref="ITraktShow" /> instance for which the notes will be attached.</param>
@@ -112,7 +112,7 @@
         /// Adds notes for a <see cref="ITraktSeason" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="season">An <see cref="ITraktSeason" /> instance for which the notes will be attached.</param>
@@ -154,7 +154,7 @@
         /// Adds notes for an <see cref="ITraktEpisode" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="episode">An <see cref="ITraktEpisode" /> instance for which the notes will be attached.</param>
@@ -196,7 +196,7 @@
         /// Adds notes for a <see cref="ITraktPerson" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="person">An <see cref="ITraktPerson" /> instance for which the notes will be attached.</param>
@@ -238,7 +238,7 @@
         /// Adds notes for an history item.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="historyID">The ID of the history item for which the notes will be attached.</param>
@@ -280,7 +280,7 @@
         /// Adds notes for a collection <see cref="ITraktMovie" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="movie">An <see cref="ITraktMovie" /> instance for which the notes will be attached.</param>
@@ -326,7 +326,7 @@
         /// Adds notes for a collection <see cref="ITraktShow" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="show">An <see cref="ITraktShow" /> instance for which the notes will be attached.</param>
@@ -372,7 +372,7 @@
         /// Adds notes for a rated <see cref="ITraktMovie" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="movie">An <see cref="ITraktMovie" /> instance for which the notes will be attached.</param>
@@ -418,7 +418,7 @@
         /// Adds notes for a rated <see cref="ITraktShow" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="show">An <see cref="ITraktShow" /> instance for which the notes will be attached.</param>
@@ -464,7 +464,7 @@
         /// Adds notes for a rated <see cref="ITraktSeason" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="season">An <see cref="ITraktSeason" /> instance for which the notes will be attached.</param>
@@ -510,7 +510,7 @@
         /// Adds notes for an rated <see cref="ITraktEpisode" />.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/notes/add-notes">"Trakt API Doc - Notes: Add notes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="episode">An <see cref="ITraktEpisode" /> instance for which the notes will be attached.</param>

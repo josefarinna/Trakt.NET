@@ -1,5 +1,3 @@
-using System.Net.Http.Json;
-
 namespace TraktNET
 {
     public sealed partial class TraktUsersModule
@@ -18,7 +16,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/add-list-items/add-items-to-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistadd">
         /// Trakt API Documentation: Users: List Items
         /// </see></para>
         /// </remarks>
@@ -43,7 +41,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/add-list-items/add-items-to-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistadd">
         /// Trakt API Documentation: Users: List Items
         /// </see></para>
         /// </remarks>
@@ -74,7 +72,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/add-list-items/add-items-to-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistadd">
         /// Trakt API Documentation: Users: List Items
         /// </see></para>
         /// </remarks>
@@ -108,7 +106,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/add-list-items/add-items-to-personal-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistadd">
         /// Trakt API Documentation: Users: List Items
         /// </see></para>
         /// </remarks>

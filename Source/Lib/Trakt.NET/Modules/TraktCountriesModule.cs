@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Basic;
@@ -12,7 +12,7 @@
     /// <summary>
     /// Provides access to data retrieving methods specific to countries.
     /// <para>
-    /// This module contains all methods of the <a href ="https://trakt.docs.apiary.io/#reference/countries">"Trakt API Doc - Countries"</a> section.
+    /// This module contains all methods of the <a href ="https://docs.trakt.tv/referencereference/countries">"Trakt API Doc - Countries"</a> section.
     /// </para>
     /// </summary>
     public class TraktCountriesModule : ATraktModule
@@ -25,7 +25,7 @@
         /// Gets a list of all movie countries.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/countries/list/get-countries">"Trakt API Doc - Countries: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/countries/list/get-countries">"Trakt API Doc - Countries: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -44,7 +44,7 @@
         /// Gets a list of all show countries.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/countries/list/get-countries">"Trakt API Doc - Countries: List"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/countries/list/get-countries">"Trakt API Doc - Countries: List"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">

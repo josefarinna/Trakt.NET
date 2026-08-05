@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Objects.Get.Episodes;
     using Parameters;
@@ -11,7 +11,7 @@
     /// <summary>
     /// Provides access to data retrieving methods specific to seasons.
     /// <para>
-    /// This module contains all methods of the <a href ="http://trakt.docs.apiary.io/#reference/seasons">"Trakt API Doc - Seasons"</a> section.
+    /// This module contains all methods of the <a href ="https://docs.trakt.tv/reference/getshowsseasons">"Trakt API Doc - Seasons"</a> section.
     /// </para>
     /// </summary>
     public partial class TraktSeasonsModule : ATraktModule

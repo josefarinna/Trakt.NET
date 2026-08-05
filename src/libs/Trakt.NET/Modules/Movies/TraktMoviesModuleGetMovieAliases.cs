@@ -14,7 +14,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/aliases/get-all-movie-aliases">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesaliases">
         /// Trakt API Documentation: Movies: Aliases - Get all movie aliases
         /// </see></para>
         /// </remarks>
@@ -35,7 +35,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/aliases/get-all-movie-aliases">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesaliases">
         /// Trakt API Documentation: Movies: Aliases - Get all movie aliases
         /// </see></para>
         /// </remarks>
@@ -56,7 +56,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/aliases/get-all-movie-aliases">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesaliases">
         /// Trakt API Documentation: Movies: Aliases - Get all movie aliases
         /// </see></para>
         /// </remarks>

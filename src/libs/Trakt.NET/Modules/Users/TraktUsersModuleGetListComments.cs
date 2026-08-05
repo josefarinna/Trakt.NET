@@ -20,7 +20,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistcomments">
         /// Trakt API Documentation: Users: List Comments
         /// </see></para>
         /// </remarks>
@@ -48,7 +48,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistcomments">
         /// Trakt API Documentation: Users: List Comments
         /// </see></para>
         /// </remarks>
@@ -82,7 +82,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistcomments">
         /// Trakt API Documentation: Users: List Comments
         /// </see></para>
         /// </remarks>
@@ -119,7 +119,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-comments/get-all-list-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistcomments">
         /// Trakt API Documentation: Users: List Comments
         /// </see></para>
         /// </remarks>

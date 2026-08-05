@@ -8,7 +8,7 @@
 
 ### Overview
 
-`Trakt.NET` is a comprehensive .NET wrapper library that enables developers to build applications integrating with the [Trakt.tv API](https://trakt.docs.apiary.io/#).
+`Trakt.NET` is a comprehensive .NET wrapper library that enables developers to build applications integrating with the [Trakt.tv API](https://docs.trakt.tv/reference).
 
 Key capabilities include:
 - Fetching rich metadata for movies, TV shows, seasons, episodes, and people (including full media image URLs).

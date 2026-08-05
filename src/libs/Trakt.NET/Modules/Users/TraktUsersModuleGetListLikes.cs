@@ -19,7 +19,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-likes/get-all-users-who-liked-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistlikes">
         /// Trakt API Documentation: Users: List Likes
         /// </see></para>
         /// </remarks>
@@ -46,7 +46,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-likes/get-all-users-who-liked-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistlikes">
         /// Trakt API Documentation: Users: List Likes
         /// </see></para>
         /// </remarks>
@@ -79,7 +79,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-likes/get-all-users-who-liked-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistlikes">
         /// Trakt API Documentation: Users: List Likes
         /// </see></para>
         /// </remarks>
@@ -115,7 +115,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-likes/get-all-users-who-liked-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistlikes">
         /// Trakt API Documentation: Users: List Likes
         /// </see></para>
         /// </remarks>

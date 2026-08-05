@@ -1,5 +1,3 @@
-using System.Net.Http.Json;
-
 namespace TraktNET
 {
     public sealed partial class TraktUsersModule
@@ -18,7 +16,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistreorder">
         /// Trakt API Documentation: Users: Reorder List Items
         /// </see></para>
         /// </remarks>
@@ -43,7 +41,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistreorder">
         /// Trakt API Documentation: Users: Reorder List Items
         /// </see></para>
         /// </remarks>
@@ -74,7 +72,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistreorder">
         /// Trakt API Documentation: Users: Reorder List Items
         /// </see></para>
         /// </remarks>
@@ -108,7 +106,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistreorder">
         /// Trakt API Documentation: Users: Reorder List Items
         /// </see></para>
         /// </remarks>

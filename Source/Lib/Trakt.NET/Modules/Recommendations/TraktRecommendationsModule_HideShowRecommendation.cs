@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Shows;
@@ -15,7 +15,7 @@
         /// Hides a show with the given Trakt-Id or -Slug or IMDB-Id from getting recommended anymore.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/recommendations/hide-show/hide-a-show-recommendation">"Trakt API Doc - Recommendations: Shows"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/postusershiddenadd">"Trakt API Doc - Recommendations: Shows"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="showIdOrSlug">The Trakt-Id or -Slug or an IMDB-Id of the show, which should be hidden from recommendations.</param>
@@ -40,7 +40,7 @@
         /// Hides a show with the given Trakt-Id or -Slug or IMDB-Id from getting recommended anymore.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/recommendations/hide-show/hide-a-show-recommendation">"Trakt API Doc - Recommendations: Shows"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/postusershiddenadd">"Trakt API Doc - Recommendations: Shows"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktShowId">The Trakt-Id of the show, which should be hidden from recommendations.</param>
@@ -63,7 +63,7 @@
         /// Hides a show with the given Trakt-Id or -Slug or IMDB-Id from getting recommended anymore.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/recommendations/hide-show/hide-a-show-recommendation">"Trakt API Doc - Recommendations: Shows"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/postusershiddenadd">"Trakt API Doc - Recommendations: Shows"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="showIds">The ids of the show, which should be hidden from recommendations.</param>
@@ -90,7 +90,7 @@
         /// Hides a show with the given Trakt-Id or -Slug or IMDB-Id from getting recommended anymore.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/recommendations/hide-show/hide-a-show-recommendation">"Trakt API Doc - Recommendations: Shows"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/postusershiddenadd">"Trakt API Doc - Recommendations: Shows"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="show">The show, which should be hidden from recommendations.</param>

@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Enums;
     using Exceptions;
@@ -17,7 +17,7 @@
         /// <summary>
         /// Gets top level comments for a list.
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-comments/get-all-list-comments">"Trakt API Doc - Lists: List Comments"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-comments/get-all-list-comments">"Trakt API Doc - Lists: List Comments"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="listIdOrSlug">The id or slug of the list, for which the comments should be queried.</param>
@@ -59,7 +59,7 @@
         /// <summary>
         /// Gets top level comments for a list.
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-comments/get-all-list-comments">"Trakt API Doc - Lists: List Comments"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-comments/get-all-list-comments">"Trakt API Doc - Lists: List Comments"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktListId">The list's Trakt-Id. See also <seealso cref="ITraktListIds" />.</param>
@@ -96,7 +96,7 @@
         /// <summary>
         /// Gets top level comments for a list.
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-comments/get-all-list-comments">"Trakt API Doc - Lists: List Comments"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-comments/get-all-list-comments">"Trakt API Doc - Lists: List Comments"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="listIds">The list's ids. See also <seealso cref="ITraktListIds" />.</param>
@@ -137,7 +137,7 @@
         /// <summary>
         /// Gets top level comments for a list.
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/lists/list-comments/get-all-list-comments">"Trakt API Doc - Lists: List Comments"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/lists/list-comments/get-all-list-comments">"Trakt API Doc - Lists: List Comments"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="list">The list. See also <seealso cref="ITraktList" />.</param>

@@ -1,9 +1,9 @@
-﻿namespace TraktNet.Parameters
+namespace TraktNet.Parameters
 {
     /// <summary>
     /// Container class for pagination parameters.
     /// <para>
-    /// See <a href ="https://trakt.docs.apiary.io/#introduction/pagination">"Trakt API Doc - Pagination"</a> for more information.
+    /// See <a href ="https://docs.trakt.tv/referenceintroduction/pagination">"Trakt API Doc - Pagination"</a> for more information.
     /// </para>
     /// </summary>
     public sealed class TraktPagedParameters

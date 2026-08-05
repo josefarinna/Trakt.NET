@@ -2,7 +2,7 @@ namespace TraktNET
 {
     /// <summary>
     /// Provides access to data retrieving methods specific to calendars.
-    /// <para>This module contains all methods of the <see href=""https://docs.trakt.tv/reference/about-calendars">Trakt API Documentation - Calendars</see> section.</para>
+    /// <para>This module contains all methods of the <see href="https://docs.trakt.tv/reference/about-calendars">Trakt API Documentation - Calendars</see> section.</para>
     /// </summary>
     public sealed partial class TraktCalendarModule(TraktContext context) : BaseModule(context)
     {

@@ -22,7 +22,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/summary/get-all-seasons-for-a-show">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasons">
         /// Trakt API Documentation: Seasons: Summary - Get all seasons for a show
         /// </see></para>
         /// </remarks>
@@ -52,7 +52,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/summary/get-all-seasons-for-a-show">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasons">
         /// Trakt API Documentation: Seasons: Summary - Get all seasons for a show
         /// </see></para>
         /// </remarks>
@@ -88,7 +88,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/summary/get-all-seasons-for-a-show">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasons">
         /// Trakt API Documentation: Seasons: Summary - Get all seasons for a show
         /// </see></para>
         /// </remarks>
@@ -127,7 +127,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/summary/get-all-seasons-for-a-show">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasons">
         /// Trakt API Documentation: Seasons: Summary - Get all seasons for a show
         /// </see></para>
         /// </remarks>

@@ -19,7 +19,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/people/get-all-people-for-a-season">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonpeople">
         /// Trakt API Documentation: Seasons: People - Get all people for a season
         /// </see></para>
         /// </remarks>
@@ -46,7 +46,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/people/get-all-people-for-a-season">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonpeople">
         /// Trakt API Documentation: Seasons: People - Get all people for a season
         /// </see></para>
         /// </remarks>
@@ -79,7 +79,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/people/get-all-people-for-a-season">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonpeople">
         /// Trakt API Documentation: Seasons: People - Get all people for a season
         /// </see></para>
         /// </remarks>
@@ -115,7 +115,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/people/get-all-people-for-a-season">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasonpeople">
         /// Trakt API Documentation: Seasons: People - Get all people for a season
         /// </see></para>
         /// </remarks>

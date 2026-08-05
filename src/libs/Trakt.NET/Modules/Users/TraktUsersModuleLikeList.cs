@@ -12,7 +12,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-like/like-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistlike">
         /// Trakt API Documentation: Users: List Like
         /// </see></para>
         /// </remarks>
@@ -31,7 +31,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-like/like-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistlike">
         /// Trakt API Documentation: Users: List Like
         /// </see></para>
         /// </remarks>
@@ -56,7 +56,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-like/like-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistlike">
         /// Trakt API Documentation: Users: List Like
         /// </see></para>
         /// </remarks>
@@ -84,7 +84,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/users/list-like/like-a-list">
+        /// <para><see href="https://docs.trakt.tv/reference/postuserslistslistlike">
         /// Trakt API Documentation: Users: List Like
         /// </see></para>
         /// </remarks>

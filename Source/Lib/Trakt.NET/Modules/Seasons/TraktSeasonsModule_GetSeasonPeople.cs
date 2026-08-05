@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Seasons;
@@ -17,7 +17,7 @@
         /// Gets all people for a <see cref="ITraktSeason" /> in a show with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/seasons/people/get-all-people-for-a-season">"Trakt API Doc - Seasons: People"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/seasons/people/get-all-people-for-a-season">"Trakt API Doc - Seasons: People"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="showIdOrSlug">The show's Trakt-Id or -Slug. See also <seealso cref="ITraktShowIds" />.</param>
@@ -51,7 +51,7 @@
         /// Gets all people for a <see cref="ITraktSeason" /> in a show with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/seasons/people/get-all-people-for-a-season">"Trakt API Doc - Seasons: People"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/seasons/people/get-all-people-for-a-season">"Trakt API Doc - Seasons: People"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktShowID">The show's Trakt-Id. See also <seealso cref="ITraktShowIds" />.</param>
@@ -81,7 +81,7 @@
         /// Gets all people for a <see cref="ITraktSeason" /> in a show with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/seasons/people/get-all-people-for-a-season">"Trakt API Doc - Seasons: People"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/seasons/people/get-all-people-for-a-season">"Trakt API Doc - Seasons: People"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="showIds">The show's ids. See also <seealso cref="ITraktShowIds" />.</param>
@@ -115,7 +115,7 @@
         /// Gets all people for a <see cref="ITraktSeason" /> in a show with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/seasons/people/get-all-people-for-a-season">"Trakt API Doc - Seasons: People"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/seasons/people/get-all-people-for-a-season">"Trakt API Doc - Seasons: People"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="show">The show. See also <seealso cref="ITraktShow" />.</param>

@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Lists;
@@ -18,7 +18,7 @@
         /// Reorders an user's personal list items.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">"Trakt API Doc - Users: Reorder List Items"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/reorder-list-items/reorder-items-on-a-list">"Trakt API Doc - Users: Reorder List Items"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be reordered.</param>
@@ -54,7 +54,7 @@
         /// Reorders an user's personal list items.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">"Trakt API Doc - Users: Reorder List Items"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/reorder-list-items/reorder-items-on-a-list">"Trakt API Doc - Users: Reorder List Items"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be reordered.</param>
@@ -83,7 +83,7 @@
         /// Reorders an user's personal list items.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">"Trakt API Doc - Users: Reorder List Items"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/reorder-list-items/reorder-items-on-a-list">"Trakt API Doc - Users: Reorder List Items"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be reordered.</param>
@@ -116,7 +116,7 @@
         /// Reorders an user's personal list items.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/reorder-list-items/reorder-items-on-a-list">"Trakt API Doc - Users: Reorder List Items"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/reorder-list-items/reorder-items-on-a-list">"Trakt API Doc - Users: Reorder List Items"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list items should be reordered.</param>

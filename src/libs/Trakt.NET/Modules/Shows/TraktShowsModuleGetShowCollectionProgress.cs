@@ -17,7 +17,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/collection-progress/get-show-collection-progresss">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsprogresscollections">
         /// Trakt API Documentation: Shows: Collection - Get show collection progress
         /// </see></para>
         /// </remarks>
@@ -42,7 +42,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/collection-progress/get-show-collection-progress">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsprogresscollection">
         /// Trakt API Documentation: Shows: Collection - Get show collection progress
         /// </see></para>
         /// </remarks>
@@ -67,7 +67,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/collection-progress/get-show-collection-progress">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsprogresscollection">
         /// Trakt API Documentation: Shows: Collection - Get show collection progress
         /// </see></para>
         /// </remarks>

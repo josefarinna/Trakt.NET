@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Lists;
@@ -16,7 +16,7 @@
         /// Gets all likes for an user's list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Users: List Likes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Users: List Likes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list likes should be queried.</param>
@@ -54,7 +54,7 @@
         /// Gets all likes for an user's list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Users: List Likes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Users: List Likes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list likes should be queried.</param>
@@ -88,7 +88,7 @@
         /// Gets all likes for an user's list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Users: List Likes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Users: List Likes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list likes should be queried.</param>
@@ -126,7 +126,7 @@
         /// Gets all likes for an user's list.
         /// <para>OAuth authorization optional.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Users: List Likes"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/list-likes/get-all-users-who-liked-a-list">"Trakt API Doc - Users: List Likes"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the list likes should be queried.</param>

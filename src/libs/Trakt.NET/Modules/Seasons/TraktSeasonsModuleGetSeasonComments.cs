@@ -27,7 +27,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/comments/get-all-season-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasoncomments">
         /// Trakt API Documentation: Seasons: Comments - Get all season comments
         /// </see></para>
         /// </remarks>
@@ -63,7 +63,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/comments/get-all-season-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasoncomments">
         /// Trakt API Documentation: Seasons: Comments - Get all season comments
         /// </see></para>
         /// </remarks>
@@ -105,7 +105,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/comments/get-all-season-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasoncomments">
         /// Trakt API Documentation: Seasons: Comments - Get all season comments
         /// </see></para>
         /// </remarks>
@@ -150,7 +150,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/seasons/comments/get-all-season-comments">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsseasoncomments">
         /// Trakt API Documentation: Seasons: Comments - Get all season comments
         /// </see></para>
         /// </remarks>

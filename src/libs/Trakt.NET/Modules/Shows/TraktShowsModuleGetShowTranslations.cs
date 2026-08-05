@@ -15,7 +15,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/translations/get-all-show-translations">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowstranslations">
         /// Trakt API Documentation: Shows: Translations - Get all show translations
         /// </see></para>
         /// </remarks>
@@ -38,7 +38,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/translations/get-all-show-translations">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowstranslations">
         /// Trakt API Documentation: Shows: Translations - Get all show translations
         /// </see></para>
         /// </remarks>
@@ -61,7 +61,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/translations/get-all-show-translations">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowstranslations">
         /// Trakt API Documentation: Shows: Translations - Get all show translations
         /// </see></para>
         /// </remarks>

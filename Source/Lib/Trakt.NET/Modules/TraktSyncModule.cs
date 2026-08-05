@@ -37,7 +37,7 @@ namespace TraktNet.Modules
     /// <summary>
     /// Provides access to data retrieving methods specific to sync.
     /// <para>
-    /// This module contains all methods of the <a href ="http://trakt.docs.apiary.io/#reference/sync">"Trakt API Doc - Sync"</a> section.
+    /// This module contains all methods of the <a href ="https://docs.trakt.tv/referencereference/sync">"Trakt API Doc - Sync"</a> section.
     /// </para>
     /// </summary>
     public class TraktSyncModule : ATraktModule
@@ -50,7 +50,7 @@ namespace TraktNet.Modules
         /// Gets the user's last activities.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/last-activities/get-last-activity">"Trakt API Doc - Sync: Last Activities"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/last-activities/get-last-activity">"Trakt API Doc - Sync: Last Activities"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -69,7 +69,7 @@ namespace TraktNet.Modules
         /// Gets an user's favorite movies and / or shows.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/sync/get-favorites/get-favorites">"Trakt API Doc - Sync: Get Favorites"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/get-favorites/get-favorites">"Trakt API Doc - Sync: Get Favorites"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="favoriteObjectType">Determines, which type of favorite items should be queried. See also <seealso cref="TraktFavoriteObjectType" />.</param>
@@ -109,7 +109,7 @@ namespace TraktNet.Modules
         /// Reorder all user's favorites.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/sync/reorder-favorites/reorder-favorited-items">"Trakt API Doc - Sync: Reorder Favorites"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/reorder-favorites/reorder-favorited-items">"Trakt API Doc - Sync: Reorder Favorites"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="reorderedFavoritedItemRanks">A collection of list ids. Represents the new order of an user's favorites.</param>
@@ -140,7 +140,7 @@ namespace TraktNet.Modules
         /// Update the notes on a single favorite item.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/sync/update-favorite-item/update-a-favorite-item">"Trakt API Doc - Sync: Update Favorite Item"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/update-favorite-item/update-a-favorite-item">"Trakt API Doc - Sync: Update Favorite Item"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="listItemId">The id of the favorite item which should be updated.</param>
@@ -171,7 +171,7 @@ namespace TraktNet.Modules
         /// Gets the user's saved playback progress of scrobbles that are paused.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/last-activities/get-playback-progress">"Trakt API Doc - Sync: Playback"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/last-activities/get-playback-progress">"Trakt API Doc - Sync: Playback"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="objectType">Determines, which type of items should be queried. By default, all types will be returned. See also <seealso cref="TraktSyncType" />.</param>
@@ -206,7 +206,7 @@ namespace TraktNet.Modules
         /// Removes a playback progress item from the user's playback progress list.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/remove-playback/remove-a-playback-item">"Trakt API Doc - Sync: Remove Playback"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/remove-playback/remove-a-playback-item">"Trakt API Doc - Sync: Remove Playback"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="playbackId">The id of the playback progress item, which should be removed.</param>
@@ -234,7 +234,7 @@ namespace TraktNet.Modules
         /// Gets all collected movies in the user's collection.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/get-collection/get-collection">"Trakt API Doc - Sync: Get Collection"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/get-collection/get-collection">"Trakt API Doc - Sync: Get Collection"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="extendedInfo">
@@ -263,7 +263,7 @@ namespace TraktNet.Modules
         /// Gets all collected shows in the user's collection.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/get-collection/get-collection">"Trakt API Doc - Sync: Get Collection"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/get-collection/get-collection">"Trakt API Doc - Sync: Get Collection"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="extendedInfo">
@@ -292,7 +292,7 @@ namespace TraktNet.Modules
         /// Adds items to the user's collection. Accepts shows, seasons, episodes and movies.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/get-collection/add-items-to-collection">"Trakt API Doc - Sync: Add to Collection"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/get-collection/add-items-to-collection">"Trakt API Doc - Sync: Add to Collection"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktSyncCollectionPostBuilder" /> to create an instance
@@ -325,7 +325,7 @@ namespace TraktNet.Modules
         /// Removes items from the user's collection. Accepts shows, seasons, episodes and movies.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/remove-from-collection/remove-items-from-collection">"Trakt API Doc - Sync: Remove from Collection"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/remove-from-collection/remove-items-from-collection">"Trakt API Doc - Sync: Remove from Collection"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktSyncCollectionRemovePostBuilder" /> to create an instance
@@ -358,7 +358,7 @@ namespace TraktNet.Modules
         /// Gets all movies the user has watched, sorted by most plays.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/get-watched/get-watched">"Trakt API Doc - Sync: Get Watched"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/get-watched/get-watched">"Trakt API Doc - Sync: Get Watched"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="extendedInfo">
@@ -387,7 +387,7 @@ namespace TraktNet.Modules
         /// Gets all shows the user has watched, sorted by most plays.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/get-watched/get-watched">"Trakt API Doc - Sync: Get Watched"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/get-watched/get-watched">"Trakt API Doc - Sync: Get Watched"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="extendedInfo">
@@ -416,7 +416,7 @@ namespace TraktNet.Modules
         /// Gets all movies, shows, seasons and / or episodes the user has watched, sorted by most recent.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/get-history/get-watched-history">"Trakt API Doc - Sync: Get History"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/get-history/get-watched-history">"Trakt API Doc - Sync: Get History"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="historyItemType">Determines, which type of history items should be queried. See also <seealso cref="TraktSyncItemType" />.</param>
@@ -464,7 +464,7 @@ namespace TraktNet.Modules
         /// Adds items to the user's watch history. Accepts shows, seasons, episodes and movies.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/add-to-history/add-items-to-watched-history">"Trakt API Doc - Sync: Add to History"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/add-to-history/add-items-to-watched-history">"Trakt API Doc - Sync: Add to History"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktSyncHistoryPostBuilder" /> to create an instance
@@ -497,7 +497,7 @@ namespace TraktNet.Modules
         /// Removes items from the user's watch history. Accepts shows, seasons, episodes and movies.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/remove-from-history/remove-items-from-history">"Trakt API Doc - Sync: Remove from History"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/remove-from-history/remove-items-from-history">"Trakt API Doc - Sync: Remove from History"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktSyncHistoryRemovePostBuilder" /> to create an instance
@@ -530,7 +530,7 @@ namespace TraktNet.Modules
         /// Gets the user's ratings for movies, shows, seasons and / or episodes.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/get-ratings/get-ratings">"Trakt API Doc - Sync: Get Ratings"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/get-ratings/get-ratings">"Trakt API Doc - Sync: Get Ratings"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="ratingsItemType">Determines, which type of rating items should be queried. See also <seealso cref="TraktRatingsItemType" />.</param>
@@ -572,7 +572,7 @@ namespace TraktNet.Modules
         /// Adds items to the user's ratings. Accepts shows, seasons, episodes and movies.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/add-ratings/add-new-ratings">"Trakt API Doc - Sync: Add Ratings"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/add-ratings/add-new-ratings">"Trakt API Doc - Sync: Add Ratings"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktSyncRatingsPostBuilder" /> to create an instance
@@ -605,7 +605,7 @@ namespace TraktNet.Modules
         /// Removes items from the user's ratings. Accepts shows, seasons, episodes and movies.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/remove-ratings/remove-ratings">"Trakt API Doc - Sync: Remove Ratings"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/remove-ratings/remove-ratings">"Trakt API Doc - Sync: Remove Ratings"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktSyncRatingsRemovePostBuilder" /> to create an instance
@@ -638,7 +638,7 @@ namespace TraktNet.Modules
         /// Adds items to the user's favorites. Accepts movies and shows.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/sync/add-to-favorites/add-items-to-favorites">"Trakt API Doc - Sync: Add to Favorites"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/add-to-favorites/add-items-to-favorites">"Trakt API Doc - Sync: Add to Favorites"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktSyncFavoritesPostBuilder" /> to create an instance
@@ -671,7 +671,7 @@ namespace TraktNet.Modules
         /// Remove items from the user's favorites. Accepts movies and shows.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/sync/remove-from-favorites/remove-items-from-favorites">"Trakt API Doc - Sync: Remove from Favorites"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/remove-from-favorites/remove-items-from-favorites">"Trakt API Doc - Sync: Remove from Favorites"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktSyncFavoritesRemovePostBuilder" /> to create an instance
@@ -704,7 +704,7 @@ namespace TraktNet.Modules
         /// Update the favorites list by sending 1 or more parameters.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/sync/update-favorites/update-favorites">"Trakt API Doc - Sync: Update Favorites"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/update-favorites/update-favorites">"Trakt API Doc - Sync: Update Favorites"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="description">Description for the favorites list.</param>
@@ -739,7 +739,7 @@ namespace TraktNet.Modules
         /// Gets the user's watchlist containing movies, shows, seasons and / or episodes.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/get-watchlist/get-watchlist">"Trakt API Doc - Sync: Get Watchlist"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/get-watchlist/get-watchlist">"Trakt API Doc - Sync: Get Watchlist"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="watchlistItemType">Determines, which type of watchlist items should be queried. See also <seealso cref="TraktSyncItemType" />.</param>
@@ -783,7 +783,7 @@ namespace TraktNet.Modules
         /// Reorders an user's watchlist.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/sync/reorder-watchlist/reorder-watchlist-items">"Trakt API Doc - Sync: Reorder Watchlist"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/reorder-watchlist/reorder-watchlist-items">"Trakt API Doc - Sync: Reorder Watchlist"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="reorderedWatchlistItemRanks">A collection of list ids. Represents the new order of an user's watchlist.</param>
@@ -814,7 +814,7 @@ namespace TraktNet.Modules
         /// Update the notes on a watchlist item.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/sync/update-watchlist-item/update-a-watchlist-item">"Trakt API Doc - Sync: Update Watchlist Item"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/update-watchlist-item/update-a-watchlist-item">"Trakt API Doc - Sync: Update Watchlist Item"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="listItemId">The id of the watchlist item which should be updated.</param>
@@ -845,7 +845,7 @@ namespace TraktNet.Modules
         /// Adds items to the user's watchlist. Accepts shows, seasons, episodes and movies.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/add-to-watchlist/add-items-to-watchlist">"Trakt API Doc - Sync: Add to Watchlist"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/add-to-watchlist/add-items-to-watchlist">"Trakt API Doc - Sync: Add to Watchlist"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktSyncWatchlistPostBuilder" /> to create an instance
@@ -878,7 +878,7 @@ namespace TraktNet.Modules
         /// Removes items from the user's watchlist. Accepts shows, seasons, episodes and movies.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/sync/remove-from-watchlist/remove-items-from-watchlists">"Trakt API Doc - Sync: Remove from Watchlist"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/remove-from-watchlist/remove-items-from-watchlists">"Trakt API Doc - Sync: Remove from Watchlist"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktSyncWatchlistRemovePostBuilder" /> to create an instance
@@ -911,7 +911,7 @@ namespace TraktNet.Modules
         /// Update the watchlist by sending 1 or more parameters.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/sync/update-watchlist/update-watchlist">"Trakt API Doc - Sync: Update Watchlist"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/sync/update-watchlist/update-watchlist">"Trakt API Doc - Sync: Update Watchlist"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="description">Description for the watchlist.</param>

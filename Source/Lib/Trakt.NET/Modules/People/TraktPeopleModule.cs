@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.People;
@@ -13,7 +13,7 @@
     /// <summary>
     /// Provides access to data retrieving methods specific to people.
     /// <para>
-    /// This module contains all methods of the <a href ="http://trakt.docs.apiary.io/#reference/people">"Trakt API Doc - People"</a> section.
+    /// This module contains all methods of the <a href ="https://docs.trakt.tv/reference/getpeoplesummary">"Trakt API Doc - People"</a> section.
     /// </para>
     /// </summary>
     public partial class TraktPeopleModule : ATraktModule
@@ -26,7 +26,7 @@
         /// Gets recently updated people ids since the given <paramref name="startDate" />.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/people/updated-ids/get-recently-updated-people-trakt-ids">"Trakt API Doc - People: Updated Ids"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/people/updated-ids/get-recently-updated-people-trakt-ids">"Trakt API Doc - People: Updated Ids"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="startDate">The start date, after which updated people ids should be queried. Will be converted to the Trakt UTC-datetime and -format.</param>
@@ -60,7 +60,7 @@
         /// Gets updated people since the given <paramref name="startDate" />.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/people/updates/get-recently-updated-people">"Trakt API Doc - People: Updates"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/people/updates/get-recently-updated-people">"Trakt API Doc - People: Updates"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="startDate">The start date, after which updated people should be queried. Will be converted to the Trakt UTC-datetime and -format.</param>

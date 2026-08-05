@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Lists;
@@ -16,7 +16,7 @@
         /// Update the notes on a single list item.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">"Trakt API Doc - Users: Update List Item"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/update-list-item/update-a-list-item">"Trakt API Doc - Users: Update List Item"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list item should be updated.</param>
@@ -52,7 +52,7 @@
         /// Update the notes on a single list item.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">"Trakt API Doc - Users: Update List Item"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/update-list-item/update-a-list-item">"Trakt API Doc - Users: Update List Item"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list item should be updated.</param>
@@ -81,7 +81,7 @@
         /// Update the notes on a single list item.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">"Trakt API Doc - Users: Update List Item"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/update-list-item/update-a-list-item">"Trakt API Doc - Users: Update List Item"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list item should be updated.</param>
@@ -114,7 +114,7 @@
         /// Update the notes on a single list item.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/update-list-item/update-a-list-item">"Trakt API Doc - Users: Update List Item"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/update-list-item/update-a-list-item">"Trakt API Doc - Users: Update List Item"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list item should be updated.</param>

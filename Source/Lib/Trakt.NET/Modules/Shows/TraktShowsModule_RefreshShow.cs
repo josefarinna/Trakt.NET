@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Shows;
@@ -15,7 +15,7 @@
         /// Queue a <see cref="ITraktShow" /> for a full metadata and image refresh.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/shows/refresh/refresh-show-metadata">"Trakt API Doc - Refresh: Refresh show metadata"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/refresh/refresh-show-metadata">"Trakt API Doc - Refresh: Refresh show metadata"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="showIdOrSlug">The show's Trakt-Id or -Slug. See also <seealso cref="ITraktShowIds" />.</param>
@@ -40,7 +40,7 @@
         /// Queue a <see cref="ITraktShow" /> for a full metadata and image refresh.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/shows/refresh/refresh-show-metadata">"Trakt API Doc - Refresh: Refresh show metadata"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/refresh/refresh-show-metadata">"Trakt API Doc - Refresh: Refresh show metadata"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktShowId">The show's Trakt-Id. See also <seealso cref="ITraktShowIds" />.</param>
@@ -63,7 +63,7 @@
         /// Queue a <see cref="ITraktShow" /> for a full metadata and image refresh.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/shows/refresh/refresh-show-metadata">"Trakt API Doc - Refresh: Refresh show metadata"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/refresh/refresh-show-metadata">"Trakt API Doc - Refresh: Refresh show metadata"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="showIds">The show's ids. See also <seealso cref="ITraktShowIds" />.</param>
@@ -90,7 +90,7 @@
         /// Queue a <see cref="ITraktShow" /> for a full metadata and image refresh.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/shows/refresh/refresh-show-metadata">"Trakt API Doc - Refresh: Refresh show metadata"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/shows/refresh/refresh-show-metadata">"Trakt API Doc - Refresh: Refresh show metadata"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="show">The show. See also <seealso cref="ITraktShow" />.</param>

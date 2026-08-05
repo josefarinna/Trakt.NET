@@ -1,7 +1,7 @@
 # Quick Start
 [![NuGet Package](https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v2.0.0--alpha.1-blue.svg?style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex/2.0.0-alpha.1) [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT) 
 
-`Trakt.NET` is a modernized, high-performance .NET wrapper library with which developers can build .NET applications that integrate with the [Trakt.tv API](https://trakt.docs.apiary.io/#).
+`Trakt.NET` is a modernized, high-performance .NET wrapper library with which developers can build .NET applications that integrate with the [Trakt.tv API](https://docs.trakt.tv/reference).
 
 ## Install latest Trakt.NET package
 
@@ -80,7 +80,7 @@ Some examples that **Trakt.NET** can be used for include:
 - Recommendations for TV shows and movies based on watch history and social networks
 - Build custom TV show and movie lists, including Smart Lists and personal Notes
 
-To use **Trakt.NET**, you will need to [obtain an API key](https://trakt.tv/oauth/applications) from Trakt and follow the guidelines for using the [API](https://trakt.docs.apiary.io/#).
+To use **Trakt.NET**, you will need to [obtain an API key](https://trakt.tv/oauth/applications) from Trakt and follow the guidelines for using the [API](https://docs.trakt.tv/reference).
 
 ## Features
 - Full Trakt.tv API Coverage & Expanded Modules (Smart Lists, Social Recommendations, Notes, Team, WatchNow, Younify)

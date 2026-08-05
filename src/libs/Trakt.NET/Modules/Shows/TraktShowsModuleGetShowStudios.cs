@@ -14,7 +14,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/studios/get-show-studios">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsstudios">
         /// Trakt API Documentation: Shows: Studios - Get show studios
         /// </see></para>
         /// </remarks>
@@ -35,7 +35,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/studios/get-show-studios">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsstudios">
         /// Trakt API Documentation: Shows: Studios - Get show studios
         /// </see></para>
         /// </remarks>
@@ -56,7 +56,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/shows/studios/get-show-studios">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsstudios">
         /// Trakt API Documentation: Shows: Studios - Get show studios
         /// </see></para>
         /// </remarks>

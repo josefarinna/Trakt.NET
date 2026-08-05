@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Enums;
     using Exceptions;
@@ -18,7 +18,7 @@
         /// Gets all <see cref="ITraktList" />s containing a <see cref="ITraktPerson" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">"Trakt API Doc - People: Lists"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/people/lists/get-lists-containing-this-person">"Trakt API Doc - People: Lists"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="personIdOrSlug">The person's Trakt-Id or -Slug. See also <seealso cref="ITraktPersonIds" />.</param>
@@ -65,7 +65,7 @@
         /// Gets all <see cref="ITraktList" />s containing a <see cref="ITraktPerson" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">"Trakt API Doc - People: Lists"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/people/lists/get-lists-containing-this-person">"Trakt API Doc - People: Lists"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktPersonId">The person's Trakt-Id. See also <seealso cref="ITraktPersonIds" />.</param>
@@ -106,7 +106,7 @@
         /// Gets all <see cref="ITraktList" />s containing a <see cref="ITraktPerson" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">"Trakt API Doc - People: Lists"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/people/lists/get-lists-containing-this-person">"Trakt API Doc - People: Lists"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="personIds">The person's ids. See also <seealso cref="ITraktPersonIds" />.</param>
@@ -151,7 +151,7 @@
         /// Gets all <see cref="ITraktList" />s containing a <see cref="ITraktPerson" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/people/lists/get-lists-containing-this-person">"Trakt API Doc - People: Lists"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/people/lists/get-lists-containing-this-person">"Trakt API Doc - People: Lists"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="person">The person. See also <seealso cref="ITraktPerson" />.</param>

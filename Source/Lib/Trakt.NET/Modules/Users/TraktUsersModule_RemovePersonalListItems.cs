@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Lists;
@@ -18,7 +18,7 @@
         /// Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/remove-list-items/remove-items-from-personal-list">"Trakt API Doc - Users: Remove List Items"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/remove-list-items/remove-items-from-personal-list">"Trakt API Doc - Users: Remove List Items"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktUserPersonalListItemsRemovePostBuilder" /> to create an instance
@@ -56,7 +56,7 @@
         /// Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/remove-list-items/remove-items-from-personal-list">"Trakt API Doc - Users: Remove List Items"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/remove-list-items/remove-items-from-personal-list">"Trakt API Doc - Users: Remove List Items"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktUserPersonalListItemsRemovePostBuilder" /> to create an instance
@@ -90,7 +90,7 @@
         /// Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/remove-list-items/remove-items-from-personal-list">"Trakt API Doc - Users: Remove List Items"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/remove-list-items/remove-items-from-personal-list">"Trakt API Doc - Users: Remove List Items"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktUserPersonalListItemsRemovePostBuilder" /> to create an instance
@@ -128,7 +128,7 @@
         /// Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/users/remove-list-items/remove-items-from-personal-list">"Trakt API Doc - Users: Remove List Items"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/users/remove-list-items/remove-items-from-personal-list">"Trakt API Doc - Users: Remove List Items"</a> for more information.
         /// </para>
         /// <para>
         /// It is recommended to use the <see cref="ITraktUserPersonalListItemsRemovePostBuilder" /> to create an instance

@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Movies;
@@ -15,7 +15,7 @@
         /// Gets all title aliases for a <see cref="ITraktMovie" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/movies/aliases/get-all-movie-aliases">"Trakt API Doc - Movies: Aliases"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/getmoviessummary/aliases/get-all-movie-aliases">"Trakt API Doc - Movies: Aliases"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="movieIdOrSlug">The movie's Trakt-Id or -Slug. See also <seealso cref="ITraktMovieIds" />.</param>
@@ -42,7 +42,7 @@
         /// Gets all title aliases for a <see cref="ITraktMovie" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/movies/aliases/get-all-movie-aliases">"Trakt API Doc - Movies: Aliases"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/getmoviessummary/aliases/get-all-movie-aliases">"Trakt API Doc - Movies: Aliases"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="traktMovieId">The movie's Trakt-Id. See also <seealso cref="ITraktMovieIds" />.</param>
@@ -67,7 +67,7 @@
         /// Gets all title aliases for a <see cref="ITraktMovie" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/movies/aliases/get-all-movie-aliases">"Trakt API Doc - Movies: Aliases"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/getmoviessummary/aliases/get-all-movie-aliases">"Trakt API Doc - Movies: Aliases"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="movieIds">The movie's ids. See also <seealso cref="ITraktMovieIds" />.</param>
@@ -96,7 +96,7 @@
         /// Gets all title aliases for a <see cref="ITraktMovie" /> with the given Trakt-Id or -Slug.
         /// <para>OAuth authorization not required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/movies/aliases/get-all-movie-aliases">"Trakt API Doc - Movies: Aliases"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/getmoviessummary/aliases/get-all-movie-aliases">"Trakt API Doc - Movies: Aliases"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="movie">The movie. See also <seealso cref="ITraktMovie" />.</param>

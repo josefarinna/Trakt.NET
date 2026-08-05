@@ -18,7 +18,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/people/get-all-people-for-a-movie">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviespeople">
         /// Trakt API Documentation: Movies: People - Get all people for a movie
         /// </see></para>
         /// </remarks>
@@ -44,7 +44,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/people/get-all-people-for-a-movie">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviespeople">
         /// Trakt API Documentation: Movies: People - Get all people for a movie
         /// </see></para>
         /// </remarks>
@@ -70,7 +70,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/movies/people/get-all-people-for-a-movie">
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviespeople">
         /// Trakt API Documentation: Movies: People - Get all people for a movie
         /// </see></para>
         /// </remarks>

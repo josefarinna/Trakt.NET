@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using System;
     using System.Threading;
@@ -15,7 +15,7 @@
     /// <summary>
     /// Provides access to data retrieving methods specific to notes.
     /// <para>
-    /// This module contains all methods of the <a href ="https://trakt.docs.apiary.io/#reference/notes">"Trakt API Doc - Notes"</a> section.
+    /// This module contains all methods of the <a href ="https://docs.trakt.tv/referencereference/notes">"Trakt API Doc - Notes"</a> section.
     /// </para>
     /// </summary>
     public partial class TraktNotesModule : ATraktModule
@@ -28,7 +28,7 @@
         /// Returns a single note.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/note/get-a-note">"Trakt API Doc - Note: Get a note"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/note/get-a-note">"Trakt API Doc - Note: Get a note"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="noteId">The id of the note which should is requested.</param>
@@ -54,7 +54,7 @@
         /// Update a single note (500 maximum characters).
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/note/update-a-note">"Trakt API Doc - Note: Update a note"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/putnotesupdate">"Trakt API Doc - Note: Update a note"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="noteId">The id of the note which should be updated.</param>
@@ -93,7 +93,7 @@
         /// Delete a single note.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/note/delete-a-note">"Trakt API Doc - Note: Delete a note"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/note/delete-a-note">"Trakt API Doc - Note: Delete a note"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="noteId">The id of the note which should be deleted.</param>
@@ -117,7 +117,7 @@
         /// <summary>
         /// Returns the item this note is attached to.
         /// <para>
-        /// See <a href="https://trakt.docs.apiary.io/#reference/notes/item/get-the-attached-item">"Trakt API Doc - Item: Get the attached item"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/referencereference/notes/item/get-the-attached-item">"Trakt API Doc - Item: Get the attached item"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="noteId">The id of the note for which the attached item should is requested.</param>

@@ -26,7 +26,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/lists/get-lists-containing-this-episode">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodelists">
         /// Trakt API Documentation: Episodes: Lists
         /// </see></para>
         /// </remarks>
@@ -63,7 +63,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/lists/get-lists-containing-this-episode">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodelists">
         /// Trakt API Documentation: Episodes: Lists
         /// </see></para>
         /// </remarks>
@@ -105,7 +105,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/lists/get-lists-containing-this-episode">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodelists">
         /// Trakt API Documentation: Episodes: Lists
         /// </see></para>
         /// </remarks>
@@ -149,7 +149,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
-        /// <para><see href="https://trakt.docs.apiary.io/#reference/episodes/lists/get-lists-containing-this-episode">
+        /// <para><see href="https://docs.trakt.tv/reference/getshowsepisodelists">
         /// Trakt API Documentation: Episodes: Lists
         /// </see></para>
         /// </remarks>

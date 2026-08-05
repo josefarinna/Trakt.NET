@@ -1,4 +1,4 @@
-﻿namespace TraktNet.Modules
+namespace TraktNet.Modules
 {
     using Exceptions;
     using Objects.Get.Recommendations;
@@ -13,7 +13,7 @@
     /// <summary>
     /// Provides access to data retrieving methods specific to recommendations.
     /// <para>
-    /// This module contains all methods of the <a href ="http://trakt.docs.apiary.io/#reference/recommendations">"Trakt API Doc - Recommendations"</a> section.
+    /// This module contains all methods of the <a href ="https://docs.trakt.tv/reference/getsocial_recommendationsmoviesrecommend">"Trakt API Doc - Recommendations"</a> section.
     /// </para>
     /// </summary>
     public partial class TraktRecommendationsModule : ATraktModule
@@ -26,7 +26,7 @@
         /// Gets personalized movie recommendations for an user.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/recommendations/movies/get-movie-recommendations">"Trakt API Doc - Recommendations: Movies"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/getsocial_recommendationsmoviesrecommend">"Trakt API Doc - Recommendations: Movies"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="ignoreCollected">Determines, if already collected movies should be filtered out.</param>
@@ -70,7 +70,7 @@
         /// Gets personalized show recommendations for an user.
         /// <para>OAuth authorization required.</para>
         /// <para>
-        /// See <a href="http://trakt.docs.apiary.io/#reference/recommendations/shows/get-show-recommendations">"Trakt API Doc - Recommendations: Shows"</a> for more information.
+        /// See <a href="https://docs.trakt.tv/reference/getsocial_recommendationsshowsrecommend">"Trakt API Doc - Recommendations: Shows"</a> for more information.
         /// </para>
         /// </summary>
         /// <param name="ignoreCollected">Determines, if already collected shows should be filtered out.</param>
