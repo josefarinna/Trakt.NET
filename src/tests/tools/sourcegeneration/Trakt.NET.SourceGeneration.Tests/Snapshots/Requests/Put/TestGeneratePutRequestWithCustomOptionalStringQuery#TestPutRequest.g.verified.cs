@@ -21,7 +21,7 @@ namespace SourceGeneraterTestNamespace
 
             if (!string.IsNullOrWhiteSpace(Country))
             {
-                requestUri = requestUri + $"?country={Country!};
+                requestUri = requestUri + $"?country={Country!}";
             }
 
             RequestUri = new Uri(requestUri, UriKind.Relative);

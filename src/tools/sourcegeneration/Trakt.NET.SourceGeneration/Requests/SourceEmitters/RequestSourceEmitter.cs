@@ -549,7 +549,7 @@ namespace TraktNET.SourceGeneration.Requests
 
                             if (writeDirectlyInBuildMethod)
                             {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}!}};");
+                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}!}}\";");
                             }
                             else
                             {

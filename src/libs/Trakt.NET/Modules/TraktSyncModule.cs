@@ -198,6 +198,66 @@ namespace TraktNET
             CancellationToken cancellationToken = default)
             => GetCollectionShowsImplAsync(extendedInfo, cancellationToken);
 
+        /// <summary>Gets the user's minimal movie collection.</summary>
+        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried minimal movie collection.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsynccollectionminimalmovies">
+        /// Trakt API Documentation: Sync: Get minimal movie collection
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktResponse<Dictionary<string, string>>> GetMinimalMovieCollectionAsync(string? availableOn = null,
+            CancellationToken cancellationToken = default)
+            => GetMinimalMovieCollectionImplAsync(availableOn, cancellationToken);
+
+        /// <summary>Gets the user's minimal show collection.</summary>
+        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried minimal show collection.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsynccollectionminimalshows">
+        /// Trakt API Documentation: Sync: Get minimal show collection
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktResponse<Dictionary<string, Dictionary<string, Dictionary<string, string>>>>> GetMinimalShowCollectionAsync(string? availableOn = null,
+            CancellationToken cancellationToken = default)
+            => GetMinimalShowCollectionImplAsync(availableOn, cancellationToken);
+
+        /// <summary>Gets the user's minimal episode collection.</summary>
+        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried minimal episode collection.
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsynccollectionminimalepisodes">
+        /// Trakt API Documentation: Sync: Get minimal episode collection
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktResponse<Dictionary<string, string>>> GetMinimalEpisodeCollectionAsync(string? availableOn = null,
+            CancellationToken cancellationToken = default)
+            => GetMinimalEpisodeCollectionImplAsync(availableOn, cancellationToken);
+
         /// <summary>Adds items to the user's collection. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="collectionPost">An <see cref="TraktSyncCollectionPost" /> instance containing all shows, seasons, episodes and movies, which should be added.</param>
         /// <param name="cancellationToken">

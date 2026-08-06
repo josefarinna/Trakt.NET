@@ -132,6 +132,39 @@ namespace TraktNET
             return RequestHandler.ExecuteListRequestAsync<TraktSyncCollectionShow>(_context, request, cancellationToken);
         }
 
+        private Task<TraktResponse<Dictionary<string, string>>> GetMinimalMovieCollectionImplAsync(string? availableOn = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new SyncCollectionMinimalMoviesGetRequest
+            {
+                AvailableOn = availableOn
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, string>>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<Dictionary<string, Dictionary<string, Dictionary<string, string>>>>> GetMinimalShowCollectionImplAsync(string? availableOn = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new SyncCollectionMinimalShowsGetRequest
+            {
+                AvailableOn = availableOn
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, Dictionary<string, Dictionary<string, string>>>>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<Dictionary<string, string>>> GetMinimalEpisodeCollectionImplAsync(string? availableOn = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new SyncCollectionMinimalEpisodesGetRequest
+            {
+                AvailableOn = availableOn
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, string>>(_context, request, cancellationToken);
+        }
+
         private Task<TraktResponse<TraktSyncCollectionPostResponse>> AddCollectionItemsImplAsync(TraktSyncCollectionPost collectionPost,
             CancellationToken cancellationToken = default)
         {

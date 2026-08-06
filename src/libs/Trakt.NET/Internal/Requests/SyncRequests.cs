@@ -14,6 +14,27 @@ namespace TraktNET
     {
     }
 
+    [TraktGetRequest("sync/collection/minimal/movies", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SyncCollectionMinimalMoviesGetRequest
+    {
+        [TraktRequestQuery("available_on")]
+        internal string? AvailableOn { get; set; }
+    }
+
+    [TraktGetRequest("sync/collection/minimal/shows", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SyncCollectionMinimalShowsGetRequest
+    {
+        [TraktRequestQuery("available_on")]
+        internal string? AvailableOn { get; set; }
+    }
+
+    [TraktGetRequest("sync/collection/minimal/episodes", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SyncCollectionMinimalEpisodesGetRequest
+    {
+        [TraktRequestQuery("available_on")]
+        internal string? AvailableOn { get; set; }
+    }
+
     [TraktGetRequest("sync/favorites", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncFavoritesGetRequest
