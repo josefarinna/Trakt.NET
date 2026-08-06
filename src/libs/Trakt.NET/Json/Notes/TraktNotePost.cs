@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>A note post.</summary>
     public class TraktNotePost
@@ -48,6 +48,12 @@
         /// </summary>
         public TraktPerson? Person { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Trakt list.
+        /// See also <seealso cref="TraktList" />.
+        /// </summary>
+        public TraktList? List { get; set; }
+
         public void Validate()
         {
             if (string.IsNullOrEmpty(Notes))
@@ -60,7 +66,7 @@
                 return;
             }
 
-            if (AttachedTo == null && Movie == null && Show == null && Season == null && Episode == null && Person == null)
+            if (AttachedTo == null && Movie == null && Show == null && Season == null && Episode == null && Person == null && List == null)
             {
                 throw new TraktPostValidationException("note post must contain a media object");
             }

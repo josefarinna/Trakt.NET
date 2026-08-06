@@ -148,6 +148,34 @@ namespace TraktNET
             TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)
             => AddPersonNoteImplAsync(person, notes, spoiler, privacy, cancellationToken);
 
+        /// <summary>Adds notes for a <see cref="TraktList" />.</summary>
+        /// <param name="list">An <see cref="TraktList" /> instance for which the notes will be attached.</param>
+        /// <param name="notes">The content of the created note.</param>
+        /// <param name="spoiler">Optional parameter which determines whether the note contains any spoilers.</param>
+        /// <param name="privacy">Optional parameter determining the privacy setting of the note.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created user notes entry.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktNote" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization required.
+        /// <para>VIP enhanced.</para>
+        /// <para><see href="https://docs.trakt.tv/reference/postnotescreate">
+        /// Trakt API Documentation: Notes: Add notes
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="list"/> is null.</exception>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktNote>> AddListNoteAsync(TraktList list, string notes, bool? spoiler = null,
+            TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)
+            => AddListNoteImplAsync(list, notes, spoiler, privacy, cancellationToken);
+
         /// <summary>Adds notes for an history item. </summary>
         /// <param name="historyID">The ID of the history item for which the notes will be attached.</param>
         /// <param name="notes">The content of the created note.</param>

@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>A Trakt user note item containing the note including the media object to which the note is attached.</summary>
     public class TraktNoteItem
@@ -47,6 +47,12 @@
         /// See also <seealso cref="TraktPerson" />.
         /// </summary>
         public TraktPerson? Person { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list, if <see cref="Type" /> is <see cref="TraktListItemType.List" />.
+        /// See also <seealso cref="TraktList" />.
+        /// </summary>
+        public TraktList? List { get; set; }
 
         /// <summary>
         /// Gets or sets the note content of this item.

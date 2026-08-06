@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Notes
+namespace TraktNET.Json.Notes
 {
     public sealed partial class TraktNoteItemTests
     {
@@ -14,6 +14,7 @@
             noteItem.Season.ShouldBeNull();
             noteItem.Episode.ShouldBeNull();
             noteItem.Person.ShouldBeNull();
+            noteItem.List.ShouldBeNull();
             noteItem.Note.ShouldBeNull();
         }
 
@@ -43,6 +44,7 @@
             noteItem.Season.ShouldBeNull();
             noteItem.Episode.ShouldBeNull();
             noteItem.Person.ShouldBeNull();
+            noteItem.List.ShouldBeNull();
 
             noteItem.Note.ShouldNotBeNull();
             noteItem.Note.ID.ShouldBe(49U);
@@ -78,6 +80,33 @@
 
             noteItem.Note.ShouldNotBeNull();
             noteItem.Note.ID.ShouldBe(49U);
+        }
+
+        [Fact]
+        public async Task TestNoteItemFromJsonList()
+        {
+            TraktNoteItem? noteItem = await TestUtility.DeserializeJsonAsync<TraktNoteItem>("Notes\\noteitemlist.json");
+
+            noteItem.ShouldNotBeNull();
+
+            noteItem.AttachedTo.ShouldNotBeNull();
+            noteItem.Type.ShouldBe(TraktListItemType.List);
+
+            noteItem.List.ShouldNotBeNull();
+            noteItem.List.Name.ShouldBe("Star Wars Movies");
+            noteItem.List.IDs.ShouldNotBeNull();
+            noteItem.List.IDs.Trakt.ShouldBe(55U);
+            noteItem.List.IDs.Slug.ShouldBe("star-wars-movies");
+
+            noteItem.Movie.ShouldBeNull();
+            noteItem.Show.ShouldBeNull();
+            noteItem.Season.ShouldBeNull();
+            noteItem.Episode.ShouldBeNull();
+            noteItem.Person.ShouldBeNull();
+
+            noteItem.Note.ShouldNotBeNull();
+            noteItem.Note.ID.ShouldBe(190U);
+            noteItem.Note.Notes.ShouldBe("My favorite Star Wars list!");
         }
 
         private const string JSON_MOVIE =

@@ -11,6 +11,7 @@
             TraktListItemType.Season.ToJson().ShouldBe("season");
             TraktListItemType.Episode.ToJson().ShouldBe("episode");
             TraktListItemType.Person.ToJson().ShouldBe("person");
+            TraktListItemType.List.ToJson().ShouldBe("list");
         }
 
         [Fact]
@@ -22,6 +23,7 @@
             "season".ToTraktListItemType().ShouldBe(TraktListItemType.Season);
             "episode".ToTraktListItemType().ShouldBe(TraktListItemType.Episode);
             "person".ToTraktListItemType().ShouldBe(TraktListItemType.Person);
+            "list".ToTraktListItemType().ShouldBe(TraktListItemType.List);
 
             string? nullValue = null;
             nullValue.ToTraktListItemType().ShouldBe(TraktListItemType.Unspecified);
@@ -36,6 +38,7 @@
             TraktListItemType.Season.DisplayName().ShouldBe("Season");
             TraktListItemType.Episode.DisplayName().ShouldBe("Episode");
             TraktListItemType.Person.DisplayName().ShouldBe("Person");
+            TraktListItemType.List.DisplayName().ShouldBe("List");
         }
     }
 }

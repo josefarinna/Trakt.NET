@@ -153,6 +153,25 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
         }
 
+        private Task<TraktResponse<TraktNote>> AddListNoteImplAsync(TraktList list, string notes, bool? spoiler = null,
+            TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)
+        {
+            var traktNotePost = new TraktNotePost
+            {
+                Notes = notes,
+                Spoiler = spoiler,
+                Privacy = privacy,
+                List = list
+            };
+
+            var request = new NotesAddPostRequest
+            {
+                TraktNotePost = traktNotePost
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktNote>(_context, request, cancellationToken);
+        }
+
         private Task<TraktResponse<TraktNote>> AddHistoryNoteImplAsync(ulong historyID, string notes, bool? spoiler = null,
             TraktListPrivacy? privacy = null, CancellationToken cancellationToken = default)
         {

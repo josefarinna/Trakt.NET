@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>Determines the type of an object in a list item.</summary>
     [TraktEnum(HasPathSupport = true)]
@@ -20,6 +20,9 @@
         Episode,
 
         /// <summary>The list item contains a person.</summary>
-        Person
+        Person,
+
+        /// <summary>The list item contains a list.</summary>
+        List
     }
 }
