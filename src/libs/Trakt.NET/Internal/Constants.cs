@@ -156,7 +156,7 @@ namespace TraktNET
                     new TraktReasonJsonConverter(),
                     new TraktReleaseTypeJsonConverter(),
                     new TraktScrobbleActionTypeJsonConverter(),
-                    new TraktSearchFieldJsonConverter(),
+                    new TraktSearchFieldsJsonConverter(),
                     new TraktSearchIDTypeJsonConverter(),
                     new TraktSearchResultTypeJsonConverter(),
                     new TraktSearchRecentTypeJsonConverter(),

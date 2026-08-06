@@ -7,7 +7,7 @@ namespace TraktNET
     public sealed partial class TraktSearchModule(TraktContext context) : BaseModule(context)
     {
         private Task<TraktPagedResponse<TraktSearchResult>> GetTextQueryResultsImplAsync(TraktSearchResultType searchResultTypes, string searchQuery,
-            TraktSearchField? searchFields = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
+            TraktSearchFields? searchFields = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new SearchTextQueryGetRequest

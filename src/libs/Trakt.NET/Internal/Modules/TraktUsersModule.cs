@@ -459,11 +459,8 @@ namespace TraktNET
         {
             bool isValidType = type != null && type != TraktRatingsItemType.Unspecified;
 
-            if (isValidType && filter is { Length: > 0 and <= 10 })
-            {
-                if (filter.All(r => r is >= 1 and <= 10))
-                    return string.Join(",", filter);
-            }
+            if (isValidType && filter is { Length: > 0 and <= 10 } && filter.All(r => r is >= 1 and <= 10))
+                return string.Join(",", filter);
 
             return string.Empty;
         }

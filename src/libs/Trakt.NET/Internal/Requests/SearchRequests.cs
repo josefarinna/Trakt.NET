@@ -14,7 +14,7 @@ namespace TraktNET
         public required string Query { get; set; }
 
         [TraktRequestQuery]
-        public TraktSearchField? SearchField { get; set; }
+        public TraktSearchFields? SearchField { get; set; }
 
         [TraktRequestQuery("filter")]
         public TraktFilter? Filter { get; set; }

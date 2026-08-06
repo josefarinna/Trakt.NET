@@ -13,9 +13,9 @@ namespace TraktNET.SearchModule
         private const uint Limit = 4U;
         private const TraktSearchResultType TextQueryTypeMovie = TraktSearchResultType.Movie;
         private const TraktSearchResultType TextQueryTypeShow = TraktSearchResultType.Show;
-        private const TraktSearchField TextQuerySearchFieldTitle = TraktSearchField.Title;
-        private const TraktSearchField TextQuerySearchFieldOverview = TraktSearchField.Overview;
-        private const TraktSearchField TextQuerySearchFields = TextQuerySearchFieldTitle | TextQuerySearchFieldOverview;
+        private const TraktSearchFields TextQuerySearchFieldTitle = TraktSearchFields.Title;
+        private const TraktSearchFields TextQuerySearchFieldOverview = TraktSearchFields.Overview;
+        private const TraktSearchFields TextQuerySearchFields = TextQuerySearchFieldTitle | TextQuerySearchFieldOverview;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
         private readonly TraktFilter Filter = new()
         {

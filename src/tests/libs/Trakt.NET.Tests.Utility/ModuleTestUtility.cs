@@ -23,14 +23,6 @@ namespace TraktNET
             return client;
         }
 
-        public static void SetClient(TraktClient client, string requestUri, string responseContent, uint? page, uint? pageCount,
-            uint? limit, uint? itemCount)
-        {
-            var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
-            httpClientProvider.SetupMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount);
-            client.HttpClientProvider = httpClientProvider;
-        }
-
         public static TraktClient GetClient(string requestUri, HttpStatusCode statusCode)
         {
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
@@ -38,6 +30,14 @@ namespace TraktNET
             httpClientProvider.SetupMockResponse(requestUri, statusCode);
             client.HttpClientProvider = httpClientProvider;
             return client;
+        }
+
+        public static void SetClient(TraktClient client, string requestUri, string responseContent, uint? page, uint? pageCount,
+            uint? limit, uint? itemCount)
+        {
+            var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
+            httpClientProvider.SetupMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount);
+            client.HttpClientProvider = httpClientProvider;
         }
 
         public static TraktClient GetOAuthClient(string requestUri)
@@ -66,16 +66,6 @@ namespace TraktNET
             return client;
         }
 
-        public static void SetOAuthClient(TraktClient client, string requestUri, string responseContent, uint? page = null, uint? pageCount = null,
-            uint? limit = null, uint? itemCount = null, bool noOauthHeaders = false)
-        {
-            string baseUrl = requestUri == "oauth/authorize" ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
-
-            var httpClientProvider = new TestHttpClientProvider(baseUrl);
-            httpClientProvider.SetupOAuthMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount, noOauthHeaders);
-            client.HttpClientProvider = httpClientProvider;
-        }
-
         public static TraktClient GetOAuthClient(string requestUri, HttpStatusCode statusCode, bool noOauthHeaders = false)
         {
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
@@ -87,6 +77,16 @@ namespace TraktNET
             httpClientProvider.SetupOAuthMockResponse(requestUri, statusCode, noOauthHeaders);
             client.HttpClientProvider = httpClientProvider;
             return client;
+        }
+
+        public static void SetOAuthClient(TraktClient client, string requestUri, string responseContent, uint? page = null, uint? pageCount = null,
+            uint? limit = null, uint? itemCount = null, bool noOauthHeaders = false)
+        {
+            string baseUrl = requestUri == "oauth/authorize" ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
+
+            var httpClientProvider = new TestHttpClientProvider(baseUrl);
+            httpClientProvider.SetupOAuthMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount, noOauthHeaders);
+            client.HttpClientProvider = httpClientProvider;
         }
 
         public static TraktClient GetOAuthClientForSandbox(string requestUri, string responseContent, uint? page, uint? pageCount,

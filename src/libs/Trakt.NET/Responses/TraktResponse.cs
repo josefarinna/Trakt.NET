@@ -97,7 +97,7 @@ namespace TraktNET
         [MemberNotNullWhen(true, nameof(Content))]
         [MemberNotNullWhen(true, nameof(ContentHeaders))]
 #endif
-        public bool HasValue => Content != null;
+        public bool HasValue => Content is not null;
 
         /// <summary>The content of the response.</summary>
         public TResponseContentType? Content { get; internal set; }

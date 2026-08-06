@@ -72,9 +72,6 @@ namespace TraktNET
 
                                 break;
                             }
-                            default:
-                                Debug.Fail($"Unexpected state {state}");
-                                break;
                         }
 
                         current = char.ToLowerInvariant(current);

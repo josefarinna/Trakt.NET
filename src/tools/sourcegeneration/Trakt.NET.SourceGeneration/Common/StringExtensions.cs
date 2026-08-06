@@ -9,6 +9,6 @@ namespace TraktNET.SourceGeneration.Common
         internal static string ToDisplayName(this string value) => CapitalLetter.Replace(value, " ");
 
         private static readonly Regex CapitalLetter = new(@"(?<=[A-Z])(?=[A-Z][a-z]) | (?<=[^A-Z])(?=[A-Z]) | (?<=[A-Za-z])(?=[^A-Za-z])",
-                                                          RegexOptions.IgnorePatternWhitespace);
+                                                          RegexOptions.IgnorePatternWhitespace, TimeSpan.FromMilliseconds(500));
     }
 }

@@ -12,7 +12,7 @@ namespace TraktNET
         /// Multiple <see cref="TraktSearchResultType" /> values can be combined with a binary operator, like this: TraktSearchResultType.Movie | TraktSearchResultType.Show.
         /// </param>
         /// <param name="searchQuery">The query, for which will be searched.</param>
-        /// <param name="searchFields">Determines the text fields, which will be searched. See also <seealso cref="TraktSearchField" />.</param>
+        /// <param name="searchFields">Determines the text fields, which will be searched. See also <seealso cref="TraktSearchFields" />.</param>
         /// <param name="filter">
         /// Specifies optional filter for genres, languages, year, runtimes, ratings, etc.
         /// <para>See also <seealso cref="TraktFilter" />.</para>
@@ -42,7 +42,7 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
         public Task<TraktPagedResponse<TraktSearchResult>> GetTextQueryResultsAsync(TraktSearchResultType searchResultTypes, string searchQuery,
-            TraktSearchField? searchFields = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
+            TraktSearchFields? searchFields = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetTextQueryResultsImplAsync(searchResultTypes, searchQuery, searchFields, filter, extendedInfo, page, limit, cancellationToken);
 

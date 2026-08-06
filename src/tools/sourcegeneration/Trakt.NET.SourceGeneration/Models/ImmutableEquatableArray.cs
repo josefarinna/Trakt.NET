@@ -25,7 +25,7 @@ namespace TraktNET.SourceGeneration.Models
 
             foreach (T value in _values)
             {
-                hash = HashHelpers.Combine(hash, value != null ? 0 : value!.GetHashCode());
+                hash = HashHelpers.Combine(hash, value is not null ? 0 : value!.GetHashCode());
             }
 
             return hash;

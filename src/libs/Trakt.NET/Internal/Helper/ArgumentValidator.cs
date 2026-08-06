@@ -18,7 +18,7 @@
         internal static void ThrowIfNull<T>(T? argument)
 #if NETSTANDARD2_0 || NETSTANDARD2_1 || NET5_0
         {
-            if (argument == null)
+            if (argument is null)
                 throw new ArgumentNullException(nameof(argument));
         }
 #else

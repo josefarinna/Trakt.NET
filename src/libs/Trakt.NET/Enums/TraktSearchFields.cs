@@ -3,7 +3,7 @@
     /// <summary>Determines the field hint in a search query.</summary>
     [TraktEnum(QueryName = "fields", HasQuerySupport = true)]
     [Flags]
-    public enum TraktSearchField
+    public enum TraktSearchFields
     {
         /// <summary>An invalid field hint.</summary>
         Unspecified = 0,
