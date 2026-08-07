@@ -50,7 +50,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
 
@@ -70,12 +70,12 @@ jobs:
           echo "Upload Codecov reports: ${{ inputs.upload_codecov }}"
 
       - name: Setup environment variables
-        uses: cardinalby/export-env-action@v2
+        uses: cardinalby/export-env-action@4f48c4676cf6ed6f46e30899ee987ce695da7c80 # v2
         with:
           envFile: './.github/constants.env'  
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v6
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
         with:
           dotnet-version: |
             ${{ env.DOTNET_VERSION_CURRENT_STABLE }}
@@ -98,7 +98,7 @@ jobs:
 
       - name: Upload coverage reports to Codecov
         if: ${{ inputs.upload_codecov }}
-        uses: codecov/codecov-action@v7
+        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7
 
       - name: Create NuGet packages
         if: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
@@ -148,7 +148,7 @@ jobs:
 
       - name: Upload artifacts
         if: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: ${{ inputs.artifacts_archive_name }}-${{ github.run_number }}-${{ github.sha }}
           retention-days: 14
@@ -164,7 +164,7 @@ jobs:
 
       - name: NuGet Login (Trusted Publishing via OIDC)
         if: ${{ inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
-        uses: nuget/login@v1
+        uses: nuget/login@8d196754b4036150537f80ac539e15c2f1028841 # v1
         with:
           owner: jose.farinna
   

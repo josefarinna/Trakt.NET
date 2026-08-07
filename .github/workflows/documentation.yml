@@ -30,17 +30,17 @@ jobs:
     environment: ${{ inputs.environment_name }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
 
       - name: Setup environment variables
-        uses: cardinalby/export-env-action@v2
+        uses: cardinalby/export-env-action@4f48c4676cf6ed6f46e30899ee987ce695da7c80 # v2
         with:
           envFile: './.github/constants.env'  
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v6
+        uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6
         with:
           dotnet-version: |
             ${{ env.DOTNET_VERSION_CURRENT_STABLE }}
@@ -68,14 +68,14 @@ jobs:
           New-Item -ItemType File -Path _site/.nojekyll -Force
   
       - name: Upload documentation artifacts
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: ${{ inputs.artifacts_archive_name }}-${{ github.run_number }}-${{ github.sha }}
           retention-days: 14
           path: 'docs/_site/'
 
       - name: Deploy documentation
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4
         if: ${{ github.ref_name == 'main' || github.ref_name == 'develop' || (github.event_name == 'workflow_dispatch' && (github.ref_name == 'main' || github.ref_name == 'develop')) }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
