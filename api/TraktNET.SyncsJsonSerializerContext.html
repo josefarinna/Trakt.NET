@@ -138,6 +138,8 @@
 [JsonSerializable(typeof(TraktSyncWatchlistLastActivities))]
 [JsonSerializable(typeof(TraktSyncCollectionMovie))]
 [JsonSerializable(typeof(IReadOnlyList&lt;TraktSyncCollectionMovie&gt;))]
+[JsonSerializable(typeof(Dictionary&lt;string, string&gt;))]
+[JsonSerializable(typeof(Dictionary&lt;string, Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt;&gt;))]
 [JsonSerializable(typeof(TraktSyncCollectionPost))]
 [JsonSerializable(typeof(TraktSyncCollectionPostEpisode))]
 [JsonSerializable(typeof(TraktSyncCollectionPostMovie))]
@@ -365,6 +367,90 @@ public sealed class SyncsJsonSerializerContext : JsonSerializerContext, IJsonTyp
     <tbody>
       <tr>
         <td><a class="xref" href="TraktNET.SyncsJsonSerializerContext.html">SyncsJsonSerializerContext</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SyncsJsonSerializerContext_DictionaryStringDictionaryStringDictionaryStringString_" data-uid="TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString*"></a>
+  <h4 id="TraktNET_SyncsJsonSerializerContext_DictionaryStringDictionaryStringDictionaryStringString" data-uid="TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString">DictionaryStringDictionaryStringDictionaryStringString</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;Dictionary&lt;string, Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt;&gt;&gt; DictionaryStringDictionaryStringDictionaryStringString { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SyncsJsonSerializerContext.DictionaryStringDictionaryStringString.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SyncsJsonSerializerContext_DictionaryStringDictionaryStringString_" data-uid="TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringString*"></a>
+  <h4 id="TraktNET_SyncsJsonSerializerContext_DictionaryStringDictionaryStringString" data-uid="TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringString">DictionaryStringDictionaryStringString</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt;&gt; DictionaryStringDictionaryStringString { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SyncsJsonSerializerContext.DictionaryStringString.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SyncsJsonSerializerContext_DictionaryStringString_" data-uid="TraktNET.SyncsJsonSerializerContext.DictionaryStringString*"></a>
+  <h4 id="TraktNET_SyncsJsonSerializerContext_DictionaryStringString" data-uid="TraktNET.SyncsJsonSerializerContext.DictionaryStringString">DictionaryStringString</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;Dictionary&lt;string, string&gt;&gt; DictionaryStringString { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>

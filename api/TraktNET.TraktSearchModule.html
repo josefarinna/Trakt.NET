@@ -475,13 +475,13 @@ Trakt API Documentation: Search: ID Lookup.
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSearchModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSearchModule_GetTextQueryResultsAsync_" data-uid="TraktNET.TraktSearchModule.GetTextQueryResultsAsync*"></a>
-  <h4 id="TraktNET_TraktSearchModule_GetTextQueryResultsAsync_TraktNET_TraktSearchResultType_System_String_System_Nullable_TraktNET_TraktSearchField__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType,System.String,System.Nullable{TraktNET.TraktSearchField},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetTextQueryResultsAsync(TraktSearchResultType, string, TraktSearchField?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSearchModule_GetTextQueryResultsAsync_TraktNET_TraktSearchResultType_System_String_System_Nullable_TraktNET_TraktSearchFields__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType,System.String,System.Nullable{TraktNET.TraktSearchFields},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetTextQueryResultsAsync(TraktSearchResultType, string, TraktSearchFields?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Searches for movies, shows, episodes, people and / or lists with the given search query.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSearchResult&gt;&gt; GetTextQueryResultsAsync(TraktSearchResultType searchResultTypes, string searchQuery, TraktSearchField? searchFields = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSearchResult&gt;&gt; GetTextQueryResultsAsync(TraktSearchResultType searchResultTypes, string searchQuery, TraktSearchFields? searchFields = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -507,9 +507,9 @@ Multiple <a class="xref" href="TraktNET.TraktSearchResultType.html">TraktSearchR
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="TraktNET.TraktSearchField.html">TraktSearchField</a>?</td>
+        <td><a class="xref" href="TraktNET.TraktSearchFields.html">TraktSearchFields</a>?</td>
         <td><span class="parametername">searchFields</span></td>
-        <td><p>Determines the text fields, which will be searched. See also <a class="xref" href="TraktNET.TraktSearchField.html">TraktSearchField</a>.</p>
+        <td><p>Determines the text fields, which will be searched. See also <a class="xref" href="TraktNET.TraktSearchFields.html">TraktSearchFields</a>.</p>
 </td>
       </tr>
       <tr>
@@ -566,7 +566,7 @@ See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInf
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSearchModule_GetTextQueryResultsAsync_TraktNET_TraktSearchResultType_System_String_System_Nullable_TraktNET_TraktSearchField__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSearchModule_GetTextQueryResultsAsync_TraktNET_TraktSearchResultType_System_String_System_Nullable_TraktNET_TraktSearchFields__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getsearchquery">
 Trakt API Documentation: Search: Text Query.

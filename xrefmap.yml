@@ -7843,6 +7843,18 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktListPrivacy
   fullName: TraktNET.NotesJsonSerializerContext.NullableTraktListPrivacy
   nameWithType: NotesJsonSerializerContext.NullableTraktListPrivacy
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktListType
+  name: NullableTraktListType
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktListType
+  commentId: P:TraktNET.NotesJsonSerializerContext.NullableTraktListType
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktListType
+  nameWithType: NotesJsonSerializerContext.NullableTraktListType
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktListType*
+  name: NullableTraktListType
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktListType_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktListType
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktListType
+  nameWithType: NotesJsonSerializerContext.NullableTraktListType
 - uid: TraktNET.NotesJsonSerializerContext.NullableTraktMovieStatus
   name: NullableTraktMovieStatus
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktMovieStatus
@@ -7879,6 +7891,30 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktShowStatus
   fullName: TraktNET.NotesJsonSerializerContext.NullableTraktShowStatus
   nameWithType: NotesJsonSerializerContext.NullableTraktShowStatus
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktSortBy
+  name: NullableTraktSortBy
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktSortBy
+  commentId: P:TraktNET.NotesJsonSerializerContext.NullableTraktSortBy
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktSortBy
+  nameWithType: NotesJsonSerializerContext.NullableTraktSortBy
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktSortBy*
+  name: NullableTraktSortBy
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktSortBy_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktSortBy
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktSortBy
+  nameWithType: NotesJsonSerializerContext.NullableTraktSortBy
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktSortHow
+  name: NullableTraktSortHow
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktSortHow
+  commentId: P:TraktNET.NotesJsonSerializerContext.NullableTraktSortHow
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktSortHow
+  nameWithType: NotesJsonSerializerContext.NullableTraktSortHow
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktSortHow*
+  name: NullableTraktSortHow
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktSortHow_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktSortHow
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktSortHow
+  nameWithType: NotesJsonSerializerContext.NullableTraktSortHow
 - uid: TraktNET.NotesJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableUInt32
@@ -8047,6 +8083,42 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktKnownForDepartment
   fullName: TraktNET.NotesJsonSerializerContext.TraktKnownForDepartment
   nameWithType: NotesJsonSerializerContext.TraktKnownForDepartment
+- uid: TraktNET.NotesJsonSerializerContext.TraktList
+  name: TraktList
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktList
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktList
+  fullName: TraktNET.NotesJsonSerializerContext.TraktList
+  nameWithType: NotesJsonSerializerContext.TraktList
+- uid: TraktNET.NotesJsonSerializerContext.TraktList*
+  name: TraktList
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktList_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktList
+  fullName: TraktNET.NotesJsonSerializerContext.TraktList
+  nameWithType: NotesJsonSerializerContext.TraktList
+- uid: TraktNET.NotesJsonSerializerContext.TraktListIDs
+  name: TraktListIDs
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktListIDs
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktListIDs
+  fullName: TraktNET.NotesJsonSerializerContext.TraktListIDs
+  nameWithType: NotesJsonSerializerContext.TraktListIDs
+- uid: TraktNET.NotesJsonSerializerContext.TraktListIDs*
+  name: TraktListIDs
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktListIDs_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktListIDs
+  fullName: TraktNET.NotesJsonSerializerContext.TraktListIDs
+  nameWithType: NotesJsonSerializerContext.TraktListIDs
+- uid: TraktNET.NotesJsonSerializerContext.TraktListImages
+  name: TraktListImages
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktListImages
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktListImages
+  fullName: TraktNET.NotesJsonSerializerContext.TraktListImages
+  nameWithType: NotesJsonSerializerContext.TraktListImages
+- uid: TraktNET.NotesJsonSerializerContext.TraktListImages*
+  name: TraktListImages
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktListImages_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktListImages
+  fullName: TraktNET.NotesJsonSerializerContext.TraktListImages
+  nameWithType: NotesJsonSerializerContext.TraktListImages
 - uid: TraktNET.NotesJsonSerializerContext.TraktListItemType
   name: TraktListItemType
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktListItemType
@@ -8071,6 +8143,18 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktListPrivacy
   fullName: TraktNET.NotesJsonSerializerContext.TraktListPrivacy
   nameWithType: NotesJsonSerializerContext.TraktListPrivacy
+- uid: TraktNET.NotesJsonSerializerContext.TraktListType
+  name: TraktListType
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktListType
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktListType
+  fullName: TraktNET.NotesJsonSerializerContext.TraktListType
+  nameWithType: NotesJsonSerializerContext.TraktListType
+- uid: TraktNET.NotesJsonSerializerContext.TraktListType*
+  name: TraktListType
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktListType_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktListType
+  fullName: TraktNET.NotesJsonSerializerContext.TraktListType
+  nameWithType: NotesJsonSerializerContext.TraktListType
 - uid: TraktNET.NotesJsonSerializerContext.TraktMovie
   name: TraktMovie
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktMovie
@@ -8347,6 +8431,30 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktShowStatus
   fullName: TraktNET.NotesJsonSerializerContext.TraktShowStatus
   nameWithType: NotesJsonSerializerContext.TraktShowStatus
+- uid: TraktNET.NotesJsonSerializerContext.TraktSortBy
+  name: TraktSortBy
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktSortBy
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktSortBy
+  fullName: TraktNET.NotesJsonSerializerContext.TraktSortBy
+  nameWithType: NotesJsonSerializerContext.TraktSortBy
+- uid: TraktNET.NotesJsonSerializerContext.TraktSortBy*
+  name: TraktSortBy
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktSortBy_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktSortBy
+  fullName: TraktNET.NotesJsonSerializerContext.TraktSortBy
+  nameWithType: NotesJsonSerializerContext.TraktSortBy
+- uid: TraktNET.NotesJsonSerializerContext.TraktSortHow
+  name: TraktSortHow
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktSortHow
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktSortHow
+  fullName: TraktNET.NotesJsonSerializerContext.TraktSortHow
+  nameWithType: NotesJsonSerializerContext.TraktSortHow
+- uid: TraktNET.NotesJsonSerializerContext.TraktSortHow*
+  name: TraktSortHow
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktSortHow_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktSortHow
+  fullName: TraktNET.NotesJsonSerializerContext.TraktSortHow
+  nameWithType: NotesJsonSerializerContext.TraktSortHow
 - uid: TraktNET.NotesJsonSerializerContext.TraktUser
   name: TraktUser
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktUser
@@ -15079,6 +15187,42 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.Default
   fullName: TraktNET.SyncsJsonSerializerContext.Default
   nameWithType: SyncsJsonSerializerContext.Default
+- uid: TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString
+  name: DictionaryStringDictionaryStringDictionaryStringString
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_DictionaryStringDictionaryStringDictionaryStringString
+  commentId: P:TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString
+  fullName: TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString
+  nameWithType: SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString
+- uid: TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString*
+  name: DictionaryStringDictionaryStringDictionaryStringString
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_DictionaryStringDictionaryStringDictionaryStringString_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString
+  fullName: TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString
+  nameWithType: SyncsJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringString
+- uid: TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringString
+  name: DictionaryStringDictionaryStringString
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_DictionaryStringDictionaryStringString
+  commentId: P:TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringString
+  fullName: TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringString
+  nameWithType: SyncsJsonSerializerContext.DictionaryStringDictionaryStringString
+- uid: TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringString*
+  name: DictionaryStringDictionaryStringString
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_DictionaryStringDictionaryStringString_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringString
+  fullName: TraktNET.SyncsJsonSerializerContext.DictionaryStringDictionaryStringString
+  nameWithType: SyncsJsonSerializerContext.DictionaryStringDictionaryStringString
+- uid: TraktNET.SyncsJsonSerializerContext.DictionaryStringString
+  name: DictionaryStringString
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_DictionaryStringString
+  commentId: P:TraktNET.SyncsJsonSerializerContext.DictionaryStringString
+  fullName: TraktNET.SyncsJsonSerializerContext.DictionaryStringString
+  nameWithType: SyncsJsonSerializerContext.DictionaryStringString
+- uid: TraktNET.SyncsJsonSerializerContext.DictionaryStringString*
+  name: DictionaryStringString
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_DictionaryStringString_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.DictionaryStringString
+  fullName: TraktNET.SyncsJsonSerializerContext.DictionaryStringString
+  nameWithType: SyncsJsonSerializerContext.DictionaryStringString
 - uid: TraktNET.SyncsJsonSerializerContext.GeneratedSerializerOptions
   name: GeneratedSerializerOptions
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_GeneratedSerializerOptions
@@ -37438,6 +37582,12 @@ references:
   commentId: F:TraktNET.TraktListItemType.Episode
   fullName: TraktNET.TraktListItemType.Episode
   nameWithType: TraktListItemType.Episode
+- uid: TraktNET.TraktListItemType.List
+  name: List
+  href: api/TraktNET.TraktListItemType.html#TraktNET_TraktListItemType_List
+  commentId: F:TraktNET.TraktListItemType.List
+  fullName: TraktNET.TraktListItemType.List
+  nameWithType: TraktListItemType.List
 - uid: TraktNET.TraktListItemType.Movie
   name: Movie
   href: api/TraktNET.TraktListItemType.html#TraktNET_TraktListItemType_Movie
@@ -46840,6 +46990,18 @@ references:
   commentId: Overload:TraktNET.TraktNoteItem.Episode
   fullName: TraktNET.TraktNoteItem.Episode
   nameWithType: TraktNoteItem.Episode
+- uid: TraktNET.TraktNoteItem.List
+  name: List
+  href: api/TraktNET.TraktNoteItem.html#TraktNET_TraktNoteItem_List
+  commentId: P:TraktNET.TraktNoteItem.List
+  fullName: TraktNET.TraktNoteItem.List
+  nameWithType: TraktNoteItem.List
+- uid: TraktNET.TraktNoteItem.List*
+  name: List
+  href: api/TraktNET.TraktNoteItem.html#TraktNET_TraktNoteItem_List_
+  commentId: Overload:TraktNET.TraktNoteItem.List
+  fullName: TraktNET.TraktNoteItem.List
+  nameWithType: TraktNoteItem.List
 - uid: TraktNET.TraktNoteItem.Movie
   name: Movie
   href: api/TraktNET.TraktNoteItem.html#TraktNET_TraktNoteItem_Movie
@@ -46960,6 +47122,18 @@ references:
   commentId: Overload:TraktNET.TraktNotePost.Episode
   fullName: TraktNET.TraktNotePost.Episode
   nameWithType: TraktNotePost.Episode
+- uid: TraktNET.TraktNotePost.List
+  name: List
+  href: api/TraktNET.TraktNotePost.html#TraktNET_TraktNotePost_List
+  commentId: P:TraktNET.TraktNotePost.List
+  fullName: TraktNET.TraktNotePost.List
+  nameWithType: TraktNotePost.List
+- uid: TraktNET.TraktNotePost.List*
+  name: List
+  href: api/TraktNET.TraktNotePost.html#TraktNET_TraktNotePost_List_
+  commentId: Overload:TraktNET.TraktNotePost.List
+  fullName: TraktNET.TraktNotePost.List
+  nameWithType: TraktNotePost.List
 - uid: TraktNET.TraktNotePost.Movie
   name: Movie
   href: api/TraktNET.TraktNotePost.html#TraktNET_TraktNotePost_Movie
@@ -47140,6 +47314,21 @@ references:
   commentId: Overload:TraktNET.TraktNotesModule.AddHistoryNoteAsync
   fullName: TraktNET.TraktNotesModule.AddHistoryNoteAsync
   nameWithType: TraktNotesModule.AddHistoryNoteAsync
+- uid: TraktNET.TraktNotesModule.AddListNoteAsync(TraktNET.TraktList,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)
+  name: AddListNoteAsync(TraktList, string, bool?, TraktListPrivacy?, CancellationToken)
+  href: api/TraktNET.TraktNotesModule.html#TraktNET_TraktNotesModule_AddListNoteAsync_TraktNET_TraktList_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktNotesModule.AddListNoteAsync(TraktNET.TraktList,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)
+  name.vb: AddListNoteAsync(TraktList, String, Boolean?, TraktListPrivacy?, CancellationToken)
+  fullName: TraktNET.TraktNotesModule.AddListNoteAsync(TraktNET.TraktList, string, bool?, TraktNET.TraktListPrivacy?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktNotesModule.AddListNoteAsync(TraktNET.TraktList, String, Boolean?, TraktNET.TraktListPrivacy?, System.Threading.CancellationToken)
+  nameWithType: TraktNotesModule.AddListNoteAsync(TraktList, string, bool?, TraktListPrivacy?, CancellationToken)
+  nameWithType.vb: TraktNotesModule.AddListNoteAsync(TraktList, String, Boolean?, TraktListPrivacy?, CancellationToken)
+- uid: TraktNET.TraktNotesModule.AddListNoteAsync*
+  name: AddListNoteAsync
+  href: api/TraktNET.TraktNotesModule.html#TraktNET_TraktNotesModule_AddListNoteAsync_
+  commentId: Overload:TraktNET.TraktNotesModule.AddListNoteAsync
+  fullName: TraktNET.TraktNotesModule.AddListNoteAsync
+  nameWithType: TraktNotesModule.AddListNoteAsync
 - uid: TraktNET.TraktNotesModule.AddMovieNoteAsync(TraktNET.TraktMovie,System.String,System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktListPrivacy},System.Threading.CancellationToken)
   name: AddMovieNoteAsync(TraktMovie, string, bool?, TraktListPrivacy?, CancellationToken)
   href: api/TraktNET.TraktNotesModule.html#TraktNET_TraktNotesModule_AddMovieNoteAsync_TraktNET_TraktMovie_System_String_System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktListPrivacy__System_Threading_CancellationToken_
@@ -62848,216 +63037,216 @@ references:
   fullName.vb: TraktNET.TraktScrobblePostResponse.<>
   nameWithType: TraktScrobblePostResponse.operator !=
   nameWithType.vb: TraktScrobblePostResponse.<>
-- uid: TraktNET.TraktSearchField
-  name: TraktSearchField
-  href: api/TraktNET.TraktSearchField.html
-  commentId: T:TraktNET.TraktSearchField
-  fullName: TraktNET.TraktSearchField
-  nameWithType: TraktSearchField
-- uid: TraktNET.TraktSearchField.Aliases
+- uid: TraktNET.TraktSearchFields
+  name: TraktSearchFields
+  href: api/TraktNET.TraktSearchFields.html
+  commentId: T:TraktNET.TraktSearchFields
+  fullName: TraktNET.TraktSearchFields
+  nameWithType: TraktSearchFields
+- uid: TraktNET.TraktSearchFields.Aliases
   name: Aliases
-  href: api/TraktNET.TraktSearchField.html#TraktNET_TraktSearchField_Aliases
-  commentId: F:TraktNET.TraktSearchField.Aliases
-  fullName: TraktNET.TraktSearchField.Aliases
-  nameWithType: TraktSearchField.Aliases
-- uid: TraktNET.TraktSearchField.Biography
+  href: api/TraktNET.TraktSearchFields.html#TraktNET_TraktSearchFields_Aliases
+  commentId: F:TraktNET.TraktSearchFields.Aliases
+  fullName: TraktNET.TraktSearchFields.Aliases
+  nameWithType: TraktSearchFields.Aliases
+- uid: TraktNET.TraktSearchFields.Biography
   name: Biography
-  href: api/TraktNET.TraktSearchField.html#TraktNET_TraktSearchField_Biography
-  commentId: F:TraktNET.TraktSearchField.Biography
-  fullName: TraktNET.TraktSearchField.Biography
-  nameWithType: TraktSearchField.Biography
-- uid: TraktNET.TraktSearchField.Description
+  href: api/TraktNET.TraktSearchFields.html#TraktNET_TraktSearchFields_Biography
+  commentId: F:TraktNET.TraktSearchFields.Biography
+  fullName: TraktNET.TraktSearchFields.Biography
+  nameWithType: TraktSearchFields.Biography
+- uid: TraktNET.TraktSearchFields.Description
   name: Description
-  href: api/TraktNET.TraktSearchField.html#TraktNET_TraktSearchField_Description
-  commentId: F:TraktNET.TraktSearchField.Description
-  fullName: TraktNET.TraktSearchField.Description
-  nameWithType: TraktSearchField.Description
-- uid: TraktNET.TraktSearchField.Name
+  href: api/TraktNET.TraktSearchFields.html#TraktNET_TraktSearchFields_Description
+  commentId: F:TraktNET.TraktSearchFields.Description
+  fullName: TraktNET.TraktSearchFields.Description
+  nameWithType: TraktSearchFields.Description
+- uid: TraktNET.TraktSearchFields.Name
   name: Name
-  href: api/TraktNET.TraktSearchField.html#TraktNET_TraktSearchField_Name
-  commentId: F:TraktNET.TraktSearchField.Name
-  fullName: TraktNET.TraktSearchField.Name
-  nameWithType: TraktSearchField.Name
-- uid: TraktNET.TraktSearchField.Overview
+  href: api/TraktNET.TraktSearchFields.html#TraktNET_TraktSearchFields_Name
+  commentId: F:TraktNET.TraktSearchFields.Name
+  fullName: TraktNET.TraktSearchFields.Name
+  nameWithType: TraktSearchFields.Name
+- uid: TraktNET.TraktSearchFields.Overview
   name: Overview
-  href: api/TraktNET.TraktSearchField.html#TraktNET_TraktSearchField_Overview
-  commentId: F:TraktNET.TraktSearchField.Overview
-  fullName: TraktNET.TraktSearchField.Overview
-  nameWithType: TraktSearchField.Overview
-- uid: TraktNET.TraktSearchField.People
+  href: api/TraktNET.TraktSearchFields.html#TraktNET_TraktSearchFields_Overview
+  commentId: F:TraktNET.TraktSearchFields.Overview
+  fullName: TraktNET.TraktSearchFields.Overview
+  nameWithType: TraktSearchFields.Overview
+- uid: TraktNET.TraktSearchFields.People
   name: People
-  href: api/TraktNET.TraktSearchField.html#TraktNET_TraktSearchField_People
-  commentId: F:TraktNET.TraktSearchField.People
-  fullName: TraktNET.TraktSearchField.People
-  nameWithType: TraktSearchField.People
-- uid: TraktNET.TraktSearchField.Tagline
+  href: api/TraktNET.TraktSearchFields.html#TraktNET_TraktSearchFields_People
+  commentId: F:TraktNET.TraktSearchFields.People
+  fullName: TraktNET.TraktSearchFields.People
+  nameWithType: TraktSearchFields.People
+- uid: TraktNET.TraktSearchFields.Tagline
   name: Tagline
-  href: api/TraktNET.TraktSearchField.html#TraktNET_TraktSearchField_Tagline
-  commentId: F:TraktNET.TraktSearchField.Tagline
-  fullName: TraktNET.TraktSearchField.Tagline
-  nameWithType: TraktSearchField.Tagline
-- uid: TraktNET.TraktSearchField.Title
+  href: api/TraktNET.TraktSearchFields.html#TraktNET_TraktSearchFields_Tagline
+  commentId: F:TraktNET.TraktSearchFields.Tagline
+  fullName: TraktNET.TraktSearchFields.Tagline
+  nameWithType: TraktSearchFields.Tagline
+- uid: TraktNET.TraktSearchFields.Title
   name: Title
-  href: api/TraktNET.TraktSearchField.html#TraktNET_TraktSearchField_Title
-  commentId: F:TraktNET.TraktSearchField.Title
-  fullName: TraktNET.TraktSearchField.Title
-  nameWithType: TraktSearchField.Title
-- uid: TraktNET.TraktSearchField.Translations
+  href: api/TraktNET.TraktSearchFields.html#TraktNET_TraktSearchFields_Title
+  commentId: F:TraktNET.TraktSearchFields.Title
+  fullName: TraktNET.TraktSearchFields.Title
+  nameWithType: TraktSearchFields.Title
+- uid: TraktNET.TraktSearchFields.Translations
   name: Translations
-  href: api/TraktNET.TraktSearchField.html#TraktNET_TraktSearchField_Translations
-  commentId: F:TraktNET.TraktSearchField.Translations
-  fullName: TraktNET.TraktSearchField.Translations
-  nameWithType: TraktSearchField.Translations
-- uid: TraktNET.TraktSearchField.Unspecified
+  href: api/TraktNET.TraktSearchFields.html#TraktNET_TraktSearchFields_Translations
+  commentId: F:TraktNET.TraktSearchFields.Translations
+  fullName: TraktNET.TraktSearchFields.Translations
+  nameWithType: TraktSearchFields.Translations
+- uid: TraktNET.TraktSearchFields.Unspecified
   name: Unspecified
-  href: api/TraktNET.TraktSearchField.html#TraktNET_TraktSearchField_Unspecified
-  commentId: F:TraktNET.TraktSearchField.Unspecified
-  fullName: TraktNET.TraktSearchField.Unspecified
-  nameWithType: TraktSearchField.Unspecified
-- uid: TraktNET.TraktSearchFieldExtensions
-  name: TraktSearchFieldExtensions
-  href: api/TraktNET.TraktSearchFieldExtensions.html
-  commentId: T:TraktNET.TraktSearchFieldExtensions
-  fullName: TraktNET.TraktSearchFieldExtensions
-  nameWithType: TraktSearchFieldExtensions
-- uid: TraktNET.TraktSearchFieldExtensions.AsQuery(TraktNET.TraktSearchField)
-  name: AsQuery(TraktSearchField)
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_AsQuery_TraktNET_TraktSearchField_
-  commentId: M:TraktNET.TraktSearchFieldExtensions.AsQuery(TraktNET.TraktSearchField)
-  fullName: TraktNET.TraktSearchFieldExtensions.AsQuery(TraktNET.TraktSearchField)
-  nameWithType: TraktSearchFieldExtensions.AsQuery(TraktSearchField)
-- uid: TraktNET.TraktSearchFieldExtensions.AsQuery*
+  href: api/TraktNET.TraktSearchFields.html#TraktNET_TraktSearchFields_Unspecified
+  commentId: F:TraktNET.TraktSearchFields.Unspecified
+  fullName: TraktNET.TraktSearchFields.Unspecified
+  nameWithType: TraktSearchFields.Unspecified
+- uid: TraktNET.TraktSearchFieldsExtensions
+  name: TraktSearchFieldsExtensions
+  href: api/TraktNET.TraktSearchFieldsExtensions.html
+  commentId: T:TraktNET.TraktSearchFieldsExtensions
+  fullName: TraktNET.TraktSearchFieldsExtensions
+  nameWithType: TraktSearchFieldsExtensions
+- uid: TraktNET.TraktSearchFieldsExtensions.AsQuery(TraktNET.TraktSearchFields)
+  name: AsQuery(TraktSearchFields)
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_AsQuery_TraktNET_TraktSearchFields_
+  commentId: M:TraktNET.TraktSearchFieldsExtensions.AsQuery(TraktNET.TraktSearchFields)
+  fullName: TraktNET.TraktSearchFieldsExtensions.AsQuery(TraktNET.TraktSearchFields)
+  nameWithType: TraktSearchFieldsExtensions.AsQuery(TraktSearchFields)
+- uid: TraktNET.TraktSearchFieldsExtensions.AsQuery*
   name: AsQuery
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_AsQuery_
-  commentId: Overload:TraktNET.TraktSearchFieldExtensions.AsQuery
-  fullName: TraktNET.TraktSearchFieldExtensions.AsQuery
-  nameWithType: TraktSearchFieldExtensions.AsQuery
-- uid: TraktNET.TraktSearchFieldExtensions.DisplayName(TraktNET.TraktSearchField)
-  name: DisplayName(TraktSearchField)
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_DisplayName_TraktNET_TraktSearchField_
-  commentId: M:TraktNET.TraktSearchFieldExtensions.DisplayName(TraktNET.TraktSearchField)
-  fullName: TraktNET.TraktSearchFieldExtensions.DisplayName(TraktNET.TraktSearchField)
-  nameWithType: TraktSearchFieldExtensions.DisplayName(TraktSearchField)
-- uid: TraktNET.TraktSearchFieldExtensions.DisplayName*
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_AsQuery_
+  commentId: Overload:TraktNET.TraktSearchFieldsExtensions.AsQuery
+  fullName: TraktNET.TraktSearchFieldsExtensions.AsQuery
+  nameWithType: TraktSearchFieldsExtensions.AsQuery
+- uid: TraktNET.TraktSearchFieldsExtensions.DisplayName(TraktNET.TraktSearchFields)
+  name: DisplayName(TraktSearchFields)
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_DisplayName_TraktNET_TraktSearchFields_
+  commentId: M:TraktNET.TraktSearchFieldsExtensions.DisplayName(TraktNET.TraktSearchFields)
+  fullName: TraktNET.TraktSearchFieldsExtensions.DisplayName(TraktNET.TraktSearchFields)
+  nameWithType: TraktSearchFieldsExtensions.DisplayName(TraktSearchFields)
+- uid: TraktNET.TraktSearchFieldsExtensions.DisplayName*
   name: DisplayName
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_DisplayName_
-  commentId: Overload:TraktNET.TraktSearchFieldExtensions.DisplayName
-  fullName: TraktNET.TraktSearchFieldExtensions.DisplayName
-  nameWithType: TraktSearchFieldExtensions.DisplayName
-- uid: TraktNET.TraktSearchFieldExtensions.HasFlagSet(TraktNET.TraktSearchField,TraktNET.TraktSearchField)
-  name: HasFlagSet(TraktSearchField, TraktSearchField)
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_HasFlagSet_TraktNET_TraktSearchField_TraktNET_TraktSearchField_
-  commentId: M:TraktNET.TraktSearchFieldExtensions.HasFlagSet(TraktNET.TraktSearchField,TraktNET.TraktSearchField)
-  fullName: TraktNET.TraktSearchFieldExtensions.HasFlagSet(TraktNET.TraktSearchField, TraktNET.TraktSearchField)
-  nameWithType: TraktSearchFieldExtensions.HasFlagSet(TraktSearchField, TraktSearchField)
-- uid: TraktNET.TraktSearchFieldExtensions.HasFlagSet*
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_DisplayName_
+  commentId: Overload:TraktNET.TraktSearchFieldsExtensions.DisplayName
+  fullName: TraktNET.TraktSearchFieldsExtensions.DisplayName
+  nameWithType: TraktSearchFieldsExtensions.DisplayName
+- uid: TraktNET.TraktSearchFieldsExtensions.HasFlagSet(TraktNET.TraktSearchFields,TraktNET.TraktSearchFields)
+  name: HasFlagSet(TraktSearchFields, TraktSearchFields)
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_HasFlagSet_TraktNET_TraktSearchFields_TraktNET_TraktSearchFields_
+  commentId: M:TraktNET.TraktSearchFieldsExtensions.HasFlagSet(TraktNET.TraktSearchFields,TraktNET.TraktSearchFields)
+  fullName: TraktNET.TraktSearchFieldsExtensions.HasFlagSet(TraktNET.TraktSearchFields, TraktNET.TraktSearchFields)
+  nameWithType: TraktSearchFieldsExtensions.HasFlagSet(TraktSearchFields, TraktSearchFields)
+- uid: TraktNET.TraktSearchFieldsExtensions.HasFlagSet*
   name: HasFlagSet
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_HasFlagSet_
-  commentId: Overload:TraktNET.TraktSearchFieldExtensions.HasFlagSet
-  fullName: TraktNET.TraktSearchFieldExtensions.HasFlagSet
-  nameWithType: TraktSearchFieldExtensions.HasFlagSet
-- uid: TraktNET.TraktSearchFieldExtensions.ToJson(TraktNET.TraktSearchField)
-  name: ToJson(TraktSearchField)
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_ToJson_TraktNET_TraktSearchField_
-  commentId: M:TraktNET.TraktSearchFieldExtensions.ToJson(TraktNET.TraktSearchField)
-  fullName: TraktNET.TraktSearchFieldExtensions.ToJson(TraktNET.TraktSearchField)
-  nameWithType: TraktSearchFieldExtensions.ToJson(TraktSearchField)
-- uid: TraktNET.TraktSearchFieldExtensions.ToJson*
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_HasFlagSet_
+  commentId: Overload:TraktNET.TraktSearchFieldsExtensions.HasFlagSet
+  fullName: TraktNET.TraktSearchFieldsExtensions.HasFlagSet
+  nameWithType: TraktSearchFieldsExtensions.HasFlagSet
+- uid: TraktNET.TraktSearchFieldsExtensions.ToJson(TraktNET.TraktSearchFields)
+  name: ToJson(TraktSearchFields)
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_ToJson_TraktNET_TraktSearchFields_
+  commentId: M:TraktNET.TraktSearchFieldsExtensions.ToJson(TraktNET.TraktSearchFields)
+  fullName: TraktNET.TraktSearchFieldsExtensions.ToJson(TraktNET.TraktSearchFields)
+  nameWithType: TraktSearchFieldsExtensions.ToJson(TraktSearchFields)
+- uid: TraktNET.TraktSearchFieldsExtensions.ToJson*
   name: ToJson
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_ToJson_
-  commentId: Overload:TraktNET.TraktSearchFieldExtensions.ToJson
-  fullName: TraktNET.TraktSearchFieldExtensions.ToJson
-  nameWithType: TraktSearchFieldExtensions.ToJson
-- uid: TraktNET.TraktSearchFieldExtensions.ToTraktSearchField(System.String)
-  name: ToTraktSearchField(string?)
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_ToTraktSearchField_System_String_
-  commentId: M:TraktNET.TraktSearchFieldExtensions.ToTraktSearchField(System.String)
-  name.vb: ToTraktSearchField(String)
-  fullName: TraktNET.TraktSearchFieldExtensions.ToTraktSearchField(string?)
-  fullName.vb: TraktNET.TraktSearchFieldExtensions.ToTraktSearchField(String)
-  nameWithType: TraktSearchFieldExtensions.ToTraktSearchField(string?)
-  nameWithType.vb: TraktSearchFieldExtensions.ToTraktSearchField(String)
-- uid: TraktNET.TraktSearchFieldExtensions.ToTraktSearchField*
-  name: ToTraktSearchField
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_ToTraktSearchField_
-  commentId: Overload:TraktNET.TraktSearchFieldExtensions.ToTraktSearchField
-  fullName: TraktNET.TraktSearchFieldExtensions.ToTraktSearchField
-  nameWithType: TraktSearchFieldExtensions.ToTraktSearchField
-- uid: TraktNET.TraktSearchFieldExtensions.ToURI(TraktNET.TraktSearchField)
-  name: ToURI(TraktSearchField)
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_ToURI_TraktNET_TraktSearchField_
-  commentId: M:TraktNET.TraktSearchFieldExtensions.ToURI(TraktNET.TraktSearchField)
-  fullName: TraktNET.TraktSearchFieldExtensions.ToURI(TraktNET.TraktSearchField)
-  nameWithType: TraktSearchFieldExtensions.ToURI(TraktSearchField)
-- uid: TraktNET.TraktSearchFieldExtensions.ToURI*
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_ToJson_
+  commentId: Overload:TraktNET.TraktSearchFieldsExtensions.ToJson
+  fullName: TraktNET.TraktSearchFieldsExtensions.ToJson
+  nameWithType: TraktSearchFieldsExtensions.ToJson
+- uid: TraktNET.TraktSearchFieldsExtensions.ToTraktSearchFields(System.String)
+  name: ToTraktSearchFields(string?)
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_ToTraktSearchFields_System_String_
+  commentId: M:TraktNET.TraktSearchFieldsExtensions.ToTraktSearchFields(System.String)
+  name.vb: ToTraktSearchFields(String)
+  fullName: TraktNET.TraktSearchFieldsExtensions.ToTraktSearchFields(string?)
+  fullName.vb: TraktNET.TraktSearchFieldsExtensions.ToTraktSearchFields(String)
+  nameWithType: TraktSearchFieldsExtensions.ToTraktSearchFields(string?)
+  nameWithType.vb: TraktSearchFieldsExtensions.ToTraktSearchFields(String)
+- uid: TraktNET.TraktSearchFieldsExtensions.ToTraktSearchFields*
+  name: ToTraktSearchFields
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_ToTraktSearchFields_
+  commentId: Overload:TraktNET.TraktSearchFieldsExtensions.ToTraktSearchFields
+  fullName: TraktNET.TraktSearchFieldsExtensions.ToTraktSearchFields
+  nameWithType: TraktSearchFieldsExtensions.ToTraktSearchFields
+- uid: TraktNET.TraktSearchFieldsExtensions.ToURI(TraktNET.TraktSearchFields)
+  name: ToURI(TraktSearchFields)
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_ToURI_TraktNET_TraktSearchFields_
+  commentId: M:TraktNET.TraktSearchFieldsExtensions.ToURI(TraktNET.TraktSearchFields)
+  fullName: TraktNET.TraktSearchFieldsExtensions.ToURI(TraktNET.TraktSearchFields)
+  nameWithType: TraktSearchFieldsExtensions.ToURI(TraktSearchFields)
+- uid: TraktNET.TraktSearchFieldsExtensions.ToURI*
   name: ToURI
-  href: api/TraktNET.TraktSearchFieldExtensions.html#TraktNET_TraktSearchFieldExtensions_ToURI_
-  commentId: Overload:TraktNET.TraktSearchFieldExtensions.ToURI
-  fullName: TraktNET.TraktSearchFieldExtensions.ToURI
-  nameWithType: TraktSearchFieldExtensions.ToURI
-- uid: TraktNET.TraktSearchFieldJsonConverter
-  name: TraktSearchFieldJsonConverter
-  href: api/TraktNET.TraktSearchFieldJsonConverter.html
-  commentId: T:TraktNET.TraktSearchFieldJsonConverter
-  fullName: TraktNET.TraktSearchFieldJsonConverter
-  nameWithType: TraktSearchFieldJsonConverter
-- uid: TraktNET.TraktSearchFieldJsonConverter.#ctor
-  name: TraktSearchFieldJsonConverter()
-  href: api/TraktNET.TraktSearchFieldJsonConverter.html#TraktNET_TraktSearchFieldJsonConverter__ctor
-  commentId: M:TraktNET.TraktSearchFieldJsonConverter.#ctor
+  href: api/TraktNET.TraktSearchFieldsExtensions.html#TraktNET_TraktSearchFieldsExtensions_ToURI_
+  commentId: Overload:TraktNET.TraktSearchFieldsExtensions.ToURI
+  fullName: TraktNET.TraktSearchFieldsExtensions.ToURI
+  nameWithType: TraktSearchFieldsExtensions.ToURI
+- uid: TraktNET.TraktSearchFieldsJsonConverter
+  name: TraktSearchFieldsJsonConverter
+  href: api/TraktNET.TraktSearchFieldsJsonConverter.html
+  commentId: T:TraktNET.TraktSearchFieldsJsonConverter
+  fullName: TraktNET.TraktSearchFieldsJsonConverter
+  nameWithType: TraktSearchFieldsJsonConverter
+- uid: TraktNET.TraktSearchFieldsJsonConverter.#ctor
+  name: TraktSearchFieldsJsonConverter()
+  href: api/TraktNET.TraktSearchFieldsJsonConverter.html#TraktNET_TraktSearchFieldsJsonConverter__ctor
+  commentId: M:TraktNET.TraktSearchFieldsJsonConverter.#ctor
   name.vb: New()
-  fullName: TraktNET.TraktSearchFieldJsonConverter.TraktSearchFieldJsonConverter()
-  fullName.vb: TraktNET.TraktSearchFieldJsonConverter.New()
-  nameWithType: TraktSearchFieldJsonConverter.TraktSearchFieldJsonConverter()
-  nameWithType.vb: TraktSearchFieldJsonConverter.New()
-- uid: TraktNET.TraktSearchFieldJsonConverter.#ctor*
-  name: TraktSearchFieldJsonConverter
-  href: api/TraktNET.TraktSearchFieldJsonConverter.html#TraktNET_TraktSearchFieldJsonConverter__ctor_
-  commentId: Overload:TraktNET.TraktSearchFieldJsonConverter.#ctor
+  fullName: TraktNET.TraktSearchFieldsJsonConverter.TraktSearchFieldsJsonConverter()
+  fullName.vb: TraktNET.TraktSearchFieldsJsonConverter.New()
+  nameWithType: TraktSearchFieldsJsonConverter.TraktSearchFieldsJsonConverter()
+  nameWithType.vb: TraktSearchFieldsJsonConverter.New()
+- uid: TraktNET.TraktSearchFieldsJsonConverter.#ctor*
+  name: TraktSearchFieldsJsonConverter
+  href: api/TraktNET.TraktSearchFieldsJsonConverter.html#TraktNET_TraktSearchFieldsJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktSearchFieldsJsonConverter.#ctor
   name.vb: New
-  fullName: TraktNET.TraktSearchFieldJsonConverter.TraktSearchFieldJsonConverter
-  fullName.vb: TraktNET.TraktSearchFieldJsonConverter.New
-  nameWithType: TraktSearchFieldJsonConverter.TraktSearchFieldJsonConverter
-  nameWithType.vb: TraktSearchFieldJsonConverter.New
-- uid: TraktNET.TraktSearchFieldJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktSearchFieldsJsonConverter.TraktSearchFieldsJsonConverter
+  fullName.vb: TraktNET.TraktSearchFieldsJsonConverter.New
+  nameWithType: TraktSearchFieldsJsonConverter.TraktSearchFieldsJsonConverter
+  nameWithType.vb: TraktSearchFieldsJsonConverter.New
+- uid: TraktNET.TraktSearchFieldsJsonConverter.CanConvert(System.Type)
   name: CanConvert(Type)
-  href: api/TraktNET.TraktSearchFieldJsonConverter.html#TraktNET_TraktSearchFieldJsonConverter_CanConvert_System_Type_
-  commentId: M:TraktNET.TraktSearchFieldJsonConverter.CanConvert(System.Type)
-  fullName: TraktNET.TraktSearchFieldJsonConverter.CanConvert(System.Type)
-  nameWithType: TraktSearchFieldJsonConverter.CanConvert(Type)
-- uid: TraktNET.TraktSearchFieldJsonConverter.CanConvert*
+  href: api/TraktNET.TraktSearchFieldsJsonConverter.html#TraktNET_TraktSearchFieldsJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktSearchFieldsJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktSearchFieldsJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktSearchFieldsJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktSearchFieldsJsonConverter.CanConvert*
   name: CanConvert
-  href: api/TraktNET.TraktSearchFieldJsonConverter.html#TraktNET_TraktSearchFieldJsonConverter_CanConvert_
-  commentId: Overload:TraktNET.TraktSearchFieldJsonConverter.CanConvert
-  fullName: TraktNET.TraktSearchFieldJsonConverter.CanConvert
-  nameWithType: TraktSearchFieldJsonConverter.CanConvert
-- uid: TraktNET.TraktSearchFieldJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  href: api/TraktNET.TraktSearchFieldsJsonConverter.html#TraktNET_TraktSearchFieldsJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktSearchFieldsJsonConverter.CanConvert
+  fullName: TraktNET.TraktSearchFieldsJsonConverter.CanConvert
+  nameWithType: TraktSearchFieldsJsonConverter.CanConvert
+- uid: TraktNET.TraktSearchFieldsJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
   name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
-  href: api/TraktNET.TraktSearchFieldJsonConverter.html#TraktNET_TraktSearchFieldJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
-  commentId: M:TraktNET.TraktSearchFieldJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  href: api/TraktNET.TraktSearchFieldsJsonConverter.html#TraktNET_TraktSearchFieldsJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktSearchFieldsJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
   name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
-  fullName: TraktNET.TraktSearchFieldJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
-  fullName.vb: TraktNET.TraktSearchFieldJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
-  nameWithType: TraktSearchFieldJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
-  nameWithType.vb: TraktSearchFieldJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
-- uid: TraktNET.TraktSearchFieldJsonConverter.Read*
+  fullName: TraktNET.TraktSearchFieldsJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktSearchFieldsJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktSearchFieldsJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktSearchFieldsJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktSearchFieldsJsonConverter.Read*
   name: Read
-  href: api/TraktNET.TraktSearchFieldJsonConverter.html#TraktNET_TraktSearchFieldJsonConverter_Read_
-  commentId: Overload:TraktNET.TraktSearchFieldJsonConverter.Read
-  fullName: TraktNET.TraktSearchFieldJsonConverter.Read
-  nameWithType: TraktSearchFieldJsonConverter.Read
-- uid: TraktNET.TraktSearchFieldJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktSearchField,System.Text.Json.JsonSerializerOptions)
-  name: Write(Utf8JsonWriter, TraktSearchField, JsonSerializerOptions)
-  href: api/TraktNET.TraktSearchFieldJsonConverter.html#TraktNET_TraktSearchFieldJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktSearchField_System_Text_Json_JsonSerializerOptions_
-  commentId: M:TraktNET.TraktSearchFieldJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktSearchField,System.Text.Json.JsonSerializerOptions)
-  fullName: TraktNET.TraktSearchFieldJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktSearchField, System.Text.Json.JsonSerializerOptions)
-  nameWithType: TraktSearchFieldJsonConverter.Write(Utf8JsonWriter, TraktSearchField, JsonSerializerOptions)
-- uid: TraktNET.TraktSearchFieldJsonConverter.Write*
+  href: api/TraktNET.TraktSearchFieldsJsonConverter.html#TraktNET_TraktSearchFieldsJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktSearchFieldsJsonConverter.Read
+  fullName: TraktNET.TraktSearchFieldsJsonConverter.Read
+  nameWithType: TraktSearchFieldsJsonConverter.Read
+- uid: TraktNET.TraktSearchFieldsJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktSearchFields,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktSearchFields, JsonSerializerOptions)
+  href: api/TraktNET.TraktSearchFieldsJsonConverter.html#TraktNET_TraktSearchFieldsJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktSearchFields_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktSearchFieldsJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktSearchFields,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktSearchFieldsJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktSearchFields, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktSearchFieldsJsonConverter.Write(Utf8JsonWriter, TraktSearchFields, JsonSerializerOptions)
+- uid: TraktNET.TraktSearchFieldsJsonConverter.Write*
   name: Write
-  href: api/TraktNET.TraktSearchFieldJsonConverter.html#TraktNET_TraktSearchFieldJsonConverter_Write_
-  commentId: Overload:TraktNET.TraktSearchFieldJsonConverter.Write
-  fullName: TraktNET.TraktSearchFieldJsonConverter.Write
-  nameWithType: TraktSearchFieldJsonConverter.Write
+  href: api/TraktNET.TraktSearchFieldsJsonConverter.html#TraktNET_TraktSearchFieldsJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktSearchFieldsJsonConverter.Write
+  fullName: TraktNET.TraktSearchFieldsJsonConverter.Write
+  nameWithType: TraktSearchFieldsJsonConverter.Write
 - uid: TraktNET.TraktSearchIDType
   name: TraktSearchIDType
   href: api/TraktNET.TraktSearchIDType.html
@@ -63295,15 +63484,15 @@ references:
   commentId: Overload:TraktNET.TraktSearchModule.GetIdLookupResultsAsync
   fullName: TraktNET.TraktSearchModule.GetIdLookupResultsAsync
   nameWithType: TraktSearchModule.GetIdLookupResultsAsync
-- uid: TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType,System.String,System.Nullable{TraktNET.TraktSearchField},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetTextQueryResultsAsync(TraktSearchResultType, string, TraktSearchField?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSearchModule.html#TraktNET_TraktSearchModule_GetTextQueryResultsAsync_TraktNET_TraktSearchResultType_System_String_System_Nullable_TraktNET_TraktSearchField__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType,System.String,System.Nullable{TraktNET.TraktSearchField},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetTextQueryResultsAsync(TraktSearchResultType, String, TraktSearchField?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType, string, TraktNET.TraktSearchField?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType, String, TraktNET.TraktSearchField?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSearchModule.GetTextQueryResultsAsync(TraktSearchResultType, string, TraktSearchField?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSearchModule.GetTextQueryResultsAsync(TraktSearchResultType, String, TraktSearchField?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType,System.String,System.Nullable{TraktNET.TraktSearchFields},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetTextQueryResultsAsync(TraktSearchResultType, string, TraktSearchFields?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSearchModule.html#TraktNET_TraktSearchModule_GetTextQueryResultsAsync_TraktNET_TraktSearchResultType_System_String_System_Nullable_TraktNET_TraktSearchFields__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType,System.String,System.Nullable{TraktNET.TraktSearchFields},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetTextQueryResultsAsync(TraktSearchResultType, String, TraktSearchFields?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType, string, TraktNET.TraktSearchFields?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSearchModule.GetTextQueryResultsAsync(TraktNET.TraktSearchResultType, String, TraktNET.TraktSearchFields?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSearchModule.GetTextQueryResultsAsync(TraktSearchResultType, string, TraktSearchFields?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSearchModule.GetTextQueryResultsAsync(TraktSearchResultType, String, TraktSearchFields?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktSearchModule.GetTextQueryResultsAsync*
   name: GetTextQueryResultsAsync
   href: api/TraktNET.TraktSearchModule.html#TraktNET_TraktSearchModule_GetTextQueryResultsAsync_
@@ -82594,6 +82783,51 @@ references:
   commentId: Overload:TraktNET.TraktSyncModule.GetLastActivitiesAsync
   fullName: TraktNET.TraktSyncModule.GetLastActivitiesAsync
   nameWithType: TraktSyncModule.GetLastActivitiesAsync
+- uid: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(System.String,System.Threading.CancellationToken)
+  name: GetMinimalEpisodeCollectionAsync(string?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalEpisodeCollectionAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(System.String,System.Threading.CancellationToken)
+  name.vb: GetMinimalEpisodeCollectionAsync(String, CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(string?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(String, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetMinimalEpisodeCollectionAsync(string?, CancellationToken)
+  nameWithType.vb: TraktSyncModule.GetMinimalEpisodeCollectionAsync(String, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync*
+  name: GetMinimalEpisodeCollectionAsync
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalEpisodeCollectionAsync_
+  commentId: Overload:TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync
+  fullName: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync
+  nameWithType: TraktSyncModule.GetMinimalEpisodeCollectionAsync
+- uid: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(System.String,System.Threading.CancellationToken)
+  name: GetMinimalMovieCollectionAsync(string?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalMovieCollectionAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(System.String,System.Threading.CancellationToken)
+  name.vb: GetMinimalMovieCollectionAsync(String, CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(string?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(String, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetMinimalMovieCollectionAsync(string?, CancellationToken)
+  nameWithType.vb: TraktSyncModule.GetMinimalMovieCollectionAsync(String, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync*
+  name: GetMinimalMovieCollectionAsync
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalMovieCollectionAsync_
+  commentId: Overload:TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync
+  fullName: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync
+  nameWithType: TraktSyncModule.GetMinimalMovieCollectionAsync
+- uid: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(System.String,System.Threading.CancellationToken)
+  name: GetMinimalShowCollectionAsync(string?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalShowCollectionAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(System.String,System.Threading.CancellationToken)
+  name.vb: GetMinimalShowCollectionAsync(String, CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(string?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(String, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetMinimalShowCollectionAsync(string?, CancellationToken)
+  nameWithType.vb: TraktSyncModule.GetMinimalShowCollectionAsync(String, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync*
+  name: GetMinimalShowCollectionAsync
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalShowCollectionAsync_
+  commentId: Overload:TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync
+  fullName: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync
+  nameWithType: TraktSyncModule.GetMinimalShowCollectionAsync
 - uid: TraktNET.TraktSyncModule.GetPlaybackProgressAsync(System.Nullable{TraktNET.TraktSyncType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
   name: GetPlaybackProgressAsync(TraktSyncType?, DateTime?, DateTime?, uint?, uint?, CancellationToken)
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetPlaybackProgressAsync_System_Nullable_TraktNET_TraktSyncType__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_

@@ -5295,45 +5295,45 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktSearchField.yml",
+      "source_relative_path": "api/TraktNET.TraktSearchFields.yml",
       "output": {
         ".html": {
-          "relative_path": "api/TraktNET.TraktSearchField.html"
+          "relative_path": "api/TraktNET.TraktSearchFields.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "TraktNET.TraktSearchField",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSearchField.yml\" sourcestartlinenumber=\"1\">Determines the field hint in a search query.</p>\n"
+      "Title": "TraktNET.TraktSearchFields",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSearchFields.yml\" sourcestartlinenumber=\"1\">Determines the field hint in a search query.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktSearchFieldExtensions.yml",
+      "source_relative_path": "api/TraktNET.TraktSearchFieldsExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/TraktNET.TraktSearchFieldExtensions.html"
+          "relative_path": "api/TraktNET.TraktSearchFieldsExtensions.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "TraktNET.TraktSearchFieldExtensions",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSearchFieldExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktSearchField\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Title": "TraktNET.TraktSearchFieldsExtensions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSearchFieldsExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktSearchFields\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktSearchFieldJsonConverter.yml",
+      "source_relative_path": "api/TraktNET.TraktSearchFieldsJsonConverter.yml",
       "output": {
         ".html": {
-          "relative_path": "api/TraktNET.TraktSearchFieldJsonConverter.html"
+          "relative_path": "api/TraktNET.TraktSearchFieldsJsonConverter.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "TraktNET.TraktSearchFieldJsonConverter",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSearchFieldJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktSearchField\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Title": "TraktNET.TraktSearchFieldsJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSearchFieldsJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktSearchFields\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
