@@ -3,13 +3,13 @@ description: File a bug report
 title: "[Bug]: "
 labels: [bug, library]
 assignees:
-  - henrikfroehling
+  - josefarinna
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report.
-        If you have any questions, please feel free to ask in the discussions: https://github.com/henrikfroehling/Trakt.NET/discussions
+        If you have any questions, please feel free to ask in the discussions: https://github.com/josefarinna/Trakt.NET/discussions
   - type: textarea
     id: description
     attributes:
@@ -44,7 +44,7 @@ body:
     id: coc
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/henrikfroehling/Trakt.NET/blob/develop/CODE_OF_CONDUCT.md)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/josefarinna/Trakt.NET/blob/develop/CODE_OF_CONDUCT.md)
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

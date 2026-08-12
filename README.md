@@ -127,7 +127,8 @@ catch (TraktException ex)
 ```text
 The MIT License (MIT)
 
-Copyright (c) 2016 - 2026 Henrik Fröhling and Contributors
+Copyright (c) 2016 - 2025 Henrik Fröhling and Contributors
+Copyright (c) 2025 José Fariña and Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

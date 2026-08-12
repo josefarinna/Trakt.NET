@@ -4,7 +4,7 @@
     <IsTestUtilityProject>$(MSBuildProjectName.EndsWith('Tests.Utility'))</IsTestUtilityProject>
     <LangVersion>latest</LangVersion>
     <NoWarn>1701;1702;1705;1591</NoWarn>
-    <Copyright>Copyright (c) 2016 - Current Henrik Fröhling and Contributors</Copyright>
+    <Copyright>Copyright (c) 2016 - 2025 Henrik Fröhling and Contributors; Copyright (c) 2025 José Fariña and Contributors</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
