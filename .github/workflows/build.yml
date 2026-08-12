@@ -48,6 +48,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -159,14 +160,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: pwsh
-        run: dotnet nuget push '**/Trakt.NET*.nupkg' --api-key $env:GITHUB_TOKEN --source https://nuget.pkg.github.com/jose.farinna --skip-duplicate
+        run: dotnet nuget push '**/Trakt.NET*.nupkg' --api-key $env:GITHUB_TOKEN --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --skip-duplicate
         working-directory: ${{ inputs.working_directory }}
 
       - name: NuGet Login (Trusted Publishing via OIDC)
         if: ${{ inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
         uses: nuget/login@8d196754b4036150537f80ac539e15c2f1028841 # v1
         with:
-          owner: jose.farinna
+          owner: ${{ github.repository_owner }}
   
       - name: Push packages to NuGet
         if: ${{ inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
