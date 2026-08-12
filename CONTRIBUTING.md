@@ -3,7 +3,7 @@ Contributing Guidelines
 
 ### **First off, thank you for considering contributing to** [Trakt.NET](https://github.com/josefarinna/Trakt.NET)**.**
 
-[Trakt.NET](https://github.com/josefarinna/Trakt.NET) is an open source project and there are many ways to contribute, from improving the documentation, submitting bug reports and feature requests or writing new feature implementations which can be incorporated into [Trakt.NET](https://github.com/henrikfroehling/Trakt.NET).
+[Trakt.NET](https://github.com/josefarinna/Trakt.NET) is an open source project and there are many ways to contribute, from improving the documentation, submitting bug reports and feature requests or writing new feature implementations which can be incorporated into [Trakt.NET](https://github.com/josefarinna/Trakt.NET).
 
 **Please do not use the issue tracker for support questions.** If you have questions regarding on how to use the library, [start a discussion](https://github.com/josefarinna/Trakt.NET/discussions).
 
@@ -34,7 +34,7 @@ Please **DO NOT** target the `main` branch.
 - Do not make big surprise pull requests with a lot of changes and without an associating issue.
   - First, please open a discussion, whether your changes do make an actual improvement.
 - Pull requests that do not merge easily with the tip of the targeted branch will be needed to merge with the tip of the targeted branch to update the pull request.
-- Submissions must follow the rules stated in the [Coding Guidelines](https://github.com/henrikfroehling/Trakt.NET/blob/develop/coding_style.md).
+- Submissions must follow the rules stated in the [Coding Guidelines](https://github.com/josefarinna/Trakt.NET/blob/develop/coding_style.md).
 - New features must have accompanying tests with "good" code coverage.
 - Changes to existing functionality needs to be checked that it does not break any existing unit tests.
 

@@ -2,7 +2,7 @@
 
   <!-- Custom constants and variables. -->
   <PropertyGroup>
-    <LibraryCopyright>© 2016 - $([System.DateTime]::Now.ToString("yyyy")) by Henrik Fröhling and Contributors</LibraryCopyright>
+    <LibraryCopyright>© 2016 - 2025 by Henrik Fröhling and Contributors; © 2025 by José Fariña and Contributors</LibraryCopyright>
 
     <!-- NET (Framework | Standard) Targets -->
     <LibraryNETFrameworkTargets>net472;net481</LibraryNETFrameworkTargets>

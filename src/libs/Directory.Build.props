@@ -24,8 +24,8 @@
 
   <PropertyGroup>
     <Description>A .NET wrapper library with which developers can build .NET applications that integrate with the Trakt.tv API and access its features and data.</Description>
-    <Authors>Henrik Fröhling</Authors>
-    <Company>Henrik Fröhling</Company>
+    <Authors>Henrik Fröhling, José Fariña</Authors>
+    <Company>José Fariña</Company>
     <DefaultLanguage>en-US</DefaultLanguage>
     <PackageProjectUrl>https://josefarinna.github.io/Trakt.NET</PackageProjectUrl>
     <RepositoryUrl>https://github.com/josefarinna/Trakt.NET</RepositoryUrl>

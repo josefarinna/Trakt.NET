@@ -16,9 +16,9 @@
     <Title>Trakt.NET.Ex</Title>
     <Description>A .NET wrapper library with which developers can build .NET applications that integrate with the Trakt.tv API and access its features and data.</Description>
     <Authors>Henrik Fröhling, Felix Schmitt, José Fariña</Authors>
-    <Company>Henrik Fröhling</Company>
+    <Company>José Fariña</Company>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageProjectUrl>https://henrikfroehling.github.io/Trakt.NET</PackageProjectUrl>
+    <PackageProjectUrl>https://josefarinna.github.io/Trakt.NET/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/josefarinna/Trakt.NET</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageTags>trakt rest api dotnet</PackageTags>
