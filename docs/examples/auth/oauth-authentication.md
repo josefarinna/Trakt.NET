@@ -36,4 +36,4 @@ Revoking an already existing authorization
 
 [!code-csharp[](../../codesnippets/examples/auth/OAuthAuthenticationExample.cs#L75-L82)]
 
-__The complete code for this example can be found at: [Trakt.NET/docs/codesnippets/examples/auth/OAuthAuthenticationExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.0.0-alpha.1/docs/codesnippets/examples/auth/OAuthAuthenticationExample.cs)__
+__The complete code for this example can be found at: [Trakt.NET/docs/codesnippets/examples/auth/OAuthAuthenticationExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.0.0-alpha.2/docs/codesnippets/examples/auth/OAuthAuthenticationExample.cs)__

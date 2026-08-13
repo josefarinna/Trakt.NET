@@ -37,7 +37,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Changelogs", "Changelogs", 
 		..\Changelogs\v1.2.0.md = ..\Changelogs\v1.2.0.md
 		..\Changelogs\v1.3.0.md = ..\Changelogs\v1.3.0.md
 		..\Changelogs\v1.4.0.md = ..\Changelogs\v1.4.0.md
-		..\Changelogs\v2.0.0-alpha.1.md = ..\Changelogs\v2.0.0-alpha.1.md
+		..\Changelogs\v2.0.0-alpha.2.md = ..\Changelogs\v2.0.0-alpha.2.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contributing", "Contributing", "{EDB5D86C-D40A-4481-AE9E-97C456190749}"
