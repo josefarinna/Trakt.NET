@@ -60,8 +60,8 @@ namespace TraktNET.SourceGeneration.Requests
             _supportsExtendedInfo = requestGenerationSpecification.SupportsExtendedInfo;
             _supportsPagination = requestGenerationSpecification.SupportsPagination;
             _hasOAuthRequirementDefined = requestGenerationSpecification.HasOAuthRequirementDefined;
-            _requestParameters = requestGenerationSpecification.RequestParameters;
-            _requestQueries = requestGenerationSpecification.RequestQueries;
+            _requestParameters = [.. requestGenerationSpecification.RequestParameters];
+            _requestQueries = [.. requestGenerationSpecification.RequestQueries];
             _requestPayload = requestGenerationSpecification.RequestPayload;
 
             if (_supportsExtendedInfo)

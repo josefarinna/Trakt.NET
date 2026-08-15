@@ -380,8 +380,8 @@ namespace TraktNET.SourceGeneration.Requests
                 SupportsExtendedInfo = _requestSupportsExtendedInfo,
                 SupportsPagination = _requestSupportsPagination,
                 HasOAuthRequirementDefined = _requestHasOAuthRequirementDefined,
-                RequestParameters = _requestParameters,
-                RequestQueries = _requestQueries,
+                RequestParameters = _requestParameters.ToImmutableEquatableArray(),
+                RequestQueries = _requestQueries.ToImmutableEquatableArray(),
                 RequestPayload = _requestPayload
             };
 

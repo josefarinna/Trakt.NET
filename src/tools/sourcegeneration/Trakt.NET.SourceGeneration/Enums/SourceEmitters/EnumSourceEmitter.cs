@@ -61,7 +61,7 @@ namespace TraktNET.SourceGeneration.Enums
             _hasPathSupport = enumGenerationSpecification.HasPathSupport;
             _hasQuerySupport = enumGenerationSpecification.HasQuerySupport;
             _supportNumberDeserialization = enumGenerationSpecification.SupportNumberDeserialization;
-            _enumMembers = enumGenerationSpecification.Members;
+            _enumMembers = [.. enumGenerationSpecification.Members];
 
             _hasUnspecifiedMember = _enumMembers.Any(m => m.Name == UnspecifiedValue);
             _hasNoneMember = _enumMembers.Any(m => m.Name == NoneValue);
