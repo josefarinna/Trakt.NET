@@ -1,3 +1,5 @@
+using TraktNET.SourceGeneration.Models;
+
 namespace TraktNET.SourceGeneration.Requests
 {
     public sealed record RequestGenerationSpecification
@@ -18,9 +20,9 @@ namespace TraktNET.SourceGeneration.Requests
 
         public required bool HasOAuthRequirementDefined { get; init; }
 
-        public required List<RequestParameterGenerationSpecification> RequestParameters { get; init; }
+        public required ImmutableEquatableArray<RequestParameterGenerationSpecification> RequestParameters { get; init; }
 
-        public required List<RequestQueryGenerationSpecification> RequestQueries { get; init; }
+        public required ImmutableEquatableArray<RequestQueryGenerationSpecification> RequestQueries { get; init; }
 
         public required RequestPayloadGenerationSpecification? RequestPayload { get; init; }
     }

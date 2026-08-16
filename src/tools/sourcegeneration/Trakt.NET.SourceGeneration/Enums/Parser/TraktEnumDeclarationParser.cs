@@ -60,7 +60,7 @@ namespace TraktNET.SourceGeneration.Enums
                 HasPathSupport = _hasPathSupport,
                 HasQuerySupport = _hasQuerySupport,
                 SupportNumberDeserialization = _supportNumberDeserialization,
-                Members = _enumMembers
+                Members = _enumMembers.ToImmutableEquatableArray()
             };
         }
 

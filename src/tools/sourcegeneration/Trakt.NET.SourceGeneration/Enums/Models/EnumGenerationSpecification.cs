@@ -1,3 +1,5 @@
+using TraktNET.SourceGeneration.Models;
+
 namespace TraktNET.SourceGeneration.Enums
 {
     public sealed record EnumGenerationSpecification
@@ -16,6 +18,6 @@ namespace TraktNET.SourceGeneration.Enums
 
         public required bool SupportNumberDeserialization { get; init; }
 
-        public required List<EnumMemberGenerationSpecification> Members { get; init; }
+        public required ImmutableEquatableArray<EnumMemberGenerationSpecification> Members { get; init; }
     }
 }

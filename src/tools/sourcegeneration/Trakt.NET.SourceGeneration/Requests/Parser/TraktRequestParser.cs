@@ -165,6 +165,7 @@ namespace TraktNET.SourceGeneration.Requests
                         ReportDiagnostic(DiagnosticDescriptors.RequestAndQueryBothDeclared, attributeLocation);
                         return false;
                     }
+
                     if (hasPayloadAttribute)
                     {
                         ReportDiagnostic(DiagnosticDescriptors.RequestPayloadConflict, attributeLocation);
@@ -188,6 +189,7 @@ namespace TraktNET.SourceGeneration.Requests
                         ReportDiagnostic(DiagnosticDescriptors.RequestAndQueryBothDeclared, attributeLocation);
                         return false;
                     }
+
                     if (hasPayloadAttribute)
                     {
                         ReportDiagnostic(DiagnosticDescriptors.RequestPayloadConflict, attributeLocation);
@@ -340,12 +342,14 @@ namespace TraktNET.SourceGeneration.Requests
                 ITypeSymbol? currentType = payloadType;
                 while (currentType != null)
                 {
-                    var validateMethods = currentType.GetMembers("Validate").OfType<IMethodSymbol>();
+                    IEnumerable<IMethodSymbol> validateMethods = currentType.GetMembers("Validate").OfType<IMethodSymbol>();
+
                     if (validateMethods.Any(m => m.Parameters.Length == 0 && m.Arity == 0 && !m.IsStatic))
                     {
                         hasValidateMethod = true;
                         break;
                     }
+
                     currentType = currentType.BaseType;
                 }
 
@@ -376,8 +380,8 @@ namespace TraktNET.SourceGeneration.Requests
                 SupportsExtendedInfo = _requestSupportsExtendedInfo,
                 SupportsPagination = _requestSupportsPagination,
                 HasOAuthRequirementDefined = _requestHasOAuthRequirementDefined,
-                RequestParameters = _requestParameters,
-                RequestQueries = _requestQueries,
+                RequestParameters = _requestParameters.ToImmutableEquatableArray(),
+                RequestQueries = _requestQueries.ToImmutableEquatableArray(),
                 RequestPayload = _requestPayload
             };
 
