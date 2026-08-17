@@ -6,10 +6,6 @@ on:
     paths:
       - '.github/**'
       - 'src/**'
-  pull_request:
-    paths:
-      - '.github/**'
-      - 'src/**'
 
 jobs:
   sonarcloud:
@@ -58,5 +54,5 @@ jobs:
         shell: pwsh
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"josefarinna_Trakt.NET" /o:"josefarinna" /n:"Trakt.NET" /d:sonar.exclusions="**/docs/**" /d:sonar.coverage.exclusions="**/tests/**,**/Tests/**,**/tools/sourcegeneration/**" /d:sonar.cs.opencover.reportsPaths="**/*.opencover.xml" /d:sonar.sourceEncoding="UTF-8" /d:sonar.token="$env:SONAR_TOKEN" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet test 'src/Trakt.NET.sln' --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+          dotnet test 'src/Trakt.NET.slnx' --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="$env:SONAR_TOKEN"
