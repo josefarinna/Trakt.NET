@@ -6,15 +6,10 @@ on:
     paths:
       - '.github/**'
       - 'src/**'
-  pull_request:
-    paths:
-      - '.github/**'
-      - 'src/**'
 
 jobs:
   sonarcloud:
     name: SonarCloud
-    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: windows-latest
     steps:
       - name: Checkout
