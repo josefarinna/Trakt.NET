@@ -3517,7 +3517,7 @@
   "docs/references/building.html": {
     "href": "docs/references/building.html",
     "title": "Build from Source | Trakt.NET",
-    "summary": "Build from Source Prerequisites Install Visual Studio 2022 (Community or higher) or Visual Studio Code and make sure you have the latest updates. Clone To clone and build it locally run the following git commands: > git clone https://github.com/josefarinna/Trakt.NET.git > cd Trakt.NET Build Run following commands in the projects root directory to build the complete solution: dotnet build src/Trakt.NET.sln -c [Debug|Release] Running the tests: dotnet test src/Trakt.NET.sln -c [Debug|Release] --no-build --no-restore Alternatively you can also open the solution <PROJECT_ROOT>/src/Trakt.NET.sln in Visual Studio."
+    "summary": "Build from Source Prerequisites Install Visual Studio 2022 (Community or higher) or Visual Studio Code and make sure you have the latest updates. Clone To clone and build it locally run the following git commands: > git clone https://github.com/josefarinna/Trakt.NET.git > cd Trakt.NET Build Run following commands in the projects root directory to build the complete solution: dotnet build src/Trakt.NET.slnx -c [Debug|Release] Running the tests: dotnet test src/Trakt.NET.slnx -c [Debug|Release] --no-build --no-restore Alternatively you can also open the solution <PROJECT_ROOT>/src/Trakt.NET.slnx in Visual Studio."
   },
   "docs/references/modules.html": {
     "href": "docs/references/modules.html",
