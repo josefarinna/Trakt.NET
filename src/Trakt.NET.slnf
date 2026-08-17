@@ -1,10 +1,10 @@
 {
   "solution": {
-    "path": "Trakt.NET.sln",
+    "path": "Trakt.NET.slnx",
     "projects": [
-      "libs\\Trakt.NET\\Trakt.NET.csproj",
-      "tests\\Trakt.NET.Core.Tests\\Trakt.NET.Core.Tests.csproj",
-      "tools\\Trakt.NET.SourceGenerators\\Trakt.NET.SourceGenerators.csproj"
+      "libs\\Trakt.NET\\Trakt.NET.Ex.csproj",
+      "tests\\libs\\Trakt.NET.Core.Tests\\Trakt.NET.Core.Tests.csproj",
+      "tools\\sourcegeneration\\Trakt.NET.SourceGeneration\\Trakt.NET.SourceGeneration.csproj"
     ]
   }
 }

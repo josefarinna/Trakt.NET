@@ -40,7 +40,7 @@ Trakt.NET/
 │   │   └── Trakt.NET.HttpClientFactory/ # Extension for IHttpClientFactory & IoC
 │   ├── tests/              # Unit and integration test projects
 │   ├── version.json        # Version configuration (Nerdbank.GitVersioning)
-│   └── Trakt.NET.sln       # Main .NET solution
+│   └── Trakt.NET.slnx      # Main .NET solution
 ├── .editorconfig           # C# formatting rules and code analyzers
 ├── AGENTS.md               # AI agent guidelines
 └── coding_style.md         # C# coding style guide

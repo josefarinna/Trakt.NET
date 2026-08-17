@@ -9,7 +9,7 @@
             "command": "dotnet",
             "args": [
                 "build",
-                "Source/Lib/Trakt.NET/Trakt.NET.csproj",
+                "src/libs/Trakt.NET/Trakt.NET.Ex.csproj",
                 "--configuration",
                 "Debug"
             ],
@@ -22,7 +22,33 @@
             "command": "dotnet",
             "args": [
                 "build",
-                "Source/Lib/Trakt.NET/Trakt.NET.csproj",
+                "src/libs/Trakt.NET/Trakt.NET.Ex.csproj",
+                "--configuration",
+                "Release"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build HttpClientFactory Debug",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "src/libs/Trakt.NET.HttpClientFactory/Trakt.NET.Ex.HttpClientFactory.csproj",
+                "--configuration",
+                "Debug"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build HttpClientFactory Release",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "src/libs/Trakt.NET.HttpClientFactory/Trakt.NET.Ex.HttpClientFactory.csproj",
                 "--configuration",
                 "Release"
             ],
@@ -35,7 +61,7 @@
             "command": "dotnet",
             "args": [
                 "build",
-                "Source/Trakt.NET.sln",
+                "src/Trakt.NET.slnx",
                 "--configuration",
                 "Debug"
             ],
@@ -48,215 +74,7 @@
             "command": "dotnet",
             "args": [
                 "build",
-                "Source/Trakt.NET.sln",
-                "--configuration",
-                "Release"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Module Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Modules.Tests/Trakt.NET.Modules.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Module Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Modules.Tests/Trakt.NET.Modules.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Objects.Authentication Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Objects.Authentication.Tests/Trakt.NET.Objects.Authentication.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Objects.Authentication Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Objects.Authentication.Tests/Trakt.NET.Objects.Authentication.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Objects.Basic Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Objects.Basic.Tests/Trakt.NET.Objects.Basic.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Objects.Basic Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Objects.Basic.Tests/Trakt.NET.Objects.Basic.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Objects.Get Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Objects.Get.Tests/Trakt.NET.Objects.Get.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Objects.Get Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Objects.Get.Tests/Trakt.NET.Objects.Get.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Objects.Post Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Objects.Post.Tests/Trakt.NET.Objects.Post.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Objects.Post Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Objects.Post.Tests/Trakt.NET.Objects.Post.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Parameters Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Parameters.Tests/Trakt.NET.Parameters.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Parameters Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Parameters.Tests/Trakt.NET.Parameters.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build PostBuilder Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.PostBuilder.Tests/Trakt.NET.PostBuilder.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build PostBuilder Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.PostBuilder.Tests/Trakt.NET.PostBuilder.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Requests Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Requests.Tests/Trakt.NET.Requests.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "build",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Build Requests Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "build",
-                "Source/Tests/Trakt.NET.Requests.Tests/Trakt.NET.Requests.Tests.csproj",
+                "src/Trakt.NET.slnx",
                 "--configuration",
                 "Release"
             ],
@@ -269,7 +87,7 @@
             "command": "dotnet",
             "args": [
                 "test",
-                "Source/Trakt.NET.sln",
+                "src/Trakt.NET.slnx",
                 "--configuration",
                 "Debug"
             ],
@@ -282,7 +100,59 @@
             "command": "dotnet",
             "args": [
                 "test",
-                "Source/Trakt.NET.sln",
+                "src/Trakt.NET.slnx",
+                "--configuration",
+                "Release"
+            ],
+            "group": "test",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Run Core Tests Debug",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "test",
+                "src/tests/libs/Trakt.NET.Core.Tests/Trakt.NET.Core.Tests.csproj",
+                "--configuration",
+                "Debug"
+            ],
+            "group": "test",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Run Core Tests Release",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "test",
+                "src/tests/libs/Trakt.NET.Core.Tests/Trakt.NET.Core.Tests.csproj",
+                "--configuration",
+                "Release"
+            ],
+            "group": "test",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Run Json Tests Debug",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "test",
+                "src/tests/libs/Trakt.NET.Json.Tests/Trakt.NET.Json.Tests.csproj",
+                "--configuration",
+                "Debug"
+            ],
+            "group": "test",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Run Json Tests Release",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "test",
+                "src/tests/libs/Trakt.NET.Json.Tests/Trakt.NET.Json.Tests.csproj",
                 "--configuration",
                 "Release"
             ],
@@ -295,7 +165,7 @@
             "command": "dotnet",
             "args": [
                 "test",
-                "Source/Tests/Trakt.NET.Modules.Tests/Trakt.NET.Modules.Tests.csproj",
+                "src/tests/libs/Trakt.NET.Modules.Tests/Trakt.NET.Modules.Tests.csproj",
                 "--configuration",
                 "Debug"
             ],
@@ -308,163 +178,7 @@
             "command": "dotnet",
             "args": [
                 "test",
-                "Source/Tests/Trakt.NET.Modules.Tests/Trakt.NET.Modules.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run Objects.Authentication Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.Objects.Authentication.Tests/Trakt.NET.Objects.Authentication.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run Objects.Authentication Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.Objects.Authentication.Tests/Trakt.NET.Objects.Authentication.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run Objects.Basic Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.Objects.Basic.Tests/Trakt.NET.Objects.Basic.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run Objects.Basic Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.Objects.Basic.Tests/Trakt.NET.Objects.Basic.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run Objects.Get Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.Objects.Get.Tests/Trakt.NET.Objects.Get.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run Objects.Get Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.Objects.Get.Tests/Trakt.NET.Objects.Get.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run Objects.Post Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.Objects.Post.Tests/Trakt.NET.Objects.Post.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run Objects.Post Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.Objects.Post.Tests/Trakt.NET.Objects.Post.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run Parameters Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.Parameters.Tests/Trakt.NET.Parameters.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run Parameters Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.Parameters.Tests/Trakt.NET.Parameters.Tests.csproj",
-                "--configuration",
-                "Release"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run PostBuilder Tests Debug",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.PostBuilder.Tests/Trakt.NET.PostBuilder.Tests.csproj",
-                "--configuration",
-                "Debug"
-            ],
-            "group": "test",
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "Run PostBuilder Tests Release",
-            "type": "process",
-            "command": "dotnet",
-            "args": [
-                "test",
-                "Source/Tests/Trakt.NET.PostBuilder.Tests/Trakt.NET.PostBuilder.Tests.csproj",
+                "src/tests/libs/Trakt.NET.Modules.Tests/Trakt.NET.Modules.Tests.csproj",
                 "--configuration",
                 "Release"
             ],
@@ -477,7 +191,7 @@
             "command": "dotnet",
             "args": [
                 "test",
-                "Source/Tests/Trakt.NET.Requests.Tests/Trakt.NET.Requests.Tests.csproj",
+                "src/tests/libs/Trakt.NET.Requests.Tests/Trakt.NET.Requests.Tests.csproj",
                 "--configuration",
                 "Debug"
             ],
@@ -490,7 +204,33 @@
             "command": "dotnet",
             "args": [
                 "test",
-                "Source/Tests/Trakt.NET.Requests.Tests/Trakt.NET.Requests.Tests.csproj",
+                "src/tests/libs/Trakt.NET.Requests.Tests/Trakt.NET.Requests.Tests.csproj",
+                "--configuration",
+                "Release"
+            ],
+            "group": "test",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Run SourceGeneration Tests Debug",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "test",
+                "src/tests/tools/sourcegeneration/Trakt.NET.SourceGeneration.Tests/Trakt.NET.SourceGeneration.Tests.csproj",
+                "--configuration",
+                "Debug"
+            ],
+            "group": "test",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Run SourceGeneration Tests Release",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "test",
+                "src/tests/tools/sourcegeneration/Trakt.NET.SourceGeneration.Tests/Trakt.NET.SourceGeneration.Tests.csproj",
                 "--configuration",
                 "Release"
             ],
