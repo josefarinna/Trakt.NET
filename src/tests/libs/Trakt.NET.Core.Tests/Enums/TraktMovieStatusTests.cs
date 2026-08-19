@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktMovieStatusTests
     {
@@ -12,6 +14,7 @@
             TraktMovieStatus.Planned.ToJson().ShouldBe("planned");
             TraktMovieStatus.Rumored.ToJson().ShouldBe("rumored");
             TraktMovieStatus.Canceled.ToJson().ShouldBe("canceled");
+            ((TraktMovieStatus)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -27,6 +30,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktMovieStatus().ShouldBe(TraktMovieStatus.Unspecified);
+            "invalid".ToTraktMovieStatus().ShouldBe(TraktMovieStatus.Unspecified);
+            "".ToTraktMovieStatus().ShouldBe(TraktMovieStatus.Unspecified);
         }
 
         [Fact]
@@ -39,6 +44,24 @@
             TraktMovieStatus.Planned.DisplayName().ShouldBe("Planned");
             TraktMovieStatus.Rumored.DisplayName().ShouldBe("Rumored");
             TraktMovieStatus.Canceled.DisplayName().ShouldBe("Canceled");
+            ((TraktMovieStatus)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktMovieStatusJsonConverter()
+        {
+            var converter = new TraktMovieStatusJsonConverter();
+            converter.CanConvert(typeof(TraktMovieStatus)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktMovieStatus.Released, options).ShouldBe("\"released\"");
+            JsonSerializer.Deserialize<TraktMovieStatus>("\"released\"", options).ShouldBe(TraktMovieStatus.Released);
+            JsonSerializer.Deserialize<TraktMovieStatus>("\"\"", options).ShouldBe(TraktMovieStatus.Unspecified);
         }
     }
 }

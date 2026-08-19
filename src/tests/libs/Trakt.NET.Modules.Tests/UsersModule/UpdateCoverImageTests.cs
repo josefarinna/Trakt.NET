@@ -57,10 +57,10 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetOAuthClient(UpdateCoverUri, HttpStatusCode.NoContent);
 
             Func<Task<TraktResponse>> act = () => client.Users.UpdateCoverImageAsync(TraktCoverType.Unspecified, 123U, TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktPostValidationException>();
 
             act = () => client.Users.UpdateCoverImageAsync(TraktCoverType.Movie, 0, TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktPostValidationException>();
         }
     }
 }

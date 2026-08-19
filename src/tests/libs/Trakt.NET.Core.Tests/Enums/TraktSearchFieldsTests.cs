@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktSearchFieldTests
     {
@@ -48,6 +50,23 @@
             TraktSearchFields.Name.DisplayName().ShouldBe("Name");
             TraktSearchFields.Biography.DisplayName().ShouldBe("Biography");
             TraktSearchFields.Description.DisplayName().ShouldBe("Description");
+        }
+
+        [Fact]
+        public void TestTraktSearchFieldsJsonConverter()
+        {
+            var converter = new TraktSearchFieldsJsonConverter();
+            converter.CanConvert(typeof(TraktSearchFields)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktSearchFields.Title, options).ShouldBe("\"title\"");
+            JsonSerializer.Deserialize<TraktSearchFields>("\"title\"", options).ShouldBe(TraktSearchFields.Title);
+            JsonSerializer.Deserialize<TraktSearchFields>("\"\"", options).ShouldBe(TraktSearchFields.Unspecified);
         }
     }
 }

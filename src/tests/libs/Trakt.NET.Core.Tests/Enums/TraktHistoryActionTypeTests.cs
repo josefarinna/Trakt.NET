@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktHistoryActionTypeTests
     {
@@ -9,6 +11,7 @@
             TraktHistoryActionType.Scrobble.ToJson().ShouldBe("scrobble");
             TraktHistoryActionType.Checkin.ToJson().ShouldBe("checkin");
             TraktHistoryActionType.Watch.ToJson().ShouldBe("watch");
+            ((TraktHistoryActionType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -21,6 +24,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktHistoryActionType().ShouldBe(TraktHistoryActionType.Unspecified);
+            "invalid".ToTraktHistoryActionType().ShouldBe(TraktHistoryActionType.Unspecified);
+            "".ToTraktHistoryActionType().ShouldBe(TraktHistoryActionType.Unspecified);
         }
 
         [Fact]
@@ -30,6 +35,24 @@
             TraktHistoryActionType.Scrobble.DisplayName().ShouldBe("Scrobble");
             TraktHistoryActionType.Checkin.DisplayName().ShouldBe("Checkin");
             TraktHistoryActionType.Watch.DisplayName().ShouldBe("Watch");
+            ((TraktHistoryActionType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktHistoryActionTypeJsonConverter()
+        {
+            var converter = new TraktHistoryActionTypeJsonConverter();
+            converter.CanConvert(typeof(TraktHistoryActionType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktHistoryActionType.Scrobble, options).ShouldBe("\"scrobble\"");
+            JsonSerializer.Deserialize<TraktHistoryActionType>("\"scrobble\"", options).ShouldBe(TraktHistoryActionType.Scrobble);
+            JsonSerializer.Deserialize<TraktHistoryActionType>("\"\"", options).ShouldBe(TraktHistoryActionType.Unspecified);
         }
     }
 }

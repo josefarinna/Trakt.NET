@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 namespace TraktNET.Enums
 {
     public sealed class TraktReasonTests
@@ -23,6 +25,7 @@ namespace TraktNET.Enums
             TraktReason.Offtopic.ToJson().ShouldBe("offtopic");
             TraktReason.Support.ToJson().ShouldBe("support");
             TraktReason.TooShort.ToJson().ShouldBe("too_short");
+            ((TraktReason)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -49,6 +52,8 @@ namespace TraktNET.Enums
 
             string? nullValue = null;
             nullValue.ToTraktReason().ShouldBe(TraktReason.Unspecified);
+            "invalid".ToTraktReason().ShouldBe(TraktReason.Unspecified);
+            "".ToTraktReason().ShouldBe(TraktReason.Unspecified);
         }
 
         [Fact]
@@ -72,6 +77,24 @@ namespace TraktNET.Enums
             TraktReason.Offtopic.DisplayName().ShouldBe("Offtopic");
             TraktReason.Support.DisplayName().ShouldBe("Support");
             TraktReason.TooShort.DisplayName().ShouldBe("Too Short");
+            ((TraktReason)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktReasonJsonConverter()
+        {
+            var converter = new TraktReasonJsonConverter();
+            converter.CanConvert(typeof(TraktReason)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktReason.Spam, options).ShouldBe("\"spam\"");
+            JsonSerializer.Deserialize<TraktReason>("\"spam\"", options).ShouldBe(TraktReason.Spam);
+            JsonSerializer.Deserialize<TraktReason>("\"\"", options).ShouldBe(TraktReason.Unspecified);
         }
     }
 }

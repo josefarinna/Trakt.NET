@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktTimePeriodTests
     {
@@ -11,6 +13,7 @@
             TraktTimePeriod.Monthly.ToJson().ShouldBe("monthly");
             TraktTimePeriod.Yearly.ToJson().ShouldBe("yearly");
             TraktTimePeriod.All.ToJson().ShouldBe("all");
+            ((TraktTimePeriod)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -25,6 +28,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktTimePeriod().ShouldBe(TraktTimePeriod.Unspecified);
+            "invalid".ToTraktTimePeriod().ShouldBe(TraktTimePeriod.Unspecified);
+            "".ToTraktTimePeriod().ShouldBe(TraktTimePeriod.Unspecified);
         }
 
         [Fact]
@@ -36,6 +41,24 @@
             TraktTimePeriod.Monthly.DisplayName().ShouldBe("Monthly");
             TraktTimePeriod.Yearly.DisplayName().ShouldBe("Yearly");
             TraktTimePeriod.All.DisplayName().ShouldBe("All");
+            ((TraktTimePeriod)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktTimePeriodJsonConverter()
+        {
+            var converter = new TraktTimePeriodJsonConverter();
+            converter.CanConvert(typeof(TraktTimePeriod)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktTimePeriod.Daily, options).ShouldBe("\"daily\"");
+            JsonSerializer.Deserialize<TraktTimePeriod>("\"daily\"", options).ShouldBe(TraktTimePeriod.Daily);
+            JsonSerializer.Deserialize<TraktTimePeriod>("\"\"", options).ShouldBe(TraktTimePeriod.Unspecified);
         }
     }
 }

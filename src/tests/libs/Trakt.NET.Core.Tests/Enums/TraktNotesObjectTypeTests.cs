@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktNotesObjectTypeTests
     {
@@ -15,6 +17,7 @@
             TraktNotesObjectType.History.ToJson().ShouldBe("history");
             TraktNotesObjectType.Collection.ToJson().ShouldBe("collection");
             TraktNotesObjectType.Rating.ToJson().ShouldBe("rating");
+            ((TraktNotesObjectType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -33,6 +36,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Unspecified);
+            "invalid".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Unspecified);
+            "".ToTraktNotesObjectType().ShouldBe(TraktNotesObjectType.Unspecified);
         }
 
         [Fact]
@@ -48,6 +53,24 @@
             TraktNotesObjectType.History.DisplayName().ShouldBe("History");
             TraktNotesObjectType.Collection.DisplayName().ShouldBe("Collection");
             TraktNotesObjectType.Rating.DisplayName().ShouldBe("Rating");
+            ((TraktNotesObjectType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktNotesObjectTypeJsonConverter()
+        {
+            var converter = new TraktNotesObjectTypeJsonConverter();
+            converter.CanConvert(typeof(TraktNotesObjectType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktNotesObjectType.All, options).ShouldBe("\"all\"");
+            JsonSerializer.Deserialize<TraktNotesObjectType>("\"all\"", options).ShouldBe(TraktNotesObjectType.All);
+            JsonSerializer.Deserialize<TraktNotesObjectType>("\"\"", options).ShouldBe(TraktNotesObjectType.Unspecified);
         }
     }
 }

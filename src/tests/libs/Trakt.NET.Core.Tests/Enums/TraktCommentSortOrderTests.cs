@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktCommentSortOrderTests
     {
@@ -14,6 +16,7 @@
             TraktCommentSortOrder.Lowest.ToJson().ShouldBe("lowest");
             TraktCommentSortOrder.Plays.ToJson().ShouldBe("plays");
             TraktCommentSortOrder.Watched.ToJson().ShouldBe("watched");
+            ((TraktCommentSortOrder)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -31,6 +34,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Unspecified);
+            "invalid".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Unspecified);
+            "".ToTraktCommentSortOrder().ShouldBe(TraktCommentSortOrder.Unspecified);
         }
 
         [Fact]
@@ -45,6 +50,24 @@
             TraktCommentSortOrder.Lowest.DisplayName().ShouldBe("Lowest");
             TraktCommentSortOrder.Plays.DisplayName().ShouldBe("Plays");
             TraktCommentSortOrder.Watched.DisplayName().ShouldBe("Watched");
+            ((TraktCommentSortOrder)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktCommentSortOrderJsonConverter()
+        {
+            var converter = new TraktCommentSortOrderJsonConverter();
+            converter.CanConvert(typeof(TraktCommentSortOrder)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktCommentSortOrder.Newest, options).ShouldBe("\"newest\"");
+            JsonSerializer.Deserialize<TraktCommentSortOrder>("\"newest\"", options).ShouldBe(TraktCommentSortOrder.Newest);
+            JsonSerializer.Deserialize<TraktCommentSortOrder>("\"\"", options).ShouldBe(TraktCommentSortOrder.Unspecified);
         }
     }
 }

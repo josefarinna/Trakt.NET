@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktReleaseTypeTests
     {
@@ -13,6 +15,7 @@
             TraktReleaseType.Digital.ToJson().ShouldBe("digital");
             TraktReleaseType.Physical.ToJson().ShouldBe("physical");
             TraktReleaseType.TV.ToJson().ShouldBe("tv");
+            ((TraktReleaseType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -29,6 +32,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktReleaseType().ShouldBe(TraktReleaseType.Unspecified);
+            "invalid".ToTraktReleaseType().ShouldBe(TraktReleaseType.Unspecified);
+            "".ToTraktReleaseType().ShouldBe(TraktReleaseType.Unspecified);
         }
 
         [Fact]
@@ -42,6 +47,24 @@
             TraktReleaseType.Digital.DisplayName().ShouldBe("Digital");
             TraktReleaseType.Physical.DisplayName().ShouldBe("Physical");
             TraktReleaseType.TV.DisplayName().ShouldBe("TV");
+            ((TraktReleaseType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktReleaseTypeJsonConverter()
+        {
+            var converter = new TraktReleaseTypeJsonConverter();
+            converter.CanConvert(typeof(TraktReleaseType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktReleaseType.Unknown, options).ShouldBe("\"unknown\"");
+            JsonSerializer.Deserialize<TraktReleaseType>("\"unknown\"", options).ShouldBe(TraktReleaseType.Unknown);
+            JsonSerializer.Deserialize<TraktReleaseType>("\"\"", options).ShouldBe(TraktReleaseType.Unspecified);
         }
     }
 }

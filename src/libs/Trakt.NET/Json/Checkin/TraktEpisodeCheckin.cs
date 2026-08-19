@@ -26,7 +26,7 @@ namespace TraktNET
             ArgumentValidator.ThrowIfNull(Episode.IDs);
             if (!Episode.IDs!.HasAnyID)
             {
-                throw new ArgumentException($"{nameof(Episode)} has not any IDs set", nameof(Episode));
+                throw new TraktPostValidationException(nameof(Episode), $"{nameof(Episode)} has not any IDs set");
             }
         }
     }

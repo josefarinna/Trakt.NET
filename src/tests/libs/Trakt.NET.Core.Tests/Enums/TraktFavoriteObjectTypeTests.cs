@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktFavoriteObjectTypeTests
     {
@@ -8,6 +10,7 @@
             TraktFavoriteObjectType.Unspecified.ToJson().ShouldBeNull();
             TraktFavoriteObjectType.Movie.ToJson().ShouldBe("movie");
             TraktFavoriteObjectType.Show.ToJson().ShouldBe("show");
+            ((TraktFavoriteObjectType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -19,6 +22,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Unspecified);
+            "invalid".ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Unspecified);
+            "".ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Unspecified);
         }
 
         [Fact]
@@ -27,6 +32,24 @@
             TraktFavoriteObjectType.Unspecified.DisplayName().ShouldBe("Unspecified");
             TraktFavoriteObjectType.Movie.DisplayName().ShouldBe("Movie");
             TraktFavoriteObjectType.Show.DisplayName().ShouldBe("Show");
+            ((TraktFavoriteObjectType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktFavoriteObjectTypeJsonConverter()
+        {
+            var converter = new TraktFavoriteObjectTypeJsonConverter();
+            converter.CanConvert(typeof(TraktFavoriteObjectType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktFavoriteObjectType.Movie, options).ShouldBe("\"movie\"");
+            JsonSerializer.Deserialize<TraktFavoriteObjectType>("\"movie\"", options).ShouldBe(TraktFavoriteObjectType.Movie);
+            JsonSerializer.Deserialize<TraktFavoriteObjectType>("\"\"", options).ShouldBe(TraktFavoriteObjectType.Unspecified);
         }
     }
 }

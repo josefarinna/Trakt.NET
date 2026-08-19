@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktDateFormatTests
     {
@@ -10,6 +12,7 @@
             TraktDateFormat.DayMonthYear.ToJson().ShouldBe("dmy");
             TraktDateFormat.YearMonthDay.ToJson().ShouldBe("ymd");
             TraktDateFormat.YearDayMonth.ToJson().ShouldBe("ydm");
+            ((TraktDateFormat)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -23,6 +26,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktDateFormat().ShouldBe(TraktDateFormat.Unspecified);
+            "invalid".ToTraktDateFormat().ShouldBe(TraktDateFormat.Unspecified);
+            "".ToTraktDateFormat().ShouldBe(TraktDateFormat.Unspecified);
         }
 
         [Fact]
@@ -33,6 +38,24 @@
             TraktDateFormat.DayMonthYear.DisplayName().ShouldBe("Day Month Year");
             TraktDateFormat.YearMonthDay.DisplayName().ShouldBe("Year Month Day");
             TraktDateFormat.YearDayMonth.DisplayName().ShouldBe("Year Day Month");
+            ((TraktDateFormat)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktDateFormatJsonConverter()
+        {
+            var converter = new TraktDateFormatJsonConverter();
+            converter.CanConvert(typeof(TraktDateFormat)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktDateFormat.MonthDayYear, options).ShouldBe("\"mdy\"");
+            JsonSerializer.Deserialize<TraktDateFormat>("\"mdy\"", options).ShouldBe(TraktDateFormat.MonthDayYear);
+            JsonSerializer.Deserialize<TraktDateFormat>("\"\"", options).ShouldBe(TraktDateFormat.Unspecified);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktSortByTests
     {
@@ -25,6 +27,7 @@
             TraktSortBy.Random.ToJson().ShouldBe("random");
             TraktSortBy.Watched.ToJson().ShouldBe("watched");
             TraktSortBy.Collected.ToJson().ShouldBe("collected");
+            ((TraktSortBy)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -53,6 +56,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktSortBy().ShouldBe(TraktSortBy.Unspecified);
+            "invalid".ToTraktSortBy().ShouldBe(TraktSortBy.Unspecified);
+            "".ToTraktSortBy().ShouldBe(TraktSortBy.Unspecified);
         }
 
         [Fact]
@@ -78,6 +83,24 @@
             TraktSortBy.Random.DisplayName().ShouldBe("Random");
             TraktSortBy.Watched.DisplayName().ShouldBe("Watched");
             TraktSortBy.Collected.DisplayName().ShouldBe("Collected");
+            ((TraktSortBy)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktSortByJsonConverter()
+        {
+            var converter = new TraktSortByJsonConverter();
+            converter.CanConvert(typeof(TraktSortBy)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktSortBy.Rank, options).ShouldBe("\"rank\"");
+            JsonSerializer.Deserialize<TraktSortBy>("\"rank\"", options).ShouldBe(TraktSortBy.Rank);
+            JsonSerializer.Deserialize<TraktSortBy>("\"\"", options).ShouldBe(TraktSortBy.Unspecified);
         }
     }
 }

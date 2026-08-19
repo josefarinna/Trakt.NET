@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktShowStatusTests
     {
@@ -14,6 +16,7 @@
             TraktShowStatus.Pilot.ToJson().ShouldBe("pilot");
             TraktShowStatus.Canceled.ToJson().ShouldBe("canceled");
             TraktShowStatus.Ended.ToJson().ShouldBe("ended");
+            ((TraktShowStatus)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -31,6 +34,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktShowStatus().ShouldBe(TraktShowStatus.Unspecified);
+            "invalid".ToTraktShowStatus().ShouldBe(TraktShowStatus.Unspecified);
+            "".ToTraktShowStatus().ShouldBe(TraktShowStatus.Unspecified);
         }
 
         [Fact]
@@ -45,6 +50,24 @@
             TraktShowStatus.Pilot.DisplayName().ShouldBe("Pilot");
             TraktShowStatus.Canceled.DisplayName().ShouldBe("Canceled");
             TraktShowStatus.Ended.DisplayName().ShouldBe("Ended");
+            ((TraktShowStatus)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktShowStatusJsonConverter()
+        {
+            var converter = new TraktShowStatusJsonConverter();
+            converter.CanConvert(typeof(TraktShowStatus)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktShowStatus.ReturningSeries, options).ShouldBe("\"returning series\"");
+            JsonSerializer.Deserialize<TraktShowStatus>("\"returning series\"", options).ShouldBe(TraktShowStatus.ReturningSeries);
+            JsonSerializer.Deserialize<TraktShowStatus>("\"\"", options).ShouldBe(TraktShowStatus.Unspecified);
         }
     }
 }

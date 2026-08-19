@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.CheckinModule
 {
@@ -112,7 +112,7 @@ namespace TraktNET.CheckinModule
 
             episodeCheckin = new TraktEpisodeCheckin { Episode = new TraktEpisode { IDs = new TraktEpisodeIDs() } };
             act = () => client.Checkins.CheckIntoEpisodeAsync(episodeCheckin);
-            await act.ShouldThrowAsync<ArgumentException>();
+            await act.ShouldThrowAsync<TraktPostValidationException>();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktEpisodeTypeTests
     {
@@ -13,6 +15,7 @@
             TraktEpisodeType.MidSeasonPremiere.ToJson().ShouldBe("mid_season_premiere");
             TraktEpisodeType.SeasonFinale.ToJson().ShouldBe("season_finale");
             TraktEpisodeType.SeriesFinale.ToJson().ShouldBe("series_finale");
+            ((TraktEpisodeType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -29,6 +32,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktEpisodeType().ShouldBe(TraktEpisodeType.Unspecified);
+            "invalid".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.Unspecified);
+            "".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.Unspecified);
         }
 
         [Fact]
@@ -42,6 +47,24 @@
             TraktEpisodeType.MidSeasonPremiere.DisplayName().ShouldBe("Mid Season Premiere");
             TraktEpisodeType.SeasonFinale.DisplayName().ShouldBe("Season Finale");
             TraktEpisodeType.SeriesFinale.DisplayName().ShouldBe("Series Finale");
+            ((TraktEpisodeType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktEpisodeTypeJsonConverter()
+        {
+            var converter = new TraktEpisodeTypeJsonConverter();
+            converter.CanConvert(typeof(TraktEpisodeType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktEpisodeType.Standard, options).ShouldBe("\"standard\"");
+            JsonSerializer.Deserialize<TraktEpisodeType>("\"standard\"", options).ShouldBe(TraktEpisodeType.Standard);
+            JsonSerializer.Deserialize<TraktEpisodeType>("\"\"", options).ShouldBe(TraktEpisodeType.Unspecified);
         }
     }
 }

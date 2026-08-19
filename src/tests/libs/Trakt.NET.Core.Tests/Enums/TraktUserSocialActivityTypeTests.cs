@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 namespace TraktNET.Enums
 {
     public sealed class TraktUserSocialActivityTypeTests
@@ -9,6 +11,7 @@ namespace TraktNET.Enums
             TraktUserSocialActivityType.Friends.ToJson().ShouldBe("friends");
             TraktUserSocialActivityType.Followers.ToJson().ShouldBe("followers");
             TraktUserSocialActivityType.Following.ToJson().ShouldBe("following");
+            ((TraktUserSocialActivityType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -21,6 +24,8 @@ namespace TraktNET.Enums
 
             string? nullValue = null;
             nullValue.ToTraktUserSocialActivityType().ShouldBe(TraktUserSocialActivityType.Unspecified);
+            "invalid".ToTraktUserSocialActivityType().ShouldBe(TraktUserSocialActivityType.Unspecified);
+            "".ToTraktUserSocialActivityType().ShouldBe(TraktUserSocialActivityType.Unspecified);
         }
 
         [Fact]
@@ -30,6 +35,24 @@ namespace TraktNET.Enums
             TraktUserSocialActivityType.Friends.DisplayName().ShouldBe("Friends");
             TraktUserSocialActivityType.Followers.DisplayName().ShouldBe("Followers");
             TraktUserSocialActivityType.Following.DisplayName().ShouldBe("Following");
+            ((TraktUserSocialActivityType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktUserSocialActivityTypeJsonConverter()
+        {
+            var converter = new TraktUserSocialActivityTypeJsonConverter();
+            converter.CanConvert(typeof(TraktUserSocialActivityType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktUserSocialActivityType.Friends, options).ShouldBe("\"friends\"");
+            JsonSerializer.Deserialize<TraktUserSocialActivityType>("\"friends\"", options).ShouldBe(TraktUserSocialActivityType.Friends);
+            JsonSerializer.Deserialize<TraktUserSocialActivityType>("\"\"", options).ShouldBe(TraktUserSocialActivityType.Unspecified);
         }
     }
 }

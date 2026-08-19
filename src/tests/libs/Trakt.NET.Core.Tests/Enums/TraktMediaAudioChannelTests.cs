@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktMediaAudioChannelTests
     {
@@ -23,6 +25,7 @@
             TraktMediaAudioChannel.Channels714.ToJson().ShouldBe("7.1.4");
             TraktMediaAudioChannel.Channels91.ToJson().ShouldBe("9.1");
             TraktMediaAudioChannel.Channels101.ToJson().ShouldBe("10.1");
+            ((TraktMediaAudioChannel)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -49,6 +52,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktMediaAudioChannel().ShouldBe(TraktMediaAudioChannel.Unspecified);
+            "invalid".ToTraktMediaAudioChannel().ShouldBe(TraktMediaAudioChannel.Unspecified);
+            "".ToTraktMediaAudioChannel().ShouldBe(TraktMediaAudioChannel.Unspecified);
         }
 
         [Fact]
@@ -72,6 +77,24 @@
             TraktMediaAudioChannel.Channels714.DisplayName().ShouldBe("Channels 7.1.4");
             TraktMediaAudioChannel.Channels91.DisplayName().ShouldBe("Channels 9.1");
             TraktMediaAudioChannel.Channels101.DisplayName().ShouldBe("Channels 10.1");
+            ((TraktMediaAudioChannel)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktMediaAudioChannelJsonConverter()
+        {
+            var converter = new TraktMediaAudioChannelJsonConverter();
+            converter.CanConvert(typeof(TraktMediaAudioChannel)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktMediaAudioChannel.Channels10, options).ShouldBe("\"1.0\"");
+            JsonSerializer.Deserialize<TraktMediaAudioChannel>("\"1.0\"", options).ShouldBe(TraktMediaAudioChannel.Channels10);
+            JsonSerializer.Deserialize<TraktMediaAudioChannel>("\"\"", options).ShouldBe(TraktMediaAudioChannel.Unspecified);
         }
     }
 }

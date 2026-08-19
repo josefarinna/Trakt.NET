@@ -20,7 +20,7 @@ namespace TraktNET
             ArgumentValidator.ThrowIfNull(Movie.IDs);
             if (!Movie.IDs!.HasAnyID)
             {
-                throw new ArgumentException($"{nameof(Movie)} has not any IDs set", nameof(Movie));
+                throw new TraktPostValidationException(nameof(Movie), $"{nameof(Movie)} has not any IDs set");
             }
         }
     }

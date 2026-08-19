@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktListSortOrderTests
     {
@@ -12,6 +14,7 @@
             TraktListSortOrder.Items.ToJson().ShouldBe("items");
             TraktListSortOrder.Added.ToJson().ShouldBe("added");
             TraktListSortOrder.Updated.ToJson().ShouldBe("updated");
+            ((TraktListSortOrder)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -27,6 +30,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Unspecified);
+            "invalid".ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Unspecified);
+            "".ToTraktListSortOrder().ShouldBe(TraktListSortOrder.Unspecified);
         }
 
         [Fact]
@@ -39,6 +44,24 @@
             TraktListSortOrder.Items.DisplayName().ShouldBe("Items");
             TraktListSortOrder.Added.DisplayName().ShouldBe("Added");
             TraktListSortOrder.Updated.DisplayName().ShouldBe("Updated");
+            ((TraktListSortOrder)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktListSortOrderJsonConverter()
+        {
+            var converter = new TraktListSortOrderJsonConverter();
+            converter.CanConvert(typeof(TraktListSortOrder)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktListSortOrder.Popular, options).ShouldBe("\"popular\"");
+            JsonSerializer.Deserialize<TraktListSortOrder>("\"popular\"", options).ShouldBe(TraktListSortOrder.Popular);
+            JsonSerializer.Deserialize<TraktListSortOrder>("\"\"", options).ShouldBe(TraktListSortOrder.Unspecified);
         }
     }
 }

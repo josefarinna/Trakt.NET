@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktSearchRecentTypeTests
     {
@@ -10,6 +12,7 @@
             TraktSearchRecentType.Show.ToJson().ShouldBe("shows");
             TraktSearchRecentType.Person.ToJson().ShouldBe("people");
             TraktSearchRecentType.List.ToJson().ShouldBe("lists");
+            ((TraktSearchRecentType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -23,6 +26,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktSearchRecentType().ShouldBe(TraktSearchRecentType.Unspecified);
+            "invalid".ToTraktSearchRecentType().ShouldBe(TraktSearchRecentType.Unspecified);
+            "".ToTraktSearchRecentType().ShouldBe(TraktSearchRecentType.Unspecified);
         }
 
         [Fact]
@@ -33,6 +38,24 @@
             TraktSearchRecentType.Show.DisplayName().ShouldBe("Shows");
             TraktSearchRecentType.Person.DisplayName().ShouldBe("People");
             TraktSearchRecentType.List.DisplayName().ShouldBe("Lists");
+            ((TraktSearchRecentType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktSearchRecentTypeJsonConverter()
+        {
+            var converter = new TraktSearchRecentTypeJsonConverter();
+            converter.CanConvert(typeof(TraktSearchRecentType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktSearchRecentType.Movie, options).ShouldBe("\"movies\"");
+            JsonSerializer.Deserialize<TraktSearchRecentType>("\"movies\"", options).ShouldBe(TraktSearchRecentType.Movie);
+            JsonSerializer.Deserialize<TraktSearchRecentType>("\"\"", options).ShouldBe(TraktSearchRecentType.Unspecified);
         }
     }
 }

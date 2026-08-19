@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktDayOfWeekTests
     {
@@ -13,6 +15,7 @@
             TraktDayOfWeek.Friday.ToJson().ShouldBe("Friday");
             TraktDayOfWeek.Saturday.ToJson().ShouldBe("Saturday");
             TraktDayOfWeek.Sunday.ToJson().ShouldBe("Sunday");
+            ((TraktDayOfWeek)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -29,6 +32,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Unspecified);
+            "invalid".ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Unspecified);
+            "".ToTraktDayOfWeek().ShouldBe(TraktDayOfWeek.Unspecified);
         }
 
         [Fact]
@@ -42,6 +47,24 @@
             TraktDayOfWeek.Friday.DisplayName().ShouldBe("Friday");
             TraktDayOfWeek.Saturday.DisplayName().ShouldBe("Saturday");
             TraktDayOfWeek.Sunday.DisplayName().ShouldBe("Sunday");
+            ((TraktDayOfWeek)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktDayOfWeekJsonConverter()
+        {
+            var converter = new TraktDayOfWeekJsonConverter();
+            converter.CanConvert(typeof(TraktDayOfWeek)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktDayOfWeek.Monday, options).ShouldBe("\"Monday\"");
+            JsonSerializer.Deserialize<TraktDayOfWeek>("\"Monday\"", options).ShouldBe(TraktDayOfWeek.Monday);
+            JsonSerializer.Deserialize<TraktDayOfWeek>("\"\"", options).ShouldBe(TraktDayOfWeek.Unspecified);
         }
     }
 }
