@@ -72,7 +72,6 @@ Trakt.NET/
    - **Mandatory Model Registration**: Every new or modified data model class, DTO, or response object (`Trakt...`) MUST be registered in the corresponding `JsonSerializerContext` under `src/libs/Trakt.NET/Internal/Json/SerializerContexts/`.
    - **Single & Collection Payload Types**: Always decorate the context class with `[JsonSerializable(typeof(TModel))]` and `[JsonSerializable(typeof(IReadOnlyList<TModel>))]` (or list variants).
    - **Zero-Reflection**: Never rely on reflection-based JSON serialization; all JSON operations must compile cleanly with source generators for Native AOT (`IsAotCompatible`) and assembly trimming (`IsTrimmable`).
-
 ---
 
 ## 4. Trakt.tv API Reference (Official LLM Docs)
@@ -108,16 +107,20 @@ Whenever creating or modifying functionality, **unit tests MUST be written or up
 Every API endpoint method must include comprehensive test cases covering all input permutations:
 - **Default Request**: Test execution without optional parameters.
 - **Extended Info**: Test with `TraktExtendedInfo` options (`Full`, `Images`, etc.).
-- **Pagination Parameters**: For paged endpoints (`TraktPagedResponse<T>`), explicitly test `Page`, `Limit`, and `Page` + `Limit` parameter combinations, asserting `Page`, `Limit`, `PageCount`, and `ItemCount` response headers.
+- **Pagination Parameters & Navigation**: For paged endpoints (`TraktPagedResponse<T>`), explicitly test `Page`, `Limit`, and `Page` + `Limit` parameter combinations, asserting `Page`, `Limit`, `PageCount`, and `ItemCount` response headers. Crucially, **always write dedicated tests for `GetPreviousPageAsync()` and `GetNextPageAsync()` navigation methods**, asserting `HasPreviousPage` and `HasNextPage` flags.
 - **Filters & Options**: Test filter objects (`TraktShowFilter`, `TraktMovieFilter`, etc.) and query options when supported.
 - **Parameter Combinations**: Test combined permutations (Extended Info + Pagination + Filters).
-- **API Exception Handling**: Test error HTTP status codes (`400`, `401`, `403`, `404`, `429`, `500`, etc.) using `ModuleTestUtility.GetClient(uri, statusCode)` to verify that the appropriate `TraktApiException` subclass is thrown.
+- **OAuth Enforcement & Alias "me"**: Test OAuth requirements (`client.IgnoreOAuthIfOptional = false`) and URI template substitution when using the `"me"` shortcut (`users/me/...`).
+- **Internal Request Validation vs. API Exception Handling**:
+  - Request validation failures (null/empty/whitespace required parameters, invalid IDs) MUST be tested for throwing `TraktRequestValidationException`.
+  - HTTP error status codes (`400`, `401`, `403`, `404`, `420`, `422`, `423`, `429`, `500`, `502`, `503`, `504`, `520`, `521`, `522`) MUST be tested using `ModuleTestUtility.GetClient(uri, statusCode)` with `[Theory]` to verify that the appropriate `TraktApiException` subclass is thrown.
 
 ### 2. JSON Serialization Tests (`Trakt.NET.Json.Tests/`)
 Every new or modified data model class or DTO must include JSON unit tests:
-- **Reader/Deserialization Tests**: Verify parsing JSON fixtures into model instances (`SingleObjectReader`, `ArrayReader`).
+- **Mock JSON Fixture Mandate**: Deserialization reader unit tests (`SingleObjectReader`, `ArrayReader`) MUST load mock JSON fixture files (`.json`) from `src/tests/libs/JsonData/<ModuleName>/` using `TestUtility.GetJsonFileContentAsync(...)`.
+- **Field-by-Field Assertions**: Never stop at asserting non-null; perform deep field-by-field assertions (`ShouldBe`) on every deserialized model property to verify exact property mappings.
 - **Writer/Serialization Tests**: Verify serializing model instances back to JSON.
-- **Source Generation Context Verification**: Ensure `System.Text.Json` Source Generation context handles both single models and `IReadOnlyList<TModel>` collections cleanly without reflection.
+- **Source Generation Context Verification**: Ensure `System.Text.Json` Source Generation context handles both single models (`[JsonSerializable(typeof(TModel))]`) and `IReadOnlyList<TModel>` collections cleanly without reflection.
 
 ### 3. Enum Tests (`Trakt.NET.Core.Tests/Enums/`)
 Every new or modified enumeration (`Trakt...Enum`) must include enum tests:

@@ -419,6 +419,7 @@ namespace TraktNET
         {
             typeof(TraktBoxOfficeMovie),
             typeof(TraktCollectionMovie),
+            typeof(TraktHotMovie),
             typeof(TraktMostAnticipatedMovie),
             typeof(TraktMostCollectedMovie),
             typeof(TraktMostFavoritedMovie),
@@ -434,6 +435,7 @@ namespace TraktNET
             typeof(TraktMovieSocialIDs),
             typeof(TraktMovieStatistics),
             typeof(TraktMovieTranslation),
+            typeof(TraktStreamingMovie),
             typeof(TraktTrendingMovie),
             typeof(TraktUpdatedMovie)
         });
@@ -992,6 +994,7 @@ namespace TraktNET
         private static readonly HashSet<Type> s_movieJsonTypes = [
             typeof(TraktBoxOfficeMovie),
             typeof(TraktCollectionMovie),
+            typeof(TraktHotMovie),
             typeof(TraktMostAnticipatedMovie),
             typeof(TraktMostCollectedMovie),
             typeof(TraktMostFavoritedMovie),
@@ -1007,6 +1010,7 @@ namespace TraktNET
             typeof(TraktMovieSocialIDs),
             typeof(TraktMovieStatistics),
             typeof(TraktMovieTranslation),
+            typeof(TraktStreamingMovie),
             typeof(TraktTrendingMovie),
             typeof(TraktUpdatedMovie)
         ];

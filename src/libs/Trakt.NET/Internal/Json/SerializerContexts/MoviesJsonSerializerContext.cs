@@ -1,4 +1,4 @@
-﻿#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
@@ -9,6 +9,8 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktBoxOfficeMovie>))]
     [JsonSerializable(typeof(TraktCollectionMovie))]
     [JsonSerializable(typeof(IReadOnlyList<TraktCollectionMovie>))]
+    [JsonSerializable(typeof(TraktHotMovie))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktHotMovie>))]
     [JsonSerializable(typeof(TraktMostAnticipatedMovie))]
     [JsonSerializable(typeof(IReadOnlyList<TraktMostAnticipatedMovie>))]
     [JsonSerializable(typeof(TraktMostCollectedMovie))]
@@ -38,6 +40,8 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktMovieStatistics>))]
     [JsonSerializable(typeof(TraktMovieTranslation))]
     [JsonSerializable(typeof(IReadOnlyList<TraktMovieTranslation>))]
+    [JsonSerializable(typeof(TraktStreamingMovie))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktStreamingMovie>))]
     [JsonSerializable(typeof(TraktTrendingMovie))]
     [JsonSerializable(typeof(IReadOnlyList<TraktTrendingMovie>))]
     [JsonSerializable(typeof(TraktUpdatedMovie))]

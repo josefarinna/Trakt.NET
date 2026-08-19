@@ -498,5 +498,109 @@ namespace TraktNET
                 },
                 cancellationToken);
         }
+
+        /// <summary>Gets streaming movies recently available on streaming services.</summary>
+        /// <param name="timePeriod">Determines which time period should be queried. See also <seealso cref="TraktTimePeriod" />.</param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the movies.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="filter">
+        /// Specifies filter options for querying movies.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried streaming movies.
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
+        /// and maximum item count.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktStreamingMovie" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getmoviesstreaming">
+        /// Trakt API Documentation: Movies: Streaming - Get streaming movies
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktStreamingMovie>> GetStreamingMoviesAsync(TraktTimePeriod? timePeriod = null,
+            TraktExtendedInfo? extendedInfo = null, TraktFilter? filter = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new StreamingMoviesGetRequest
+            {
+                TimePeriod = timePeriod,
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit,
+                Filter = filter
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktStreamingMovie>(_context, request, (page, limit)
+                => new StreamingMoviesGetRequest
+                {
+                    TimePeriod = timePeriod,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit,
+                    Filter = filter
+                },
+                cancellationToken);
+        }
+
+        /// <summary>Gets movies that are currently hot on Trakt.</summary>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the movies.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="filter">
+        /// Specifies filter options for querying movies.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried hot movies.
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
+        /// and maximum item count.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktHotMovie" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getmovieshot">
+        /// Trakt API Documentation: Movies: Hot - Get hot movies
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktHotMovie>> GetHotMoviesAsync(TraktExtendedInfo? extendedInfo = null,
+            TraktFilter? filter = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new HotMoviesGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit,
+                Filter = filter
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktHotMovie>(_context, request, (page, limit)
+                => new HotMoviesGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit,
+                    Filter = filter
+                },
+                cancellationToken);
+        }
     }
 }
