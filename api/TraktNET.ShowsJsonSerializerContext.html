@@ -124,6 +124,8 @@
     <pre><code class="lang-csharp hljs">[ExcludeFromCodeCoverage]
 [JsonSerializable(typeof(TraktCollectionShow))]
 [JsonSerializable(typeof(IReadOnlyList&lt;TraktCollectionShow&gt;))]
+[JsonSerializable(typeof(TraktHotShow))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktHotShow&gt;))]
 [JsonSerializable(typeof(TraktMostAnticipatedShow))]
 [JsonSerializable(typeof(IReadOnlyList&lt;TraktMostAnticipatedShow&gt;))]
 [JsonSerializable(typeof(TraktMostCollectedShow))]
@@ -161,6 +163,8 @@
 [JsonSerializable(typeof(IReadOnlyList&lt;TraktShowWatchedProgress&gt;))]
 [JsonSerializable(typeof(TraktShowResetWatchedProgress))]
 [JsonSerializable(typeof(IReadOnlyList&lt;TraktShowResetWatchedProgress&gt;))]
+[JsonSerializable(typeof(TraktStreamingShow))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktStreamingShow&gt;))]
 [JsonSerializable(typeof(TraktTrendingShow))]
 [JsonSerializable(typeof(IReadOnlyList&lt;TraktTrendingShow&gt;))]
 [JsonSerializable(typeof(TraktUpdatedShow))]
@@ -350,6 +354,34 @@ public sealed class ShowsJsonSerializerContext : JsonSerializerContext, IJsonTyp
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktCollectionShow.html">TraktCollectionShow</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ShowsJsonSerializerContext.IReadOnlyListTraktHotShow.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktHotShow_" data-uid="TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktHotShow*"></a>
+  <h4 id="TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktHotShow" data-uid="TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktHotShow">IReadOnlyListTraktHotShow</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktHotShow&gt;&gt; IReadOnlyListTraktHotShow { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktHotShow.html">TraktHotShow</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -860,6 +892,34 @@ public sealed class ShowsJsonSerializerContext : JsonSerializerContext, IJsonTyp
   </table>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktStreamingShow_" data-uid="TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow*"></a>
+  <h4 id="TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktStreamingShow" data-uid="TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow">IReadOnlyListTraktStreamingShow</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktStreamingShow&gt;&gt; IReadOnlyListTraktStreamingShow { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktStreamingShow.html">TraktStreamingShow</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ShowsJsonSerializerContext.IReadOnlyListTraktTrendingShow.g.cs">View Source</a>
   </span>
   <a id="TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktTrendingShow_" data-uid="TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktTrendingShow*"></a>
@@ -910,6 +970,34 @@ public sealed class ShowsJsonSerializerContext : JsonSerializerContext, IJsonTyp
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktUpdatedShow.html">TraktUpdatedShow</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ShowsJsonSerializerContext.Int32.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_ShowsJsonSerializerContext_Int32_" data-uid="TraktNET.ShowsJsonSerializerContext.Int32*"></a>
+  <h4 id="TraktNET_ShowsJsonSerializerContext_Int32" data-uid="TraktNET.ShowsJsonSerializerContext.Int32">Int32</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;int&gt; Int32 { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1190,6 +1278,34 @@ public sealed class ShowsJsonSerializerContext : JsonSerializerContext, IJsonTyp
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ShowsJsonSerializerContext.NullableInt32.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_ShowsJsonSerializerContext_NullableInt32_" data-uid="TraktNET.ShowsJsonSerializerContext.NullableInt32*"></a>
+  <h4 id="TraktNET_ShowsJsonSerializerContext_NullableInt32" data-uid="TraktNET.ShowsJsonSerializerContext.NullableInt32">NullableInt32</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;int?&gt; NullableInt32 { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1750,6 +1866,34 @@ public sealed class ShowsJsonSerializerContext : JsonSerializerContext, IJsonTyp
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktEpisodeWatchedProgress.html">TraktEpisodeWatchedProgress</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ShowsJsonSerializerContext.TraktHotShow.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_ShowsJsonSerializerContext_TraktHotShow_" data-uid="TraktNET.ShowsJsonSerializerContext.TraktHotShow*"></a>
+  <h4 id="TraktNET_ShowsJsonSerializerContext_TraktHotShow" data-uid="TraktNET.ShowsJsonSerializerContext.TraktHotShow">TraktHotShow</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktHotShow&gt; TraktHotShow { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktHotShow.html">TraktHotShow</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -2506,6 +2650,34 @@ public sealed class ShowsJsonSerializerContext : JsonSerializerContext, IJsonTyp
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktShowWatchedProgress.html">TraktShowWatchedProgress</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/ShowsJsonSerializerContext.TraktStreamingShow.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_ShowsJsonSerializerContext_TraktStreamingShow_" data-uid="TraktNET.ShowsJsonSerializerContext.TraktStreamingShow*"></a>
+  <h4 id="TraktNET_ShowsJsonSerializerContext_TraktStreamingShow" data-uid="TraktNET.ShowsJsonSerializerContext.TraktStreamingShow">TraktStreamingShow</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktStreamingShow&gt; TraktStreamingShow { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktStreamingShow.html">TraktStreamingShow</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

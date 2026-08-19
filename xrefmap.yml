@@ -13312,6 +13312,18 @@ references:
   commentId: Overload:TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktCollectionShow
   fullName: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktCollectionShow
   nameWithType: ShowsJsonSerializerContext.IReadOnlyListTraktCollectionShow
+- uid: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktHotShow
+  name: IReadOnlyListTraktHotShow
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktHotShow
+  commentId: P:TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktHotShow
+  fullName: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktHotShow
+  nameWithType: ShowsJsonSerializerContext.IReadOnlyListTraktHotShow
+- uid: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktHotShow*
+  name: IReadOnlyListTraktHotShow
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktHotShow_
+  commentId: Overload:TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktHotShow
+  fullName: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktHotShow
+  nameWithType: ShowsJsonSerializerContext.IReadOnlyListTraktHotShow
 - uid: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktMostAnticipatedShow
   name: IReadOnlyListTraktMostAnticipatedShow
   href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktMostAnticipatedShow
@@ -13528,6 +13540,18 @@ references:
   commentId: Overload:TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktShowWatchedProgress
   fullName: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktShowWatchedProgress
   nameWithType: ShowsJsonSerializerContext.IReadOnlyListTraktShowWatchedProgress
+- uid: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow
+  name: IReadOnlyListTraktStreamingShow
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktStreamingShow
+  commentId: P:TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow
+  fullName: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow
+  nameWithType: ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow
+- uid: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow*
+  name: IReadOnlyListTraktStreamingShow
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktStreamingShow_
+  commentId: Overload:TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow
+  fullName: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow
+  nameWithType: ShowsJsonSerializerContext.IReadOnlyListTraktStreamingShow
 - uid: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktTrendingShow
   name: IReadOnlyListTraktTrendingShow
   href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_IReadOnlyListTraktTrendingShow
@@ -13552,6 +13576,18 @@ references:
   commentId: Overload:TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktUpdatedShow
   fullName: TraktNET.ShowsJsonSerializerContext.IReadOnlyListTraktUpdatedShow
   nameWithType: ShowsJsonSerializerContext.IReadOnlyListTraktUpdatedShow
+- uid: TraktNET.ShowsJsonSerializerContext.Int32
+  name: Int32
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_Int32
+  commentId: P:TraktNET.ShowsJsonSerializerContext.Int32
+  fullName: TraktNET.ShowsJsonSerializerContext.Int32
+  nameWithType: ShowsJsonSerializerContext.Int32
+- uid: TraktNET.ShowsJsonSerializerContext.Int32*
+  name: Int32
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_Int32_
+  commentId: Overload:TraktNET.ShowsJsonSerializerContext.Int32
+  fullName: TraktNET.ShowsJsonSerializerContext.Int32
+  nameWithType: ShowsJsonSerializerContext.Int32
 - uid: TraktNET.ShowsJsonSerializerContext.ListString
   name: ListString
   href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_ListString
@@ -13672,6 +13708,18 @@ references:
   commentId: Overload:TraktNET.ShowsJsonSerializerContext.NullableDateTime
   fullName: TraktNET.ShowsJsonSerializerContext.NullableDateTime
   nameWithType: ShowsJsonSerializerContext.NullableDateTime
+- uid: TraktNET.ShowsJsonSerializerContext.NullableInt32
+  name: NullableInt32
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_NullableInt32
+  commentId: P:TraktNET.ShowsJsonSerializerContext.NullableInt32
+  fullName: TraktNET.ShowsJsonSerializerContext.NullableInt32
+  nameWithType: ShowsJsonSerializerContext.NullableInt32
+- uid: TraktNET.ShowsJsonSerializerContext.NullableInt32*
+  name: NullableInt32
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_NullableInt32_
+  commentId: Overload:TraktNET.ShowsJsonSerializerContext.NullableInt32
+  fullName: TraktNET.ShowsJsonSerializerContext.NullableInt32
+  nameWithType: ShowsJsonSerializerContext.NullableInt32
 - uid: TraktNET.ShowsJsonSerializerContext.NullableSingle
   name: NullableSingle
   href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_NullableSingle
@@ -13912,6 +13960,18 @@ references:
   commentId: Overload:TraktNET.ShowsJsonSerializerContext.TraktEpisodeWatchedProgress
   fullName: TraktNET.ShowsJsonSerializerContext.TraktEpisodeWatchedProgress
   nameWithType: ShowsJsonSerializerContext.TraktEpisodeWatchedProgress
+- uid: TraktNET.ShowsJsonSerializerContext.TraktHotShow
+  name: TraktHotShow
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_TraktHotShow
+  commentId: P:TraktNET.ShowsJsonSerializerContext.TraktHotShow
+  fullName: TraktNET.ShowsJsonSerializerContext.TraktHotShow
+  nameWithType: ShowsJsonSerializerContext.TraktHotShow
+- uid: TraktNET.ShowsJsonSerializerContext.TraktHotShow*
+  name: TraktHotShow
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_TraktHotShow_
+  commentId: Overload:TraktNET.ShowsJsonSerializerContext.TraktHotShow
+  fullName: TraktNET.ShowsJsonSerializerContext.TraktHotShow
+  nameWithType: ShowsJsonSerializerContext.TraktHotShow
 - uid: TraktNET.ShowsJsonSerializerContext.TraktMostAnticipatedShow
   name: TraktMostAnticipatedShow
   href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_TraktMostAnticipatedShow
@@ -14236,6 +14296,18 @@ references:
   commentId: Overload:TraktNET.ShowsJsonSerializerContext.TraktShowWatchedProgress
   fullName: TraktNET.ShowsJsonSerializerContext.TraktShowWatchedProgress
   nameWithType: ShowsJsonSerializerContext.TraktShowWatchedProgress
+- uid: TraktNET.ShowsJsonSerializerContext.TraktStreamingShow
+  name: TraktStreamingShow
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_TraktStreamingShow
+  commentId: P:TraktNET.ShowsJsonSerializerContext.TraktStreamingShow
+  fullName: TraktNET.ShowsJsonSerializerContext.TraktStreamingShow
+  nameWithType: ShowsJsonSerializerContext.TraktStreamingShow
+- uid: TraktNET.ShowsJsonSerializerContext.TraktStreamingShow*
+  name: TraktStreamingShow
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_TraktStreamingShow_
+  commentId: Overload:TraktNET.ShowsJsonSerializerContext.TraktStreamingShow
+  fullName: TraktNET.ShowsJsonSerializerContext.TraktStreamingShow
+  nameWithType: ShowsJsonSerializerContext.TraktStreamingShow
 - uid: TraktNET.ShowsJsonSerializerContext.TraktTrendingShow
   name: TraktTrendingShow
   href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_TraktTrendingShow
@@ -36070,6 +36142,168 @@ references:
   fullName.vb: TraktNET.TraktHotMovie.<>
   nameWithType: TraktHotMovie.operator !=
   nameWithType.vb: TraktHotMovie.<>
+- uid: TraktNET.TraktHotShow
+  name: TraktHotShow
+  href: api/TraktNET.TraktHotShow.html
+  commentId: T:TraktNET.TraktHotShow
+  fullName: TraktNET.TraktHotShow
+  nameWithType: TraktHotShow
+- uid: TraktNET.TraktHotShow.#ctor
+  name: TraktHotShow()
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow__ctor
+  commentId: M:TraktNET.TraktHotShow.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktHotShow.TraktHotShow()
+  fullName.vb: TraktNET.TraktHotShow.New()
+  nameWithType: TraktHotShow.TraktHotShow()
+  nameWithType.vb: TraktHotShow.New()
+- uid: TraktNET.TraktHotShow.#ctor(TraktNET.TraktHotShow)
+  name: TraktHotShow(TraktHotShow)
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow__ctor_TraktNET_TraktHotShow_
+  commentId: M:TraktNET.TraktHotShow.#ctor(TraktNET.TraktHotShow)
+  name.vb: New(TraktHotShow)
+  fullName: TraktNET.TraktHotShow.TraktHotShow(TraktNET.TraktHotShow)
+  fullName.vb: TraktNET.TraktHotShow.New(TraktNET.TraktHotShow)
+  nameWithType: TraktHotShow.TraktHotShow(TraktHotShow)
+  nameWithType.vb: TraktHotShow.New(TraktHotShow)
+- uid: TraktNET.TraktHotShow.#ctor*
+  name: TraktHotShow
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow__ctor_
+  commentId: Overload:TraktNET.TraktHotShow.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktHotShow.TraktHotShow
+  fullName.vb: TraktNET.TraktHotShow.New
+  nameWithType: TraktHotShow.TraktHotShow
+  nameWithType.vb: TraktHotShow.New
+- uid: TraktNET.TraktHotShow.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_EqualityContract
+  commentId: P:TraktNET.TraktHotShow.EqualityContract
+  fullName: TraktNET.TraktHotShow.EqualityContract
+  nameWithType: TraktHotShow.EqualityContract
+- uid: TraktNET.TraktHotShow.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_EqualityContract_
+  commentId: Overload:TraktNET.TraktHotShow.EqualityContract
+  fullName: TraktNET.TraktHotShow.EqualityContract
+  nameWithType: TraktHotShow.EqualityContract
+- uid: TraktNET.TraktHotShow.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_Equals_System_Object_
+  commentId: M:TraktNET.TraktHotShow.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktHotShow.Equals(object?)
+  fullName.vb: TraktNET.TraktHotShow.Equals(Object)
+  nameWithType: TraktHotShow.Equals(object?)
+  nameWithType.vb: TraktHotShow.Equals(Object)
+- uid: TraktNET.TraktHotShow.Equals(TraktNET.TraktCollectionShow)
+  name: Equals(TraktCollectionShow?)
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_Equals_TraktNET_TraktCollectionShow_
+  commentId: M:TraktNET.TraktHotShow.Equals(TraktNET.TraktCollectionShow)
+  name.vb: Equals(TraktCollectionShow)
+  fullName: TraktNET.TraktHotShow.Equals(TraktNET.TraktCollectionShow?)
+  fullName.vb: TraktNET.TraktHotShow.Equals(TraktNET.TraktCollectionShow)
+  nameWithType: TraktHotShow.Equals(TraktCollectionShow?)
+  nameWithType.vb: TraktHotShow.Equals(TraktCollectionShow)
+- uid: TraktNET.TraktHotShow.Equals(TraktNET.TraktHotShow)
+  name: Equals(TraktHotShow?)
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_Equals_TraktNET_TraktHotShow_
+  commentId: M:TraktNET.TraktHotShow.Equals(TraktNET.TraktHotShow)
+  name.vb: Equals(TraktHotShow)
+  fullName: TraktNET.TraktHotShow.Equals(TraktNET.TraktHotShow?)
+  fullName.vb: TraktNET.TraktHotShow.Equals(TraktNET.TraktHotShow)
+  nameWithType: TraktHotShow.Equals(TraktHotShow?)
+  nameWithType.vb: TraktHotShow.Equals(TraktHotShow)
+- uid: TraktNET.TraktHotShow.Equals*
+  name: Equals
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_Equals_
+  commentId: Overload:TraktNET.TraktHotShow.Equals
+  fullName: TraktNET.TraktHotShow.Equals
+  nameWithType: TraktHotShow.Equals
+- uid: TraktNET.TraktHotShow.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_GetHashCode
+  commentId: M:TraktNET.TraktHotShow.GetHashCode
+  fullName: TraktNET.TraktHotShow.GetHashCode()
+  nameWithType: TraktHotShow.GetHashCode()
+- uid: TraktNET.TraktHotShow.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_GetHashCode_
+  commentId: Overload:TraktNET.TraktHotShow.GetHashCode
+  fullName: TraktNET.TraktHotShow.GetHashCode
+  nameWithType: TraktHotShow.GetHashCode
+- uid: TraktNET.TraktHotShow.ListCount
+  name: ListCount
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_ListCount
+  commentId: P:TraktNET.TraktHotShow.ListCount
+  fullName: TraktNET.TraktHotShow.ListCount
+  nameWithType: TraktHotShow.ListCount
+- uid: TraktNET.TraktHotShow.ListCount*
+  name: ListCount
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_ListCount_
+  commentId: Overload:TraktNET.TraktHotShow.ListCount
+  fullName: TraktNET.TraktHotShow.ListCount
+  nameWithType: TraktHotShow.ListCount
+- uid: TraktNET.TraktHotShow.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktHotShow.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktHotShow.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktHotShow.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktHotShow.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_PrintMembers_
+  commentId: Overload:TraktNET.TraktHotShow.PrintMembers
+  fullName: TraktNET.TraktHotShow.PrintMembers
+  nameWithType: TraktHotShow.PrintMembers
+- uid: TraktNET.TraktHotShow.ToString
+  name: ToString()
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_ToString
+  commentId: M:TraktNET.TraktHotShow.ToString
+  fullName: TraktNET.TraktHotShow.ToString()
+  nameWithType: TraktHotShow.ToString()
+- uid: TraktNET.TraktHotShow.ToString*
+  name: ToString
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_ToString_
+  commentId: Overload:TraktNET.TraktHotShow.ToString
+  fullName: TraktNET.TraktHotShow.ToString
+  nameWithType: TraktHotShow.ToString
+- uid: TraktNET.TraktHotShow.op_Equality(TraktNET.TraktHotShow,TraktNET.TraktHotShow)
+  name: operator ==(TraktHotShow?, TraktHotShow?)
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_op_Equality_TraktNET_TraktHotShow_TraktNET_TraktHotShow_
+  commentId: M:TraktNET.TraktHotShow.op_Equality(TraktNET.TraktHotShow,TraktNET.TraktHotShow)
+  name.vb: =(TraktHotShow, TraktHotShow)
+  fullName: TraktNET.TraktHotShow.operator ==(TraktNET.TraktHotShow?, TraktNET.TraktHotShow?)
+  fullName.vb: TraktNET.TraktHotShow.=(TraktNET.TraktHotShow, TraktNET.TraktHotShow)
+  nameWithType: TraktHotShow.operator ==(TraktHotShow?, TraktHotShow?)
+  nameWithType.vb: TraktHotShow.=(TraktHotShow, TraktHotShow)
+- uid: TraktNET.TraktHotShow.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_op_Equality_
+  commentId: Overload:TraktNET.TraktHotShow.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktHotShow.operator ==
+  fullName.vb: TraktNET.TraktHotShow.=
+  nameWithType: TraktHotShow.operator ==
+  nameWithType.vb: TraktHotShow.=
+- uid: TraktNET.TraktHotShow.op_Inequality(TraktNET.TraktHotShow,TraktNET.TraktHotShow)
+  name: operator !=(TraktHotShow?, TraktHotShow?)
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_op_Inequality_TraktNET_TraktHotShow_TraktNET_TraktHotShow_
+  commentId: M:TraktNET.TraktHotShow.op_Inequality(TraktNET.TraktHotShow,TraktNET.TraktHotShow)
+  name.vb: <>(TraktHotShow, TraktHotShow)
+  fullName: TraktNET.TraktHotShow.operator !=(TraktNET.TraktHotShow?, TraktNET.TraktHotShow?)
+  fullName.vb: TraktNET.TraktHotShow.<>(TraktNET.TraktHotShow, TraktNET.TraktHotShow)
+  nameWithType: TraktHotShow.operator !=(TraktHotShow?, TraktHotShow?)
+  nameWithType.vb: TraktHotShow.<>(TraktHotShow, TraktHotShow)
+- uid: TraktNET.TraktHotShow.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktHotShow.html#TraktNET_TraktHotShow_op_Inequality_
+  commentId: Overload:TraktNET.TraktHotShow.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktHotShow.operator !=
+  fullName.vb: TraktNET.TraktHotShow.<>
+  nameWithType: TraktHotShow.operator !=
+  nameWithType.vb: TraktHotShow.<>
 - uid: TraktNET.TraktIncludeReplies
   name: TraktIncludeReplies
   href: api/TraktNET.TraktIncludeReplies.html
@@ -71275,6 +71509,21 @@ references:
   fullName.vb: TraktNET.TraktShowsModule.New
   nameWithType: TraktShowsModule.TraktShowsModule
   nameWithType.vb: TraktShowsModule.New
+- uid: TraktNET.TraktShowsModule.GetHotShowsAsync(System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetHotShowsAsync(TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetHotShowsAsync_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetHotShowsAsync(System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetHotShowsAsync(TraktExtendedInfo?, TraktFilter, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetHotShowsAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktFilter?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetHotShowsAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktFilter, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetHotShowsAsync(TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetHotShowsAsync(TraktExtendedInfo?, TraktFilter, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetHotShowsAsync*
+  name: GetHotShowsAsync
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetHotShowsAsync_
+  commentId: Overload:TraktNET.TraktShowsModule.GetHotShowsAsync
+  fullName: TraktNET.TraktShowsModule.GetHotShowsAsync
+  nameWithType: TraktShowsModule.GetHotShowsAsync
 - uid: TraktNET.TraktShowsModule.GetMostAnticipatedShowsAsync(System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
   name: GetMostAnticipatedShowsAsync(TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
   href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetMostAnticipatedShowsAsync_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
@@ -72019,6 +72268,21 @@ references:
   commentId: Overload:TraktNET.TraktShowsModule.GetShowWatchnowAsync
   fullName: TraktNET.TraktShowsModule.GetShowWatchnowAsync
   nameWithType: TraktShowsModule.GetShowWatchnowAsync
+- uid: TraktNET.TraktShowsModule.GetStreamingShowsAsync(System.Nullable{TraktNET.TraktTimePeriod},System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetStreamingShowsAsync(TraktTimePeriod?, TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetStreamingShowsAsync_System_Nullable_TraktNET_TraktTimePeriod__System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetStreamingShowsAsync(System.Nullable{TraktNET.TraktTimePeriod},System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetStreamingShowsAsync(TraktTimePeriod?, TraktExtendedInfo?, TraktFilter, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetStreamingShowsAsync(TraktNET.TraktTimePeriod?, TraktNET.TraktExtendedInfo?, TraktNET.TraktFilter?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetStreamingShowsAsync(TraktNET.TraktTimePeriod?, TraktNET.TraktExtendedInfo?, TraktNET.TraktFilter, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetStreamingShowsAsync(TraktTimePeriod?, TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetStreamingShowsAsync(TraktTimePeriod?, TraktExtendedInfo?, TraktFilter, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetStreamingShowsAsync*
+  name: GetStreamingShowsAsync
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetStreamingShowsAsync_
+  commentId: Overload:TraktNET.TraktShowsModule.GetStreamingShowsAsync
+  fullName: TraktNET.TraktShowsModule.GetStreamingShowsAsync
+  nameWithType: TraktShowsModule.GetStreamingShowsAsync
 - uid: TraktNET.TraktShowsModule.GetTrendingShowsAsync(System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
   name: GetTrendingShowsAsync(TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
   href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetTrendingShowsAsync_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
@@ -74938,6 +75202,180 @@ references:
   fullName.vb: TraktNET.TraktStreamingRank.<>
   nameWithType: TraktStreamingRank.operator !=
   nameWithType.vb: TraktStreamingRank.<>
+- uid: TraktNET.TraktStreamingShow
+  name: TraktStreamingShow
+  href: api/TraktNET.TraktStreamingShow.html
+  commentId: T:TraktNET.TraktStreamingShow
+  fullName: TraktNET.TraktStreamingShow
+  nameWithType: TraktStreamingShow
+- uid: TraktNET.TraktStreamingShow.#ctor
+  name: TraktStreamingShow()
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow__ctor
+  commentId: M:TraktNET.TraktStreamingShow.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktStreamingShow.TraktStreamingShow()
+  fullName.vb: TraktNET.TraktStreamingShow.New()
+  nameWithType: TraktStreamingShow.TraktStreamingShow()
+  nameWithType.vb: TraktStreamingShow.New()
+- uid: TraktNET.TraktStreamingShow.#ctor(TraktNET.TraktStreamingShow)
+  name: TraktStreamingShow(TraktStreamingShow)
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow__ctor_TraktNET_TraktStreamingShow_
+  commentId: M:TraktNET.TraktStreamingShow.#ctor(TraktNET.TraktStreamingShow)
+  name.vb: New(TraktStreamingShow)
+  fullName: TraktNET.TraktStreamingShow.TraktStreamingShow(TraktNET.TraktStreamingShow)
+  fullName.vb: TraktNET.TraktStreamingShow.New(TraktNET.TraktStreamingShow)
+  nameWithType: TraktStreamingShow.TraktStreamingShow(TraktStreamingShow)
+  nameWithType.vb: TraktStreamingShow.New(TraktStreamingShow)
+- uid: TraktNET.TraktStreamingShow.#ctor*
+  name: TraktStreamingShow
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow__ctor_
+  commentId: Overload:TraktNET.TraktStreamingShow.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktStreamingShow.TraktStreamingShow
+  fullName.vb: TraktNET.TraktStreamingShow.New
+  nameWithType: TraktStreamingShow.TraktStreamingShow
+  nameWithType.vb: TraktStreamingShow.New
+- uid: TraktNET.TraktStreamingShow.Delta
+  name: Delta
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_Delta
+  commentId: P:TraktNET.TraktStreamingShow.Delta
+  fullName: TraktNET.TraktStreamingShow.Delta
+  nameWithType: TraktStreamingShow.Delta
+- uid: TraktNET.TraktStreamingShow.Delta*
+  name: Delta
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_Delta_
+  commentId: Overload:TraktNET.TraktStreamingShow.Delta
+  fullName: TraktNET.TraktStreamingShow.Delta
+  nameWithType: TraktStreamingShow.Delta
+- uid: TraktNET.TraktStreamingShow.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_EqualityContract
+  commentId: P:TraktNET.TraktStreamingShow.EqualityContract
+  fullName: TraktNET.TraktStreamingShow.EqualityContract
+  nameWithType: TraktStreamingShow.EqualityContract
+- uid: TraktNET.TraktStreamingShow.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_EqualityContract_
+  commentId: Overload:TraktNET.TraktStreamingShow.EqualityContract
+  fullName: TraktNET.TraktStreamingShow.EqualityContract
+  nameWithType: TraktStreamingShow.EqualityContract
+- uid: TraktNET.TraktStreamingShow.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_Equals_System_Object_
+  commentId: M:TraktNET.TraktStreamingShow.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktStreamingShow.Equals(object?)
+  fullName.vb: TraktNET.TraktStreamingShow.Equals(Object)
+  nameWithType: TraktStreamingShow.Equals(object?)
+  nameWithType.vb: TraktStreamingShow.Equals(Object)
+- uid: TraktNET.TraktStreamingShow.Equals(TraktNET.TraktCollectionShow)
+  name: Equals(TraktCollectionShow?)
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_Equals_TraktNET_TraktCollectionShow_
+  commentId: M:TraktNET.TraktStreamingShow.Equals(TraktNET.TraktCollectionShow)
+  name.vb: Equals(TraktCollectionShow)
+  fullName: TraktNET.TraktStreamingShow.Equals(TraktNET.TraktCollectionShow?)
+  fullName.vb: TraktNET.TraktStreamingShow.Equals(TraktNET.TraktCollectionShow)
+  nameWithType: TraktStreamingShow.Equals(TraktCollectionShow?)
+  nameWithType.vb: TraktStreamingShow.Equals(TraktCollectionShow)
+- uid: TraktNET.TraktStreamingShow.Equals(TraktNET.TraktStreamingShow)
+  name: Equals(TraktStreamingShow?)
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_Equals_TraktNET_TraktStreamingShow_
+  commentId: M:TraktNET.TraktStreamingShow.Equals(TraktNET.TraktStreamingShow)
+  name.vb: Equals(TraktStreamingShow)
+  fullName: TraktNET.TraktStreamingShow.Equals(TraktNET.TraktStreamingShow?)
+  fullName.vb: TraktNET.TraktStreamingShow.Equals(TraktNET.TraktStreamingShow)
+  nameWithType: TraktStreamingShow.Equals(TraktStreamingShow?)
+  nameWithType.vb: TraktStreamingShow.Equals(TraktStreamingShow)
+- uid: TraktNET.TraktStreamingShow.Equals*
+  name: Equals
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_Equals_
+  commentId: Overload:TraktNET.TraktStreamingShow.Equals
+  fullName: TraktNET.TraktStreamingShow.Equals
+  nameWithType: TraktStreamingShow.Equals
+- uid: TraktNET.TraktStreamingShow.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_GetHashCode
+  commentId: M:TraktNET.TraktStreamingShow.GetHashCode
+  fullName: TraktNET.TraktStreamingShow.GetHashCode()
+  nameWithType: TraktStreamingShow.GetHashCode()
+- uid: TraktNET.TraktStreamingShow.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_GetHashCode_
+  commentId: Overload:TraktNET.TraktStreamingShow.GetHashCode
+  fullName: TraktNET.TraktStreamingShow.GetHashCode
+  nameWithType: TraktStreamingShow.GetHashCode
+- uid: TraktNET.TraktStreamingShow.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktStreamingShow.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktStreamingShow.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktStreamingShow.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktStreamingShow.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_PrintMembers_
+  commentId: Overload:TraktNET.TraktStreamingShow.PrintMembers
+  fullName: TraktNET.TraktStreamingShow.PrintMembers
+  nameWithType: TraktStreamingShow.PrintMembers
+- uid: TraktNET.TraktStreamingShow.Rank
+  name: Rank
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_Rank
+  commentId: P:TraktNET.TraktStreamingShow.Rank
+  fullName: TraktNET.TraktStreamingShow.Rank
+  nameWithType: TraktStreamingShow.Rank
+- uid: TraktNET.TraktStreamingShow.Rank*
+  name: Rank
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_Rank_
+  commentId: Overload:TraktNET.TraktStreamingShow.Rank
+  fullName: TraktNET.TraktStreamingShow.Rank
+  nameWithType: TraktStreamingShow.Rank
+- uid: TraktNET.TraktStreamingShow.ToString
+  name: ToString()
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_ToString
+  commentId: M:TraktNET.TraktStreamingShow.ToString
+  fullName: TraktNET.TraktStreamingShow.ToString()
+  nameWithType: TraktStreamingShow.ToString()
+- uid: TraktNET.TraktStreamingShow.ToString*
+  name: ToString
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_ToString_
+  commentId: Overload:TraktNET.TraktStreamingShow.ToString
+  fullName: TraktNET.TraktStreamingShow.ToString
+  nameWithType: TraktStreamingShow.ToString
+- uid: TraktNET.TraktStreamingShow.op_Equality(TraktNET.TraktStreamingShow,TraktNET.TraktStreamingShow)
+  name: operator ==(TraktStreamingShow?, TraktStreamingShow?)
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_op_Equality_TraktNET_TraktStreamingShow_TraktNET_TraktStreamingShow_
+  commentId: M:TraktNET.TraktStreamingShow.op_Equality(TraktNET.TraktStreamingShow,TraktNET.TraktStreamingShow)
+  name.vb: =(TraktStreamingShow, TraktStreamingShow)
+  fullName: TraktNET.TraktStreamingShow.operator ==(TraktNET.TraktStreamingShow?, TraktNET.TraktStreamingShow?)
+  fullName.vb: TraktNET.TraktStreamingShow.=(TraktNET.TraktStreamingShow, TraktNET.TraktStreamingShow)
+  nameWithType: TraktStreamingShow.operator ==(TraktStreamingShow?, TraktStreamingShow?)
+  nameWithType.vb: TraktStreamingShow.=(TraktStreamingShow, TraktStreamingShow)
+- uid: TraktNET.TraktStreamingShow.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_op_Equality_
+  commentId: Overload:TraktNET.TraktStreamingShow.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktStreamingShow.operator ==
+  fullName.vb: TraktNET.TraktStreamingShow.=
+  nameWithType: TraktStreamingShow.operator ==
+  nameWithType.vb: TraktStreamingShow.=
+- uid: TraktNET.TraktStreamingShow.op_Inequality(TraktNET.TraktStreamingShow,TraktNET.TraktStreamingShow)
+  name: operator !=(TraktStreamingShow?, TraktStreamingShow?)
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_op_Inequality_TraktNET_TraktStreamingShow_TraktNET_TraktStreamingShow_
+  commentId: M:TraktNET.TraktStreamingShow.op_Inequality(TraktNET.TraktStreamingShow,TraktNET.TraktStreamingShow)
+  name.vb: <>(TraktStreamingShow, TraktStreamingShow)
+  fullName: TraktNET.TraktStreamingShow.operator !=(TraktNET.TraktStreamingShow?, TraktNET.TraktStreamingShow?)
+  fullName.vb: TraktNET.TraktStreamingShow.<>(TraktNET.TraktStreamingShow, TraktNET.TraktStreamingShow)
+  nameWithType: TraktStreamingShow.operator !=(TraktStreamingShow?, TraktStreamingShow?)
+  nameWithType.vb: TraktStreamingShow.<>(TraktStreamingShow, TraktStreamingShow)
+- uid: TraktNET.TraktStreamingShow.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktStreamingShow.html#TraktNET_TraktStreamingShow_op_Inequality_
+  commentId: Overload:TraktNET.TraktStreamingShow.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktStreamingShow.operator !=
+  fullName.vb: TraktNET.TraktStreamingShow.<>
+  nameWithType: TraktStreamingShow.operator !=
+  nameWithType.vb: TraktStreamingShow.<>
 - uid: TraktNET.TraktStudio
   name: TraktStudio
   href: api/TraktNET.TraktStudio.html

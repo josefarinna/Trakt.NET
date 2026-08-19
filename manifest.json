@@ -2663,6 +2663,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktHotShow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktHotShow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktHotShow",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktHotShow.yml\" sourcestartlinenumber=\"1\">A hot Trakt show.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktIncludeReplies.yml",
       "output": {
         ".html": {
@@ -6328,6 +6342,20 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktStreamingRank",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktStreamingRank.yml\" sourcestartlinenumber=\"1\">Represents the streaming rank details for a media item.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktStreamingShow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktStreamingShow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktStreamingShow",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktStreamingShow.yml\" sourcestartlinenumber=\"1\">A streaming Trakt show.</p>\n"
     },
     {
       "type": "ManagedReference",
