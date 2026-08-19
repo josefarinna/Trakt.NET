@@ -6817,6 +6817,18 @@ references:
   commentId: Overload:TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktCollectionMovie
   fullName: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktCollectionMovie
   nameWithType: MoviesJsonSerializerContext.IReadOnlyListTraktCollectionMovie
+- uid: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktHotMovie
+  name: IReadOnlyListTraktHotMovie
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_IReadOnlyListTraktHotMovie
+  commentId: P:TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktHotMovie
+  fullName: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktHotMovie
+  nameWithType: MoviesJsonSerializerContext.IReadOnlyListTraktHotMovie
+- uid: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktHotMovie*
+  name: IReadOnlyListTraktHotMovie
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_IReadOnlyListTraktHotMovie_
+  commentId: Overload:TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktHotMovie
+  fullName: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktHotMovie
+  nameWithType: MoviesJsonSerializerContext.IReadOnlyListTraktHotMovie
 - uid: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktMostAnticipatedMovie
   name: IReadOnlyListTraktMostAnticipatedMovie
   href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_IReadOnlyListTraktMostAnticipatedMovie
@@ -6985,6 +6997,18 @@ references:
   commentId: Overload:TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktMovieTranslation
   fullName: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktMovieTranslation
   nameWithType: MoviesJsonSerializerContext.IReadOnlyListTraktMovieTranslation
+- uid: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktStreamingMovie
+  name: IReadOnlyListTraktStreamingMovie
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_IReadOnlyListTraktStreamingMovie
+  commentId: P:TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktStreamingMovie
+  fullName: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktStreamingMovie
+  nameWithType: MoviesJsonSerializerContext.IReadOnlyListTraktStreamingMovie
+- uid: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktStreamingMovie*
+  name: IReadOnlyListTraktStreamingMovie
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_IReadOnlyListTraktStreamingMovie_
+  commentId: Overload:TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktStreamingMovie
+  fullName: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktStreamingMovie
+  nameWithType: MoviesJsonSerializerContext.IReadOnlyListTraktStreamingMovie
 - uid: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktTrendingMovie
   name: IReadOnlyListTraktTrendingMovie
   href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_IReadOnlyListTraktTrendingMovie
@@ -7009,6 +7033,18 @@ references:
   commentId: Overload:TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktUpdatedMovie
   fullName: TraktNET.MoviesJsonSerializerContext.IReadOnlyListTraktUpdatedMovie
   nameWithType: MoviesJsonSerializerContext.IReadOnlyListTraktUpdatedMovie
+- uid: TraktNET.MoviesJsonSerializerContext.Int32
+  name: Int32
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_Int32
+  commentId: P:TraktNET.MoviesJsonSerializerContext.Int32
+  fullName: TraktNET.MoviesJsonSerializerContext.Int32
+  nameWithType: MoviesJsonSerializerContext.Int32
+- uid: TraktNET.MoviesJsonSerializerContext.Int32*
+  name: Int32
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_Int32_
+  commentId: Overload:TraktNET.MoviesJsonSerializerContext.Int32
+  fullName: TraktNET.MoviesJsonSerializerContext.Int32
+  nameWithType: MoviesJsonSerializerContext.Int32
 - uid: TraktNET.MoviesJsonSerializerContext.ListString
   name: ListString
   href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_ListString
@@ -7057,6 +7093,18 @@ references:
   commentId: Overload:TraktNET.MoviesJsonSerializerContext.NullableDateTime
   fullName: TraktNET.MoviesJsonSerializerContext.NullableDateTime
   nameWithType: MoviesJsonSerializerContext.NullableDateTime
+- uid: TraktNET.MoviesJsonSerializerContext.NullableInt32
+  name: NullableInt32
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_NullableInt32
+  commentId: P:TraktNET.MoviesJsonSerializerContext.NullableInt32
+  fullName: TraktNET.MoviesJsonSerializerContext.NullableInt32
+  nameWithType: MoviesJsonSerializerContext.NullableInt32
+- uid: TraktNET.MoviesJsonSerializerContext.NullableInt32*
+  name: NullableInt32
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_NullableInt32_
+  commentId: Overload:TraktNET.MoviesJsonSerializerContext.NullableInt32
+  fullName: TraktNET.MoviesJsonSerializerContext.NullableInt32
+  nameWithType: MoviesJsonSerializerContext.NullableInt32
 - uid: TraktNET.MoviesJsonSerializerContext.NullableSingle
   name: NullableSingle
   href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_NullableSingle
@@ -7165,6 +7213,18 @@ references:
   commentId: Overload:TraktNET.MoviesJsonSerializerContext.TraktColors
   fullName: TraktNET.MoviesJsonSerializerContext.TraktColors
   nameWithType: MoviesJsonSerializerContext.TraktColors
+- uid: TraktNET.MoviesJsonSerializerContext.TraktHotMovie
+  name: TraktHotMovie
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_TraktHotMovie
+  commentId: P:TraktNET.MoviesJsonSerializerContext.TraktHotMovie
+  fullName: TraktNET.MoviesJsonSerializerContext.TraktHotMovie
+  nameWithType: MoviesJsonSerializerContext.TraktHotMovie
+- uid: TraktNET.MoviesJsonSerializerContext.TraktHotMovie*
+  name: TraktHotMovie
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_TraktHotMovie_
+  commentId: Overload:TraktNET.MoviesJsonSerializerContext.TraktHotMovie
+  fullName: TraktNET.MoviesJsonSerializerContext.TraktHotMovie
+  nameWithType: MoviesJsonSerializerContext.TraktHotMovie
 - uid: TraktNET.MoviesJsonSerializerContext.TraktMostAnticipatedMovie
   name: TraktMostAnticipatedMovie
   href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_TraktMostAnticipatedMovie
@@ -7369,6 +7429,18 @@ references:
   commentId: Overload:TraktNET.MoviesJsonSerializerContext.TraktReleaseType
   fullName: TraktNET.MoviesJsonSerializerContext.TraktReleaseType
   nameWithType: MoviesJsonSerializerContext.TraktReleaseType
+- uid: TraktNET.MoviesJsonSerializerContext.TraktStreamingMovie
+  name: TraktStreamingMovie
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_TraktStreamingMovie
+  commentId: P:TraktNET.MoviesJsonSerializerContext.TraktStreamingMovie
+  fullName: TraktNET.MoviesJsonSerializerContext.TraktStreamingMovie
+  nameWithType: MoviesJsonSerializerContext.TraktStreamingMovie
+- uid: TraktNET.MoviesJsonSerializerContext.TraktStreamingMovie*
+  name: TraktStreamingMovie
+  href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_TraktStreamingMovie_
+  commentId: Overload:TraktNET.MoviesJsonSerializerContext.TraktStreamingMovie
+  fullName: TraktNET.MoviesJsonSerializerContext.TraktStreamingMovie
+  nameWithType: MoviesJsonSerializerContext.TraktStreamingMovie
 - uid: TraktNET.MoviesJsonSerializerContext.TraktTrendingMovie
   name: TraktTrendingMovie
   href: api/TraktNET.MoviesJsonSerializerContext.html#TraktNET_MoviesJsonSerializerContext_TraktTrendingMovie
@@ -35836,6 +35908,168 @@ references:
   fullName.vb: TraktNET.TraktHistoryItem.<>
   nameWithType: TraktHistoryItem.operator !=
   nameWithType.vb: TraktHistoryItem.<>
+- uid: TraktNET.TraktHotMovie
+  name: TraktHotMovie
+  href: api/TraktNET.TraktHotMovie.html
+  commentId: T:TraktNET.TraktHotMovie
+  fullName: TraktNET.TraktHotMovie
+  nameWithType: TraktHotMovie
+- uid: TraktNET.TraktHotMovie.#ctor
+  name: TraktHotMovie()
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie__ctor
+  commentId: M:TraktNET.TraktHotMovie.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktHotMovie.TraktHotMovie()
+  fullName.vb: TraktNET.TraktHotMovie.New()
+  nameWithType: TraktHotMovie.TraktHotMovie()
+  nameWithType.vb: TraktHotMovie.New()
+- uid: TraktNET.TraktHotMovie.#ctor(TraktNET.TraktHotMovie)
+  name: TraktHotMovie(TraktHotMovie)
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie__ctor_TraktNET_TraktHotMovie_
+  commentId: M:TraktNET.TraktHotMovie.#ctor(TraktNET.TraktHotMovie)
+  name.vb: New(TraktHotMovie)
+  fullName: TraktNET.TraktHotMovie.TraktHotMovie(TraktNET.TraktHotMovie)
+  fullName.vb: TraktNET.TraktHotMovie.New(TraktNET.TraktHotMovie)
+  nameWithType: TraktHotMovie.TraktHotMovie(TraktHotMovie)
+  nameWithType.vb: TraktHotMovie.New(TraktHotMovie)
+- uid: TraktNET.TraktHotMovie.#ctor*
+  name: TraktHotMovie
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie__ctor_
+  commentId: Overload:TraktNET.TraktHotMovie.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktHotMovie.TraktHotMovie
+  fullName.vb: TraktNET.TraktHotMovie.New
+  nameWithType: TraktHotMovie.TraktHotMovie
+  nameWithType.vb: TraktHotMovie.New
+- uid: TraktNET.TraktHotMovie.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_EqualityContract
+  commentId: P:TraktNET.TraktHotMovie.EqualityContract
+  fullName: TraktNET.TraktHotMovie.EqualityContract
+  nameWithType: TraktHotMovie.EqualityContract
+- uid: TraktNET.TraktHotMovie.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_EqualityContract_
+  commentId: Overload:TraktNET.TraktHotMovie.EqualityContract
+  fullName: TraktNET.TraktHotMovie.EqualityContract
+  nameWithType: TraktHotMovie.EqualityContract
+- uid: TraktNET.TraktHotMovie.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_Equals_System_Object_
+  commentId: M:TraktNET.TraktHotMovie.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktHotMovie.Equals(object?)
+  fullName.vb: TraktNET.TraktHotMovie.Equals(Object)
+  nameWithType: TraktHotMovie.Equals(object?)
+  nameWithType.vb: TraktHotMovie.Equals(Object)
+- uid: TraktNET.TraktHotMovie.Equals(TraktNET.TraktCollectionMovie)
+  name: Equals(TraktCollectionMovie?)
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_Equals_TraktNET_TraktCollectionMovie_
+  commentId: M:TraktNET.TraktHotMovie.Equals(TraktNET.TraktCollectionMovie)
+  name.vb: Equals(TraktCollectionMovie)
+  fullName: TraktNET.TraktHotMovie.Equals(TraktNET.TraktCollectionMovie?)
+  fullName.vb: TraktNET.TraktHotMovie.Equals(TraktNET.TraktCollectionMovie)
+  nameWithType: TraktHotMovie.Equals(TraktCollectionMovie?)
+  nameWithType.vb: TraktHotMovie.Equals(TraktCollectionMovie)
+- uid: TraktNET.TraktHotMovie.Equals(TraktNET.TraktHotMovie)
+  name: Equals(TraktHotMovie?)
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_Equals_TraktNET_TraktHotMovie_
+  commentId: M:TraktNET.TraktHotMovie.Equals(TraktNET.TraktHotMovie)
+  name.vb: Equals(TraktHotMovie)
+  fullName: TraktNET.TraktHotMovie.Equals(TraktNET.TraktHotMovie?)
+  fullName.vb: TraktNET.TraktHotMovie.Equals(TraktNET.TraktHotMovie)
+  nameWithType: TraktHotMovie.Equals(TraktHotMovie?)
+  nameWithType.vb: TraktHotMovie.Equals(TraktHotMovie)
+- uid: TraktNET.TraktHotMovie.Equals*
+  name: Equals
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_Equals_
+  commentId: Overload:TraktNET.TraktHotMovie.Equals
+  fullName: TraktNET.TraktHotMovie.Equals
+  nameWithType: TraktHotMovie.Equals
+- uid: TraktNET.TraktHotMovie.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_GetHashCode
+  commentId: M:TraktNET.TraktHotMovie.GetHashCode
+  fullName: TraktNET.TraktHotMovie.GetHashCode()
+  nameWithType: TraktHotMovie.GetHashCode()
+- uid: TraktNET.TraktHotMovie.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_GetHashCode_
+  commentId: Overload:TraktNET.TraktHotMovie.GetHashCode
+  fullName: TraktNET.TraktHotMovie.GetHashCode
+  nameWithType: TraktHotMovie.GetHashCode
+- uid: TraktNET.TraktHotMovie.ListCount
+  name: ListCount
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_ListCount
+  commentId: P:TraktNET.TraktHotMovie.ListCount
+  fullName: TraktNET.TraktHotMovie.ListCount
+  nameWithType: TraktHotMovie.ListCount
+- uid: TraktNET.TraktHotMovie.ListCount*
+  name: ListCount
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_ListCount_
+  commentId: Overload:TraktNET.TraktHotMovie.ListCount
+  fullName: TraktNET.TraktHotMovie.ListCount
+  nameWithType: TraktHotMovie.ListCount
+- uid: TraktNET.TraktHotMovie.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktHotMovie.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktHotMovie.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktHotMovie.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktHotMovie.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_PrintMembers_
+  commentId: Overload:TraktNET.TraktHotMovie.PrintMembers
+  fullName: TraktNET.TraktHotMovie.PrintMembers
+  nameWithType: TraktHotMovie.PrintMembers
+- uid: TraktNET.TraktHotMovie.ToString
+  name: ToString()
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_ToString
+  commentId: M:TraktNET.TraktHotMovie.ToString
+  fullName: TraktNET.TraktHotMovie.ToString()
+  nameWithType: TraktHotMovie.ToString()
+- uid: TraktNET.TraktHotMovie.ToString*
+  name: ToString
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_ToString_
+  commentId: Overload:TraktNET.TraktHotMovie.ToString
+  fullName: TraktNET.TraktHotMovie.ToString
+  nameWithType: TraktHotMovie.ToString
+- uid: TraktNET.TraktHotMovie.op_Equality(TraktNET.TraktHotMovie,TraktNET.TraktHotMovie)
+  name: operator ==(TraktHotMovie?, TraktHotMovie?)
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_op_Equality_TraktNET_TraktHotMovie_TraktNET_TraktHotMovie_
+  commentId: M:TraktNET.TraktHotMovie.op_Equality(TraktNET.TraktHotMovie,TraktNET.TraktHotMovie)
+  name.vb: =(TraktHotMovie, TraktHotMovie)
+  fullName: TraktNET.TraktHotMovie.operator ==(TraktNET.TraktHotMovie?, TraktNET.TraktHotMovie?)
+  fullName.vb: TraktNET.TraktHotMovie.=(TraktNET.TraktHotMovie, TraktNET.TraktHotMovie)
+  nameWithType: TraktHotMovie.operator ==(TraktHotMovie?, TraktHotMovie?)
+  nameWithType.vb: TraktHotMovie.=(TraktHotMovie, TraktHotMovie)
+- uid: TraktNET.TraktHotMovie.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_op_Equality_
+  commentId: Overload:TraktNET.TraktHotMovie.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktHotMovie.operator ==
+  fullName.vb: TraktNET.TraktHotMovie.=
+  nameWithType: TraktHotMovie.operator ==
+  nameWithType.vb: TraktHotMovie.=
+- uid: TraktNET.TraktHotMovie.op_Inequality(TraktNET.TraktHotMovie,TraktNET.TraktHotMovie)
+  name: operator !=(TraktHotMovie?, TraktHotMovie?)
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_op_Inequality_TraktNET_TraktHotMovie_TraktNET_TraktHotMovie_
+  commentId: M:TraktNET.TraktHotMovie.op_Inequality(TraktNET.TraktHotMovie,TraktNET.TraktHotMovie)
+  name.vb: <>(TraktHotMovie, TraktHotMovie)
+  fullName: TraktNET.TraktHotMovie.operator !=(TraktNET.TraktHotMovie?, TraktNET.TraktHotMovie?)
+  fullName.vb: TraktNET.TraktHotMovie.<>(TraktNET.TraktHotMovie, TraktNET.TraktHotMovie)
+  nameWithType: TraktHotMovie.operator !=(TraktHotMovie?, TraktHotMovie?)
+  nameWithType.vb: TraktHotMovie.<>(TraktHotMovie, TraktHotMovie)
+- uid: TraktNET.TraktHotMovie.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktHotMovie.html#TraktNET_TraktHotMovie_op_Inequality_
+  commentId: Overload:TraktNET.TraktHotMovie.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktHotMovie.operator !=
+  fullName.vb: TraktNET.TraktHotMovie.<>
+  nameWithType: TraktHotMovie.operator !=
+  nameWithType.vb: TraktHotMovie.<>
 - uid: TraktNET.TraktIncludeReplies
   name: TraktIncludeReplies
   href: api/TraktNET.TraktIncludeReplies.html
@@ -45421,6 +45655,21 @@ references:
   commentId: Overload:TraktNET.TraktMoviesModule.GetBoxOfficeMoviesAsync
   fullName: TraktNET.TraktMoviesModule.GetBoxOfficeMoviesAsync
   nameWithType: TraktMoviesModule.GetBoxOfficeMoviesAsync
+- uid: TraktNET.TraktMoviesModule.GetHotMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetHotMoviesAsync(TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetHotMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetHotMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetHotMoviesAsync(TraktExtendedInfo?, TraktFilter, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetHotMoviesAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktFilter?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.GetHotMoviesAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktFilter, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetHotMoviesAsync(TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.GetHotMoviesAsync(TraktExtendedInfo?, TraktFilter, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetHotMoviesAsync*
+  name: GetHotMoviesAsync
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetHotMoviesAsync_
+  commentId: Overload:TraktNET.TraktMoviesModule.GetHotMoviesAsync
+  fullName: TraktNET.TraktMoviesModule.GetHotMoviesAsync
+  nameWithType: TraktMoviesModule.GetHotMoviesAsync
 - uid: TraktNET.TraktMoviesModule.GetMostAnticipatedMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
   name: GetMostAnticipatedMoviesAsync(TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
   href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMostAnticipatedMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
@@ -46042,6 +46291,21 @@ references:
   commentId: Overload:TraktNET.TraktMoviesModule.GetRecentlyUpdatedMoviesAsync
   fullName: TraktNET.TraktMoviesModule.GetRecentlyUpdatedMoviesAsync
   nameWithType: TraktMoviesModule.GetRecentlyUpdatedMoviesAsync
+- uid: TraktNET.TraktMoviesModule.GetStreamingMoviesAsync(System.Nullable{TraktNET.TraktTimePeriod},System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetStreamingMoviesAsync(TraktTimePeriod?, TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetStreamingMoviesAsync_System_Nullable_TraktNET_TraktTimePeriod__System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetStreamingMoviesAsync(System.Nullable{TraktNET.TraktTimePeriod},System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetStreamingMoviesAsync(TraktTimePeriod?, TraktExtendedInfo?, TraktFilter, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetStreamingMoviesAsync(TraktNET.TraktTimePeriod?, TraktNET.TraktExtendedInfo?, TraktNET.TraktFilter?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.GetStreamingMoviesAsync(TraktNET.TraktTimePeriod?, TraktNET.TraktExtendedInfo?, TraktNET.TraktFilter, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetStreamingMoviesAsync(TraktTimePeriod?, TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.GetStreamingMoviesAsync(TraktTimePeriod?, TraktExtendedInfo?, TraktFilter, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetStreamingMoviesAsync*
+  name: GetStreamingMoviesAsync
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetStreamingMoviesAsync_
+  commentId: Overload:TraktNET.TraktMoviesModule.GetStreamingMoviesAsync
+  fullName: TraktNET.TraktMoviesModule.GetStreamingMoviesAsync
+  nameWithType: TraktMoviesModule.GetStreamingMoviesAsync
 - uid: TraktNET.TraktMoviesModule.GetTrendingMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
   name: GetTrendingMoviesAsync(TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)
   href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetTrendingMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
@@ -74323,6 +74587,180 @@ references:
   commentId: Overload:TraktNET.TraktSortHowJsonConverter.Write
   fullName: TraktNET.TraktSortHowJsonConverter.Write
   nameWithType: TraktSortHowJsonConverter.Write
+- uid: TraktNET.TraktStreamingMovie
+  name: TraktStreamingMovie
+  href: api/TraktNET.TraktStreamingMovie.html
+  commentId: T:TraktNET.TraktStreamingMovie
+  fullName: TraktNET.TraktStreamingMovie
+  nameWithType: TraktStreamingMovie
+- uid: TraktNET.TraktStreamingMovie.#ctor
+  name: TraktStreamingMovie()
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie__ctor
+  commentId: M:TraktNET.TraktStreamingMovie.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktStreamingMovie.TraktStreamingMovie()
+  fullName.vb: TraktNET.TraktStreamingMovie.New()
+  nameWithType: TraktStreamingMovie.TraktStreamingMovie()
+  nameWithType.vb: TraktStreamingMovie.New()
+- uid: TraktNET.TraktStreamingMovie.#ctor(TraktNET.TraktStreamingMovie)
+  name: TraktStreamingMovie(TraktStreamingMovie)
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie__ctor_TraktNET_TraktStreamingMovie_
+  commentId: M:TraktNET.TraktStreamingMovie.#ctor(TraktNET.TraktStreamingMovie)
+  name.vb: New(TraktStreamingMovie)
+  fullName: TraktNET.TraktStreamingMovie.TraktStreamingMovie(TraktNET.TraktStreamingMovie)
+  fullName.vb: TraktNET.TraktStreamingMovie.New(TraktNET.TraktStreamingMovie)
+  nameWithType: TraktStreamingMovie.TraktStreamingMovie(TraktStreamingMovie)
+  nameWithType.vb: TraktStreamingMovie.New(TraktStreamingMovie)
+- uid: TraktNET.TraktStreamingMovie.#ctor*
+  name: TraktStreamingMovie
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie__ctor_
+  commentId: Overload:TraktNET.TraktStreamingMovie.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktStreamingMovie.TraktStreamingMovie
+  fullName.vb: TraktNET.TraktStreamingMovie.New
+  nameWithType: TraktStreamingMovie.TraktStreamingMovie
+  nameWithType.vb: TraktStreamingMovie.New
+- uid: TraktNET.TraktStreamingMovie.Delta
+  name: Delta
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_Delta
+  commentId: P:TraktNET.TraktStreamingMovie.Delta
+  fullName: TraktNET.TraktStreamingMovie.Delta
+  nameWithType: TraktStreamingMovie.Delta
+- uid: TraktNET.TraktStreamingMovie.Delta*
+  name: Delta
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_Delta_
+  commentId: Overload:TraktNET.TraktStreamingMovie.Delta
+  fullName: TraktNET.TraktStreamingMovie.Delta
+  nameWithType: TraktStreamingMovie.Delta
+- uid: TraktNET.TraktStreamingMovie.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_EqualityContract
+  commentId: P:TraktNET.TraktStreamingMovie.EqualityContract
+  fullName: TraktNET.TraktStreamingMovie.EqualityContract
+  nameWithType: TraktStreamingMovie.EqualityContract
+- uid: TraktNET.TraktStreamingMovie.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_EqualityContract_
+  commentId: Overload:TraktNET.TraktStreamingMovie.EqualityContract
+  fullName: TraktNET.TraktStreamingMovie.EqualityContract
+  nameWithType: TraktStreamingMovie.EqualityContract
+- uid: TraktNET.TraktStreamingMovie.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_Equals_System_Object_
+  commentId: M:TraktNET.TraktStreamingMovie.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktStreamingMovie.Equals(object?)
+  fullName.vb: TraktNET.TraktStreamingMovie.Equals(Object)
+  nameWithType: TraktStreamingMovie.Equals(object?)
+  nameWithType.vb: TraktStreamingMovie.Equals(Object)
+- uid: TraktNET.TraktStreamingMovie.Equals(TraktNET.TraktCollectionMovie)
+  name: Equals(TraktCollectionMovie?)
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_Equals_TraktNET_TraktCollectionMovie_
+  commentId: M:TraktNET.TraktStreamingMovie.Equals(TraktNET.TraktCollectionMovie)
+  name.vb: Equals(TraktCollectionMovie)
+  fullName: TraktNET.TraktStreamingMovie.Equals(TraktNET.TraktCollectionMovie?)
+  fullName.vb: TraktNET.TraktStreamingMovie.Equals(TraktNET.TraktCollectionMovie)
+  nameWithType: TraktStreamingMovie.Equals(TraktCollectionMovie?)
+  nameWithType.vb: TraktStreamingMovie.Equals(TraktCollectionMovie)
+- uid: TraktNET.TraktStreamingMovie.Equals(TraktNET.TraktStreamingMovie)
+  name: Equals(TraktStreamingMovie?)
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_Equals_TraktNET_TraktStreamingMovie_
+  commentId: M:TraktNET.TraktStreamingMovie.Equals(TraktNET.TraktStreamingMovie)
+  name.vb: Equals(TraktStreamingMovie)
+  fullName: TraktNET.TraktStreamingMovie.Equals(TraktNET.TraktStreamingMovie?)
+  fullName.vb: TraktNET.TraktStreamingMovie.Equals(TraktNET.TraktStreamingMovie)
+  nameWithType: TraktStreamingMovie.Equals(TraktStreamingMovie?)
+  nameWithType.vb: TraktStreamingMovie.Equals(TraktStreamingMovie)
+- uid: TraktNET.TraktStreamingMovie.Equals*
+  name: Equals
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_Equals_
+  commentId: Overload:TraktNET.TraktStreamingMovie.Equals
+  fullName: TraktNET.TraktStreamingMovie.Equals
+  nameWithType: TraktStreamingMovie.Equals
+- uid: TraktNET.TraktStreamingMovie.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_GetHashCode
+  commentId: M:TraktNET.TraktStreamingMovie.GetHashCode
+  fullName: TraktNET.TraktStreamingMovie.GetHashCode()
+  nameWithType: TraktStreamingMovie.GetHashCode()
+- uid: TraktNET.TraktStreamingMovie.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_GetHashCode_
+  commentId: Overload:TraktNET.TraktStreamingMovie.GetHashCode
+  fullName: TraktNET.TraktStreamingMovie.GetHashCode
+  nameWithType: TraktStreamingMovie.GetHashCode
+- uid: TraktNET.TraktStreamingMovie.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktStreamingMovie.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktStreamingMovie.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktStreamingMovie.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktStreamingMovie.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_PrintMembers_
+  commentId: Overload:TraktNET.TraktStreamingMovie.PrintMembers
+  fullName: TraktNET.TraktStreamingMovie.PrintMembers
+  nameWithType: TraktStreamingMovie.PrintMembers
+- uid: TraktNET.TraktStreamingMovie.Rank
+  name: Rank
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_Rank
+  commentId: P:TraktNET.TraktStreamingMovie.Rank
+  fullName: TraktNET.TraktStreamingMovie.Rank
+  nameWithType: TraktStreamingMovie.Rank
+- uid: TraktNET.TraktStreamingMovie.Rank*
+  name: Rank
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_Rank_
+  commentId: Overload:TraktNET.TraktStreamingMovie.Rank
+  fullName: TraktNET.TraktStreamingMovie.Rank
+  nameWithType: TraktStreamingMovie.Rank
+- uid: TraktNET.TraktStreamingMovie.ToString
+  name: ToString()
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_ToString
+  commentId: M:TraktNET.TraktStreamingMovie.ToString
+  fullName: TraktNET.TraktStreamingMovie.ToString()
+  nameWithType: TraktStreamingMovie.ToString()
+- uid: TraktNET.TraktStreamingMovie.ToString*
+  name: ToString
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_ToString_
+  commentId: Overload:TraktNET.TraktStreamingMovie.ToString
+  fullName: TraktNET.TraktStreamingMovie.ToString
+  nameWithType: TraktStreamingMovie.ToString
+- uid: TraktNET.TraktStreamingMovie.op_Equality(TraktNET.TraktStreamingMovie,TraktNET.TraktStreamingMovie)
+  name: operator ==(TraktStreamingMovie?, TraktStreamingMovie?)
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_op_Equality_TraktNET_TraktStreamingMovie_TraktNET_TraktStreamingMovie_
+  commentId: M:TraktNET.TraktStreamingMovie.op_Equality(TraktNET.TraktStreamingMovie,TraktNET.TraktStreamingMovie)
+  name.vb: =(TraktStreamingMovie, TraktStreamingMovie)
+  fullName: TraktNET.TraktStreamingMovie.operator ==(TraktNET.TraktStreamingMovie?, TraktNET.TraktStreamingMovie?)
+  fullName.vb: TraktNET.TraktStreamingMovie.=(TraktNET.TraktStreamingMovie, TraktNET.TraktStreamingMovie)
+  nameWithType: TraktStreamingMovie.operator ==(TraktStreamingMovie?, TraktStreamingMovie?)
+  nameWithType.vb: TraktStreamingMovie.=(TraktStreamingMovie, TraktStreamingMovie)
+- uid: TraktNET.TraktStreamingMovie.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_op_Equality_
+  commentId: Overload:TraktNET.TraktStreamingMovie.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktStreamingMovie.operator ==
+  fullName.vb: TraktNET.TraktStreamingMovie.=
+  nameWithType: TraktStreamingMovie.operator ==
+  nameWithType.vb: TraktStreamingMovie.=
+- uid: TraktNET.TraktStreamingMovie.op_Inequality(TraktNET.TraktStreamingMovie,TraktNET.TraktStreamingMovie)
+  name: operator !=(TraktStreamingMovie?, TraktStreamingMovie?)
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_op_Inequality_TraktNET_TraktStreamingMovie_TraktNET_TraktStreamingMovie_
+  commentId: M:TraktNET.TraktStreamingMovie.op_Inequality(TraktNET.TraktStreamingMovie,TraktNET.TraktStreamingMovie)
+  name.vb: <>(TraktStreamingMovie, TraktStreamingMovie)
+  fullName: TraktNET.TraktStreamingMovie.operator !=(TraktNET.TraktStreamingMovie?, TraktNET.TraktStreamingMovie?)
+  fullName.vb: TraktNET.TraktStreamingMovie.<>(TraktNET.TraktStreamingMovie, TraktNET.TraktStreamingMovie)
+  nameWithType: TraktStreamingMovie.operator !=(TraktStreamingMovie?, TraktStreamingMovie?)
+  nameWithType.vb: TraktStreamingMovie.<>(TraktStreamingMovie, TraktStreamingMovie)
+- uid: TraktNET.TraktStreamingMovie.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktStreamingMovie.html#TraktNET_TraktStreamingMovie_op_Inequality_
+  commentId: Overload:TraktNET.TraktStreamingMovie.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktStreamingMovie.operator !=
+  fullName.vb: TraktNET.TraktStreamingMovie.<>
+  nameWithType: TraktStreamingMovie.operator !=
+  nameWithType.vb: TraktStreamingMovie.<>
 - uid: TraktNET.TraktStreamingRank
   name: TraktStreamingRank
   href: api/TraktNET.TraktStreamingRank.html

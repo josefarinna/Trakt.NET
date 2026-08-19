@@ -235,6 +235,105 @@ Trakt API Documentation: Movies: Box Office - Get the weekend box office movies
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModule.cs">View Source</a>
   </span>
+  <a id="TraktNET_TraktMoviesModule_GetHotMoviesAsync_" data-uid="TraktNET.TraktMoviesModule.GetHotMoviesAsync*"></a>
+  <h4 id="TraktNET_TraktMoviesModule_GetHotMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetHotMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetHotMoviesAsync(TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets movies that are currently hot on Trakt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktHotMovie&gt;&gt; GetHotMoviesAsync(TraktExtendedInfo? extendedInfo = null, TraktFilter? filter = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the movies.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>Specifies filter options for querying movies.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktHotMovie.html">TraktHotMovie</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the queried hot movies.</p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count</p>
+<p>and maximum item count.</p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktHotMovie.html">TraktHotMovie</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktMoviesModule_GetHotMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getmovieshot">
+Trakt API Documentation: Movies: Hot - Get hot movies
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModule.cs">View Source</a>
+  </span>
   <a id="TraktNET_TraktMoviesModule_GetMostAnticipatedMoviesAsync_" data-uid="TraktNET.TraktMoviesModule.GetMostAnticipatedMoviesAsync*"></a>
   <h4 id="TraktNET_TraktMoviesModule_GetMostAnticipatedMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMostAnticipatedMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetMostAnticipatedMoviesAsync(TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the most anticipated movies.</p>
@@ -5552,6 +5651,111 @@ Trakt API Documentation: Movies: Updated IDS - Get recently updated movie Trakt 
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getmoviesupdates">
 Trakt API Documentation: Movies: Updates - Get recently updated movies
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMoviesModule_GetStreamingMoviesAsync_" data-uid="TraktNET.TraktMoviesModule.GetStreamingMoviesAsync*"></a>
+  <h4 id="TraktNET_TraktMoviesModule_GetStreamingMoviesAsync_System_Nullable_TraktNET_TraktTimePeriod__System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetStreamingMoviesAsync(System.Nullable{TraktNET.TraktTimePeriod},System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetStreamingMoviesAsync(TraktTimePeriod?, TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets streaming movies recently available on streaming services.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktStreamingMovie&gt;&gt; GetStreamingMoviesAsync(TraktTimePeriod? timePeriod = null, TraktExtendedInfo? extendedInfo = null, TraktFilter? filter = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktTimePeriod.html">TraktTimePeriod</a>?</td>
+        <td><span class="parametername">timePeriod</span></td>
+        <td><p>Determines which time period should be queried. See also <a class="xref" href="TraktNET.TraktTimePeriod.html">TraktTimePeriod</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the movies.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>Specifies filter options for querying movies.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktStreamingMovie.html">TraktStreamingMovie</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the queried streaming movies.</p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count</p>
+<p>and maximum item count.</p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktStreamingMovie.html">TraktStreamingMovie</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktMoviesModule_GetStreamingMoviesAsync_System_Nullable_TraktNET_TraktTimePeriod__System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getmoviesstreaming">
+Trakt API Documentation: Movies: Streaming - Get streaming movies
 </a></p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
