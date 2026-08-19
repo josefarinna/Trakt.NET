@@ -217,6 +217,23 @@ namespace TraktNET
         internal DateTime? StartDate { get; set; }
     }
 
+    [TraktGetRequest("shows/streaming", SupportsExtendedInfo = true, SupportsPagination = true)]
+    internal sealed partial class StreamingShowsGetRequest
+    {
+        [TraktRequestParameter]
+        internal TraktTimePeriod? TimePeriod { get; set; }
+
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
+    }
+
+    [TraktGetRequest("shows/hot", SupportsExtendedInfo = true, SupportsPagination = true)]
+    internal sealed partial class HotShowsGetRequest
+    {
+        [TraktRequestQuery("filter")]
+        public TraktFilter? Filter { get; set; }
+    }
+
     [TraktGetRequest("shows/trending", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class TrendingShowsGetRequest
     {
