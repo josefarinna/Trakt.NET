@@ -1128,5 +1128,71 @@ namespace TraktNET
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
+
+        private Task<TraktResponse<TraktUserActivity>> GetMonthInReviewImplAsync(string usernameOrSlug, uint year, uint month,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+        {
+            var request = new UserMonthInReviewGetRequest
+            {
+                Id = usernameOrSlug,
+                Year = year,
+                Month = month,
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserActivity>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<TraktUserActivity>> GetYearInReviewImplAsync(string usernameOrSlug, uint year,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+        {
+            var request = new UserYearInReviewGetRequest
+            {
+                Id = usernameOrSlug,
+                Year = year,
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserActivity>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktCommentReaction>> GetCommentReactionsImplAsync(uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new UserCommentReactionsGetRequest
+            {
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktCommentReaction>(_context, request, (page, limit)
+                => new UserCommentReactionsGetRequest
+                {
+                    Page = page,
+                    Limit = limit
+                },
+                cancellationToken);
+        }
+
+        private Task<TraktResponse<TraktUserSavedFilter>> AddSavedFilterImplAsync(TraktUserSavedFilterPost savedFilterPost,
+            CancellationToken cancellationToken = default)
+        {
+            var request = new UserSavedFilterAddPostRequest
+            {
+                TraktUserSavedFilterPost = savedFilterPost
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserSavedFilter>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse> DeleteSavedFilterImplAsync(uint filterId, CancellationToken cancellationToken = default)
+        {
+            var request = new UserSavedFilterDeleteRequest
+            {
+                Id = filterId
+            };
+
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
     }
 }

@@ -1,5 +1,3 @@
-using Shouldly;
-
 namespace TraktNET.Json.Movies
 {
     public sealed class TraktStreamingMovieTests

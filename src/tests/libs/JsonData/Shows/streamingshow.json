@@ -1,0 +1,41 @@
+{
+    "rank": 1,
+    "delta": 3,
+    "show": {
+        "title": "Game of Thrones",
+        "year": 2011,
+        "ids": {
+            "trakt": 1390,
+            "slug": "game-of-thrones",
+            "tvdb": 121361,
+            "imdb": "tt0944947",
+            "tmdb": 1399
+        },
+        "overview": "Seven noble families fight for control of the mythical land of Westeros.",
+        "first_aired": "2011-04-17T01:00:00.000Z",
+        "airs": {
+            "day": "Sunday",
+            "time": "21:00",
+            "timezone": "America/New_York"
+        },
+        "runtime": 60,
+        "certification": "TV-MA",
+        "network": "HBO",
+        "country": "us",
+        "trailer": "http://youtube.com/watch?v=522l0YE9hBw",
+        "homepage": "http://www.hbo.com/game-of-thrones",
+        "status": "ended",
+        "rating": 8.98226,
+        "votes": 112345,
+        "comment_count": 521,
+        "updated_at": "2024-08-07T08:05:37.000Z",
+        "language": "en",
+        "genres": [
+            "drama",
+            "fantasy",
+            "science-fiction",
+            "action",
+            "adventure"
+        ]
+    }
+}

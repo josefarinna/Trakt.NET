@@ -529,6 +529,7 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_showsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktCollectionShow),
+            typeof(TraktHotShow),
             typeof(TraktMostAnticipatedShow),
             typeof(TraktMostCollectedShow),
             typeof(TraktMostFavoritedShow),
@@ -550,6 +551,7 @@ namespace TraktNET
             typeof(TraktShowStats),
             typeof(TraktShowTranslation),
             typeof(TraktShowWatchedProgress),
+            typeof(TraktStreamingShow),
             typeof(TraktTrendingShow),
             typeof(TraktUpdatedShow)
         });
@@ -1094,6 +1096,7 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_showsJsonTypes = [
             typeof(TraktCollectionShow),
+            typeof(TraktHotShow),
             typeof(TraktMostAnticipatedShow),
             typeof(TraktMostCollectedShow),
             typeof(TraktMostFavoritedShow),
@@ -1115,6 +1118,7 @@ namespace TraktNET
             typeof(TraktShowStats),
             typeof(TraktShowTranslation),
             typeof(TraktShowWatchedProgress),
+            typeof(TraktStreamingShow),
             typeof(TraktTrendingShow),
             typeof(TraktUpdatedShow)
         ];

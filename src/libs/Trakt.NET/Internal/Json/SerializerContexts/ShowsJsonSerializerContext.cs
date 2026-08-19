@@ -1,4 +1,4 @@
-﻿#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
@@ -7,6 +7,8 @@ namespace TraktNET
     [ExcludeFromCodeCoverage]
     [JsonSerializable(typeof(TraktCollectionShow))]
     [JsonSerializable(typeof(IReadOnlyList<TraktCollectionShow>))]
+    [JsonSerializable(typeof(TraktHotShow))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktHotShow>))]
     [JsonSerializable(typeof(TraktMostAnticipatedShow))]
     [JsonSerializable(typeof(IReadOnlyList<TraktMostAnticipatedShow>))]
     [JsonSerializable(typeof(TraktMostCollectedShow))]
@@ -44,6 +46,8 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktShowWatchedProgress>))]
     [JsonSerializable(typeof(TraktShowResetWatchedProgress))]
     [JsonSerializable(typeof(IReadOnlyList<TraktShowResetWatchedProgress>))]
+    [JsonSerializable(typeof(TraktStreamingShow))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktStreamingShow>))]
     [JsonSerializable(typeof(TraktTrendingShow))]
     [JsonSerializable(typeof(IReadOnlyList<TraktTrendingShow>))]
     [JsonSerializable(typeof(TraktUpdatedShow))]
