@@ -666,6 +666,89 @@ Trakt API Documentation: Users: List Items
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
   </span>
+  <a id="TraktNET_TraktUsersModule_AddSavedFilterAsync_" data-uid="TraktNET.TraktUsersModule.AddSavedFilterAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_AddSavedFilterAsync_TraktNET_TraktUserSavedFilterPost_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.AddSavedFilterAsync(TraktNET.TraktUserSavedFilterPost,System.Threading.CancellationToken)">AddSavedFilterAsync(TraktUserSavedFilterPost, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds a saved filter for the authenticated user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserSavedFilter&gt;&gt; AddSavedFilterAsync(TraktUserSavedFilterPost savedFilterPost, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktUserSavedFilterPost.html">TraktUserSavedFilterPost</a></td>
+        <td><span class="parametername">savedFilterPost</span></td>
+        <td><p>A <a class="xref" href="TraktNET.TraktUserSavedFilterPost.html">TraktUserSavedFilterPost</a> instance containing section, name, path, and query.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserSavedFilter.html">TraktUserSavedFilter</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created saved filter.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserSavedFilter.html">TraktUserSavedFilter</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_AddSavedFilterAsync_TraktNET_TraktUserSavedFilterPost_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/postusersfilters">
+Trakt API Documentation: Users: Add saved filter
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
+  </span>
   <a id="TraktNET_TraktUsersModule_ApproveFollowRequestAsync_" data-uid="TraktNET.TraktUsersModule.ApproveFollowRequestAsync*"></a>
   <h4 id="TraktNET_TraktUsersModule_ApproveFollowRequestAsync_System_UInt32_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.ApproveFollowRequestAsync(System.UInt32,System.Threading.CancellationToken)">ApproveFollowRequestAsync(uint, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Approves a follower request with the given id.</p>
@@ -1462,6 +1545,89 @@ Trakt API Documentation: Users: List
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the given <code class="paramref">listIds</code> has not any ids set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_DeleteSavedFilterAsync_" data-uid="TraktNET.TraktUsersModule.DeleteSavedFilterAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_DeleteSavedFilterAsync_System_UInt32_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.DeleteSavedFilterAsync(System.UInt32,System.Threading.CancellationToken)">DeleteSavedFilterAsync(uint, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deletes a saved filter for the authenticated user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; DeleteSavedFilterAsync(uint filterId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">filterId</span></td>
+        <td><p>The numeric ID of the saved filter to delete.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_DeleteSavedFilterAsync_System_UInt32_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/deleteusersfiltersid">
+Trakt API Documentation: Users: Delete saved filter
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
 </td>
       </tr>
     </tbody>
@@ -2456,6 +2622,91 @@ Trakt API Documentation: Users: Collection
       <tr>
         <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
         <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_GetCommentReactionsAsync_" data-uid="TraktNET.TraktUsersModule.GetCommentReactionsAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_GetCommentReactionsAsync_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetCommentReactionsAsync(System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetCommentReactionsAsync(uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets comment reactions for the authenticated user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktCommentReaction&gt;&gt; GetCommentReactionsAsync(uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktCommentReaction.html">TraktCommentReaction</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing comment reactions.</p>
+<p>The response also contains information about the queried page number, the page's item count, maximum page count</p>
+<p>and maximum item count.</p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktCommentReaction.html">TraktCommentReaction</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_GetCommentReactionsAsync_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/getusersreactionscomments">
+Trakt API Documentation: Users: Get comment reactions
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
 </td>
       </tr>
     </tbody>
@@ -4314,6 +4565,108 @@ Trakt API Documentation: Users: List Likes
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown, if the given <code class="paramref">listIds</code> has not any ids set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_GetMonthInReviewAsync_" data-uid="TraktNET.TraktUsersModule.GetMonthInReviewAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_GetMonthInReviewAsync_System_String_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetMonthInReviewAsync(System.String,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetMonthInReviewAsync(string, uint, uint, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets month in review stats for a user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserActivity&gt;&gt; GetMonthInReviewAsync(string usernameOrSlug, uint year, uint month, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which month in review should be queried, or &quot;me&quot; for the authenticated user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">year</span></td>
+        <td><p>The 4-digit year.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">month</span></td>
+        <td><p>The month number (1-12).</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserActivity.html">TraktUserActivity</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing month in review details.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserActivity.html">TraktUserActivity</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_GetMonthInReviewAsync_System_String_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/getusersmonthinreview">
+Trakt API Documentation: Users: Get month in review
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
 </td>
       </tr>
     </tbody>
@@ -7654,6 +8007,102 @@ Trakt API Documentation: Users: Watchlist
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getuserswatchlistcomments">
 Trakt API Documentation: Users: Watchlist Comments
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_GetYearInReviewAsync_" data-uid="TraktNET.TraktUsersModule.GetYearInReviewAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_GetYearInReviewAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetYearInReviewAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetYearInReviewAsync(string, uint, TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets year in review stats for a user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserActivity&gt;&gt; GetYearInReviewAsync(string usernameOrSlug, uint year, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which year in review should be queried, or &quot;me&quot; for the authenticated user.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">year</span></td>
+        <td><p>The 4-digit year.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserActivity.html">TraktUserActivity</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing year in review details.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserActivity.html">TraktUserActivity</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_GetYearInReviewAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/getusersyearinreview">
+Trakt API Documentation: Users: Get year in review
 </a></p>
 </div>
   <h5 class="exceptions">Exceptions</h5>

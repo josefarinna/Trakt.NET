@@ -9005,6 +9005,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserSavedFilterPost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserSavedFilterPost.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserSavedFilterPost",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserSavedFilterPost.yml\" sourcestartlinenumber=\"1\">Post payload for creating a user saved filter.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktUserSavedFiltersLimits.yml",
       "output": {
         ".html": {
