@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktMediaAudioTests
     {
@@ -21,6 +23,7 @@
             TraktMediaAudio.DolbyAtmos.ToJson().ShouldBe("dolby_atmos");
             TraktMediaAudio.DTSHR.ToJson().ShouldBe("dts_hr");
             TraktMediaAudio.AURO3D.ToJson().ShouldBe("auro_3d");
+            ((TraktMediaAudio)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -45,6 +48,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktMediaAudio().ShouldBe(TraktMediaAudio.Unspecified);
+            "invalid".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.Unspecified);
+            "".ToTraktMediaAudio().ShouldBe(TraktMediaAudio.Unspecified);
         }
 
         [Fact]
@@ -66,6 +71,24 @@
             TraktMediaAudio.DolbyAtmos.DisplayName().ShouldBe("Dolby Atmos");
             TraktMediaAudio.DTSHR.DisplayName().ShouldBe("DTS HR");
             TraktMediaAudio.AURO3D.DisplayName().ShouldBe("AURO 3D");
+            ((TraktMediaAudio)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktMediaAudioJsonConverter()
+        {
+            var converter = new TraktMediaAudioJsonConverter();
+            converter.CanConvert(typeof(TraktMediaAudio)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktMediaAudio.LPCM, options).ShouldBe("\"lpcm\"");
+            JsonSerializer.Deserialize<TraktMediaAudio>("\"lpcm\"", options).ShouldBe(TraktMediaAudio.LPCM);
+            JsonSerializer.Deserialize<TraktMediaAudio>("\"\"", options).ShouldBe(TraktMediaAudio.Unspecified);
         }
     }
 }

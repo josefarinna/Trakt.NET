@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktVideoTypeTests
     {
@@ -14,6 +16,7 @@
             TraktVideoType.Recap.ToJson().ShouldBe("recap");
             TraktVideoType.Teaser.ToJson().ShouldBe("teaser");
             TraktVideoType.Trailer.ToJson().ShouldBe("trailer");
+            ((TraktVideoType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -31,6 +34,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktVideoType().ShouldBe(TraktVideoType.Unspecified);
+            "invalid".ToTraktVideoType().ShouldBe(TraktVideoType.Unspecified);
+            "".ToTraktVideoType().ShouldBe(TraktVideoType.Unspecified);
         }
 
         [Fact]
@@ -45,6 +50,24 @@
             TraktVideoType.Recap.DisplayName().ShouldBe("Recap");
             TraktVideoType.Teaser.DisplayName().ShouldBe("Teaser");
             TraktVideoType.Trailer.DisplayName().ShouldBe("Trailer");
+            ((TraktVideoType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktVideoTypeJsonConverter()
+        {
+            var converter = new TraktVideoTypeJsonConverter();
+            converter.CanConvert(typeof(TraktVideoType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktVideoType.BehindTheScenes, options).ShouldBe("\"behind the scenes\"");
+            JsonSerializer.Deserialize<TraktVideoType>("\"behind the scenes\"", options).ShouldBe(TraktVideoType.BehindTheScenes);
+            JsonSerializer.Deserialize<TraktVideoType>("\"\"", options).ShouldBe(TraktVideoType.Unspecified);
         }
     }
 }

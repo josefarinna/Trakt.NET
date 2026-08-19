@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktHiddenItemsSectionTests
     {
@@ -13,6 +15,7 @@
             TraktHiddenItemsSection.ProgressWatchedReset.ToJson().ShouldBe("progress_watched_reset");
             TraktHiddenItemsSection.Comments.ToJson().ShouldBe("comments");
             TraktHiddenItemsSection.Dropped.ToJson().ShouldBe("dropped");
+            ((TraktHiddenItemsSection)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -29,6 +32,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Unspecified);
+            "invalid".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Unspecified);
+            "".ToTraktHiddenItemsSection().ShouldBe(TraktHiddenItemsSection.Unspecified);
         }
 
         [Fact]
@@ -42,6 +47,24 @@
             TraktHiddenItemsSection.ProgressWatchedReset.DisplayName().ShouldBe("Progress Watched Reset");
             TraktHiddenItemsSection.Comments.DisplayName().ShouldBe("Comments");
             TraktHiddenItemsSection.Dropped.DisplayName().ShouldBe("Dropped");
+            ((TraktHiddenItemsSection)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktHiddenItemsSectionJsonConverter()
+        {
+            var converter = new TraktHiddenItemsSectionJsonConverter();
+            converter.CanConvert(typeof(TraktHiddenItemsSection)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktHiddenItemsSection.Calendar, options).ShouldBe("\"calendar\"");
+            JsonSerializer.Deserialize<TraktHiddenItemsSection>("\"calendar\"", options).ShouldBe(TraktHiddenItemsSection.Calendar);
+            JsonSerializer.Deserialize<TraktHiddenItemsSection>("\"\"", options).ShouldBe(TraktHiddenItemsSection.Unspecified);
         }
     }
 }

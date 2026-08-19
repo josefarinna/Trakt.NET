@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktKnownForDepartmentTests
     {
@@ -18,6 +20,7 @@
             TraktKnownForDepartment.Art.ToJson().ShouldBe("art");
             TraktKnownForDepartment.Lighting.ToJson().ShouldBe("lighting");
             TraktKnownForDepartment.Crew.ToJson().ShouldBe("crew");
+            ((TraktKnownForDepartment)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -39,6 +42,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktKnownForDepartment().ShouldBe(TraktKnownForDepartment.Unspecified);
+            "invalid".ToTraktKnownForDepartment().ShouldBe(TraktKnownForDepartment.Unspecified);
+            "".ToTraktKnownForDepartment().ShouldBe(TraktKnownForDepartment.Unspecified);
         }
 
         [Fact]
@@ -57,6 +62,24 @@
             TraktKnownForDepartment.Art.DisplayName().ShouldBe("Art");
             TraktKnownForDepartment.Lighting.DisplayName().ShouldBe("Lighting");
             TraktKnownForDepartment.Crew.DisplayName().ShouldBe("Crew");
+            ((TraktKnownForDepartment)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktKnownForDepartmentJsonConverter()
+        {
+            var converter = new TraktKnownForDepartmentJsonConverter();
+            converter.CanConvert(typeof(TraktKnownForDepartment)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktKnownForDepartment.Acting, options).ShouldBe("\"acting\"");
+            JsonSerializer.Deserialize<TraktKnownForDepartment>("\"acting\"", options).ShouldBe(TraktKnownForDepartment.Acting);
+            JsonSerializer.Deserialize<TraktKnownForDepartment>("\"\"", options).ShouldBe(TraktKnownForDepartment.Unspecified);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktListTypeTests
     {
@@ -11,6 +13,7 @@
             TraktListType.Watchlist.ToJson().ShouldBe("watchlists");
             TraktListType.Recommendations.ToJson().ShouldBe("recommendations");
             TraktListType.All.ToJson().ShouldBe("all");
+            ((TraktListType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -25,6 +28,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktListType().ShouldBe(TraktListType.Unspecified);
+            "invalid".ToTraktListType().ShouldBe(TraktListType.Unspecified);
+            "".ToTraktListType().ShouldBe(TraktListType.Unspecified);
         }
 
         [Fact]
@@ -36,6 +41,24 @@
             TraktListType.Watchlist.DisplayName().ShouldBe("Watchlists");
             TraktListType.Recommendations.DisplayName().ShouldBe("Recommendations");
             TraktListType.All.DisplayName().ShouldBe("All");
+            ((TraktListType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktListTypeJsonConverter()
+        {
+            var converter = new TraktListTypeJsonConverter();
+            converter.CanConvert(typeof(TraktListType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktListType.Personal, options).ShouldBe("\"personal\"");
+            JsonSerializer.Deserialize<TraktListType>("\"personal\"", options).ShouldBe(TraktListType.Personal);
+            JsonSerializer.Deserialize<TraktListType>("\"\"", options).ShouldBe(TraktListType.Unspecified);
         }
     }
 }

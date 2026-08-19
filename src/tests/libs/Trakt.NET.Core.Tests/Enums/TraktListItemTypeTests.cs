@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktListItemTypeTests
     {
@@ -12,6 +14,7 @@
             TraktListItemType.Episode.ToJson().ShouldBe("episode");
             TraktListItemType.Person.ToJson().ShouldBe("person");
             TraktListItemType.List.ToJson().ShouldBe("list");
+            ((TraktListItemType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -27,6 +30,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktListItemType().ShouldBe(TraktListItemType.Unspecified);
+            "invalid".ToTraktListItemType().ShouldBe(TraktListItemType.Unspecified);
+            "".ToTraktListItemType().ShouldBe(TraktListItemType.Unspecified);
         }
 
         [Fact]
@@ -39,6 +44,24 @@
             TraktListItemType.Episode.DisplayName().ShouldBe("Episode");
             TraktListItemType.Person.DisplayName().ShouldBe("Person");
             TraktListItemType.List.DisplayName().ShouldBe("List");
+            ((TraktListItemType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktListItemTypeJsonConverter()
+        {
+            var converter = new TraktListItemTypeJsonConverter();
+            converter.CanConvert(typeof(TraktListItemType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktListItemType.Movie, options).ShouldBe("\"movie\"");
+            JsonSerializer.Deserialize<TraktListItemType>("\"movie\"", options).ShouldBe(TraktListItemType.Movie);
+            JsonSerializer.Deserialize<TraktListItemType>("\"\"", options).ShouldBe(TraktListItemType.Unspecified);
         }
     }
 }

@@ -16,11 +16,11 @@ namespace TraktNET.Json.Users
             var traktUserCoverPost = new TraktUserCoverPost { CoverType = TraktCoverType.Unspecified, CoverId = 0 };
 
             Action act = () => traktUserCoverPost.Validate();
-            act.ShouldThrow<ArgumentException>();
+            act.ShouldThrow<TraktPostValidationException>();
 
             traktUserCoverPost.CoverType = TraktCoverType.Movie;
             traktUserCoverPost.CoverId = 0;
-            act.ShouldThrow<ArgumentException>();
+            act.ShouldThrow<TraktPostValidationException>();
         }
     }
 }

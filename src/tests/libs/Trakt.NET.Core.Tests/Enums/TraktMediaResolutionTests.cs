@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktMediaResolutionTests
     {
@@ -14,6 +16,7 @@
             TraktMediaResolution.SD576i.ToJson().ShouldBe("sd_576i");
             TraktMediaResolution.SD480p.ToJson().ShouldBe("sd_480p");
             TraktMediaResolution.SD480i.ToJson().ShouldBe("sd_480i");
+            ((TraktMediaResolution)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -31,6 +34,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktMediaResolution().ShouldBe(TraktMediaResolution.Unspecified);
+            "invalid".ToTraktMediaResolution().ShouldBe(TraktMediaResolution.Unspecified);
+            "".ToTraktMediaResolution().ShouldBe(TraktMediaResolution.Unspecified);
         }
 
         [Fact]
@@ -45,6 +50,24 @@
             TraktMediaResolution.SD576i.DisplayName().ShouldBe("SD 576i");
             TraktMediaResolution.SD480p.DisplayName().ShouldBe("SD 480p");
             TraktMediaResolution.SD480i.DisplayName().ShouldBe("SD 480i");
+            ((TraktMediaResolution)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktMediaResolutionJsonConverter()
+        {
+            var converter = new TraktMediaResolutionJsonConverter();
+            converter.CanConvert(typeof(TraktMediaResolution)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktMediaResolution.UHD4k, options).ShouldBe("\"uhd_4k\"");
+            JsonSerializer.Deserialize<TraktMediaResolution>("\"uhd_4k\"", options).ShouldBe(TraktMediaResolution.UHD4k);
+            JsonSerializer.Deserialize<TraktMediaResolution>("\"\"", options).ShouldBe(TraktMediaResolution.Unspecified);
         }
     }
 }

@@ -13,12 +13,12 @@ namespace TraktNET
         {
             if (CoverType == TraktCoverType.Unspecified)
             {
-                throw new ArgumentException("Cover type must be specified.", nameof(CoverType));
+                throw new TraktPostValidationException(nameof(CoverType), "Cover type must be specified.");
             }
 
             if (CoverId == 0)
             {
-                throw new ArgumentException("Cover ID must be greater than 0.", nameof(CoverId));
+                throw new TraktPostValidationException(nameof(CoverId), "Cover ID must be greater than 0.");
             }
         }
     }

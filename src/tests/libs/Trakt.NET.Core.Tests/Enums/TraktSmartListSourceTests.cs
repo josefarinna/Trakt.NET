@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 namespace TraktNET.Enums
 {
     public sealed class TraktSmartListSourceTests
@@ -11,6 +13,7 @@ namespace TraktNET.Enums
             TraktSmartListSource.Anticipated.ToJson().ShouldBe("anticipated");
             TraktSmartListSource.Recommendations.ToJson().ShouldBe("recommendations");
             TraktSmartListSource.Discover.ToJson().ShouldBe("discover");
+            ((TraktSmartListSource)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -25,6 +28,8 @@ namespace TraktNET.Enums
 
             string? nullValue = null;
             nullValue.ToTraktSmartListSource().ShouldBe(TraktSmartListSource.Unspecified);
+            "invalid".ToTraktSmartListSource().ShouldBe(TraktSmartListSource.Unspecified);
+            "".ToTraktSmartListSource().ShouldBe(TraktSmartListSource.Unspecified);
         }
 
         [Fact]
@@ -36,6 +41,24 @@ namespace TraktNET.Enums
             TraktSmartListSource.Anticipated.DisplayName().ShouldBe("Anticipated");
             TraktSmartListSource.Recommendations.DisplayName().ShouldBe("Recommendations");
             TraktSmartListSource.Discover.DisplayName().ShouldBe("Discover");
+            ((TraktSmartListSource)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktSmartListSourceJsonConverter()
+        {
+            var converter = new TraktSmartListSourceJsonConverter();
+            converter.CanConvert(typeof(TraktSmartListSource)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktSmartListSource.Trending, options).ShouldBe("\"trending\"");
+            JsonSerializer.Deserialize<TraktSmartListSource>("\"trending\"", options).ShouldBe(TraktSmartListSource.Trending);
+            JsonSerializer.Deserialize<TraktSmartListSource>("\"\"", options).ShouldBe(TraktSmartListSource.Unspecified);
         }
     }
 }

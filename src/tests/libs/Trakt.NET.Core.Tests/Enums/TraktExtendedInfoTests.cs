@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public class TraktExtendedInfoTests
     {
@@ -18,6 +20,7 @@
             TraktExtendedInfo.Images.ToJson().ShouldBe("images");
             TraktExtendedInfo.Subgenres.ToJson().ShouldBe("subgenres");
             TraktExtendedInfo.Browsing.ToJson().ShouldBe("browsing");
+            ((TraktExtendedInfo)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -39,6 +42,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.None);
+            "invalid".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.None);
+            "".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.None);
         }
 
         [Fact]
@@ -99,6 +104,23 @@
 
             TraktExtendedInfo episodesAndGuestStarts = TraktExtendedInfo.Episodes | TraktExtendedInfo.GuestStars;
             episodesAndGuestStarts.AsQuery().ShouldBe("extended=episodes,guest_stars");
+        }
+
+        [Fact]
+        public void TestTraktExtendedInfoJsonConverter()
+        {
+            var converter = new TraktExtendedInfoJsonConverter();
+            converter.CanConvert(typeof(TraktExtendedInfo)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktExtendedInfo.Metadata, options).ShouldBe("\"metadata\"");
+            JsonSerializer.Deserialize<TraktExtendedInfo>("\"metadata\"", options).ShouldBe(TraktExtendedInfo.Metadata);
+            JsonSerializer.Deserialize<TraktExtendedInfo>("\"\"", options).ShouldBe(TraktExtendedInfo.None);
         }
     }
 }

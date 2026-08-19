@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktSearchIDTypeTests
     {
@@ -10,6 +12,7 @@
             TraktSearchIDType.ImDB.ToJson().ShouldBe("imdb");
             TraktSearchIDType.TmDB.ToJson().ShouldBe("tmdb");
             TraktSearchIDType.TvDB.ToJson().ShouldBe("tvdb");
+            ((TraktSearchIDType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -23,6 +26,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktSearchIDType().ShouldBe(TraktSearchIDType.Unspecified);
+            "invalid".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.Unspecified);
+            "".ToTraktSearchIDType().ShouldBe(TraktSearchIDType.Unspecified);
         }
 
         [Fact]
@@ -33,6 +38,24 @@
             TraktSearchIDType.ImDB.DisplayName().ShouldBe("Internet Movie Database");
             TraktSearchIDType.TmDB.DisplayName().ShouldBe("The Movie Database");
             TraktSearchIDType.TvDB.DisplayName().ShouldBe("TheTVDB");
+            ((TraktSearchIDType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktSearchIDTypeJsonConverter()
+        {
+            var converter = new TraktSearchIDTypeJsonConverter();
+            converter.CanConvert(typeof(TraktSearchIDType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktSearchIDType.Trakt, options).ShouldBe("\"trakt\"");
+            JsonSerializer.Deserialize<TraktSearchIDType>("\"trakt\"", options).ShouldBe(TraktSearchIDType.Trakt);
+            JsonSerializer.Deserialize<TraktSearchIDType>("\"\"", options).ShouldBe(TraktSearchIDType.Unspecified);
         }
     }
 }

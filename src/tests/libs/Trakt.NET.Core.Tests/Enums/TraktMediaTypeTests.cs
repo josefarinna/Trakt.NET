@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Enums
+using System.Text.Json;
+
+namespace TraktNET.Enums
 {
     public sealed class TraktMediaTypeTests
     {
@@ -14,6 +16,7 @@
             TraktMediaType.VHS.ToJson().ShouldBe("vhs");
             TraktMediaType.BetaMax.ToJson().ShouldBe("betamax");
             TraktMediaType.LaserDisc.ToJson().ShouldBe("laserdisc");
+            ((TraktMediaType)99).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -31,6 +34,8 @@
 
             string? nullValue = null;
             nullValue.ToTraktMediaType().ShouldBe(TraktMediaType.Unspecified);
+            "invalid".ToTraktMediaType().ShouldBe(TraktMediaType.Unspecified);
+            "".ToTraktMediaType().ShouldBe(TraktMediaType.Unspecified);
         }
 
         [Fact]
@@ -45,6 +50,24 @@
             TraktMediaType.VHS.DisplayName().ShouldBe("VHS");
             TraktMediaType.BetaMax.DisplayName().ShouldBe("BetaMax");
             TraktMediaType.LaserDisc.DisplayName().ShouldBe("LaserDisc");
+            ((TraktMediaType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktMediaTypeJsonConverter()
+        {
+            var converter = new TraktMediaTypeJsonConverter();
+            converter.CanConvert(typeof(TraktMediaType)).ShouldBeTrue();
+            converter.CanConvert(typeof(int)).ShouldBeFalse();
+
+            var options = new JsonSerializerOptions
+            {
+                Converters = { converter }
+            };
+
+            JsonSerializer.Serialize(TraktMediaType.Digital, options).ShouldBe("\"digital\"");
+            JsonSerializer.Deserialize<TraktMediaType>("\"digital\"", options).ShouldBe(TraktMediaType.Digital);
+            JsonSerializer.Deserialize<TraktMediaType>("\"\"", options).ShouldBe(TraktMediaType.Unspecified);
         }
     }
 }
