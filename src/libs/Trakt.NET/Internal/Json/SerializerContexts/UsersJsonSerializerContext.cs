@@ -90,6 +90,7 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktUserRemovePostShowSeason>))]
     [JsonSerializable(typeof(TraktUserSavedFilter))]
     [JsonSerializable(typeof(IReadOnlyList<TraktUserSavedFilter>))]
+    [JsonSerializable(typeof(TraktUserSavedFilterPost))]
     [JsonSerializable(typeof(TraktUserSettings))]
     [JsonSerializable(typeof(TraktUserWatchingItem))]
     [JsonSerializable(typeof(TraktUserWatchlistLimits))]

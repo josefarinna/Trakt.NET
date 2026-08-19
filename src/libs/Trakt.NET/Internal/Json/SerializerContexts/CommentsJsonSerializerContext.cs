@@ -16,6 +16,7 @@ namespace TraktNET
     [JsonSerializable(typeof(IReadOnlyList<TraktUserComment>))]
     [JsonSerializable(typeof(TraktCommentPostResponse))]
     [JsonSerializable(typeof(TraktCommentReaction))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktCommentReaction>))]
     [JsonSerializable(typeof(TraktCommentUserReaction))]
     [JsonSerializable(typeof(IReadOnlyList<TraktCommentUserReaction>))]
     [JsonSerializable(typeof(TraktCommentReactionSummary))]

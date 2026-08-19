@@ -1247,5 +1247,131 @@ namespace TraktNET
         public Task<TraktPagedResponse<TraktUserSyncItem>> GetSyncSkippedItemsAsync(ulong syncId,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetSyncSkippedItemsImplAsync(syncId, page, limit, cancellationToken);
+
+        /// <summary>Gets month in review stats for a user.</summary>
+        /// <param name="usernameOrSlug">The username or slug of the user, for which month in review should be queried, or "me" for the authenticated user.</param>
+        /// <param name="year">The 4-digit year.</param>
+        /// <param name="month">The month number (1-12).</param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing month in review details.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserActivity" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para>VIP only.</para>
+        /// <para><see href="https://docs.trakt.tv/reference/getusersmonthinreview">
+        /// Trakt API Documentation: Users: Get month in review
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktUserActivity>> GetMonthInReviewAsync(string usernameOrSlug, uint year, uint month,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            => GetMonthInReviewImplAsync(usernameOrSlug, year, month, extendedInfo, cancellationToken);
+
+        /// <summary>Gets year in review stats for a user.</summary>
+        /// <param name="usernameOrSlug">The username or slug of the user, for which year in review should be queried, or "me" for the authenticated user.</param>
+        /// <param name="year">The 4-digit year.</param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing year in review details.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserActivity" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para>VIP only.</para>
+        /// <para><see href="https://docs.trakt.tv/reference/getusersyearinreview">
+        /// Trakt API Documentation: Users: Get year in review
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktUserActivity>> GetYearInReviewAsync(string usernameOrSlug, uint year,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            => GetYearInReviewImplAsync(usernameOrSlug, year, extendedInfo, cancellationToken);
+
+        /// <summary>Gets comment reactions for the authenticated user.</summary>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing comment reactions.
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
+        /// and maximum item count.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktCommentReaction" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getusersreactionscomments">
+        /// Trakt API Documentation: Users: Get comment reactions
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktCommentReaction>> GetCommentReactionsAsync(uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+            => GetCommentReactionsImplAsync(page, limit, cancellationToken);
+
+        /// <summary>Adds a saved filter for the authenticated user.</summary>
+        /// <param name="savedFilterPost">A <see cref="TraktUserSavedFilterPost" /> instance containing section, name, path, and query.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created saved filter.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserSavedFilter" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para>VIP only.</para>
+        /// <para><see href="https://docs.trakt.tv/reference/postusersfilters">
+        /// Trakt API Documentation: Users: Add saved filter
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktUserSavedFilter>> AddSavedFilterAsync(TraktUserSavedFilterPost savedFilterPost,
+            CancellationToken cancellationToken = default)
+            => AddSavedFilterImplAsync(savedFilterPost, cancellationToken);
+
+        /// <summary>Deletes a saved filter for the authenticated user.</summary>
+        /// <param name="filterId">The numeric ID of the saved filter to delete.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse" />.
+        /// <para>See also <seealso cref="TraktResponse" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para>VIP only.</para>
+        /// <para><see href="https://docs.trakt.tv/reference/deleteusersfiltersid">
+        /// Trakt API Documentation: Users: Delete saved filter
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse> DeleteSavedFilterAsync(uint filterId, CancellationToken cancellationToken = default)
+            => DeleteSavedFilterImplAsync(filterId, cancellationToken);
     }
 }
