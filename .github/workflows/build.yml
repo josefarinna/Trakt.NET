@@ -93,13 +93,26 @@ jobs:
         run: dotnet build  --configuration ${{ inputs.build_configuration }} --no-restore
         working-directory: ${{ inputs.working_directory }}
 
+      - name: Install dotnet-coverage
+        if: ${{ inputs.upload_codecov }}
+        shell: pwsh
+        run: dotnet tool update -g dotnet-coverage
+
       - name: Run tests
-        run: dotnet test --configuration ${{ inputs.build_configuration }} --no-build --no-restore --collect:"XPlat Code Coverage"
+        shell: pwsh
+        run: |
+          if ("${{ inputs.upload_codecov }}" -eq "true") {
+            dotnet-coverage collect "dotnet test --configuration ${{ inputs.build_configuration }} --no-build --no-restore" -f cobertura -o "coverage.cobertura.xml"
+          } else {
+            dotnet test --configuration ${{ inputs.build_configuration }} --no-build --no-restore
+          }
         working-directory: ${{ inputs.working_directory }}
 
       - name: Upload coverage reports to Codecov
         if: ${{ inputs.upload_codecov }}
         uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7
+        with:
+          files: ${{ inputs.working_directory }}/coverage.cobertura.xml
 
       - name: Create NuGet packages
         if: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}

@@ -47,12 +47,16 @@ jobs:
           New-Item -Path .\.sonar\scanner -ItemType Directory -Force
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
+      - name: Install dotnet-coverage
+        shell: pwsh
+        run: dotnet tool update -g dotnet-coverage
+
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: pwsh
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"josefarinna_Trakt.NET" /o:"josefarinna" /n:"Trakt.NET" /d:sonar.exclusions="**/docs/**" /d:sonar.coverage.exclusions="**/tests/**,**/Tests/**,**/tools/sourcegeneration/**" /d:sonar.cs.cobertura.reportsPaths="**/*.cobertura.xml" /d:sonar.sourceEncoding="UTF-8" /d:sonar.token="$env:SONAR_TOKEN" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet test 'src/Trakt.NET.slnx' --configuration Release --collect:"XPlat Code Coverage"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"josefarinna_Trakt.NET" /o:"josefarinna" /n:"Trakt.NET" /d:sonar.exclusions="**/docs/**" /d:sonar.coverage.exclusions="**/tests/**,**/Tests/**,**/tools/sourcegeneration/**" /d:sonar.cs.cobertura.reportsPaths="coverage.cobertura.xml" /d:sonar.sourceEncoding="UTF-8" /d:sonar.token="$env:SONAR_TOKEN" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet-coverage collect "dotnet test 'src/Trakt.NET.slnx' --configuration Release" -f cobertura -o "coverage.cobertura.xml"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="$env:SONAR_TOKEN"

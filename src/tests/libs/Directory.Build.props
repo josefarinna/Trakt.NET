@@ -2,13 +2,6 @@
 
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
 
-  <ItemGroup Condition="'$(IsTestProject)' == 'true' AND '$(IsTestUtilityProject)' != 'true'">
-    <PackageReference Include="coverlet.collector">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\..\libs\Trakt.NET\Trakt.NET.Ex.csproj" />
   </ItemGroup>
