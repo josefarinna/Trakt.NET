@@ -1,36 +1,43 @@
-namespace TraktNET.PostRequests.Auth
+namespace TraktNET.Json.Authentication
 {
-    public sealed class AuthorizationPollRequestBodyTests
+    public sealed class TraktAuthorizationPollPostTests
     {
         [Fact]
-        public void TestAuthorizationPollRequestBodyToJson()
+        public void TestTraktAuthorizationPollPostDefaultConstructor()
         {
-            var body = new AuthorizationPollRequestBody
-            {
-                Device = new TraktDevice
-                {
-                    DeviceCode = TestConstants.MockDeviceCode,
-                    UserCode = TestConstants.MockUserCode,
-                    VerificationUrl = TestConstants.DeviceVerificationURL,
-                    ExpiresIn = TestConstants.DeviceExpiresIn,
-                    Interval = TestConstants.DeviceInterval
-                },
-                ClientId = TestConstants.ClientID,
-                ClientSecret = TestConstants.ClientSecret
-            };
+            var post = new TraktAuthorizationPollPost();
 
-            string json = body.ToJson();
-
-            json.ShouldNotBeNullOrEmpty();
-            json.ShouldContain($"\"code\": \"{TestConstants.MockDeviceCode}\"");
-            json.ShouldContain($"\"client_id\": \"{TestConstants.ClientID}\"");
-            json.ShouldContain($"\"client_secret\": \"{TestConstants.ClientSecret}\"");
+            post.Device.ShouldBeNull();
+            post.Code.ShouldBeNull();
+            post.ClientId.ShouldBeNull();
+            post.ClientSecret.ShouldBeNull();
         }
 
         [Fact]
-        public void TestAuthorizationPollRequestBodyValidateSuccess()
+        public void TestTraktAuthorizationPollPostCodeProperty()
         {
-            var body = new AuthorizationPollRequestBody
+            var post = new TraktAuthorizationPollPost();
+
+            // When Device is null, Code returns the manually set value
+            post.Code = "customCode";
+            post.Code.ShouldBe("customCode");
+
+            // When Device is set, Code returns Device.DeviceCode
+            post.Device = new TraktDevice
+            {
+                DeviceCode = TestConstants.MockDeviceCode
+            };
+            post.Code.ShouldBe(TestConstants.MockDeviceCode);
+
+            // When Device is cleared, Code returns the backing field value
+            post.Device = null;
+            post.Code.ShouldBe("customCode");
+        }
+
+        [Fact]
+        public void TestTraktAuthorizationPollPostValidateSuccess()
+        {
+            var post = new TraktAuthorizationPollPost
             {
                 Device = new TraktDevice
                 {
@@ -44,28 +51,28 @@ namespace TraktNET.PostRequests.Auth
                 ClientSecret = TestConstants.ClientSecret
             };
 
-            Action act = () => body.Validate();
+            Action act = () => post.Validate();
             act.ShouldNotThrow();
         }
 
         [Fact]
-        public void TestAuthorizationPollRequestBodyValidateThrowsExceptionWhenDeviceIsNull()
+        public void TestTraktAuthorizationPollPostValidateThrowsExceptionWhenDeviceIsNull()
         {
-            var body = new AuthorizationPollRequestBody
+            var post = new TraktAuthorizationPollPost
             {
                 Device = null!,
                 ClientId = TestConstants.ClientID,
                 ClientSecret = TestConstants.ClientSecret
             };
 
-            Action act = () => body.Validate();
+            Action act = () => post.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
 
         [Fact]
-        public void TestAuthorizationPollRequestBodyValidateThrowsExceptionWhenDeviceIsExpiredUnused()
+        public void TestTraktAuthorizationPollPostValidateThrowsExceptionWhenDeviceIsExpiredUnused()
         {
-            var body = new AuthorizationPollRequestBody
+            var post = new TraktAuthorizationPollPost
             {
                 Device = new TraktDevice
                 {
@@ -79,14 +86,14 @@ namespace TraktNET.PostRequests.Auth
                 ClientSecret = TestConstants.ClientSecret
             };
 
-            Action act = () => body.Validate();
+            Action act = () => post.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
 
         [Fact]
-        public void TestAuthorizationPollRequestBodyValidateThrowsExceptionWhenDeviceIsInvalid()
+        public void TestTraktAuthorizationPollPostValidateThrowsExceptionWhenDeviceIsInvalid()
         {
-            var body = new AuthorizationPollRequestBody
+            var post = new TraktAuthorizationPollPost
             {
                 Device = new TraktDevice
                 {
@@ -100,7 +107,7 @@ namespace TraktNET.PostRequests.Auth
                 ClientSecret = TestConstants.ClientSecret
             };
 
-            Action act = () => body.Validate();
+            Action act = () => post.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }
 
@@ -108,9 +115,10 @@ namespace TraktNET.PostRequests.Auth
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void TestAuthorizationPollRequestBodyValidateThrowsExceptionWhenClientIdIsInvalid(string? clientId)
+        [InlineData("client id with spaces")]
+        public void TestTraktAuthorizationPollPostValidateThrowsExceptionWhenClientIdIsInvalid(string? clientId)
         {
-            var body = new AuthorizationPollRequestBody
+            var post = new TraktAuthorizationPollPost
             {
                 Device = new TraktDevice
                 {
@@ -124,7 +132,7 @@ namespace TraktNET.PostRequests.Auth
                 ClientSecret = TestConstants.ClientSecret
             };
 
-            Action act = () => body.Validate();
+            Action act = () => post.Validate();
             act.ShouldThrow<ArgumentException>();
         }
 
@@ -132,9 +140,10 @@ namespace TraktNET.PostRequests.Auth
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void TestAuthorizationPollRequestBodyValidateThrowsExceptionWhenClientSecretIsInvalid(string? clientSecret)
+        [InlineData("client secret with spaces")]
+        public void TestTraktAuthorizationPollPostValidateThrowsExceptionWhenClientSecretIsInvalid(string? clientSecret)
         {
-            var body = new AuthorizationPollRequestBody
+            var post = new TraktAuthorizationPollPost
             {
                 Device = new TraktDevice
                 {
@@ -148,8 +157,9 @@ namespace TraktNET.PostRequests.Auth
                 ClientSecret = clientSecret!
             };
 
-            Action act = () => body.Validate();
+            Action act = () => post.Validate();
             act.ShouldThrow<ArgumentException>();
         }
     }
 }
+

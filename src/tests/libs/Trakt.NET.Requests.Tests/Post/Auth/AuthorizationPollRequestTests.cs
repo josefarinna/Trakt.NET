@@ -11,7 +11,10 @@ namespace TraktNET.PostRequests.Auth
         [Fact]
         public void TestAuthorizationPollRequestHasValidURIPath()
         {
-            var authorizationPollRequest = new AuthorizationPollRequest();
+            var authorizationPollRequest = new AuthorizationPollRequest
+            {
+                TraktAuthorizationPollPost = new TraktAuthorizationPollPost()
+            };
 
             authorizationPollRequest.BuildUri();
             authorizationPollRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
@@ -20,22 +23,31 @@ namespace TraktNET.PostRequests.Auth
         [Fact]
         public void TestAuthorizationPollRequestHasValidOAuthRequirement()
         {
-            var authorizationPollRequest = new AuthorizationPollRequest();
+            var authorizationPollRequest = new AuthorizationPollRequest { TraktAuthorizationPollPost = default! };
             authorizationPollRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestAuthorizationPollRequestIsPostRequest()
         {
-            var authorizationPollRequest = new AuthorizationPollRequest();
+            var authorizationPollRequest = new AuthorizationPollRequest { TraktAuthorizationPollPost = default! };
             authorizationPollRequest.Method.ShouldBe(HttpMethod.Post);
         }
 
         [Fact]
         public void TestAuthorizationPollRequestHasCorrectRequestObjectType()
         {
-            var authorizationPollRequest = new AuthorizationPollRequest();
+            var authorizationPollRequest = new AuthorizationPollRequest { TraktAuthorizationPollPost = default! };
             authorizationPollRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
+        }
+
+        [Fact]
+        public void TestAuthorizationPollRequestValidate()
+        {
+            var authorizationPollRequest = new AuthorizationPollRequest { TraktAuthorizationPollPost = default! };
+            Action act = () => authorizationPollRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }
+

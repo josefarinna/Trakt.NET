@@ -294,7 +294,12 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_authenticationJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktAuthorization),
-            typeof(TraktDevice)
+            typeof(TraktAuthorizationPollPost),
+            typeof(TraktAuthorizationPost),
+            typeof(TraktAuthorizationRefreshPost),
+            typeof(TraktAuthorizationRevokePost),
+            typeof(TraktDevice),
+            typeof(TraktDevicePost)
         });
 
         private static readonly FrozenSet<Type> s_calendarssJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -885,7 +890,12 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_authenticationJsonTypes = [
             typeof(TraktAuthorization),
-            typeof(TraktDevice)
+            typeof(TraktAuthorizationPollPost),
+            typeof(TraktAuthorizationPost),
+            typeof(TraktAuthorizationRefreshPost),
+            typeof(TraktAuthorizationRevokePost),
+            typeof(TraktDevice),
+            typeof(TraktDevicePost)
         ];
 
         private static readonly HashSet<Type> s_calendarssJsonTypes = [

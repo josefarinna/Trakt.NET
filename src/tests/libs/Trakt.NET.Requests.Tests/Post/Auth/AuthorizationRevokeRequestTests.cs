@@ -11,7 +11,10 @@ namespace TraktNET.PostRequests.Auth
         [Fact]
         public void TestAuthorizationRevokeRequestHasValidURIPath()
         {
-            var authorizationRevokeRequest = new AuthorizationRevokeRequest();
+            var authorizationRevokeRequest = new AuthorizationRevokeRequest
+            {
+                TraktAuthorizationRevokePost = new TraktAuthorizationRevokePost()
+            };
 
             authorizationRevokeRequest.BuildUri();
             authorizationRevokeRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
@@ -20,22 +23,31 @@ namespace TraktNET.PostRequests.Auth
         [Fact]
         public void TestAuthorizationRevokeRequestHasValidOAuthRequirement()
         {
-            var authorizationRevokeRequest = new AuthorizationRevokeRequest();
+            var authorizationRevokeRequest = new AuthorizationRevokeRequest { TraktAuthorizationRevokePost = default! };
             authorizationRevokeRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestAuthorizationRevokeRequestIsPostRequest()
         {
-            var authorizationRevokeRequest = new AuthorizationRevokeRequest();
+            var authorizationRevokeRequest = new AuthorizationRevokeRequest { TraktAuthorizationRevokePost = default! };
             authorizationRevokeRequest.Method.ShouldBe(HttpMethod.Post);
         }
 
         [Fact]
         public void TestAuthorizationRevokeRequestHasCorrectRequestObjectType()
         {
-            var authorizationRevokeRequest = new AuthorizationRevokeRequest();
+            var authorizationRevokeRequest = new AuthorizationRevokeRequest { TraktAuthorizationRevokePost = default! };
             authorizationRevokeRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
+        }
+
+        [Fact]
+        public void TestAuthorizationRevokeRequestValidate()
+        {
+            var authorizationRevokeRequest = new AuthorizationRevokeRequest { TraktAuthorizationRevokePost = default! };
+            Action act = () => authorizationRevokeRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }
+

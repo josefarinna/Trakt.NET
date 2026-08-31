@@ -30,13 +30,12 @@ namespace TraktNET.AuthModule
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             authorizationJson.ShouldNotBeNullOrEmpty();
 
-            string mockDeviceJson = $$"""
+            string mockDeviceJson = TestUtility.SerializeObject(new TraktAuthorizationPollPost
             {
-                "code": "{{TestConstants.MockDeviceCode}}",
-                "client_id": "{{TestConstants.ClientID}}",
-                "client_secret": "{{TestConstants.ClientSecret}}"
-            }
-            """;
+                Device = TestConstants.MockDevice,
+                ClientId = TestConstants.ClientID,
+                ClientSecret = TestConstants.ClientSecret
+            });
 
             ModuleTestUtility.AddMockExpectationResponse(client, PollForAuthorizationUri, mockDeviceJson, HttpStatusCode.BadRequest);
 

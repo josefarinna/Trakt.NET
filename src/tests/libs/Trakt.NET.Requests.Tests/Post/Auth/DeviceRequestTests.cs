@@ -11,7 +11,10 @@ namespace TraktNET.PostRequests.Auth
         [Fact]
         public void TestDeviceRequestHasValidURIPath()
         {
-            var deviceRequest = new DeviceRequest();
+            var deviceRequest = new DeviceRequest
+            {
+                TraktDevicePost = new TraktDevicePost()
+            };
 
             deviceRequest.BuildUri();
             deviceRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
@@ -20,22 +23,31 @@ namespace TraktNET.PostRequests.Auth
         [Fact]
         public void TestDeviceRequestHasValidOAuthRequirement()
         {
-            var deviceRequest = new DeviceRequest();
+            var deviceRequest = new DeviceRequest { TraktDevicePost = default! };
             deviceRequest.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
         public void TestDeviceRequestIsPostRequest()
         {
-            var deviceRequest = new DeviceRequest();
+            var deviceRequest = new DeviceRequest { TraktDevicePost = default! };
             deviceRequest.Method.ShouldBe(HttpMethod.Post);
         }
 
         [Fact]
         public void TestDeviceRequestHasCorrectRequestObjectType()
         {
-            var deviceRequest = new DeviceRequest();
+            var deviceRequest = new DeviceRequest { TraktDevicePost = default! };
             deviceRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
+        }
+
+        [Fact]
+        public void TestDeviceRequestValidate()
+        {
+            var deviceRequest = new DeviceRequest { TraktDevicePost = default! };
+            Action act = () => deviceRequest.Validate();
+            act.ShouldThrow<TraktRequestValidationException>();
         }
     }
 }
+
