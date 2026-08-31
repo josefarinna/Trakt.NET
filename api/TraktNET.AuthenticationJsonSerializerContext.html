@@ -123,7 +123,12 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ExcludeFromCodeCoverage]
 [JsonSerializable(typeof(TraktAuthorization))]
+[JsonSerializable(typeof(TraktAuthorizationPollPost))]
+[JsonSerializable(typeof(TraktAuthorizationPost))]
+[JsonSerializable(typeof(TraktAuthorizationRefreshPost))]
+[JsonSerializable(typeof(TraktAuthorizationRevokePost))]
 [JsonSerializable(typeof(TraktDevice))]
+[JsonSerializable(typeof(TraktDevicePost))]
 public sealed class AuthenticationJsonSerializerContext : JsonSerializerContext, IJsonTypeInfoResolver</code></pre>
   </div>
   <h3 id="constructors">Constructors
@@ -455,6 +460,118 @@ public sealed class AuthenticationJsonSerializerContext : JsonSerializerContext,
   </table>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/AuthenticationJsonSerializerContext.TraktAuthorizationPollPost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationPollPost_" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPollPost*"></a>
+  <h4 id="TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationPollPost" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPollPost">TraktAuthorizationPollPost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktAuthorizationPollPost&gt; TraktAuthorizationPollPost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktAuthorizationPollPost.html">TraktAuthorizationPollPost</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/AuthenticationJsonSerializerContext.TraktAuthorizationPost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationPost_" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPost*"></a>
+  <h4 id="TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationPost" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPost">TraktAuthorizationPost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktAuthorizationPost&gt; TraktAuthorizationPost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktAuthorizationPost.html">TraktAuthorizationPost</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationRefreshPost_" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost*"></a>
+  <h4 id="TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationRefreshPost" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost">TraktAuthorizationRefreshPost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktAuthorizationRefreshPost&gt; TraktAuthorizationRefreshPost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktAuthorizationRefreshPost.html">TraktAuthorizationRefreshPost</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationRevokePost_" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost*"></a>
+  <h4 id="TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationRevokePost" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost">TraktAuthorizationRevokePost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktAuthorizationRevokePost&gt; TraktAuthorizationRevokePost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktAuthorizationRevokePost.html">TraktAuthorizationRevokePost</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/AuthenticationJsonSerializerContext.TraktDevice.g.cs">View Source</a>
   </span>
   <a id="TraktNET_AuthenticationJsonSerializerContext_TraktDevice_" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktDevice*"></a>
@@ -477,6 +594,34 @@ public sealed class AuthenticationJsonSerializerContext : JsonSerializerContext,
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktDevice.html">TraktDevice</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/AuthenticationJsonSerializerContext.TraktDevicePost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_AuthenticationJsonSerializerContext_TraktDevicePost_" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktDevicePost*"></a>
+  <h4 id="TraktNET_AuthenticationJsonSerializerContext_TraktDevicePost" data-uid="TraktNET.AuthenticationJsonSerializerContext.TraktDevicePost">TraktDevicePost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktDevicePost&gt; TraktDevicePost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktDevicePost.html">TraktDevicePost</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

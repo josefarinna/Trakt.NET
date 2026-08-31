@@ -172,6 +172,54 @@ references:
   commentId: Overload:TraktNET.AuthenticationJsonSerializerContext.TraktAuthorization
   fullName: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorization
   nameWithType: AuthenticationJsonSerializerContext.TraktAuthorization
+- uid: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPollPost
+  name: TraktAuthorizationPollPost
+  href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationPollPost
+  commentId: P:TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPollPost
+  fullName: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPollPost
+  nameWithType: AuthenticationJsonSerializerContext.TraktAuthorizationPollPost
+- uid: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPollPost*
+  name: TraktAuthorizationPollPost
+  href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationPollPost_
+  commentId: Overload:TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPollPost
+  fullName: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPollPost
+  nameWithType: AuthenticationJsonSerializerContext.TraktAuthorizationPollPost
+- uid: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPost
+  name: TraktAuthorizationPost
+  href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationPost
+  commentId: P:TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPost
+  fullName: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPost
+  nameWithType: AuthenticationJsonSerializerContext.TraktAuthorizationPost
+- uid: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPost*
+  name: TraktAuthorizationPost
+  href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationPost_
+  commentId: Overload:TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPost
+  fullName: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationPost
+  nameWithType: AuthenticationJsonSerializerContext.TraktAuthorizationPost
+- uid: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost
+  name: TraktAuthorizationRefreshPost
+  href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationRefreshPost
+  commentId: P:TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost
+  fullName: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost
+  nameWithType: AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost
+- uid: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost*
+  name: TraktAuthorizationRefreshPost
+  href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationRefreshPost_
+  commentId: Overload:TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost
+  fullName: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost
+  nameWithType: AuthenticationJsonSerializerContext.TraktAuthorizationRefreshPost
+- uid: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost
+  name: TraktAuthorizationRevokePost
+  href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationRevokePost
+  commentId: P:TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost
+  fullName: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost
+  nameWithType: AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost
+- uid: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost*
+  name: TraktAuthorizationRevokePost
+  href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktAuthorizationRevokePost_
+  commentId: Overload:TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost
+  fullName: TraktNET.AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost
+  nameWithType: AuthenticationJsonSerializerContext.TraktAuthorizationRevokePost
 - uid: TraktNET.AuthenticationJsonSerializerContext.TraktDevice
   name: TraktDevice
   href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktDevice
@@ -184,6 +232,18 @@ references:
   commentId: Overload:TraktNET.AuthenticationJsonSerializerContext.TraktDevice
   fullName: TraktNET.AuthenticationJsonSerializerContext.TraktDevice
   nameWithType: AuthenticationJsonSerializerContext.TraktDevice
+- uid: TraktNET.AuthenticationJsonSerializerContext.TraktDevicePost
+  name: TraktDevicePost
+  href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktDevicePost
+  commentId: P:TraktNET.AuthenticationJsonSerializerContext.TraktDevicePost
+  fullName: TraktNET.AuthenticationJsonSerializerContext.TraktDevicePost
+  nameWithType: AuthenticationJsonSerializerContext.TraktDevicePost
+- uid: TraktNET.AuthenticationJsonSerializerContext.TraktDevicePost*
+  name: TraktDevicePost
+  href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_TraktDevicePost_
+  commentId: Overload:TraktNET.AuthenticationJsonSerializerContext.TraktDevicePost
+  fullName: TraktNET.AuthenticationJsonSerializerContext.TraktDevicePost
+  nameWithType: AuthenticationJsonSerializerContext.TraktDevicePost
 - uid: TraktNET.AuthenticationJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.AuthenticationJsonSerializerContext.html#TraktNET_AuthenticationJsonSerializerContext_UInt32
@@ -20179,6 +20239,822 @@ references:
   fullName.vb: TraktNET.TraktAuthorization.<>
   nameWithType: TraktAuthorization.operator !=
   nameWithType.vb: TraktAuthorization.<>
+- uid: TraktNET.TraktAuthorizationPollPost
+  name: TraktAuthorizationPollPost
+  href: api/TraktNET.TraktAuthorizationPollPost.html
+  commentId: T:TraktNET.TraktAuthorizationPollPost
+  fullName: TraktNET.TraktAuthorizationPollPost
+  nameWithType: TraktAuthorizationPollPost
+- uid: TraktNET.TraktAuthorizationPollPost.#ctor
+  name: TraktAuthorizationPollPost()
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost__ctor
+  commentId: M:TraktNET.TraktAuthorizationPollPost.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktAuthorizationPollPost.TraktAuthorizationPollPost()
+  fullName.vb: TraktNET.TraktAuthorizationPollPost.New()
+  nameWithType: TraktAuthorizationPollPost.TraktAuthorizationPollPost()
+  nameWithType.vb: TraktAuthorizationPollPost.New()
+- uid: TraktNET.TraktAuthorizationPollPost.#ctor(TraktNET.TraktAuthorizationPollPost)
+  name: TraktAuthorizationPollPost(TraktAuthorizationPollPost)
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost__ctor_TraktNET_TraktAuthorizationPollPost_
+  commentId: M:TraktNET.TraktAuthorizationPollPost.#ctor(TraktNET.TraktAuthorizationPollPost)
+  name.vb: New(TraktAuthorizationPollPost)
+  fullName: TraktNET.TraktAuthorizationPollPost.TraktAuthorizationPollPost(TraktNET.TraktAuthorizationPollPost)
+  fullName.vb: TraktNET.TraktAuthorizationPollPost.New(TraktNET.TraktAuthorizationPollPost)
+  nameWithType: TraktAuthorizationPollPost.TraktAuthorizationPollPost(TraktAuthorizationPollPost)
+  nameWithType.vb: TraktAuthorizationPollPost.New(TraktAuthorizationPollPost)
+- uid: TraktNET.TraktAuthorizationPollPost.#ctor*
+  name: TraktAuthorizationPollPost
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost__ctor_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktAuthorizationPollPost.TraktAuthorizationPollPost
+  fullName.vb: TraktNET.TraktAuthorizationPollPost.New
+  nameWithType: TraktAuthorizationPollPost.TraktAuthorizationPollPost
+  nameWithType.vb: TraktAuthorizationPollPost.New
+- uid: TraktNET.TraktAuthorizationPollPost.ClientId
+  name: ClientId
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_ClientId
+  commentId: P:TraktNET.TraktAuthorizationPollPost.ClientId
+  fullName: TraktNET.TraktAuthorizationPollPost.ClientId
+  nameWithType: TraktAuthorizationPollPost.ClientId
+- uid: TraktNET.TraktAuthorizationPollPost.ClientId*
+  name: ClientId
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_ClientId_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.ClientId
+  fullName: TraktNET.TraktAuthorizationPollPost.ClientId
+  nameWithType: TraktAuthorizationPollPost.ClientId
+- uid: TraktNET.TraktAuthorizationPollPost.ClientSecret
+  name: ClientSecret
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_ClientSecret
+  commentId: P:TraktNET.TraktAuthorizationPollPost.ClientSecret
+  fullName: TraktNET.TraktAuthorizationPollPost.ClientSecret
+  nameWithType: TraktAuthorizationPollPost.ClientSecret
+- uid: TraktNET.TraktAuthorizationPollPost.ClientSecret*
+  name: ClientSecret
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_ClientSecret_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.ClientSecret
+  fullName: TraktNET.TraktAuthorizationPollPost.ClientSecret
+  nameWithType: TraktAuthorizationPollPost.ClientSecret
+- uid: TraktNET.TraktAuthorizationPollPost.Code
+  name: Code
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_Code
+  commentId: P:TraktNET.TraktAuthorizationPollPost.Code
+  fullName: TraktNET.TraktAuthorizationPollPost.Code
+  nameWithType: TraktAuthorizationPollPost.Code
+- uid: TraktNET.TraktAuthorizationPollPost.Code*
+  name: Code
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_Code_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.Code
+  fullName: TraktNET.TraktAuthorizationPollPost.Code
+  nameWithType: TraktAuthorizationPollPost.Code
+- uid: TraktNET.TraktAuthorizationPollPost.Device
+  name: Device
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_Device
+  commentId: P:TraktNET.TraktAuthorizationPollPost.Device
+  fullName: TraktNET.TraktAuthorizationPollPost.Device
+  nameWithType: TraktAuthorizationPollPost.Device
+- uid: TraktNET.TraktAuthorizationPollPost.Device*
+  name: Device
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_Device_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.Device
+  fullName: TraktNET.TraktAuthorizationPollPost.Device
+  nameWithType: TraktAuthorizationPollPost.Device
+- uid: TraktNET.TraktAuthorizationPollPost.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_EqualityContract
+  commentId: P:TraktNET.TraktAuthorizationPollPost.EqualityContract
+  fullName: TraktNET.TraktAuthorizationPollPost.EqualityContract
+  nameWithType: TraktAuthorizationPollPost.EqualityContract
+- uid: TraktNET.TraktAuthorizationPollPost.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_EqualityContract_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.EqualityContract
+  fullName: TraktNET.TraktAuthorizationPollPost.EqualityContract
+  nameWithType: TraktAuthorizationPollPost.EqualityContract
+- uid: TraktNET.TraktAuthorizationPollPost.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_Equals_System_Object_
+  commentId: M:TraktNET.TraktAuthorizationPollPost.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktAuthorizationPollPost.Equals(object?)
+  fullName.vb: TraktNET.TraktAuthorizationPollPost.Equals(Object)
+  nameWithType: TraktAuthorizationPollPost.Equals(object?)
+  nameWithType.vb: TraktAuthorizationPollPost.Equals(Object)
+- uid: TraktNET.TraktAuthorizationPollPost.Equals(TraktNET.TraktAuthorizationPollPost)
+  name: Equals(TraktAuthorizationPollPost?)
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_Equals_TraktNET_TraktAuthorizationPollPost_
+  commentId: M:TraktNET.TraktAuthorizationPollPost.Equals(TraktNET.TraktAuthorizationPollPost)
+  name.vb: Equals(TraktAuthorizationPollPost)
+  fullName: TraktNET.TraktAuthorizationPollPost.Equals(TraktNET.TraktAuthorizationPollPost?)
+  fullName.vb: TraktNET.TraktAuthorizationPollPost.Equals(TraktNET.TraktAuthorizationPollPost)
+  nameWithType: TraktAuthorizationPollPost.Equals(TraktAuthorizationPollPost?)
+  nameWithType.vb: TraktAuthorizationPollPost.Equals(TraktAuthorizationPollPost)
+- uid: TraktNET.TraktAuthorizationPollPost.Equals*
+  name: Equals
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_Equals_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.Equals
+  fullName: TraktNET.TraktAuthorizationPollPost.Equals
+  nameWithType: TraktAuthorizationPollPost.Equals
+- uid: TraktNET.TraktAuthorizationPollPost.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_GetHashCode
+  commentId: M:TraktNET.TraktAuthorizationPollPost.GetHashCode
+  fullName: TraktNET.TraktAuthorizationPollPost.GetHashCode()
+  nameWithType: TraktAuthorizationPollPost.GetHashCode()
+- uid: TraktNET.TraktAuthorizationPollPost.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_GetHashCode_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.GetHashCode
+  fullName: TraktNET.TraktAuthorizationPollPost.GetHashCode
+  nameWithType: TraktAuthorizationPollPost.GetHashCode
+- uid: TraktNET.TraktAuthorizationPollPost.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktAuthorizationPollPost.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktAuthorizationPollPost.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktAuthorizationPollPost.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktAuthorizationPollPost.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_PrintMembers_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.PrintMembers
+  fullName: TraktNET.TraktAuthorizationPollPost.PrintMembers
+  nameWithType: TraktAuthorizationPollPost.PrintMembers
+- uid: TraktNET.TraktAuthorizationPollPost.ToString
+  name: ToString()
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_ToString
+  commentId: M:TraktNET.TraktAuthorizationPollPost.ToString
+  fullName: TraktNET.TraktAuthorizationPollPost.ToString()
+  nameWithType: TraktAuthorizationPollPost.ToString()
+- uid: TraktNET.TraktAuthorizationPollPost.ToString*
+  name: ToString
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_ToString_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.ToString
+  fullName: TraktNET.TraktAuthorizationPollPost.ToString
+  nameWithType: TraktAuthorizationPollPost.ToString
+- uid: TraktNET.TraktAuthorizationPollPost.Validate
+  name: Validate()
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_Validate
+  commentId: M:TraktNET.TraktAuthorizationPollPost.Validate
+  fullName: TraktNET.TraktAuthorizationPollPost.Validate()
+  nameWithType: TraktAuthorizationPollPost.Validate()
+- uid: TraktNET.TraktAuthorizationPollPost.Validate*
+  name: Validate
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_Validate_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.Validate
+  fullName: TraktNET.TraktAuthorizationPollPost.Validate
+  nameWithType: TraktAuthorizationPollPost.Validate
+- uid: TraktNET.TraktAuthorizationPollPost.op_Equality(TraktNET.TraktAuthorizationPollPost,TraktNET.TraktAuthorizationPollPost)
+  name: operator ==(TraktAuthorizationPollPost?, TraktAuthorizationPollPost?)
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_op_Equality_TraktNET_TraktAuthorizationPollPost_TraktNET_TraktAuthorizationPollPost_
+  commentId: M:TraktNET.TraktAuthorizationPollPost.op_Equality(TraktNET.TraktAuthorizationPollPost,TraktNET.TraktAuthorizationPollPost)
+  name.vb: =(TraktAuthorizationPollPost, TraktAuthorizationPollPost)
+  fullName: TraktNET.TraktAuthorizationPollPost.operator ==(TraktNET.TraktAuthorizationPollPost?, TraktNET.TraktAuthorizationPollPost?)
+  fullName.vb: TraktNET.TraktAuthorizationPollPost.=(TraktNET.TraktAuthorizationPollPost, TraktNET.TraktAuthorizationPollPost)
+  nameWithType: TraktAuthorizationPollPost.operator ==(TraktAuthorizationPollPost?, TraktAuthorizationPollPost?)
+  nameWithType.vb: TraktAuthorizationPollPost.=(TraktAuthorizationPollPost, TraktAuthorizationPollPost)
+- uid: TraktNET.TraktAuthorizationPollPost.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_op_Equality_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktAuthorizationPollPost.operator ==
+  fullName.vb: TraktNET.TraktAuthorizationPollPost.=
+  nameWithType: TraktAuthorizationPollPost.operator ==
+  nameWithType.vb: TraktAuthorizationPollPost.=
+- uid: TraktNET.TraktAuthorizationPollPost.op_Inequality(TraktNET.TraktAuthorizationPollPost,TraktNET.TraktAuthorizationPollPost)
+  name: operator !=(TraktAuthorizationPollPost?, TraktAuthorizationPollPost?)
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_op_Inequality_TraktNET_TraktAuthorizationPollPost_TraktNET_TraktAuthorizationPollPost_
+  commentId: M:TraktNET.TraktAuthorizationPollPost.op_Inequality(TraktNET.TraktAuthorizationPollPost,TraktNET.TraktAuthorizationPollPost)
+  name.vb: <>(TraktAuthorizationPollPost, TraktAuthorizationPollPost)
+  fullName: TraktNET.TraktAuthorizationPollPost.operator !=(TraktNET.TraktAuthorizationPollPost?, TraktNET.TraktAuthorizationPollPost?)
+  fullName.vb: TraktNET.TraktAuthorizationPollPost.<>(TraktNET.TraktAuthorizationPollPost, TraktNET.TraktAuthorizationPollPost)
+  nameWithType: TraktAuthorizationPollPost.operator !=(TraktAuthorizationPollPost?, TraktAuthorizationPollPost?)
+  nameWithType.vb: TraktAuthorizationPollPost.<>(TraktAuthorizationPollPost, TraktAuthorizationPollPost)
+- uid: TraktNET.TraktAuthorizationPollPost.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktAuthorizationPollPost.html#TraktNET_TraktAuthorizationPollPost_op_Inequality_
+  commentId: Overload:TraktNET.TraktAuthorizationPollPost.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktAuthorizationPollPost.operator !=
+  fullName.vb: TraktNET.TraktAuthorizationPollPost.<>
+  nameWithType: TraktAuthorizationPollPost.operator !=
+  nameWithType.vb: TraktAuthorizationPollPost.<>
+- uid: TraktNET.TraktAuthorizationPost
+  name: TraktAuthorizationPost
+  href: api/TraktNET.TraktAuthorizationPost.html
+  commentId: T:TraktNET.TraktAuthorizationPost
+  fullName: TraktNET.TraktAuthorizationPost
+  nameWithType: TraktAuthorizationPost
+- uid: TraktNET.TraktAuthorizationPost.#ctor
+  name: TraktAuthorizationPost()
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost__ctor
+  commentId: M:TraktNET.TraktAuthorizationPost.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktAuthorizationPost.TraktAuthorizationPost()
+  fullName.vb: TraktNET.TraktAuthorizationPost.New()
+  nameWithType: TraktAuthorizationPost.TraktAuthorizationPost()
+  nameWithType.vb: TraktAuthorizationPost.New()
+- uid: TraktNET.TraktAuthorizationPost.#ctor(TraktNET.TraktAuthorizationPost)
+  name: TraktAuthorizationPost(TraktAuthorizationPost)
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost__ctor_TraktNET_TraktAuthorizationPost_
+  commentId: M:TraktNET.TraktAuthorizationPost.#ctor(TraktNET.TraktAuthorizationPost)
+  name.vb: New(TraktAuthorizationPost)
+  fullName: TraktNET.TraktAuthorizationPost.TraktAuthorizationPost(TraktNET.TraktAuthorizationPost)
+  fullName.vb: TraktNET.TraktAuthorizationPost.New(TraktNET.TraktAuthorizationPost)
+  nameWithType: TraktAuthorizationPost.TraktAuthorizationPost(TraktAuthorizationPost)
+  nameWithType.vb: TraktAuthorizationPost.New(TraktAuthorizationPost)
+- uid: TraktNET.TraktAuthorizationPost.#ctor*
+  name: TraktAuthorizationPost
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost__ctor_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktAuthorizationPost.TraktAuthorizationPost
+  fullName.vb: TraktNET.TraktAuthorizationPost.New
+  nameWithType: TraktAuthorizationPost.TraktAuthorizationPost
+  nameWithType.vb: TraktAuthorizationPost.New
+- uid: TraktNET.TraktAuthorizationPost.ClientId
+  name: ClientId
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_ClientId
+  commentId: P:TraktNET.TraktAuthorizationPost.ClientId
+  fullName: TraktNET.TraktAuthorizationPost.ClientId
+  nameWithType: TraktAuthorizationPost.ClientId
+- uid: TraktNET.TraktAuthorizationPost.ClientId*
+  name: ClientId
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_ClientId_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.ClientId
+  fullName: TraktNET.TraktAuthorizationPost.ClientId
+  nameWithType: TraktAuthorizationPost.ClientId
+- uid: TraktNET.TraktAuthorizationPost.ClientSecret
+  name: ClientSecret
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_ClientSecret
+  commentId: P:TraktNET.TraktAuthorizationPost.ClientSecret
+  fullName: TraktNET.TraktAuthorizationPost.ClientSecret
+  nameWithType: TraktAuthorizationPost.ClientSecret
+- uid: TraktNET.TraktAuthorizationPost.ClientSecret*
+  name: ClientSecret
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_ClientSecret_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.ClientSecret
+  fullName: TraktNET.TraktAuthorizationPost.ClientSecret
+  nameWithType: TraktAuthorizationPost.ClientSecret
+- uid: TraktNET.TraktAuthorizationPost.Code
+  name: Code
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_Code
+  commentId: P:TraktNET.TraktAuthorizationPost.Code
+  fullName: TraktNET.TraktAuthorizationPost.Code
+  nameWithType: TraktAuthorizationPost.Code
+- uid: TraktNET.TraktAuthorizationPost.Code*
+  name: Code
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_Code_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.Code
+  fullName: TraktNET.TraktAuthorizationPost.Code
+  nameWithType: TraktAuthorizationPost.Code
+- uid: TraktNET.TraktAuthorizationPost.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_EqualityContract
+  commentId: P:TraktNET.TraktAuthorizationPost.EqualityContract
+  fullName: TraktNET.TraktAuthorizationPost.EqualityContract
+  nameWithType: TraktAuthorizationPost.EqualityContract
+- uid: TraktNET.TraktAuthorizationPost.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_EqualityContract_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.EqualityContract
+  fullName: TraktNET.TraktAuthorizationPost.EqualityContract
+  nameWithType: TraktAuthorizationPost.EqualityContract
+- uid: TraktNET.TraktAuthorizationPost.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_Equals_System_Object_
+  commentId: M:TraktNET.TraktAuthorizationPost.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktAuthorizationPost.Equals(object?)
+  fullName.vb: TraktNET.TraktAuthorizationPost.Equals(Object)
+  nameWithType: TraktAuthorizationPost.Equals(object?)
+  nameWithType.vb: TraktAuthorizationPost.Equals(Object)
+- uid: TraktNET.TraktAuthorizationPost.Equals(TraktNET.TraktAuthorizationPost)
+  name: Equals(TraktAuthorizationPost?)
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_Equals_TraktNET_TraktAuthorizationPost_
+  commentId: M:TraktNET.TraktAuthorizationPost.Equals(TraktNET.TraktAuthorizationPost)
+  name.vb: Equals(TraktAuthorizationPost)
+  fullName: TraktNET.TraktAuthorizationPost.Equals(TraktNET.TraktAuthorizationPost?)
+  fullName.vb: TraktNET.TraktAuthorizationPost.Equals(TraktNET.TraktAuthorizationPost)
+  nameWithType: TraktAuthorizationPost.Equals(TraktAuthorizationPost?)
+  nameWithType.vb: TraktAuthorizationPost.Equals(TraktAuthorizationPost)
+- uid: TraktNET.TraktAuthorizationPost.Equals*
+  name: Equals
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_Equals_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.Equals
+  fullName: TraktNET.TraktAuthorizationPost.Equals
+  nameWithType: TraktAuthorizationPost.Equals
+- uid: TraktNET.TraktAuthorizationPost.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_GetHashCode
+  commentId: M:TraktNET.TraktAuthorizationPost.GetHashCode
+  fullName: TraktNET.TraktAuthorizationPost.GetHashCode()
+  nameWithType: TraktAuthorizationPost.GetHashCode()
+- uid: TraktNET.TraktAuthorizationPost.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_GetHashCode_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.GetHashCode
+  fullName: TraktNET.TraktAuthorizationPost.GetHashCode
+  nameWithType: TraktAuthorizationPost.GetHashCode
+- uid: TraktNET.TraktAuthorizationPost.GrantType
+  name: GrantType
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_GrantType
+  commentId: P:TraktNET.TraktAuthorizationPost.GrantType
+  fullName: TraktNET.TraktAuthorizationPost.GrantType
+  nameWithType: TraktAuthorizationPost.GrantType
+- uid: TraktNET.TraktAuthorizationPost.GrantType*
+  name: GrantType
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_GrantType_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.GrantType
+  fullName: TraktNET.TraktAuthorizationPost.GrantType
+  nameWithType: TraktAuthorizationPost.GrantType
+- uid: TraktNET.TraktAuthorizationPost.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktAuthorizationPost.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktAuthorizationPost.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktAuthorizationPost.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktAuthorizationPost.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_PrintMembers_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.PrintMembers
+  fullName: TraktNET.TraktAuthorizationPost.PrintMembers
+  nameWithType: TraktAuthorizationPost.PrintMembers
+- uid: TraktNET.TraktAuthorizationPost.RedirectUri
+  name: RedirectUri
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_RedirectUri
+  commentId: P:TraktNET.TraktAuthorizationPost.RedirectUri
+  fullName: TraktNET.TraktAuthorizationPost.RedirectUri
+  nameWithType: TraktAuthorizationPost.RedirectUri
+- uid: TraktNET.TraktAuthorizationPost.RedirectUri*
+  name: RedirectUri
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_RedirectUri_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.RedirectUri
+  fullName: TraktNET.TraktAuthorizationPost.RedirectUri
+  nameWithType: TraktAuthorizationPost.RedirectUri
+- uid: TraktNET.TraktAuthorizationPost.ToString
+  name: ToString()
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_ToString
+  commentId: M:TraktNET.TraktAuthorizationPost.ToString
+  fullName: TraktNET.TraktAuthorizationPost.ToString()
+  nameWithType: TraktAuthorizationPost.ToString()
+- uid: TraktNET.TraktAuthorizationPost.ToString*
+  name: ToString
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_ToString_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.ToString
+  fullName: TraktNET.TraktAuthorizationPost.ToString
+  nameWithType: TraktAuthorizationPost.ToString
+- uid: TraktNET.TraktAuthorizationPost.Validate
+  name: Validate()
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_Validate
+  commentId: M:TraktNET.TraktAuthorizationPost.Validate
+  fullName: TraktNET.TraktAuthorizationPost.Validate()
+  nameWithType: TraktAuthorizationPost.Validate()
+- uid: TraktNET.TraktAuthorizationPost.Validate*
+  name: Validate
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_Validate_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.Validate
+  fullName: TraktNET.TraktAuthorizationPost.Validate
+  nameWithType: TraktAuthorizationPost.Validate
+- uid: TraktNET.TraktAuthorizationPost.op_Equality(TraktNET.TraktAuthorizationPost,TraktNET.TraktAuthorizationPost)
+  name: operator ==(TraktAuthorizationPost?, TraktAuthorizationPost?)
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_op_Equality_TraktNET_TraktAuthorizationPost_TraktNET_TraktAuthorizationPost_
+  commentId: M:TraktNET.TraktAuthorizationPost.op_Equality(TraktNET.TraktAuthorizationPost,TraktNET.TraktAuthorizationPost)
+  name.vb: =(TraktAuthorizationPost, TraktAuthorizationPost)
+  fullName: TraktNET.TraktAuthorizationPost.operator ==(TraktNET.TraktAuthorizationPost?, TraktNET.TraktAuthorizationPost?)
+  fullName.vb: TraktNET.TraktAuthorizationPost.=(TraktNET.TraktAuthorizationPost, TraktNET.TraktAuthorizationPost)
+  nameWithType: TraktAuthorizationPost.operator ==(TraktAuthorizationPost?, TraktAuthorizationPost?)
+  nameWithType.vb: TraktAuthorizationPost.=(TraktAuthorizationPost, TraktAuthorizationPost)
+- uid: TraktNET.TraktAuthorizationPost.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_op_Equality_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktAuthorizationPost.operator ==
+  fullName.vb: TraktNET.TraktAuthorizationPost.=
+  nameWithType: TraktAuthorizationPost.operator ==
+  nameWithType.vb: TraktAuthorizationPost.=
+- uid: TraktNET.TraktAuthorizationPost.op_Inequality(TraktNET.TraktAuthorizationPost,TraktNET.TraktAuthorizationPost)
+  name: operator !=(TraktAuthorizationPost?, TraktAuthorizationPost?)
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_op_Inequality_TraktNET_TraktAuthorizationPost_TraktNET_TraktAuthorizationPost_
+  commentId: M:TraktNET.TraktAuthorizationPost.op_Inequality(TraktNET.TraktAuthorizationPost,TraktNET.TraktAuthorizationPost)
+  name.vb: <>(TraktAuthorizationPost, TraktAuthorizationPost)
+  fullName: TraktNET.TraktAuthorizationPost.operator !=(TraktNET.TraktAuthorizationPost?, TraktNET.TraktAuthorizationPost?)
+  fullName.vb: TraktNET.TraktAuthorizationPost.<>(TraktNET.TraktAuthorizationPost, TraktNET.TraktAuthorizationPost)
+  nameWithType: TraktAuthorizationPost.operator !=(TraktAuthorizationPost?, TraktAuthorizationPost?)
+  nameWithType.vb: TraktAuthorizationPost.<>(TraktAuthorizationPost, TraktAuthorizationPost)
+- uid: TraktNET.TraktAuthorizationPost.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_op_Inequality_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktAuthorizationPost.operator !=
+  fullName.vb: TraktNET.TraktAuthorizationPost.<>
+  nameWithType: TraktAuthorizationPost.operator !=
+  nameWithType.vb: TraktAuthorizationPost.<>
+- uid: TraktNET.TraktAuthorizationRefreshPost
+  name: TraktAuthorizationRefreshPost
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html
+  commentId: T:TraktNET.TraktAuthorizationRefreshPost
+  fullName: TraktNET.TraktAuthorizationRefreshPost
+  nameWithType: TraktAuthorizationRefreshPost
+- uid: TraktNET.TraktAuthorizationRefreshPost.#ctor
+  name: TraktAuthorizationRefreshPost()
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost__ctor
+  commentId: M:TraktNET.TraktAuthorizationRefreshPost.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktAuthorizationRefreshPost.TraktAuthorizationRefreshPost()
+  fullName.vb: TraktNET.TraktAuthorizationRefreshPost.New()
+  nameWithType: TraktAuthorizationRefreshPost.TraktAuthorizationRefreshPost()
+  nameWithType.vb: TraktAuthorizationRefreshPost.New()
+- uid: TraktNET.TraktAuthorizationRefreshPost.#ctor(TraktNET.TraktAuthorizationRefreshPost)
+  name: TraktAuthorizationRefreshPost(TraktAuthorizationRefreshPost)
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost__ctor_TraktNET_TraktAuthorizationRefreshPost_
+  commentId: M:TraktNET.TraktAuthorizationRefreshPost.#ctor(TraktNET.TraktAuthorizationRefreshPost)
+  name.vb: New(TraktAuthorizationRefreshPost)
+  fullName: TraktNET.TraktAuthorizationRefreshPost.TraktAuthorizationRefreshPost(TraktNET.TraktAuthorizationRefreshPost)
+  fullName.vb: TraktNET.TraktAuthorizationRefreshPost.New(TraktNET.TraktAuthorizationRefreshPost)
+  nameWithType: TraktAuthorizationRefreshPost.TraktAuthorizationRefreshPost(TraktAuthorizationRefreshPost)
+  nameWithType.vb: TraktAuthorizationRefreshPost.New(TraktAuthorizationRefreshPost)
+- uid: TraktNET.TraktAuthorizationRefreshPost.#ctor*
+  name: TraktAuthorizationRefreshPost
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost__ctor_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktAuthorizationRefreshPost.TraktAuthorizationRefreshPost
+  fullName.vb: TraktNET.TraktAuthorizationRefreshPost.New
+  nameWithType: TraktAuthorizationRefreshPost.TraktAuthorizationRefreshPost
+  nameWithType.vb: TraktAuthorizationRefreshPost.New
+- uid: TraktNET.TraktAuthorizationRefreshPost.ClientId
+  name: ClientId
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_ClientId
+  commentId: P:TraktNET.TraktAuthorizationRefreshPost.ClientId
+  fullName: TraktNET.TraktAuthorizationRefreshPost.ClientId
+  nameWithType: TraktAuthorizationRefreshPost.ClientId
+- uid: TraktNET.TraktAuthorizationRefreshPost.ClientId*
+  name: ClientId
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_ClientId_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.ClientId
+  fullName: TraktNET.TraktAuthorizationRefreshPost.ClientId
+  nameWithType: TraktAuthorizationRefreshPost.ClientId
+- uid: TraktNET.TraktAuthorizationRefreshPost.ClientSecret
+  name: ClientSecret
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_ClientSecret
+  commentId: P:TraktNET.TraktAuthorizationRefreshPost.ClientSecret
+  fullName: TraktNET.TraktAuthorizationRefreshPost.ClientSecret
+  nameWithType: TraktAuthorizationRefreshPost.ClientSecret
+- uid: TraktNET.TraktAuthorizationRefreshPost.ClientSecret*
+  name: ClientSecret
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_ClientSecret_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.ClientSecret
+  fullName: TraktNET.TraktAuthorizationRefreshPost.ClientSecret
+  nameWithType: TraktAuthorizationRefreshPost.ClientSecret
+- uid: TraktNET.TraktAuthorizationRefreshPost.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_EqualityContract
+  commentId: P:TraktNET.TraktAuthorizationRefreshPost.EqualityContract
+  fullName: TraktNET.TraktAuthorizationRefreshPost.EqualityContract
+  nameWithType: TraktAuthorizationRefreshPost.EqualityContract
+- uid: TraktNET.TraktAuthorizationRefreshPost.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_EqualityContract_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.EqualityContract
+  fullName: TraktNET.TraktAuthorizationRefreshPost.EqualityContract
+  nameWithType: TraktAuthorizationRefreshPost.EqualityContract
+- uid: TraktNET.TraktAuthorizationRefreshPost.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_Equals_System_Object_
+  commentId: M:TraktNET.TraktAuthorizationRefreshPost.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktAuthorizationRefreshPost.Equals(object?)
+  fullName.vb: TraktNET.TraktAuthorizationRefreshPost.Equals(Object)
+  nameWithType: TraktAuthorizationRefreshPost.Equals(object?)
+  nameWithType.vb: TraktAuthorizationRefreshPost.Equals(Object)
+- uid: TraktNET.TraktAuthorizationRefreshPost.Equals(TraktNET.TraktAuthorizationRefreshPost)
+  name: Equals(TraktAuthorizationRefreshPost?)
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_Equals_TraktNET_TraktAuthorizationRefreshPost_
+  commentId: M:TraktNET.TraktAuthorizationRefreshPost.Equals(TraktNET.TraktAuthorizationRefreshPost)
+  name.vb: Equals(TraktAuthorizationRefreshPost)
+  fullName: TraktNET.TraktAuthorizationRefreshPost.Equals(TraktNET.TraktAuthorizationRefreshPost?)
+  fullName.vb: TraktNET.TraktAuthorizationRefreshPost.Equals(TraktNET.TraktAuthorizationRefreshPost)
+  nameWithType: TraktAuthorizationRefreshPost.Equals(TraktAuthorizationRefreshPost?)
+  nameWithType.vb: TraktAuthorizationRefreshPost.Equals(TraktAuthorizationRefreshPost)
+- uid: TraktNET.TraktAuthorizationRefreshPost.Equals*
+  name: Equals
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_Equals_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.Equals
+  fullName: TraktNET.TraktAuthorizationRefreshPost.Equals
+  nameWithType: TraktAuthorizationRefreshPost.Equals
+- uid: TraktNET.TraktAuthorizationRefreshPost.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_GetHashCode
+  commentId: M:TraktNET.TraktAuthorizationRefreshPost.GetHashCode
+  fullName: TraktNET.TraktAuthorizationRefreshPost.GetHashCode()
+  nameWithType: TraktAuthorizationRefreshPost.GetHashCode()
+- uid: TraktNET.TraktAuthorizationRefreshPost.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_GetHashCode_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.GetHashCode
+  fullName: TraktNET.TraktAuthorizationRefreshPost.GetHashCode
+  nameWithType: TraktAuthorizationRefreshPost.GetHashCode
+- uid: TraktNET.TraktAuthorizationRefreshPost.GrantType
+  name: GrantType
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_GrantType
+  commentId: P:TraktNET.TraktAuthorizationRefreshPost.GrantType
+  fullName: TraktNET.TraktAuthorizationRefreshPost.GrantType
+  nameWithType: TraktAuthorizationRefreshPost.GrantType
+- uid: TraktNET.TraktAuthorizationRefreshPost.GrantType*
+  name: GrantType
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_GrantType_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.GrantType
+  fullName: TraktNET.TraktAuthorizationRefreshPost.GrantType
+  nameWithType: TraktAuthorizationRefreshPost.GrantType
+- uid: TraktNET.TraktAuthorizationRefreshPost.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktAuthorizationRefreshPost.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktAuthorizationRefreshPost.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktAuthorizationRefreshPost.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktAuthorizationRefreshPost.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_PrintMembers_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.PrintMembers
+  fullName: TraktNET.TraktAuthorizationRefreshPost.PrintMembers
+  nameWithType: TraktAuthorizationRefreshPost.PrintMembers
+- uid: TraktNET.TraktAuthorizationRefreshPost.RedirectUri
+  name: RedirectUri
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_RedirectUri
+  commentId: P:TraktNET.TraktAuthorizationRefreshPost.RedirectUri
+  fullName: TraktNET.TraktAuthorizationRefreshPost.RedirectUri
+  nameWithType: TraktAuthorizationRefreshPost.RedirectUri
+- uid: TraktNET.TraktAuthorizationRefreshPost.RedirectUri*
+  name: RedirectUri
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_RedirectUri_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.RedirectUri
+  fullName: TraktNET.TraktAuthorizationRefreshPost.RedirectUri
+  nameWithType: TraktAuthorizationRefreshPost.RedirectUri
+- uid: TraktNET.TraktAuthorizationRefreshPost.RefreshToken
+  name: RefreshToken
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_RefreshToken
+  commentId: P:TraktNET.TraktAuthorizationRefreshPost.RefreshToken
+  fullName: TraktNET.TraktAuthorizationRefreshPost.RefreshToken
+  nameWithType: TraktAuthorizationRefreshPost.RefreshToken
+- uid: TraktNET.TraktAuthorizationRefreshPost.RefreshToken*
+  name: RefreshToken
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_RefreshToken_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.RefreshToken
+  fullName: TraktNET.TraktAuthorizationRefreshPost.RefreshToken
+  nameWithType: TraktAuthorizationRefreshPost.RefreshToken
+- uid: TraktNET.TraktAuthorizationRefreshPost.ToString
+  name: ToString()
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_ToString
+  commentId: M:TraktNET.TraktAuthorizationRefreshPost.ToString
+  fullName: TraktNET.TraktAuthorizationRefreshPost.ToString()
+  nameWithType: TraktAuthorizationRefreshPost.ToString()
+- uid: TraktNET.TraktAuthorizationRefreshPost.ToString*
+  name: ToString
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_ToString_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.ToString
+  fullName: TraktNET.TraktAuthorizationRefreshPost.ToString
+  nameWithType: TraktAuthorizationRefreshPost.ToString
+- uid: TraktNET.TraktAuthorizationRefreshPost.Validate
+  name: Validate()
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_Validate
+  commentId: M:TraktNET.TraktAuthorizationRefreshPost.Validate
+  fullName: TraktNET.TraktAuthorizationRefreshPost.Validate()
+  nameWithType: TraktAuthorizationRefreshPost.Validate()
+- uid: TraktNET.TraktAuthorizationRefreshPost.Validate*
+  name: Validate
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_Validate_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.Validate
+  fullName: TraktNET.TraktAuthorizationRefreshPost.Validate
+  nameWithType: TraktAuthorizationRefreshPost.Validate
+- uid: TraktNET.TraktAuthorizationRefreshPost.op_Equality(TraktNET.TraktAuthorizationRefreshPost,TraktNET.TraktAuthorizationRefreshPost)
+  name: operator ==(TraktAuthorizationRefreshPost?, TraktAuthorizationRefreshPost?)
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_op_Equality_TraktNET_TraktAuthorizationRefreshPost_TraktNET_TraktAuthorizationRefreshPost_
+  commentId: M:TraktNET.TraktAuthorizationRefreshPost.op_Equality(TraktNET.TraktAuthorizationRefreshPost,TraktNET.TraktAuthorizationRefreshPost)
+  name.vb: =(TraktAuthorizationRefreshPost, TraktAuthorizationRefreshPost)
+  fullName: TraktNET.TraktAuthorizationRefreshPost.operator ==(TraktNET.TraktAuthorizationRefreshPost?, TraktNET.TraktAuthorizationRefreshPost?)
+  fullName.vb: TraktNET.TraktAuthorizationRefreshPost.=(TraktNET.TraktAuthorizationRefreshPost, TraktNET.TraktAuthorizationRefreshPost)
+  nameWithType: TraktAuthorizationRefreshPost.operator ==(TraktAuthorizationRefreshPost?, TraktAuthorizationRefreshPost?)
+  nameWithType.vb: TraktAuthorizationRefreshPost.=(TraktAuthorizationRefreshPost, TraktAuthorizationRefreshPost)
+- uid: TraktNET.TraktAuthorizationRefreshPost.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_op_Equality_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktAuthorizationRefreshPost.operator ==
+  fullName.vb: TraktNET.TraktAuthorizationRefreshPost.=
+  nameWithType: TraktAuthorizationRefreshPost.operator ==
+  nameWithType.vb: TraktAuthorizationRefreshPost.=
+- uid: TraktNET.TraktAuthorizationRefreshPost.op_Inequality(TraktNET.TraktAuthorizationRefreshPost,TraktNET.TraktAuthorizationRefreshPost)
+  name: operator !=(TraktAuthorizationRefreshPost?, TraktAuthorizationRefreshPost?)
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_op_Inequality_TraktNET_TraktAuthorizationRefreshPost_TraktNET_TraktAuthorizationRefreshPost_
+  commentId: M:TraktNET.TraktAuthorizationRefreshPost.op_Inequality(TraktNET.TraktAuthorizationRefreshPost,TraktNET.TraktAuthorizationRefreshPost)
+  name.vb: <>(TraktAuthorizationRefreshPost, TraktAuthorizationRefreshPost)
+  fullName: TraktNET.TraktAuthorizationRefreshPost.operator !=(TraktNET.TraktAuthorizationRefreshPost?, TraktNET.TraktAuthorizationRefreshPost?)
+  fullName.vb: TraktNET.TraktAuthorizationRefreshPost.<>(TraktNET.TraktAuthorizationRefreshPost, TraktNET.TraktAuthorizationRefreshPost)
+  nameWithType: TraktAuthorizationRefreshPost.operator !=(TraktAuthorizationRefreshPost?, TraktAuthorizationRefreshPost?)
+  nameWithType.vb: TraktAuthorizationRefreshPost.<>(TraktAuthorizationRefreshPost, TraktAuthorizationRefreshPost)
+- uid: TraktNET.TraktAuthorizationRefreshPost.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktAuthorizationRefreshPost.html#TraktNET_TraktAuthorizationRefreshPost_op_Inequality_
+  commentId: Overload:TraktNET.TraktAuthorizationRefreshPost.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktAuthorizationRefreshPost.operator !=
+  fullName.vb: TraktNET.TraktAuthorizationRefreshPost.<>
+  nameWithType: TraktAuthorizationRefreshPost.operator !=
+  nameWithType.vb: TraktAuthorizationRefreshPost.<>
+- uid: TraktNET.TraktAuthorizationRevokePost
+  name: TraktAuthorizationRevokePost
+  href: api/TraktNET.TraktAuthorizationRevokePost.html
+  commentId: T:TraktNET.TraktAuthorizationRevokePost
+  fullName: TraktNET.TraktAuthorizationRevokePost
+  nameWithType: TraktAuthorizationRevokePost
+- uid: TraktNET.TraktAuthorizationRevokePost.#ctor
+  name: TraktAuthorizationRevokePost()
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost__ctor
+  commentId: M:TraktNET.TraktAuthorizationRevokePost.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktAuthorizationRevokePost.TraktAuthorizationRevokePost()
+  fullName.vb: TraktNET.TraktAuthorizationRevokePost.New()
+  nameWithType: TraktAuthorizationRevokePost.TraktAuthorizationRevokePost()
+  nameWithType.vb: TraktAuthorizationRevokePost.New()
+- uid: TraktNET.TraktAuthorizationRevokePost.#ctor(TraktNET.TraktAuthorizationRevokePost)
+  name: TraktAuthorizationRevokePost(TraktAuthorizationRevokePost)
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost__ctor_TraktNET_TraktAuthorizationRevokePost_
+  commentId: M:TraktNET.TraktAuthorizationRevokePost.#ctor(TraktNET.TraktAuthorizationRevokePost)
+  name.vb: New(TraktAuthorizationRevokePost)
+  fullName: TraktNET.TraktAuthorizationRevokePost.TraktAuthorizationRevokePost(TraktNET.TraktAuthorizationRevokePost)
+  fullName.vb: TraktNET.TraktAuthorizationRevokePost.New(TraktNET.TraktAuthorizationRevokePost)
+  nameWithType: TraktAuthorizationRevokePost.TraktAuthorizationRevokePost(TraktAuthorizationRevokePost)
+  nameWithType.vb: TraktAuthorizationRevokePost.New(TraktAuthorizationRevokePost)
+- uid: TraktNET.TraktAuthorizationRevokePost.#ctor*
+  name: TraktAuthorizationRevokePost
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost__ctor_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktAuthorizationRevokePost.TraktAuthorizationRevokePost
+  fullName.vb: TraktNET.TraktAuthorizationRevokePost.New
+  nameWithType: TraktAuthorizationRevokePost.TraktAuthorizationRevokePost
+  nameWithType.vb: TraktAuthorizationRevokePost.New
+- uid: TraktNET.TraktAuthorizationRevokePost.ClientId
+  name: ClientId
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_ClientId
+  commentId: P:TraktNET.TraktAuthorizationRevokePost.ClientId
+  fullName: TraktNET.TraktAuthorizationRevokePost.ClientId
+  nameWithType: TraktAuthorizationRevokePost.ClientId
+- uid: TraktNET.TraktAuthorizationRevokePost.ClientId*
+  name: ClientId
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_ClientId_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.ClientId
+  fullName: TraktNET.TraktAuthorizationRevokePost.ClientId
+  nameWithType: TraktAuthorizationRevokePost.ClientId
+- uid: TraktNET.TraktAuthorizationRevokePost.ClientSecret
+  name: ClientSecret
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_ClientSecret
+  commentId: P:TraktNET.TraktAuthorizationRevokePost.ClientSecret
+  fullName: TraktNET.TraktAuthorizationRevokePost.ClientSecret
+  nameWithType: TraktAuthorizationRevokePost.ClientSecret
+- uid: TraktNET.TraktAuthorizationRevokePost.ClientSecret*
+  name: ClientSecret
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_ClientSecret_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.ClientSecret
+  fullName: TraktNET.TraktAuthorizationRevokePost.ClientSecret
+  nameWithType: TraktAuthorizationRevokePost.ClientSecret
+- uid: TraktNET.TraktAuthorizationRevokePost.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_EqualityContract
+  commentId: P:TraktNET.TraktAuthorizationRevokePost.EqualityContract
+  fullName: TraktNET.TraktAuthorizationRevokePost.EqualityContract
+  nameWithType: TraktAuthorizationRevokePost.EqualityContract
+- uid: TraktNET.TraktAuthorizationRevokePost.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_EqualityContract_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.EqualityContract
+  fullName: TraktNET.TraktAuthorizationRevokePost.EqualityContract
+  nameWithType: TraktAuthorizationRevokePost.EqualityContract
+- uid: TraktNET.TraktAuthorizationRevokePost.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_Equals_System_Object_
+  commentId: M:TraktNET.TraktAuthorizationRevokePost.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktAuthorizationRevokePost.Equals(object?)
+  fullName.vb: TraktNET.TraktAuthorizationRevokePost.Equals(Object)
+  nameWithType: TraktAuthorizationRevokePost.Equals(object?)
+  nameWithType.vb: TraktAuthorizationRevokePost.Equals(Object)
+- uid: TraktNET.TraktAuthorizationRevokePost.Equals(TraktNET.TraktAuthorizationRevokePost)
+  name: Equals(TraktAuthorizationRevokePost?)
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_Equals_TraktNET_TraktAuthorizationRevokePost_
+  commentId: M:TraktNET.TraktAuthorizationRevokePost.Equals(TraktNET.TraktAuthorizationRevokePost)
+  name.vb: Equals(TraktAuthorizationRevokePost)
+  fullName: TraktNET.TraktAuthorizationRevokePost.Equals(TraktNET.TraktAuthorizationRevokePost?)
+  fullName.vb: TraktNET.TraktAuthorizationRevokePost.Equals(TraktNET.TraktAuthorizationRevokePost)
+  nameWithType: TraktAuthorizationRevokePost.Equals(TraktAuthorizationRevokePost?)
+  nameWithType.vb: TraktAuthorizationRevokePost.Equals(TraktAuthorizationRevokePost)
+- uid: TraktNET.TraktAuthorizationRevokePost.Equals*
+  name: Equals
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_Equals_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.Equals
+  fullName: TraktNET.TraktAuthorizationRevokePost.Equals
+  nameWithType: TraktAuthorizationRevokePost.Equals
+- uid: TraktNET.TraktAuthorizationRevokePost.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_GetHashCode
+  commentId: M:TraktNET.TraktAuthorizationRevokePost.GetHashCode
+  fullName: TraktNET.TraktAuthorizationRevokePost.GetHashCode()
+  nameWithType: TraktAuthorizationRevokePost.GetHashCode()
+- uid: TraktNET.TraktAuthorizationRevokePost.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_GetHashCode_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.GetHashCode
+  fullName: TraktNET.TraktAuthorizationRevokePost.GetHashCode
+  nameWithType: TraktAuthorizationRevokePost.GetHashCode
+- uid: TraktNET.TraktAuthorizationRevokePost.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktAuthorizationRevokePost.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktAuthorizationRevokePost.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktAuthorizationRevokePost.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktAuthorizationRevokePost.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_PrintMembers_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.PrintMembers
+  fullName: TraktNET.TraktAuthorizationRevokePost.PrintMembers
+  nameWithType: TraktAuthorizationRevokePost.PrintMembers
+- uid: TraktNET.TraktAuthorizationRevokePost.ToString
+  name: ToString()
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_ToString
+  commentId: M:TraktNET.TraktAuthorizationRevokePost.ToString
+  fullName: TraktNET.TraktAuthorizationRevokePost.ToString()
+  nameWithType: TraktAuthorizationRevokePost.ToString()
+- uid: TraktNET.TraktAuthorizationRevokePost.ToString*
+  name: ToString
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_ToString_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.ToString
+  fullName: TraktNET.TraktAuthorizationRevokePost.ToString
+  nameWithType: TraktAuthorizationRevokePost.ToString
+- uid: TraktNET.TraktAuthorizationRevokePost.Token
+  name: Token
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_Token
+  commentId: P:TraktNET.TraktAuthorizationRevokePost.Token
+  fullName: TraktNET.TraktAuthorizationRevokePost.Token
+  nameWithType: TraktAuthorizationRevokePost.Token
+- uid: TraktNET.TraktAuthorizationRevokePost.Token*
+  name: Token
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_Token_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.Token
+  fullName: TraktNET.TraktAuthorizationRevokePost.Token
+  nameWithType: TraktAuthorizationRevokePost.Token
+- uid: TraktNET.TraktAuthorizationRevokePost.Validate
+  name: Validate()
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_Validate
+  commentId: M:TraktNET.TraktAuthorizationRevokePost.Validate
+  fullName: TraktNET.TraktAuthorizationRevokePost.Validate()
+  nameWithType: TraktAuthorizationRevokePost.Validate()
+- uid: TraktNET.TraktAuthorizationRevokePost.Validate*
+  name: Validate
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_Validate_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.Validate
+  fullName: TraktNET.TraktAuthorizationRevokePost.Validate
+  nameWithType: TraktAuthorizationRevokePost.Validate
+- uid: TraktNET.TraktAuthorizationRevokePost.op_Equality(TraktNET.TraktAuthorizationRevokePost,TraktNET.TraktAuthorizationRevokePost)
+  name: operator ==(TraktAuthorizationRevokePost?, TraktAuthorizationRevokePost?)
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_op_Equality_TraktNET_TraktAuthorizationRevokePost_TraktNET_TraktAuthorizationRevokePost_
+  commentId: M:TraktNET.TraktAuthorizationRevokePost.op_Equality(TraktNET.TraktAuthorizationRevokePost,TraktNET.TraktAuthorizationRevokePost)
+  name.vb: =(TraktAuthorizationRevokePost, TraktAuthorizationRevokePost)
+  fullName: TraktNET.TraktAuthorizationRevokePost.operator ==(TraktNET.TraktAuthorizationRevokePost?, TraktNET.TraktAuthorizationRevokePost?)
+  fullName.vb: TraktNET.TraktAuthorizationRevokePost.=(TraktNET.TraktAuthorizationRevokePost, TraktNET.TraktAuthorizationRevokePost)
+  nameWithType: TraktAuthorizationRevokePost.operator ==(TraktAuthorizationRevokePost?, TraktAuthorizationRevokePost?)
+  nameWithType.vb: TraktAuthorizationRevokePost.=(TraktAuthorizationRevokePost, TraktAuthorizationRevokePost)
+- uid: TraktNET.TraktAuthorizationRevokePost.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_op_Equality_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktAuthorizationRevokePost.operator ==
+  fullName.vb: TraktNET.TraktAuthorizationRevokePost.=
+  nameWithType: TraktAuthorizationRevokePost.operator ==
+  nameWithType.vb: TraktAuthorizationRevokePost.=
+- uid: TraktNET.TraktAuthorizationRevokePost.op_Inequality(TraktNET.TraktAuthorizationRevokePost,TraktNET.TraktAuthorizationRevokePost)
+  name: operator !=(TraktAuthorizationRevokePost?, TraktAuthorizationRevokePost?)
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_op_Inequality_TraktNET_TraktAuthorizationRevokePost_TraktNET_TraktAuthorizationRevokePost_
+  commentId: M:TraktNET.TraktAuthorizationRevokePost.op_Inequality(TraktNET.TraktAuthorizationRevokePost,TraktNET.TraktAuthorizationRevokePost)
+  name.vb: <>(TraktAuthorizationRevokePost, TraktAuthorizationRevokePost)
+  fullName: TraktNET.TraktAuthorizationRevokePost.operator !=(TraktNET.TraktAuthorizationRevokePost?, TraktNET.TraktAuthorizationRevokePost?)
+  fullName.vb: TraktNET.TraktAuthorizationRevokePost.<>(TraktNET.TraktAuthorizationRevokePost, TraktNET.TraktAuthorizationRevokePost)
+  nameWithType: TraktAuthorizationRevokePost.operator !=(TraktAuthorizationRevokePost?, TraktAuthorizationRevokePost?)
+  nameWithType.vb: TraktAuthorizationRevokePost.<>(TraktAuthorizationRevokePost, TraktAuthorizationRevokePost)
+- uid: TraktNET.TraktAuthorizationRevokePost.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktAuthorizationRevokePost.html#TraktNET_TraktAuthorizationRevokePost_op_Inequality_
+  commentId: Overload:TraktNET.TraktAuthorizationRevokePost.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktAuthorizationRevokePost.operator !=
+  fullName.vb: TraktNET.TraktAuthorizationRevokePost.<>
+  nameWithType: TraktAuthorizationRevokePost.operator !=
+  nameWithType.vb: TraktAuthorizationRevokePost.<>
 - uid: TraktNET.TraktBoxOfficeMovie
   name: TraktBoxOfficeMovie
   href: api/TraktNET.TraktBoxOfficeMovie.html
@@ -29926,6 +30802,171 @@ references:
   fullName.vb: TraktNET.TraktDevice.<>
   nameWithType: TraktDevice.operator !=
   nameWithType.vb: TraktDevice.<>
+- uid: TraktNET.TraktDevicePost
+  name: TraktDevicePost
+  href: api/TraktNET.TraktDevicePost.html
+  commentId: T:TraktNET.TraktDevicePost
+  fullName: TraktNET.TraktDevicePost
+  nameWithType: TraktDevicePost
+- uid: TraktNET.TraktDevicePost.#ctor
+  name: TraktDevicePost()
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost__ctor
+  commentId: M:TraktNET.TraktDevicePost.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktDevicePost.TraktDevicePost()
+  fullName.vb: TraktNET.TraktDevicePost.New()
+  nameWithType: TraktDevicePost.TraktDevicePost()
+  nameWithType.vb: TraktDevicePost.New()
+- uid: TraktNET.TraktDevicePost.#ctor(TraktNET.TraktDevicePost)
+  name: TraktDevicePost(TraktDevicePost)
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost__ctor_TraktNET_TraktDevicePost_
+  commentId: M:TraktNET.TraktDevicePost.#ctor(TraktNET.TraktDevicePost)
+  name.vb: New(TraktDevicePost)
+  fullName: TraktNET.TraktDevicePost.TraktDevicePost(TraktNET.TraktDevicePost)
+  fullName.vb: TraktNET.TraktDevicePost.New(TraktNET.TraktDevicePost)
+  nameWithType: TraktDevicePost.TraktDevicePost(TraktDevicePost)
+  nameWithType.vb: TraktDevicePost.New(TraktDevicePost)
+- uid: TraktNET.TraktDevicePost.#ctor*
+  name: TraktDevicePost
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost__ctor_
+  commentId: Overload:TraktNET.TraktDevicePost.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktDevicePost.TraktDevicePost
+  fullName.vb: TraktNET.TraktDevicePost.New
+  nameWithType: TraktDevicePost.TraktDevicePost
+  nameWithType.vb: TraktDevicePost.New
+- uid: TraktNET.TraktDevicePost.ClientId
+  name: ClientId
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_ClientId
+  commentId: P:TraktNET.TraktDevicePost.ClientId
+  fullName: TraktNET.TraktDevicePost.ClientId
+  nameWithType: TraktDevicePost.ClientId
+- uid: TraktNET.TraktDevicePost.ClientId*
+  name: ClientId
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_ClientId_
+  commentId: Overload:TraktNET.TraktDevicePost.ClientId
+  fullName: TraktNET.TraktDevicePost.ClientId
+  nameWithType: TraktDevicePost.ClientId
+- uid: TraktNET.TraktDevicePost.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_EqualityContract
+  commentId: P:TraktNET.TraktDevicePost.EqualityContract
+  fullName: TraktNET.TraktDevicePost.EqualityContract
+  nameWithType: TraktDevicePost.EqualityContract
+- uid: TraktNET.TraktDevicePost.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_EqualityContract_
+  commentId: Overload:TraktNET.TraktDevicePost.EqualityContract
+  fullName: TraktNET.TraktDevicePost.EqualityContract
+  nameWithType: TraktDevicePost.EqualityContract
+- uid: TraktNET.TraktDevicePost.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_Equals_System_Object_
+  commentId: M:TraktNET.TraktDevicePost.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktDevicePost.Equals(object?)
+  fullName.vb: TraktNET.TraktDevicePost.Equals(Object)
+  nameWithType: TraktDevicePost.Equals(object?)
+  nameWithType.vb: TraktDevicePost.Equals(Object)
+- uid: TraktNET.TraktDevicePost.Equals(TraktNET.TraktDevicePost)
+  name: Equals(TraktDevicePost?)
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_Equals_TraktNET_TraktDevicePost_
+  commentId: M:TraktNET.TraktDevicePost.Equals(TraktNET.TraktDevicePost)
+  name.vb: Equals(TraktDevicePost)
+  fullName: TraktNET.TraktDevicePost.Equals(TraktNET.TraktDevicePost?)
+  fullName.vb: TraktNET.TraktDevicePost.Equals(TraktNET.TraktDevicePost)
+  nameWithType: TraktDevicePost.Equals(TraktDevicePost?)
+  nameWithType.vb: TraktDevicePost.Equals(TraktDevicePost)
+- uid: TraktNET.TraktDevicePost.Equals*
+  name: Equals
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_Equals_
+  commentId: Overload:TraktNET.TraktDevicePost.Equals
+  fullName: TraktNET.TraktDevicePost.Equals
+  nameWithType: TraktDevicePost.Equals
+- uid: TraktNET.TraktDevicePost.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_GetHashCode
+  commentId: M:TraktNET.TraktDevicePost.GetHashCode
+  fullName: TraktNET.TraktDevicePost.GetHashCode()
+  nameWithType: TraktDevicePost.GetHashCode()
+- uid: TraktNET.TraktDevicePost.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_GetHashCode_
+  commentId: Overload:TraktNET.TraktDevicePost.GetHashCode
+  fullName: TraktNET.TraktDevicePost.GetHashCode
+  nameWithType: TraktDevicePost.GetHashCode
+- uid: TraktNET.TraktDevicePost.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktDevicePost.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktDevicePost.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktDevicePost.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktDevicePost.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_PrintMembers_
+  commentId: Overload:TraktNET.TraktDevicePost.PrintMembers
+  fullName: TraktNET.TraktDevicePost.PrintMembers
+  nameWithType: TraktDevicePost.PrintMembers
+- uid: TraktNET.TraktDevicePost.ToString
+  name: ToString()
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_ToString
+  commentId: M:TraktNET.TraktDevicePost.ToString
+  fullName: TraktNET.TraktDevicePost.ToString()
+  nameWithType: TraktDevicePost.ToString()
+- uid: TraktNET.TraktDevicePost.ToString*
+  name: ToString
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_ToString_
+  commentId: Overload:TraktNET.TraktDevicePost.ToString
+  fullName: TraktNET.TraktDevicePost.ToString
+  nameWithType: TraktDevicePost.ToString
+- uid: TraktNET.TraktDevicePost.Validate
+  name: Validate()
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_Validate
+  commentId: M:TraktNET.TraktDevicePost.Validate
+  fullName: TraktNET.TraktDevicePost.Validate()
+  nameWithType: TraktDevicePost.Validate()
+- uid: TraktNET.TraktDevicePost.Validate*
+  name: Validate
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_Validate_
+  commentId: Overload:TraktNET.TraktDevicePost.Validate
+  fullName: TraktNET.TraktDevicePost.Validate
+  nameWithType: TraktDevicePost.Validate
+- uid: TraktNET.TraktDevicePost.op_Equality(TraktNET.TraktDevicePost,TraktNET.TraktDevicePost)
+  name: operator ==(TraktDevicePost?, TraktDevicePost?)
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_op_Equality_TraktNET_TraktDevicePost_TraktNET_TraktDevicePost_
+  commentId: M:TraktNET.TraktDevicePost.op_Equality(TraktNET.TraktDevicePost,TraktNET.TraktDevicePost)
+  name.vb: =(TraktDevicePost, TraktDevicePost)
+  fullName: TraktNET.TraktDevicePost.operator ==(TraktNET.TraktDevicePost?, TraktNET.TraktDevicePost?)
+  fullName.vb: TraktNET.TraktDevicePost.=(TraktNET.TraktDevicePost, TraktNET.TraktDevicePost)
+  nameWithType: TraktDevicePost.operator ==(TraktDevicePost?, TraktDevicePost?)
+  nameWithType.vb: TraktDevicePost.=(TraktDevicePost, TraktDevicePost)
+- uid: TraktNET.TraktDevicePost.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_op_Equality_
+  commentId: Overload:TraktNET.TraktDevicePost.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktDevicePost.operator ==
+  fullName.vb: TraktNET.TraktDevicePost.=
+  nameWithType: TraktDevicePost.operator ==
+  nameWithType.vb: TraktDevicePost.=
+- uid: TraktNET.TraktDevicePost.op_Inequality(TraktNET.TraktDevicePost,TraktNET.TraktDevicePost)
+  name: operator !=(TraktDevicePost?, TraktDevicePost?)
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_op_Inequality_TraktNET_TraktDevicePost_TraktNET_TraktDevicePost_
+  commentId: M:TraktNET.TraktDevicePost.op_Inequality(TraktNET.TraktDevicePost,TraktNET.TraktDevicePost)
+  name.vb: <>(TraktDevicePost, TraktDevicePost)
+  fullName: TraktNET.TraktDevicePost.operator !=(TraktNET.TraktDevicePost?, TraktNET.TraktDevicePost?)
+  fullName.vb: TraktNET.TraktDevicePost.<>(TraktNET.TraktDevicePost, TraktNET.TraktDevicePost)
+  nameWithType: TraktDevicePost.operator !=(TraktDevicePost?, TraktDevicePost?)
+  nameWithType.vb: TraktDevicePost.<>(TraktDevicePost, TraktDevicePost)
+- uid: TraktNET.TraktDevicePost.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktDevicePost.html#TraktNET_TraktDevicePost_op_Inequality_
+  commentId: Overload:TraktNET.TraktDevicePost.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktDevicePost.operator !=
+  fullName.vb: TraktNET.TraktDevicePost.<>
+  nameWithType: TraktDevicePost.operator !=
+  nameWithType.vb: TraktDevicePost.<>
 - uid: TraktNET.TraktEpisode
   name: TraktEpisode
   href: api/TraktNET.TraktEpisode.html
