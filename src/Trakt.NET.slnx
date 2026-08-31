@@ -1,18 +1,4 @@
 <Solution>
-  <Folder Name="/SolutionItems/">
-    <File Path="../.editorconfig" />
-    <File Path="../AUTHORS.md" />
-    <File Path="../CODE_OF_CONDUCT.md" />
-    <File Path="../CONTRIBUTING.md" />
-    <File Path="../LICENSE.md" />
-    <File Path="../README.md" />
-    <File Path="../coding_style.md" />
-    <File Path="Directory.Build.props" />
-    <File Path="Directory.Build.targets" />
-    <File Path="Directory.Packages.props" />
-    <File Path="nuget.config" />
-    <File Path="version.json" />
-  </Folder>
   <Folder Name="/SolutionItems/Changelogs/">
     <File Path="../Changelogs/old-versions.md" />
     <File Path="../Changelogs/v1.2.0.md" />
@@ -20,15 +6,49 @@
     <File Path="../Changelogs/v1.4.0.md" />
     <File Path="../Changelogs/v2.0.0-alpha.2.md" />
   </Folder>
+  <Folder Name="/SolutionItems/Contributing/">
+    <File Path="../CODE_OF_CONDUCT.md" />
+    <File Path="../CONTRIBUTING.md" />
+    <File Path="../coding_style.md" />
+  </Folder>
+  <Folder Name="/SolutionItems/Directory Build Properties/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="Directory.Packages.props" />
+    <File Path="nuget.config" />
+  </Folder>
+  <Folder Name="/SolutionItems/Directory Build Properties/libs/">
+    <File Path="libs/Directory.Build.props" />
+  </Folder>
+  <Folder Name="/SolutionItems/Directory Build Properties/tests/">
+    <File Path="tests/Directory.Build.props" />
+  </Folder>
+  <Folder Name="/SolutionItems/Directory Build Properties/tests/libs/">
+    <File Path="tests/libs/Directory.Build.props" />
+  </Folder>
+  <Folder Name="/SolutionItems/Directory Build Properties/tools/">
+    <File Path="tools/Directory.Build.props" />
+  </Folder>
+  <Folder Name="/SolutionItems/Editor Config/">
+    <File Path="../.editorconfig" />
+  </Folder>
   <Folder Name="/SolutionItems/Git/">
     <File Path="../.gitattributes" />
     <File Path="../.gitignore" />
+  </Folder>
+  <Folder Name="/SolutionItems/Information/">
+    <File Path="../AUTHORS.md" />
+    <File Path="../LICENSE.md" />
+    <File Path="../README.md" />
   </Folder>
   <Folder Name="/SolutionItems/Templates/">
     <File Path="../.github/ISSUE_TEMPLATE/bug_report.yml" />
     <File Path="../.github/ISSUE_TEMPLATE/config.yml" />
     <File Path="../.github/ISSUE_TEMPLATE/feature_request.yml" />
     <File Path="../.github/PULL_REQUEST_TEMPLATE.md" />
+  </Folder>
+  <Folder Name="/SolutionItems/Version/">
+    <File Path="version.json" />
   </Folder>
   <Folder Name="/SolutionItems/Workflows/">
     <File Path="../.github/constants.env" />
@@ -42,15 +62,11 @@
     <File Path="../.github/workflows/sonarcloud.yml" />
   </Folder>
   <Folder Name="/libs/">
-    <File Path="libs/Directory.Build.props" />
     <Project Path="libs/Trakt.NET/Trakt.NET.Ex.csproj" />
     <Project Path="libs/Trakt.NET.HttpClientFactory/Trakt.NET.Ex.HttpClientFactory.csproj" />
   </Folder>
-  <Folder Name="/tests/">
-    <File Path="tests/Directory.Build.props" />
-  </Folder>
+  <Folder Name="/tests/" />
   <Folder Name="/tests/libs/">
-    <File Path="tests/libs/Directory.Build.props" />
     <Project Path="tests/libs/Trakt.NET.Core.Tests/Trakt.NET.Core.Tests.csproj" />
     <Project Path="tests/libs/Trakt.NET.Json.Tests/Trakt.NET.Json.Tests.csproj" />
     <Project Path="tests/libs/Trakt.NET.Modules.Tests/Trakt.NET.Modules.Tests.csproj" />
@@ -60,9 +76,7 @@
   <Folder Name="/tests/tools/sourcegeneration/">
     <Project Path="tests/tools/sourcegeneration/Trakt.NET.SourceGeneration.Tests/Trakt.NET.SourceGeneration.Tests.csproj" />
   </Folder>
-  <Folder Name="/tools/">
-    <File Path="tools/Directory.Build.props" />
-  </Folder>
+  <Folder Name="/tools/" />
   <Folder Name="/tools/sourcegeneration/">
     <Project Path="tools/sourcegeneration/Trakt.NET.SourceGeneration/Trakt.NET.SourceGeneration.csproj" />
   </Folder>

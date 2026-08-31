@@ -1,8 +1,3 @@
-#if !NETSTANDARD2_0
-using System.Net.Mime;
-#endif
-using System.Text;
-
 namespace TraktNET
 {
     /// <summary>
@@ -19,22 +14,17 @@ namespace TraktNET
 
         private Task<TraktResponse<TraktAuthorization>> GetAuthorizationImplAsync(string code, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)
         {
-            var content = new AuthorizationRequestBody
+            var traktAuthorizationPost = new TraktAuthorizationPost
             {
                 Code = code,
                 ClientId = clientId,
                 ClientSecret = clientSecret,
                 RedirectUri = redirectUri
             };
-            content.Validate();
 
             var request = new AuthorizationRequest
             {
-#if NETSTANDARD2_0
-                Content = new StringContent(content.ToJson(), Encoding.UTF8, Constants.MediaTypeNames.ApplicationJson)
-#else
-                Content = new StringContent(content.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json)
-#endif
+                TraktAuthorizationPost = traktAuthorizationPost
             };
 
             return RequestHandler.GetAuthorizationAsync(_context, request, cancellationToken);
@@ -42,22 +32,17 @@ namespace TraktNET
 
         private Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationImplAsync(string refreshToken, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)
         {
-            var content = new AuthorizationRefreshRequestBody
+            var traktAuthorizationRefreshPost = new TraktAuthorizationRefreshPost
             {
                 ClientId = clientId,
                 ClientSecret = clientSecret,
                 RedirectUri = redirectUri,
                 RefreshToken = refreshToken
             };
-            content.Validate();
 
             var request = new AuthorizationRefreshRequest
             {
-#if NETSTANDARD2_0
-                Content = new StringContent(content.ToJson(), Encoding.UTF8, Constants.MediaTypeNames.ApplicationJson)
-#else
-                Content = new StringContent(content.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json)
-#endif
+                TraktAuthorizationRefreshPost = traktAuthorizationRefreshPost
             };
 
             return RequestHandler.RefreshAuthorizationAsync(_context, request, cancellationToken);
@@ -65,21 +50,16 @@ namespace TraktNET
 
         private Task<TraktResponse> RevokeAuthorizationImplAsync(string accessToken, string clientId, string clientSecret, CancellationToken cancellationToken = default)
         {
-            var content = new AuthorizationRevokeRequestBody
+            var traktAuthorizationRevokePost = new TraktAuthorizationRevokePost
             {
-                AccessToken = accessToken,
+                Token = accessToken,
                 ClientId = clientId,
                 ClientSecret = clientSecret
             };
-            content.Validate();
 
             var request = new AuthorizationRevokeRequest
             {
-#if NETSTANDARD2_0
-                Content = new StringContent(content.ToJson(), Encoding.UTF8, Constants.MediaTypeNames.ApplicationJson),
-#else
-                Content = new StringContent(content.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json),
-#endif
+                TraktAuthorizationRevokePost = traktAuthorizationRevokePost,
                 Flags = new RequestFlags { IsAuthorizationRevokeRequest = true }
             };
 
@@ -88,19 +68,14 @@ namespace TraktNET
 
         private Task<TraktResponse<TraktDevice>> GenerateDeviceImplAsync(string clientId, CancellationToken cancellationToken = default)
         {
-            var content = new DeviceRequestBody
+            var traktDevicePost = new TraktDevicePost
             {
                 ClientId = clientId
             };
-            content.Validate();
 
             var request = new DeviceRequest
             {
-#if NETSTANDARD2_0
-                Content = new StringContent(content.ToJson(), Encoding.UTF8, Constants.MediaTypeNames.ApplicationJson),
-#else
-                Content = new StringContent(content.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json),
-#endif
+                TraktDevicePost = traktDevicePost,
                 Flags = new RequestFlags { IsDeviceRequest = true }
             };
 
@@ -109,24 +84,20 @@ namespace TraktNET
 
         private Task<TraktResponse<TraktAuthorization>> PollForAuthorizationImplAsync(TraktDevice device, string clientId, string clientSecret, CancellationToken cancellationToken = default)
         {
-            var content = new AuthorizationPollRequestBody
+            var traktAuthorizationPollPost = new TraktAuthorizationPollPost
             {
                 Device = device,
                 ClientId = clientId,
                 ClientSecret = clientSecret
             };
-            content.Validate();
 
             var request = new AuthorizationPollRequest
             {
-#if NETSTANDARD2_0
-                Content = new StringContent(content.ToJson(), Encoding.UTF8, Constants.MediaTypeNames.ApplicationJson)
-#else
-                Content = new StringContent(content.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json)
-#endif
+                TraktAuthorizationPollPost = traktAuthorizationPollPost
             };
 
             return RequestHandler.PollForAuthorizationAsync(_context, request, device, cancellationToken);
         }
     }
 }
+

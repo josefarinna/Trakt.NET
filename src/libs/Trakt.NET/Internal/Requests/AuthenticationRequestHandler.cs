@@ -45,16 +45,12 @@ namespace TraktNET
         internal static async Task<TraktResponse<TraktAuthorization>> PollForAuthorizationAsync(TraktContext context,
             AuthorizationPollRequest request, TraktDevice device, CancellationToken cancellationToken = default)
         {
+            request.Validate();
+
             uint totalExpiredSeconds = 0;
 
             var responseMessage = new HttpResponseMessage();
             var traktHeaders = new TraktResponseHeaders();
-
-#if NETSTANDARD2_0 || NETSTANDARD2_1
-            string content = await request.Content.ReadAsStringAsync();
-#else
-            string content = await request.Content!.ReadAsStringAsync(cancellationToken);
-#endif
 
             while (totalExpiredSeconds < device.ExpiresInSeconds)
             {
@@ -62,7 +58,7 @@ namespace TraktNET
 
                 var requestMessageBuilder = new AuthorizationPollRequest
                 {
-                    Content = new StringContent(content)
+                    TraktAuthorizationPollPost = request.TraktAuthorizationPollPost
                 };
 
                 using RequestResponse response = await ExecutePollingRequestAsync(context, requestMessageBuilder, cancellationToken).ConfigureAwait(false);
