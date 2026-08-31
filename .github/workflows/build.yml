@@ -94,7 +94,7 @@ jobs:
         working-directory: ${{ inputs.working_directory }}
 
       - name: Run tests
-        run: dotnet test --configuration ${{ inputs.build_configuration }} --no-build --no-restore /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+        run: dotnet test --configuration ${{ inputs.build_configuration }} --no-build --no-restore --collect:"XPlat Code Coverage"
         working-directory: ${{ inputs.working_directory }}
 
       - name: Upload coverage reports to Codecov
