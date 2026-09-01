@@ -26,6 +26,7 @@ namespace TraktNET.Json.Users
             settings.Sync.ShouldNotBeNull();
             settings.Sync.Configured.ShouldBeTrue();
             settings.Sync.Error.ShouldBeFalse();
+            settings.Sync.ServerLimit.ShouldBe(1U);
             settings.Sync.Selection.ShouldNotBeNull();
             settings.Sync.Selection.ServerIds.ShouldNotBeNull();
             settings.Sync.Selection.ServerIds.Count.ShouldBe(1);

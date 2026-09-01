@@ -12,6 +12,7 @@
   "sync": {
     "configured": true,
     "error": false,
+    "server_limit": 1,
     "selection": {
       "server_ids": ["server1"],
       "library_ids": [

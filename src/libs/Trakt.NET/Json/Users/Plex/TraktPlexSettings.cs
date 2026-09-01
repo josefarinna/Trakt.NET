@@ -54,6 +54,9 @@ namespace TraktNET
         /// <summary>Gets or sets whether a persisted Plex-sync error is active.</summary>
         public bool Error { get; set; }
 
+        /// <summary>Gets or sets the maximum number of Plex servers the user may sync.</summary>
+        public uint? ServerLimit { get; set; }
+
         /// <summary>Gets or sets the sync selection.</summary>
         public TraktPlexSelection? Selection { get; set; }
 
