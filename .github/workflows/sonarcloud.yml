@@ -3,6 +3,9 @@ name: "Static Analysis"
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
+      - develop
     paths:
       - '.github/**'
       - 'src/**'
@@ -58,5 +61,5 @@ jobs:
         shell: pwsh
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"josefarinna_Trakt.NET" /o:"josefarinna" /n:"Trakt.NET" /d:sonar.exclusions="**/docs/**" /d:sonar.coverage.exclusions="**/tests/**,**/Tests/**,**/tools/sourcegeneration/**" /d:sonar.cs.cobertura.reportsPaths="coverage.cobertura.xml" /d:sonar.sourceEncoding="UTF-8" /d:sonar.token="$env:SONAR_TOKEN" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet-coverage collect "dotnet test 'src/Trakt.NET.slnx' --configuration Release" -f cobertura -o "coverage.cobertura.xml"
+          dotnet-coverage collect "dotnet test src/Trakt.NET.slnx --configuration Release" -f cobertura -o "coverage.cobertura.xml"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="$env:SONAR_TOKEN"
