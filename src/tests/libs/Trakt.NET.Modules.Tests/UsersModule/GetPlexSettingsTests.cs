@@ -32,6 +32,7 @@ namespace TraktNET.UsersModule
             settings.Sync.ShouldNotBeNull();
             settings.Sync.Configured.ShouldBeTrue();
             settings.Sync.Error.ShouldBeFalse();
+            settings.Sync.ServerLimit.ShouldBe(1U);
             settings.Sync.Selection.ShouldNotBeNull();
             settings.Sync.Selection.ServerIds.ShouldNotBeNull();
             settings.Sync.Selection.ServerIds[0].ShouldBe("server1");
