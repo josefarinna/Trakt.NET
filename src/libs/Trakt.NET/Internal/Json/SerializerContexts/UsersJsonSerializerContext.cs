@@ -42,6 +42,7 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktUserEpisodesStatistics))]
     [JsonSerializable(typeof(TraktUserMoviesStatistics))]
     [JsonSerializable(typeof(TraktUserNetworkStatistics))]
+    [JsonSerializable(typeof(TraktUserProgressStatistics))]
     [JsonSerializable(typeof(TraktUserRatingsStatistics))]
     [JsonSerializable(typeof(TraktUserSeasonsStatistics))]
     [JsonSerializable(typeof(TraktUserShowsStatistics))]
