@@ -58253,18 +58253,6 @@ references:
   commentId: Overload:TraktNET.TraktPlexSync.Selection
   fullName: TraktNET.TraktPlexSync.Selection
   nameWithType: TraktPlexSync.Selection
-- uid: TraktNET.TraktPlexSync.ServerLimit
-  name: ServerLimit
-  href: api/TraktNET.TraktPlexSync.html#TraktNET_TraktPlexSync_ServerLimit
-  commentId: P:TraktNET.TraktPlexSync.ServerLimit
-  fullName: TraktNET.TraktPlexSync.ServerLimit
-  nameWithType: TraktPlexSync.ServerLimit
-- uid: TraktNET.TraktPlexSync.ServerLimit*
-  name: ServerLimit
-  href: api/TraktNET.TraktPlexSync.html#TraktNET_TraktPlexSync_ServerLimit_
-  commentId: Overload:TraktNET.TraktPlexSync.ServerLimit
-  fullName: TraktNET.TraktPlexSync.ServerLimit
-  nameWithType: TraktPlexSync.ServerLimit
 - uid: TraktNET.TraktPlexSync.ToString
   name: ToString()
   href: api/TraktNET.TraktPlexSync.html#TraktNET_TraktPlexSync_ToString
