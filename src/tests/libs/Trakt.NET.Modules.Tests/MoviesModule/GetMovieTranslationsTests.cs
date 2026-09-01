@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.MoviesModule
 {
@@ -12,7 +12,7 @@ namespace TraktNET.MoviesModule
         [Theory]
         [InlineData(null, GetMovieTranslationsUri, "Movies\\movietranslations.json")]
         [InlineData("", GetMovieTranslationsUri, "Movies\\movietranslations.json")]
-        [InlineData("en", $"{GetMovieTranslationsUri}/en", "Movies\\movietranslations.json")]
+        [InlineData("en", $"{GetMovieTranslationsUri}?language=en", "Movies\\movietranslations.json")]
         public async Task TestGetMovieTranslationsWithID(string? language, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
@@ -45,7 +45,7 @@ namespace TraktNET.MoviesModule
         [Theory]
         [InlineData(null, GetMovieTranslationsUriWithSlug, "Movies\\movietranslations.json")]
         [InlineData("", GetMovieTranslationsUriWithSlug, "Movies\\movietranslations.json")]
-        [InlineData("en", $"{GetMovieTranslationsUriWithSlug}/en", "Movies\\movietranslations.json")]
+        [InlineData("en", $"{GetMovieTranslationsUriWithSlug}?language=en", "Movies\\movietranslations.json")]
         public async Task TestGetMovieTranslationsWithSlug(string? language, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
@@ -78,7 +78,7 @@ namespace TraktNET.MoviesModule
         [Theory]
         [InlineData(null, GetMovieTranslationsUriWithSlug, "Movies\\movietranslations.json")]
         [InlineData("", GetMovieTranslationsUriWithSlug, "Movies\\movietranslations.json")]
-        [InlineData("en", $"{GetMovieTranslationsUriWithSlug}/en", "Movies\\movietranslations.json")]
+        [InlineData("en", $"{GetMovieTranslationsUriWithSlug}?language=en", "Movies\\movietranslations.json")]
         public async Task TestGetMovieTranslationsWithIDs(string? language, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);

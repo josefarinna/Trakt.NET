@@ -13,7 +13,7 @@ namespace TraktNET.GetRequests.Movies
         [InlineData(null, URIPath)]
         [InlineData("", URIPath)]
         [InlineData(" ", URIPath)]
-        [InlineData("en", $"{URIPath}/en")]
+        [InlineData("en", $"{URIPath}?language=en")]
         public void TestMovieTranslationsGetRequestHasValidURIPath(string? language, string expectedURIPath)
         {
             var movieTranslationsGetRequest = new MovieTranslationsGetRequest

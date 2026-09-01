@@ -113,7 +113,7 @@ namespace TraktNET
     [TraktGetRequest("shows/{id!!}/translations")]
     internal sealed partial class ShowTranslationsGetRequest
     {
-        [TraktRequestParameter]
+        [TraktRequestQuery("language")]
         internal string? Language { get; set; }
 
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;

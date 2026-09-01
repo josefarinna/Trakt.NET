@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SeasonsModule
 {
@@ -124,7 +124,7 @@ namespace TraktNET.SeasonsModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasontranslations.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonTranslationsUri}/{LanguageCode}", responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonTranslationsUri}?language={LanguageCode}", responseContent);
             
             TraktListResponse<TraktSeasonTranslation> response = await client.Seasons.GetSeasonTranslationsAsync(TestConstants.Shows.TraktShowID, SeasonNr, LanguageCode, TestContext.Current.CancellationToken);
 

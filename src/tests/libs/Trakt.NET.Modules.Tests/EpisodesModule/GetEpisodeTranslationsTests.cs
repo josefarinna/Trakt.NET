@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.EpisodesModule
 {
@@ -111,6 +111,23 @@ namespace TraktNET.EpisodesModule
             TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/translations", responseContent);
 
             TraktListResponse<TraktEpisodeTranslation> response = await client.Episodes.GetEpisodeTranslationsAsync(show, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public async Task TestGetEpisodeTranslationsWithLanguageCode()
+        {
+            const string languageCode = "en";
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodetranslations.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeTranslationsUri}?language={languageCode}", responseContent);
+
+            TraktListResponse<TraktEpisodeTranslation> response = await client.Episodes.GetEpisodeTranslationsAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, languageCode, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
