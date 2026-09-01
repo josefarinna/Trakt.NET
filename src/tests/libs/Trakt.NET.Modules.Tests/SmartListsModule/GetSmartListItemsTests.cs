@@ -7,14 +7,11 @@ namespace TraktNET.SmartListsModule
         private const string ListSlug = "sci-fi-movies";
         private const uint TraktListID = 123456U;
         private const string ListID = "123456";
-        private const TraktSmartListMediaType MediaType = TraktSmartListMediaType.Movies;
-        private const TraktSortBy SortBy = TraktSortBy.Rank;
-        private const TraktSortHow SortHow = TraktSortHow.Ascending;
         private const uint ListItemCount = 5;
         private const uint Page = 2U;
         private const uint Limit = 4U;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
-        private readonly string GetSmartListItemsUri = $"smart-lists/{ListSlug}/items/{MediaType.AsPathParameter()}/{SortBy.AsPathParameter()}/{SortHow.AsPathParameter()}";
+        private readonly string GetSmartListItemsUri = $"smart-lists/{ListSlug}/items";
 
         [Fact]
         public async Task TestGetSmartListItems()
@@ -24,7 +21,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(GetSmartListItemsUri, responseContent);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -48,7 +45,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, filter, watchnow: "netflix", cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, filter, watchnow: "netflix", cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -61,12 +58,12 @@ namespace TraktNET.SmartListsModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
 
-            string expectedUri = $"smart-lists/{ListID}/items/{MediaType.AsPathParameter()}/{SortBy.AsPathParameter()}/{SortHow.AsPathParameter()}?page={Page}&limit={Limit}";
+            string expectedUri = $"smart-lists/{ListID}/items?page={Page}&limit={Limit}";
 
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                TraktListID, MediaType, SortBy, SortHow, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                TraktListID, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -89,12 +86,12 @@ namespace TraktNET.SmartListsModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
 
-            string expectedUri = $"smart-lists/{ListID}/items/{MediaType.AsPathParameter()}/{SortBy.AsPathParameter()}/{SortHow.AsPathParameter()}?page={Page}&limit={Limit}";
+            string expectedUri = $"smart-lists/{ListID}/items?page={Page}&limit={Limit}";
 
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                listIDs, MediaType, SortBy, SortHow, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                listIDs, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -122,7 +119,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                listIDs, MediaType, SortBy, SortHow, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                listIDs, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -151,7 +148,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                listIDs, MediaType, SortBy, SortHow, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                listIDs, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -183,7 +180,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                list, MediaType, SortBy, SortHow, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                list, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -206,7 +203,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -229,7 +226,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -258,7 +255,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, filter, watchnow: "netflix", extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, filter, watchnow: "netflix", extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -281,7 +278,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, 2, 5, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -306,7 +303,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, 2, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -331,7 +328,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, 1, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -356,7 +353,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, 1, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -381,7 +378,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, 2, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -423,7 +420,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, 1, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -486,7 +483,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(GetSmartListItemsUri, statusCode);
 
             Func<Task<TraktPagedResponse<TraktListItem>>> act = () => client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, SortHow, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
@@ -496,35 +493,27 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(GetSmartListItemsUri, HttpStatusCode.OK);
 
             Func<Task<TraktPagedResponse<TraktListItem>>> act = () => client.SmartLists.GetSmartListItemsAsync(
-                default(TraktListIDs)!, MediaType, SortBy, SortHow, cancellationToken: TestContext.Current.CancellationToken);
+                default(TraktListIDs)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
             act = () => client.SmartLists.GetSmartListItemsAsync(
-                default(TraktSmartList)!, MediaType, SortBy, SortHow, cancellationToken: TestContext.Current.CancellationToken);
+                default(TraktSmartList)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
             act = () => client.SmartLists.GetSmartListItemsAsync(
-                new TraktListIDs(), MediaType, SortBy, SortHow, cancellationToken: TestContext.Current.CancellationToken);
+                new TraktListIDs(), cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
             act = () => client.SmartLists.GetSmartListItemsAsync(
-                0, MediaType, SortBy, SortHow, cancellationToken: TestContext.Current.CancellationToken);
+                0, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
             act = () => client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, TraktSortBy.Unspecified, SortHow, cancellationToken: TestContext.Current.CancellationToken);
+                string.Empty, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, MediaType, SortBy, TraktSortHow.Unspecified, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<TraktRequestValidationException>();
-
-            act = () => client.SmartLists.GetSmartListItemsAsync(
-                string.Empty, MediaType, SortBy, SortHow, cancellationToken: TestContext.Current.CancellationToken);
-            await act.ShouldThrowAsync<TraktRequestValidationException>();
-
-            act = () => client.SmartLists.GetSmartListItemsAsync(
-                "sci fi movies", MediaType, SortBy, SortHow, cancellationToken: TestContext.Current.CancellationToken);
+                "sci fi movies", cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }
