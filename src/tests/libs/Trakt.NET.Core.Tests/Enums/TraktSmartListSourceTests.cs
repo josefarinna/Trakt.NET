@@ -13,6 +13,8 @@ namespace TraktNET.Enums
             TraktSmartListSource.Anticipated.ToJson().ShouldBe("anticipated");
             TraktSmartListSource.Recommendations.ToJson().ShouldBe("recommendations");
             TraktSmartListSource.Discover.ToJson().ShouldBe("discover");
+            TraktSmartListSource.Watchlist.ToJson().ShouldBe("watchlist");
+            TraktSmartListSource.Library.ToJson().ShouldBe("library");
             ((TraktSmartListSource)99).ToJson().ShouldBeNull();
         }
 
@@ -25,6 +27,8 @@ namespace TraktNET.Enums
             "anticipated".ToTraktSmartListSource().ShouldBe(TraktSmartListSource.Anticipated);
             "recommendations".ToTraktSmartListSource().ShouldBe(TraktSmartListSource.Recommendations);
             "discover".ToTraktSmartListSource().ShouldBe(TraktSmartListSource.Discover);
+            "watchlist".ToTraktSmartListSource().ShouldBe(TraktSmartListSource.Watchlist);
+            "library".ToTraktSmartListSource().ShouldBe(TraktSmartListSource.Library);
 
             string? nullValue = null;
             nullValue.ToTraktSmartListSource().ShouldBe(TraktSmartListSource.Unspecified);
@@ -41,6 +45,8 @@ namespace TraktNET.Enums
             TraktSmartListSource.Anticipated.DisplayName().ShouldBe("Anticipated");
             TraktSmartListSource.Recommendations.DisplayName().ShouldBe("Recommendations");
             TraktSmartListSource.Discover.DisplayName().ShouldBe("Discover");
+            TraktSmartListSource.Watchlist.DisplayName().ShouldBe("Watchlist");
+            TraktSmartListSource.Library.DisplayName().ShouldBe("Library");
             ((TraktSmartListSource)99).DisplayName().ShouldBe("99");
         }
 

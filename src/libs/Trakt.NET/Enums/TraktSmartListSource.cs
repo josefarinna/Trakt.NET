@@ -20,6 +20,12 @@ namespace TraktNET
         Recommendations,
 
         /// <summary>Discover items.</summary>
-        Discover
+        Discover,
+
+        /// <summary>Watchlist items.</summary>
+        Watchlist,
+
+        /// <summary>Library items.</summary>
+        Library
     }
 }

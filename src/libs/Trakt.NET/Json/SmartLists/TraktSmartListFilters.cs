@@ -6,6 +6,12 @@ namespace TraktNET
         /// <summary>Genre slugs.</summary>
         public string[]? Genres { get; set; }
 
+        /// <summary>
+        /// Gets or sets the logical operator for genre filtering.
+        /// See also <seealso cref="TraktFilterOperator" />.
+        /// </summary>
+        public TraktFilterOperator? GenresOperator { get; set; }
+
         /// <summary>Subgenre slugs.</summary>
         public string[]? Subgenres { get; set; }
 
@@ -23,6 +29,15 @@ namespace TraktNET
 
         /// <summary>Collection of network names/IDs.</summary>
         public string[]? Networks { get; set; }
+
+        /// <summary>Collection of keywords.</summary>
+        public string[]? Keywords { get; set; }
+
+        /// <summary>
+        /// Gets or sets the logical operator for keyword filtering.
+        /// See also <seealso cref="TraktFilterOperator" />.
+        /// </summary>
+        public TraktFilterOperator? KeywordsOperator { get; set; }
 
         /// <summary>Collection of watchnow streaming service options.</summary>
         public string[]? Watchnow { get; set; }
@@ -45,10 +60,35 @@ namespace TraktNET
         /// <summary>Rotten Tomatoes audience score range [min, max]. Max 2 items.</summary>
         public uint[]? RtUserMeters { get; set; }
 
+        /// <summary>Letterboxd ratings range [min, max]. Max 2 items.</summary>
+        public float[]? LetterboxdRatings { get; set; }
+
+        /// <summary>MyAnimeList ratings range [min, max]. Max 2 items.</summary>
+        public float[]? MalRatings { get; set; }
+
         /// <summary>Gets or sets whether watched items should be ignored.</summary>
         public bool? IgnoreWatched { get; set; }
 
         /// <summary>Gets or sets whether watchlisted items should be ignored.</summary>
         public bool? IgnoreWatchlisted { get; set; }
+
+        /// <summary>Gets or sets whether currently watching items should be ignored.</summary>
+        public bool? IgnoreWatching { get; set; }
+
+        /// <summary>Gets or sets whether unreleased items should be ignored.</summary>
+        public bool? IgnoreUnreleased { get; set; }
+
+        /// <summary>Gets or sets whether released items should be ignored.</summary>
+        public bool? IgnoreReleased { get; set; }
+
+        /// <summary>Gets or sets whether ended items should be ignored.</summary>
+        public bool? IgnoreEnded { get; set; }
+
+        /// <summary>Gets or sets whether currently airing items should be ignored.</summary>
+        public bool? IgnoreAiring { get; set; }
+
+        /// <summary>Gets or sets whether items without a release date should be ignored.</summary>
+        public bool? IgnoreNoReleaseDate { get; set; }
     }
 }
+

@@ -48,6 +48,7 @@ namespace TraktNET.Json.SmartLists
             smartList.Filters.Genres.ShouldNotBeNull();
             smartList.Filters.Genres.Length.ShouldBe(1);
             smartList.Filters.Genres[0].ShouldBe("science-fiction");
+            smartList.Filters.GenresOperator.ShouldBe(TraktFilterOperator.And);
 
             smartList.Filters.Subgenres.ShouldNotBeNull();
             smartList.Filters.Subgenres.Length.ShouldBe(1);
@@ -72,6 +73,12 @@ namespace TraktNET.Json.SmartLists
             smartList.Filters.Networks.ShouldNotBeNull();
             smartList.Filters.Networks.Length.ShouldBe(1);
             smartList.Filters.Networks[0].ShouldBe("hbo");
+
+            smartList.Filters.Keywords.ShouldNotBeNull();
+            smartList.Filters.Keywords.Length.ShouldBe(2);
+            smartList.Filters.Keywords[0].ShouldBe("space");
+            smartList.Filters.Keywords[1].ShouldBe("dune");
+            smartList.Filters.KeywordsOperator.ShouldBe(TraktFilterOperator.Or);
 
             smartList.Filters.Watchnow.ShouldNotBeNull();
             smartList.Filters.Watchnow.Length.ShouldBe(1);
@@ -107,8 +114,24 @@ namespace TraktNET.Json.SmartLists
             smartList.Filters.RtUserMeters[0].ShouldBe(80U);
             smartList.Filters.RtUserMeters[1].ShouldBe(100U);
 
+            smartList.Filters.LetterboxdRatings.ShouldNotBeNull();
+            smartList.Filters.LetterboxdRatings.Length.ShouldBe(2);
+            smartList.Filters.LetterboxdRatings[0].ShouldBe(3.5f);
+            smartList.Filters.LetterboxdRatings[1].ShouldBe(5.0f);
+
+            smartList.Filters.MalRatings.ShouldNotBeNull();
+            smartList.Filters.MalRatings.Length.ShouldBe(2);
+            smartList.Filters.MalRatings[0].ShouldBe(7.0f);
+            smartList.Filters.MalRatings[1].ShouldBe(9.5f);
+
             smartList.Filters.IgnoreWatched.ShouldBe(true);
             smartList.Filters.IgnoreWatchlisted.ShouldBe(false);
+            smartList.Filters.IgnoreWatching.ShouldBe(true);
+            smartList.Filters.IgnoreUnreleased.ShouldBe(false);
+            smartList.Filters.IgnoreReleased.ShouldBe(true);
+            smartList.Filters.IgnoreEnded.ShouldBe(false);
+            smartList.Filters.IgnoreAiring.ShouldBe(true);
+            smartList.Filters.IgnoreNoReleaseDate.ShouldBe(false);
         }
 
         [Fact]
