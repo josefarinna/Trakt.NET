@@ -8949,6 +8949,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserProgressStatistics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserProgressStatistics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserProgressStatistics",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserProgressStatistics.yml\" sourcestartlinenumber=\"1\">A collection of Trakt user statistics for progress.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktUserRatingsStatistics.yml",
       "output": {
         ".html": {

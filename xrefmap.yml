@@ -107449,6 +107449,183 @@ references:
   fullName.vb: TraktNET.TraktUserPersonalListPost.<>
   nameWithType: TraktUserPersonalListPost.operator !=
   nameWithType.vb: TraktUserPersonalListPost.<>
+- uid: TraktNET.TraktUserProgressStatistics
+  name: TraktUserProgressStatistics
+  href: api/TraktNET.TraktUserProgressStatistics.html
+  commentId: T:TraktNET.TraktUserProgressStatistics
+  fullName: TraktNET.TraktUserProgressStatistics
+  nameWithType: TraktUserProgressStatistics
+- uid: TraktNET.TraktUserProgressStatistics.#ctor
+  name: TraktUserProgressStatistics()
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics__ctor
+  commentId: M:TraktNET.TraktUserProgressStatistics.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktUserProgressStatistics.TraktUserProgressStatistics()
+  fullName.vb: TraktNET.TraktUserProgressStatistics.New()
+  nameWithType: TraktUserProgressStatistics.TraktUserProgressStatistics()
+  nameWithType.vb: TraktUserProgressStatistics.New()
+- uid: TraktNET.TraktUserProgressStatistics.#ctor(TraktNET.TraktUserProgressStatistics)
+  name: TraktUserProgressStatistics(TraktUserProgressStatistics)
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics__ctor_TraktNET_TraktUserProgressStatistics_
+  commentId: M:TraktNET.TraktUserProgressStatistics.#ctor(TraktNET.TraktUserProgressStatistics)
+  name.vb: New(TraktUserProgressStatistics)
+  fullName: TraktNET.TraktUserProgressStatistics.TraktUserProgressStatistics(TraktNET.TraktUserProgressStatistics)
+  fullName.vb: TraktNET.TraktUserProgressStatistics.New(TraktNET.TraktUserProgressStatistics)
+  nameWithType: TraktUserProgressStatistics.TraktUserProgressStatistics(TraktUserProgressStatistics)
+  nameWithType.vb: TraktUserProgressStatistics.New(TraktUserProgressStatistics)
+- uid: TraktNET.TraktUserProgressStatistics.#ctor*
+  name: TraktUserProgressStatistics
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics__ctor_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktUserProgressStatistics.TraktUserProgressStatistics
+  fullName.vb: TraktNET.TraktUserProgressStatistics.New
+  nameWithType: TraktUserProgressStatistics.TraktUserProgressStatistics
+  nameWithType.vb: TraktUserProgressStatistics.New
+- uid: TraktNET.TraktUserProgressStatistics.Dropped
+  name: Dropped
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_Dropped
+  commentId: P:TraktNET.TraktUserProgressStatistics.Dropped
+  fullName: TraktNET.TraktUserProgressStatistics.Dropped
+  nameWithType: TraktUserProgressStatistics.Dropped
+- uid: TraktNET.TraktUserProgressStatistics.Dropped*
+  name: Dropped
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_Dropped_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.Dropped
+  fullName: TraktNET.TraktUserProgressStatistics.Dropped
+  nameWithType: TraktUserProgressStatistics.Dropped
+- uid: TraktNET.TraktUserProgressStatistics.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_EqualityContract
+  commentId: P:TraktNET.TraktUserProgressStatistics.EqualityContract
+  fullName: TraktNET.TraktUserProgressStatistics.EqualityContract
+  nameWithType: TraktUserProgressStatistics.EqualityContract
+- uid: TraktNET.TraktUserProgressStatistics.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_EqualityContract_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.EqualityContract
+  fullName: TraktNET.TraktUserProgressStatistics.EqualityContract
+  nameWithType: TraktUserProgressStatistics.EqualityContract
+- uid: TraktNET.TraktUserProgressStatistics.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_Equals_System_Object_
+  commentId: M:TraktNET.TraktUserProgressStatistics.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktUserProgressStatistics.Equals(object?)
+  fullName.vb: TraktNET.TraktUserProgressStatistics.Equals(Object)
+  nameWithType: TraktUserProgressStatistics.Equals(object?)
+  nameWithType.vb: TraktUserProgressStatistics.Equals(Object)
+- uid: TraktNET.TraktUserProgressStatistics.Equals(TraktNET.TraktUserProgressStatistics)
+  name: Equals(TraktUserProgressStatistics?)
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_Equals_TraktNET_TraktUserProgressStatistics_
+  commentId: M:TraktNET.TraktUserProgressStatistics.Equals(TraktNET.TraktUserProgressStatistics)
+  name.vb: Equals(TraktUserProgressStatistics)
+  fullName: TraktNET.TraktUserProgressStatistics.Equals(TraktNET.TraktUserProgressStatistics?)
+  fullName.vb: TraktNET.TraktUserProgressStatistics.Equals(TraktNET.TraktUserProgressStatistics)
+  nameWithType: TraktUserProgressStatistics.Equals(TraktUserProgressStatistics?)
+  nameWithType.vb: TraktUserProgressStatistics.Equals(TraktUserProgressStatistics)
+- uid: TraktNET.TraktUserProgressStatistics.Equals*
+  name: Equals
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_Equals_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.Equals
+  fullName: TraktNET.TraktUserProgressStatistics.Equals
+  nameWithType: TraktUserProgressStatistics.Equals
+- uid: TraktNET.TraktUserProgressStatistics.Finished
+  name: Finished
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_Finished
+  commentId: P:TraktNET.TraktUserProgressStatistics.Finished
+  fullName: TraktNET.TraktUserProgressStatistics.Finished
+  nameWithType: TraktUserProgressStatistics.Finished
+- uid: TraktNET.TraktUserProgressStatistics.Finished*
+  name: Finished
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_Finished_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.Finished
+  fullName: TraktNET.TraktUserProgressStatistics.Finished
+  nameWithType: TraktUserProgressStatistics.Finished
+- uid: TraktNET.TraktUserProgressStatistics.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_GetHashCode
+  commentId: M:TraktNET.TraktUserProgressStatistics.GetHashCode
+  fullName: TraktNET.TraktUserProgressStatistics.GetHashCode()
+  nameWithType: TraktUserProgressStatistics.GetHashCode()
+- uid: TraktNET.TraktUserProgressStatistics.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_GetHashCode_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.GetHashCode
+  fullName: TraktNET.TraktUserProgressStatistics.GetHashCode
+  nameWithType: TraktUserProgressStatistics.GetHashCode
+- uid: TraktNET.TraktUserProgressStatistics.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktUserProgressStatistics.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktUserProgressStatistics.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktUserProgressStatistics.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktUserProgressStatistics.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_PrintMembers_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.PrintMembers
+  fullName: TraktNET.TraktUserProgressStatistics.PrintMembers
+  nameWithType: TraktUserProgressStatistics.PrintMembers
+- uid: TraktNET.TraktUserProgressStatistics.Started
+  name: Started
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_Started
+  commentId: P:TraktNET.TraktUserProgressStatistics.Started
+  fullName: TraktNET.TraktUserProgressStatistics.Started
+  nameWithType: TraktUserProgressStatistics.Started
+- uid: TraktNET.TraktUserProgressStatistics.Started*
+  name: Started
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_Started_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.Started
+  fullName: TraktNET.TraktUserProgressStatistics.Started
+  nameWithType: TraktUserProgressStatistics.Started
+- uid: TraktNET.TraktUserProgressStatistics.ToString
+  name: ToString()
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_ToString
+  commentId: M:TraktNET.TraktUserProgressStatistics.ToString
+  fullName: TraktNET.TraktUserProgressStatistics.ToString()
+  nameWithType: TraktUserProgressStatistics.ToString()
+- uid: TraktNET.TraktUserProgressStatistics.ToString*
+  name: ToString
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_ToString_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.ToString
+  fullName: TraktNET.TraktUserProgressStatistics.ToString
+  nameWithType: TraktUserProgressStatistics.ToString
+- uid: TraktNET.TraktUserProgressStatistics.op_Equality(TraktNET.TraktUserProgressStatistics,TraktNET.TraktUserProgressStatistics)
+  name: operator ==(TraktUserProgressStatistics?, TraktUserProgressStatistics?)
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_op_Equality_TraktNET_TraktUserProgressStatistics_TraktNET_TraktUserProgressStatistics_
+  commentId: M:TraktNET.TraktUserProgressStatistics.op_Equality(TraktNET.TraktUserProgressStatistics,TraktNET.TraktUserProgressStatistics)
+  name.vb: =(TraktUserProgressStatistics, TraktUserProgressStatistics)
+  fullName: TraktNET.TraktUserProgressStatistics.operator ==(TraktNET.TraktUserProgressStatistics?, TraktNET.TraktUserProgressStatistics?)
+  fullName.vb: TraktNET.TraktUserProgressStatistics.=(TraktNET.TraktUserProgressStatistics, TraktNET.TraktUserProgressStatistics)
+  nameWithType: TraktUserProgressStatistics.operator ==(TraktUserProgressStatistics?, TraktUserProgressStatistics?)
+  nameWithType.vb: TraktUserProgressStatistics.=(TraktUserProgressStatistics, TraktUserProgressStatistics)
+- uid: TraktNET.TraktUserProgressStatistics.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_op_Equality_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktUserProgressStatistics.operator ==
+  fullName.vb: TraktNET.TraktUserProgressStatistics.=
+  nameWithType: TraktUserProgressStatistics.operator ==
+  nameWithType.vb: TraktUserProgressStatistics.=
+- uid: TraktNET.TraktUserProgressStatistics.op_Inequality(TraktNET.TraktUserProgressStatistics,TraktNET.TraktUserProgressStatistics)
+  name: operator !=(TraktUserProgressStatistics?, TraktUserProgressStatistics?)
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_op_Inequality_TraktNET_TraktUserProgressStatistics_TraktNET_TraktUserProgressStatistics_
+  commentId: M:TraktNET.TraktUserProgressStatistics.op_Inequality(TraktNET.TraktUserProgressStatistics,TraktNET.TraktUserProgressStatistics)
+  name.vb: <>(TraktUserProgressStatistics, TraktUserProgressStatistics)
+  fullName: TraktNET.TraktUserProgressStatistics.operator !=(TraktNET.TraktUserProgressStatistics?, TraktNET.TraktUserProgressStatistics?)
+  fullName.vb: TraktNET.TraktUserProgressStatistics.<>(TraktNET.TraktUserProgressStatistics, TraktNET.TraktUserProgressStatistics)
+  nameWithType: TraktUserProgressStatistics.operator !=(TraktUserProgressStatistics?, TraktUserProgressStatistics?)
+  nameWithType.vb: TraktUserProgressStatistics.<>(TraktUserProgressStatistics, TraktUserProgressStatistics)
+- uid: TraktNET.TraktUserProgressStatistics.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktUserProgressStatistics.html#TraktNET_TraktUserProgressStatistics_op_Inequality_
+  commentId: Overload:TraktNET.TraktUserProgressStatistics.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktUserProgressStatistics.operator !=
+  fullName.vb: TraktNET.TraktUserProgressStatistics.<>
+  nameWithType: TraktUserProgressStatistics.operator !=
+  nameWithType.vb: TraktUserProgressStatistics.<>
 - uid: TraktNET.TraktUserRatingsStatistics
   name: TraktUserRatingsStatistics
   href: api/TraktNET.TraktUserRatingsStatistics.html
@@ -110842,6 +111019,18 @@ references:
   commentId: Overload:TraktNET.TraktUserStatistics.GetHashCode
   fullName: TraktNET.TraktUserStatistics.GetHashCode
   nameWithType: TraktUserStatistics.GetHashCode
+- uid: TraktNET.TraktUserStatistics.Lists
+  name: Lists
+  href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_Lists
+  commentId: P:TraktNET.TraktUserStatistics.Lists
+  fullName: TraktNET.TraktUserStatistics.Lists
+  nameWithType: TraktUserStatistics.Lists
+- uid: TraktNET.TraktUserStatistics.Lists*
+  name: Lists
+  href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_Lists_
+  commentId: Overload:TraktNET.TraktUserStatistics.Lists
+  fullName: TraktNET.TraktUserStatistics.Lists
+  nameWithType: TraktUserStatistics.Lists
 - uid: TraktNET.TraktUserStatistics.Movies
   name: Movies
   href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_Movies
@@ -110878,6 +111067,18 @@ references:
   commentId: Overload:TraktNET.TraktUserStatistics.PrintMembers
   fullName: TraktNET.TraktUserStatistics.PrintMembers
   nameWithType: TraktUserStatistics.PrintMembers
+- uid: TraktNET.TraktUserStatistics.Progress
+  name: Progress
+  href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_Progress
+  commentId: P:TraktNET.TraktUserStatistics.Progress
+  fullName: TraktNET.TraktUserStatistics.Progress
+  nameWithType: TraktUserStatistics.Progress
+- uid: TraktNET.TraktUserStatistics.Progress*
+  name: Progress
+  href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_Progress_
+  commentId: Overload:TraktNET.TraktUserStatistics.Progress
+  fullName: TraktNET.TraktUserStatistics.Progress
+  nameWithType: TraktUserStatistics.Progress
 - uid: TraktNET.TraktUserStatistics.Ratings
   name: Ratings
   href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_Ratings
@@ -110926,6 +111127,30 @@ references:
   commentId: Overload:TraktNET.TraktUserStatistics.ToString
   fullName: TraktNET.TraktUserStatistics.ToString
   nameWithType: TraktUserStatistics.ToString
+- uid: TraktNET.TraktUserStatistics.TotalMinutes
+  name: TotalMinutes
+  href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_TotalMinutes
+  commentId: P:TraktNET.TraktUserStatistics.TotalMinutes
+  fullName: TraktNET.TraktUserStatistics.TotalMinutes
+  nameWithType: TraktUserStatistics.TotalMinutes
+- uid: TraktNET.TraktUserStatistics.TotalMinutes*
+  name: TotalMinutes
+  href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_TotalMinutes_
+  commentId: Overload:TraktNET.TraktUserStatistics.TotalMinutes
+  fullName: TraktNET.TraktUserStatistics.TotalMinutes
+  nameWithType: TraktUserStatistics.TotalMinutes
+- uid: TraktNET.TraktUserStatistics.TotalPlays
+  name: TotalPlays
+  href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_TotalPlays
+  commentId: P:TraktNET.TraktUserStatistics.TotalPlays
+  fullName: TraktNET.TraktUserStatistics.TotalPlays
+  nameWithType: TraktUserStatistics.TotalPlays
+- uid: TraktNET.TraktUserStatistics.TotalPlays*
+  name: TotalPlays
+  href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_TotalPlays_
+  commentId: Overload:TraktNET.TraktUserStatistics.TotalPlays
+  fullName: TraktNET.TraktUserStatistics.TotalPlays
+  nameWithType: TraktUserStatistics.TotalPlays
 - uid: TraktNET.TraktUserStatistics.op_Equality(TraktNET.TraktUserStatistics,TraktNET.TraktUserStatistics)
   name: operator ==(TraktUserStatistics?, TraktUserStatistics?)
   href: api/TraktNET.TraktUserStatistics.html#TraktNET_TraktUserStatistics_op_Equality_TraktNET_TraktUserStatistics_TraktNET_TraktUserStatistics_
@@ -121468,6 +121693,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktUserPersonalListPost
   fullName: TraktNET.UsersJsonSerializerContext.TraktUserPersonalListPost
   nameWithType: UsersJsonSerializerContext.TraktUserPersonalListPost
+- uid: TraktNET.UsersJsonSerializerContext.TraktUserProgressStatistics
+  name: TraktUserProgressStatistics
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktUserProgressStatistics
+  commentId: P:TraktNET.UsersJsonSerializerContext.TraktUserProgressStatistics
+  fullName: TraktNET.UsersJsonSerializerContext.TraktUserProgressStatistics
+  nameWithType: UsersJsonSerializerContext.TraktUserProgressStatistics
+- uid: TraktNET.UsersJsonSerializerContext.TraktUserProgressStatistics*
+  name: TraktUserProgressStatistics
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktUserProgressStatistics_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktUserProgressStatistics
+  fullName: TraktNET.UsersJsonSerializerContext.TraktUserProgressStatistics
+  nameWithType: UsersJsonSerializerContext.TraktUserProgressStatistics
 - uid: TraktNET.UsersJsonSerializerContext.TraktUserRatingsStatistics
   name: TraktUserRatingsStatistics
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktUserRatingsStatistics
