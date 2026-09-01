@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
+    [JsonSerializable(typeof(TraktFilterOperator))]
     [JsonSerializable(typeof(TraktSmartList))]
     [JsonSerializable(typeof(IReadOnlyList<TraktSmartList>))]
     [JsonSerializable(typeof(TraktSmartListImages))]

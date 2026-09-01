@@ -131,6 +131,7 @@ namespace TraktNET
                     new TraktEpisodeTypeJsonConverter(),
                     new TraktExtendedInfoJsonConverter(),
                     new TraktFavoriteObjectTypeJsonConverter(),
+                    new TraktFilterOperatorJsonConverter(),
                     new TraktFilterSectionJsonConverter(),
                     new TraktGenderJsonConverter(),
                     new TraktGenreTypeJsonConverter(),

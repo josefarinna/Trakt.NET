@@ -18,6 +18,7 @@
     "genres": [
       "science-fiction"
     ],
+    "genres_operator": "and",
     "subgenres": [
       "time-travel"
     ],
@@ -36,6 +37,11 @@
     "networks": [
       "hbo"
     ],
+    "keywords": [
+      "space",
+      "dune"
+    ],
+    "keywords_operator": "or",
     "watchnow": [
       "netflix"
     ],
@@ -63,7 +69,22 @@
       80,
       100
     ],
+    "letterboxd_ratings": [
+      3.5,
+      5.0
+    ],
+    "mal_ratings": [
+      7.0,
+      9.5
+    ],
     "ignore_watched": true,
-    "ignore_watchlisted": false
+    "ignore_watchlisted": false,
+    "ignore_watching": true,
+    "ignore_unreleased": false,
+    "ignore_released": true,
+    "ignore_ended": false,
+    "ignore_airing": true,
+    "ignore_no_release_date": false
   }
 }
+
