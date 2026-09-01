@@ -699,6 +699,7 @@ namespace TraktNET
             typeof(TraktUserEpisodesStatistics),
             typeof(TraktUserMoviesStatistics),
             typeof(TraktUserNetworkStatistics),
+            typeof(TraktUserProgressStatistics),
             typeof(TraktUserRatingsStatistics),
             typeof(TraktUserSeasonsStatistics),
             typeof(TraktUserShowsStatistics),

@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.UsersModule
 {
@@ -66,6 +66,15 @@ namespace TraktNET.UsersModule
             responseValue.Ratings.Distribution.ShouldNotBeNull();
             responseValue.Ratings.Distribution.Count.ShouldBe(10);
             responseValue.Ratings.Distribution.ShouldBe(distribution);
+
+            responseValue.Progress.ShouldNotBeNull();
+            responseValue.Progress.Started.ShouldBe(388U);
+            responseValue.Progress.Finished.ShouldBe(276U);
+            responseValue.Progress.Dropped.ShouldBe(22U);
+
+            responseValue.Lists.ShouldBe(31U);
+            responseValue.TotalMinutes.ShouldBe(618949U);
+            responseValue.TotalPlays.ShouldBe(12473U);
         }
 
         [Fact]
@@ -128,6 +137,15 @@ namespace TraktNET.UsersModule
             responseValue.Ratings.Distribution.ShouldNotBeNull();
             responseValue.Ratings.Distribution.Count.ShouldBe(10);
             responseValue.Ratings.Distribution.ShouldBe(distribution);
+
+            responseValue.Progress.ShouldNotBeNull();
+            responseValue.Progress.Started.ShouldBe(388U);
+            responseValue.Progress.Finished.ShouldBe(276U);
+            responseValue.Progress.Dropped.ShouldBe(22U);
+
+            responseValue.Lists.ShouldBe(31U);
+            responseValue.TotalMinutes.ShouldBe(618949U);
+            responseValue.TotalPlays.ShouldBe(12473U);
         }
 
         [Fact]
@@ -189,6 +207,15 @@ namespace TraktNET.UsersModule
             responseValue.Ratings.Distribution.ShouldNotBeNull();
             responseValue.Ratings.Distribution.Count.ShouldBe(10);
             responseValue.Ratings.Distribution.ShouldBe(distribution);
+
+            responseValue.Progress.ShouldNotBeNull();
+            responseValue.Progress.Started.ShouldBe(388U);
+            responseValue.Progress.Finished.ShouldBe(276U);
+            responseValue.Progress.Dropped.ShouldBe(22U);
+
+            responseValue.Lists.ShouldBe(31U);
+            responseValue.TotalMinutes.ShouldBe(618949U);
+            responseValue.TotalPlays.ShouldBe(12473U);
         }
 
         [Theory]

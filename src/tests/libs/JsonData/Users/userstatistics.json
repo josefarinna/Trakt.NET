@@ -1,4 +1,4 @@
-﻿{
+{
     "movies": {
         "plays": 552,
         "watched": 534,
@@ -44,5 +44,13 @@
             "9": 1772,
             "10": 2863
         }
-    }
+    },
+    "progress": {
+        "started": 388,
+        "finished": 276,
+        "dropped": 22
+    },
+    "lists": 31,
+    "total_minutes": 618949,
+    "total_plays": 12473
 }

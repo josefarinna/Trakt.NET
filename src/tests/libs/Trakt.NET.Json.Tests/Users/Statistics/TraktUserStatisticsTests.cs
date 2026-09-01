@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Users
+namespace TraktNET.Json.Users
 {
     public sealed class TraktUserStatisticsTests
     {
@@ -13,6 +13,10 @@
             userStatistics.Episodes.ShouldBeNull();
             userStatistics.Network.ShouldBeNull();
             userStatistics.Ratings.ShouldBeNull();
+            userStatistics.Progress.ShouldBeNull();
+            userStatistics.Lists.ShouldBeNull();
+            userStatistics.TotalMinutes.ShouldBeNull();
+            userStatistics.TotalPlays.ShouldBeNull();
         }
 
         [Fact]
@@ -71,6 +75,15 @@
                 ["9"] = 1772U,
                 ["10"] = 2863U
             });
+
+            userStatistics.Progress.ShouldNotBeNull();
+            userStatistics.Progress.Started.ShouldBe(388U);
+            userStatistics.Progress.Finished.ShouldBe(276U);
+            userStatistics.Progress.Dropped.ShouldBe(22U);
+
+            userStatistics.Lists.ShouldBe(31U);
+            userStatistics.TotalMinutes.ShouldBe(618949U);
+            userStatistics.TotalPlays.ShouldBe(12473U);
         }
     }
 }
