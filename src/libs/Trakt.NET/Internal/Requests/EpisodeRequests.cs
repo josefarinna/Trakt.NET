@@ -54,7 +54,7 @@ namespace TraktNET
     [TraktGetRequest("shows/{show_id!!}/seasons/{season_number:uint}/episodes/{episode_number:uint!!}/translations")]
     internal sealed partial class EpisodeTranslationsGetRequest
     {
-        [TraktRequestParameter]
+        [TraktRequestQuery("language")]
         internal string? Language { get; set; }
 
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Episode;

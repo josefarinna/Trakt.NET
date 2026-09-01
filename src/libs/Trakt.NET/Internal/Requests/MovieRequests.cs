@@ -86,7 +86,7 @@ namespace TraktNET
     [TraktGetRequest("movies/{id!!}/translations")]
     internal sealed partial class MovieTranslationsGetRequest
     {
-        [TraktRequestParameter]
+        [TraktRequestQuery("language")]
         internal string? Language { get; set; }
 
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;

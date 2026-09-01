@@ -28,7 +28,7 @@ namespace TraktNET.ShowsModule
         public async Task TestGetShowTranslationsWithLanguage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showtranslations.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowTranslationsUriWithSlug}/{Language}", responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowTranslationsUriWithSlug}?language={Language}", responseContent);
 
             TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowSlug, Language, TestContext.Current.CancellationToken);
 

@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -13,7 +13,7 @@ namespace TraktNET.GetRequests.Shows
         [InlineData(null, URIPath)]
         [InlineData("", URIPath)]
         [InlineData(" ", URIPath)]
-        [InlineData("en", $"{URIPath}/en")]
+        [InlineData("en", $"{URIPath}?language=en")]
         public void TestShowTranslationsGetRequestHasValidURIPath(string? language, string expectedURIPath)
         {
             var showTranslationsGetRequest = new ShowTranslationsGetRequest
