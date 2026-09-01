@@ -19,16 +19,12 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktListItem>> GetSmartListItemsImplAsync(
-            string listIdOrSlug, TraktSmartListMediaType type, TraktSortBy sortBy, TraktSortHow sortHow,
-            TraktFilter? filter = null, string? watchnow = null,
+            string listIdOrSlug, TraktFilter? filter = null, string? watchnow = null,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new SmartListItemsGetRequest
             {
                 ListId = listIdOrSlug,
-                Type = type,
-                SortBy = sortBy,
-                SortHow = sortHow,
                 Filter = filter,
                 Watchnow = watchnow,
                 ExtendedInfo = extendedInfo,
@@ -40,9 +36,6 @@ namespace TraktNET
                 => new SmartListItemsGetRequest
                 {
                     ListId = listIdOrSlug,
-                    Type = type,
-                    SortBy = sortBy,
-                    SortHow = sortHow,
                     Filter = filter,
                     Watchnow = watchnow,
                     ExtendedInfo = extendedInfo,

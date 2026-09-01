@@ -119,9 +119,6 @@ namespace TraktNET
 
         /// <summary>Gets items of a smart list.</summary>
         /// <param name="listIdOrSlug">The id or slug of the smart list, for which items should be retrieved.</param>
-        /// <param name="type">The media type of items to retrieve. See also <seealso cref="TraktSmartListMediaType" />.</param>
-        /// <param name="sortBy">The sort field. See also <seealso cref="TraktSortBy" />.</param>
-        /// <param name="sortHow">The sort direction. See also <seealso cref="TraktSortHow" />.</param>
         /// <param name="filter">Optional filters. See also <seealso cref="TraktFilter" />.</param>
         /// <param name="watchnow">Optional watchnow streaming service options.</param>
         /// <param name="extendedInfo">The extended information options. See also <seealso cref="TraktExtendedInfo" />.</param>
@@ -144,16 +141,12 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetSmartListItemsAsync(
-            string listIdOrSlug, TraktSmartListMediaType type, TraktSortBy sortBy, TraktSortHow sortHow,
-            TraktFilter? filter = null, string? watchnow = null,
+            string listIdOrSlug, TraktFilter? filter = null, string? watchnow = null,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetSmartListItemsImplAsync(listIdOrSlug, type, sortBy, sortHow, filter, watchnow, extendedInfo, page, limit, cancellationToken);
+            => GetSmartListItemsImplAsync(listIdOrSlug, filter, watchnow, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets items of a smart list.</summary>
         /// <param name="traktListId">The Trakt-ID of the smart list, for which items should be retrieved.</param>
-        /// <param name="type">The media type of items to retrieve. See also <seealso cref="TraktSmartListMediaType" />.</param>
-        /// <param name="sortBy">The sort field. See also <seealso cref="TraktSortBy" />.</param>
-        /// <param name="sortHow">The sort direction. See also <seealso cref="TraktSortHow" />.</param>
         /// <param name="filter">Optional filters. See also <seealso cref="TraktFilter" />.</param>
         /// <param name="watchnow">Optional watchnow streaming service options.</param>
         /// <param name="extendedInfo">The extended information options. See also <seealso cref="TraktExtendedInfo" />.</param>
@@ -177,21 +170,17 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktListId"/> is 0.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetSmartListItemsAsync(
-            uint traktListId, TraktSmartListMediaType type, TraktSortBy sortBy, TraktSortHow sortHow,
-            TraktFilter? filter = null, string? watchnow = null,
+            uint traktListId, TraktFilter? filter = null, string? watchnow = null,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             if (traktListId == 0)
                 throw new ArgumentException("list id must not be 0", nameof(traktListId));
 
-            return GetSmartListItemsAsync(traktListId.ToInvariantCultureString(), type, sortBy, sortHow, filter, watchnow, extendedInfo, page, limit, cancellationToken);
+            return GetSmartListItemsAsync(traktListId.ToInvariantCultureString(), filter, watchnow, extendedInfo, page, limit, cancellationToken);
         }
 
         /// <summary>Gets items of a smart list.</summary>
         /// <param name="listIds">The ids of the smart list, for which items should be retrieved.</param>
-        /// <param name="type">The media type of items to retrieve. See also <seealso cref="TraktSmartListMediaType" />.</param>
-        /// <param name="sortBy">The sort field. See also <seealso cref="TraktSortBy" />.</param>
-        /// <param name="sortHow">The sort direction. See also <seealso cref="TraktSortHow" />.</param>
         /// <param name="filter">Optional filters. See also <seealso cref="TraktFilter" />.</param>
         /// <param name="watchnow">Optional watchnow streaming service options.</param>
         /// <param name="extendedInfo">The extended information options. See also <seealso cref="TraktExtendedInfo" />.</param>
@@ -216,8 +205,7 @@ namespace TraktNET
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="listIds"/> is null.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="listIds"/> has not any ids set.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetSmartListItemsAsync(
-            TraktListIDs listIds, TraktSmartListMediaType type, TraktSortBy sortBy, TraktSortHow sortHow,
-            TraktFilter? filter = null, string? watchnow = null,
+            TraktListIDs listIds, TraktFilter? filter = null, string? watchnow = null,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(listIds);
@@ -225,14 +213,11 @@ namespace TraktNET
             if (!listIds.HasAnyID)
                 throw new ArgumentException($"{nameof(listIds)} has not any ids set", nameof(listIds));
 
-            return GetSmartListItemsAsync(listIds.BestID, type, sortBy, sortHow, filter, watchnow, extendedInfo, page, limit, cancellationToken);
+            return GetSmartListItemsAsync(listIds.BestID, filter, watchnow, extendedInfo, page, limit, cancellationToken);
         }
 
         /// <summary>Gets items of a smart list.</summary>
         /// <param name="list">The smart list, for which items should be retrieved.</param>
-        /// <param name="type">The media type of items to retrieve. See also <seealso cref="TraktSmartListMediaType" />.</param>
-        /// <param name="sortBy">The sort field. See also <seealso cref="TraktSortBy" />.</param>
-        /// <param name="sortHow">The sort direction. See also <seealso cref="TraktSortHow" />.</param>
         /// <param name="filter">Optional filters. See also <seealso cref="TraktFilter" />.</param>
         /// <param name="watchnow">Optional watchnow streaming service options.</param>
         /// <param name="extendedInfo">The extended information options. See also <seealso cref="TraktExtendedInfo" />.</param>
@@ -256,12 +241,11 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="list"/> is null.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetSmartListItemsAsync(
-            TraktSmartList list, TraktSmartListMediaType type, TraktSortBy sortBy, TraktSortHow sortHow,
-            TraktFilter? filter = null, string? watchnow = null,
+            TraktSmartList list, TraktFilter? filter = null, string? watchnow = null,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(list);
-            return GetSmartListItemsAsync(list.IDs!, type, sortBy, sortHow, filter, watchnow, extendedInfo, page, limit, cancellationToken);
+            return GetSmartListItemsAsync(list.IDs!, filter, watchnow, extendedInfo, page, limit, cancellationToken);
         }
     }
 }
