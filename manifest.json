@@ -2425,6 +2425,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktFilterOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktFilterOperator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktFilterOperator",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktFilterOperator.yml\" sourcestartlinenumber=\"1\">Determines the logical operator used for filtering.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktFilterOperatorExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktFilterOperatorExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktFilterOperatorExtensions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktFilterOperatorExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktFilterOperator\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktFilterOperatorJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktFilterOperatorJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktFilterOperatorJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktFilterOperatorJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktFilterOperator\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktFilterSection.yml",
       "output": {
         ".html": {

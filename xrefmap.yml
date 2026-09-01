@@ -14557,6 +14557,18 @@ references:
   commentId: Overload:TraktNET.SmartListsJsonSerializerContext.NullableDateTime
   fullName: TraktNET.SmartListsJsonSerializerContext.NullableDateTime
   nameWithType: SmartListsJsonSerializerContext.NullableDateTime
+- uid: TraktNET.SmartListsJsonSerializerContext.NullableTraktFilterOperator
+  name: NullableTraktFilterOperator
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableTraktFilterOperator
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.NullableTraktFilterOperator
+  fullName: TraktNET.SmartListsJsonSerializerContext.NullableTraktFilterOperator
+  nameWithType: SmartListsJsonSerializerContext.NullableTraktFilterOperator
+- uid: TraktNET.SmartListsJsonSerializerContext.NullableTraktFilterOperator*
+  name: NullableTraktFilterOperator
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableTraktFilterOperator_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.NullableTraktFilterOperator
+  fullName: TraktNET.SmartListsJsonSerializerContext.NullableTraktFilterOperator
+  nameWithType: SmartListsJsonSerializerContext.NullableTraktFilterOperator
 - uid: TraktNET.SmartListsJsonSerializerContext.NullableTraktListPrivacy
   name: NullableTraktListPrivacy
   href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableTraktListPrivacy
@@ -14653,6 +14665,18 @@ references:
   commentId: Overload:TraktNET.SmartListsJsonSerializerContext.StringArray
   fullName: TraktNET.SmartListsJsonSerializerContext.StringArray
   nameWithType: SmartListsJsonSerializerContext.StringArray
+- uid: TraktNET.SmartListsJsonSerializerContext.TraktFilterOperator
+  name: TraktFilterOperator
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktFilterOperator
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.TraktFilterOperator
+  fullName: TraktNET.SmartListsJsonSerializerContext.TraktFilterOperator
+  nameWithType: SmartListsJsonSerializerContext.TraktFilterOperator
+- uid: TraktNET.SmartListsJsonSerializerContext.TraktFilterOperator*
+  name: TraktFilterOperator
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktFilterOperator_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.TraktFilterOperator
+  fullName: TraktNET.SmartListsJsonSerializerContext.TraktFilterOperator
+  nameWithType: SmartListsJsonSerializerContext.TraktFilterOperator
 - uid: TraktNET.SmartListsJsonSerializerContext.TraktListIDs
   name: TraktListIDs
   href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktListIDs
@@ -35629,6 +35653,138 @@ references:
   commentId: Overload:TraktNET.TraktFilter.Years
   fullName: TraktNET.TraktFilter.Years
   nameWithType: TraktFilter.Years
+- uid: TraktNET.TraktFilterOperator
+  name: TraktFilterOperator
+  href: api/TraktNET.TraktFilterOperator.html
+  commentId: T:TraktNET.TraktFilterOperator
+  fullName: TraktNET.TraktFilterOperator
+  nameWithType: TraktFilterOperator
+- uid: TraktNET.TraktFilterOperator.And
+  name: And
+  href: api/TraktNET.TraktFilterOperator.html#TraktNET_TraktFilterOperator_And
+  commentId: F:TraktNET.TraktFilterOperator.And
+  fullName: TraktNET.TraktFilterOperator.And
+  nameWithType: TraktFilterOperator.And
+- uid: TraktNET.TraktFilterOperator.Or
+  name: Or
+  href: api/TraktNET.TraktFilterOperator.html#TraktNET_TraktFilterOperator_Or
+  commentId: F:TraktNET.TraktFilterOperator.Or
+  fullName: TraktNET.TraktFilterOperator.Or
+  nameWithType: TraktFilterOperator.Or
+- uid: TraktNET.TraktFilterOperator.Unspecified
+  name: Unspecified
+  href: api/TraktNET.TraktFilterOperator.html#TraktNET_TraktFilterOperator_Unspecified
+  commentId: F:TraktNET.TraktFilterOperator.Unspecified
+  fullName: TraktNET.TraktFilterOperator.Unspecified
+  nameWithType: TraktFilterOperator.Unspecified
+- uid: TraktNET.TraktFilterOperatorExtensions
+  name: TraktFilterOperatorExtensions
+  href: api/TraktNET.TraktFilterOperatorExtensions.html
+  commentId: T:TraktNET.TraktFilterOperatorExtensions
+  fullName: TraktNET.TraktFilterOperatorExtensions
+  nameWithType: TraktFilterOperatorExtensions
+- uid: TraktNET.TraktFilterOperatorExtensions.DisplayName(TraktNET.TraktFilterOperator)
+  name: DisplayName(TraktFilterOperator)
+  href: api/TraktNET.TraktFilterOperatorExtensions.html#TraktNET_TraktFilterOperatorExtensions_DisplayName_TraktNET_TraktFilterOperator_
+  commentId: M:TraktNET.TraktFilterOperatorExtensions.DisplayName(TraktNET.TraktFilterOperator)
+  fullName: TraktNET.TraktFilterOperatorExtensions.DisplayName(TraktNET.TraktFilterOperator)
+  nameWithType: TraktFilterOperatorExtensions.DisplayName(TraktFilterOperator)
+- uid: TraktNET.TraktFilterOperatorExtensions.DisplayName*
+  name: DisplayName
+  href: api/TraktNET.TraktFilterOperatorExtensions.html#TraktNET_TraktFilterOperatorExtensions_DisplayName_
+  commentId: Overload:TraktNET.TraktFilterOperatorExtensions.DisplayName
+  fullName: TraktNET.TraktFilterOperatorExtensions.DisplayName
+  nameWithType: TraktFilterOperatorExtensions.DisplayName
+- uid: TraktNET.TraktFilterOperatorExtensions.ToJson(TraktNET.TraktFilterOperator)
+  name: ToJson(TraktFilterOperator)
+  href: api/TraktNET.TraktFilterOperatorExtensions.html#TraktNET_TraktFilterOperatorExtensions_ToJson_TraktNET_TraktFilterOperator_
+  commentId: M:TraktNET.TraktFilterOperatorExtensions.ToJson(TraktNET.TraktFilterOperator)
+  fullName: TraktNET.TraktFilterOperatorExtensions.ToJson(TraktNET.TraktFilterOperator)
+  nameWithType: TraktFilterOperatorExtensions.ToJson(TraktFilterOperator)
+- uid: TraktNET.TraktFilterOperatorExtensions.ToJson*
+  name: ToJson
+  href: api/TraktNET.TraktFilterOperatorExtensions.html#TraktNET_TraktFilterOperatorExtensions_ToJson_
+  commentId: Overload:TraktNET.TraktFilterOperatorExtensions.ToJson
+  fullName: TraktNET.TraktFilterOperatorExtensions.ToJson
+  nameWithType: TraktFilterOperatorExtensions.ToJson
+- uid: TraktNET.TraktFilterOperatorExtensions.ToTraktFilterOperator(System.String)
+  name: ToTraktFilterOperator(string?)
+  href: api/TraktNET.TraktFilterOperatorExtensions.html#TraktNET_TraktFilterOperatorExtensions_ToTraktFilterOperator_System_String_
+  commentId: M:TraktNET.TraktFilterOperatorExtensions.ToTraktFilterOperator(System.String)
+  name.vb: ToTraktFilterOperator(String)
+  fullName: TraktNET.TraktFilterOperatorExtensions.ToTraktFilterOperator(string?)
+  fullName.vb: TraktNET.TraktFilterOperatorExtensions.ToTraktFilterOperator(String)
+  nameWithType: TraktFilterOperatorExtensions.ToTraktFilterOperator(string?)
+  nameWithType.vb: TraktFilterOperatorExtensions.ToTraktFilterOperator(String)
+- uid: TraktNET.TraktFilterOperatorExtensions.ToTraktFilterOperator*
+  name: ToTraktFilterOperator
+  href: api/TraktNET.TraktFilterOperatorExtensions.html#TraktNET_TraktFilterOperatorExtensions_ToTraktFilterOperator_
+  commentId: Overload:TraktNET.TraktFilterOperatorExtensions.ToTraktFilterOperator
+  fullName: TraktNET.TraktFilterOperatorExtensions.ToTraktFilterOperator
+  nameWithType: TraktFilterOperatorExtensions.ToTraktFilterOperator
+- uid: TraktNET.TraktFilterOperatorJsonConverter
+  name: TraktFilterOperatorJsonConverter
+  href: api/TraktNET.TraktFilterOperatorJsonConverter.html
+  commentId: T:TraktNET.TraktFilterOperatorJsonConverter
+  fullName: TraktNET.TraktFilterOperatorJsonConverter
+  nameWithType: TraktFilterOperatorJsonConverter
+- uid: TraktNET.TraktFilterOperatorJsonConverter.#ctor
+  name: TraktFilterOperatorJsonConverter()
+  href: api/TraktNET.TraktFilterOperatorJsonConverter.html#TraktNET_TraktFilterOperatorJsonConverter__ctor
+  commentId: M:TraktNET.TraktFilterOperatorJsonConverter.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktFilterOperatorJsonConverter.TraktFilterOperatorJsonConverter()
+  fullName.vb: TraktNET.TraktFilterOperatorJsonConverter.New()
+  nameWithType: TraktFilterOperatorJsonConverter.TraktFilterOperatorJsonConverter()
+  nameWithType.vb: TraktFilterOperatorJsonConverter.New()
+- uid: TraktNET.TraktFilterOperatorJsonConverter.#ctor*
+  name: TraktFilterOperatorJsonConverter
+  href: api/TraktNET.TraktFilterOperatorJsonConverter.html#TraktNET_TraktFilterOperatorJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktFilterOperatorJsonConverter.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktFilterOperatorJsonConverter.TraktFilterOperatorJsonConverter
+  fullName.vb: TraktNET.TraktFilterOperatorJsonConverter.New
+  nameWithType: TraktFilterOperatorJsonConverter.TraktFilterOperatorJsonConverter
+  nameWithType.vb: TraktFilterOperatorJsonConverter.New
+- uid: TraktNET.TraktFilterOperatorJsonConverter.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: api/TraktNET.TraktFilterOperatorJsonConverter.html#TraktNET_TraktFilterOperatorJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktFilterOperatorJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktFilterOperatorJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktFilterOperatorJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktFilterOperatorJsonConverter.CanConvert*
+  name: CanConvert
+  href: api/TraktNET.TraktFilterOperatorJsonConverter.html#TraktNET_TraktFilterOperatorJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktFilterOperatorJsonConverter.CanConvert
+  fullName: TraktNET.TraktFilterOperatorJsonConverter.CanConvert
+  nameWithType: TraktFilterOperatorJsonConverter.CanConvert
+- uid: TraktNET.TraktFilterOperatorJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/TraktNET.TraktFilterOperatorJsonConverter.html#TraktNET_TraktFilterOperatorJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktFilterOperatorJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: TraktNET.TraktFilterOperatorJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktFilterOperatorJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktFilterOperatorJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktFilterOperatorJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktFilterOperatorJsonConverter.Read*
+  name: Read
+  href: api/TraktNET.TraktFilterOperatorJsonConverter.html#TraktNET_TraktFilterOperatorJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktFilterOperatorJsonConverter.Read
+  fullName: TraktNET.TraktFilterOperatorJsonConverter.Read
+  nameWithType: TraktFilterOperatorJsonConverter.Read
+- uid: TraktNET.TraktFilterOperatorJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktFilterOperator,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktFilterOperator, JsonSerializerOptions)
+  href: api/TraktNET.TraktFilterOperatorJsonConverter.html#TraktNET_TraktFilterOperatorJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktFilterOperator_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktFilterOperatorJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktFilterOperator,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktFilterOperatorJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktFilterOperator, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktFilterOperatorJsonConverter.Write(Utf8JsonWriter, TraktFilterOperator, JsonSerializerOptions)
+- uid: TraktNET.TraktFilterOperatorJsonConverter.Write*
+  name: Write
+  href: api/TraktNET.TraktFilterOperatorJsonConverter.html#TraktNET_TraktFilterOperatorJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktFilterOperatorJsonConverter.Write
+  fullName: TraktNET.TraktFilterOperatorJsonConverter.Write
+  nameWithType: TraktFilterOperatorJsonConverter.Write
 - uid: TraktNET.TraktFilterSection
   name: TraktFilterSection
   href: api/TraktNET.TraktFilterSection.html
@@ -58253,6 +58409,18 @@ references:
   commentId: Overload:TraktNET.TraktPlexSync.Selection
   fullName: TraktNET.TraktPlexSync.Selection
   nameWithType: TraktPlexSync.Selection
+- uid: TraktNET.TraktPlexSync.ServerLimit
+  name: ServerLimit
+  href: api/TraktNET.TraktPlexSync.html#TraktNET_TraktPlexSync_ServerLimit
+  commentId: P:TraktNET.TraktPlexSync.ServerLimit
+  fullName: TraktNET.TraktPlexSync.ServerLimit
+  nameWithType: TraktPlexSync.ServerLimit
+- uid: TraktNET.TraktPlexSync.ServerLimit*
+  name: ServerLimit
+  href: api/TraktNET.TraktPlexSync.html#TraktNET_TraktPlexSync_ServerLimit_
+  commentId: Overload:TraktNET.TraktPlexSync.ServerLimit
+  fullName: TraktNET.TraktPlexSync.ServerLimit
+  nameWithType: TraktPlexSync.ServerLimit
 - uid: TraktNET.TraktPlexSync.ToString
   name: ToString()
   href: api/TraktNET.TraktPlexSync.html#TraktNET_TraktPlexSync_ToString
@@ -73927,6 +74095,18 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.Genres
   fullName: TraktNET.TraktSmartListFilters.Genres
   nameWithType: TraktSmartListFilters.Genres
+- uid: TraktNET.TraktSmartListFilters.GenresOperator
+  name: GenresOperator
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_GenresOperator
+  commentId: P:TraktNET.TraktSmartListFilters.GenresOperator
+  fullName: TraktNET.TraktSmartListFilters.GenresOperator
+  nameWithType: TraktSmartListFilters.GenresOperator
+- uid: TraktNET.TraktSmartListFilters.GenresOperator*
+  name: GenresOperator
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_GenresOperator_
+  commentId: Overload:TraktNET.TraktSmartListFilters.GenresOperator
+  fullName: TraktNET.TraktSmartListFilters.GenresOperator
+  nameWithType: TraktSmartListFilters.GenresOperator
 - uid: TraktNET.TraktSmartListFilters.GetHashCode
   name: GetHashCode()
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_GetHashCode
@@ -73939,6 +74119,66 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.GetHashCode
   fullName: TraktNET.TraktSmartListFilters.GetHashCode
   nameWithType: TraktSmartListFilters.GetHashCode
+- uid: TraktNET.TraktSmartListFilters.IgnoreAiring
+  name: IgnoreAiring
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreAiring
+  commentId: P:TraktNET.TraktSmartListFilters.IgnoreAiring
+  fullName: TraktNET.TraktSmartListFilters.IgnoreAiring
+  nameWithType: TraktSmartListFilters.IgnoreAiring
+- uid: TraktNET.TraktSmartListFilters.IgnoreAiring*
+  name: IgnoreAiring
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreAiring_
+  commentId: Overload:TraktNET.TraktSmartListFilters.IgnoreAiring
+  fullName: TraktNET.TraktSmartListFilters.IgnoreAiring
+  nameWithType: TraktSmartListFilters.IgnoreAiring
+- uid: TraktNET.TraktSmartListFilters.IgnoreEnded
+  name: IgnoreEnded
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreEnded
+  commentId: P:TraktNET.TraktSmartListFilters.IgnoreEnded
+  fullName: TraktNET.TraktSmartListFilters.IgnoreEnded
+  nameWithType: TraktSmartListFilters.IgnoreEnded
+- uid: TraktNET.TraktSmartListFilters.IgnoreEnded*
+  name: IgnoreEnded
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreEnded_
+  commentId: Overload:TraktNET.TraktSmartListFilters.IgnoreEnded
+  fullName: TraktNET.TraktSmartListFilters.IgnoreEnded
+  nameWithType: TraktSmartListFilters.IgnoreEnded
+- uid: TraktNET.TraktSmartListFilters.IgnoreNoReleaseDate
+  name: IgnoreNoReleaseDate
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreNoReleaseDate
+  commentId: P:TraktNET.TraktSmartListFilters.IgnoreNoReleaseDate
+  fullName: TraktNET.TraktSmartListFilters.IgnoreNoReleaseDate
+  nameWithType: TraktSmartListFilters.IgnoreNoReleaseDate
+- uid: TraktNET.TraktSmartListFilters.IgnoreNoReleaseDate*
+  name: IgnoreNoReleaseDate
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreNoReleaseDate_
+  commentId: Overload:TraktNET.TraktSmartListFilters.IgnoreNoReleaseDate
+  fullName: TraktNET.TraktSmartListFilters.IgnoreNoReleaseDate
+  nameWithType: TraktSmartListFilters.IgnoreNoReleaseDate
+- uid: TraktNET.TraktSmartListFilters.IgnoreReleased
+  name: IgnoreReleased
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreReleased
+  commentId: P:TraktNET.TraktSmartListFilters.IgnoreReleased
+  fullName: TraktNET.TraktSmartListFilters.IgnoreReleased
+  nameWithType: TraktSmartListFilters.IgnoreReleased
+- uid: TraktNET.TraktSmartListFilters.IgnoreReleased*
+  name: IgnoreReleased
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreReleased_
+  commentId: Overload:TraktNET.TraktSmartListFilters.IgnoreReleased
+  fullName: TraktNET.TraktSmartListFilters.IgnoreReleased
+  nameWithType: TraktSmartListFilters.IgnoreReleased
+- uid: TraktNET.TraktSmartListFilters.IgnoreUnreleased
+  name: IgnoreUnreleased
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreUnreleased
+  commentId: P:TraktNET.TraktSmartListFilters.IgnoreUnreleased
+  fullName: TraktNET.TraktSmartListFilters.IgnoreUnreleased
+  nameWithType: TraktSmartListFilters.IgnoreUnreleased
+- uid: TraktNET.TraktSmartListFilters.IgnoreUnreleased*
+  name: IgnoreUnreleased
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreUnreleased_
+  commentId: Overload:TraktNET.TraktSmartListFilters.IgnoreUnreleased
+  fullName: TraktNET.TraktSmartListFilters.IgnoreUnreleased
+  nameWithType: TraktSmartListFilters.IgnoreUnreleased
 - uid: TraktNET.TraktSmartListFilters.IgnoreWatched
   name: IgnoreWatched
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreWatched
@@ -73951,6 +74191,18 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.IgnoreWatched
   fullName: TraktNET.TraktSmartListFilters.IgnoreWatched
   nameWithType: TraktSmartListFilters.IgnoreWatched
+- uid: TraktNET.TraktSmartListFilters.IgnoreWatching
+  name: IgnoreWatching
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreWatching
+  commentId: P:TraktNET.TraktSmartListFilters.IgnoreWatching
+  fullName: TraktNET.TraktSmartListFilters.IgnoreWatching
+  nameWithType: TraktSmartListFilters.IgnoreWatching
+- uid: TraktNET.TraktSmartListFilters.IgnoreWatching*
+  name: IgnoreWatching
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreWatching_
+  commentId: Overload:TraktNET.TraktSmartListFilters.IgnoreWatching
+  fullName: TraktNET.TraktSmartListFilters.IgnoreWatching
+  nameWithType: TraktSmartListFilters.IgnoreWatching
 - uid: TraktNET.TraktSmartListFilters.IgnoreWatchlisted
   name: IgnoreWatchlisted
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_IgnoreWatchlisted
@@ -73975,6 +74227,30 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.ImdbRatings
   fullName: TraktNET.TraktSmartListFilters.ImdbRatings
   nameWithType: TraktSmartListFilters.ImdbRatings
+- uid: TraktNET.TraktSmartListFilters.Keywords
+  name: Keywords
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Keywords
+  commentId: P:TraktNET.TraktSmartListFilters.Keywords
+  fullName: TraktNET.TraktSmartListFilters.Keywords
+  nameWithType: TraktSmartListFilters.Keywords
+- uid: TraktNET.TraktSmartListFilters.Keywords*
+  name: Keywords
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Keywords_
+  commentId: Overload:TraktNET.TraktSmartListFilters.Keywords
+  fullName: TraktNET.TraktSmartListFilters.Keywords
+  nameWithType: TraktSmartListFilters.Keywords
+- uid: TraktNET.TraktSmartListFilters.KeywordsOperator
+  name: KeywordsOperator
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_KeywordsOperator
+  commentId: P:TraktNET.TraktSmartListFilters.KeywordsOperator
+  fullName: TraktNET.TraktSmartListFilters.KeywordsOperator
+  nameWithType: TraktSmartListFilters.KeywordsOperator
+- uid: TraktNET.TraktSmartListFilters.KeywordsOperator*
+  name: KeywordsOperator
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_KeywordsOperator_
+  commentId: Overload:TraktNET.TraktSmartListFilters.KeywordsOperator
+  fullName: TraktNET.TraktSmartListFilters.KeywordsOperator
+  nameWithType: TraktSmartListFilters.KeywordsOperator
 - uid: TraktNET.TraktSmartListFilters.Languages
   name: Languages
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Languages
@@ -73987,6 +74263,30 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.Languages
   fullName: TraktNET.TraktSmartListFilters.Languages
   nameWithType: TraktSmartListFilters.Languages
+- uid: TraktNET.TraktSmartListFilters.LetterboxdRatings
+  name: LetterboxdRatings
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_LetterboxdRatings
+  commentId: P:TraktNET.TraktSmartListFilters.LetterboxdRatings
+  fullName: TraktNET.TraktSmartListFilters.LetterboxdRatings
+  nameWithType: TraktSmartListFilters.LetterboxdRatings
+- uid: TraktNET.TraktSmartListFilters.LetterboxdRatings*
+  name: LetterboxdRatings
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_LetterboxdRatings_
+  commentId: Overload:TraktNET.TraktSmartListFilters.LetterboxdRatings
+  fullName: TraktNET.TraktSmartListFilters.LetterboxdRatings
+  nameWithType: TraktSmartListFilters.LetterboxdRatings
+- uid: TraktNET.TraktSmartListFilters.MalRatings
+  name: MalRatings
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_MalRatings
+  commentId: P:TraktNET.TraktSmartListFilters.MalRatings
+  fullName: TraktNET.TraktSmartListFilters.MalRatings
+  nameWithType: TraktSmartListFilters.MalRatings
+- uid: TraktNET.TraktSmartListFilters.MalRatings*
+  name: MalRatings
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_MalRatings_
+  commentId: Overload:TraktNET.TraktSmartListFilters.MalRatings
+  fullName: TraktNET.TraktSmartListFilters.MalRatings
+  nameWithType: TraktSmartListFilters.MalRatings
 - uid: TraktNET.TraktSmartListFilters.Networks
   name: Networks
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Networks
@@ -74854,6 +75154,12 @@ references:
   commentId: F:TraktNET.TraktSmartListSource.Discover
   fullName: TraktNET.TraktSmartListSource.Discover
   nameWithType: TraktSmartListSource.Discover
+- uid: TraktNET.TraktSmartListSource.Library
+  name: Library
+  href: api/TraktNET.TraktSmartListSource.html#TraktNET_TraktSmartListSource_Library
+  commentId: F:TraktNET.TraktSmartListSource.Library
+  fullName: TraktNET.TraktSmartListSource.Library
+  nameWithType: TraktSmartListSource.Library
 - uid: TraktNET.TraktSmartListSource.Popular
   name: Popular
   href: api/TraktNET.TraktSmartListSource.html#TraktNET_TraktSmartListSource_Popular
@@ -74878,6 +75184,12 @@ references:
   commentId: F:TraktNET.TraktSmartListSource.Unspecified
   fullName: TraktNET.TraktSmartListSource.Unspecified
   nameWithType: TraktSmartListSource.Unspecified
+- uid: TraktNET.TraktSmartListSource.Watchlist
+  name: Watchlist
+  href: api/TraktNET.TraktSmartListSource.html#TraktNET_TraktSmartListSource_Watchlist
+  commentId: F:TraktNET.TraktSmartListSource.Watchlist
+  fullName: TraktNET.TraktSmartListSource.Watchlist
+  nameWithType: TraktSmartListSource.Watchlist
 - uid: TraktNET.TraktSmartListSourceExtensions
   name: TraktSmartListSourceExtensions
   href: api/TraktNET.TraktSmartListSourceExtensions.html
