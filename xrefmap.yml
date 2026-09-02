@@ -35365,6 +35365,18 @@ references:
   commentId: Overload:TraktNET.TraktFilter.EpisodeTypes
   fullName: TraktNET.TraktFilter.EpisodeTypes
   nameWithType: TraktFilter.EpisodeTypes
+- uid: TraktNET.TraktFilter.ExcludeEpisodeTypes
+  name: ExcludeEpisodeTypes
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ExcludeEpisodeTypes
+  commentId: P:TraktNET.TraktFilter.ExcludeEpisodeTypes
+  fullName: TraktNET.TraktFilter.ExcludeEpisodeTypes
+  nameWithType: TraktFilter.ExcludeEpisodeTypes
+- uid: TraktNET.TraktFilter.ExcludeEpisodeTypes*
+  name: ExcludeEpisodeTypes
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ExcludeEpisodeTypes_
+  commentId: Overload:TraktNET.TraktFilter.ExcludeEpisodeTypes
+  fullName: TraktNET.TraktFilter.ExcludeEpisodeTypes
+  nameWithType: TraktFilter.ExcludeEpisodeTypes
 - uid: TraktNET.TraktFilter.Genres
   name: Genres
   href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_Genres
