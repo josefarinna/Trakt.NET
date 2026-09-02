@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Paramters
+namespace TraktNET.Paramters
 {
     public sealed class TraktFilterTests
     {
@@ -28,6 +28,7 @@
             filter.NetworkIDs.ShouldBeNull();
             filter.Status.ShouldBeNull();
             filter.EpisodeTypes.ShouldBeNull();
+            filter.ExcludeEpisodeTypes.ShouldBeNull();
             filter.IgnoreWatched.ShouldBeNull();
             filter.IgnoreCollected.ShouldBeNull();
             filter.IgnoreWatchlisted.ShouldBeNull();
@@ -442,11 +443,65 @@
 
             filter = new TraktFilter
             {
+                EpisodeTypes = [TraktEpisodeType.Unspecified]
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
+
+            filter = new TraktFilter
+            {
                 EpisodeTypes = []
             };
 
             filter.ToString().ShouldNotBeNull();
             filter.ToString()!.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringExcludeEpisodeTypes()
+        {
+            var filter = new TraktFilter
+            {
+                ExcludeEpisodeTypes = [TraktEpisodeType.SeasonFinale, TraktEpisodeType.SeriesFinale]
+            };
+
+            filter.ToString().ShouldBe("episode_types=-season_finale,-series_finale");
+
+            filter = new TraktFilter
+            {
+                ExcludeEpisodeTypes = [TraktEpisodeType.Unspecified, TraktEpisodeType.SeasonFinale]
+            };
+
+            filter.ToString().ShouldBe("episode_types=-season_finale");
+
+            filter = new TraktFilter
+            {
+                ExcludeEpisodeTypes = [TraktEpisodeType.Unspecified]
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
+
+            filter = new TraktFilter
+            {
+                ExcludeEpisodeTypes = []
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringEpisodeTypesAndExcludeEpisodeTypes()
+        {
+            var filter = new TraktFilter
+            {
+                EpisodeTypes = [TraktEpisodeType.SeriesPremiere, TraktEpisodeType.SeasonPremiere],
+                ExcludeEpisodeTypes = [TraktEpisodeType.SeasonFinale, TraktEpisodeType.SeriesFinale]
+            };
+
+            filter.ToString().ShouldBe("episode_types=series_premiere,season_premiere,-season_finale,-series_finale");
         }
 
         [Fact]
@@ -497,6 +552,7 @@
                 NetworkIDs = [7, 8, 9],
                 Status = [TraktShowStatus.Ended, TraktShowStatus.Planned],
                 EpisodeTypes = [TraktEpisodeType.SeriesPremiere, TraktEpisodeType.SeasonPremiere],
+                ExcludeEpisodeTypes = [TraktEpisodeType.SeasonFinale, TraktEpisodeType.SeriesFinale],
                 IgnoreWatched = true,
                 IgnoreCollected = true,
                 IgnoreWatchlisted = true,
@@ -508,7 +564,7 @@
                 + "&countries=us,de&runtimes=70-90&studio_ids=7,8,9&ratings=70-90&votes=2000-5000&tmdb_ratings=5.5-10"
                 + "&tmdb_votes=2000-5000&imdb_ratings=5.5-10&imdb_votes=2000-5000&rt_meters=70-90&rt_user_meters=70-90"
                 + "&metascores=5.5-10&certifications=R,tv-pg&network_ids=7,8,9&status=ended,planned"
-                + "&episode_types=series_premiere,season_premiere&ignore_watched=true&ignore_collected=true"
+                + "&episode_types=series_premiere,season_premiere,-season_finale,-series_finale&ignore_watched=true&ignore_collected=true"
                 + "&ignore_watchlisted=true&start_date=2024-01-01&end_date=2024-12-31");
         }
     }
