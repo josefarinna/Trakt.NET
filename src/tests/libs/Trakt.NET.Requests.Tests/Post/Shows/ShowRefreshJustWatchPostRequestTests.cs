@@ -6,7 +6,7 @@ namespace TraktNET.PostRequests.Shows
 {
     public sealed class ShowRefreshJustWatchPostRequestTests
     {
-        private const string URIPath = "shows/123/justwatch/refresh";
+        private const string URIPath = "shows/123/refresh/justwatch";
 
         [Fact]
         public void TestShowRefreshJustWatchPostRequestHasValidURIPath()

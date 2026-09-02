@@ -256,11 +256,12 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktShowCollectionProgress>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse> RefreshShowImplAsync(string showIDOrSlug, CancellationToken cancellationToken = default)
+        private Task<TraktResponse> RefreshShowImplAsync(string showIDOrSlug, bool? images = null, CancellationToken cancellationToken = default)
         {
             var request = new ShowRefreshPostRequest
             {
-                Id = showIDOrSlug
+                Id = showIDOrSlug,
+                Images = images
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);

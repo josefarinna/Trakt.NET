@@ -4,8 +4,8 @@ namespace TraktNET.MoviesModule
 {
     public sealed class RefreshMovieJustWatchLinksTests
     {
-        private const string RefreshMovieUri = $"movies/{TestConstants.Movies.MovieID}/justwatch/refresh";
-        private const string RefreshMovieUriWithSlug = $"movies/{TestConstants.Movies.MovieSlug}/justwatch/refresh";
+        private const string RefreshMovieUri = $"movies/{TestConstants.Movies.MovieID}/refresh/justwatch";
+        private const string RefreshMovieUriWithSlug = $"movies/{TestConstants.Movies.MovieSlug}/refresh/justwatch";
 
         [Fact]
         public async Task TestRefreshMovieJustWatchLinksWithID()

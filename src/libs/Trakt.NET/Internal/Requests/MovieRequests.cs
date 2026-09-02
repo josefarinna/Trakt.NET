@@ -226,6 +226,9 @@ namespace TraktNET
     [TraktPostRequest("movies/{id!!}/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class MovieRefreshPostRequest
     {
+        [TraktRequestQuery("images")]
+        internal bool? Images { get; set; }
+
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
@@ -238,7 +241,7 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktPostRequest("movies/{id!!}/justwatch/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("movies/{id!!}/refresh/justwatch", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class MovieRefreshJustWatchPostRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;

@@ -8,16 +8,20 @@ namespace TraktNET.PostRequests.People
     {
         private const string URIPath = "people/123/refresh";
 
-        [Fact]
-        public void TestPersonRefreshPostRequestHasValidURIPath()
+        [Theory]
+        [InlineData(null, URIPath)]
+        [InlineData(true, $"{URIPath}?images=true")]
+        [InlineData(false, $"{URIPath}?images=false")]
+        public void TestPersonRefreshPostRequestHasValidURIPath(bool? images, string expectedURIPath)
         {
             var personRefreshPostRequest = new PersonRefreshPostRequest
             {
-                Id = "123"
+                Id = "123",
+                Images = images
             };
 
             personRefreshPostRequest.BuildUri();
-            personRefreshPostRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            personRefreshPostRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]

@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ShowsModule
 {
@@ -39,6 +39,22 @@ namespace TraktNET.ShowsModule
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshShowUriWithSlug, HttpStatusCode.Created);
 
             TraktResponse response = await client.Shows.RefreshShowAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+        }
+
+        [Theory]
+        [InlineData(null, "")]
+        [InlineData(true, "?images=true")]
+        [InlineData(false, "?images=false")]
+        public async Task TestRefreshShowWithImages(bool? images, string query)
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{RefreshShowUriWithSlug}{query}", HttpStatusCode.Created);
+
+            TraktResponse response = await client.Shows.RefreshShowAsync(TestConstants.Shows.ShowSlug, images, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);

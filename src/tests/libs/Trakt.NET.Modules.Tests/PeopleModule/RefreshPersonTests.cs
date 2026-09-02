@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.PeopleModule
 {
@@ -48,6 +48,22 @@ namespace TraktNET.PeopleModule
             };
 
             TraktResponse response = await client.People.RefreshPersonAsync(personIDs, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+        }
+
+        [Theory]
+        [InlineData(null, "")]
+        [InlineData(true, "?images=true")]
+        [InlineData(false, "?images=false")]
+        public async Task TestRefreshPersonWithImages(bool? images, string query)
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{RefreshPersonUriWithSlug}{query}", HttpStatusCode.Created);
+
+            TraktResponse response = await client.People.RefreshPersonAsync(PersonSlug, images, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);

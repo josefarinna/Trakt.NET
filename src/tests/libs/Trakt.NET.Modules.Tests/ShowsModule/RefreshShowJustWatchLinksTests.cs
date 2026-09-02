@@ -4,8 +4,8 @@ namespace TraktNET.ShowsModule
 {
     public sealed class RefreshShowJustWatchLinksTests
     {
-        private const string RefreshShowUri = $"shows/{TestConstants.Shows.ShowID}/justwatch/refresh";
-        private const string RefreshShowUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/justwatch/refresh";
+        private const string RefreshShowUri = $"shows/{TestConstants.Shows.ShowID}/refresh/justwatch";
+        private const string RefreshShowUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/refresh/justwatch";
 
         [Fact]
         public async Task TestRefreshShowJustWatchLinksWithID()
