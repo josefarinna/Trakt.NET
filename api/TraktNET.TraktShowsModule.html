@@ -7006,6 +7006,96 @@ Trakt API Documentation: Shows: Trending - Get trending shows
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleRefreshShow.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktShowsModule_RefreshShowAsync_" data-uid="TraktNET.TraktShowsModule.RefreshShowAsync*"></a>
+  <h4 id="TraktNET_TraktShowsModule_RefreshShowAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.RefreshShowAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">RefreshShowAsync(string, bool?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified Trakt-ID or -Slug.</p>
+<pre><code>        &lt;p&gt;Queues a show for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.&lt;/p&gt;
+</code></pre>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RefreshShowAsync(string traktShowIDOrSlug, bool? images, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">traktShowIDOrSlug</span></td>
+        <td><p>The show's Trakt-ID or -Slug.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">images</span></td>
+        <td><p>Determines whether images should also be refreshed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktShowsModule_RefreshShowAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/postshowsrefresh">
+Trakt API Documentation: Shows: Refresh - Refresh show metadata
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleRefreshShow.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktShowsModule_RefreshShowAsync_" data-uid="TraktNET.TraktShowsModule.RefreshShowAsync*"></a>
   <h4 id="TraktNET_TraktShowsModule_RefreshShowAsync_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.RefreshShowAsync(System.String,System.Threading.CancellationToken)">RefreshShowAsync(string, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified Trakt-ID or -Slug.</p>
 <pre><code>        &lt;p&gt;Queues a show for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.&lt;/p&gt;
@@ -7081,6 +7171,100 @@ Trakt API Documentation: Shows: Refresh - Refresh show metadata
       <tr>
         <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
         <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleRefreshShow.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktShowsModule_RefreshShowAsync_" data-uid="TraktNET.TraktShowsModule.RefreshShowAsync*"></a>
+  <h4 id="TraktNET_TraktShowsModule_RefreshShowAsync_System_UInt32_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.RefreshShowAsync(System.UInt32,System.Nullable{System.Boolean},System.Threading.CancellationToken)">RefreshShowAsync(uint, bool?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified Trakt-ID.</p>
+<p>Queues a show for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RefreshShowAsync(uint traktShowID, bool? images, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">traktShowID</span></td>
+        <td><p>The show's Trakt-ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">images</span></td>
+        <td><p>Determines whether images should also be refreshed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktShowsModule_RefreshShowAsync_System_UInt32_System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/postshowsrefresh">
+Trakt API Documentation: Shows: Refresh - Refresh show metadata
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">traktShowID</code> is 0.</p>
 </td>
       </tr>
     </tbody>
@@ -7169,6 +7353,105 @@ Trakt API Documentation: Shows: Refresh - Refresh show metadata
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown, if the given <code class="paramref">traktShowID</code> is 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleRefreshShow.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktShowsModule_RefreshShowAsync_" data-uid="TraktNET.TraktShowsModule.RefreshShowAsync*"></a>
+  <h4 id="TraktNET_TraktShowsModule_RefreshShowAsync_TraktNET_TraktShowIDs_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.RefreshShowAsync(TraktNET.TraktShowIDs,System.Nullable{System.Boolean},System.Threading.CancellationToken)">RefreshShowAsync(TraktShowIDs, bool?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified <a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a>.</p>
+<p>Queues a show for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RefreshShowAsync(TraktShowIDs showIDs, bool? images, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a></td>
+        <td><span class="parametername">showIDs</span></td>
+        <td><p>The show's IDs. See also <a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">images</span></td>
+        <td><p>Determines whether images should also be refreshed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktShowsModule_RefreshShowAsync_TraktNET_TraktShowIDs_System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/postshowsrefresh">
+Trakt API Documentation: Shows: Refresh - Refresh show metadata
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Throw if the given <code class="paramref">showIDs</code> has not set any IDs.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if the given <code class="paramref">showIDs</code> is null.</p>
 </td>
       </tr>
     </tbody>

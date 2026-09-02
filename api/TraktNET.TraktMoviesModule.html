@@ -5917,6 +5917,95 @@ Trakt API Documentation: Movies: Trending - Get trending movies
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModuleRefreshMovie.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktMoviesModule_RefreshMovieAsync_" data-uid="TraktNET.TraktMoviesModule.RefreshMovieAsync*"></a>
+  <h4 id="TraktNET_TraktMoviesModule_RefreshMovieAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.RefreshMovieAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">RefreshMovieAsync(string, bool?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified Trakt-ID or -Slug.</p>
+<p>Queues a movie for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RefreshMovieAsync(string traktMovieIDOrSlug, bool? images, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">traktMovieIDOrSlug</span></td>
+        <td><p>The movie's Trakt-ID or -Slug.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">images</span></td>
+        <td><p>Determines whether images should also be refreshed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktMoviesModule_RefreshMovieAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/postmoviesrefresh">
+Trakt API Documentation: Movies: Refresh - Refresh movie metadata
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModuleRefreshMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMoviesModule_RefreshMovieAsync_" data-uid="TraktNET.TraktMoviesModule.RefreshMovieAsync*"></a>
   <h4 id="TraktNET_TraktMoviesModule_RefreshMovieAsync_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.RefreshMovieAsync(System.String,System.Threading.CancellationToken)">RefreshMovieAsync(string, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified Trakt-ID or -Slug.</p>
 <p>Queues a movie for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</p>
@@ -5991,6 +6080,100 @@ Trakt API Documentation: Movies: Refresh - Refresh movie metadata
       <tr>
         <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
         <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModuleRefreshMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMoviesModule_RefreshMovieAsync_" data-uid="TraktNET.TraktMoviesModule.RefreshMovieAsync*"></a>
+  <h4 id="TraktNET_TraktMoviesModule_RefreshMovieAsync_System_UInt32_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.RefreshMovieAsync(System.UInt32,System.Nullable{System.Boolean},System.Threading.CancellationToken)">RefreshMovieAsync(uint, bool?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified Trakt-ID.</p>
+<p>Queues a movie for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RefreshMovieAsync(uint traktMovieID, bool? images, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">traktMovieID</span></td>
+        <td><p>The movie's Trakt-ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">images</span></td>
+        <td><p>Determines whether images should also be refreshed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktMoviesModule_RefreshMovieAsync_System_UInt32_System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/postmoviesrefresh">
+Trakt API Documentation: Movies: Refresh - Refresh movie metadata
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">traktMovieID</code> is 0.</p>
 </td>
       </tr>
     </tbody>
@@ -6079,6 +6262,105 @@ Trakt API Documentation: Movies: Refresh - Refresh movie metadata
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown, if the given <code class="paramref">traktMovieID</code> is 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModuleRefreshMovie.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktMoviesModule_RefreshMovieAsync_" data-uid="TraktNET.TraktMoviesModule.RefreshMovieAsync*"></a>
+  <h4 id="TraktNET_TraktMoviesModule_RefreshMovieAsync_TraktNET_TraktMovieIDs_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.RefreshMovieAsync(TraktNET.TraktMovieIDs,System.Nullable{System.Boolean},System.Threading.CancellationToken)">RefreshMovieAsync(TraktMovieIDs, bool?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Refreshs a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified <a class="xref" href="TraktNET.TraktMovieIDs.html">TraktMovieIDs</a>.</p>
+<p>Queues a movie for full metadata and image refresh, which might take up to 8 hours for the updated metadata to be available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RefreshMovieAsync(TraktMovieIDs movieIDs, bool? images, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktMovieIDs.html">TraktMovieIDs</a></td>
+        <td><span class="parametername">movieIDs</span></td>
+        <td><p>The movie's IDs. See also <a class="xref" href="TraktNET.TraktMovieIDs.html">TraktMovieIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">images</span></td>
+        <td><p>Determines whether images should also be refreshed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktMoviesModule_RefreshMovieAsync_TraktNET_TraktMovieIDs_System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/postmoviesrefresh">
+Trakt API Documentation: Movies: Refresh - Refresh movie metadata
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown if the validation (e.g. invalid id) of the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Throw if the given <code class="paramref">movieIDs</code> has not set any IDs.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if the given <code class="paramref">movieIDs</code> is null.</p>
 </td>
       </tr>
     </tbody>

@@ -48217,6 +48217,15 @@ references:
   commentId: Overload:TraktNET.TraktMoviesModule.GetTrendingMoviesAsync
   fullName: TraktNET.TraktMoviesModule.GetTrendingMoviesAsync
   nameWithType: TraktMoviesModule.GetTrendingMoviesAsync
+- uid: TraktNET.TraktMoviesModule.RefreshMovieAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name: RefreshMovieAsync(string, bool?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_RefreshMovieAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.RefreshMovieAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name.vb: RefreshMovieAsync(String, Boolean?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.RefreshMovieAsync(string, bool?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.RefreshMovieAsync(String, Boolean?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.RefreshMovieAsync(string, bool?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.RefreshMovieAsync(String, Boolean?, CancellationToken)
 - uid: TraktNET.TraktMoviesModule.RefreshMovieAsync(System.String,System.Threading.CancellationToken)
   name: RefreshMovieAsync(string, CancellationToken)
   href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_RefreshMovieAsync_System_String_System_Threading_CancellationToken_
@@ -48226,6 +48235,15 @@ references:
   fullName.vb: TraktNET.TraktMoviesModule.RefreshMovieAsync(String, System.Threading.CancellationToken)
   nameWithType: TraktMoviesModule.RefreshMovieAsync(string, CancellationToken)
   nameWithType.vb: TraktMoviesModule.RefreshMovieAsync(String, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.RefreshMovieAsync(System.UInt32,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name: RefreshMovieAsync(uint, bool?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_RefreshMovieAsync_System_UInt32_System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.RefreshMovieAsync(System.UInt32,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name.vb: RefreshMovieAsync(UInteger, Boolean?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.RefreshMovieAsync(uint, bool?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.RefreshMovieAsync(UInteger, Boolean?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.RefreshMovieAsync(uint, bool?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.RefreshMovieAsync(UInteger, Boolean?, CancellationToken)
 - uid: TraktNET.TraktMoviesModule.RefreshMovieAsync(System.UInt32,System.Threading.CancellationToken)
   name: RefreshMovieAsync(uint, CancellationToken)
   href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_RefreshMovieAsync_System_UInt32_System_Threading_CancellationToken_
@@ -48235,6 +48253,15 @@ references:
   fullName.vb: TraktNET.TraktMoviesModule.RefreshMovieAsync(UInteger, System.Threading.CancellationToken)
   nameWithType: TraktMoviesModule.RefreshMovieAsync(uint, CancellationToken)
   nameWithType.vb: TraktMoviesModule.RefreshMovieAsync(UInteger, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.RefreshMovieAsync(TraktNET.TraktMovieIDs,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name: RefreshMovieAsync(TraktMovieIDs, bool?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_RefreshMovieAsync_TraktNET_TraktMovieIDs_System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.RefreshMovieAsync(TraktNET.TraktMovieIDs,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name.vb: RefreshMovieAsync(TraktMovieIDs, Boolean?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.RefreshMovieAsync(TraktNET.TraktMovieIDs, bool?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.RefreshMovieAsync(TraktNET.TraktMovieIDs, Boolean?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.RefreshMovieAsync(TraktMovieIDs, bool?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.RefreshMovieAsync(TraktMovieIDs, Boolean?, CancellationToken)
 - uid: TraktNET.TraktMoviesModule.RefreshMovieAsync(TraktNET.TraktMovieIDs,System.Threading.CancellationToken)
   name: RefreshMovieAsync(TraktMovieIDs, CancellationToken)
   href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_RefreshMovieAsync_TraktNET_TraktMovieIDs_System_Threading_CancellationToken_
@@ -50207,6 +50234,15 @@ references:
   commentId: Overload:TraktNET.TraktPeopleModule.GetRecentlyUpdatedPeopleIDsAsync
   fullName: TraktNET.TraktPeopleModule.GetRecentlyUpdatedPeopleIDsAsync
   nameWithType: TraktPeopleModule.GetRecentlyUpdatedPeopleIDsAsync
+- uid: TraktNET.TraktPeopleModule.RefreshPersonAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name: RefreshPersonAsync(string, bool?, CancellationToken)
+  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_RefreshPersonAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktPeopleModule.RefreshPersonAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name.vb: RefreshPersonAsync(String, Boolean?, CancellationToken)
+  fullName: TraktNET.TraktPeopleModule.RefreshPersonAsync(string, bool?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktPeopleModule.RefreshPersonAsync(String, Boolean?, System.Threading.CancellationToken)
+  nameWithType: TraktPeopleModule.RefreshPersonAsync(string, bool?, CancellationToken)
+  nameWithType.vb: TraktPeopleModule.RefreshPersonAsync(String, Boolean?, CancellationToken)
 - uid: TraktNET.TraktPeopleModule.RefreshPersonAsync(System.String,System.Threading.CancellationToken)
   name: RefreshPersonAsync(string, CancellationToken)
   href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_RefreshPersonAsync_System_String_System_Threading_CancellationToken_
@@ -50216,6 +50252,15 @@ references:
   fullName.vb: TraktNET.TraktPeopleModule.RefreshPersonAsync(String, System.Threading.CancellationToken)
   nameWithType: TraktPeopleModule.RefreshPersonAsync(string, CancellationToken)
   nameWithType.vb: TraktPeopleModule.RefreshPersonAsync(String, CancellationToken)
+- uid: TraktNET.TraktPeopleModule.RefreshPersonAsync(System.UInt32,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name: RefreshPersonAsync(uint, bool?, CancellationToken)
+  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_RefreshPersonAsync_System_UInt32_System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktPeopleModule.RefreshPersonAsync(System.UInt32,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name.vb: RefreshPersonAsync(UInteger, Boolean?, CancellationToken)
+  fullName: TraktNET.TraktPeopleModule.RefreshPersonAsync(uint, bool?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktPeopleModule.RefreshPersonAsync(UInteger, Boolean?, System.Threading.CancellationToken)
+  nameWithType: TraktPeopleModule.RefreshPersonAsync(uint, bool?, CancellationToken)
+  nameWithType.vb: TraktPeopleModule.RefreshPersonAsync(UInteger, Boolean?, CancellationToken)
 - uid: TraktNET.TraktPeopleModule.RefreshPersonAsync(System.UInt32,System.Threading.CancellationToken)
   name: RefreshPersonAsync(uint, CancellationToken)
   href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_RefreshPersonAsync_System_UInt32_System_Threading_CancellationToken_
@@ -50225,6 +50270,15 @@ references:
   fullName.vb: TraktNET.TraktPeopleModule.RefreshPersonAsync(UInteger, System.Threading.CancellationToken)
   nameWithType: TraktPeopleModule.RefreshPersonAsync(uint, CancellationToken)
   nameWithType.vb: TraktPeopleModule.RefreshPersonAsync(UInteger, CancellationToken)
+- uid: TraktNET.TraktPeopleModule.RefreshPersonAsync(TraktNET.TraktPersonIDs,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name: RefreshPersonAsync(TraktPersonIDs, bool?, CancellationToken)
+  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_RefreshPersonAsync_TraktNET_TraktPersonIDs_System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktPeopleModule.RefreshPersonAsync(TraktNET.TraktPersonIDs,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name.vb: RefreshPersonAsync(TraktPersonIDs, Boolean?, CancellationToken)
+  fullName: TraktNET.TraktPeopleModule.RefreshPersonAsync(TraktNET.TraktPersonIDs, bool?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktPeopleModule.RefreshPersonAsync(TraktNET.TraktPersonIDs, Boolean?, System.Threading.CancellationToken)
+  nameWithType: TraktPeopleModule.RefreshPersonAsync(TraktPersonIDs, bool?, CancellationToken)
+  nameWithType.vb: TraktPeopleModule.RefreshPersonAsync(TraktPersonIDs, Boolean?, CancellationToken)
 - uid: TraktNET.TraktPeopleModule.RefreshPersonAsync(TraktNET.TraktPersonIDs,System.Threading.CancellationToken)
   name: RefreshPersonAsync(TraktPersonIDs, CancellationToken)
   href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_RefreshPersonAsync_TraktNET_TraktPersonIDs_System_Threading_CancellationToken_
@@ -74434,6 +74488,15 @@ references:
   commentId: Overload:TraktNET.TraktShowsModule.GetTrendingShowsAsync
   fullName: TraktNET.TraktShowsModule.GetTrendingShowsAsync
   nameWithType: TraktShowsModule.GetTrendingShowsAsync
+- uid: TraktNET.TraktShowsModule.RefreshShowAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name: RefreshShowAsync(string, bool?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_RefreshShowAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.RefreshShowAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name.vb: RefreshShowAsync(String, Boolean?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.RefreshShowAsync(string, bool?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.RefreshShowAsync(String, Boolean?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.RefreshShowAsync(string, bool?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.RefreshShowAsync(String, Boolean?, CancellationToken)
 - uid: TraktNET.TraktShowsModule.RefreshShowAsync(System.String,System.Threading.CancellationToken)
   name: RefreshShowAsync(string, CancellationToken)
   href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_RefreshShowAsync_System_String_System_Threading_CancellationToken_
@@ -74443,6 +74506,15 @@ references:
   fullName.vb: TraktNET.TraktShowsModule.RefreshShowAsync(String, System.Threading.CancellationToken)
   nameWithType: TraktShowsModule.RefreshShowAsync(string, CancellationToken)
   nameWithType.vb: TraktShowsModule.RefreshShowAsync(String, CancellationToken)
+- uid: TraktNET.TraktShowsModule.RefreshShowAsync(System.UInt32,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name: RefreshShowAsync(uint, bool?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_RefreshShowAsync_System_UInt32_System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.RefreshShowAsync(System.UInt32,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name.vb: RefreshShowAsync(UInteger, Boolean?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.RefreshShowAsync(uint, bool?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.RefreshShowAsync(UInteger, Boolean?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.RefreshShowAsync(uint, bool?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.RefreshShowAsync(UInteger, Boolean?, CancellationToken)
 - uid: TraktNET.TraktShowsModule.RefreshShowAsync(System.UInt32,System.Threading.CancellationToken)
   name: RefreshShowAsync(uint, CancellationToken)
   href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_RefreshShowAsync_System_UInt32_System_Threading_CancellationToken_
@@ -74452,6 +74524,15 @@ references:
   fullName.vb: TraktNET.TraktShowsModule.RefreshShowAsync(UInteger, System.Threading.CancellationToken)
   nameWithType: TraktShowsModule.RefreshShowAsync(uint, CancellationToken)
   nameWithType.vb: TraktShowsModule.RefreshShowAsync(UInteger, CancellationToken)
+- uid: TraktNET.TraktShowsModule.RefreshShowAsync(TraktNET.TraktShowIDs,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name: RefreshShowAsync(TraktShowIDs, bool?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_RefreshShowAsync_TraktNET_TraktShowIDs_System_Nullable_System_Boolean__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.RefreshShowAsync(TraktNET.TraktShowIDs,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  name.vb: RefreshShowAsync(TraktShowIDs, Boolean?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.RefreshShowAsync(TraktNET.TraktShowIDs, bool?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.RefreshShowAsync(TraktNET.TraktShowIDs, Boolean?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.RefreshShowAsync(TraktShowIDs, bool?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.RefreshShowAsync(TraktShowIDs, Boolean?, CancellationToken)
 - uid: TraktNET.TraktShowsModule.RefreshShowAsync(TraktNET.TraktShowIDs,System.Threading.CancellationToken)
   name: RefreshShowAsync(TraktShowIDs, CancellationToken)
   href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_RefreshShowAsync_TraktNET_TraktShowIDs_System_Threading_CancellationToken_
