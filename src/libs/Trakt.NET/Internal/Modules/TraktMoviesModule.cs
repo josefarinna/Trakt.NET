@@ -52,11 +52,13 @@ namespace TraktNET
             return RequestHandler.ExecuteListRequestAsync<TraktMovieTranslation>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktRating>> GetMovieRatingsImplAsync(string movieIDOrSlug, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktRating>> GetMovieRatingsImplAsync(string movieIDOrSlug,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             var request = new MovieRatingsGetRequest
             {
-                Id = movieIDOrSlug
+                Id = movieIDOrSlug,
+                ExtendedInfo = extendedInfo
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktRating>(_context, request, cancellationToken);

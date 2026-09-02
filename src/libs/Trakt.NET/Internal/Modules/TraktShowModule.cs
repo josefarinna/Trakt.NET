@@ -50,11 +50,13 @@ namespace TraktNET
             return RequestHandler.ExecuteListRequestAsync<TraktShowTranslation>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktRating>> GetShowRatingsImplAsync(string showIDOrSlug, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktRating>> GetShowRatingsImplAsync(string showIDOrSlug,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             var request = new ShowRatingsGetRequest
             {
-                Id = showIDOrSlug
+                Id = showIDOrSlug,
+                ExtendedInfo = extendedInfo
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktRating>(_context, request, cancellationToken);

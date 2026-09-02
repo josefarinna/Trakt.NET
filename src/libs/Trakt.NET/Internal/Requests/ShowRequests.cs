@@ -80,7 +80,7 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
-    [TraktGetRequest("shows/{id!!}/ratings")]
+    [TraktGetRequest("shows/{id!!}/ratings", SupportsExtendedInfo = true)]
     internal sealed partial class ShowRatingsGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
