@@ -3967,13 +3967,13 @@ Trakt API Documentation: Shows: People - Get all people for a show
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleGetShowRatings.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktShowsModule_GetShowRatingsAsync_" data-uid="TraktNET.TraktShowsModule.GetShowRatingsAsync*"></a>
-  <h4 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowRatingsAsync(System.String,System.Threading.CancellationToken)">GetShowRatingsAsync(string, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowRatingsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetShowRatingsAsync(string, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the ratings for a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified Trakt-ID or -Slug.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetShowRatingsAsync(string traktShowIDOrSlug, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetShowRatingsAsync(string traktShowIDOrSlug, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3992,6 +3992,13 @@ Trakt API Documentation: Shows: People - Get all people for a show
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the show ratings.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Propagates notification that the request should be canceled.</p>
@@ -4017,7 +4024,7 @@ Trakt API Documentation: Shows: People - Get all people for a show
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsratings">
 Trakt API Documentation: Shows: Ratings - Get show ratings
@@ -4049,13 +4056,13 @@ Trakt API Documentation: Shows: Ratings - Get show ratings
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleGetShowRatings.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktShowsModule_GetShowRatingsAsync_" data-uid="TraktNET.TraktShowsModule.GetShowRatingsAsync*"></a>
-  <h4 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_System_UInt32_System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowRatingsAsync(System.UInt32,System.Threading.CancellationToken)">GetShowRatingsAsync(uint, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowRatingsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetShowRatingsAsync(uint, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the ratings for a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified Trakt-ID.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetShowRatingsAsync(uint traktShowID, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetShowRatingsAsync(uint traktShowID, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -4074,6 +4081,13 @@ Trakt API Documentation: Shows: Ratings - Get show ratings
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the show ratings.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Propagates notification that the request should be canceled.</p>
@@ -4099,7 +4113,7 @@ Trakt API Documentation: Shows: Ratings - Get show ratings
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_System_UInt32_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsratings">
 Trakt API Documentation: Shows: Ratings - Get show ratings
@@ -4131,13 +4145,13 @@ Trakt API Documentation: Shows: Ratings - Get show ratings
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleGetShowRatings.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktShowsModule_GetShowRatingsAsync_" data-uid="TraktNET.TraktShowsModule.GetShowRatingsAsync*"></a>
-  <h4 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_TraktNET_TraktShowIDs_System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowRatingsAsync(TraktNET.TraktShowIDs,System.Threading.CancellationToken)">GetShowRatingsAsync(TraktShowIDs, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowRatingsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetShowRatingsAsync(TraktShowIDs, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the ratings for a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified <a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetShowRatingsAsync(TraktShowIDs showIDs, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetShowRatingsAsync(TraktShowIDs showIDs, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -4153,6 +4167,13 @@ Trakt API Documentation: Shows: Ratings - Get show ratings
         <td><a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a></td>
         <td><span class="parametername">showIDs</span></td>
         <td><p>The show's IDs. See also <a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the show ratings.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
 </td>
       </tr>
       <tr>
@@ -4181,7 +4202,7 @@ Trakt API Documentation: Shows: Ratings - Get show ratings
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_TraktNET_TraktShowIDs_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktShowsModule_GetShowRatingsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsratings">
 Trakt API Documentation: Shows: Ratings - Get show ratings

@@ -3503,6 +3503,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktMetascoreRatingItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktMetascoreRatingItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktMetascoreRatingItem",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktMetascoreRatingItem.yml\" sourcestartlinenumber=\"1\">Represents a Metascore rating item with rating value and link.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktMostAnticipatedMovie.yml",
       "output": {
         ".html": {
@@ -5025,7 +5039,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktRating",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktRating.yml\" sourcestartlinenumber=\"1\">A Trakt rating.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktRating.yml\" sourcestartlinenumber=\"1\">A Trakt rating or multi-provider ratings.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktRatingItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktRatingItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktRatingItem",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktRatingItem.yml\" sourcestartlinenumber=\"1\">Represents a rating item with rating value, vote count, and link from an external provider.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -5334,6 +5362,20 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktResponseHeaders",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktResponseHeaders.yml\" sourcestartlinenumber=\"1\">A collection of Trakt headers.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktRottenTomatoesRatingItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktRottenTomatoesRatingItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktRottenTomatoesRatingItem",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktRottenTomatoesRatingItem.yml\" sourcestartlinenumber=\"1\">Represents a Rotten Tomatoes rating item with critics rating, audience rating, states, and link.</p>\n"
     },
     {
       "type": "ManagedReference",

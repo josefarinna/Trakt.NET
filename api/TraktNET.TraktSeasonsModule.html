@@ -3074,13 +3074,13 @@ Trakt API Documentation: Seasons: People - Get all people for a season
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Seasons/TraktSeasonsModuleGetSeasonRatings.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync*"></a>
-  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_String_System_UInt32_System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.String,System.UInt32,System.Threading.CancellationToken)">GetSeasonRatingsAsync(string, uint, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetSeasonRatingsAsync(string, uint, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the ratings for a specific <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a> of a Trakt show with the specified Trakt-ID or -Slug.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetSeasonRatingsAsync(string traktShowIDOrSlug, uint seasonNumber, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetSeasonRatingsAsync(string traktShowIDOrSlug, uint seasonNumber, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3102,6 +3102,13 @@ Trakt API Documentation: Seasons: People - Get all people for a season
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">seasonNumber</span></td>
         <td><p>The number of the season for which the ratings should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the season ratings.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
 </td>
       </tr>
       <tr>
@@ -3130,7 +3137,7 @@ Trakt API Documentation: Seasons: People - Get all people for a season
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_String_System_UInt32_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsseasonratings">
 Trakt API Documentation: Seasons: Ratings - Get season ratings
@@ -3162,13 +3169,13 @@ Trakt API Documentation: Seasons: Ratings - Get season ratings
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Seasons/TraktSeasonsModuleGetSeasonRatings.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync*"></a>
-  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_UInt32_System_UInt32_System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.UInt32,System.UInt32,System.Threading.CancellationToken)">GetSeasonRatingsAsync(uint, uint, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetSeasonRatingsAsync(uint, uint, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the ratings for a specific <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a> of a Trakt show with the specified Trakt-ID.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetSeasonRatingsAsync(uint traktShowID, uint seasonNumber, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetSeasonRatingsAsync(uint traktShowID, uint seasonNumber, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3190,6 +3197,13 @@ Trakt API Documentation: Seasons: Ratings - Get season ratings
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">seasonNumber</span></td>
         <td><p>The number of the season for which the ratings should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the season ratings.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
 </td>
       </tr>
       <tr>
@@ -3218,7 +3232,7 @@ Trakt API Documentation: Seasons: Ratings - Get season ratings
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_UInt32_System_UInt32_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsseasonratings">
 Trakt API Documentation: Seasons: Ratings - Get season ratings
@@ -3255,13 +3269,13 @@ Trakt API Documentation: Seasons: Ratings - Get season ratings
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Seasons/TraktSeasonsModuleGetSeasonRatings.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync*"></a>
-  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShow_System_UInt32_System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShow,System.UInt32,System.Threading.CancellationToken)">GetSeasonRatingsAsync(TraktShow, uint, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShow_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShow,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetSeasonRatingsAsync(TraktShow, uint, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the ratings for a specific <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a> of a Trakt show with the specified <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetSeasonRatingsAsync(TraktShow show, uint seasonNumber, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetSeasonRatingsAsync(TraktShow show, uint seasonNumber, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3283,6 +3297,13 @@ Trakt API Documentation: Seasons: Ratings - Get season ratings
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">seasonNumber</span></td>
         <td><p>The number of the season for which the ratings should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the season ratings.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
 </td>
       </tr>
       <tr>
@@ -3311,7 +3332,7 @@ Trakt API Documentation: Seasons: Ratings - Get season ratings
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShow_System_UInt32_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShow_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsseasonratings">
 Trakt API Documentation: Seasons: Ratings - Get season ratings
@@ -3348,13 +3369,13 @@ Trakt API Documentation: Seasons: Ratings - Get season ratings
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Seasons/TraktSeasonsModuleGetSeasonRatings.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync*"></a>
-  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Threading.CancellationToken)">GetSeasonRatingsAsync(TraktShowIDs, uint, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetSeasonRatingsAsync(TraktShowIDs, uint, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the ratings for a specific <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a> of a Trakt show with the specified <a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetSeasonRatingsAsync(TraktShowIDs showIDs, uint seasonNumber, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetSeasonRatingsAsync(TraktShowIDs showIDs, uint seasonNumber, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3376,6 +3397,13 @@ Trakt API Documentation: Seasons: Ratings - Get season ratings
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">seasonNumber</span></td>
         <td><p>The number of the season for which the ratings should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the season ratings.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
 </td>
       </tr>
       <tr>
@@ -3404,7 +3432,7 @@ Trakt API Documentation: Seasons: Ratings - Get season ratings
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsseasonratings">
 Trakt API Documentation: Seasons: Ratings - Get season ratings

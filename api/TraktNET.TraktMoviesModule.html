@@ -2646,13 +2646,13 @@ Trakt API Documentation: Movies: People - Get all people for a movie
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModuleGetMovieRatings.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_" data-uid="TraktNET.TraktMoviesModule.GetMovieRatingsAsync*"></a>
-  <h4 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.String,System.Threading.CancellationToken)">GetMovieRatingsAsync(string, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetMovieRatingsAsync(string, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the ratings for a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified Trakt-ID or -Slug.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetMovieRatingsAsync(string traktMovieIDOrSlug, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetMovieRatingsAsync(string traktMovieIDOrSlug, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2671,6 +2671,13 @@ Trakt API Documentation: Movies: People - Get all people for a movie
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the movie ratings.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Propagates notification that the request should be canceled.</p>
@@ -2696,7 +2703,7 @@ Trakt API Documentation: Movies: People - Get all people for a movie
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getmoviesratings">
 Trakt API Documentation: Movies: Ratings - Get movie ratings
@@ -2728,13 +2735,13 @@ Trakt API Documentation: Movies: Ratings - Get movie ratings
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModuleGetMovieRatings.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_" data-uid="TraktNET.TraktMoviesModule.GetMovieRatingsAsync*"></a>
-  <h4 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_UInt32_System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.UInt32,System.Threading.CancellationToken)">GetMovieRatingsAsync(uint, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetMovieRatingsAsync(uint, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the ratings for a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified Trakt-ID.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetMovieRatingsAsync(uint traktMovieID, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetMovieRatingsAsync(uint traktMovieID, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2753,6 +2760,13 @@ Trakt API Documentation: Movies: Ratings - Get movie ratings
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the movie ratings.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Propagates notification that the request should be canceled.</p>
@@ -2778,7 +2792,7 @@ Trakt API Documentation: Movies: Ratings - Get movie ratings
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_UInt32_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getmoviesratings">
 Trakt API Documentation: Movies: Ratings - Get movie ratings
@@ -2810,13 +2824,13 @@ Trakt API Documentation: Movies: Ratings - Get movie ratings
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModuleGetMovieRatings.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_" data-uid="TraktNET.TraktMoviesModule.GetMovieRatingsAsync*"></a>
-  <h4 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_TraktNET_TraktMovieIDs_System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRatingsAsync(TraktNET.TraktMovieIDs,System.Threading.CancellationToken)">GetMovieRatingsAsync(TraktMovieIDs, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRatingsAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetMovieRatingsAsync(TraktMovieIDs, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the ratings for a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified <a class="xref" href="TraktNET.TraktMovieIDs.html">TraktMovieIDs</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetMovieRatingsAsync(TraktMovieIDs movieIDs, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktRating&gt;&gt; GetMovieRatingsAsync(TraktMovieIDs movieIDs, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2832,6 +2846,13 @@ Trakt API Documentation: Movies: Ratings - Get movie ratings
         <td><a class="xref" href="TraktNET.TraktMovieIDs.html">TraktMovieIDs</a></td>
         <td><span class="parametername">movieIDs</span></td>
         <td><p>The movie's IDs. See also <a class="xref" href="TraktNET.TraktMovieIDs.html">TraktMovieIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the movie ratings.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
 </td>
       </tr>
       <tr>
@@ -2860,7 +2881,7 @@ Trakt API Documentation: Movies: Ratings - Get movie ratings
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_TraktNET_TraktMovieIDs_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktMoviesModule_GetMovieRatingsAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getmoviesratings">
 Trakt API Documentation: Movies: Ratings - Get movie ratings

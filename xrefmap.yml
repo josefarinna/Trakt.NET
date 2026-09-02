@@ -3457,6 +3457,18 @@ references:
   commentId: Overload:TraktNET.GeneralJsonSerializerContext.NullableDateTime
   fullName: TraktNET.GeneralJsonSerializerContext.NullableDateTime
   nameWithType: GeneralJsonSerializerContext.NullableDateTime
+- uid: TraktNET.GeneralJsonSerializerContext.NullableInt32
+  name: NullableInt32
+  href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_NullableInt32
+  commentId: P:TraktNET.GeneralJsonSerializerContext.NullableInt32
+  fullName: TraktNET.GeneralJsonSerializerContext.NullableInt32
+  nameWithType: GeneralJsonSerializerContext.NullableInt32
+- uid: TraktNET.GeneralJsonSerializerContext.NullableInt32*
+  name: NullableInt32
+  href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_NullableInt32_
+  commentId: Overload:TraktNET.GeneralJsonSerializerContext.NullableInt32
+  fullName: TraktNET.GeneralJsonSerializerContext.NullableInt32
+  nameWithType: GeneralJsonSerializerContext.NullableInt32
 - uid: TraktNET.GeneralJsonSerializerContext.NullableSingle
   name: NullableSingle
   href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_NullableSingle
@@ -3769,6 +3781,18 @@ references:
   commentId: Overload:TraktNET.GeneralJsonSerializerContext.TraktMetadata
   fullName: TraktNET.GeneralJsonSerializerContext.TraktMetadata
   nameWithType: GeneralJsonSerializerContext.TraktMetadata
+- uid: TraktNET.GeneralJsonSerializerContext.TraktMetascoreRatingItem
+  name: TraktMetascoreRatingItem
+  href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_TraktMetascoreRatingItem
+  commentId: P:TraktNET.GeneralJsonSerializerContext.TraktMetascoreRatingItem
+  fullName: TraktNET.GeneralJsonSerializerContext.TraktMetascoreRatingItem
+  nameWithType: GeneralJsonSerializerContext.TraktMetascoreRatingItem
+- uid: TraktNET.GeneralJsonSerializerContext.TraktMetascoreRatingItem*
+  name: TraktMetascoreRatingItem
+  href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_TraktMetascoreRatingItem_
+  commentId: Overload:TraktNET.GeneralJsonSerializerContext.TraktMetascoreRatingItem
+  fullName: TraktNET.GeneralJsonSerializerContext.TraktMetascoreRatingItem
+  nameWithType: GeneralJsonSerializerContext.TraktMetascoreRatingItem
 - uid: TraktNET.GeneralJsonSerializerContext.TraktPerson
   name: TraktPerson
   href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_TraktPerson
@@ -3841,6 +3865,18 @@ references:
   commentId: Overload:TraktNET.GeneralJsonSerializerContext.TraktRating
   fullName: TraktNET.GeneralJsonSerializerContext.TraktRating
   nameWithType: GeneralJsonSerializerContext.TraktRating
+- uid: TraktNET.GeneralJsonSerializerContext.TraktRatingItem
+  name: TraktRatingItem
+  href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_TraktRatingItem
+  commentId: P:TraktNET.GeneralJsonSerializerContext.TraktRatingItem
+  fullName: TraktNET.GeneralJsonSerializerContext.TraktRatingItem
+  nameWithType: GeneralJsonSerializerContext.TraktRatingItem
+- uid: TraktNET.GeneralJsonSerializerContext.TraktRatingItem*
+  name: TraktRatingItem
+  href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_TraktRatingItem_
+  commentId: Overload:TraktNET.GeneralJsonSerializerContext.TraktRatingItem
+  fullName: TraktNET.GeneralJsonSerializerContext.TraktRatingItem
+  nameWithType: GeneralJsonSerializerContext.TraktRatingItem
 - uid: TraktNET.GeneralJsonSerializerContext.TraktReason
   name: TraktReason
   href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_TraktReason
@@ -3865,6 +3901,18 @@ references:
   commentId: Overload:TraktNET.GeneralJsonSerializerContext.TraktReportPost
   fullName: TraktNET.GeneralJsonSerializerContext.TraktReportPost
   nameWithType: GeneralJsonSerializerContext.TraktReportPost
+- uid: TraktNET.GeneralJsonSerializerContext.TraktRottenTomatoesRatingItem
+  name: TraktRottenTomatoesRatingItem
+  href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_TraktRottenTomatoesRatingItem
+  commentId: P:TraktNET.GeneralJsonSerializerContext.TraktRottenTomatoesRatingItem
+  fullName: TraktNET.GeneralJsonSerializerContext.TraktRottenTomatoesRatingItem
+  nameWithType: GeneralJsonSerializerContext.TraktRottenTomatoesRatingItem
+- uid: TraktNET.GeneralJsonSerializerContext.TraktRottenTomatoesRatingItem*
+  name: TraktRottenTomatoesRatingItem
+  href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_TraktRottenTomatoesRatingItem_
+  commentId: Overload:TraktNET.GeneralJsonSerializerContext.TraktRottenTomatoesRatingItem
+  fullName: TraktNET.GeneralJsonSerializerContext.TraktRottenTomatoesRatingItem
+  nameWithType: GeneralJsonSerializerContext.TraktRottenTomatoesRatingItem
 - uid: TraktNET.GeneralJsonSerializerContext.TraktSentimentItem
   name: TraktSentimentItem
   href: api/TraktNET.GeneralJsonSerializerContext.html#TraktNET_GeneralJsonSerializerContext_TraktSentimentItem
@@ -34237,42 +34285,42 @@ references:
   commentId: Overload:TraktNET.TraktEpisodesModule.GetEpisodePeopleAsync
   fullName: TraktNET.TraktEpisodesModule.GetEpisodePeopleAsync
   nameWithType: TraktEpisodesModule.GetEpisodePeopleAsync
-- uid: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(System.String,System.UInt32,System.UInt32,System.Threading.CancellationToken)
-  name: GetEpisodeRatingsAsync(string, uint, uint, CancellationToken)
-  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeRatingsAsync_System_String_System_UInt32_System_UInt32_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(System.String,System.UInt32,System.UInt32,System.Threading.CancellationToken)
-  name.vb: GetEpisodeRatingsAsync(String, UInteger, UInteger, CancellationToken)
-  fullName: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(string, uint, uint, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(String, UInteger, UInteger, System.Threading.CancellationToken)
-  nameWithType: TraktEpisodesModule.GetEpisodeRatingsAsync(string, uint, uint, CancellationToken)
-  nameWithType.vb: TraktEpisodesModule.GetEpisodeRatingsAsync(String, UInteger, UInteger, CancellationToken)
-- uid: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(System.UInt32,System.UInt32,System.UInt32,System.Threading.CancellationToken)
-  name: GetEpisodeRatingsAsync(uint, uint, uint, CancellationToken)
-  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeRatingsAsync_System_UInt32_System_UInt32_System_UInt32_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(System.UInt32,System.UInt32,System.UInt32,System.Threading.CancellationToken)
-  name.vb: GetEpisodeRatingsAsync(UInteger, UInteger, UInteger, CancellationToken)
-  fullName: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(uint, uint, uint, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(UInteger, UInteger, UInteger, System.Threading.CancellationToken)
-  nameWithType: TraktEpisodesModule.GetEpisodeRatingsAsync(uint, uint, uint, CancellationToken)
-  nameWithType.vb: TraktEpisodesModule.GetEpisodeRatingsAsync(UInteger, UInteger, UInteger, CancellationToken)
-- uid: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShow,System.UInt32,System.UInt32,System.Threading.CancellationToken)
-  name: GetEpisodeRatingsAsync(TraktShow, uint, uint, CancellationToken)
-  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeRatingsAsync_TraktNET_TraktShow_System_UInt32_System_UInt32_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShow,System.UInt32,System.UInt32,System.Threading.CancellationToken)
-  name.vb: GetEpisodeRatingsAsync(TraktShow, UInteger, UInteger, CancellationToken)
-  fullName: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShow, uint, uint, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShow, UInteger, UInteger, System.Threading.CancellationToken)
-  nameWithType: TraktEpisodesModule.GetEpisodeRatingsAsync(TraktShow, uint, uint, CancellationToken)
-  nameWithType.vb: TraktEpisodesModule.GetEpisodeRatingsAsync(TraktShow, UInteger, UInteger, CancellationToken)
-- uid: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShowIDs,System.UInt32,System.UInt32,System.Threading.CancellationToken)
-  name: GetEpisodeRatingsAsync(TraktShowIDs, uint, uint, CancellationToken)
-  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeRatingsAsync_TraktNET_TraktShowIDs_System_UInt32_System_UInt32_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShowIDs,System.UInt32,System.UInt32,System.Threading.CancellationToken)
-  name.vb: GetEpisodeRatingsAsync(TraktShowIDs, UInteger, UInteger, CancellationToken)
-  fullName: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShowIDs, uint, uint, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShowIDs, UInteger, UInteger, System.Threading.CancellationToken)
-  nameWithType: TraktEpisodesModule.GetEpisodeRatingsAsync(TraktShowIDs, uint, uint, CancellationToken)
-  nameWithType.vb: TraktEpisodesModule.GetEpisodeRatingsAsync(TraktShowIDs, UInteger, UInteger, CancellationToken)
+- uid: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(System.String,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetEpisodeRatingsAsync(string, uint, uint, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeRatingsAsync_System_String_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(System.String,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetEpisodeRatingsAsync(String, UInteger, UInteger, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(string, uint, uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(String, UInteger, UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktEpisodesModule.GetEpisodeRatingsAsync(string, uint, uint, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktEpisodesModule.GetEpisodeRatingsAsync(String, UInteger, UInteger, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(System.UInt32,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetEpisodeRatingsAsync(uint, uint, uint, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeRatingsAsync_System_UInt32_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(System.UInt32,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetEpisodeRatingsAsync(UInteger, UInteger, UInteger, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(uint, uint, uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(UInteger, UInteger, UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktEpisodesModule.GetEpisodeRatingsAsync(uint, uint, uint, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktEpisodesModule.GetEpisodeRatingsAsync(UInteger, UInteger, UInteger, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShow,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetEpisodeRatingsAsync(TraktShow, uint, uint, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeRatingsAsync_TraktNET_TraktShow_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShow,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetEpisodeRatingsAsync(TraktShow, UInteger, UInteger, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShow, uint, uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShow, UInteger, UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktEpisodesModule.GetEpisodeRatingsAsync(TraktShow, uint, uint, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktEpisodesModule.GetEpisodeRatingsAsync(TraktShow, UInteger, UInteger, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShowIDs,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetEpisodeRatingsAsync(TraktShowIDs, uint, uint, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeRatingsAsync_TraktNET_TraktShowIDs_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShowIDs,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetEpisodeRatingsAsync(TraktShowIDs, UInteger, UInteger, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShowIDs, uint, uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync(TraktNET.TraktShowIDs, UInteger, UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktEpisodesModule.GetEpisodeRatingsAsync(TraktShowIDs, uint, uint, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktEpisodesModule.GetEpisodeRatingsAsync(TraktShowIDs, UInteger, UInteger, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktEpisodesModule.GetEpisodeRatingsAsync*
   name: GetEpisodeRatingsAsync
   href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeRatingsAsync_
@@ -34525,6 +34573,12 @@ references:
   commentId: T:TraktNET.TraktExtendedInfo
   fullName: TraktNET.TraktExtendedInfo
   nameWithType: TraktExtendedInfo
+- uid: TraktNET.TraktExtendedInfo.All
+  name: All
+  href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_All
+  commentId: F:TraktNET.TraktExtendedInfo.All
+  fullName: TraktNET.TraktExtendedInfo.All
+  nameWithType: TraktExtendedInfo.All
 - uid: TraktNET.TraktExtendedInfo.Browsing
   name: Browsing
   href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Browsing
@@ -42094,6 +42148,171 @@ references:
   fullName.vb: TraktNET.TraktMetadata.<>
   nameWithType: TraktMetadata.operator !=
   nameWithType.vb: TraktMetadata.<>
+- uid: TraktNET.TraktMetascoreRatingItem
+  name: TraktMetascoreRatingItem
+  href: api/TraktNET.TraktMetascoreRatingItem.html
+  commentId: T:TraktNET.TraktMetascoreRatingItem
+  fullName: TraktNET.TraktMetascoreRatingItem
+  nameWithType: TraktMetascoreRatingItem
+- uid: TraktNET.TraktMetascoreRatingItem.#ctor
+  name: TraktMetascoreRatingItem()
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem__ctor
+  commentId: M:TraktNET.TraktMetascoreRatingItem.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktMetascoreRatingItem.TraktMetascoreRatingItem()
+  fullName.vb: TraktNET.TraktMetascoreRatingItem.New()
+  nameWithType: TraktMetascoreRatingItem.TraktMetascoreRatingItem()
+  nameWithType.vb: TraktMetascoreRatingItem.New()
+- uid: TraktNET.TraktMetascoreRatingItem.#ctor(TraktNET.TraktMetascoreRatingItem)
+  name: TraktMetascoreRatingItem(TraktMetascoreRatingItem)
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem__ctor_TraktNET_TraktMetascoreRatingItem_
+  commentId: M:TraktNET.TraktMetascoreRatingItem.#ctor(TraktNET.TraktMetascoreRatingItem)
+  name.vb: New(TraktMetascoreRatingItem)
+  fullName: TraktNET.TraktMetascoreRatingItem.TraktMetascoreRatingItem(TraktNET.TraktMetascoreRatingItem)
+  fullName.vb: TraktNET.TraktMetascoreRatingItem.New(TraktNET.TraktMetascoreRatingItem)
+  nameWithType: TraktMetascoreRatingItem.TraktMetascoreRatingItem(TraktMetascoreRatingItem)
+  nameWithType.vb: TraktMetascoreRatingItem.New(TraktMetascoreRatingItem)
+- uid: TraktNET.TraktMetascoreRatingItem.#ctor*
+  name: TraktMetascoreRatingItem
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem__ctor_
+  commentId: Overload:TraktNET.TraktMetascoreRatingItem.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktMetascoreRatingItem.TraktMetascoreRatingItem
+  fullName.vb: TraktNET.TraktMetascoreRatingItem.New
+  nameWithType: TraktMetascoreRatingItem.TraktMetascoreRatingItem
+  nameWithType.vb: TraktMetascoreRatingItem.New
+- uid: TraktNET.TraktMetascoreRatingItem.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_EqualityContract
+  commentId: P:TraktNET.TraktMetascoreRatingItem.EqualityContract
+  fullName: TraktNET.TraktMetascoreRatingItem.EqualityContract
+  nameWithType: TraktMetascoreRatingItem.EqualityContract
+- uid: TraktNET.TraktMetascoreRatingItem.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_EqualityContract_
+  commentId: Overload:TraktNET.TraktMetascoreRatingItem.EqualityContract
+  fullName: TraktNET.TraktMetascoreRatingItem.EqualityContract
+  nameWithType: TraktMetascoreRatingItem.EqualityContract
+- uid: TraktNET.TraktMetascoreRatingItem.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_Equals_System_Object_
+  commentId: M:TraktNET.TraktMetascoreRatingItem.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktMetascoreRatingItem.Equals(object?)
+  fullName.vb: TraktNET.TraktMetascoreRatingItem.Equals(Object)
+  nameWithType: TraktMetascoreRatingItem.Equals(object?)
+  nameWithType.vb: TraktMetascoreRatingItem.Equals(Object)
+- uid: TraktNET.TraktMetascoreRatingItem.Equals(TraktNET.TraktMetascoreRatingItem)
+  name: Equals(TraktMetascoreRatingItem?)
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_Equals_TraktNET_TraktMetascoreRatingItem_
+  commentId: M:TraktNET.TraktMetascoreRatingItem.Equals(TraktNET.TraktMetascoreRatingItem)
+  name.vb: Equals(TraktMetascoreRatingItem)
+  fullName: TraktNET.TraktMetascoreRatingItem.Equals(TraktNET.TraktMetascoreRatingItem?)
+  fullName.vb: TraktNET.TraktMetascoreRatingItem.Equals(TraktNET.TraktMetascoreRatingItem)
+  nameWithType: TraktMetascoreRatingItem.Equals(TraktMetascoreRatingItem?)
+  nameWithType.vb: TraktMetascoreRatingItem.Equals(TraktMetascoreRatingItem)
+- uid: TraktNET.TraktMetascoreRatingItem.Equals*
+  name: Equals
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_Equals_
+  commentId: Overload:TraktNET.TraktMetascoreRatingItem.Equals
+  fullName: TraktNET.TraktMetascoreRatingItem.Equals
+  nameWithType: TraktMetascoreRatingItem.Equals
+- uid: TraktNET.TraktMetascoreRatingItem.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_GetHashCode
+  commentId: M:TraktNET.TraktMetascoreRatingItem.GetHashCode
+  fullName: TraktNET.TraktMetascoreRatingItem.GetHashCode()
+  nameWithType: TraktMetascoreRatingItem.GetHashCode()
+- uid: TraktNET.TraktMetascoreRatingItem.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_GetHashCode_
+  commentId: Overload:TraktNET.TraktMetascoreRatingItem.GetHashCode
+  fullName: TraktNET.TraktMetascoreRatingItem.GetHashCode
+  nameWithType: TraktMetascoreRatingItem.GetHashCode
+- uid: TraktNET.TraktMetascoreRatingItem.Link
+  name: Link
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_Link
+  commentId: P:TraktNET.TraktMetascoreRatingItem.Link
+  fullName: TraktNET.TraktMetascoreRatingItem.Link
+  nameWithType: TraktMetascoreRatingItem.Link
+- uid: TraktNET.TraktMetascoreRatingItem.Link*
+  name: Link
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_Link_
+  commentId: Overload:TraktNET.TraktMetascoreRatingItem.Link
+  fullName: TraktNET.TraktMetascoreRatingItem.Link
+  nameWithType: TraktMetascoreRatingItem.Link
+- uid: TraktNET.TraktMetascoreRatingItem.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktMetascoreRatingItem.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktMetascoreRatingItem.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktMetascoreRatingItem.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktMetascoreRatingItem.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_PrintMembers_
+  commentId: Overload:TraktNET.TraktMetascoreRatingItem.PrintMembers
+  fullName: TraktNET.TraktMetascoreRatingItem.PrintMembers
+  nameWithType: TraktMetascoreRatingItem.PrintMembers
+- uid: TraktNET.TraktMetascoreRatingItem.Rating
+  name: Rating
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_Rating
+  commentId: P:TraktNET.TraktMetascoreRatingItem.Rating
+  fullName: TraktNET.TraktMetascoreRatingItem.Rating
+  nameWithType: TraktMetascoreRatingItem.Rating
+- uid: TraktNET.TraktMetascoreRatingItem.Rating*
+  name: Rating
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_Rating_
+  commentId: Overload:TraktNET.TraktMetascoreRatingItem.Rating
+  fullName: TraktNET.TraktMetascoreRatingItem.Rating
+  nameWithType: TraktMetascoreRatingItem.Rating
+- uid: TraktNET.TraktMetascoreRatingItem.ToString
+  name: ToString()
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_ToString
+  commentId: M:TraktNET.TraktMetascoreRatingItem.ToString
+  fullName: TraktNET.TraktMetascoreRatingItem.ToString()
+  nameWithType: TraktMetascoreRatingItem.ToString()
+- uid: TraktNET.TraktMetascoreRatingItem.ToString*
+  name: ToString
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_ToString_
+  commentId: Overload:TraktNET.TraktMetascoreRatingItem.ToString
+  fullName: TraktNET.TraktMetascoreRatingItem.ToString
+  nameWithType: TraktMetascoreRatingItem.ToString
+- uid: TraktNET.TraktMetascoreRatingItem.op_Equality(TraktNET.TraktMetascoreRatingItem,TraktNET.TraktMetascoreRatingItem)
+  name: operator ==(TraktMetascoreRatingItem?, TraktMetascoreRatingItem?)
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_op_Equality_TraktNET_TraktMetascoreRatingItem_TraktNET_TraktMetascoreRatingItem_
+  commentId: M:TraktNET.TraktMetascoreRatingItem.op_Equality(TraktNET.TraktMetascoreRatingItem,TraktNET.TraktMetascoreRatingItem)
+  name.vb: =(TraktMetascoreRatingItem, TraktMetascoreRatingItem)
+  fullName: TraktNET.TraktMetascoreRatingItem.operator ==(TraktNET.TraktMetascoreRatingItem?, TraktNET.TraktMetascoreRatingItem?)
+  fullName.vb: TraktNET.TraktMetascoreRatingItem.=(TraktNET.TraktMetascoreRatingItem, TraktNET.TraktMetascoreRatingItem)
+  nameWithType: TraktMetascoreRatingItem.operator ==(TraktMetascoreRatingItem?, TraktMetascoreRatingItem?)
+  nameWithType.vb: TraktMetascoreRatingItem.=(TraktMetascoreRatingItem, TraktMetascoreRatingItem)
+- uid: TraktNET.TraktMetascoreRatingItem.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_op_Equality_
+  commentId: Overload:TraktNET.TraktMetascoreRatingItem.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktMetascoreRatingItem.operator ==
+  fullName.vb: TraktNET.TraktMetascoreRatingItem.=
+  nameWithType: TraktMetascoreRatingItem.operator ==
+  nameWithType.vb: TraktMetascoreRatingItem.=
+- uid: TraktNET.TraktMetascoreRatingItem.op_Inequality(TraktNET.TraktMetascoreRatingItem,TraktNET.TraktMetascoreRatingItem)
+  name: operator !=(TraktMetascoreRatingItem?, TraktMetascoreRatingItem?)
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_op_Inequality_TraktNET_TraktMetascoreRatingItem_TraktNET_TraktMetascoreRatingItem_
+  commentId: M:TraktNET.TraktMetascoreRatingItem.op_Inequality(TraktNET.TraktMetascoreRatingItem,TraktNET.TraktMetascoreRatingItem)
+  name.vb: <>(TraktMetascoreRatingItem, TraktMetascoreRatingItem)
+  fullName: TraktNET.TraktMetascoreRatingItem.operator !=(TraktNET.TraktMetascoreRatingItem?, TraktNET.TraktMetascoreRatingItem?)
+  fullName.vb: TraktNET.TraktMetascoreRatingItem.<>(TraktNET.TraktMetascoreRatingItem, TraktNET.TraktMetascoreRatingItem)
+  nameWithType: TraktMetascoreRatingItem.operator !=(TraktMetascoreRatingItem?, TraktMetascoreRatingItem?)
+  nameWithType.vb: TraktMetascoreRatingItem.<>(TraktMetascoreRatingItem, TraktMetascoreRatingItem)
+- uid: TraktNET.TraktMetascoreRatingItem.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktMetascoreRatingItem.html#TraktNET_TraktMetascoreRatingItem_op_Inequality_
+  commentId: Overload:TraktNET.TraktMetascoreRatingItem.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktMetascoreRatingItem.operator !=
+  fullName.vb: TraktNET.TraktMetascoreRatingItem.<>
+  nameWithType: TraktMetascoreRatingItem.operator !=
+  nameWithType.vb: TraktMetascoreRatingItem.<>
 - uid: TraktNET.TraktMostAnticipatedMovie
   name: TraktMostAnticipatedMovie
   href: api/TraktNET.TraktMostAnticipatedMovie.html
@@ -47389,30 +47608,30 @@ references:
   commentId: Overload:TraktNET.TraktMoviesModule.GetMoviePeopleAsync
   fullName: TraktNET.TraktMoviesModule.GetMoviePeopleAsync
   nameWithType: TraktMoviesModule.GetMoviePeopleAsync
-- uid: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.String,System.Threading.CancellationToken)
-  name: GetMovieRatingsAsync(string, CancellationToken)
-  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.String,System.Threading.CancellationToken)
-  name.vb: GetMovieRatingsAsync(String, CancellationToken)
-  fullName: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(string, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(String, System.Threading.CancellationToken)
-  nameWithType: TraktMoviesModule.GetMovieRatingsAsync(string, CancellationToken)
-  nameWithType.vb: TraktMoviesModule.GetMovieRatingsAsync(String, CancellationToken)
-- uid: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.UInt32,System.Threading.CancellationToken)
-  name: GetMovieRatingsAsync(uint, CancellationToken)
-  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_UInt32_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.UInt32,System.Threading.CancellationToken)
-  name.vb: GetMovieRatingsAsync(UInteger, CancellationToken)
-  fullName: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(uint, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(UInteger, System.Threading.CancellationToken)
-  nameWithType: TraktMoviesModule.GetMovieRatingsAsync(uint, CancellationToken)
-  nameWithType.vb: TraktMoviesModule.GetMovieRatingsAsync(UInteger, CancellationToken)
-- uid: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(TraktNET.TraktMovieIDs,System.Threading.CancellationToken)
-  name: GetMovieRatingsAsync(TraktMovieIDs, CancellationToken)
-  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRatingsAsync_TraktNET_TraktMovieIDs_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktMoviesModule.GetMovieRatingsAsync(TraktNET.TraktMovieIDs,System.Threading.CancellationToken)
-  fullName: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(TraktNET.TraktMovieIDs, System.Threading.CancellationToken)
-  nameWithType: TraktMoviesModule.GetMovieRatingsAsync(TraktMovieIDs, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetMovieRatingsAsync(string, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetMovieRatingsAsync(String, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(string, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(String, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetMovieRatingsAsync(string, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.GetMovieRatingsAsync(String, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetMovieRatingsAsync(uint, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRatingsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetMovieRatingsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetMovieRatingsAsync(UInteger, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetMovieRatingsAsync(uint, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.GetMovieRatingsAsync(UInteger, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetMovieRatingsAsync(TraktMovieIDs, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRatingsAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetMovieRatingsAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetMovieRatingsAsync(TraktNET.TraktMovieIDs, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetMovieRatingsAsync(TraktMovieIDs, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktMoviesModule.GetMovieRatingsAsync*
   name: GetMovieRatingsAsync
   href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRatingsAsync_
@@ -61454,6 +61673,54 @@ references:
   commentId: Overload:TraktNET.TraktRating.GetHashCode
   fullName: TraktNET.TraktRating.GetHashCode
   nameWithType: TraktRating.GetHashCode
+- uid: TraktNET.TraktRating.IMDB
+  name: IMDB
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_IMDB
+  commentId: P:TraktNET.TraktRating.IMDB
+  fullName: TraktNET.TraktRating.IMDB
+  nameWithType: TraktRating.IMDB
+- uid: TraktNET.TraktRating.IMDB*
+  name: IMDB
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_IMDB_
+  commentId: Overload:TraktNET.TraktRating.IMDB
+  fullName: TraktNET.TraktRating.IMDB
+  nameWithType: TraktRating.IMDB
+- uid: TraktNET.TraktRating.Letterboxd
+  name: Letterboxd
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_Letterboxd
+  commentId: P:TraktNET.TraktRating.Letterboxd
+  fullName: TraktNET.TraktRating.Letterboxd
+  nameWithType: TraktRating.Letterboxd
+- uid: TraktNET.TraktRating.Letterboxd*
+  name: Letterboxd
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_Letterboxd_
+  commentId: Overload:TraktNET.TraktRating.Letterboxd
+  fullName: TraktNET.TraktRating.Letterboxd
+  nameWithType: TraktRating.Letterboxd
+- uid: TraktNET.TraktRating.MAL
+  name: MAL
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_MAL
+  commentId: P:TraktNET.TraktRating.MAL
+  fullName: TraktNET.TraktRating.MAL
+  nameWithType: TraktRating.MAL
+- uid: TraktNET.TraktRating.MAL*
+  name: MAL
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_MAL_
+  commentId: Overload:TraktNET.TraktRating.MAL
+  fullName: TraktNET.TraktRating.MAL
+  nameWithType: TraktRating.MAL
+- uid: TraktNET.TraktRating.Metascore
+  name: Metascore
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_Metascore
+  commentId: P:TraktNET.TraktRating.Metascore
+  fullName: TraktNET.TraktRating.Metascore
+  nameWithType: TraktRating.Metascore
+- uid: TraktNET.TraktRating.Metascore*
+  name: Metascore
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_Metascore_
+  commentId: Overload:TraktNET.TraktRating.Metascore
+  fullName: TraktNET.TraktRating.Metascore
+  nameWithType: TraktRating.Metascore
 - uid: TraktNET.TraktRating.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_PrintMembers_System_Text_StringBuilder_
@@ -61478,6 +61745,30 @@ references:
   commentId: Overload:TraktNET.TraktRating.Rating
   fullName: TraktNET.TraktRating.Rating
   nameWithType: TraktRating.Rating
+- uid: TraktNET.TraktRating.RottenTomatoes
+  name: RottenTomatoes
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_RottenTomatoes
+  commentId: P:TraktNET.TraktRating.RottenTomatoes
+  fullName: TraktNET.TraktRating.RottenTomatoes
+  nameWithType: TraktRating.RottenTomatoes
+- uid: TraktNET.TraktRating.RottenTomatoes*
+  name: RottenTomatoes
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_RottenTomatoes_
+  commentId: Overload:TraktNET.TraktRating.RottenTomatoes
+  fullName: TraktNET.TraktRating.RottenTomatoes
+  nameWithType: TraktRating.RottenTomatoes
+- uid: TraktNET.TraktRating.TMDB
+  name: TMDB
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_TMDB
+  commentId: P:TraktNET.TraktRating.TMDB
+  fullName: TraktNET.TraktRating.TMDB
+  nameWithType: TraktRating.TMDB
+- uid: TraktNET.TraktRating.TMDB*
+  name: TMDB
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_TMDB_
+  commentId: Overload:TraktNET.TraktRating.TMDB
+  fullName: TraktNET.TraktRating.TMDB
+  nameWithType: TraktRating.TMDB
 - uid: TraktNET.TraktRating.ToString
   name: ToString()
   href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_ToString
@@ -61490,6 +61781,18 @@ references:
   commentId: Overload:TraktNET.TraktRating.ToString
   fullName: TraktNET.TraktRating.ToString
   nameWithType: TraktRating.ToString
+- uid: TraktNET.TraktRating.Trakt
+  name: Trakt
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_Trakt
+  commentId: P:TraktNET.TraktRating.Trakt
+  fullName: TraktNET.TraktRating.Trakt
+  nameWithType: TraktRating.Trakt
+- uid: TraktNET.TraktRating.Trakt*
+  name: Trakt
+  href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_Trakt_
+  commentId: Overload:TraktNET.TraktRating.Trakt
+  fullName: TraktNET.TraktRating.Trakt
+  nameWithType: TraktRating.Trakt
 - uid: TraktNET.TraktRating.Votes
   name: Votes
   href: api/TraktNET.TraktRating.html#TraktNET_TraktRating_Votes
@@ -61538,6 +61841,183 @@ references:
   fullName.vb: TraktNET.TraktRating.<>
   nameWithType: TraktRating.operator !=
   nameWithType.vb: TraktRating.<>
+- uid: TraktNET.TraktRatingItem
+  name: TraktRatingItem
+  href: api/TraktNET.TraktRatingItem.html
+  commentId: T:TraktNET.TraktRatingItem
+  fullName: TraktNET.TraktRatingItem
+  nameWithType: TraktRatingItem
+- uid: TraktNET.TraktRatingItem.#ctor
+  name: TraktRatingItem()
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem__ctor
+  commentId: M:TraktNET.TraktRatingItem.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktRatingItem.TraktRatingItem()
+  fullName.vb: TraktNET.TraktRatingItem.New()
+  nameWithType: TraktRatingItem.TraktRatingItem()
+  nameWithType.vb: TraktRatingItem.New()
+- uid: TraktNET.TraktRatingItem.#ctor(TraktNET.TraktRatingItem)
+  name: TraktRatingItem(TraktRatingItem)
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem__ctor_TraktNET_TraktRatingItem_
+  commentId: M:TraktNET.TraktRatingItem.#ctor(TraktNET.TraktRatingItem)
+  name.vb: New(TraktRatingItem)
+  fullName: TraktNET.TraktRatingItem.TraktRatingItem(TraktNET.TraktRatingItem)
+  fullName.vb: TraktNET.TraktRatingItem.New(TraktNET.TraktRatingItem)
+  nameWithType: TraktRatingItem.TraktRatingItem(TraktRatingItem)
+  nameWithType.vb: TraktRatingItem.New(TraktRatingItem)
+- uid: TraktNET.TraktRatingItem.#ctor*
+  name: TraktRatingItem
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem__ctor_
+  commentId: Overload:TraktNET.TraktRatingItem.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktRatingItem.TraktRatingItem
+  fullName.vb: TraktNET.TraktRatingItem.New
+  nameWithType: TraktRatingItem.TraktRatingItem
+  nameWithType.vb: TraktRatingItem.New
+- uid: TraktNET.TraktRatingItem.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_EqualityContract
+  commentId: P:TraktNET.TraktRatingItem.EqualityContract
+  fullName: TraktNET.TraktRatingItem.EqualityContract
+  nameWithType: TraktRatingItem.EqualityContract
+- uid: TraktNET.TraktRatingItem.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_EqualityContract_
+  commentId: Overload:TraktNET.TraktRatingItem.EqualityContract
+  fullName: TraktNET.TraktRatingItem.EqualityContract
+  nameWithType: TraktRatingItem.EqualityContract
+- uid: TraktNET.TraktRatingItem.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_Equals_System_Object_
+  commentId: M:TraktNET.TraktRatingItem.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktRatingItem.Equals(object?)
+  fullName.vb: TraktNET.TraktRatingItem.Equals(Object)
+  nameWithType: TraktRatingItem.Equals(object?)
+  nameWithType.vb: TraktRatingItem.Equals(Object)
+- uid: TraktNET.TraktRatingItem.Equals(TraktNET.TraktRatingItem)
+  name: Equals(TraktRatingItem?)
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_Equals_TraktNET_TraktRatingItem_
+  commentId: M:TraktNET.TraktRatingItem.Equals(TraktNET.TraktRatingItem)
+  name.vb: Equals(TraktRatingItem)
+  fullName: TraktNET.TraktRatingItem.Equals(TraktNET.TraktRatingItem?)
+  fullName.vb: TraktNET.TraktRatingItem.Equals(TraktNET.TraktRatingItem)
+  nameWithType: TraktRatingItem.Equals(TraktRatingItem?)
+  nameWithType.vb: TraktRatingItem.Equals(TraktRatingItem)
+- uid: TraktNET.TraktRatingItem.Equals*
+  name: Equals
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_Equals_
+  commentId: Overload:TraktNET.TraktRatingItem.Equals
+  fullName: TraktNET.TraktRatingItem.Equals
+  nameWithType: TraktRatingItem.Equals
+- uid: TraktNET.TraktRatingItem.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_GetHashCode
+  commentId: M:TraktNET.TraktRatingItem.GetHashCode
+  fullName: TraktNET.TraktRatingItem.GetHashCode()
+  nameWithType: TraktRatingItem.GetHashCode()
+- uid: TraktNET.TraktRatingItem.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_GetHashCode_
+  commentId: Overload:TraktNET.TraktRatingItem.GetHashCode
+  fullName: TraktNET.TraktRatingItem.GetHashCode
+  nameWithType: TraktRatingItem.GetHashCode
+- uid: TraktNET.TraktRatingItem.Link
+  name: Link
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_Link
+  commentId: P:TraktNET.TraktRatingItem.Link
+  fullName: TraktNET.TraktRatingItem.Link
+  nameWithType: TraktRatingItem.Link
+- uid: TraktNET.TraktRatingItem.Link*
+  name: Link
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_Link_
+  commentId: Overload:TraktNET.TraktRatingItem.Link
+  fullName: TraktNET.TraktRatingItem.Link
+  nameWithType: TraktRatingItem.Link
+- uid: TraktNET.TraktRatingItem.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktRatingItem.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktRatingItem.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktRatingItem.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktRatingItem.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_PrintMembers_
+  commentId: Overload:TraktNET.TraktRatingItem.PrintMembers
+  fullName: TraktNET.TraktRatingItem.PrintMembers
+  nameWithType: TraktRatingItem.PrintMembers
+- uid: TraktNET.TraktRatingItem.Rating
+  name: Rating
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_Rating
+  commentId: P:TraktNET.TraktRatingItem.Rating
+  fullName: TraktNET.TraktRatingItem.Rating
+  nameWithType: TraktRatingItem.Rating
+- uid: TraktNET.TraktRatingItem.Rating*
+  name: Rating
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_Rating_
+  commentId: Overload:TraktNET.TraktRatingItem.Rating
+  fullName: TraktNET.TraktRatingItem.Rating
+  nameWithType: TraktRatingItem.Rating
+- uid: TraktNET.TraktRatingItem.ToString
+  name: ToString()
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_ToString
+  commentId: M:TraktNET.TraktRatingItem.ToString
+  fullName: TraktNET.TraktRatingItem.ToString()
+  nameWithType: TraktRatingItem.ToString()
+- uid: TraktNET.TraktRatingItem.ToString*
+  name: ToString
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_ToString_
+  commentId: Overload:TraktNET.TraktRatingItem.ToString
+  fullName: TraktNET.TraktRatingItem.ToString
+  nameWithType: TraktRatingItem.ToString
+- uid: TraktNET.TraktRatingItem.Votes
+  name: Votes
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_Votes
+  commentId: P:TraktNET.TraktRatingItem.Votes
+  fullName: TraktNET.TraktRatingItem.Votes
+  nameWithType: TraktRatingItem.Votes
+- uid: TraktNET.TraktRatingItem.Votes*
+  name: Votes
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_Votes_
+  commentId: Overload:TraktNET.TraktRatingItem.Votes
+  fullName: TraktNET.TraktRatingItem.Votes
+  nameWithType: TraktRatingItem.Votes
+- uid: TraktNET.TraktRatingItem.op_Equality(TraktNET.TraktRatingItem,TraktNET.TraktRatingItem)
+  name: operator ==(TraktRatingItem?, TraktRatingItem?)
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_op_Equality_TraktNET_TraktRatingItem_TraktNET_TraktRatingItem_
+  commentId: M:TraktNET.TraktRatingItem.op_Equality(TraktNET.TraktRatingItem,TraktNET.TraktRatingItem)
+  name.vb: =(TraktRatingItem, TraktRatingItem)
+  fullName: TraktNET.TraktRatingItem.operator ==(TraktNET.TraktRatingItem?, TraktNET.TraktRatingItem?)
+  fullName.vb: TraktNET.TraktRatingItem.=(TraktNET.TraktRatingItem, TraktNET.TraktRatingItem)
+  nameWithType: TraktRatingItem.operator ==(TraktRatingItem?, TraktRatingItem?)
+  nameWithType.vb: TraktRatingItem.=(TraktRatingItem, TraktRatingItem)
+- uid: TraktNET.TraktRatingItem.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_op_Equality_
+  commentId: Overload:TraktNET.TraktRatingItem.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktRatingItem.operator ==
+  fullName.vb: TraktNET.TraktRatingItem.=
+  nameWithType: TraktRatingItem.operator ==
+  nameWithType.vb: TraktRatingItem.=
+- uid: TraktNET.TraktRatingItem.op_Inequality(TraktNET.TraktRatingItem,TraktNET.TraktRatingItem)
+  name: operator !=(TraktRatingItem?, TraktRatingItem?)
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_op_Inequality_TraktNET_TraktRatingItem_TraktNET_TraktRatingItem_
+  commentId: M:TraktNET.TraktRatingItem.op_Inequality(TraktNET.TraktRatingItem,TraktNET.TraktRatingItem)
+  name.vb: <>(TraktRatingItem, TraktRatingItem)
+  fullName: TraktNET.TraktRatingItem.operator !=(TraktNET.TraktRatingItem?, TraktNET.TraktRatingItem?)
+  fullName.vb: TraktNET.TraktRatingItem.<>(TraktNET.TraktRatingItem, TraktNET.TraktRatingItem)
+  nameWithType: TraktRatingItem.operator !=(TraktRatingItem?, TraktRatingItem?)
+  nameWithType.vb: TraktRatingItem.<>(TraktRatingItem, TraktRatingItem)
+- uid: TraktNET.TraktRatingItem.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktRatingItem.html#TraktNET_TraktRatingItem_op_Inequality_
+  commentId: Overload:TraktNET.TraktRatingItem.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktRatingItem.operator !=
+  fullName.vb: TraktNET.TraktRatingItem.<>
+  nameWithType: TraktRatingItem.operator !=
+  nameWithType.vb: TraktRatingItem.<>
 - uid: TraktNET.TraktRatingsItem
   name: TraktRatingsItem
   href: api/TraktNET.TraktRatingsItem.html
@@ -64150,6 +64630,207 @@ references:
   fullName.vb: TraktNET.TraktResponse(Of TResponseContentType).CType
   nameWithType: TraktResponse<TResponseContentType>.implicit operator
   nameWithType.vb: TraktResponse(Of TResponseContentType).CType
+- uid: TraktNET.TraktRottenTomatoesRatingItem
+  name: TraktRottenTomatoesRatingItem
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html
+  commentId: T:TraktNET.TraktRottenTomatoesRatingItem
+  fullName: TraktNET.TraktRottenTomatoesRatingItem
+  nameWithType: TraktRottenTomatoesRatingItem
+- uid: TraktNET.TraktRottenTomatoesRatingItem.#ctor
+  name: TraktRottenTomatoesRatingItem()
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem__ctor
+  commentId: M:TraktNET.TraktRottenTomatoesRatingItem.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.TraktRottenTomatoesRatingItem()
+  fullName.vb: TraktNET.TraktRottenTomatoesRatingItem.New()
+  nameWithType: TraktRottenTomatoesRatingItem.TraktRottenTomatoesRatingItem()
+  nameWithType.vb: TraktRottenTomatoesRatingItem.New()
+- uid: TraktNET.TraktRottenTomatoesRatingItem.#ctor(TraktNET.TraktRottenTomatoesRatingItem)
+  name: TraktRottenTomatoesRatingItem(TraktRottenTomatoesRatingItem)
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem__ctor_TraktNET_TraktRottenTomatoesRatingItem_
+  commentId: M:TraktNET.TraktRottenTomatoesRatingItem.#ctor(TraktNET.TraktRottenTomatoesRatingItem)
+  name.vb: New(TraktRottenTomatoesRatingItem)
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.TraktRottenTomatoesRatingItem(TraktNET.TraktRottenTomatoesRatingItem)
+  fullName.vb: TraktNET.TraktRottenTomatoesRatingItem.New(TraktNET.TraktRottenTomatoesRatingItem)
+  nameWithType: TraktRottenTomatoesRatingItem.TraktRottenTomatoesRatingItem(TraktRottenTomatoesRatingItem)
+  nameWithType.vb: TraktRottenTomatoesRatingItem.New(TraktRottenTomatoesRatingItem)
+- uid: TraktNET.TraktRottenTomatoesRatingItem.#ctor*
+  name: TraktRottenTomatoesRatingItem
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem__ctor_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.TraktRottenTomatoesRatingItem
+  fullName.vb: TraktNET.TraktRottenTomatoesRatingItem.New
+  nameWithType: TraktRottenTomatoesRatingItem.TraktRottenTomatoesRatingItem
+  nameWithType.vb: TraktRottenTomatoesRatingItem.New
+- uid: TraktNET.TraktRottenTomatoesRatingItem.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_EqualityContract
+  commentId: P:TraktNET.TraktRottenTomatoesRatingItem.EqualityContract
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.EqualityContract
+  nameWithType: TraktRottenTomatoesRatingItem.EqualityContract
+- uid: TraktNET.TraktRottenTomatoesRatingItem.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_EqualityContract_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.EqualityContract
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.EqualityContract
+  nameWithType: TraktRottenTomatoesRatingItem.EqualityContract
+- uid: TraktNET.TraktRottenTomatoesRatingItem.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_Equals_System_Object_
+  commentId: M:TraktNET.TraktRottenTomatoesRatingItem.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.Equals(object?)
+  fullName.vb: TraktNET.TraktRottenTomatoesRatingItem.Equals(Object)
+  nameWithType: TraktRottenTomatoesRatingItem.Equals(object?)
+  nameWithType.vb: TraktRottenTomatoesRatingItem.Equals(Object)
+- uid: TraktNET.TraktRottenTomatoesRatingItem.Equals(TraktNET.TraktRottenTomatoesRatingItem)
+  name: Equals(TraktRottenTomatoesRatingItem?)
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_Equals_TraktNET_TraktRottenTomatoesRatingItem_
+  commentId: M:TraktNET.TraktRottenTomatoesRatingItem.Equals(TraktNET.TraktRottenTomatoesRatingItem)
+  name.vb: Equals(TraktRottenTomatoesRatingItem)
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.Equals(TraktNET.TraktRottenTomatoesRatingItem?)
+  fullName.vb: TraktNET.TraktRottenTomatoesRatingItem.Equals(TraktNET.TraktRottenTomatoesRatingItem)
+  nameWithType: TraktRottenTomatoesRatingItem.Equals(TraktRottenTomatoesRatingItem?)
+  nameWithType.vb: TraktRottenTomatoesRatingItem.Equals(TraktRottenTomatoesRatingItem)
+- uid: TraktNET.TraktRottenTomatoesRatingItem.Equals*
+  name: Equals
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_Equals_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.Equals
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.Equals
+  nameWithType: TraktRottenTomatoesRatingItem.Equals
+- uid: TraktNET.TraktRottenTomatoesRatingItem.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_GetHashCode
+  commentId: M:TraktNET.TraktRottenTomatoesRatingItem.GetHashCode
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.GetHashCode()
+  nameWithType: TraktRottenTomatoesRatingItem.GetHashCode()
+- uid: TraktNET.TraktRottenTomatoesRatingItem.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_GetHashCode_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.GetHashCode
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.GetHashCode
+  nameWithType: TraktRottenTomatoesRatingItem.GetHashCode
+- uid: TraktNET.TraktRottenTomatoesRatingItem.Link
+  name: Link
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_Link
+  commentId: P:TraktNET.TraktRottenTomatoesRatingItem.Link
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.Link
+  nameWithType: TraktRottenTomatoesRatingItem.Link
+- uid: TraktNET.TraktRottenTomatoesRatingItem.Link*
+  name: Link
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_Link_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.Link
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.Link
+  nameWithType: TraktRottenTomatoesRatingItem.Link
+- uid: TraktNET.TraktRottenTomatoesRatingItem.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktRottenTomatoesRatingItem.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktRottenTomatoesRatingItem.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktRottenTomatoesRatingItem.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_PrintMembers_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.PrintMembers
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.PrintMembers
+  nameWithType: TraktRottenTomatoesRatingItem.PrintMembers
+- uid: TraktNET.TraktRottenTomatoesRatingItem.Rating
+  name: Rating
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_Rating
+  commentId: P:TraktNET.TraktRottenTomatoesRatingItem.Rating
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.Rating
+  nameWithType: TraktRottenTomatoesRatingItem.Rating
+- uid: TraktNET.TraktRottenTomatoesRatingItem.Rating*
+  name: Rating
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_Rating_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.Rating
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.Rating
+  nameWithType: TraktRottenTomatoesRatingItem.Rating
+- uid: TraktNET.TraktRottenTomatoesRatingItem.State
+  name: State
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_State
+  commentId: P:TraktNET.TraktRottenTomatoesRatingItem.State
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.State
+  nameWithType: TraktRottenTomatoesRatingItem.State
+- uid: TraktNET.TraktRottenTomatoesRatingItem.State*
+  name: State
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_State_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.State
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.State
+  nameWithType: TraktRottenTomatoesRatingItem.State
+- uid: TraktNET.TraktRottenTomatoesRatingItem.ToString
+  name: ToString()
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_ToString
+  commentId: M:TraktNET.TraktRottenTomatoesRatingItem.ToString
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.ToString()
+  nameWithType: TraktRottenTomatoesRatingItem.ToString()
+- uid: TraktNET.TraktRottenTomatoesRatingItem.ToString*
+  name: ToString
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_ToString_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.ToString
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.ToString
+  nameWithType: TraktRottenTomatoesRatingItem.ToString
+- uid: TraktNET.TraktRottenTomatoesRatingItem.UserRating
+  name: UserRating
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_UserRating
+  commentId: P:TraktNET.TraktRottenTomatoesRatingItem.UserRating
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.UserRating
+  nameWithType: TraktRottenTomatoesRatingItem.UserRating
+- uid: TraktNET.TraktRottenTomatoesRatingItem.UserRating*
+  name: UserRating
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_UserRating_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.UserRating
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.UserRating
+  nameWithType: TraktRottenTomatoesRatingItem.UserRating
+- uid: TraktNET.TraktRottenTomatoesRatingItem.UserState
+  name: UserState
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_UserState
+  commentId: P:TraktNET.TraktRottenTomatoesRatingItem.UserState
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.UserState
+  nameWithType: TraktRottenTomatoesRatingItem.UserState
+- uid: TraktNET.TraktRottenTomatoesRatingItem.UserState*
+  name: UserState
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_UserState_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.UserState
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.UserState
+  nameWithType: TraktRottenTomatoesRatingItem.UserState
+- uid: TraktNET.TraktRottenTomatoesRatingItem.op_Equality(TraktNET.TraktRottenTomatoesRatingItem,TraktNET.TraktRottenTomatoesRatingItem)
+  name: operator ==(TraktRottenTomatoesRatingItem?, TraktRottenTomatoesRatingItem?)
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_op_Equality_TraktNET_TraktRottenTomatoesRatingItem_TraktNET_TraktRottenTomatoesRatingItem_
+  commentId: M:TraktNET.TraktRottenTomatoesRatingItem.op_Equality(TraktNET.TraktRottenTomatoesRatingItem,TraktNET.TraktRottenTomatoesRatingItem)
+  name.vb: =(TraktRottenTomatoesRatingItem, TraktRottenTomatoesRatingItem)
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.operator ==(TraktNET.TraktRottenTomatoesRatingItem?, TraktNET.TraktRottenTomatoesRatingItem?)
+  fullName.vb: TraktNET.TraktRottenTomatoesRatingItem.=(TraktNET.TraktRottenTomatoesRatingItem, TraktNET.TraktRottenTomatoesRatingItem)
+  nameWithType: TraktRottenTomatoesRatingItem.operator ==(TraktRottenTomatoesRatingItem?, TraktRottenTomatoesRatingItem?)
+  nameWithType.vb: TraktRottenTomatoesRatingItem.=(TraktRottenTomatoesRatingItem, TraktRottenTomatoesRatingItem)
+- uid: TraktNET.TraktRottenTomatoesRatingItem.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_op_Equality_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.operator ==
+  fullName.vb: TraktNET.TraktRottenTomatoesRatingItem.=
+  nameWithType: TraktRottenTomatoesRatingItem.operator ==
+  nameWithType.vb: TraktRottenTomatoesRatingItem.=
+- uid: TraktNET.TraktRottenTomatoesRatingItem.op_Inequality(TraktNET.TraktRottenTomatoesRatingItem,TraktNET.TraktRottenTomatoesRatingItem)
+  name: operator !=(TraktRottenTomatoesRatingItem?, TraktRottenTomatoesRatingItem?)
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_op_Inequality_TraktNET_TraktRottenTomatoesRatingItem_TraktNET_TraktRottenTomatoesRatingItem_
+  commentId: M:TraktNET.TraktRottenTomatoesRatingItem.op_Inequality(TraktNET.TraktRottenTomatoesRatingItem,TraktNET.TraktRottenTomatoesRatingItem)
+  name.vb: <>(TraktRottenTomatoesRatingItem, TraktRottenTomatoesRatingItem)
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.operator !=(TraktNET.TraktRottenTomatoesRatingItem?, TraktNET.TraktRottenTomatoesRatingItem?)
+  fullName.vb: TraktNET.TraktRottenTomatoesRatingItem.<>(TraktNET.TraktRottenTomatoesRatingItem, TraktNET.TraktRottenTomatoesRatingItem)
+  nameWithType: TraktRottenTomatoesRatingItem.operator !=(TraktRottenTomatoesRatingItem?, TraktRottenTomatoesRatingItem?)
+  nameWithType.vb: TraktRottenTomatoesRatingItem.<>(TraktRottenTomatoesRatingItem, TraktRottenTomatoesRatingItem)
+- uid: TraktNET.TraktRottenTomatoesRatingItem.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktRottenTomatoesRatingItem.html#TraktNET_TraktRottenTomatoesRatingItem_op_Inequality_
+  commentId: Overload:TraktNET.TraktRottenTomatoesRatingItem.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktRottenTomatoesRatingItem.operator !=
+  fullName.vb: TraktNET.TraktRottenTomatoesRatingItem.<>
+  nameWithType: TraktRottenTomatoesRatingItem.operator !=
+  nameWithType.vb: TraktRottenTomatoesRatingItem.<>
 - uid: TraktNET.TraktSandboxContext
   name: TraktSandboxContext
   href: api/TraktNET.TraktSandboxContext.html
@@ -68476,42 +69157,42 @@ references:
   commentId: Overload:TraktNET.TraktSeasonsModule.GetSeasonPeopleAsync
   fullName: TraktNET.TraktSeasonsModule.GetSeasonPeopleAsync
   nameWithType: TraktSeasonsModule.GetSeasonPeopleAsync
-- uid: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.String,System.UInt32,System.Threading.CancellationToken)
-  name: GetSeasonRatingsAsync(string, uint, CancellationToken)
-  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_String_System_UInt32_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.String,System.UInt32,System.Threading.CancellationToken)
-  name.vb: GetSeasonRatingsAsync(String, UInteger, CancellationToken)
-  fullName: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(string, uint, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(String, UInteger, System.Threading.CancellationToken)
-  nameWithType: TraktSeasonsModule.GetSeasonRatingsAsync(string, uint, CancellationToken)
-  nameWithType.vb: TraktSeasonsModule.GetSeasonRatingsAsync(String, UInteger, CancellationToken)
-- uid: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.UInt32,System.UInt32,System.Threading.CancellationToken)
-  name: GetSeasonRatingsAsync(uint, uint, CancellationToken)
-  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_UInt32_System_UInt32_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.UInt32,System.UInt32,System.Threading.CancellationToken)
-  name.vb: GetSeasonRatingsAsync(UInteger, UInteger, CancellationToken)
-  fullName: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(uint, uint, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(UInteger, UInteger, System.Threading.CancellationToken)
-  nameWithType: TraktSeasonsModule.GetSeasonRatingsAsync(uint, uint, CancellationToken)
-  nameWithType.vb: TraktSeasonsModule.GetSeasonRatingsAsync(UInteger, UInteger, CancellationToken)
-- uid: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShow,System.UInt32,System.Threading.CancellationToken)
-  name: GetSeasonRatingsAsync(TraktShow, uint, CancellationToken)
-  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShow_System_UInt32_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShow,System.UInt32,System.Threading.CancellationToken)
-  name.vb: GetSeasonRatingsAsync(TraktShow, UInteger, CancellationToken)
-  fullName: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShow, uint, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShow, UInteger, System.Threading.CancellationToken)
-  nameWithType: TraktSeasonsModule.GetSeasonRatingsAsync(TraktShow, uint, CancellationToken)
-  nameWithType.vb: TraktSeasonsModule.GetSeasonRatingsAsync(TraktShow, UInteger, CancellationToken)
-- uid: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Threading.CancellationToken)
-  name: GetSeasonRatingsAsync(TraktShowIDs, uint, CancellationToken)
-  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Threading.CancellationToken)
-  name.vb: GetSeasonRatingsAsync(TraktShowIDs, UInteger, CancellationToken)
-  fullName: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShowIDs, uint, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShowIDs, UInteger, System.Threading.CancellationToken)
-  nameWithType: TraktSeasonsModule.GetSeasonRatingsAsync(TraktShowIDs, uint, CancellationToken)
-  nameWithType.vb: TraktSeasonsModule.GetSeasonRatingsAsync(TraktShowIDs, UInteger, CancellationToken)
+- uid: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetSeasonRatingsAsync(string, uint, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetSeasonRatingsAsync(String, UInteger, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(string, uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(String, UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktSeasonsModule.GetSeasonRatingsAsync(string, uint, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktSeasonsModule.GetSeasonRatingsAsync(String, UInteger, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetSeasonRatingsAsync(uint, uint, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetSeasonRatingsAsync(UInteger, UInteger, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(uint, uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(UInteger, UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktSeasonsModule.GetSeasonRatingsAsync(uint, uint, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktSeasonsModule.GetSeasonRatingsAsync(UInteger, UInteger, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShow,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetSeasonRatingsAsync(TraktShow, uint, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShow_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShow,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetSeasonRatingsAsync(TraktShow, UInteger, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShow, uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShow, UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktSeasonsModule.GetSeasonRatingsAsync(TraktShow, uint, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktSeasonsModule.GetSeasonRatingsAsync(TraktShow, UInteger, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetSeasonRatingsAsync(TraktShowIDs, uint, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetSeasonRatingsAsync(TraktShowIDs, UInteger, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShowIDs, uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync(TraktNET.TraktShowIDs, UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktSeasonsModule.GetSeasonRatingsAsync(TraktShowIDs, uint, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktSeasonsModule.GetSeasonRatingsAsync(TraktShowIDs, UInteger, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktSeasonsModule.GetSeasonRatingsAsync*
   name: GetSeasonRatingsAsync
   href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonRatingsAsync_
@@ -73189,30 +73870,30 @@ references:
   commentId: Overload:TraktNET.TraktShowsModule.GetShowPeopleAsync
   fullName: TraktNET.TraktShowsModule.GetShowPeopleAsync
   nameWithType: TraktShowsModule.GetShowPeopleAsync
-- uid: TraktNET.TraktShowsModule.GetShowRatingsAsync(System.String,System.Threading.CancellationToken)
-  name: GetShowRatingsAsync(string, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRatingsAsync_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowRatingsAsync(System.String,System.Threading.CancellationToken)
-  name.vb: GetShowRatingsAsync(String, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowRatingsAsync(string, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowRatingsAsync(String, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowRatingsAsync(string, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowRatingsAsync(String, CancellationToken)
-- uid: TraktNET.TraktShowsModule.GetShowRatingsAsync(System.UInt32,System.Threading.CancellationToken)
-  name: GetShowRatingsAsync(uint, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRatingsAsync_System_UInt32_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowRatingsAsync(System.UInt32,System.Threading.CancellationToken)
-  name.vb: GetShowRatingsAsync(UInteger, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowRatingsAsync(uint, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowRatingsAsync(UInteger, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowRatingsAsync(uint, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowRatingsAsync(UInteger, CancellationToken)
-- uid: TraktNET.TraktShowsModule.GetShowRatingsAsync(TraktNET.TraktShowIDs,System.Threading.CancellationToken)
-  name: GetShowRatingsAsync(TraktShowIDs, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRatingsAsync_TraktNET_TraktShowIDs_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowRatingsAsync(TraktNET.TraktShowIDs,System.Threading.CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowRatingsAsync(TraktNET.TraktShowIDs, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowRatingsAsync(TraktShowIDs, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowRatingsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetShowRatingsAsync(string, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRatingsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowRatingsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetShowRatingsAsync(String, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowRatingsAsync(string, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowRatingsAsync(String, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowRatingsAsync(string, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowRatingsAsync(String, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowRatingsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetShowRatingsAsync(uint, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRatingsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowRatingsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetShowRatingsAsync(UInteger, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowRatingsAsync(uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowRatingsAsync(UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowRatingsAsync(uint, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowRatingsAsync(UInteger, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowRatingsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetShowRatingsAsync(TraktShowIDs, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRatingsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowRatingsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowRatingsAsync(TraktNET.TraktShowIDs, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowRatingsAsync(TraktShowIDs, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktShowsModule.GetShowRatingsAsync*
   name: GetShowRatingsAsync
   href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRatingsAsync_
