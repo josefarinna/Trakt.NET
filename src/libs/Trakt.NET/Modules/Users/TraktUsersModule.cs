@@ -1262,18 +1262,18 @@ namespace TraktNET
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing month in review details.
-        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserActivity" />.</para>
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserMonthInReview" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para>VIP only.</para>
-        /// <para><see href="https://docs.trakt.tv/reference/getusersmonthinreview">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersmonth_in_review">
         /// Trakt API Documentation: Users: Get month in review
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktResponse<TraktUserActivity>> GetMonthInReviewAsync(string usernameOrSlug, uint year, uint month,
+        public Task<TraktResponse<TraktUserMonthInReview>> GetMonthInReviewAsync(string usernameOrSlug, uint year, uint month,
             TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
             => GetMonthInReviewImplAsync(usernameOrSlug, year, month, extendedInfo, cancellationToken);
 
@@ -1290,18 +1290,18 @@ namespace TraktNET
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing year in review details.
-        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserActivity" />.</para>
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserYearInReview" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
         /// <para>VIP only.</para>
-        /// <para><see href="https://docs.trakt.tv/reference/getusersyearinreview">
+        /// <para><see href="https://docs.trakt.tv/reference/getusersyear_in_review">
         /// Trakt API Documentation: Users: Get year in review
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktResponse<TraktUserActivity>> GetYearInReviewAsync(string usernameOrSlug, uint year,
+        public Task<TraktResponse<TraktUserYearInReview>> GetYearInReviewAsync(string usernameOrSlug, uint year,
             TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
             => GetYearInReviewImplAsync(usernameOrSlug, year, extendedInfo, cancellationToken);
 

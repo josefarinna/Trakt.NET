@@ -302,13 +302,13 @@ namespace TraktNET
     {
     }
 
-    [TraktGetRequest("users/{id!!}/review/{year:uint!!}/{month:uint!!}", SupportsExtendedInfo = true,
+    [TraktGetRequest("users/{id!!}/mir/{year:uint!!}/{month:uint!!}", SupportsExtendedInfo = true,
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserMonthInReviewGetRequest
     {
     }
 
-    [TraktGetRequest("users/{id!!}/review/{year:uint!!}", SupportsExtendedInfo = true,
+    [TraktGetRequest("users/{id!!}/yir/{year:uint!!}", SupportsExtendedInfo = true,
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserYearInReviewGetRequest
     {

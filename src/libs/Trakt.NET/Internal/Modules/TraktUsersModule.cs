@@ -1129,7 +1129,7 @@ namespace TraktNET
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktUserActivity>> GetMonthInReviewImplAsync(string usernameOrSlug, uint year, uint month,
+        private Task<TraktResponse<TraktUserMonthInReview>> GetMonthInReviewImplAsync(string usernameOrSlug, uint year, uint month,
             TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             var request = new UserMonthInReviewGetRequest
@@ -1140,10 +1140,10 @@ namespace TraktNET
                 ExtendedInfo = extendedInfo
             };
 
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserActivity>(_context, request, cancellationToken);
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserMonthInReview>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktUserActivity>> GetYearInReviewImplAsync(string usernameOrSlug, uint year,
+        private Task<TraktResponse<TraktUserYearInReview>> GetYearInReviewImplAsync(string usernameOrSlug, uint year,
             TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             var request = new UserYearInReviewGetRequest
@@ -1153,7 +1153,7 @@ namespace TraktNET
                 ExtendedInfo = extendedInfo
             };
 
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserActivity>(_context, request, cancellationToken);
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserYearInReview>(_context, request, cancellationToken);
         }
 
         private Task<TraktPagedResponse<TraktCommentReaction>> GetCommentReactionsImplAsync(uint? page = null, uint? limit = null,
