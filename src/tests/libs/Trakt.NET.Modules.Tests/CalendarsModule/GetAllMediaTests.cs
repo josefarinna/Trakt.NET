@@ -8,16 +8,18 @@ namespace TraktNET.CalendarsModule
         private const string GetAllMediaUri = "calendars/all/media";
 
         [Theory]
-        [InlineData("2012-05-04T00:00:00.000Z", 7U, null, null, "calendars/all/media/2012-05-04/7", "Calendars\\calendarmedia.json")]
-        [InlineData("2012-05-04T00:00:00.000Z", 7U, TraktCalendarMediaType.Movie, TraktExtendedInfo.Full, "calendars/all/media/2012-05-04/7?type=movie&extended=full", "Calendars\\calendarmedia.json")]
-        public async Task TestGetAllMedia(string startDate, uint days, TraktCalendarMediaType? type, TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [InlineData("2012-05-04T00:00:00.000Z", 7U, null, null, null, "calendars/all/media/2012-05-04/7", "Calendars\\calendarmedia.json")]
+        [InlineData("2012-05-04T00:00:00.000Z", 7U, TraktCalendarMediaType.Movie, null, TraktExtendedInfo.Full, "calendars/all/media/2012-05-04/7?type=movie&extended=full", "Calendars\\calendarmedia.json")]
+        [InlineData("2012-05-04T00:00:00.000Z", 7U, null, TraktCalendarGroup.Day, null, "calendars/all/media/2012-05-04/7?group=day", "Calendars\\calendarmedia.json")]
+        [InlineData("2012-05-04T00:00:00.000Z", 7U, TraktCalendarMediaType.Show, TraktCalendarGroup.Day, TraktExtendedInfo.Full, "calendars/all/media/2012-05-04/7?group=day&type=show&extended=full", "Calendars\\calendarmedia.json")]
+        public async Task TestGetAllMedia(string startDate, uint days, TraktCalendarMediaType? type, TraktCalendarGroup? group, TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
             DateTime date = TestUtility.ParseUTCDateTime(startDate);
 
-            TraktListResponse<TraktCalendarMedia> response = await client.Calendar.GetAllMediaAsync(date, days, type, null, extendedInfo, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktCalendarMedia> response = await client.Calendar.GetAllMediaAsync(date, days, type, group, null, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -53,7 +55,7 @@ namespace TraktNET.CalendarsModule
             var filterObj = new TraktFilter { Query = "game of thrones" };
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktListResponse<TraktCalendarMedia> response = await client.Calendar.GetAllMediaAsync(date, 7U, null, filterObj, null, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktCalendarMedia> response = await client.Calendar.GetAllMediaAsync(date, 7U, filter: filterObj, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);

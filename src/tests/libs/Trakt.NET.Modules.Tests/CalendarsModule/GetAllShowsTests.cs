@@ -8,16 +8,18 @@ namespace TraktNET.CalendarsModule
         private const string GetAllShowsUri = "calendars/all/shows";
 
         [Theory]
-        [InlineData("2011-04-18T00:00:00.000Z", 7U, null, "calendars/all/shows/2011-04-18/7", "Calendars\\calendarshows_minimal.json")]
-        [InlineData("2011-04-18T00:00:00.000Z", 7U, TraktExtendedInfo.Full, "calendars/all/shows/2011-04-18/7?extended=full", "Calendars\\calendarshows.json")]
-        public async Task TestGetAllShows(string startDate, uint days, TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
+        [InlineData("2011-04-18T00:00:00.000Z", 7U, null, null, "calendars/all/shows/2011-04-18/7", "Calendars\\calendarshows_minimal.json")]
+        [InlineData("2011-04-18T00:00:00.000Z", 7U, null, TraktExtendedInfo.Full, "calendars/all/shows/2011-04-18/7?extended=full", "Calendars\\calendarshows.json")]
+        [InlineData("2011-04-18T00:00:00.000Z", 7U, TraktCalendarGroup.Day, null, "calendars/all/shows/2011-04-18/7?group=day", "Calendars\\calendarshows_minimal.json")]
+        [InlineData("2011-04-18T00:00:00.000Z", 7U, TraktCalendarGroup.Day, TraktExtendedInfo.Full, "calendars/all/shows/2011-04-18/7?group=day&extended=full", "Calendars\\calendarshows.json")]
+        public async Task TestGetAllShows(string startDate, uint days, TraktCalendarGroup? group, TraktExtendedInfo? extendedInfo, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
             DateTime date = TestUtility.ParseUTCDateTime(startDate);
 
-            TraktListResponse<TraktCalendarShow> response = await client.Calendar.GetAllShowsAsync(date, days, null, extendedInfo, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktCalendarShow> response = await client.Calendar.GetAllShowsAsync(date, days, group, null, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -53,7 +55,7 @@ namespace TraktNET.CalendarsModule
             string requestUri = $"{GetAllShowsUri}/2011-04-18/7?{filter}";
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktListResponse<TraktCalendarShow> response = await client.Calendar.GetAllShowsAsync(date, 7U, filter, null, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktCalendarShow> response = await client.Calendar.GetAllShowsAsync(date, 7U, filter: filter, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);

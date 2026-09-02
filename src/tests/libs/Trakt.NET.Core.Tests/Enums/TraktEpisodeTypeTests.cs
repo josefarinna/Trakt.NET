@@ -15,6 +15,8 @@ namespace TraktNET.Enums
             TraktEpisodeType.MidSeasonPremiere.ToJson().ShouldBe("mid_season_premiere");
             TraktEpisodeType.SeasonFinale.ToJson().ShouldBe("season_finale");
             TraktEpisodeType.SeriesFinale.ToJson().ShouldBe("series_finale");
+            TraktEpisodeType.FullSeason.ToJson().ShouldBe("full_season");
+            TraktEpisodeType.MultipleEpisodes.ToJson().ShouldBe("multiple_episodes");
             ((TraktEpisodeType)99).ToJson().ShouldBeNull();
         }
 
@@ -29,6 +31,8 @@ namespace TraktNET.Enums
             "mid_season_premiere".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.MidSeasonPremiere);
             "season_finale".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.SeasonFinale);
             "series_finale".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.SeriesFinale);
+            "full_season".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.FullSeason);
+            "multiple_episodes".ToTraktEpisodeType().ShouldBe(TraktEpisodeType.MultipleEpisodes);
 
             string? nullValue = null;
             nullValue.ToTraktEpisodeType().ShouldBe(TraktEpisodeType.Unspecified);
@@ -47,6 +51,8 @@ namespace TraktNET.Enums
             TraktEpisodeType.MidSeasonPremiere.DisplayName().ShouldBe("Mid Season Premiere");
             TraktEpisodeType.SeasonFinale.DisplayName().ShouldBe("Season Finale");
             TraktEpisodeType.SeriesFinale.DisplayName().ShouldBe("Series Finale");
+            TraktEpisodeType.FullSeason.DisplayName().ShouldBe("Full Season");
+            TraktEpisodeType.MultipleEpisodes.DisplayName().ShouldBe("Multiple Episodes");
             ((TraktEpisodeType)99).DisplayName().ShouldBe("99");
         }
 
