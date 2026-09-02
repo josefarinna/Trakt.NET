@@ -9,13 +9,20 @@ namespace TraktNET.GetRequests.Movies
         private const string MovieID = TestConstants.Movies.MovieSlug;
         private const string URIPath = $"movies/{MovieID}/ratings";
 
-        [Fact]
-        public void TestMovieRatingsGetRequestHasValidURIPath()
+        [Theory]
+        [InlineData(null, URIPath)]
+        [InlineData(TraktExtendedInfo.None, URIPath)]
+        [InlineData(TraktExtendedInfo.All, $"{URIPath}?extended=all")]
+        public void TestMovieRatingsGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, string expectedUri)
         {
-            var movieRatingsGetRequest = new MovieRatingsGetRequest { Id = MovieID };
+            var movieRatingsGetRequest = new MovieRatingsGetRequest
+            {
+                Id = MovieID,
+                ExtendedInfo = extendedInfo,
+            };
 
             movieRatingsGetRequest.BuildUri();
-            movieRatingsGetRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            movieRatingsGetRequest.RequestUri.ShouldBe(new Uri(expectedUri, UriKind.Relative));
         }
 
         [Fact]

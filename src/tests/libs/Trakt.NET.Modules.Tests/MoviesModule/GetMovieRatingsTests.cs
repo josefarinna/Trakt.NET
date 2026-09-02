@@ -1,21 +1,22 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.MoviesModule
 {
     public sealed class GetMovieRatingsTests
     {
-        private const string GetMovieRatingsUriPrefix = "movies";
-        private const string GetMovieRatingsUriSuffix = "ratings";
-        private static readonly string GetMovieRatingsUri = $"{GetMovieRatingsUriPrefix}/{TestConstants.Movies.TraktMovieID}/{GetMovieRatingsUriSuffix}";
-        private static readonly string GetMovieRatingsUriWithSlug = $"{GetMovieRatingsUriPrefix}/{TestConstants.Movies.MovieSlug}/{GetMovieRatingsUriSuffix}";
+        private const string GetMovieRatingsUri = $"movies/{TestConstants.Movies.MovieID}/ratings";
+        private const string GetMovieRatingsUriWithSlug = $"movies/{TestConstants.Movies.MovieSlug}/ratings";
 
-        [Fact]
-        public async Task TestGetMovieRatingsWithID()
+        [Theory]
+        [InlineData(null, GetMovieRatingsUri)]
+        [InlineData(TraktExtendedInfo.None, GetMovieRatingsUri)]
+        [InlineData(TraktExtendedInfo.All, $"{GetMovieRatingsUri}?extended=all")]
+        public async Task TestGetMovieRatingsWithID(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movieratings.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetMovieRatingsUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktRating> response = await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.TraktMovieID, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -31,13 +32,16 @@ namespace TraktNET.MoviesModule
             movieRatings.Votes.ShouldBe(18906U);
         }
 
-        [Fact]
-        public async Task TestGetMovieRatingsWithSlug()
+        [Theory]
+        [InlineData(null, GetMovieRatingsUriWithSlug)]
+        [InlineData(TraktExtendedInfo.None, GetMovieRatingsUriWithSlug)]
+        [InlineData(TraktExtendedInfo.All, $"{GetMovieRatingsUriWithSlug}?extended=all")]
+        public async Task TestGetMovieRatingsWithSlug(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movieratings.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetMovieRatingsUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktRating> response = await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.MovieSlug, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -53,13 +57,16 @@ namespace TraktNET.MoviesModule
             movieRatings.Votes.ShouldBe(18906U);
         }
 
-        [Fact]
-        public async Task TestGetMovieRatingsWithIDs()
+        [Theory]
+        [InlineData(null, GetMovieRatingsUriWithSlug)]
+        [InlineData(TraktExtendedInfo.None, GetMovieRatingsUriWithSlug)]
+        [InlineData(TraktExtendedInfo.All, $"{GetMovieRatingsUriWithSlug}?extended=all")]
+        public async Task TestGetMovieRatingsWithIDs(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Movies\\movieratings.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetMovieRatingsUriWithSlug, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktRating> response = await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.MovieIDs, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -107,7 +114,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
+                await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.TraktMovieID, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -148,7 +155,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
+                await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.MovieSlug, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -189,7 +196,7 @@ namespace TraktNET.MoviesModule
 
             try
             {
-                await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
+                await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.MovieIDs, cancellationToken: TestContext.Current.CancellationToken);
                 Assert.False(true);
             }
             catch (Exception exception)
@@ -205,13 +212,13 @@ namespace TraktNET.MoviesModule
             TraktClient client = ModuleTestUtility.GetClient(GetMovieRatingsUriWithSlug, responseContent);
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Func<Task<TraktResponse<TraktRating>>> act = () => client.Movies.GetMovieRatingsAsync(default(TraktMovieIDs), TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktRating>>> act = () => client.Movies.GetMovieRatingsAsync(default(TraktMovieIDs), cancellationToken: TestContext.Current.CancellationToken);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             await act.ShouldThrowAsync<ArgumentException>();
 
             var movieIDs = new TraktMovieIDs();
 
-            act = () => client.Movies.GetMovieRatingsAsync(movieIDs, TestContext.Current.CancellationToken);
+            act = () => client.Movies.GetMovieRatingsAsync(movieIDs, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
         }
     }

@@ -1,0 +1,49 @@
+{
+  "trakt": {
+    "rating": 8.29481,
+    "votes": 24789,
+    "distribution": {
+      "1": 143,
+      "2": 239,
+      "3": 311,
+      "4": 528,
+      "5": 1104,
+      "6": 2490,
+      "7": 4890,
+      "8": 6517,
+      "9": 4120,
+      "10": 8567
+    }
+  },
+  "tmdb": {
+    "rating": 8.251,
+    "votes": 3739,
+    "link": "https://www.themoviedb.org/movie/1339713"
+  },
+  "imdb": {
+    "rating": 7.9,
+    "votes": 269113,
+    "link": "https://www.imdb.com/title/tt37287335"
+  },
+  "metascore": {
+    "rating": 77,
+    "link": "https://www.imdb.com/title/tt37287335/criticreviews"
+  },
+  "rotten_tomatoes": {
+    "rating": 94.0,
+    "user_rating": 94,
+    "state": "fresh",
+    "user_state": "upright",
+    "link": "https://www.rottentomatoes.com/m/obsession_2025"
+  },
+  "letterboxd": {
+    "rating": 4.12,
+    "votes": 3633569,
+    "link": "https://letterboxd.com/film/obsession-2025"
+  },
+  "mal": {
+    "rating": null,
+    "votes": 0,
+    "link": null
+  }
+}

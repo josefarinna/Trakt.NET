@@ -44,7 +44,7 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
-    [TraktGetRequest("movies/{id!!}/ratings")]
+    [TraktGetRequest("movies/{id!!}/ratings", SupportsExtendedInfo = true)]
     internal sealed partial class MovieRatingsGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;

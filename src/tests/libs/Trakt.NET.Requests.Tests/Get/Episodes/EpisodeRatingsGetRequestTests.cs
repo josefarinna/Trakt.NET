@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -9,18 +9,22 @@ namespace TraktNET.GetRequests.Episodes
         private const string ShowID = TestConstants.Shows.ShowSlug;
         private const string URIPath = $"shows/{ShowID}/seasons/1/episodes/1/ratings";
 
-        [Fact]
-        public void TestEpisodeRatingsGetRequestHasValidURIPath()
+        [Theory]
+        [InlineData(null, URIPath)]
+        [InlineData(TraktExtendedInfo.None, URIPath)]
+        [InlineData(TraktExtendedInfo.All, $"{URIPath}?extended=all")]
+        public void TestEpisodeRatingsGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, string expectedUri)
         {
             var episodeRatingsGetRequest = new EpisodeRatingsGetRequest
             {
                 ShowId = ShowID,
                 SeasonNumber = 1,
-                EpisodeNumber = 1
+                EpisodeNumber = 1,
+                ExtendedInfo = extendedInfo,
             };
 
             episodeRatingsGetRequest.BuildUri();
-            episodeRatingsGetRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            episodeRatingsGetRequest.RequestUri.ShouldBe(new Uri(expectedUri, UriKind.Relative));
         }
 
         [Fact]

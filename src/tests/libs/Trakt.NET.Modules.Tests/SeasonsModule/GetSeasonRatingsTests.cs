@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SeasonsModule
 {
@@ -7,14 +7,17 @@ namespace TraktNET.SeasonsModule
         private const string GetSeasonRatingsUri = $"shows/{TestConstants.Shows.ShowID}/seasons/1/ratings";
         private const uint SeasonNr = 1U;
 
-        [Fact]
-        public async Task TestGetSeasonRatings()
+        [Theory]
+        [InlineData(null, GetSeasonRatingsUri)]
+        [InlineData(TraktExtendedInfo.None, GetSeasonRatingsUri)]
+        [InlineData(TraktExtendedInfo.All, $"{GetSeasonRatingsUri}?extended=all")]
+        public async Task TestGetSeasonRatings(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonratings.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonRatingsUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(TestConstants.Shows.ShowID, SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(TestConstants.Shows.ShowID, SeasonNr, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -37,14 +40,17 @@ namespace TraktNET.SeasonsModule
             responseValue.Distribution.ShouldBeEquivalentTo(distribution);
         }
 
-        [Fact]
-        public async Task TestGetSeasonRatingsWithTraktID()
+        [Theory]
+        [InlineData(null, GetSeasonRatingsUri)]
+        [InlineData(TraktExtendedInfo.None, GetSeasonRatingsUri)]
+        [InlineData(TraktExtendedInfo.All, $"{GetSeasonRatingsUri}?extended=all")]
+        public async Task TestGetSeasonRatingsWithTraktID(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonratings.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonRatingsUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
             
-            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(TestConstants.Shows.TraktShowID, SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(TestConstants.Shows.TraktShowID, SeasonNr, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -52,8 +58,11 @@ namespace TraktNET.SeasonsModule
             response.Content.ShouldNotBeNull();
         }
 
-        [Fact]
-        public async Task TestGetSeasonRatingsWithShowIDsTraktID()
+        [Theory]
+        [InlineData(null, GetSeasonRatingsUri)]
+        [InlineData(TraktExtendedInfo.None, GetSeasonRatingsUri)]
+        [InlineData(TraktExtendedInfo.All, $"{GetSeasonRatingsUri}?extended=all")]
+        public async Task TestGetSeasonRatingsWithShowIDsTraktID(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             var showIDs = new TraktShowIDs
             {
@@ -62,9 +71,9 @@ namespace TraktNET.SeasonsModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonratings.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonRatingsUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
             
-            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(showIDs, SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(showIDs, SeasonNr, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -72,8 +81,11 @@ namespace TraktNET.SeasonsModule
             response.Content.ShouldNotBeNull();
         }
 
-        [Fact]
-        public async Task TestGetSeasonRatingsWithShowIDsSlug()
+        [Theory]
+        [InlineData(null, $"shows/{TestConstants.Shows.ShowSlug}/seasons/1/ratings")]
+        [InlineData(TraktExtendedInfo.None, $"shows/{TestConstants.Shows.ShowSlug}/seasons/1/ratings")]
+        [InlineData(TraktExtendedInfo.All, $"shows/{TestConstants.Shows.ShowSlug}/seasons/1/ratings?extended=all")]
+        public async Task TestGetSeasonRatingsWithShowIDsSlug(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             var showIDs = new TraktShowIDs
             {
@@ -82,9 +94,9 @@ namespace TraktNET.SeasonsModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonratings.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/ratings", responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
             
-            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(showIDs, SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(showIDs, SeasonNr, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -92,14 +104,17 @@ namespace TraktNET.SeasonsModule
             response.Content.ShouldNotBeNull();
         }
 
-        [Fact]
-        public async Task TestGetSeasonRatingsWithShowIDs()
+        [Theory]
+        [InlineData(null, $"shows/{TestConstants.Shows.ShowSlug}/seasons/1/ratings")]
+        [InlineData(TraktExtendedInfo.None, $"shows/{TestConstants.Shows.ShowSlug}/seasons/1/ratings")]
+        [InlineData(TraktExtendedInfo.All, $"shows/{TestConstants.Shows.ShowSlug}/seasons/1/ratings?extended=all")]
+        public async Task TestGetSeasonRatingsWithShowIDs(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonratings.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/ratings", responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
             
-            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(TestConstants.Shows.ShowIDs, SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(TestConstants.Shows.ShowIDs, SeasonNr, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -107,8 +122,11 @@ namespace TraktNET.SeasonsModule
             response.Content.ShouldNotBeNull();
         }
 
-        [Fact]
-        public async Task TestGetSeasonRatingsWithShow()
+        [Theory]
+        [InlineData(null, $"shows/{TestConstants.Shows.ShowSlug}/seasons/1/ratings")]
+        [InlineData(TraktExtendedInfo.None, $"shows/{TestConstants.Shows.ShowSlug}/seasons/1/ratings")]
+        [InlineData(TraktExtendedInfo.All, $"shows/{TestConstants.Shows.ShowSlug}/seasons/1/ratings?extended=all")]
+        public async Task TestGetSeasonRatingsWithShow(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             var show = new TraktShow
             {
@@ -117,9 +135,9 @@ namespace TraktNET.SeasonsModule
 
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasonratings.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/ratings", responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
             
-            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(show, SeasonNr, TestContext.Current.CancellationToken);
+            TraktResponse<TraktRating> response = await client.Seasons.GetSeasonRatingsAsync(show, SeasonNr, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -166,7 +184,7 @@ namespace TraktNET.SeasonsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetSeasonRatingsUri, HttpStatusCode.OK);
 
-            Func<Task<TraktResponse<TraktRating>>> act = () => client.Seasons.GetSeasonRatingsAsync(default(TraktShowIDs)!, SeasonNr, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktRating>>> act = () => client.Seasons.GetSeasonRatingsAsync(default(TraktShowIDs)!, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
             act = () => client.Seasons.GetSeasonRatingsAsync(default(TraktShow)!, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
