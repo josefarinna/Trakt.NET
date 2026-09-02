@@ -5,11 +5,11 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Enum TraktEpisodeType | Trakt.NET </title>
+      <title>Enum TraktCalendarGroup | Trakt.NET </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Enum TraktEpisodeType | Trakt.NET ">
+      <meta name="title" content="Enum TraktCalendarGroup | Trakt.NET ">
     
-    <meta name="description" content="Determines the type of an episode.">
+    <meta name="description" content="Determines how calendar items are grouped.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -76,20 +76,20 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="TraktNET.TraktEpisodeType">
+            <article class="content wrap" id="_content" data-uid="TraktNET.TraktCalendarGroup">
 
 
 
 
-  <h1 id="TraktNET_TraktEpisodeType" data-uid="TraktNET.TraktEpisodeType" class="text-break">Enum TraktEpisodeType</h1>
-  <div class="markdown level0 summary"><p>Determines the type of an episode.</p>
+  <h1 id="TraktNET_TraktCalendarGroup" data-uid="TraktNET.TraktCalendarGroup" class="text-break">Enum TraktCalendarGroup</h1>
+  <div class="markdown level0 summary"><p>Determines how calendar items are grouped.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="TraktNET.html">TraktNET</a></h6>
   <h6><strong>Assembly</strong>: Trakt.NET.Ex.dll</h6>
-  <h5 id="TraktNET_TraktEpisodeType_syntax">Syntax</h5>
+  <h5 id="TraktNET_TraktCalendarGroup_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum TraktEpisodeType</code></pre>
+    <pre><code class="lang-csharp hljs">public enum TraktCalendarGroup</code></pre>
   </div>
   <h3 id="fields">Fields
 </h3>
@@ -102,63 +102,29 @@
     <thead>
     </thead></thead><tbody>
       <tr>
-        <td id="TraktNET_TraktEpisodeType_FullSeason">FullSeason</td>
-        <td><p>The type for a full season release.</p>
+        <td id="TraktNET_TraktCalendarGroup_Day">Day</td>
+        <td><p>Collapse same-show-same-day episodes into a single card.</p>
 </td>
       </tr>
       <tr>
-        <td id="TraktNET_TraktEpisodeType_MidSeasonFinale">MidSeasonFinale</td>
-        <td><p>The type for a mid season finale episode.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="TraktNET_TraktEpisodeType_MidSeasonPremiere">MidSeasonPremiere</td>
-        <td><p>The type for a mid season premiere episode (the next episode after the mid season finale).</p>
-</td>
-      </tr>
-      <tr>
-        <td id="TraktNET_TraktEpisodeType_MultipleEpisodes">MultipleEpisodes</td>
-        <td><p>The type for multiple episodes released on the same day.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="TraktNET_TraktEpisodeType_SeasonFinale">SeasonFinale</td>
-        <td><p>The type for a season finale episode.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="TraktNET_TraktEpisodeType_SeasonPremiere">SeasonPremiere</td>
-        <td><p>The type for a season premiere episode (episode 1).</p>
-</td>
-      </tr>
-      <tr>
-        <td id="TraktNET_TraktEpisodeType_SeriesFinale">SeriesFinale</td>
-        <td><p>The type for a series finale episode (last episode to air for an ended show).</p>
-</td>
-      </tr>
-      <tr>
-        <td id="TraktNET_TraktEpisodeType_SeriesPremiere">SeriesPremiere</td>
-        <td><p>The type for a series premiere episode (season 1, episode 1).</p>
-</td>
-      </tr>
-      <tr>
-        <td id="TraktNET_TraktEpisodeType_Standard">Standard</td>
-        <td><p>The type for a standard episode.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="TraktNET_TraktEpisodeType_Unspecified">Unspecified</td>
-        <td><p>An invalid episode type.</p>
+        <td id="TraktNET_TraktCalendarGroup_Unspecified">Unspecified</td>
+        <td><p>An invalid calendar group.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="TraktNET.TraktEpisodeTypeExtensions.html#TraktNET_TraktEpisodeTypeExtensions_DisplayName_TraktNET_TraktEpisodeType_">TraktEpisodeTypeExtensions.DisplayName(TraktEpisodeType)</a>
+      <a class="xref" href="TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_AsQuery_TraktNET_TraktCalendarGroup_">TraktCalendarGroupExtensions.AsQuery(TraktCalendarGroup)</a>
   </div>
   <div>
-      <a class="xref" href="TraktNET.TraktEpisodeTypeExtensions.html#TraktNET_TraktEpisodeTypeExtensions_ToJson_TraktNET_TraktEpisodeType_">TraktEpisodeTypeExtensions.ToJson(TraktEpisodeType)</a>
+      <a class="xref" href="TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_DisplayName_TraktNET_TraktCalendarGroup_">TraktCalendarGroupExtensions.DisplayName(TraktCalendarGroup)</a>
+  </div>
+  <div>
+      <a class="xref" href="TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_ToJson_TraktNET_TraktCalendarGroup_">TraktCalendarGroupExtensions.ToJson(TraktCalendarGroup)</a>
+  </div>
+  <div>
+      <a class="xref" href="TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_ToURI_TraktNET_TraktCalendarGroup_">TraktCalendarGroupExtensions.ToURI(TraktCalendarGroup)</a>
   </div>
 </article>
           </div>
@@ -168,7 +134,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Enums/TraktEpisodeType.cs" class="contribution-link">View Source</a>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Enums/TraktCalendarGroup.cs" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

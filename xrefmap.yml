@@ -451,6 +451,18 @@ references:
   commentId: Overload:TraktNET.CalendarsJsonSerializerContext.ListString
   fullName: TraktNET.CalendarsJsonSerializerContext.ListString
   nameWithType: CalendarsJsonSerializerContext.ListString
+- uid: TraktNET.CalendarsJsonSerializerContext.ListTraktEpisode
+  name: ListTraktEpisode
+  href: api/TraktNET.CalendarsJsonSerializerContext.html#TraktNET_CalendarsJsonSerializerContext_ListTraktEpisode
+  commentId: P:TraktNET.CalendarsJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.CalendarsJsonSerializerContext.ListTraktEpisode
+  nameWithType: CalendarsJsonSerializerContext.ListTraktEpisode
+- uid: TraktNET.CalendarsJsonSerializerContext.ListTraktEpisode*
+  name: ListTraktEpisode
+  href: api/TraktNET.CalendarsJsonSerializerContext.html#TraktNET_CalendarsJsonSerializerContext_ListTraktEpisode_
+  commentId: Overload:TraktNET.CalendarsJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.CalendarsJsonSerializerContext.ListTraktEpisode
+  nameWithType: CalendarsJsonSerializerContext.ListTraktEpisode
 - uid: TraktNET.CalendarsJsonSerializerContext.ListTraktEpisodeTranslation
   name: ListTraktEpisodeTranslation
   href: api/TraktNET.CalendarsJsonSerializerContext.html#TraktNET_CalendarsJsonSerializerContext_ListTraktEpisodeTranslation
@@ -1129,6 +1141,18 @@ references:
   commentId: Overload:TraktNET.CheckinJsonSerializerContext.ListString
   fullName: TraktNET.CheckinJsonSerializerContext.ListString
   nameWithType: CheckinJsonSerializerContext.ListString
+- uid: TraktNET.CheckinJsonSerializerContext.ListTraktEpisode
+  name: ListTraktEpisode
+  href: api/TraktNET.CheckinJsonSerializerContext.html#TraktNET_CheckinJsonSerializerContext_ListTraktEpisode
+  commentId: P:TraktNET.CheckinJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.CheckinJsonSerializerContext.ListTraktEpisode
+  nameWithType: CheckinJsonSerializerContext.ListTraktEpisode
+- uid: TraktNET.CheckinJsonSerializerContext.ListTraktEpisode*
+  name: ListTraktEpisode
+  href: api/TraktNET.CheckinJsonSerializerContext.html#TraktNET_CheckinJsonSerializerContext_ListTraktEpisode_
+  commentId: Overload:TraktNET.CheckinJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.CheckinJsonSerializerContext.ListTraktEpisode
+  nameWithType: CheckinJsonSerializerContext.ListTraktEpisode
 - uid: TraktNET.CheckinJsonSerializerContext.ListTraktEpisodeTranslation
   name: ListTraktEpisodeTranslation
   href: api/TraktNET.CheckinJsonSerializerContext.html#TraktNET_CheckinJsonSerializerContext_ListTraktEpisodeTranslation
@@ -2944,6 +2968,18 @@ references:
   commentId: Overload:TraktNET.EpisodesJsonSerializerContext.ListString
   fullName: TraktNET.EpisodesJsonSerializerContext.ListString
   nameWithType: EpisodesJsonSerializerContext.ListString
+- uid: TraktNET.EpisodesJsonSerializerContext.ListTraktEpisode
+  name: ListTraktEpisode
+  href: api/TraktNET.EpisodesJsonSerializerContext.html#TraktNET_EpisodesJsonSerializerContext_ListTraktEpisode
+  commentId: P:TraktNET.EpisodesJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.EpisodesJsonSerializerContext.ListTraktEpisode
+  nameWithType: EpisodesJsonSerializerContext.ListTraktEpisode
+- uid: TraktNET.EpisodesJsonSerializerContext.ListTraktEpisode*
+  name: ListTraktEpisode
+  href: api/TraktNET.EpisodesJsonSerializerContext.html#TraktNET_EpisodesJsonSerializerContext_ListTraktEpisode_
+  commentId: Overload:TraktNET.EpisodesJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.EpisodesJsonSerializerContext.ListTraktEpisode
+  nameWithType: EpisodesJsonSerializerContext.ListTraktEpisode
 - uid: TraktNET.EpisodesJsonSerializerContext.ListTraktEpisodeTranslation
   name: ListTraktEpisodeTranslation
   href: api/TraktNET.EpisodesJsonSerializerContext.html#TraktNET_EpisodesJsonSerializerContext_ListTraktEpisodeTranslation
@@ -11341,6 +11377,18 @@ references:
   commentId: Overload:TraktNET.ScrobblesJsonSerializerContext.ListString
   fullName: TraktNET.ScrobblesJsonSerializerContext.ListString
   nameWithType: ScrobblesJsonSerializerContext.ListString
+- uid: TraktNET.ScrobblesJsonSerializerContext.ListTraktEpisode
+  name: ListTraktEpisode
+  href: api/TraktNET.ScrobblesJsonSerializerContext.html#TraktNET_ScrobblesJsonSerializerContext_ListTraktEpisode
+  commentId: P:TraktNET.ScrobblesJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.ScrobblesJsonSerializerContext.ListTraktEpisode
+  nameWithType: ScrobblesJsonSerializerContext.ListTraktEpisode
+- uid: TraktNET.ScrobblesJsonSerializerContext.ListTraktEpisode*
+  name: ListTraktEpisode
+  href: api/TraktNET.ScrobblesJsonSerializerContext.html#TraktNET_ScrobblesJsonSerializerContext_ListTraktEpisode_
+  commentId: Overload:TraktNET.ScrobblesJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.ScrobblesJsonSerializerContext.ListTraktEpisode
+  nameWithType: ScrobblesJsonSerializerContext.ListTraktEpisode
 - uid: TraktNET.ScrobblesJsonSerializerContext.ListTraktEpisodeTranslation
   name: ListTraktEpisodeTranslation
   href: api/TraktNET.ScrobblesJsonSerializerContext.html#TraktNET_ScrobblesJsonSerializerContext_ListTraktEpisodeTranslation
@@ -12010,6 +12058,18 @@ references:
   commentId: Overload:TraktNET.SearchsJsonSerializerContext.ListString
   fullName: TraktNET.SearchsJsonSerializerContext.ListString
   nameWithType: SearchsJsonSerializerContext.ListString
+- uid: TraktNET.SearchsJsonSerializerContext.ListTraktEpisode
+  name: ListTraktEpisode
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_ListTraktEpisode
+  commentId: P:TraktNET.SearchsJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.SearchsJsonSerializerContext.ListTraktEpisode
+  nameWithType: SearchsJsonSerializerContext.ListTraktEpisode
+- uid: TraktNET.SearchsJsonSerializerContext.ListTraktEpisode*
+  name: ListTraktEpisode
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_ListTraktEpisode_
+  commentId: Overload:TraktNET.SearchsJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.SearchsJsonSerializerContext.ListTraktEpisode
+  nameWithType: SearchsJsonSerializerContext.ListTraktEpisode
 - uid: TraktNET.SearchsJsonSerializerContext.ListTraktEpisodeTranslation
   name: ListTraktEpisodeTranslation
   href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_ListTraktEpisodeTranslation
@@ -21289,6 +21349,156 @@ references:
   fullName.vb: TraktNET.TraktBoxOfficeMovie.<>
   nameWithType: TraktBoxOfficeMovie.operator !=
   nameWithType.vb: TraktBoxOfficeMovie.<>
+- uid: TraktNET.TraktCalendarGroup
+  name: TraktCalendarGroup
+  href: api/TraktNET.TraktCalendarGroup.html
+  commentId: T:TraktNET.TraktCalendarGroup
+  fullName: TraktNET.TraktCalendarGroup
+  nameWithType: TraktCalendarGroup
+- uid: TraktNET.TraktCalendarGroup.Day
+  name: Day
+  href: api/TraktNET.TraktCalendarGroup.html#TraktNET_TraktCalendarGroup_Day
+  commentId: F:TraktNET.TraktCalendarGroup.Day
+  fullName: TraktNET.TraktCalendarGroup.Day
+  nameWithType: TraktCalendarGroup.Day
+- uid: TraktNET.TraktCalendarGroup.Unspecified
+  name: Unspecified
+  href: api/TraktNET.TraktCalendarGroup.html#TraktNET_TraktCalendarGroup_Unspecified
+  commentId: F:TraktNET.TraktCalendarGroup.Unspecified
+  fullName: TraktNET.TraktCalendarGroup.Unspecified
+  nameWithType: TraktCalendarGroup.Unspecified
+- uid: TraktNET.TraktCalendarGroupExtensions
+  name: TraktCalendarGroupExtensions
+  href: api/TraktNET.TraktCalendarGroupExtensions.html
+  commentId: T:TraktNET.TraktCalendarGroupExtensions
+  fullName: TraktNET.TraktCalendarGroupExtensions
+  nameWithType: TraktCalendarGroupExtensions
+- uid: TraktNET.TraktCalendarGroupExtensions.AsQuery(TraktNET.TraktCalendarGroup)
+  name: AsQuery(TraktCalendarGroup)
+  href: api/TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_AsQuery_TraktNET_TraktCalendarGroup_
+  commentId: M:TraktNET.TraktCalendarGroupExtensions.AsQuery(TraktNET.TraktCalendarGroup)
+  fullName: TraktNET.TraktCalendarGroupExtensions.AsQuery(TraktNET.TraktCalendarGroup)
+  nameWithType: TraktCalendarGroupExtensions.AsQuery(TraktCalendarGroup)
+- uid: TraktNET.TraktCalendarGroupExtensions.AsQuery*
+  name: AsQuery
+  href: api/TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_AsQuery_
+  commentId: Overload:TraktNET.TraktCalendarGroupExtensions.AsQuery
+  fullName: TraktNET.TraktCalendarGroupExtensions.AsQuery
+  nameWithType: TraktCalendarGroupExtensions.AsQuery
+- uid: TraktNET.TraktCalendarGroupExtensions.DisplayName(TraktNET.TraktCalendarGroup)
+  name: DisplayName(TraktCalendarGroup)
+  href: api/TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_DisplayName_TraktNET_TraktCalendarGroup_
+  commentId: M:TraktNET.TraktCalendarGroupExtensions.DisplayName(TraktNET.TraktCalendarGroup)
+  fullName: TraktNET.TraktCalendarGroupExtensions.DisplayName(TraktNET.TraktCalendarGroup)
+  nameWithType: TraktCalendarGroupExtensions.DisplayName(TraktCalendarGroup)
+- uid: TraktNET.TraktCalendarGroupExtensions.DisplayName*
+  name: DisplayName
+  href: api/TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_DisplayName_
+  commentId: Overload:TraktNET.TraktCalendarGroupExtensions.DisplayName
+  fullName: TraktNET.TraktCalendarGroupExtensions.DisplayName
+  nameWithType: TraktCalendarGroupExtensions.DisplayName
+- uid: TraktNET.TraktCalendarGroupExtensions.ToJson(TraktNET.TraktCalendarGroup)
+  name: ToJson(TraktCalendarGroup)
+  href: api/TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_ToJson_TraktNET_TraktCalendarGroup_
+  commentId: M:TraktNET.TraktCalendarGroupExtensions.ToJson(TraktNET.TraktCalendarGroup)
+  fullName: TraktNET.TraktCalendarGroupExtensions.ToJson(TraktNET.TraktCalendarGroup)
+  nameWithType: TraktCalendarGroupExtensions.ToJson(TraktCalendarGroup)
+- uid: TraktNET.TraktCalendarGroupExtensions.ToJson*
+  name: ToJson
+  href: api/TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_ToJson_
+  commentId: Overload:TraktNET.TraktCalendarGroupExtensions.ToJson
+  fullName: TraktNET.TraktCalendarGroupExtensions.ToJson
+  nameWithType: TraktCalendarGroupExtensions.ToJson
+- uid: TraktNET.TraktCalendarGroupExtensions.ToTraktCalendarGroup(System.String)
+  name: ToTraktCalendarGroup(string?)
+  href: api/TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_ToTraktCalendarGroup_System_String_
+  commentId: M:TraktNET.TraktCalendarGroupExtensions.ToTraktCalendarGroup(System.String)
+  name.vb: ToTraktCalendarGroup(String)
+  fullName: TraktNET.TraktCalendarGroupExtensions.ToTraktCalendarGroup(string?)
+  fullName.vb: TraktNET.TraktCalendarGroupExtensions.ToTraktCalendarGroup(String)
+  nameWithType: TraktCalendarGroupExtensions.ToTraktCalendarGroup(string?)
+  nameWithType.vb: TraktCalendarGroupExtensions.ToTraktCalendarGroup(String)
+- uid: TraktNET.TraktCalendarGroupExtensions.ToTraktCalendarGroup*
+  name: ToTraktCalendarGroup
+  href: api/TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_ToTraktCalendarGroup_
+  commentId: Overload:TraktNET.TraktCalendarGroupExtensions.ToTraktCalendarGroup
+  fullName: TraktNET.TraktCalendarGroupExtensions.ToTraktCalendarGroup
+  nameWithType: TraktCalendarGroupExtensions.ToTraktCalendarGroup
+- uid: TraktNET.TraktCalendarGroupExtensions.ToURI(TraktNET.TraktCalendarGroup)
+  name: ToURI(TraktCalendarGroup)
+  href: api/TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_ToURI_TraktNET_TraktCalendarGroup_
+  commentId: M:TraktNET.TraktCalendarGroupExtensions.ToURI(TraktNET.TraktCalendarGroup)
+  fullName: TraktNET.TraktCalendarGroupExtensions.ToURI(TraktNET.TraktCalendarGroup)
+  nameWithType: TraktCalendarGroupExtensions.ToURI(TraktCalendarGroup)
+- uid: TraktNET.TraktCalendarGroupExtensions.ToURI*
+  name: ToURI
+  href: api/TraktNET.TraktCalendarGroupExtensions.html#TraktNET_TraktCalendarGroupExtensions_ToURI_
+  commentId: Overload:TraktNET.TraktCalendarGroupExtensions.ToURI
+  fullName: TraktNET.TraktCalendarGroupExtensions.ToURI
+  nameWithType: TraktCalendarGroupExtensions.ToURI
+- uid: TraktNET.TraktCalendarGroupJsonConverter
+  name: TraktCalendarGroupJsonConverter
+  href: api/TraktNET.TraktCalendarGroupJsonConverter.html
+  commentId: T:TraktNET.TraktCalendarGroupJsonConverter
+  fullName: TraktNET.TraktCalendarGroupJsonConverter
+  nameWithType: TraktCalendarGroupJsonConverter
+- uid: TraktNET.TraktCalendarGroupJsonConverter.#ctor
+  name: TraktCalendarGroupJsonConverter()
+  href: api/TraktNET.TraktCalendarGroupJsonConverter.html#TraktNET_TraktCalendarGroupJsonConverter__ctor
+  commentId: M:TraktNET.TraktCalendarGroupJsonConverter.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktCalendarGroupJsonConverter.TraktCalendarGroupJsonConverter()
+  fullName.vb: TraktNET.TraktCalendarGroupJsonConverter.New()
+  nameWithType: TraktCalendarGroupJsonConverter.TraktCalendarGroupJsonConverter()
+  nameWithType.vb: TraktCalendarGroupJsonConverter.New()
+- uid: TraktNET.TraktCalendarGroupJsonConverter.#ctor*
+  name: TraktCalendarGroupJsonConverter
+  href: api/TraktNET.TraktCalendarGroupJsonConverter.html#TraktNET_TraktCalendarGroupJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktCalendarGroupJsonConverter.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktCalendarGroupJsonConverter.TraktCalendarGroupJsonConverter
+  fullName.vb: TraktNET.TraktCalendarGroupJsonConverter.New
+  nameWithType: TraktCalendarGroupJsonConverter.TraktCalendarGroupJsonConverter
+  nameWithType.vb: TraktCalendarGroupJsonConverter.New
+- uid: TraktNET.TraktCalendarGroupJsonConverter.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: api/TraktNET.TraktCalendarGroupJsonConverter.html#TraktNET_TraktCalendarGroupJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktCalendarGroupJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktCalendarGroupJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktCalendarGroupJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktCalendarGroupJsonConverter.CanConvert*
+  name: CanConvert
+  href: api/TraktNET.TraktCalendarGroupJsonConverter.html#TraktNET_TraktCalendarGroupJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktCalendarGroupJsonConverter.CanConvert
+  fullName: TraktNET.TraktCalendarGroupJsonConverter.CanConvert
+  nameWithType: TraktCalendarGroupJsonConverter.CanConvert
+- uid: TraktNET.TraktCalendarGroupJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/TraktNET.TraktCalendarGroupJsonConverter.html#TraktNET_TraktCalendarGroupJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktCalendarGroupJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: TraktNET.TraktCalendarGroupJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktCalendarGroupJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktCalendarGroupJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktCalendarGroupJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktCalendarGroupJsonConverter.Read*
+  name: Read
+  href: api/TraktNET.TraktCalendarGroupJsonConverter.html#TraktNET_TraktCalendarGroupJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktCalendarGroupJsonConverter.Read
+  fullName: TraktNET.TraktCalendarGroupJsonConverter.Read
+  nameWithType: TraktCalendarGroupJsonConverter.Read
+- uid: TraktNET.TraktCalendarGroupJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktCalendarGroup,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktCalendarGroup, JsonSerializerOptions)
+  href: api/TraktNET.TraktCalendarGroupJsonConverter.html#TraktNET_TraktCalendarGroupJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktCalendarGroup_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktCalendarGroupJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktCalendarGroup,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktCalendarGroupJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktCalendarGroup, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktCalendarGroupJsonConverter.Write(Utf8JsonWriter, TraktCalendarGroup, JsonSerializerOptions)
+- uid: TraktNET.TraktCalendarGroupJsonConverter.Write*
+  name: Write
+  href: api/TraktNET.TraktCalendarGroupJsonConverter.html#TraktNET_TraktCalendarGroupJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktCalendarGroupJsonConverter.Write
+  fullName: TraktNET.TraktCalendarGroupJsonConverter.Write
+  nameWithType: TraktCalendarGroupJsonConverter.Write
 - uid: TraktNET.TraktCalendarMedia
   name: TraktCalendarMedia
   href: api/TraktNET.TraktCalendarMedia.html
@@ -21730,30 +21940,30 @@ references:
   commentId: Overload:TraktNET.TraktCalendarModule.GetAllFinalesImplAsync
   fullName: TraktNET.TraktCalendarModule.GetAllFinalesImplAsync
   nameWithType: TraktCalendarModule.GetAllFinalesImplAsync
-- uid: TraktNET.TraktCalendarModule.GetAllMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetAllMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktCalendarModule.GetAllMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetAllMediaAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktCalendarModule.GetAllMediaAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktCalendarModule.GetAllMediaAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktCalendarModule.GetAllMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktCalendarModule.GetAllMediaAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktCalendarModule.GetAllMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetAllMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCalendarModule.GetAllMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetAllMediaAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktCalendarModule.GetAllMediaAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCalendarModule.GetAllMediaAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktCalendarModule.GetAllMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktCalendarModule.GetAllMediaAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktCalendarModule.GetAllMediaAsync*
   name: GetAllMediaAsync
   href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllMediaAsync_
   commentId: Overload:TraktNET.TraktCalendarModule.GetAllMediaAsync
   fullName: TraktNET.TraktCalendarModule.GetAllMediaAsync
   nameWithType: TraktCalendarModule.GetAllMediaAsync
-- uid: TraktNET.TraktCalendarModule.GetAllMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetAllMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllMediaImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktCalendarModule.GetAllMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetAllMediaImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktCalendarModule.GetAllMediaImplAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktCalendarModule.GetAllMediaImplAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktCalendarModule.GetAllMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktCalendarModule.GetAllMediaImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktCalendarModule.GetAllMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetAllMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllMediaImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCalendarModule.GetAllMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetAllMediaImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktCalendarModule.GetAllMediaImplAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCalendarModule.GetAllMediaImplAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktCalendarModule.GetAllMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktCalendarModule.GetAllMediaImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktCalendarModule.GetAllMediaImplAsync*
   name: GetAllMediaImplAsync
   href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllMediaImplAsync_
@@ -21850,30 +22060,30 @@ references:
   commentId: Overload:TraktNET.TraktCalendarModule.GetAllSeasonPremieresImplAsync
   fullName: TraktNET.TraktCalendarModule.GetAllSeasonPremieresImplAsync
   nameWithType: TraktCalendarModule.GetAllSeasonPremieresImplAsync
-- uid: TraktNET.TraktCalendarModule.GetAllShowsAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetAllShowsAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllShowsAsync_System_DateTime_System_UInt32_TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktCalendarModule.GetAllShowsAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetAllShowsAsync(Date, UInteger, TraktFilter, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktCalendarModule.GetAllShowsAsync(System.DateTime, uint, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktCalendarModule.GetAllShowsAsync(Date, UInteger, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktCalendarModule.GetAllShowsAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktCalendarModule.GetAllShowsAsync(Date, UInteger, TraktFilter, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktCalendarModule.GetAllShowsAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetAllShowsAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllShowsAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCalendarModule.GetAllShowsAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetAllShowsAsync(Date, UInteger, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktCalendarModule.GetAllShowsAsync(System.DateTime, uint, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCalendarModule.GetAllShowsAsync(Date, UInteger, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktCalendarModule.GetAllShowsAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktCalendarModule.GetAllShowsAsync(Date, UInteger, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktCalendarModule.GetAllShowsAsync*
   name: GetAllShowsAsync
   href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllShowsAsync_
   commentId: Overload:TraktNET.TraktCalendarModule.GetAllShowsAsync
   fullName: TraktNET.TraktCalendarModule.GetAllShowsAsync
   nameWithType: TraktCalendarModule.GetAllShowsAsync
-- uid: TraktNET.TraktCalendarModule.GetAllShowsImplAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetAllShowsImplAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllShowsImplAsync_System_DateTime_System_UInt32_TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktCalendarModule.GetAllShowsImplAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetAllShowsImplAsync(Date, UInteger, TraktFilter, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktCalendarModule.GetAllShowsImplAsync(System.DateTime, uint, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktCalendarModule.GetAllShowsImplAsync(Date, UInteger, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktCalendarModule.GetAllShowsImplAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktCalendarModule.GetAllShowsImplAsync(Date, UInteger, TraktFilter, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktCalendarModule.GetAllShowsImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetAllShowsImplAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllShowsImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCalendarModule.GetAllShowsImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetAllShowsImplAsync(Date, UInteger, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktCalendarModule.GetAllShowsImplAsync(System.DateTime, uint, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCalendarModule.GetAllShowsImplAsync(Date, UInteger, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktCalendarModule.GetAllShowsImplAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktCalendarModule.GetAllShowsImplAsync(Date, UInteger, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktCalendarModule.GetAllShowsImplAsync*
   name: GetAllShowsImplAsync
   href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetAllShowsImplAsync_
@@ -22000,30 +22210,30 @@ references:
   commentId: Overload:TraktNET.TraktCalendarModule.GetHotPremieresImplAsync
   fullName: TraktNET.TraktCalendarModule.GetHotPremieresImplAsync
   nameWithType: TraktCalendarModule.GetHotPremieresImplAsync
-- uid: TraktNET.TraktCalendarModule.GetHotReleasesAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetHotReleasesAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetHotReleasesAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktCalendarModule.GetHotReleasesAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetHotReleasesAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktCalendarModule.GetHotReleasesAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktCalendarModule.GetHotReleasesAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktCalendarModule.GetHotReleasesAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktCalendarModule.GetHotReleasesAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktCalendarModule.GetHotReleasesAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetHotReleasesAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetHotReleasesAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCalendarModule.GetHotReleasesAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetHotReleasesAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktCalendarModule.GetHotReleasesAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCalendarModule.GetHotReleasesAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktCalendarModule.GetHotReleasesAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktCalendarModule.GetHotReleasesAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktCalendarModule.GetHotReleasesAsync*
   name: GetHotReleasesAsync
   href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetHotReleasesAsync_
   commentId: Overload:TraktNET.TraktCalendarModule.GetHotReleasesAsync
   fullName: TraktNET.TraktCalendarModule.GetHotReleasesAsync
   nameWithType: TraktCalendarModule.GetHotReleasesAsync
-- uid: TraktNET.TraktCalendarModule.GetHotReleasesImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetHotReleasesImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetHotReleasesImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktCalendarModule.GetHotReleasesImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetHotReleasesImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktCalendarModule.GetHotReleasesImplAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktCalendarModule.GetHotReleasesImplAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktCalendarModule.GetHotReleasesImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktCalendarModule.GetHotReleasesImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktCalendarModule.GetHotReleasesImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetHotReleasesImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetHotReleasesImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCalendarModule.GetHotReleasesImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetHotReleasesImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktCalendarModule.GetHotReleasesImplAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCalendarModule.GetHotReleasesImplAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktCalendarModule.GetHotReleasesImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktCalendarModule.GetHotReleasesImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktCalendarModule.GetHotReleasesImplAsync*
   name: GetHotReleasesImplAsync
   href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetHotReleasesImplAsync_
@@ -22090,30 +22300,30 @@ references:
   commentId: Overload:TraktNET.TraktCalendarModule.GetUserFinalesImplAsync
   fullName: TraktNET.TraktCalendarModule.GetUserFinalesImplAsync
   nameWithType: TraktCalendarModule.GetUserFinalesImplAsync
-- uid: TraktNET.TraktCalendarModule.GetUserMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetUserMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktCalendarModule.GetUserMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetUserMediaAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktCalendarModule.GetUserMediaAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktCalendarModule.GetUserMediaAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktCalendarModule.GetUserMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktCalendarModule.GetUserMediaAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktCalendarModule.GetUserMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetUserMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCalendarModule.GetUserMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetUserMediaAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktCalendarModule.GetUserMediaAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCalendarModule.GetUserMediaAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktCalendarModule.GetUserMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktCalendarModule.GetUserMediaAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktCalendarModule.GetUserMediaAsync*
   name: GetUserMediaAsync
   href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserMediaAsync_
   commentId: Overload:TraktNET.TraktCalendarModule.GetUserMediaAsync
   fullName: TraktNET.TraktCalendarModule.GetUserMediaAsync
   nameWithType: TraktCalendarModule.GetUserMediaAsync
-- uid: TraktNET.TraktCalendarModule.GetUserMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetUserMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserMediaImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktCalendarModule.GetUserMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetUserMediaImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktCalendarModule.GetUserMediaImplAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktCalendarModule.GetUserMediaImplAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktCalendarModule.GetUserMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktCalendarModule.GetUserMediaImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktCalendarModule.GetUserMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetUserMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserMediaImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCalendarModule.GetUserMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetUserMediaImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktCalendarModule.GetUserMediaImplAsync(System.DateTime, uint, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCalendarModule.GetUserMediaImplAsync(Date, UInteger, TraktNET.TraktCalendarMediaType?, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktCalendarModule.GetUserMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktCalendarModule.GetUserMediaImplAsync(Date, UInteger, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktCalendarModule.GetUserMediaImplAsync*
   name: GetUserMediaImplAsync
   href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserMediaImplAsync_
@@ -22210,30 +22420,30 @@ references:
   commentId: Overload:TraktNET.TraktCalendarModule.GetUserSeasonPremieresImplAsync
   fullName: TraktNET.TraktCalendarModule.GetUserSeasonPremieresImplAsync
   nameWithType: TraktCalendarModule.GetUserSeasonPremieresImplAsync
-- uid: TraktNET.TraktCalendarModule.GetUserShowsAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetUserShowsAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserShowsAsync_System_DateTime_System_UInt32_TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktCalendarModule.GetUserShowsAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetUserShowsAsync(Date, UInteger, TraktFilter, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktCalendarModule.GetUserShowsAsync(System.DateTime, uint, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktCalendarModule.GetUserShowsAsync(Date, UInteger, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktCalendarModule.GetUserShowsAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktCalendarModule.GetUserShowsAsync(Date, UInteger, TraktFilter, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktCalendarModule.GetUserShowsAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetUserShowsAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserShowsAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCalendarModule.GetUserShowsAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetUserShowsAsync(Date, UInteger, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktCalendarModule.GetUserShowsAsync(System.DateTime, uint, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCalendarModule.GetUserShowsAsync(Date, UInteger, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktCalendarModule.GetUserShowsAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktCalendarModule.GetUserShowsAsync(Date, UInteger, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktCalendarModule.GetUserShowsAsync*
   name: GetUserShowsAsync
   href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserShowsAsync_
   commentId: Overload:TraktNET.TraktCalendarModule.GetUserShowsAsync
   fullName: TraktNET.TraktCalendarModule.GetUserShowsAsync
   nameWithType: TraktCalendarModule.GetUserShowsAsync
-- uid: TraktNET.TraktCalendarModule.GetUserShowsImplAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetUserShowsImplAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserShowsImplAsync_System_DateTime_System_UInt32_TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktCalendarModule.GetUserShowsImplAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetUserShowsImplAsync(Date, UInteger, TraktFilter, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktCalendarModule.GetUserShowsImplAsync(System.DateTime, uint, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktCalendarModule.GetUserShowsImplAsync(Date, UInteger, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktCalendarModule.GetUserShowsImplAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktCalendarModule.GetUserShowsImplAsync(Date, UInteger, TraktFilter, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktCalendarModule.GetUserShowsImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetUserShowsImplAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserShowsImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCalendarModule.GetUserShowsImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetUserShowsImplAsync(Date, UInteger, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktCalendarModule.GetUserShowsImplAsync(System.DateTime, uint, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCalendarModule.GetUserShowsImplAsync(Date, UInteger, TraktNET.TraktCalendarGroup?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktCalendarModule.GetUserShowsImplAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktCalendarModule.GetUserShowsImplAsync(Date, UInteger, TraktCalendarGroup?, TraktFilter, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktCalendarModule.GetUserShowsImplAsync*
   name: GetUserShowsImplAsync
   href: api/TraktNET.TraktCalendarModule.html#TraktNET_TraktCalendarModule_GetUserShowsImplAsync_
@@ -31132,6 +31342,18 @@ references:
   commentId: Overload:TraktNET.TraktEpisode.EpisodeType
   fullName: TraktNET.TraktEpisode.EpisodeType
   nameWithType: TraktEpisode.EpisodeType
+- uid: TraktNET.TraktEpisode.Episodes
+  name: Episodes
+  href: api/TraktNET.TraktEpisode.html#TraktNET_TraktEpisode_Episodes
+  commentId: P:TraktNET.TraktEpisode.Episodes
+  fullName: TraktNET.TraktEpisode.Episodes
+  nameWithType: TraktEpisode.Episodes
+- uid: TraktNET.TraktEpisode.Episodes*
+  name: Episodes
+  href: api/TraktNET.TraktEpisode.html#TraktNET_TraktEpisode_Episodes_
+  commentId: Overload:TraktNET.TraktEpisode.Episodes
+  fullName: TraktNET.TraktEpisode.Episodes
+  nameWithType: TraktEpisode.Episodes
 - uid: TraktNET.TraktEpisode.EqualityContract
   name: EqualityContract
   href: api/TraktNET.TraktEpisode.html#TraktNET_TraktEpisode_EqualityContract
@@ -33730,6 +33952,12 @@ references:
   commentId: T:TraktNET.TraktEpisodeType
   fullName: TraktNET.TraktEpisodeType
   nameWithType: TraktEpisodeType
+- uid: TraktNET.TraktEpisodeType.FullSeason
+  name: FullSeason
+  href: api/TraktNET.TraktEpisodeType.html#TraktNET_TraktEpisodeType_FullSeason
+  commentId: F:TraktNET.TraktEpisodeType.FullSeason
+  fullName: TraktNET.TraktEpisodeType.FullSeason
+  nameWithType: TraktEpisodeType.FullSeason
 - uid: TraktNET.TraktEpisodeType.MidSeasonFinale
   name: MidSeasonFinale
   href: api/TraktNET.TraktEpisodeType.html#TraktNET_TraktEpisodeType_MidSeasonFinale
@@ -33742,6 +33970,12 @@ references:
   commentId: F:TraktNET.TraktEpisodeType.MidSeasonPremiere
   fullName: TraktNET.TraktEpisodeType.MidSeasonPremiere
   nameWithType: TraktEpisodeType.MidSeasonPremiere
+- uid: TraktNET.TraktEpisodeType.MultipleEpisodes
+  name: MultipleEpisodes
+  href: api/TraktNET.TraktEpisodeType.html#TraktNET_TraktEpisodeType_MultipleEpisodes
+  commentId: F:TraktNET.TraktEpisodeType.MultipleEpisodes
+  fullName: TraktNET.TraktEpisodeType.MultipleEpisodes
+  nameWithType: TraktEpisodeType.MultipleEpisodes
 - uid: TraktNET.TraktEpisodeType.SeasonFinale
   name: SeasonFinale
   href: api/TraktNET.TraktEpisodeType.html#TraktNET_TraktEpisodeType_SeasonFinale
@@ -123235,6 +123469,18 @@ references:
   commentId: Overload:TraktNET.WatchedJsonSerializerContext.ListString
   fullName: TraktNET.WatchedJsonSerializerContext.ListString
   nameWithType: WatchedJsonSerializerContext.ListString
+- uid: TraktNET.WatchedJsonSerializerContext.ListTraktEpisode
+  name: ListTraktEpisode
+  href: api/TraktNET.WatchedJsonSerializerContext.html#TraktNET_WatchedJsonSerializerContext_ListTraktEpisode
+  commentId: P:TraktNET.WatchedJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.WatchedJsonSerializerContext.ListTraktEpisode
+  nameWithType: WatchedJsonSerializerContext.ListTraktEpisode
+- uid: TraktNET.WatchedJsonSerializerContext.ListTraktEpisode*
+  name: ListTraktEpisode
+  href: api/TraktNET.WatchedJsonSerializerContext.html#TraktNET_WatchedJsonSerializerContext_ListTraktEpisode_
+  commentId: Overload:TraktNET.WatchedJsonSerializerContext.ListTraktEpisode
+  fullName: TraktNET.WatchedJsonSerializerContext.ListTraktEpisode
+  nameWithType: WatchedJsonSerializerContext.ListTraktEpisode
 - uid: TraktNET.WatchedJsonSerializerContext.ListTraktEpisodeTranslation
   name: ListTraktEpisodeTranslation
   href: api/TraktNET.WatchedJsonSerializerContext.html#TraktNET_WatchedJsonSerializerContext_ListTraktEpisodeTranslation

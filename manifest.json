@@ -1179,6 +1179,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktCalendarGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktCalendarGroup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktCalendarGroup",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCalendarGroup.yml\" sourcestartlinenumber=\"1\">Determines how calendar items are grouped.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktCalendarGroupExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktCalendarGroupExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktCalendarGroupExtensions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCalendarGroupExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktCalendarGroup\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktCalendarGroupJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktCalendarGroupJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktCalendarGroupJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCalendarGroupJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktCalendarGroup\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktCalendarMedia.yml",
       "output": {
         ".html": {

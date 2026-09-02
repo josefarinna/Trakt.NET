@@ -488,13 +488,13 @@ Trakt API Documentation: Calendars: All Finales - Get finales
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktCalendarModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktCalendarModule_GetAllMediaAsync_" data-uid="TraktNET.TraktCalendarModule.GetAllMediaAsync*"></a>
-  <h4 id="TraktNET_TraktCalendarModule_GetAllMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetAllMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetAllMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktCalendarModule_GetAllMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetAllMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetAllMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets movies and episodes from all calendars airing during the given time period.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetAllMediaAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetAllMediaAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -522,6 +522,12 @@ Trakt API Documentation: Calendars: All Finales - Get finales
         <td><a class="xref" href="TraktNET.TraktCalendarMediaType.html">TraktCalendarMediaType</a>?</td>
         <td><span class="parametername">type</span></td>
         <td><p>Narrow the feed to a single media type. If null, returns both. See also <a class="xref" href="TraktNET.TraktCalendarMediaType.html">TraktCalendarMediaType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>?</td>
+        <td><span class="parametername">group</span></td>
+        <td><p>Determines how calendar items are grouped. See also <a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>.</p>
 </td>
       </tr>
       <tr>
@@ -562,7 +568,7 @@ See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInf
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktCalendarModule_GetAllMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktCalendarModule_GetAllMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getcalendarsmedia">
 Trakt API Documentation: Calendars: Get media
@@ -594,12 +600,12 @@ Trakt API Documentation: Calendars: Get media
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktCalendarModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktCalendarModule_GetAllMediaImplAsync_" data-uid="TraktNET.TraktCalendarModule.GetAllMediaImplAsync*"></a>
-  <h4 id="TraktNET_TraktCalendarModule_GetAllMediaImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetAllMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetAllMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktCalendarModule_GetAllMediaImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetAllMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetAllMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetAllMediaImplAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetAllMediaImplAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -624,6 +630,11 @@ Trakt API Documentation: Calendars: Get media
       <tr>
         <td><a class="xref" href="TraktNET.TraktCalendarMediaType.html">TraktCalendarMediaType</a>?</td>
         <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>?</td>
+        <td><span class="parametername">group</span></td>
         <td></td>
       </tr>
       <tr>
@@ -1158,13 +1169,13 @@ Trakt API Documentation: Calendars: All Season Premieres - Get season premieres
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktCalendarModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktCalendarModule_GetAllShowsAsync_" data-uid="TraktNET.TraktCalendarModule.GetAllShowsAsync*"></a>
-  <h4 id="TraktNET_TraktCalendarModule_GetAllShowsAsync_System_DateTime_System_UInt32_TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetAllShowsAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetAllShowsAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktCalendarModule_GetAllShowsAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetAllShowsAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetAllShowsAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all shows from all calendars airing during the given time period.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarShow&gt;&gt; GetAllShowsAsync(DateTime startDate, uint days, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarShow&gt;&gt; GetAllShowsAsync(DateTime startDate, uint days, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1186,6 +1197,12 @@ Trakt API Documentation: Calendars: All Season Premieres - Get season premieres
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">days</span></td>
         <td><p>The number of days for which the calendar should be queried. 1 - 33 days.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>?</td>
+        <td><span class="parametername">group</span></td>
+        <td><p>Determines how calendar items are grouped. See also <a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1227,7 +1244,7 @@ See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInf
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktCalendarModule_GetAllShowsAsync_System_DateTime_System_UInt32_TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktCalendarModule_GetAllShowsAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getcalendarsshows">
 Trakt API Documentation: Calendars: All Shows - Get shows
@@ -1259,12 +1276,12 @@ Trakt API Documentation: Calendars: All Shows - Get shows
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktCalendarModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktCalendarModule_GetAllShowsImplAsync_" data-uid="TraktNET.TraktCalendarModule.GetAllShowsImplAsync*"></a>
-  <h4 id="TraktNET_TraktCalendarModule_GetAllShowsImplAsync_System_DateTime_System_UInt32_TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetAllShowsImplAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetAllShowsImplAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktCalendarModule_GetAllShowsImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetAllShowsImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetAllShowsImplAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarShow&gt;&gt; GetAllShowsImplAsync(DateTime startDate, uint days, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarShow&gt;&gt; GetAllShowsImplAsync(DateTime startDate, uint days, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1284,6 +1301,11 @@ Trakt API Documentation: Calendars: All Shows - Get shows
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">days</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>?</td>
+        <td><span class="parametername">group</span></td>
         <td></td>
       </tr>
       <tr>
@@ -1980,13 +2002,13 @@ Trakt API Documentation: Calendars: Get hot premieres
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktCalendarModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktCalendarModule_GetHotReleasesAsync_" data-uid="TraktNET.TraktCalendarModule.GetHotReleasesAsync*"></a>
-  <h4 id="TraktNET_TraktCalendarModule_GetHotReleasesAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetHotReleasesAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetHotReleasesAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktCalendarModule_GetHotReleasesAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetHotReleasesAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetHotReleasesAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets upcoming movies and episodes from all calendars that are trending or highly anticipated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetHotReleasesAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetHotReleasesAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2014,6 +2036,12 @@ Trakt API Documentation: Calendars: Get hot premieres
         <td><a class="xref" href="TraktNET.TraktCalendarMediaType.html">TraktCalendarMediaType</a>?</td>
         <td><span class="parametername">type</span></td>
         <td><p>Narrow the feed to a single media type. If null, returns both. See also <a class="xref" href="TraktNET.TraktCalendarMediaType.html">TraktCalendarMediaType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>?</td>
+        <td><span class="parametername">group</span></td>
+        <td><p>Determines how calendar items are grouped. See also <a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>.</p>
 </td>
       </tr>
       <tr>
@@ -2054,7 +2082,7 @@ See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInf
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktCalendarModule_GetHotReleasesAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktCalendarModule_GetHotReleasesAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getcalendarsreleaseshot">
 Trakt API Documentation: Calendars: Get hot releases
@@ -2086,12 +2114,12 @@ Trakt API Documentation: Calendars: Get hot releases
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktCalendarModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktCalendarModule_GetHotReleasesImplAsync_" data-uid="TraktNET.TraktCalendarModule.GetHotReleasesImplAsync*"></a>
-  <h4 id="TraktNET_TraktCalendarModule_GetHotReleasesImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetHotReleasesImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetHotReleasesImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktCalendarModule_GetHotReleasesImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetHotReleasesImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetHotReleasesImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetHotReleasesImplAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetHotReleasesImplAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2116,6 +2144,11 @@ Trakt API Documentation: Calendars: Get hot releases
       <tr>
         <td><a class="xref" href="TraktNET.TraktCalendarMediaType.html">TraktCalendarMediaType</a>?</td>
         <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>?</td>
+        <td><span class="parametername">group</span></td>
         <td></td>
       </tr>
       <tr>
@@ -2485,13 +2518,13 @@ Trakt API Documentation: Calendars: My Finales - Get finales
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktCalendarModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktCalendarModule_GetUserMediaAsync_" data-uid="TraktNET.TraktCalendarModule.GetUserMediaAsync*"></a>
-  <h4 id="TraktNET_TraktCalendarModule_GetUserMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetUserMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetUserMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktCalendarModule_GetUserMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetUserMediaAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetUserMediaAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets movies and episodes from the user's calendar airing during the given time period.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetUserMediaAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetUserMediaAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2519,6 +2552,12 @@ Trakt API Documentation: Calendars: My Finales - Get finales
         <td><a class="xref" href="TraktNET.TraktCalendarMediaType.html">TraktCalendarMediaType</a>?</td>
         <td><span class="parametername">type</span></td>
         <td><p>Narrow the feed to a single media type. If null, returns both. See also <a class="xref" href="TraktNET.TraktCalendarMediaType.html">TraktCalendarMediaType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>?</td>
+        <td><span class="parametername">group</span></td>
+        <td><p>Determines how calendar items are grouped. See also <a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>.</p>
 </td>
       </tr>
       <tr>
@@ -2559,7 +2598,7 @@ See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInf
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktCalendarModule_GetUserMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktCalendarModule_GetUserMediaAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getcalendarsmedia">
 Trakt API Documentation: Calendars: Get media
@@ -2591,12 +2630,12 @@ Trakt API Documentation: Calendars: Get media
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktCalendarModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktCalendarModule_GetUserMediaImplAsync_" data-uid="TraktNET.TraktCalendarModule.GetUserMediaImplAsync*"></a>
-  <h4 id="TraktNET_TraktCalendarModule_GetUserMediaImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetUserMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetUserMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktCalendarModule_GetUserMediaImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarMediaType__System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetUserMediaImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarMediaType},System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetUserMediaImplAsync(DateTime, uint, TraktCalendarMediaType?, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetUserMediaImplAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarMedia&gt;&gt; GetUserMediaImplAsync(DateTime startDate, uint days, TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2621,6 +2660,11 @@ Trakt API Documentation: Calendars: Get media
       <tr>
         <td><a class="xref" href="TraktNET.TraktCalendarMediaType.html">TraktCalendarMediaType</a>?</td>
         <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>?</td>
+        <td><span class="parametername">group</span></td>
         <td></td>
       </tr>
       <tr>
@@ -3155,13 +3199,13 @@ Trakt API Documentation: Calendars: My Season Premieres - Get season premieres
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktCalendarModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktCalendarModule_GetUserShowsAsync_" data-uid="TraktNET.TraktCalendarModule.GetUserShowsAsync*"></a>
-  <h4 id="TraktNET_TraktCalendarModule_GetUserShowsAsync_System_DateTime_System_UInt32_TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetUserShowsAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetUserShowsAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktCalendarModule_GetUserShowsAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetUserShowsAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetUserShowsAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all shows from the user's calendar airing during the given time period.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarShow&gt;&gt; GetUserShowsAsync(DateTime startDate, uint days, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarShow&gt;&gt; GetUserShowsAsync(DateTime startDate, uint days, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3183,6 +3227,12 @@ Trakt API Documentation: Calendars: My Season Premieres - Get season premieres
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">days</span></td>
         <td><p>The number of days for which the calendar should be queried. 1 - 33 days.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>?</td>
+        <td><span class="parametername">group</span></td>
+        <td><p>Determines how calendar items are grouped. See also <a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>.</p>
 </td>
       </tr>
       <tr>
@@ -3224,7 +3274,7 @@ See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInf
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktCalendarModule_GetUserShowsAsync_System_DateTime_System_UInt32_TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktCalendarModule_GetUserShowsAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getcalendarsshows">
 Trakt API Documentation: Calendars: My Shows - Get shows
@@ -3256,12 +3306,12 @@ Trakt API Documentation: Calendars: My Shows - Get shows
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktCalendarModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktCalendarModule_GetUserShowsImplAsync_" data-uid="TraktNET.TraktCalendarModule.GetUserShowsImplAsync*"></a>
-  <h4 id="TraktNET_TraktCalendarModule_GetUserShowsImplAsync_System_DateTime_System_UInt32_TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetUserShowsImplAsync(System.DateTime,System.UInt32,TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetUserShowsImplAsync(DateTime, uint, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktCalendarModule_GetUserShowsImplAsync_System_DateTime_System_UInt32_System_Nullable_TraktNET_TraktCalendarGroup__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktCalendarModule.GetUserShowsImplAsync(System.DateTime,System.UInt32,System.Nullable{TraktNET.TraktCalendarGroup},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetUserShowsImplAsync(DateTime, uint, TraktCalendarGroup?, TraktFilter?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarShow&gt;&gt; GetUserShowsImplAsync(DateTime startDate, uint days, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktCalendarShow&gt;&gt; GetUserShowsImplAsync(DateTime startDate, uint days, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3281,6 +3331,11 @@ Trakt API Documentation: Calendars: My Shows - Get shows
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">days</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCalendarGroup.html">TraktCalendarGroup</a>?</td>
+        <td><span class="parametername">group</span></td>
         <td></td>
       </tr>
       <tr>
