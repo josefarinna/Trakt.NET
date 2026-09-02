@@ -7,6 +7,7 @@
     "dob": "1990-05-15"
   },
   "browsing": {
+    "show_rating_prompt": true,
     "locale": "fr-FR",
     "watchnow": {
       "country": "fr",

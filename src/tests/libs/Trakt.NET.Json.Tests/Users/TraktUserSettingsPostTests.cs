@@ -16,6 +16,7 @@ namespace TraktNET.Json.Users
         {
             var browsing = new TraktUserSettingsBrowsingPost();
 
+            browsing.ShowRatingPrompt.ShouldBeNull();
             browsing.Locale.ShouldBeNull();
             browsing.Watchnow.ShouldBeNull();
         }
@@ -37,6 +38,7 @@ namespace TraktNET.Json.Users
 
             // Browsing
             post.Browsing.ShouldNotBeNull();
+            post.Browsing.ShowRatingPrompt.ShouldBe(true);
             post.Browsing.Locale.ShouldBe("fr-FR");
             post.Browsing.Watchnow.ShouldNotBeNull();
             post.Browsing.Watchnow.Country.ShouldBe("fr");
