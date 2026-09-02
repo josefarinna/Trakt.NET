@@ -100033,6 +100033,18 @@ references:
   commentId: Overload:TraktNET.TraktUserBrowsingSettings.ListPopupAction
   fullName: TraktNET.TraktUserBrowsingSettings.ListPopupAction
   nameWithType: TraktUserBrowsingSettings.ListPopupAction
+- uid: TraktNET.TraktUserBrowsingSettings.Locale
+  name: Locale
+  href: api/TraktNET.TraktUserBrowsingSettings.html#TraktNET_TraktUserBrowsingSettings_Locale
+  commentId: P:TraktNET.TraktUserBrowsingSettings.Locale
+  fullName: TraktNET.TraktUserBrowsingSettings.Locale
+  nameWithType: TraktUserBrowsingSettings.Locale
+- uid: TraktNET.TraktUserBrowsingSettings.Locale*
+  name: Locale
+  href: api/TraktNET.TraktUserBrowsingSettings.html#TraktNET_TraktUserBrowsingSettings_Locale_
+  commentId: Overload:TraktNET.TraktUserBrowsingSettings.Locale
+  fullName: TraktNET.TraktUserBrowsingSettings.Locale
+  nameWithType: TraktUserBrowsingSettings.Locale
 - uid: TraktNET.TraktUserBrowsingSettings.OtherSiteRatings
   name: OtherSiteRatings
   href: api/TraktNET.TraktUserBrowsingSettings.html#TraktNET_TraktUserBrowsingSettings_OtherSiteRatings
@@ -111364,6 +111376,18 @@ references:
   commentId: Overload:TraktNET.TraktUserSettingsBrowsingPost.GetHashCode
   fullName: TraktNET.TraktUserSettingsBrowsingPost.GetHashCode
   nameWithType: TraktUserSettingsBrowsingPost.GetHashCode
+- uid: TraktNET.TraktUserSettingsBrowsingPost.Locale
+  name: Locale
+  href: api/TraktNET.TraktUserSettingsBrowsingPost.html#TraktNET_TraktUserSettingsBrowsingPost_Locale
+  commentId: P:TraktNET.TraktUserSettingsBrowsingPost.Locale
+  fullName: TraktNET.TraktUserSettingsBrowsingPost.Locale
+  nameWithType: TraktUserSettingsBrowsingPost.Locale
+- uid: TraktNET.TraktUserSettingsBrowsingPost.Locale*
+  name: Locale
+  href: api/TraktNET.TraktUserSettingsBrowsingPost.html#TraktNET_TraktUserSettingsBrowsingPost_Locale_
+  commentId: Overload:TraktNET.TraktUserSettingsBrowsingPost.Locale
+  fullName: TraktNET.TraktUserSettingsBrowsingPost.Locale
+  nameWithType: TraktUserSettingsBrowsingPost.Locale
 - uid: TraktNET.TraktUserSettingsBrowsingPost.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktUserSettingsBrowsingPost.html#TraktNET_TraktUserSettingsBrowsingPost_PrintMembers_System_Text_StringBuilder_
