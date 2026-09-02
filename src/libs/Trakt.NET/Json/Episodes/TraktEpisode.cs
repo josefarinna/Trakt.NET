@@ -59,6 +59,9 @@ namespace TraktNET
         /// </remarks>
         public List<TraktEpisodeTranslation>? Translations { get; set; }
 
+        /// <summary>The collection of episodes when grouped (e.g. in calendar feeds with group=day).</summary>
+        public List<TraktEpisode>? Episodes { get; set; }
+
         /// <summary>Gets a string representation of the episode.</summary>
         /// <returns>A string representation of the episode.</returns>
         public override string ToString()

@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>Determines the type of an episode.</summary>
     [TraktEnum]
@@ -26,6 +26,12 @@
         SeasonFinale,
 
         /// <summary>The type for a series finale episode (last episode to air for an ended show).</summary>
-        SeriesFinale
+        SeriesFinale,
+
+        /// <summary>The type for a full season release.</summary>
+        FullSeason,
+
+        /// <summary>The type for multiple episodes released on the same day.</summary>
+        MultipleEpisodes
     }
 }

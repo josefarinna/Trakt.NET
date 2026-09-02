@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -10,16 +10,19 @@ namespace TraktNET.GetRequests.Calendar
         private const string StartDateURIValue = "2024-07-20";
 
         [Theory]
-        [InlineData(null, $"{URIPath}/{StartDateURIValue}/7")]
-        [InlineData(TraktExtendedInfo.None, $"{URIPath}/{StartDateURIValue}/7")]
-        [InlineData(TraktExtendedInfo.Full, $"{URIPath}/{StartDateURIValue}/7?extended=full")]
-        public void TestCalendarUserShowsGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, string expectedURIPath)
+        [InlineData(null, null, $"{URIPath}/{StartDateURIValue}/7")]
+        [InlineData(TraktExtendedInfo.None, null, $"{URIPath}/{StartDateURIValue}/7")]
+        [InlineData(TraktExtendedInfo.Full, null, $"{URIPath}/{StartDateURIValue}/7?extended=full")]
+        [InlineData(null, TraktCalendarGroup.Day, $"{URIPath}/{StartDateURIValue}/7?group=day")]
+        [InlineData(TraktExtendedInfo.Full, TraktCalendarGroup.Day, $"{URIPath}/{StartDateURIValue}/7?group=day&extended=full")]
+        public void TestCalendarUserShowsGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, TraktCalendarGroup? group, string expectedURIPath)
         {
             var calendarUserShowsGetRequest = new CalendarUserShowsGetRequest
             {
                 StartDate = StartDateURIValue,
                 Days = 7,
-                ExtendedInfo = extendedInfo
+                ExtendedInfo = extendedInfo,
+                Group = group
             };
 
             calendarUserShowsGetRequest.BuildUri();

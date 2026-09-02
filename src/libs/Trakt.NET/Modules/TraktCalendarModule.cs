@@ -9,6 +9,7 @@ namespace TraktNET
         /// <summary>Gets all shows from the user's calendar airing during the given time period.</summary>
         /// <param name="startDate">The start date of the calendar.</param>
         /// <param name="days">The number of days for which the calendar should be queried. 1 - 33 days.</param>
+        /// <param name="group">Determines how calendar items are grouped. See also <seealso cref="TraktCalendarGroup" />.</param>
         /// <param name="filter">
         /// Specifies optional filter for genres, languages, year, runtimes, ratings, etc.
         /// <para>See also <seealso cref="TraktFilter" />.</para>
@@ -31,8 +32,8 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
         public Task<TraktListResponse<TraktCalendarShow>> GetUserShowsAsync(DateTime startDate, uint days,
-            TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
-            => GetUserShowsImplAsync(startDate, days, filter, extendedInfo, cancellationToken);
+            TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            => GetUserShowsImplAsync(startDate, days, group, filter, extendedInfo, cancellationToken);
 
         /// <summary>Gets all new shows from the user's calendar airing during the given time period.</summary>
         /// <param name="startDate">The start date of the calendar.</param>
@@ -205,6 +206,7 @@ namespace TraktNET
         /// <summary>Gets all shows from all calendars airing during the given time period.</summary>
         /// <param name="startDate">The start date of the calendar.</param>
         /// <param name="days">The number of days for which the calendar should be queried. 1 - 33 days.</param>
+        /// <param name="group">Determines how calendar items are grouped. See also <seealso cref="TraktCalendarGroup" />.</param>
         /// <param name="filter">
         /// Specifies optional filter for genres, languages, year, runtimes, ratings, etc.
         /// <para>See also <seealso cref="TraktFilter" />.</para>
@@ -227,8 +229,8 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
         public Task<TraktListResponse<TraktCalendarShow>> GetAllShowsAsync(DateTime startDate, uint days,
-            TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
-            => GetAllShowsImplAsync(startDate, days, filter, extendedInfo, cancellationToken);
+            TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            => GetAllShowsImplAsync(startDate, days, group, filter, extendedInfo, cancellationToken);
 
         /// <summary>Gets all new shows from all calendars airing during the given time period.</summary>
         /// <param name="startDate">The start date of the calendar.</param>
@@ -402,6 +404,7 @@ namespace TraktNET
         /// <param name="startDate">The start date of the calendar.</param>
         /// <param name="days">The number of days for which the calendar should be queried. 1 - 33 days.</param>
         /// <param name="type">Narrow the feed to a single media type. If null, returns both. See also <seealso cref="TraktCalendarMediaType" />.</param>
+        /// <param name="group">Determines how calendar items are grouped. See also <seealso cref="TraktCalendarGroup" />.</param>
         /// <param name="filter">
         /// Specifies optional filter for genres, languages, year, runtimes, ratings, etc.
         /// <para>See also <seealso cref="TraktFilter" />.</para>
@@ -423,13 +426,14 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
         public Task<TraktListResponse<TraktCalendarMedia>> GetHotReleasesAsync(DateTime startDate, uint days,
-            TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
-            => GetHotReleasesImplAsync(startDate, days, type, filter, extendedInfo, cancellationToken);
+            TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            => GetHotReleasesImplAsync(startDate, days, type, group, filter, extendedInfo, cancellationToken);
 
         /// <summary>Gets movies and episodes from the user's calendar airing during the given time period.</summary>
         /// <param name="startDate">The start date of the calendar.</param>
         /// <param name="days">The number of days for which the calendar should be queried. 1 - 33 days.</param>
         /// <param name="type">Narrow the feed to a single media type. If null, returns both. See also <seealso cref="TraktCalendarMediaType" />.</param>
+        /// <param name="group">Determines how calendar items are grouped. See also <seealso cref="TraktCalendarGroup" />.</param>
         /// <param name="filter">
         /// Specifies optional filter for genres, languages, year, runtimes, ratings, etc.
         /// <para>See also <seealso cref="TraktFilter" />.</para>
@@ -451,13 +455,14 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
         public Task<TraktListResponse<TraktCalendarMedia>> GetUserMediaAsync(DateTime startDate, uint days,
-            TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
-            => GetUserMediaImplAsync(startDate, days, type, filter, extendedInfo, cancellationToken);
+            TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            => GetUserMediaImplAsync(startDate, days, type, group, filter, extendedInfo, cancellationToken);
 
         /// <summary>Gets movies and episodes from all calendars airing during the given time period.</summary>
         /// <param name="startDate">The start date of the calendar.</param>
         /// <param name="days">The number of days for which the calendar should be queried. 1 - 33 days.</param>
         /// <param name="type">Narrow the feed to a single media type. If null, returns both. See also <seealso cref="TraktCalendarMediaType" />.</param>
+        /// <param name="group">Determines how calendar items are grouped. See also <seealso cref="TraktCalendarGroup" />.</param>
         /// <param name="filter">
         /// Specifies optional filter for genres, languages, year, runtimes, ratings, etc.
         /// <para>See also <seealso cref="TraktFilter" />.</para>
@@ -479,8 +484,8 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
         public Task<TraktListResponse<TraktCalendarMedia>> GetAllMediaAsync(DateTime startDate, uint days,
-            TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
-            => GetAllMediaImplAsync(startDate, days, type, filter, extendedInfo, cancellationToken);
+            TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            => GetAllMediaImplAsync(startDate, days, type, group, filter, extendedInfo, cancellationToken);
 
         /// <summary>Gets upcoming show premieres during the requested UTC date range that are trending or highly anticipated.</summary>
         /// <param name="startDate">The start date of the calendar.</param>

@@ -7,7 +7,7 @@ namespace TraktNET
     public sealed partial class TraktCalendarModule(TraktContext context) : BaseModule(context)
     {
         public Task<TraktListResponse<TraktCalendarShow>> GetUserShowsImplAsync(DateTime startDate, uint days,
-            TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             ValidateCalendarParameters(startDate);
 
@@ -15,6 +15,7 @@ namespace TraktNET
             {
                 StartDate = startDate.ToTraktSortDateTimeString(),
                 Days = days,
+                Group = group,
                 Filter = filter,
                 ExtendedInfo = extendedInfo
             };
@@ -119,7 +120,7 @@ namespace TraktNET
         }
 
         public Task<TraktListResponse<TraktCalendarShow>> GetAllShowsImplAsync(DateTime startDate, uint days,
-            TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             ValidateCalendarParameters(startDate);
 
@@ -127,6 +128,7 @@ namespace TraktNET
             {
                 StartDate = startDate.ToTraktSortDateTimeString(),
                 Days = days,
+                Group = group,
                 Filter = filter,
                 ExtendedInfo = extendedInfo
             };
@@ -231,7 +233,7 @@ namespace TraktNET
         }
 
         public Task<TraktListResponse<TraktCalendarMedia>> GetHotReleasesImplAsync(DateTime startDate, uint days,
-            TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             ValidateCalendarParameters(startDate);
 
@@ -239,6 +241,7 @@ namespace TraktNET
             {
                 StartDate = startDate.ToTraktSortDateTimeString(),
                 Days = days,
+                Group = group,
                 Filter = filter,
                 ExtendedInfo = extendedInfo,
                 Type = type
@@ -248,7 +251,7 @@ namespace TraktNET
         }
 
         public Task<TraktListResponse<TraktCalendarMedia>> GetUserMediaImplAsync(DateTime startDate, uint days,
-            TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             ValidateCalendarParameters(startDate);
 
@@ -256,6 +259,7 @@ namespace TraktNET
             {
                 StartDate = startDate.ToTraktSortDateTimeString(),
                 Days = days,
+                Group = group,
                 Filter = filter,
                 ExtendedInfo = extendedInfo,
                 Type = type
@@ -265,7 +269,7 @@ namespace TraktNET
         }
 
         public Task<TraktListResponse<TraktCalendarMedia>> GetAllMediaImplAsync(DateTime startDate, uint days,
-            TraktCalendarMediaType? type = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            TraktCalendarMediaType? type = null, TraktCalendarGroup? group = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             ValidateCalendarParameters(startDate);
 
@@ -273,6 +277,7 @@ namespace TraktNET
             {
                 StartDate = startDate.ToTraktSortDateTimeString(),
                 Days = days,
+                Group = group,
                 Filter = filter,
                 ExtendedInfo = extendedInfo,
                 Type = type

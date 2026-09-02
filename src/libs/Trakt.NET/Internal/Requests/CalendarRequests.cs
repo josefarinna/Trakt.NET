@@ -7,6 +7,9 @@ namespace TraktNET
     [TraktGetRequest("calendars/my/shows/{start_date}/{days:uint!!}", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CalendarUserShowsGetRequest
     {
+        [TraktRequestQuery("group")]
+        internal TraktCalendarGroup? Group { get; set; }
+
         [TraktRequestQuery("filter")]
         internal TraktFilter? Filter { get; set; }
     }
@@ -56,6 +59,9 @@ namespace TraktNET
     [TraktGetRequest("calendars/all/shows/{start_date}/{days:uint!!}", SupportsExtendedInfo = true)]
     internal sealed partial class CalendarAllShowsGetRequest
     {
+        [TraktRequestQuery("group")]
+        internal TraktCalendarGroup? Group { get; set; }
+
         [TraktRequestQuery("filter")]
         internal TraktFilter? Filter { get; set; }
     }
@@ -105,6 +111,9 @@ namespace TraktNET
     [TraktGetRequest("calendars/releases/hot/{start_date}/{days:uint!!}", SupportsExtendedInfo = true)]
     internal sealed partial class CalendarAllReleasesHotGetRequest
     {
+        [TraktRequestQuery("group")]
+        internal TraktCalendarGroup? Group { get; set; }
+
         [TraktRequestQuery("filter")]
         internal TraktFilter? Filter { get; set; }
 
@@ -115,6 +124,9 @@ namespace TraktNET
     [TraktGetRequest("calendars/my/media/{start_date}/{days:uint!!}", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class CalendarUserMediaGetRequest
     {
+        [TraktRequestQuery("group")]
+        internal TraktCalendarGroup? Group { get; set; }
+
         [TraktRequestQuery("filter")]
         internal TraktFilter? Filter { get; set; }
 
@@ -125,6 +137,9 @@ namespace TraktNET
     [TraktGetRequest("calendars/all/media/{start_date}/{days:uint!!}", SupportsExtendedInfo = true)]
     internal sealed partial class CalendarAllMediaGetRequest
     {
+        [TraktRequestQuery("group")]
+        internal TraktCalendarGroup? Group { get; set; }
+
         [TraktRequestQuery("filter")]
         internal TraktFilter? Filter { get; set; }
 

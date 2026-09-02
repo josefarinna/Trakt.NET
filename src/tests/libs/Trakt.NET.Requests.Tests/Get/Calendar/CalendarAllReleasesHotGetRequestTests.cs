@@ -10,19 +10,21 @@ namespace TraktNET.GetRequests.Calendar
         private const string StartDateURIValue = "2024-07-20";
 
         [Theory]
-        [InlineData(null, null, $"{URIPath}/{StartDateURIValue}/7")]
-        [InlineData(TraktExtendedInfo.None, null, $"{URIPath}/{StartDateURIValue}/7")]
-        [InlineData(TraktExtendedInfo.Full, null, $"{URIPath}/{StartDateURIValue}/7?extended=full")]
-        [InlineData(null, TraktCalendarMediaType.Movie, $"{URIPath}/{StartDateURIValue}/7?type=movie")]
-        [InlineData(TraktExtendedInfo.Full, TraktCalendarMediaType.Show, $"{URIPath}/{StartDateURIValue}/7?type=show&extended=full")]
-        public void TestCalendarAllReleasesHotGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, TraktCalendarMediaType? type, string expectedURIPath)
+        [InlineData(null, null, null, $"{URIPath}/{StartDateURIValue}/7")]
+        [InlineData(TraktExtendedInfo.None, null, null, $"{URIPath}/{StartDateURIValue}/7")]
+        [InlineData(TraktExtendedInfo.Full, null, null, $"{URIPath}/{StartDateURIValue}/7?extended=full")]
+        [InlineData(null, TraktCalendarMediaType.Movie, null, $"{URIPath}/{StartDateURIValue}/7?type=movie")]
+        [InlineData(null, null, TraktCalendarGroup.Day, $"{URIPath}/{StartDateURIValue}/7?group=day")]
+        [InlineData(TraktExtendedInfo.Full, TraktCalendarMediaType.Show, TraktCalendarGroup.Day, $"{URIPath}/{StartDateURIValue}/7?group=day&type=show&extended=full")]
+        public void TestCalendarAllReleasesHotGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, TraktCalendarMediaType? type, TraktCalendarGroup? group, string expectedURIPath)
         {
             var request = new CalendarAllReleasesHotGetRequest
             {
                 StartDate = StartDateURIValue,
                 Days = 7,
                 ExtendedInfo = extendedInfo,
-                Type = type
+                Type = type,
+                Group = group
             };
 
             request.BuildUri();
