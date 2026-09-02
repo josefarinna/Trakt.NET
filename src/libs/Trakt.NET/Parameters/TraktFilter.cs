@@ -66,11 +66,8 @@ namespace TraktNET
         /// <summary>Collection of show status.</summary>
         public TraktShowStatus[]? Status { get; set; }
 
-        /// <summary>Collection of episode types to include.</summary>
+        /// <summary>Collection of episode types.</summary>
         public TraktEpisodeType[]? EpisodeTypes { get; set; }
-
-        /// <summary>Collection of episode types to exclude.</summary>
-        public TraktEpisodeType[]? ExcludeEpisodeTypes { get; set; }
 
         /// <summary>Gets or sets whether watched items should be ignored.</summary>
         public bool? IgnoreWatched { get; set; }

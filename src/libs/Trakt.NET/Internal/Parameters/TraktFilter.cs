@@ -111,36 +111,19 @@ namespace TraktNET
                 values.Add($"{StatusName}={string.Join(",", statusValues)}");
             }
 
-            if ((EpisodeTypes != null && EpisodeTypes.Length > 0) || (ExcludeEpisodeTypes != null && ExcludeEpisodeTypes.Length > 0))
+            if (EpisodeTypes != null && EpisodeTypes.Length > 0)
             {
                 var episodeTypesValues = new List<string>();
 
-                if (EpisodeTypes != null && EpisodeTypes.Length > 0)
+                foreach (TraktEpisodeType episodeType in EpisodeTypes)
                 {
-                    foreach (TraktEpisodeType episodeType in EpisodeTypes)
+                    if (episodeType != TraktEpisodeType.Unspecified)
                     {
-                        if (episodeType != TraktEpisodeType.Unspecified)
-                        {
-                            episodeTypesValues.Add(episodeType.ToJson()!);
-                        }
+                        episodeTypesValues.Add(episodeType.ToJson()!);
                     }
                 }
 
-                if (ExcludeEpisodeTypes != null && ExcludeEpisodeTypes.Length > 0)
-                {
-                    foreach (TraktEpisodeType episodeType in ExcludeEpisodeTypes)
-                    {
-                        if (episodeType != TraktEpisodeType.Unspecified)
-                        {
-                            episodeTypesValues.Add($"-{episodeType.ToJson()!}");
-                        }
-                    }
-                }
-
-                if (episodeTypesValues.Count > 0)
-                {
-                    values.Add($"{EpisodeTypesName}={string.Join(",", episodeTypesValues)}");
-                }
+                values.Add($"{EpisodeTypesName}={string.Join(",", episodeTypesValues)}");
             }
 
             if (IgnoreWatched.HasValue)

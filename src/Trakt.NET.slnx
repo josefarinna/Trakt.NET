@@ -1,4 +1,5 @@
 <Solution>
+  <Folder Name="/SolutionItems/" />
   <Folder Name="/SolutionItems/Changelogs/">
     <File Path="../Changelogs/old-versions.md" />
     <File Path="../Changelogs/v1.2.0.md" />
@@ -37,6 +38,7 @@
     <File Path="../.gitignore" />
   </Folder>
   <Folder Name="/SolutionItems/Information/">
+    <File Path="../AGENTS.md" />
     <File Path="../AUTHORS.md" />
     <File Path="../LICENSE.md" />
     <File Path="../README.md" />
@@ -73,6 +75,7 @@
     <Project Path="tests/libs/Trakt.NET.Requests.Tests/Trakt.NET.Requests.Tests.csproj" />
     <Project Path="tests/libs/Trakt.NET.Tests.Utility/Trakt.NET.Tests.Utility.csproj" />
   </Folder>
+  <Folder Name="/tests/tools/" />
   <Folder Name="/tests/tools/sourcegeneration/">
     <Project Path="tests/tools/sourcegeneration/Trakt.NET.SourceGeneration.Tests/Trakt.NET.SourceGeneration.Tests.csproj" />
   </Folder>
