@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -9,16 +9,20 @@ namespace TraktNET.PostRequests.Movies
         private const string MovieID = TestConstants.Movies.MovieSlug;
         private const string URIPath = $"movies/{MovieID}/refresh";
 
-        [Fact]
-        public void TestMovieRefreshPostRequestHasValidURIPath()
+        [Theory]
+        [InlineData(null, URIPath)]
+        [InlineData(true, $"{URIPath}?images=true")]
+        [InlineData(false, $"{URIPath}?images=false")]
+        public void TestMovieRefreshPostRequestHasValidURIPath(bool? images, string expectedURIPath)
         {
             var movieRefreshPostRequest = new MovieRefreshPostRequest
             {
-                Id = MovieID
+                Id = MovieID,
+                Images = images
             };
 
             movieRefreshPostRequest.BuildUri();
-            movieRefreshPostRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            movieRefreshPostRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]

@@ -6,7 +6,7 @@ namespace TraktNET.PostRequests.Movies
 {
     public sealed class MovieRefreshJustWatchPostRequestTests
     {
-        private const string URIPath = "movies/123/justwatch/refresh";
+        private const string URIPath = "movies/123/refresh/justwatch";
 
         [Fact]
         public void TestMovieRefreshJustWatchPostRequestHasValidURIPath()

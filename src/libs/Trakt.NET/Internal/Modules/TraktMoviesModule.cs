@@ -203,11 +203,12 @@ namespace TraktNET
                 cancellationToken);
         }
 
-        private Task<TraktResponse> RefreshMovieImplAsync(string movieIDOrSlug, CancellationToken cancellationToken = default)
+        private Task<TraktResponse> RefreshMovieImplAsync(string movieIDOrSlug, bool? images = null, CancellationToken cancellationToken = default)
         {
             var request = new MovieRefreshPostRequest
             {
-                Id = movieIDOrSlug
+                Id = movieIDOrSlug,
+                Images = images
             };
 
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);

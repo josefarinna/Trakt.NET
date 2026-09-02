@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.MoviesModule
 {
@@ -41,6 +41,22 @@ namespace TraktNET.MoviesModule
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshMovieUriWithSlug, HttpStatusCode.Created);
 
             TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.Headers.ShouldNotBeNull();
+            response.TraktHeaders.ShouldNotBeNull();
+        }
+
+        [Theory]
+        [InlineData(null, "")]
+        [InlineData(true, "?images=true")]
+        [InlineData(false, "?images=false")]
+        public async Task TestRefreshMovieWithImages(bool? images, string query)
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{RefreshMovieUriWithSlug}{query}", HttpStatusCode.Created);
+
+            TraktResponse response = await client.Movies.RefreshMovieAsync(TestConstants.Movies.MovieSlug, images, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);

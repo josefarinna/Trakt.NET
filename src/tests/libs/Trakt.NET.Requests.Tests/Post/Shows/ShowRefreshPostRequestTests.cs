@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -9,16 +9,20 @@ namespace TraktNET.PostRequests.Shows
         private const string ShowID = TestConstants.Shows.ShowSlug;
         private const string URIPath = $"shows/{ShowID}/refresh";
 
-        [Fact]
-        public void TestShowRefreshPostRequestHasValidURIPath()
+        [Theory]
+        [InlineData(null, URIPath)]
+        [InlineData(true, $"{URIPath}?images=true")]
+        [InlineData(false, $"{URIPath}?images=false")]
+        public void TestShowRefreshPostRequestHasValidURIPath(bool? images, string expectedURIPath)
         {
             var showRefreshPostRequest = new ShowRefreshPostRequest
             {
-                Id = ShowID
+                Id = ShowID,
+                Images = images
             };
 
             showRefreshPostRequest.BuildUri();
-            showRefreshPostRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            showRefreshPostRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]
