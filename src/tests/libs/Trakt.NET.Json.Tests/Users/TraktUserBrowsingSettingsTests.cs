@@ -14,6 +14,7 @@ namespace TraktNET.Json.Users
             settings.WatchAfterRating.ShouldBeNull();
             settings.WatchOnlyOnce.ShouldBeNull();
             settings.ShowRatingPrompt.ShouldBeNull();
+            settings.Locale.ShouldBeNull();
             settings.OtherSiteRatings.ShouldBeNull();
             settings.ReleaseDateIgnoreRuntime.ShouldBeNull();
             settings.DisplayEarlyRatings.ShouldBeNull();
@@ -47,6 +48,7 @@ namespace TraktNET.Json.Users
             settings.WatchAfterRating.ShouldBe("always");
             settings.WatchOnlyOnce.ShouldBe(true);
             settings.ShowRatingPrompt.ShouldBe(false);
+            settings.Locale.ShouldBe("en-US");
             settings.OtherSiteRatings.ShouldBe(true);
             settings.ReleaseDateIgnoreRuntime.ShouldBe(false);
             settings.DisplayEarlyRatings.ShouldBe(true);

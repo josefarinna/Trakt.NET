@@ -8,6 +8,7 @@
   },
   "browsing": {
     "show_rating_prompt": true,
+    "locale": "fr-FR",
     "watchnow": {
       "country": "fr",
       "favorites": [ "netflix" ],
