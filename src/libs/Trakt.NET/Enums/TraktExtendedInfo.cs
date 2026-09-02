@@ -48,6 +48,9 @@ namespace TraktNET
         Subgenres = 1024,
 
         /// <summary>Browsing information shall be retrieved.</summary>
-        Browsing = 2048
+        Browsing = 2048,
+
+        /// <summary>All ratings or all information shall be retrieved.</summary>
+        All = 4096
     }
 }

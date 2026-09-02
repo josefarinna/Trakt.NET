@@ -20,6 +20,7 @@ namespace TraktNET.Enums
             TraktExtendedInfo.Images.ToJson().ShouldBe("images");
             TraktExtendedInfo.Subgenres.ToJson().ShouldBe("subgenres");
             TraktExtendedInfo.Browsing.ToJson().ShouldBe("browsing");
+            TraktExtendedInfo.All.ToJson().ShouldBe("all");
             ((TraktExtendedInfo)99).ToJson().ShouldBeNull();
         }
 
@@ -39,6 +40,7 @@ namespace TraktNET.Enums
             "images".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Images);
             "subgenres".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Subgenres);
             "browsing".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Browsing);
+            "all".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.All);
 
             string? nullValue = null;
             nullValue.ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.None);
@@ -62,6 +64,7 @@ namespace TraktNET.Enums
             TraktExtendedInfo.Images.DisplayName().ShouldBe("Images");
             TraktExtendedInfo.Subgenres.DisplayName().ShouldBe("Subgenres");
             TraktExtendedInfo.Browsing.DisplayName().ShouldBe("Browsing");
+            TraktExtendedInfo.All.DisplayName().ShouldBe("All");
 
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.DisplayName().ShouldBe("Full, VIP");
@@ -92,6 +95,7 @@ namespace TraktNET.Enums
             TraktExtendedInfo.Images.AsQuery().ShouldBe("extended=images");
             TraktExtendedInfo.Subgenres.AsQuery().ShouldBe("extended=subgenres");
             TraktExtendedInfo.Browsing.AsQuery().ShouldBe("extended=browsing");
+            TraktExtendedInfo.All.AsQuery().ShouldBe("extended=all");
 
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.AsQuery().ShouldBe("extended=full,vip");

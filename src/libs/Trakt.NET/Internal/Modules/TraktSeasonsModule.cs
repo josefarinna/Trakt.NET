@@ -128,12 +128,13 @@ namespace TraktNET
         }
 
         private Task<TraktResponse<TraktRating>> GetSeasonRatingsImplAsync(string showIDOrSlug, uint seasonNumber,
-            CancellationToken cancellationToken = default)
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             var request = new SeasonRatingsGetRequest
             {
                 ShowId = showIDOrSlug,
-                SeasonNumber = seasonNumber
+                SeasonNumber = seasonNumber,
+                ExtendedInfo = extendedInfo
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktRating>(_context, request, cancellationToken);

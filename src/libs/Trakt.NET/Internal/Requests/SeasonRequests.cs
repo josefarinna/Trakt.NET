@@ -56,7 +56,7 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 
-    [TraktGetRequest("shows/{show_id!!}/seasons/{season_number:uint}/ratings")]
+    [TraktGetRequest("shows/{show_id!!}/seasons/{season_number:uint}/ratings", SupportsExtendedInfo = true)]
     internal sealed partial class SeasonRatingsGetRequest
     {
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;

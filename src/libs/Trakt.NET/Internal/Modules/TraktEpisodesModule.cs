@@ -93,13 +93,14 @@ namespace TraktNET
         }
 
         private Task<TraktResponse<TraktRating>> GetEpisodeRatingsImplAsync(string showIdOrSlug, uint seasonNumber, uint episodeNumber,
-            CancellationToken cancellationToken = default)
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             var request = new EpisodeRatingsGetRequest
             {
                 ShowId = showIdOrSlug,
                 SeasonNumber = seasonNumber,
-                EpisodeNumber = episodeNumber
+                EpisodeNumber = episodeNumber,
+                ExtendedInfo = extendedInfo
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktRating>(_context, request, cancellationToken);
