@@ -111400,6 +111400,18 @@ references:
   commentId: Overload:TraktNET.TraktUserSettingsBrowsingPost.PrintMembers
   fullName: TraktNET.TraktUserSettingsBrowsingPost.PrintMembers
   nameWithType: TraktUserSettingsBrowsingPost.PrintMembers
+- uid: TraktNET.TraktUserSettingsBrowsingPost.ShowRatingPrompt
+  name: ShowRatingPrompt
+  href: api/TraktNET.TraktUserSettingsBrowsingPost.html#TraktNET_TraktUserSettingsBrowsingPost_ShowRatingPrompt
+  commentId: P:TraktNET.TraktUserSettingsBrowsingPost.ShowRatingPrompt
+  fullName: TraktNET.TraktUserSettingsBrowsingPost.ShowRatingPrompt
+  nameWithType: TraktUserSettingsBrowsingPost.ShowRatingPrompt
+- uid: TraktNET.TraktUserSettingsBrowsingPost.ShowRatingPrompt*
+  name: ShowRatingPrompt
+  href: api/TraktNET.TraktUserSettingsBrowsingPost.html#TraktNET_TraktUserSettingsBrowsingPost_ShowRatingPrompt_
+  commentId: Overload:TraktNET.TraktUserSettingsBrowsingPost.ShowRatingPrompt
+  fullName: TraktNET.TraktUserSettingsBrowsingPost.ShowRatingPrompt
+  nameWithType: TraktUserSettingsBrowsingPost.ShowRatingPrompt
 - uid: TraktNET.TraktUserSettingsBrowsingPost.ToString
   name: ToString()
   href: api/TraktNET.TraktUserSettingsBrowsingPost.html#TraktNET_TraktUserSettingsBrowsingPost_ToString
