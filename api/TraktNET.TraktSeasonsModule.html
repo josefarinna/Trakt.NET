@@ -962,13 +962,13 @@ Trakt API Documentation: Seasons: Season - Get single seasons for a show
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Seasons/TraktSeasonsModuleGetSeasonComments.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync*"></a>
-  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSeasonCommentsAsync(string, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSeasonCommentsAsync(string, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all top level comments for a specific <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a> of a Trakt show with the specified Trakt-ID or -Slug.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetSeasonCommentsAsync(string traktShowIDOrSlug, uint seasonNumber, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetSeasonCommentsAsync(string traktShowIDOrSlug, uint seasonNumber, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1007,6 +1007,12 @@ Trakt API Documentation: Seasons: Season - Get single seasons for a show
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">language</span></td>
+        <td><p>An optional 2-character language code to filter comments by.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
         <td><span class="parametername">page</span></td>
         <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
@@ -1046,7 +1052,7 @@ Trakt API Documentation: Seasons: Season - Get single seasons for a show
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsseasoncomments">
 Trakt API Documentation: Seasons: Comments - Get all season comments
@@ -1078,13 +1084,13 @@ Trakt API Documentation: Seasons: Comments - Get all season comments
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Seasons/TraktSeasonsModuleGetSeasonComments.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync*"></a>
-  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSeasonCommentsAsync(uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSeasonCommentsAsync(uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all top level comments for a specific <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a> of a Trakt show with the specified Trakt-ID.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetSeasonCommentsAsync(uint traktShowID, uint seasonNumber, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetSeasonCommentsAsync(uint traktShowID, uint seasonNumber, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1123,6 +1129,12 @@ Trakt API Documentation: Seasons: Comments - Get all season comments
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">language</span></td>
+        <td><p>An optional 2-character language code to filter comments by.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
         <td><span class="parametername">page</span></td>
         <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
@@ -1162,7 +1174,7 @@ Trakt API Documentation: Seasons: Comments - Get all season comments
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsseasoncomments">
 Trakt API Documentation: Seasons: Comments - Get all season comments
@@ -1199,13 +1211,13 @@ Trakt API Documentation: Seasons: Comments - Get all season comments
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Seasons/TraktSeasonsModuleGetSeasonComments.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync*"></a>
-  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShow_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShow,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSeasonCommentsAsync(TraktShow, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShow_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShow,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSeasonCommentsAsync(TraktShow, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all top level comments for a specific <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a> of a Trakt show with the specified <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetSeasonCommentsAsync(TraktShow show, uint seasonNumber, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetSeasonCommentsAsync(TraktShow show, uint seasonNumber, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1244,6 +1256,12 @@ Trakt API Documentation: Seasons: Comments - Get all season comments
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">language</span></td>
+        <td><p>An optional 2-character language code to filter comments by.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
         <td><span class="parametername">page</span></td>
         <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
@@ -1283,7 +1301,7 @@ Trakt API Documentation: Seasons: Comments - Get all season comments
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShow_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShow_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsseasoncomments">
 Trakt API Documentation: Seasons: Comments - Get all season comments
@@ -1320,13 +1338,13 @@ Trakt API Documentation: Seasons: Comments - Get all season comments
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Seasons/TraktSeasonsModuleGetSeasonComments.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync*"></a>
-  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSeasonCommentsAsync(TraktShowIDs, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSeasonCommentsAsync(TraktShowIDs, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all top level comments for a specific <a class="xref" href="TraktNET.TraktSeason.html">TraktSeason</a> of a Trakt show with the specified <a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetSeasonCommentsAsync(TraktShowIDs showIDs, uint seasonNumber, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetSeasonCommentsAsync(TraktShowIDs showIDs, uint seasonNumber, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1365,6 +1383,12 @@ Trakt API Documentation: Seasons: Comments - Get all season comments
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">language</span></td>
+        <td><p>An optional 2-character language code to filter comments by.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
         <td><span class="parametername">page</span></td>
         <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
@@ -1404,7 +1428,7 @@ Trakt API Documentation: Seasons: Comments - Get all season comments
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsseasoncomments">
 Trakt API Documentation: Seasons: Comments - Get all season comments

@@ -2164,13 +2164,13 @@ Trakt API Documentation: Shows: Collection - Get show collection progress
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleGetShowComments.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktShowsModule_GetShowCommentsAsync_" data-uid="TraktNET.TraktShowsModule.GetShowCommentsAsync*"></a>
-  <h4 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_System_String_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCommentsAsync(System.String,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetShowCommentsAsync(string, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_System_String_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCommentsAsync(System.String,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetShowCommentsAsync(string, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all top level comments for a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified Trakt-ID or -Slug.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetShowCommentsAsync(string traktShowIDOrSlug, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetShowCommentsAsync(string traktShowIDOrSlug, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2203,6 +2203,12 @@ Trakt API Documentation: Shows: Collection - Get show collection progress
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">language</span></td>
+        <td><p>An optional 2-character language code to filter comments by.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
         <td><span class="parametername">page</span></td>
         <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
@@ -2242,7 +2248,7 @@ Trakt API Documentation: Shows: Collection - Get show collection progress
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_System_String_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_System_String_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowscomments">
 Trakt API Documentation: Shows: Comments - Get all show comments
@@ -2274,13 +2280,13 @@ Trakt API Documentation: Shows: Comments - Get all show comments
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleGetShowComments.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktShowsModule_GetShowCommentsAsync_" data-uid="TraktNET.TraktShowsModule.GetShowCommentsAsync*"></a>
-  <h4 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCommentsAsync(System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetShowCommentsAsync(uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCommentsAsync(System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetShowCommentsAsync(uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all top level comments for a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified Trakt-ID.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetShowCommentsAsync(uint traktShowID, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetShowCommentsAsync(uint traktShowID, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2313,6 +2319,12 @@ Trakt API Documentation: Shows: Comments - Get all show comments
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">language</span></td>
+        <td><p>An optional 2-character language code to filter comments by.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
         <td><span class="parametername">page</span></td>
         <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
@@ -2352,7 +2364,7 @@ Trakt API Documentation: Shows: Comments - Get all show comments
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowscomments">
 Trakt API Documentation: Shows: Comments - Get all show comments
@@ -2384,13 +2396,13 @@ Trakt API Documentation: Shows: Comments - Get all show comments
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleGetShowComments.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktShowsModule_GetShowCommentsAsync_" data-uid="TraktNET.TraktShowsModule.GetShowCommentsAsync*"></a>
-  <h4 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCommentsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetShowCommentsAsync(TraktShowIDs, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCommentsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetShowCommentsAsync(TraktShowIDs, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all top level comments for a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified <a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetShowCommentsAsync(TraktShowIDs showIDs, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktComment&gt;&gt; GetShowCommentsAsync(TraktShowIDs showIDs, TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2423,6 +2435,12 @@ Trakt API Documentation: Shows: Comments - Get all show comments
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">language</span></td>
+        <td><p>An optional 2-character language code to filter comments by.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
         <td><span class="parametername">page</span></td>
         <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
@@ -2462,7 +2480,7 @@ Trakt API Documentation: Shows: Comments - Get all show comments
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktShowsModule_GetShowCommentsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowscomments">
 Trakt API Documentation: Shows: Comments - Get all show comments

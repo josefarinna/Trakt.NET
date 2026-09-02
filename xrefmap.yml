@@ -34393,42 +34393,42 @@ references:
   commentId: Overload:TraktNET.TraktEpisodesModule.GetEpisodeByIdWatchnowAsync
   fullName: TraktNET.TraktEpisodesModule.GetEpisodeByIdWatchnowAsync
   nameWithType: TraktEpisodesModule.GetEpisodeByIdWatchnowAsync
-- uid: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(System.String,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetEpisodeCommentsAsync(string, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeCommentsAsync_System_String_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(System.String,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetEpisodeCommentsAsync(String, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(string, uint, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(String, UInteger, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktEpisodesModule.GetEpisodeCommentsAsync(string, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktEpisodesModule.GetEpisodeCommentsAsync(String, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(System.UInt32,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetEpisodeCommentsAsync(uint, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeCommentsAsync_System_UInt32_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(System.UInt32,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetEpisodeCommentsAsync(UInteger, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(uint, uint, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(UInteger, UInteger, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktEpisodesModule.GetEpisodeCommentsAsync(uint, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktEpisodesModule.GetEpisodeCommentsAsync(UInteger, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShow,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetEpisodeCommentsAsync(TraktShow, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeCommentsAsync_TraktNET_TraktShow_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShow,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetEpisodeCommentsAsync(TraktShow, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShow, uint, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShow, UInteger, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktEpisodesModule.GetEpisodeCommentsAsync(TraktShow, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktEpisodesModule.GetEpisodeCommentsAsync(TraktShow, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShowIDs,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetEpisodeCommentsAsync(TraktShowIDs, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeCommentsAsync_TraktNET_TraktShowIDs_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShowIDs,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetEpisodeCommentsAsync(TraktShowIDs, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShowIDs, uint, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShowIDs, UInteger, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktEpisodesModule.GetEpisodeCommentsAsync(TraktShowIDs, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktEpisodesModule.GetEpisodeCommentsAsync(TraktShowIDs, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(System.String,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetEpisodeCommentsAsync(string, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeCommentsAsync_System_String_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(System.String,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetEpisodeCommentsAsync(String, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(string, uint, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(String, UInteger, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktEpisodesModule.GetEpisodeCommentsAsync(string, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktEpisodesModule.GetEpisodeCommentsAsync(String, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(System.UInt32,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetEpisodeCommentsAsync(uint, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeCommentsAsync_System_UInt32_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(System.UInt32,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetEpisodeCommentsAsync(UInteger, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(uint, uint, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(UInteger, UInteger, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktEpisodesModule.GetEpisodeCommentsAsync(uint, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktEpisodesModule.GetEpisodeCommentsAsync(UInteger, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShow,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetEpisodeCommentsAsync(TraktShow, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeCommentsAsync_TraktNET_TraktShow_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShow,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetEpisodeCommentsAsync(TraktShow, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShow, uint, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShow, UInteger, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktEpisodesModule.GetEpisodeCommentsAsync(TraktShow, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktEpisodesModule.GetEpisodeCommentsAsync(TraktShow, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShowIDs,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetEpisodeCommentsAsync(TraktShowIDs, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeCommentsAsync_TraktNET_TraktShowIDs_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShowIDs,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetEpisodeCommentsAsync(TraktShowIDs, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShowIDs, uint, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync(TraktNET.TraktShowIDs, UInteger, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktEpisodesModule.GetEpisodeCommentsAsync(TraktShowIDs, uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktEpisodesModule.GetEpisodeCommentsAsync(TraktShowIDs, UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktEpisodesModule.GetEpisodeCommentsAsync*
   name: GetEpisodeCommentsAsync
   href: api/TraktNET.TraktEpisodesModule.html#TraktNET_TraktEpisodesModule_GetEpisodeCommentsAsync_
@@ -47701,33 +47701,33 @@ references:
   commentId: Overload:TraktNET.TraktMoviesModule.GetMovieAsync
   fullName: TraktNET.TraktMoviesModule.GetMovieAsync
   nameWithType: TraktMoviesModule.GetMovieAsync
-- uid: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(System.String,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetMovieCommentsAsync(string, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieCommentsAsync_System_String_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktMoviesModule.GetMovieCommentsAsync(System.String,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetMovieCommentsAsync(String, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(string, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(String, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktMoviesModule.GetMovieCommentsAsync(string, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktMoviesModule.GetMovieCommentsAsync(String, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetMovieCommentsAsync(uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieCommentsAsync_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktMoviesModule.GetMovieCommentsAsync(System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetMovieCommentsAsync(UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktMoviesModule.GetMovieCommentsAsync(uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktMoviesModule.GetMovieCommentsAsync(UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetMovieCommentsAsync(TraktMovieIDs, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieCommentsAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktMoviesModule.GetMovieCommentsAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetMovieCommentsAsync(TraktMovieIDs, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(TraktNET.TraktMovieIDs, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(TraktNET.TraktMovieIDs, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktMoviesModule.GetMovieCommentsAsync(TraktMovieIDs, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktMoviesModule.GetMovieCommentsAsync(TraktMovieIDs, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(System.String,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetMovieCommentsAsync(string, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieCommentsAsync_System_String_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetMovieCommentsAsync(System.String,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetMovieCommentsAsync(String, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(string, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(String, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetMovieCommentsAsync(string, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.GetMovieCommentsAsync(String, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetMovieCommentsAsync(uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieCommentsAsync_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetMovieCommentsAsync(System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetMovieCommentsAsync(UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetMovieCommentsAsync(uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.GetMovieCommentsAsync(UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetMovieCommentsAsync(TraktMovieIDs, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieCommentsAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetMovieCommentsAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetMovieCommentsAsync(TraktMovieIDs, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(TraktNET.TraktMovieIDs, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.GetMovieCommentsAsync(TraktNET.TraktMovieIDs, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetMovieCommentsAsync(TraktMovieIDs, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.GetMovieCommentsAsync(TraktMovieIDs, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktMoviesModule.GetMovieCommentsAsync*
   name: GetMovieCommentsAsync
   href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieCommentsAsync_
@@ -69178,42 +69178,42 @@ references:
   commentId: Overload:TraktNET.TraktSeasonsModule.GetSeasonAsync
   fullName: TraktNET.TraktSeasonsModule.GetSeasonAsync
   nameWithType: TraktSeasonsModule.GetSeasonAsync
-- uid: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetSeasonCommentsAsync(string, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetSeasonCommentsAsync(String, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(string, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(String, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSeasonsModule.GetSeasonCommentsAsync(string, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSeasonsModule.GetSeasonCommentsAsync(String, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetSeasonCommentsAsync(uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetSeasonCommentsAsync(UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(uint, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(UInteger, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSeasonsModule.GetSeasonCommentsAsync(uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSeasonsModule.GetSeasonCommentsAsync(UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShow,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetSeasonCommentsAsync(TraktShow, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShow_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShow,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetSeasonCommentsAsync(TraktShow, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShow, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShow, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSeasonsModule.GetSeasonCommentsAsync(TraktShow, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSeasonsModule.GetSeasonCommentsAsync(TraktShow, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetSeasonCommentsAsync(TraktShowIDs, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetSeasonCommentsAsync(TraktShowIDs, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShowIDs, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShowIDs, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSeasonsModule.GetSeasonCommentsAsync(TraktShowIDs, uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSeasonsModule.GetSeasonCommentsAsync(TraktShowIDs, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetSeasonCommentsAsync(string, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetSeasonCommentsAsync(String, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(string, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(String, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSeasonsModule.GetSeasonCommentsAsync(string, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSeasonsModule.GetSeasonCommentsAsync(String, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetSeasonCommentsAsync(uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetSeasonCommentsAsync(UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(uint, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(UInteger, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSeasonsModule.GetSeasonCommentsAsync(uint, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSeasonsModule.GetSeasonCommentsAsync(UInteger, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShow,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetSeasonCommentsAsync(TraktShow, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShow_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShow,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetSeasonCommentsAsync(TraktShow, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShow, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShow, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSeasonsModule.GetSeasonCommentsAsync(TraktShow, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSeasonsModule.GetSeasonCommentsAsync(TraktShow, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetSeasonCommentsAsync(TraktShowIDs, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_TraktNET_TraktShowIDs_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShowIDs,System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetSeasonCommentsAsync(TraktShowIDs, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShowIDs, uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync(TraktNET.TraktShowIDs, UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSeasonsModule.GetSeasonCommentsAsync(TraktShowIDs, uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSeasonsModule.GetSeasonCommentsAsync(TraktShowIDs, UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktSeasonsModule.GetSeasonCommentsAsync*
   name: GetSeasonCommentsAsync
   href: api/TraktNET.TraktSeasonsModule.html#TraktNET_TraktSeasonsModule_GetSeasonCommentsAsync_
@@ -73903,33 +73903,33 @@ references:
   commentId: Overload:TraktNET.TraktShowsModule.GetShowCollectionProgressAsync
   fullName: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync
   nameWithType: TraktShowsModule.GetShowCollectionProgressAsync
-- uid: TraktNET.TraktShowsModule.GetShowCommentsAsync(System.String,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetShowCommentsAsync(string, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCommentsAsync_System_String_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowCommentsAsync(System.String,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetShowCommentsAsync(String, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowCommentsAsync(string, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowCommentsAsync(String, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowCommentsAsync(string, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowCommentsAsync(String, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktShowsModule.GetShowCommentsAsync(System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetShowCommentsAsync(uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCommentsAsync_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowCommentsAsync(System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetShowCommentsAsync(UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowCommentsAsync(uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowCommentsAsync(UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowCommentsAsync(uint, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowCommentsAsync(UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktShowsModule.GetShowCommentsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetShowCommentsAsync(TraktShowIDs, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCommentsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowCommentsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetShowCommentsAsync(TraktShowIDs, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowCommentsAsync(TraktNET.TraktShowIDs, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowCommentsAsync(TraktNET.TraktShowIDs, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowCommentsAsync(TraktShowIDs, TraktCommentSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowCommentsAsync(TraktShowIDs, TraktCommentSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowCommentsAsync(System.String,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetShowCommentsAsync(string, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCommentsAsync_System_String_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowCommentsAsync(System.String,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetShowCommentsAsync(String, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowCommentsAsync(string, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowCommentsAsync(String, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowCommentsAsync(string, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowCommentsAsync(String, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowCommentsAsync(System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetShowCommentsAsync(uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCommentsAsync_System_UInt32_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowCommentsAsync(System.UInt32,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetShowCommentsAsync(UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowCommentsAsync(uint, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowCommentsAsync(UInteger, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowCommentsAsync(uint, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowCommentsAsync(UInteger, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowCommentsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetShowCommentsAsync(TraktShowIDs, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCommentsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktCommentSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowCommentsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktCommentSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetShowCommentsAsync(TraktShowIDs, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowCommentsAsync(TraktNET.TraktShowIDs, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowCommentsAsync(TraktNET.TraktShowIDs, TraktNET.TraktCommentSortOrder?, TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowCommentsAsync(TraktShowIDs, TraktCommentSortOrder?, TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowCommentsAsync(TraktShowIDs, TraktCommentSortOrder?, TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktShowsModule.GetShowCommentsAsync*
   name: GetShowCommentsAsync
   href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCommentsAsync_
