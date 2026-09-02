@@ -89,6 +89,7 @@ namespace TraktNET.Json.Users
             userSettings.Browsing.WatchAfterRating.ShouldBe("always");
             userSettings.Browsing.WatchOnlyOnce.ShouldBe(true);
             userSettings.Browsing.ShowRatingPrompt.ShouldBe(false);
+            userSettings.Browsing.Locale.ShouldBe("en-US");
             userSettings.Browsing.OtherSiteRatings.ShouldBe(true);
             userSettings.Browsing.ReleaseDateIgnoreRuntime.ShouldBe(false);
             userSettings.Browsing.DisplayEarlyRatings.ShouldBe(true);

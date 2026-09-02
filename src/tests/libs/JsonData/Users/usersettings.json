@@ -71,6 +71,7 @@
         "watch_after_rating": "always",
         "watch_only_once": true,
         "show_rating_prompt": false,
+        "locale": "en-US",
         "other_site_ratings": true,
         "release_date_ignore_runtime": false,
         "display_early_ratings": true,

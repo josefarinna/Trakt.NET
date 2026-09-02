@@ -26,6 +26,9 @@ namespace TraktNET
         /// <summary>Gets or sets whether to show rating prompt.</summary>
         public bool? ShowRatingPrompt { get; set; }
 
+        /// <summary>Gets or sets the user's locale.</summary>
+        public string? Locale { get; set; }
+
         /// <summary>Gets or sets whether other site ratings are displayed.</summary>
         public bool? OtherSiteRatings { get; set; }
 
