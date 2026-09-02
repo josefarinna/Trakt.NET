@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -48,6 +48,40 @@ namespace TraktNET.GetRequests.Shows
                 Id = ShowID,
                 SortOrder = sortOrder,
                 ExtendedInfo = extendedInfo,
+                Page = (uint?)page,
+                Limit = (uint?)limit
+            };
+
+            showCommentsGetRequest.BuildUri();
+            showCommentsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
+        }
+
+        [Theory]
+        [InlineData("en", $"{URIPath}?language=en")]
+        [InlineData("es", $"{URIPath}?language=es")]
+        public void TestShowCommentsGetRequestHasValidURIPathWithLanguage(string language, string expectedURIPath)
+        {
+            var showCommentsGetRequest = new ShowCommentsGetRequest
+            {
+                Id = ShowID,
+                Language = language
+            };
+
+            showCommentsGetRequest.BuildUri();
+            showCommentsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
+        }
+
+        [Theory]
+        [InlineData(TraktCommentSortOrder.Newest, TraktExtendedInfo.VIP, "es", 10, 20, $"{URIPath}/newest?language=es&extended=vip&page=10&limit=20")]
+        public void TestShowCommentsGetRequestHasValidURIPathCombined(TraktCommentSortOrder? sortOrder,
+            TraktExtendedInfo? extendedInfo, string? language, int? page, int? limit, string expectedURIPath)
+        {
+            var showCommentsGetRequest = new ShowCommentsGetRequest
+            {
+                Id = ShowID,
+                SortOrder = sortOrder,
+                ExtendedInfo = extendedInfo,
+                Language = language,
                 Page = (uint?)page,
                 Limit = (uint?)limit
             };

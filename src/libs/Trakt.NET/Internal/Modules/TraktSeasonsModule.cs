@@ -60,7 +60,7 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktComment>> GetSeasonCommentsImplAsync(string showIDOrSlug, uint seasonNumber,
-            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
         {
             var request = new SeasonCommentsGetRequest
@@ -69,6 +69,7 @@ namespace TraktNET
                 SeasonNumber = seasonNumber,
                 SortOrder = commentSortOrder,
                 ExtendedInfo = extendedInfo,
+                Language = language,
                 Page = page,
                 Limit = limit
             };
@@ -79,6 +80,7 @@ namespace TraktNET
                     SeasonNumber = seasonNumber,
                     SortOrder = commentSortOrder,
                     ExtendedInfo = extendedInfo,
+                    Language = language,
                     Page = page,
                     Limit = limit
                 },

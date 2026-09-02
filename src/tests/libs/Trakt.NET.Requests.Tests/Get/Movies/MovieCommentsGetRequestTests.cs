@@ -56,6 +56,40 @@ namespace TraktNET.GetRequests.Movies
             movieCommentsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
+        [Theory]
+        [InlineData("en", $"{URIPath}?language=en")]
+        [InlineData("es", $"{URIPath}?language=es")]
+        public void TestMovieCommentsGetRequestHasValidURIPathWithLanguage(string language, string expectedURIPath)
+        {
+            var movieCommentsGetRequest = new MovieCommentsGetRequest
+            {
+                Id = MovieID,
+                Language = language
+            };
+
+            movieCommentsGetRequest.BuildUri();
+            movieCommentsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
+        }
+
+        [Theory]
+        [InlineData(TraktCommentSortOrder.Newest, TraktExtendedInfo.VIP, "es", 10, 20, $"{URIPath}/newest?language=es&extended=vip&page=10&limit=20")]
+        public void TestMovieCommentsGetRequestHasValidURIPathCombined(TraktCommentSortOrder? sortOrder,
+            TraktExtendedInfo? extendedInfo, string? language, int? page, int? limit, string expectedURIPath)
+        {
+            var movieCommentsGetRequest = new MovieCommentsGetRequest
+            {
+                Id = MovieID,
+                SortOrder = sortOrder,
+                ExtendedInfo = extendedInfo,
+                Language = language,
+                Page = (uint?)page,
+                Limit = (uint?)limit
+            };
+
+            movieCommentsGetRequest.BuildUri();
+            movieCommentsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
+        }
+
         [Fact]
         public void TestMovieCommentsGetRequestHasValidOAuthRequirement()
         {

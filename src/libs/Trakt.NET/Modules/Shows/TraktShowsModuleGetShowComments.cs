@@ -12,6 +12,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="language">An optional 2-character language code to filter comments by.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -33,8 +34,8 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetShowCommentsAsync(string traktShowIDOrSlug, TraktCommentSortOrder? commentSortOrder = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetShowCommentsImplAsync(traktShowIDOrSlug, commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetShowCommentsImplAsync(traktShowIDOrSlug, commentSortOrder, extendedInfo, language, page, limit, cancellationToken);
 
         /// <summary>Gets all top level comments for a <see cref="TraktShow" /> with the specified Trakt-ID.</summary>
         /// <param name="traktShowID">The show's Trakt-ID.</param>
@@ -46,6 +47,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="language">An optional 2-character language code to filter comments by.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -67,8 +69,8 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetShowCommentsAsync(uint traktShowID, TraktCommentSortOrder? commentSortOrder = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetShowCommentsAsync(traktShowID.ToInvariantCultureString(), commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetShowCommentsImplAsync(traktShowID.ToInvariantCultureString(), commentSortOrder, extendedInfo, language, page, limit, cancellationToken);
 
         /// <summary>Gets all top level comments for a <see cref="TraktShow" /> with the specified <see cref="TraktShowIDs" />.</summary>
         /// <param name="showIDs">The show's IDs. See also <seealso cref="TraktShowIDs" />.</param>
@@ -80,6 +82,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="language">An optional 2-character language code to filter comments by.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -103,7 +106,7 @@ namespace TraktNET
         /// <exception cref="ArgumentException">Thrown if the given <paramref name="showIDs" /> has not set any IDs.</exception>
         /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="showIDs" /> is null.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetShowCommentsAsync(TraktShowIDs showIDs, TraktCommentSortOrder? commentSortOrder = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(showIDs);
 
@@ -112,7 +115,7 @@ namespace TraktNET
                 throw new ArgumentException($"{nameof(showIDs)} has not any IDs set", nameof(showIDs));
             }
 
-            return GetShowCommentsAsync(showIDs.BestID, commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            return GetShowCommentsImplAsync(showIDs.BestID, commentSortOrder, extendedInfo, language, page, limit, cancellationToken);
         }
     }
 }

@@ -26,6 +26,9 @@ namespace TraktNET
         [TraktRequestParameter]
         internal TraktCommentSortOrder? SortOrder { get; set; }
 
+        [TraktRequestQuery("language")]
+        internal string? Language { get; set; }
+
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Season;
     }
 

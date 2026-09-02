@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -49,6 +49,42 @@ namespace TraktNET.GetRequests.Seasons
                 SeasonNumber = 1,
                 SortOrder = sortOrder,
                 ExtendedInfo = extendedInfo,
+                Page = (uint?)page,
+                Limit = (uint?)limit
+            };
+
+            seasonCommentsGetRequest.BuildUri();
+            seasonCommentsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
+        }
+
+        [Theory]
+        [InlineData("en", $"{URIPath}?language=en")]
+        [InlineData("es", $"{URIPath}?language=es")]
+        public void TestSeasonCommentsGetRequestHasValidURIPathWithLanguage(string language, string expectedURIPath)
+        {
+            var seasonCommentsGetRequest = new SeasonCommentsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                Language = language
+            };
+
+            seasonCommentsGetRequest.BuildUri();
+            seasonCommentsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
+        }
+
+        [Theory]
+        [InlineData(TraktCommentSortOrder.Newest, TraktExtendedInfo.VIP, "es", 10, 20, $"{URIPath}/newest?language=es&extended=vip&page=10&limit=20")]
+        public void TestSeasonCommentsGetRequestHasValidURIPathCombined(TraktCommentSortOrder? sortOrder,
+            TraktExtendedInfo? extendedInfo, string? language, int? page, int? limit, string expectedURIPath)
+        {
+            var seasonCommentsGetRequest = new SeasonCommentsGetRequest
+            {
+                ShowId = ShowID,
+                SeasonNumber = 1,
+                SortOrder = sortOrder,
+                ExtendedInfo = extendedInfo,
+                Language = language,
                 Page = (uint?)page,
                 Limit = (uint?)limit
             };
