@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.MoviesModule
 {
@@ -51,7 +51,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.TraktMovieID, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.TraktMovieID, commentSortOrder, extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -117,7 +117,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.TraktMovieID, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.TraktMovieID, commentSortOrder, extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -183,7 +183,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, commentSortOrder, extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -249,7 +249,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieSlug, commentSortOrder, extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -315,7 +315,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, commentSortOrder, extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -381,7 +381,7 @@ namespace TraktNET.MoviesModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, commentSortOrder, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.MovieIDs, commentSortOrder, extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -1031,6 +1031,23 @@ namespace TraktNET.MoviesModule
             {
                 (exception.GetType() == exceptionType).ShouldBe(true);
             }
+        }
+
+        [Theory]
+        [InlineData("es", $"{GetMovieCommentsUriPrefix}/293990/{GetMovieCommentsUriSuffix}?language=es", "Movies\\moviecomments.json")]
+        [InlineData("en", $"{GetMovieCommentsUriPrefix}/293990/{GetMovieCommentsUriSuffix}?language=en", "Movies\\moviecomments.json")]
+        public async Task TestGetMovieCommentsWithLanguage(string language, string requestUri, string responseContentFile)
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+
+            TraktPagedResponse<TraktComment> response = await client.Movies.GetMovieCommentsAsync(TestConstants.Movies.TraktMovieID, language: language, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBe(true);
+            response.HasValue.ShouldBe(true);
+            response.Content.ShouldNotBeNull();
+            response.Count.ShouldBe(2);
         }
 
         [Theory]

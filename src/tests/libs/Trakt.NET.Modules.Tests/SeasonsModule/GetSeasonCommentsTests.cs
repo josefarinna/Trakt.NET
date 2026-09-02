@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SeasonsModule
 {
@@ -196,7 +196,7 @@ namespace TraktNET.SeasonsModule
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?page={Page}",
                                                            responseContent, Page, 1, 10, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -216,7 +216,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, null, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -256,7 +256,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}", responseContent, Page, 1, 10, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -276,7 +276,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -296,7 +296,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, ExtendedInfo, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -316,7 +316,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -336,7 +336,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -356,7 +356,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -376,7 +376,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -397,7 +397,7 @@ namespace TraktNET.SeasonsModule
             TraktClient client = ModuleTestUtility.GetClient(
                 $"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -417,7 +417,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -439,7 +439,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -461,7 +461,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -483,7 +483,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -505,7 +505,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -543,7 +543,7 @@ namespace TraktNET.SeasonsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -573,6 +573,23 @@ namespace TraktNET.SeasonsModule
             response.PageCount.ShouldBe(2U);
             response.HasPreviousPage.ShouldBeTrue();
             response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Theory]
+        [InlineData("es", $"{GetSeasonCommentsUri}?language=es", "Seasons\\seasoncomments.json")]
+        [InlineData("en", $"{GetSeasonCommentsUri}?language=en", "Seasons\\seasoncomments.json")]
+        public async Task TestGetSeasonCommentsWithLanguage(string language, string requestUri, string responseContentFile)
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, 1, 1, 10, ItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, language: language, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
         }
 
         [Theory]

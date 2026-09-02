@@ -12,6 +12,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="language">An optional 2-character language code to filter comments by.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -33,8 +34,8 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetMovieCommentsAsync(string traktMovieIDOrSlug, TraktCommentSortOrder? commentSortOrder = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetMovieCommentsImplAsync(traktMovieIDOrSlug, commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetMovieCommentsImplAsync(traktMovieIDOrSlug, commentSortOrder, extendedInfo, language, page, limit, cancellationToken);
 
         /// <summary>Gets all top level comments for a <see cref="TraktMovie" /> with the specified Trakt-ID.</summary>
         /// <param name="traktMovieID">The movie's Trakt-ID.</param>
@@ -46,6 +47,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="language">An optional 2-character language code to filter comments by.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -67,8 +69,8 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetMovieCommentsAsync(uint traktMovieID, TraktCommentSortOrder? commentSortOrder = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetMovieCommentsImplAsync(traktMovieID.ToInvariantCultureString(), commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetMovieCommentsImplAsync(traktMovieID.ToInvariantCultureString(), commentSortOrder, extendedInfo, language, page, limit, cancellationToken);
 
         /// <summary>Gets all top level comments for a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.</summary>
         /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
@@ -80,6 +82,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="language">An optional 2-character language code to filter comments by.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -103,7 +106,7 @@ namespace TraktNET
         /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any IDs.</exception>
         /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIDs" /> is null.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetMovieCommentsAsync(TraktMovieIDs movieIDs, TraktCommentSortOrder? commentSortOrder = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(movieIDs);
 
@@ -112,7 +115,7 @@ namespace TraktNET
                 throw new ArgumentException($"{nameof(movieIDs)} has not any IDs set", nameof(movieIDs));
             }
 
-            return GetMovieCommentsImplAsync(movieIDs.BestID, commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            return GetMovieCommentsImplAsync(movieIDs.BestID, commentSortOrder, extendedInfo, language, page, limit, cancellationToken);
         }
     }
 }

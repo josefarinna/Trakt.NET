@@ -169,7 +169,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -189,7 +189,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, null, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -229,7 +229,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -249,7 +249,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -269,7 +269,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -289,7 +289,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, ExtendedInfo, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -309,7 +309,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -329,7 +329,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -349,7 +349,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -370,7 +370,7 @@ namespace TraktNET.ShowsModule
             TraktClient client = ModuleTestUtility.GetClient(
                 $"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, ExtendedInfo, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -391,7 +391,7 @@ namespace TraktNET.ShowsModule
             TraktClient client = ModuleTestUtility.GetClient(
                 $"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -412,7 +412,7 @@ namespace TraktNET.ShowsModule
             TraktClient client = ModuleTestUtility.GetClient(
                 $"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -432,7 +432,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -454,7 +454,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -476,7 +476,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -498,7 +498,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -520,7 +520,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -558,7 +558,7 @@ namespace TraktNET.ShowsModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetShowCommentsUriWithSlug}/{SortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, SortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -587,6 +587,23 @@ namespace TraktNET.ShowsModule
             response.PageCount.ShouldBe(2U);
             response.HasPreviousPage.ShouldBeTrue();
             response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Theory]
+        [InlineData("es", $"{GetShowCommentsUriWithSlug}?language=es", "Shows\\showcomments.json")]
+        [InlineData("en", $"{GetShowCommentsUriWithSlug}?language=en", "Shows\\showcomments.json")]
+        public async Task TestGetShowCommentsWithLanguage(string language, string requestUri, string responseContentFile)
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Shows.GetShowCommentsAsync(TestConstants.Shows.ShowSlug, language: language, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
         }
 
         [Theory]

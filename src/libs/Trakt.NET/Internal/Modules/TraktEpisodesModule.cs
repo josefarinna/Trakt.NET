@@ -21,7 +21,7 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktComment>> GetEpisodeCommentsImplAsync(string showIdOrSlug, uint seasonNumber, uint episodeNumber,
-            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
         {
             var request = new EpisodeCommentsGetRequest
@@ -31,6 +31,7 @@ namespace TraktNET
                 EpisodeNumber = episodeNumber,
                 SortOrder = commentSortOrder,
                 ExtendedInfo = extendedInfo,
+                Language = language,
                 Page = page,
                 Limit = limit
             };
@@ -43,6 +44,7 @@ namespace TraktNET
                     EpisodeNumber = episodeNumber,
                     SortOrder = commentSortOrder,
                     ExtendedInfo = extendedInfo,
+                    Language = language,
                     Page = page,
                     Limit = limit
                 }, cancellationToken);

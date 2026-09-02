@@ -13,6 +13,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="language">An optional 2-character language code to filter comments by.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -34,9 +35,9 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetSeasonCommentsAsync(string traktShowIDOrSlug, uint seasonNumber,
-            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null,
+            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetSeasonCommentsImplAsync(traktShowIDOrSlug, seasonNumber, commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            => GetSeasonCommentsImplAsync(traktShowIDOrSlug, seasonNumber, commentSortOrder, extendedInfo, language, page, limit, cancellationToken);
 
         /// <summary>Gets all top level comments for a specific <see cref="TraktSeason" /> of a Trakt show with the specified Trakt-ID.</summary>
         /// <param name="traktShowID">The show's Trakt-ID.</param>
@@ -49,6 +50,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="language">An optional 2-character language code to filter comments by.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -71,13 +73,13 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktShowID"/> is 0.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetSeasonCommentsAsync(uint traktShowID, uint seasonNumber,
-            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null,
+            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             if (traktShowID == 0)
                 throw new ArgumentException("show id must not be 0", nameof(traktShowID));
 
-            return GetSeasonCommentsAsync(traktShowID.ToInvariantCultureString(), seasonNumber, commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            return GetSeasonCommentsImplAsync(traktShowID.ToInvariantCultureString(), seasonNumber, commentSortOrder, extendedInfo, language, page, limit, cancellationToken);
         }
 
         /// <summary>Gets all top level comments for a specific <see cref="TraktSeason" /> of a Trakt show with the specified <see cref="TraktShowIDs" />.</summary>
@@ -91,6 +93,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="language">An optional 2-character language code to filter comments by.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -114,7 +117,7 @@ namespace TraktNET
         /// <exception cref="ArgumentException">Thrown if the given <paramref name="showIDs" /> has not set any IDs.</exception>
         /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="showIDs" /> is null.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetSeasonCommentsAsync(TraktShowIDs showIDs, uint seasonNumber,
-            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null,
+            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(showIDs);
@@ -122,7 +125,7 @@ namespace TraktNET
             if (!showIDs.HasAnyID)
                 throw new ArgumentException($"{nameof(showIDs)} has not any IDs set", nameof(showIDs));
 
-            return GetSeasonCommentsAsync(showIDs.BestID, seasonNumber, commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            return GetSeasonCommentsImplAsync(showIDs.BestID, seasonNumber, commentSortOrder, extendedInfo, language, page, limit, cancellationToken);
         }
 
         /// <summary>Gets all top level comments for a specific <see cref="TraktSeason" /> of a Trakt show with the specified <see cref="TraktShow" />.</summary>
@@ -136,6 +139,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="language">An optional 2-character language code to filter comments by.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -158,12 +162,12 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="show"/> is null.</exception>
         public Task<TraktPagedResponse<TraktComment>> GetSeasonCommentsAsync(TraktShow show, uint seasonNumber,
-            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null,
+            TraktCommentSortOrder? commentSortOrder = null, TraktExtendedInfo? extendedInfo = null, string? language = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(show);
 
-            return GetSeasonCommentsAsync(show.IDs!, seasonNumber, commentSortOrder, extendedInfo, page, limit, cancellationToken);
+            return GetSeasonCommentsAsync(show.IDs!, seasonNumber, commentSortOrder, extendedInfo, language, page, limit, cancellationToken);
         }
     }
 }

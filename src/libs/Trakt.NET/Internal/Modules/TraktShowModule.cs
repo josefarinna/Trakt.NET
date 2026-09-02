@@ -203,13 +203,14 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktComment>> GetShowCommentsImplAsync(string showIDOrSlug, TraktCommentSortOrder? commentSortOrder = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktExtendedInfo? extendedInfo = null, string? language = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new ShowCommentsGetRequest
             {
                 Id = showIDOrSlug,
                 SortOrder = commentSortOrder,
                 ExtendedInfo = extendedInfo,
+                Language = language,
                 Page = page,
                 Limit = limit
             };
@@ -220,6 +221,7 @@ namespace TraktNET
                     Id = showIDOrSlug,
                     SortOrder = commentSortOrder,
                     ExtendedInfo = extendedInfo,
+                    Language = language,
                     Page = page,
                     Limit = limit
                 },
