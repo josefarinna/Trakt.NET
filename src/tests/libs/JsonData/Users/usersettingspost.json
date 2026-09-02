@@ -7,6 +7,7 @@
     "dob": "1990-05-15"
   },
   "browsing": {
+    "locale": "fr-FR",
     "watchnow": {
       "country": "fr",
       "favorites": [ "netflix" ],
