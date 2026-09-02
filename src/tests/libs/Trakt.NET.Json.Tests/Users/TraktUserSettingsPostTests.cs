@@ -12,6 +12,15 @@ namespace TraktNET.Json.Users
         }
 
         [Fact]
+        public void TestTraktUserSettingsBrowsingPostConstructor()
+        {
+            var browsing = new TraktUserSettingsBrowsingPost();
+
+            browsing.ShowRatingPrompt.ShouldBeNull();
+            browsing.Watchnow.ShouldBeNull();
+        }
+
+        [Fact]
         public async Task TestTraktUserSettingsPostFromJson()
         {
             TraktUserSettingsPost? post = await TestUtility.DeserializeJsonAsync<TraktUserSettingsPost>("Users\\usersettingspost.json");
@@ -28,6 +37,7 @@ namespace TraktNET.Json.Users
 
             // Browsing
             post.Browsing.ShouldNotBeNull();
+            post.Browsing.ShowRatingPrompt.ShouldBe(true);
             post.Browsing.Watchnow.ShouldNotBeNull();
             post.Browsing.Watchnow.Country.ShouldBe("fr");
             post.Browsing.Watchnow.Favorites.ShouldNotBeNull();
