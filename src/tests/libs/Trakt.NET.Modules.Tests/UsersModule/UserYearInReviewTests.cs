@@ -6,15 +6,15 @@ namespace TraktNET.UsersModule
     {
         private const string Username = "sean";
         private const uint Year = 2024;
-        private const string URIPath = "users/sean/review/2024";
+        private const string URIPath = "users/sean/yir/2024";
 
         [Fact]
         public async Task TestGetYearInReview()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\user_activity.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\year_in_review.json");
             TraktClient client = ModuleTestUtility.GetClient(URIPath, responseContent);
 
-            TraktResponse<TraktUserActivity> response = await client.Users.GetYearInReviewAsync(Username, Year, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse<TraktUserYearInReview> response = await client.Users.GetYearInReviewAsync(Username, Year, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -25,11 +25,11 @@ namespace TraktNET.UsersModule
         [Fact]
         public async Task TestGetYearInReviewWithOAuthEnforced()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\user_activity.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\year_in_review.json");
             TraktClient client = ModuleTestUtility.GetOAuthClient(URIPath, responseContent);
             client.IgnoreOAuthIfOptional = false;
 
-            TraktResponse<TraktUserActivity> response = await client.Users.GetYearInReviewAsync(Username, Year, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse<TraktUserYearInReview> response = await client.Users.GetYearInReviewAsync(Username, Year, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -40,10 +40,10 @@ namespace TraktNET.UsersModule
         [Fact]
         public async Task TestGetYearInReviewWithOAuthEnforcedForUsernameMe()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\user_activity.json");
-            TraktClient client = ModuleTestUtility.GetOAuthClient("users/me/review/2024", responseContent);
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\year_in_review.json");
+            TraktClient client = ModuleTestUtility.GetOAuthClient("users/me/yir/2024", responseContent);
 
-            TraktResponse<TraktUserActivity> response = await client.Users.GetYearInReviewAsync("me", Year, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse<TraktUserYearInReview> response = await client.Users.GetYearInReviewAsync("me", Year, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -81,7 +81,7 @@ namespace TraktNET.UsersModule
         {
             TraktClient client = ModuleTestUtility.GetClient(URIPath, statusCode);
 
-            Func<Task<TraktResponse<TraktUserActivity>>> act = () => client.Users.GetYearInReviewAsync(Username, Year, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktUserYearInReview>>> act = () => client.Users.GetYearInReviewAsync(Username, Year, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
@@ -90,7 +90,7 @@ namespace TraktNET.UsersModule
         {
             TraktClient client = ModuleTestUtility.GetClient(URIPath, HttpStatusCode.OK);
 
-            Func<Task<TraktResponse<TraktUserActivity>>> act = () => client.Users.GetYearInReviewAsync(null!, Year, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktUserYearInReview>>> act = () => client.Users.GetYearInReviewAsync(null!, Year, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.Users.GetYearInReviewAsync(string.Empty, Year, cancellationToken: TestContext.Current.CancellationToken);

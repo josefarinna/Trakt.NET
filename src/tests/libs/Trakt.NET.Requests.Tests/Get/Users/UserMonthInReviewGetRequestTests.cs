@@ -7,8 +7,8 @@ namespace TraktNET.GetRequests.Users
     public sealed class UserMonthInReviewGetRequestTests
     {
         [Theory]
-        [InlineData("sean", 2024U, 10U, "users/sean/review/2024/10")]
-        [InlineData("sean", 2024U, 10U, "users/sean/review/2024/10?extended=full", TraktExtendedInfo.Full)]
+        [InlineData("sean", 2024U, 10U, "users/sean/mir/2024/10")]
+        [InlineData("sean", 2024U, 10U, "users/sean/mir/2024/10?extended=full", TraktExtendedInfo.Full)]
         public void TestUserMonthInReviewGetRequestHasValidURIPath(string username, uint year, uint month, string expectedURIPath, TraktExtendedInfo? extendedInfo = null)
         {
             var request = new UserMonthInReviewGetRequest

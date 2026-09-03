@@ -1,0 +1,264 @@
+{
+  "stats": {
+    "all": {
+      "minutes": {
+        "total": 125000,
+        "yearly": 125000,
+        "monthly": 10416,
+        "weekly": 2403,
+        "daily": 342
+      },
+      "play_counts": {
+        "total": 2500,
+        "yearly": 2500,
+        "monthly": 208,
+        "weekly": 48,
+        "daily": 6
+      },
+      "collected_counts": {
+        "total": 500,
+        "yearly": 500,
+        "monthly": 41,
+        "weekly": 9,
+        "daily": 1
+      },
+      "ratings_counts": {
+        "total": 350,
+        "yearly": 350,
+        "monthly": 29,
+        "weekly": 6,
+        "daily": 1
+      },
+      "comments_counts": {
+        "total": 75,
+        "yearly": 75,
+        "monthly": 6,
+        "weekly": 1,
+        "daily": 0
+      },
+      "lists_counts": {
+        "total": 10,
+        "yearly": 10,
+        "monthly": 1,
+        "weekly": 0,
+        "daily": 0
+      }
+    },
+    "shows": {
+      "minutes": {
+        "total": 75000,
+        "yearly": 75000,
+        "monthly": 6250,
+        "weekly": 1442,
+        "daily": 205
+      },
+      "play_counts": {
+        "total": 1500,
+        "yearly": 1500,
+        "monthly": 125,
+        "weekly": 28,
+        "daily": 4
+      },
+      "collected_counts": {
+        "total": 300,
+        "yearly": 300,
+        "monthly": 25,
+        "weekly": 5,
+        "daily": 1
+      },
+      "ratings_counts": {
+        "total": 200,
+        "yearly": 200,
+        "monthly": 16,
+        "weekly": 3,
+        "daily": 0
+      },
+      "comments_counts": {
+        "total": 50,
+        "yearly": 50,
+        "monthly": 4,
+        "weekly": 1,
+        "daily": 0
+      }
+    },
+    "movies": {
+      "minutes": {
+        "total": 50000,
+        "yearly": 50000,
+        "monthly": 4166,
+        "weekly": 961,
+        "daily": 137
+      },
+      "play_counts": {
+        "total": 1000,
+        "yearly": 1000,
+        "monthly": 83,
+        "weekly": 20,
+        "daily": 2
+      },
+      "collected_counts": {
+        "total": 200,
+        "yearly": 200,
+        "monthly": 16,
+        "weekly": 4,
+        "daily": 0
+      },
+      "ratings_counts": {
+        "total": 150,
+        "yearly": 150,
+        "monthly": 13,
+        "weekly": 3,
+        "daily": 1
+      },
+      "comments_counts": {
+        "total": 25,
+        "yearly": 25,
+        "monthly": 2,
+        "weekly": 0,
+        "daily": 0
+      }
+    }
+  },
+  "images": {
+    "cover": "https://walter.trakt.tv/images/cover.jpg",
+    "story": "https://walter.trakt.tv/images/story.jpg"
+  },
+  "first_watched": {
+    "watched_at": "2024-01-01T20:00:00.000Z",
+    "type": "movie",
+    "movie": {
+      "title": "Inception",
+      "year": 2010,
+      "ids": {
+        "trakt": 1,
+        "slug": "inception-2010",
+        "imdb": "tt1375666",
+        "tmdb": 27205
+      }
+    }
+  },
+  "last_watched": {
+    "watched_at": "2024-12-31T23:30:00.000Z",
+    "type": "episode",
+    "episode": {
+      "season": 1,
+      "number": 1,
+      "title": "Winter Is Coming",
+      "ids": {
+        "trakt": 73640,
+        "tvdb": 3254641,
+        "imdb": "tt1480055",
+        "tmdb": 63056
+      }
+    },
+    "show": {
+      "title": "Game of Thrones",
+      "year": 2011,
+      "ids": {
+        "trakt": 1390,
+        "slug": "game-of-thrones",
+        "tvdb": 121361,
+        "imdb": "tt0944947",
+        "tmdb": 1399
+      }
+    }
+  },
+  "countries": {
+    "shows": {
+      "country_count": 2,
+      "countries": [
+        {
+          "country": "us",
+          "count": 50
+        },
+        {
+          "country": "gb",
+          "count": 20
+        }
+      ]
+    },
+    "movies": {
+      "country_count": 2,
+      "countries": [
+        {
+          "country": "us",
+          "count": 40
+        },
+        {
+          "country": "fr",
+          "count": 10
+        }
+      ]
+    }
+  },
+  "trends": {
+    "shows": [
+      {
+        "month": 1,
+        "month_name": "January",
+        "watchers": 12000,
+        "watched": true,
+        "show": {
+          "title": "Game of Thrones",
+          "year": 2011,
+          "ids": {
+            "trakt": 1390,
+            "slug": "game-of-thrones",
+            "tvdb": 121361,
+            "imdb": "tt0944947",
+            "tmdb": 1399
+          }
+        }
+      }
+    ],
+    "movies": [
+      {
+        "month": 1,
+        "month_name": "January",
+        "watchers": 15000,
+        "watched": false,
+        "movie": {
+          "title": "Inception",
+          "year": 2010,
+          "ids": {
+            "trakt": 1,
+            "slug": "inception-2010",
+            "imdb": "tt1375666",
+            "tmdb": 27205
+          }
+        }
+      }
+    ]
+  },
+  "thanks": {
+    "shows": [
+      {
+        "show": {
+          "title": "Breaking Bad",
+          "year": 2008,
+          "ids": {
+            "trakt": 1388,
+            "slug": "breaking-bad",
+            "tvdb": 81189,
+            "imdb": "tt0903747",
+            "tmdb": 1396
+          }
+        }
+      }
+    ],
+    "movies": [
+      {
+        "movie": {
+          "title": "The Dark Knight",
+          "year": 2008,
+          "ids": {
+            "trakt": 4,
+            "slug": "the-dark-knight-2008",
+            "imdb": "tt0468569",
+            "tmdb": 155
+          }
+        }
+      }
+    ]
+  }
+}
