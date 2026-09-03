@@ -5,6 +5,10 @@ namespace TraktNET
         /// <summary>Gets the items on a list.</summary>
         /// <param name="listIdOrSlug">The id or slug of the list, for which the items should be queried.</param>
         /// <param name="listItemType">Determines, which type of list items should be queried. See also <seealso cref="TraktListItemType" />.</param>
+        /// <param name="filter">
+        /// The filter, which determines the criteria about the list items should be queried.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the list items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -32,12 +36,17 @@ namespace TraktNET
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="limit"/> is null.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetListItemsAsync(string listIdOrSlug, TraktListItemType? listItemType = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetListItemsImplAsync(listIdOrSlug, listItemType, extendedInfo, page, limit, cancellationToken);
+            TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+            => GetListItemsImplAsync(listIdOrSlug, listItemType, filter, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets the items on a list.</summary>
         /// <param name="traktListId">The list's Trakt-ID. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="listItemType">Determines, which type of list items should be queried. See also <seealso cref="TraktListItemType" />.</param>
+        /// <param name="filter">
+        /// The filter, which determines the criteria about the list items should be queried.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the list items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -64,17 +73,22 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktListId"/> is 0.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetListItemsAsync(uint traktListId, TraktListItemType? listItemType = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
         {
             if (traktListId == 0)
                 throw new ArgumentException("list id must not be 0", nameof(traktListId));
 
-            return GetListItemsAsync(traktListId.ToInvariantCultureString(), listItemType, extendedInfo, page, limit, cancellationToken);
+            return GetListItemsAsync(traktListId.ToInvariantCultureString(), listItemType, filter, extendedInfo, page, limit, cancellationToken);
         }
 
         /// <summary>Gets the items on a list.</summary>
         /// <param name="listIds">The list's ids. See also <seealso cref="TraktListIDs" />.</param>
         /// <param name="listItemType">Determines, which type of list items should be queried. See also <seealso cref="TraktListItemType" />.</param>
+        /// <param name="filter">
+        /// The filter, which determines the criteria about the list items should be queried.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the list items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -102,19 +116,24 @@ namespace TraktNET
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="listIds"/> is null.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="listIds"/> has not any ids set.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetListItemsAsync(TraktListIDs listIds, TraktListItemType? listItemType = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(listIds);
             
             if (!listIds.HasAnyID)
                 throw new ArgumentException($"{nameof(listIds)} has not any ids set", nameof(listIds));
 
-            return GetListItemsAsync(listIds.BestID, listItemType, extendedInfo, page, limit, cancellationToken);
+            return GetListItemsAsync(listIds.BestID, listItemType, filter, extendedInfo, page, limit, cancellationToken);
         }
 
         /// <summary>Gets the items on a list.</summary>
         /// <param name="list">The list. See also <seealso cref="TraktList" />.</param>
         /// <param name="listItemType">Determines, which type of list items should be queried. See also <seealso cref="TraktListItemType" />.</param>
+        /// <param name="filter">
+        /// The filter, which determines the criteria about the list items should be queried.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the list items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -141,11 +160,12 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="list"/> is null.</exception>
         public Task<TraktPagedResponse<TraktListItem>> GetListItemsAsync(TraktList list, TraktListItemType? listItemType = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(list);
             
-            return GetListItemsAsync(list.IDs!, listItemType, extendedInfo, page, limit, cancellationToken);
+            return GetListItemsAsync(list.IDs!, listItemType, filter, extendedInfo, page, limit, cancellationToken);
         }
     }
 }

@@ -348,8 +348,8 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktHistoryItem>> GetWatchedHistoryImplAsync(string usernameOrSlug, TraktSyncItemType? historyItemType = null,
-            uint? itemId = null, DateTime? startAt = null, DateTime? endAt = null, TraktExtendedInfo? extendedInfo = null,
-            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            uint? itemId = null, DateTime? startAt = null, DateTime? endAt = null, TraktFilter? filter = null,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new UserWatchedHistoryGetRequest
             {
@@ -359,6 +359,7 @@ namespace TraktNET
                 StartAt = startAt,
                 EndAt = endAt,
                 ExtendedInfo = extendedInfo,
+                Filter = filter,
                 Page = page,
                 Limit = limit
             };
@@ -372,6 +373,7 @@ namespace TraktNET
                     StartAt = startAt,
                     EndAt = endAt,
                     ExtendedInfo = extendedInfo,
+                    Filter = filter,
                     Page = page,
                     Limit = limit
                 }, cancellationToken);
@@ -750,8 +752,8 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktListItem>> GetPersonalListItemsImplAsync(string usernameOrSlug, string listIdOrSlug,
-            TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
-            CancellationToken cancellationToken = default)
+            TraktListItemType? listItemType = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(page);
             ArgumentValidator.ThrowIfNull(limit);
@@ -762,6 +764,7 @@ namespace TraktNET
                 ListId = listIdOrSlug,
                 Type = listItemType,
                 ExtendedInfo = extendedInfo,
+                Filter = filter,
                 Page = page,
                 Limit = limit
             };
@@ -773,6 +776,7 @@ namespace TraktNET
                     ListId = listIdOrSlug,
                     Type = listItemType,
                     ExtendedInfo = extendedInfo,
+                    Filter = filter,
                     Page = page,
                     Limit = limit
                 }, cancellationToken);

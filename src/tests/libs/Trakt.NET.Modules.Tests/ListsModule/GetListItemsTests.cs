@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.ListsModule
 {
@@ -21,7 +21,7 @@ namespace TraktNET.ListsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(TraktListID, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(TraktListID, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -46,7 +46,7 @@ namespace TraktNET.ListsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(listIDs, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(listIDs, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -71,7 +71,7 @@ namespace TraktNET.ListsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"lists/{ListSlug}/items?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(listIDs, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(listIDs, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -97,7 +97,7 @@ namespace TraktNET.ListsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"lists/{ListSlug}/items?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(listIDs, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(listIDs, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -126,7 +126,7 @@ namespace TraktNET.ListsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"lists/{ListSlug}/items?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(list, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(list, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -146,7 +146,7 @@ namespace TraktNET.ListsModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(ListID, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Lists.GetListItemsAsync(ListID, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -168,7 +168,31 @@ namespace TraktNET.ListsModule
                 $"?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, null, Page, Limit, TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(ListID, ListItemType, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetListItemsWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
+
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetListItemsUri}?query=batman&page={Page}&limit={Limit}",
+                responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktListItem> response =
+                await client.Lists.GetListItemsAsync(ListID, filter: filter, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -191,7 +215,7 @@ namespace TraktNET.ListsModule
                 responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(ListID, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -214,7 +238,7 @@ namespace TraktNET.ListsModule
                 responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -237,7 +261,7 @@ namespace TraktNET.ListsModule
                 responseContent, 2, 5, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -262,7 +286,7 @@ namespace TraktNET.ListsModule
                 responseContent, 2, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -287,7 +311,7 @@ namespace TraktNET.ListsModule
                 responseContent, 1, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -312,7 +336,7 @@ namespace TraktNET.ListsModule
                 responseContent, 1, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -337,7 +361,7 @@ namespace TraktNET.ListsModule
                 responseContent, 2, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -380,7 +404,7 @@ namespace TraktNET.ListsModule
                 responseContent, 1, 2, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Lists.GetListItemsAsync(ListID, ListItemType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+                await client.Lists.GetListItemsAsync(ListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -443,7 +467,7 @@ namespace TraktNET.ListsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetListItemsUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktListItem>>> act = () => client.Lists.GetListItemsAsync(ListID, null, null, 1, 10, TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktListItem>>> act = () => client.Lists.GetListItemsAsync(ListID, page: 1, limit: 10, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
@@ -464,10 +488,10 @@ namespace TraktNET.ListsModule
             act = () => client.Lists.GetListItemsAsync(0);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Lists.GetListItemsAsync(ListID, null, null, null, 10, TestContext.Current.CancellationToken);
+            act = () => client.Lists.GetListItemsAsync(ListID, page: null, limit: 10, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.Lists.GetListItemsAsync(ListID, null, null, 1, null, TestContext.Current.CancellationToken);
+            act = () => client.Lists.GetListItemsAsync(ListID, page: 1, limit: null, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
         }
     }

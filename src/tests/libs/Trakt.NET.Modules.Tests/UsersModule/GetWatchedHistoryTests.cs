@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Net;
 
 namespace TraktNET.UsersModule
@@ -186,7 +186,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, StartAt,
-                                                          EndAt, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                                                          EndAt, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -211,7 +211,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, StartAt, EndAt,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -236,7 +236,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, StartAt, EndAt,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -261,7 +261,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, StartAt,
-                                                          null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                                                          null, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -286,7 +286,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, StartAt, null,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -311,7 +311,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, StartAt, null,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -336,7 +336,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, StartAt, null,
-                                                          ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -361,7 +361,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, StartAt,
-                                                          null, null, Page, null, TestContext.Current.CancellationToken);
+                                                          null, null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -386,7 +386,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, StartAt,
-                                                          null, null, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, null, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -411,7 +411,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, StartAt,
-                                                          null, null, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, null, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -436,7 +436,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, null,
-                                                          EndAt, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                                                          EndAt, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -461,7 +461,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, null, EndAt,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -486,7 +486,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, null, EndAt,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -511,7 +511,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID, null, EndAt,
-                                                          ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -536,7 +536,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID,
-                                                          null, EndAt, null, Page, null, TestContext.Current.CancellationToken);
+                                                          null, EndAt, null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -561,7 +561,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID,
-                                                          null, EndAt, null, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, EndAt, null, null, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -586,7 +586,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID,
-                                                          null, EndAt, null, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, EndAt, null, null, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -611,7 +611,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt,
-                                                          null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                                                          null, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -636,7 +636,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, null,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -661,7 +661,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, null,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -686,7 +686,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, null,
-                                                          ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -733,7 +733,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, null,
-                                                          null, Page, null, TestContext.Current.CancellationToken);
+                                                          null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -757,7 +757,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, null,
-                                                          null, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -782,7 +782,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, null,
-                                                          null, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -807,7 +807,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt,
-                                                          EndAt, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                                                          EndAt, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -832,7 +832,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, EndAt,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -857,7 +857,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, EndAt,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -882,7 +882,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, EndAt,
-                                                          ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -930,7 +930,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, EndAt,
-                                                          null, Page, null, TestContext.Current.CancellationToken);
+                                                          null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -955,7 +955,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, EndAt,
-                                                          null, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -980,7 +980,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, StartAt, EndAt,
-                                                          null, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1004,7 +1004,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null,
-                                                          EndAt, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                                                          EndAt, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1029,7 +1029,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null, EndAt,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1054,7 +1054,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null, EndAt,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1079,7 +1079,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null, EndAt,
-                                                          ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1126,7 +1126,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null,
-                                                          EndAt, null, Page, null, TestContext.Current.CancellationToken);
+                                                          EndAt, null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1150,7 +1150,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null,
-                                                          EndAt, null, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          EndAt, null, null, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1175,7 +1175,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null, EndAt,
-                                                          null, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1199,7 +1199,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null,
-                                                          null, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                                                          null, null, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1223,7 +1223,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null, null,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1247,7 +1247,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null, null,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1272,7 +1272,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null, null,
-                                                          ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1296,7 +1296,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null, null,
-                                                          null, Page, null, TestContext.Current.CancellationToken);
+                                                          null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1320,7 +1320,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null, null,
-                                                          null, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1344,7 +1344,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, null, null, null,
-                                                          null, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1368,7 +1368,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt,
-                                                          null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                                                          null, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1392,7 +1392,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, null,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1416,7 +1416,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, null,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1441,7 +1441,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, null,
-                                                          ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1487,7 +1487,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 1, 10, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, EndAt, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, EndAt, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1512,7 +1512,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, EndAt,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1537,7 +1537,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, EndAt,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1562,7 +1562,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, EndAt,
-                                                          ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1609,7 +1609,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, EndAt,
-                                                          null, Page, null, TestContext.Current.CancellationToken);
+                                                          null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1633,7 +1633,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, EndAt,
-                                                          null, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1658,7 +1658,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, EndAt,
-                                                          null, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1682,7 +1682,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, null,
-                                                          null, Page, null, TestContext.Current.CancellationToken);
+                                                          null, null, Page, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1706,7 +1706,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, null,
-                                                          null, null, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, null, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1730,7 +1730,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, null, null, StartAt, null,
-                                                          null, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          null, null, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1753,8 +1753,8 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 1, 10, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null,
-                                                          EndAt, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, endAt: EndAt, extendedInfo: ExtendedInfo,
+                                                          cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1777,8 +1777,8 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, 10, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, EndAt,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, endAt: EndAt, extendedInfo: ExtendedInfo,
+                                                          page: Page, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1801,8 +1801,8 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 1, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, EndAt,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, endAt: EndAt, extendedInfo: ExtendedInfo,
+                                                          limit: HistoryLimit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1826,8 +1826,8 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, EndAt,
-                                                          ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, endAt: EndAt, extendedInfo: ExtendedInfo,
+                                                          page: Page, limit: HistoryLimit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1873,8 +1873,7 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, 10, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, EndAt,
-                                                          null, Page, null, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, endAt: EndAt, page: Page, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1897,8 +1896,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 1, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, EndAt,
-                                                          null, null, HistoryLimit, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, endAt: EndAt, limit: HistoryLimit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1921,8 +1919,7 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, EndAt,
-                                                          null, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, endAt: EndAt, page: Page, limit: HistoryLimit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1945,8 +1942,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 1, 10, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null,
-                                                          null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, extendedInfo: ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1969,8 +1965,7 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, 10, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, null,
-                                                          ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, extendedInfo: ExtendedInfo, page: Page, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -1993,8 +1988,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 1, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, null,
-                                                          ExtendedInfo, null, HistoryLimit, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, extendedInfo: ExtendedInfo, limit: HistoryLimit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -2017,8 +2011,7 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, null,
-                                                          ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, extendedInfo: ExtendedInfo, page: Page, limit: HistoryLimit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -2041,8 +2034,7 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, 10, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, null,
-                                                          null, Page, null, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, page: Page, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -2065,8 +2057,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 1, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, null,
-                                                          null, null, HistoryLimit, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, limit: HistoryLimit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -2089,14 +2080,37 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
-                await client.Users.GetWatchedHistoryAsync(Username, null, null, null, null,
-                                                          null, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                await client.Users.GetWatchedHistoryAsync(Username, page: Page, limit: HistoryLimit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 			response.Content.Count.ShouldBe((int)HistoryItemCount);
+            response.ItemCount.ShouldBe(HistoryItemCount);
+            response.Limit.ShouldBe(HistoryLimit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetWatchedHistoryWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\history.json");
+
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetWatchedHistoryUri}?query=batman&page={Page}&limit={HistoryLimit}",
+                responseContent, Page, 1, HistoryLimit, HistoryItemCount);
+
+            TraktPagedResponse<TraktHistoryItem> response =
+                await client.Users.GetWatchedHistoryAsync(Username, filter: filter, page: Page, limit: HistoryLimit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)HistoryItemCount);
             response.ItemCount.ShouldBe(HistoryItemCount);
             response.Limit.ShouldBe(HistoryLimit);
             response.Page.ShouldBe(Page);
@@ -2116,7 +2130,7 @@ namespace TraktNET.UsersModule
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID,
-                                                          StartAt, EndAt, ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          StartAt, EndAt, null, ExtendedInfo, Page, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -2137,12 +2151,12 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetClient(
                 $"{GetWatchedHistoryUri}/{HistoryItemType.ToURI()}/{HistoryItemID}" +
                 $"?start_at={HistoryStartAt}&end_at={HistoryEndAt}" +
-                $"&extended={ExtendedInfo.ToURI()}&page=2&limit={HistoryLimit}",
+                $"&extended={ExtendedInfo.ToURI()}&page={2}&limit={HistoryLimit}",
                 responseContent, 2, 5, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID,
-                                                          StartAt, EndAt, ExtendedInfo, 2, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          StartAt, EndAt, null, ExtendedInfo, 2, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -2165,12 +2179,12 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetClient(
                 $"{GetWatchedHistoryUri}/{HistoryItemType.ToURI()}/{HistoryItemID}" +
                 $"?start_at={HistoryStartAt}&end_at={HistoryEndAt}" +
-                $"&extended={ExtendedInfo.ToURI()}&page=2&limit={HistoryLimit}",
+                $"&extended={ExtendedInfo.ToURI()}&page={2}&limit={HistoryLimit}",
                 responseContent, 2, 2, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID,
-                                                          StartAt, EndAt, ExtendedInfo, 2, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          StartAt, EndAt, null, ExtendedInfo, 2, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -2193,12 +2207,12 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetClient(
                 $"{GetWatchedHistoryUri}/{HistoryItemType.ToURI()}/{HistoryItemID}" +
                 $"?start_at={HistoryStartAt}&end_at={HistoryEndAt}" +
-                $"&extended={ExtendedInfo.ToURI()}&page=1&limit={HistoryLimit}",
+                $"&extended={ExtendedInfo.ToURI()}&page={1}&limit={HistoryLimit}",
                 responseContent, 1, 2, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID,
-                                                          StartAt, EndAt, ExtendedInfo, 1, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          StartAt, EndAt, null, ExtendedInfo, 1, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -2221,12 +2235,12 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetClient(
                 $"{GetWatchedHistoryUri}/{HistoryItemType.ToURI()}/{HistoryItemID}" +
                 $"?start_at={HistoryStartAt}&end_at={HistoryEndAt}" +
-                $"&extended={ExtendedInfo.ToURI()}&page=1&limit={HistoryLimit}",
+                $"&extended={ExtendedInfo.ToURI()}&page={1}&limit={HistoryLimit}",
                 responseContent, 1, 1, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID,
-                                                          StartAt, EndAt, ExtendedInfo, 1, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          StartAt, EndAt, null, ExtendedInfo, 1, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -2249,12 +2263,12 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetClient(
                 $"{GetWatchedHistoryUri}/{HistoryItemType.ToURI()}/{HistoryItemID}" +
                 $"?start_at={HistoryStartAt}&end_at={HistoryEndAt}" +
-                $"&extended={ExtendedInfo.ToURI()}&page=2&limit={HistoryLimit}",
+                $"&extended={ExtendedInfo.ToURI()}&page={2}&limit={HistoryLimit}",
                 responseContent, 2, 2, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID,
-                                                          StartAt, EndAt, ExtendedInfo, 2, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          StartAt, EndAt, null, ExtendedInfo, 2, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -2271,7 +2285,7 @@ namespace TraktNET.UsersModule
             ModuleTestUtility.SetClient(client,
                 $"{GetWatchedHistoryUri}/{HistoryItemType.ToURI()}/{HistoryItemID}" +
                 $"?start_at={HistoryStartAt}&end_at={HistoryEndAt}" +
-                $"&extended={ExtendedInfo.ToURI()}&page=1&limit={HistoryLimit}",
+                $"&extended={ExtendedInfo.ToURI()}&page={1}&limit={HistoryLimit}",
                 responseContent, 1, 2, HistoryLimit, HistoryItemCount);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
@@ -2297,12 +2311,12 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetClient(
                 $"{GetWatchedHistoryUri}/{HistoryItemType.ToURI()}/{HistoryItemID}" +
                 $"?start_at={HistoryStartAt}&end_at={HistoryEndAt}" +
-                $"&extended={ExtendedInfo.ToURI()}&page=1&limit={HistoryLimit}",
+                $"&extended={ExtendedInfo.ToURI()}&page={1}&limit={HistoryLimit}",
                 responseContent, 1, 2, HistoryLimit, HistoryItemCount);
 
             TraktPagedResponse<TraktHistoryItem> response =
                 await client.Users.GetWatchedHistoryAsync(Username, HistoryItemType, HistoryItemID,
-                                                          StartAt, EndAt, ExtendedInfo, 1, HistoryLimit, TestContext.Current.CancellationToken);
+                                                          StartAt, EndAt, null, ExtendedInfo, 1, HistoryLimit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();

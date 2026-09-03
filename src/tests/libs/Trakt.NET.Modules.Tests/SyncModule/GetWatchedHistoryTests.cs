@@ -113,6 +113,27 @@ namespace TraktNET.SyncModule
         }
 
         [Fact]
+        public async Task TestGetWatchedHistoryWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedhistory.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedHistoryUri}?query=batman&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+
+            TraktPagedResponse<TraktHistoryItem> response = await client.Sync.GetWatchedHistoryAsync(filter: filter, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
         public async Task TestGetWatchedHistoryComplete()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedhistory.json");

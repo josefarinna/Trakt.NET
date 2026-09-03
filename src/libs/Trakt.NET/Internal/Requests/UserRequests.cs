@@ -132,6 +132,9 @@ namespace TraktNET
     {
         [TraktRequestParameter]
         internal TraktListItemType? Type { get; set; }
+
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("users/{id!!}/lists", OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
@@ -193,6 +196,9 @@ namespace TraktNET
 
         [TraktRequestQuery("end_at", UseCacheEfficientDateTime = true)]
         internal DateTime? EndAt { get; set; }
+
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
 
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.User;
     }

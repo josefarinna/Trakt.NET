@@ -62,6 +62,21 @@ namespace TraktNET.GetRequests.Users
         }
 
         [Fact]
+        public void TestUserPersonalListItemsGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            var request = new UserPersonalListItemsGetRequest
+            {
+                Id = "123",
+                ListId = "123",
+                Filter = filter
+            };
+
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"{URIPath}?query=batman", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestUserPersonalListItemsGetRequestHasValidOAuthRequirement()
         {
             var userPersonalListItemsGetRequest = new UserPersonalListItemsGetRequest { Id = default!, ListId = default! };

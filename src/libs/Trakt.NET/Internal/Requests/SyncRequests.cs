@@ -54,7 +54,8 @@ namespace TraktNET
     {
     }
 
-    [TraktGetRequest("sync/playback", SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktGetRequest("sync/playback", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncPlaybackProgressGetRequest
     {
         [TraktRequestParameter]
@@ -65,6 +66,9 @@ namespace TraktNET
 
         [TraktRequestQuery("end_at")]
         internal DateTime? EndAt { get; set; }
+
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("sync/ratings", SupportsExtendedInfo = true, SupportsPagination = true,
@@ -93,6 +97,9 @@ namespace TraktNET
 
         [TraktRequestQuery("end_at")]
         internal DateTime? EndAt { get; set; }
+
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
     }
 
     [TraktGetRequest("sync/watched/movies", SupportsExtendedInfo = true, SupportsPagination = true,
