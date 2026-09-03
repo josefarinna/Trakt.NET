@@ -906,6 +906,51 @@ namespace TraktNET
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetWatchedEpisodesImplAsync(usernameOrSlug, extendedInfo, page, limit, cancellationToken);
 
+        /// <summary>Gets all movies an user has watched in a minimal format.</summary>
+        /// <param name="usernameOrSlug">The username or slug of the user, for which the watched movies should be queried.</param>
+        /// <param name="page">Specifies the page which should be queried.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried watched movies.</returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para><see href="https://docs.trakt.tv/reference/getuserswatchedminimalmovies">
+        /// Trakt API Documentation: Users: Watched Minimal Movies
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown if validation of request data fails.</exception>
+        public Task<TraktResponse<Dictionary<string, List<string>>>> GetMinimalWatchedMoviesAsync(string usernameOrSlug,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetMinimalWatchedMoviesImplAsync(usernameOrSlug, page, limit, cancellationToken);
+
+        /// <summary>Gets all shows an user has watched in a minimal format.</summary>
+        /// <param name="usernameOrSlug">The username or slug of the user, for which the watched shows should be queried.</param>
+        /// <param name="specials">Whether to include special seasons as season 0.</param>
+        /// <param name="seasonNumbers">Whether to include season numbers.</param>
+        /// <param name="page">Specifies the page which should be queried.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried watched shows.</returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para><see href="https://docs.trakt.tv/reference/getuserswatchedminimalshows">
+        /// Trakt API Documentation: Users: Watched Minimal Shows
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown if validation of request data fails.</exception>
+        public Task<TraktResponse<Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>>> GetMinimalWatchedShowsAsync(
+            string usernameOrSlug, bool? specials = null, bool? seasonNumbers = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetMinimalWatchedShowsImplAsync(usernameOrSlug, specials, seasonNumbers, page, limit, cancellationToken);
+
         /// <summary>Gets statistics about the movies, shows and episodes an user has watched.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the statistics should be queried.</param>
         /// <param name="cancellationToken">

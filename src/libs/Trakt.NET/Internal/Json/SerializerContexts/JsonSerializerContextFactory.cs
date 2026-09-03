@@ -815,7 +815,9 @@ namespace TraktNET
             typeof(TraktUserSync),
             typeof(TraktUserSyncItem),
             typeof(TraktUserYearInReview),
-            typeof(TraktUserMonthInReview)
+            typeof(TraktUserMonthInReview),
+            typeof(Dictionary<string, List<string>>),
+            typeof(Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>)
         });
 
         private static readonly FrozenSet<Type> s_watchedJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -1388,7 +1390,9 @@ namespace TraktNET
             typeof(TraktUserSync),
             typeof(TraktUserSyncItem),
             typeof(TraktUserYearInReview),
-            typeof(TraktUserMonthInReview)
+            typeof(TraktUserMonthInReview),
+            typeof(Dictionary<string, List<string>>),
+            typeof(Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>)
         ];
 
         private static readonly HashSet<Type> s_watchedJsonTypes = [

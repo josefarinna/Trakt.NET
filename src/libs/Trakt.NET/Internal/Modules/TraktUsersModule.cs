@@ -603,6 +603,37 @@ namespace TraktNET
                 }, cancellationToken);
         }
 
+        private Task<TraktResponse<Dictionary<string, List<string>>>> GetMinimalWatchedMoviesImplAsync(string usernameOrSlug,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new UserWatchedMinimalMoviesGetRequest
+            {
+                Id = usernameOrSlug,
+                ExtendedInfo = TraktExtendedInfo.Min,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, List<string>>>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>>> GetMinimalWatchedShowsImplAsync(
+            string usernameOrSlug, bool? specials = null, bool? seasonNumbers = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new UserWatchedMinimalShowsGetRequest
+            {
+                Id = usernameOrSlug,
+                ExtendedInfo = TraktExtendedInfo.Min,
+                Specials = specials,
+                SeasonNumbers = seasonNumbers,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>>(_context, request, cancellationToken);
+        }
+
         private Task<TraktResponse<TraktUserStatistics>> GetStatisticsImplAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
         {
             var request = new UserStatisticsGetRequest
