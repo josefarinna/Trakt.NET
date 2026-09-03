@@ -40948,42 +40948,42 @@ references:
   commentId: Overload:TraktNET.TraktListsModule.GetListCommentsAsync
   fullName: TraktNET.TraktListsModule.GetListCommentsAsync
   nameWithType: TraktListsModule.GetListCommentsAsync
-- uid: TraktNET.TraktListsModule.GetListItemsAsync(System.String,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetListItemsAsync(string, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktListsModule.html#TraktNET_TraktListsModule_GetListItemsAsync_System_String_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktListsModule.GetListItemsAsync(System.String,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetListItemsAsync(String, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktListsModule.GetListItemsAsync(string, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktListsModule.GetListItemsAsync(String, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktListsModule.GetListItemsAsync(string, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktListsModule.GetListItemsAsync(String, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktListsModule.GetListItemsAsync(System.UInt32,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetListItemsAsync(uint, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktListsModule.html#TraktNET_TraktListsModule_GetListItemsAsync_System_UInt32_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktListsModule.GetListItemsAsync(System.UInt32,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetListItemsAsync(UInteger, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktListsModule.GetListItemsAsync(uint, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktListsModule.GetListItemsAsync(UInteger, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktListsModule.GetListItemsAsync(uint, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktListsModule.GetListItemsAsync(UInteger, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetListItemsAsync(TraktList, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktListsModule.html#TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetListItemsAsync(TraktList, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktList, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktList, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktListsModule.GetListItemsAsync(TraktList, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktListsModule.GetListItemsAsync(TraktList, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetListItemsAsync(TraktListIDs, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktListsModule.html#TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetListItemsAsync(TraktListIDs, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktListIDs, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktListIDs, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktListsModule.GetListItemsAsync(TraktListIDs, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktListsModule.GetListItemsAsync(TraktListIDs, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktListsModule.GetListItemsAsync(System.String,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetListItemsAsync(string, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktListsModule.html#TraktNET_TraktListsModule_GetListItemsAsync_System_String_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktListsModule.GetListItemsAsync(System.String,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetListItemsAsync(String, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktListsModule.GetListItemsAsync(string, TraktNET.TraktListItemType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktListsModule.GetListItemsAsync(String, TraktNET.TraktListItemType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktListsModule.GetListItemsAsync(string, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktListsModule.GetListItemsAsync(String, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktListsModule.GetListItemsAsync(System.UInt32,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetListItemsAsync(uint, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktListsModule.html#TraktNET_TraktListsModule_GetListItemsAsync_System_UInt32_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktListsModule.GetListItemsAsync(System.UInt32,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetListItemsAsync(UInteger, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktListsModule.GetListItemsAsync(uint, TraktNET.TraktListItemType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktListsModule.GetListItemsAsync(UInteger, TraktNET.TraktListItemType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktListsModule.GetListItemsAsync(uint, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktListsModule.GetListItemsAsync(UInteger, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetListItemsAsync(TraktList, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktListsModule.html#TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetListItemsAsync(TraktList, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktList, TraktNET.TraktListItemType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktList, TraktNET.TraktListItemType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktListsModule.GetListItemsAsync(TraktList, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktListsModule.GetListItemsAsync(TraktList, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetListItemsAsync(TraktListIDs, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktListsModule.html#TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetListItemsAsync(TraktListIDs, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktListIDs, TraktNET.TraktListItemType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktListIDs, TraktNET.TraktListItemType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktListsModule.GetListItemsAsync(TraktListIDs, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktListsModule.GetListItemsAsync(TraktListIDs, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktListsModule.GetListItemsAsync*
   name: GetListItemsAsync
   href: api/TraktNET.TraktListsModule.html#TraktNET_TraktListsModule_GetListItemsAsync_
@@ -86065,15 +86065,15 @@ references:
   commentId: Overload:TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync
   fullName: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync
   nameWithType: TraktSyncModule.GetMinimalShowCollectionAsync
-- uid: TraktNET.TraktSyncModule.GetPlaybackProgressAsync(System.Nullable{TraktNET.TraktSyncType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetPlaybackProgressAsync(TraktSyncType?, DateTime?, DateTime?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetPlaybackProgressAsync_System_Nullable_TraktNET_TraktSyncType__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSyncModule.GetPlaybackProgressAsync(System.Nullable{TraktNET.TraktSyncType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetPlaybackProgressAsync(TraktSyncType?, Date?, Date?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSyncModule.GetPlaybackProgressAsync(TraktNET.TraktSyncType?, System.DateTime?, System.DateTime?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSyncModule.GetPlaybackProgressAsync(TraktNET.TraktSyncType?, Date?, Date?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSyncModule.GetPlaybackProgressAsync(TraktSyncType?, DateTime?, DateTime?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSyncModule.GetPlaybackProgressAsync(TraktSyncType?, Date?, Date?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetPlaybackProgressAsync(System.Nullable{TraktNET.TraktSyncType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetPlaybackProgressAsync(TraktSyncType?, DateTime?, DateTime?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetPlaybackProgressAsync_System_Nullable_TraktNET_TraktSyncType__System_Nullable_System_DateTime__System_Nullable_System_DateTime__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetPlaybackProgressAsync(System.Nullable{TraktNET.TraktSyncType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetPlaybackProgressAsync(TraktSyncType?, Date?, Date?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetPlaybackProgressAsync(TraktNET.TraktSyncType?, System.DateTime?, System.DateTime?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSyncModule.GetPlaybackProgressAsync(TraktNET.TraktSyncType?, Date?, Date?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetPlaybackProgressAsync(TraktSyncType?, DateTime?, DateTime?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSyncModule.GetPlaybackProgressAsync(TraktSyncType?, Date?, Date?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktSyncModule.GetPlaybackProgressAsync*
   name: GetPlaybackProgressAsync
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetPlaybackProgressAsync_
@@ -86140,15 +86140,15 @@ references:
   commentId: Overload:TraktNET.TraktSyncModule.GetWatchedEpisodesAsync
   fullName: TraktNET.TraktSyncModule.GetWatchedEpisodesAsync
   nameWithType: TraktSyncModule.GetWatchedEpisodesAsync
-- uid: TraktNET.TraktSyncModule.GetWatchedHistoryAsync(System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetWatchedHistoryAsync(TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetWatchedHistoryAsync_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSyncModule.GetWatchedHistoryAsync(System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetWatchedHistoryAsync(TraktSyncItemType?, UInteger?, Date?, Date?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSyncModule.GetWatchedHistoryAsync(TraktNET.TraktSyncItemType?, uint?, System.DateTime?, System.DateTime?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSyncModule.GetWatchedHistoryAsync(TraktNET.TraktSyncItemType?, UInteger?, Date?, Date?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSyncModule.GetWatchedHistoryAsync(TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSyncModule.GetWatchedHistoryAsync(TraktSyncItemType?, UInteger?, Date?, Date?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetWatchedHistoryAsync(System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetWatchedHistoryAsync(TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetWatchedHistoryAsync_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetWatchedHistoryAsync(System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetWatchedHistoryAsync(TraktSyncItemType?, UInteger?, Date?, Date?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetWatchedHistoryAsync(TraktNET.TraktSyncItemType?, uint?, System.DateTime?, System.DateTime?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSyncModule.GetWatchedHistoryAsync(TraktNET.TraktSyncItemType?, UInteger?, Date?, Date?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetWatchedHistoryAsync(TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSyncModule.GetWatchedHistoryAsync(TraktSyncItemType?, UInteger?, Date?, Date?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktSyncModule.GetWatchedHistoryAsync*
   name: GetWatchedHistoryAsync
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetWatchedHistoryAsync_
@@ -118411,42 +118411,42 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.GetPersonalListAsync
   fullName: TraktNET.TraktUsersModule.GetPersonalListAsync
   nameWithType: TraktUsersModule.GetPersonalListAsync
-- uid: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.String,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetPersonalListItemsAsync(string, string, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_String_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.String,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetPersonalListItemsAsync(String, String, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(string, string, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(String, String, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktUsersModule.GetPersonalListItemsAsync(string, string, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktUsersModule.GetPersonalListItemsAsync(String, String, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetPersonalListItemsAsync(string, uint, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetPersonalListItemsAsync(String, UInteger, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(string, uint, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(String, UInteger, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktUsersModule.GetPersonalListItemsAsync(string, uint, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktUsersModule.GetPersonalListItemsAsync(String, UInteger, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetPersonalListItemsAsync(string, TraktList, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetPersonalListItemsAsync(String, TraktList, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(string, TraktNET.TraktList, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(String, TraktNET.TraktList, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktUsersModule.GetPersonalListItemsAsync(string, TraktList, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktUsersModule.GetPersonalListItemsAsync(String, TraktList, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetPersonalListItemsAsync(string, TraktListIDs, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetPersonalListItemsAsync(String, TraktListIDs, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(string, TraktNET.TraktListIDs, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(String, TraktNET.TraktListIDs, TraktNET.TraktListItemType?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktUsersModule.GetPersonalListItemsAsync(string, TraktListIDs, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktUsersModule.GetPersonalListItemsAsync(String, TraktListIDs, TraktListItemType?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.String,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetPersonalListItemsAsync(string, string, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_String_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.String,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetPersonalListItemsAsync(String, String, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(string, string, TraktNET.TraktListItemType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(String, String, TraktNET.TraktListItemType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetPersonalListItemsAsync(string, string, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetPersonalListItemsAsync(String, String, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetPersonalListItemsAsync(string, uint, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetPersonalListItemsAsync(String, UInteger, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(string, uint, TraktNET.TraktListItemType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(String, UInteger, TraktNET.TraktListItemType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetPersonalListItemsAsync(string, uint, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetPersonalListItemsAsync(String, UInteger, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetPersonalListItemsAsync(string, TraktList, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetPersonalListItemsAsync(String, TraktList, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(string, TraktNET.TraktList, TraktNET.TraktListItemType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(String, TraktNET.TraktList, TraktNET.TraktListItemType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetPersonalListItemsAsync(string, TraktList, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetPersonalListItemsAsync(String, TraktList, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetPersonalListItemsAsync(string, TraktListIDs, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetPersonalListItemsAsync(String, TraktListIDs, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(string, TraktNET.TraktListIDs, TraktNET.TraktListItemType?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetPersonalListItemsAsync(String, TraktNET.TraktListIDs, TraktNET.TraktListItemType?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetPersonalListItemsAsync(string, TraktListIDs, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetPersonalListItemsAsync(String, TraktListIDs, TraktListItemType?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktUsersModule.GetPersonalListItemsAsync*
   name: GetPersonalListItemsAsync
   href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListItemsAsync_
@@ -118741,15 +118741,15 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.GetWatchedEpisodesAsync
   fullName: TraktNET.TraktUsersModule.GetWatchedEpisodesAsync
   nameWithType: TraktUsersModule.GetWatchedEpisodesAsync
-- uid: TraktNET.TraktUsersModule.GetWatchedHistoryAsync(System.String,System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetWatchedHistoryAsync(string, TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetWatchedHistoryAsync_System_String_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktUsersModule.GetWatchedHistoryAsync(System.String,System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetWatchedHistoryAsync(String, TraktSyncItemType?, UInteger?, Date?, Date?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktUsersModule.GetWatchedHistoryAsync(string, TraktNET.TraktSyncItemType?, uint?, System.DateTime?, System.DateTime?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktUsersModule.GetWatchedHistoryAsync(String, TraktNET.TraktSyncItemType?, UInteger?, Date?, Date?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktUsersModule.GetWatchedHistoryAsync(string, TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktUsersModule.GetWatchedHistoryAsync(String, TraktSyncItemType?, UInteger?, Date?, Date?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetWatchedHistoryAsync(System.String,System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetWatchedHistoryAsync(string, TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetWatchedHistoryAsync_System_String_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetWatchedHistoryAsync(System.String,System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetWatchedHistoryAsync(String, TraktSyncItemType?, UInteger?, Date?, Date?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetWatchedHistoryAsync(string, TraktNET.TraktSyncItemType?, uint?, System.DateTime?, System.DateTime?, TraktNET.TraktFilter?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetWatchedHistoryAsync(String, TraktNET.TraktSyncItemType?, UInteger?, Date?, Date?, TraktNET.TraktFilter, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetWatchedHistoryAsync(string, TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetWatchedHistoryAsync(String, TraktSyncItemType?, UInteger?, Date?, Date?, TraktFilter, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktUsersModule.GetWatchedHistoryAsync*
   name: GetWatchedHistoryAsync
   href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetWatchedHistoryAsync_

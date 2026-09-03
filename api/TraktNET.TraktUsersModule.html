@@ -5033,13 +5033,13 @@ Trakt API Documentation: Users: List
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleGetPersonalListItems.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_String_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.String,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonalListItemsAsync(string, string, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_String_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.String,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonalListItemsAsync(string, string, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the items on an user's single personal list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetPersonalListItemsAsync(string usernameOrSlug, string listIdOrSlug, TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetPersonalListItemsAsync(string usernameOrSlug, string listIdOrSlug, TraktListItemType? listItemType = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -5067,6 +5067,13 @@ Trakt API Documentation: Users: List
         <td><a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>?</td>
         <td><span class="parametername">listItemType</span></td>
         <td><p>Determines, which type of list items should be queried. See also <a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the list items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
 </td>
       </tr>
       <tr>
@@ -5116,7 +5123,7 @@ See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInf
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_String_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_String_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getuserslistslistitemsall">
 Trakt API Documentation: Users: List Items - Get items on a personal list
@@ -5148,13 +5155,13 @@ Trakt API Documentation: Users: List Items - Get items on a personal list
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleGetPersonalListItems.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonalListItemsAsync(string, uint, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,System.UInt32,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonalListItemsAsync(string, uint, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the items on an user's single personal list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetPersonalListItemsAsync(string usernameOrSlug, uint traktListId, TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetPersonalListItemsAsync(string usernameOrSlug, uint traktListId, TraktListItemType? listItemType = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -5182,6 +5189,13 @@ Trakt API Documentation: Users: List Items - Get items on a personal list
         <td><a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>?</td>
         <td><span class="parametername">listItemType</span></td>
         <td><p>Determines, which type of list items should be queried. See also <a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the list items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
 </td>
       </tr>
       <tr>
@@ -5231,7 +5245,7 @@ See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInf
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getuserslistslistitemsall">
 Trakt API Documentation: Users: List Items - Get items on a personal list
@@ -5268,13 +5282,13 @@ Trakt API Documentation: Users: List Items - Get items on a personal list
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleGetPersonalListItems.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonalListItemsAsync(string, TraktList, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonalListItemsAsync(string, TraktList, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the items on an user's single personal list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetPersonalListItemsAsync(string usernameOrSlug, TraktList list, TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetPersonalListItemsAsync(string usernameOrSlug, TraktList list, TraktListItemType? listItemType = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -5302,6 +5316,13 @@ Trakt API Documentation: Users: List Items - Get items on a personal list
         <td><a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>?</td>
         <td><span class="parametername">listItemType</span></td>
         <td><p>Determines, which type of list items should be queried. See also <a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the list items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
 </td>
       </tr>
       <tr>
@@ -5351,7 +5372,7 @@ See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInf
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getuserslistslistitemsall">
 Trakt API Documentation: Users: List Items - Get items on a personal list
@@ -5388,13 +5409,13 @@ Trakt API Documentation: Users: List Items - Get items on a personal list
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleGetPersonalListItems.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonalListItemsAsync(string, TraktListIDs, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetPersonalListItemsAsync(System.String,TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPersonalListItemsAsync(string, TraktListIDs, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the items on an user's single personal list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetPersonalListItemsAsync(string usernameOrSlug, TraktListIDs listIds, TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetPersonalListItemsAsync(string usernameOrSlug, TraktListIDs listIds, TraktListItemType? listItemType = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -5422,6 +5443,13 @@ Trakt API Documentation: Users: List Items - Get items on a personal list
         <td><a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>?</td>
         <td><span class="parametername">listItemType</span></td>
         <td><p>Determines, which type of list items should be queried. See also <a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the list items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
 </td>
       </tr>
       <tr>
@@ -5471,7 +5499,7 @@ See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInf
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktUsersModule_GetPersonalListItemsAsync_System_String_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getuserslistslistitemsall">
 Trakt API Documentation: Users: List Items - Get items on a personal list
@@ -7389,13 +7417,13 @@ Trakt API Documentation: Users: Watched
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktUsersModule_GetWatchedHistoryAsync_" data-uid="TraktNET.TraktUsersModule.GetWatchedHistoryAsync*"></a>
-  <h4 id="TraktNET_TraktUsersModule_GetWatchedHistoryAsync_System_String_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetWatchedHistoryAsync(System.String,System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetWatchedHistoryAsync(string, TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktUsersModule_GetWatchedHistoryAsync_System_String_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetWatchedHistoryAsync(System.String,System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetWatchedHistoryAsync(string, TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all movies, shows, seasons and / or episodes an user has watched, sorted by most recent.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktHistoryItem&gt;&gt; GetWatchedHistoryAsync(string usernameOrSlug, TraktSyncItemType? historyItemType = null, uint? itemId = null, DateTime? startAt = null, DateTime? endAt = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktHistoryItem&gt;&gt; GetWatchedHistoryAsync(string usernameOrSlug, TraktSyncItemType? historyItemType = null, uint? itemId = null, DateTime? startAt = null, DateTime? endAt = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -7435,6 +7463,13 @@ Trakt API Documentation: Users: Watched
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
         <td><span class="parametername">endAt</span></td>
         <td><p>The datetime, until which history items should be queried. Will be converted to the Trakt UTC-datetime and -format.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the history items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
 </td>
       </tr>
       <tr>
@@ -7484,7 +7519,7 @@ Trakt API Documentation: Users: Watched
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktUsersModule_GetWatchedHistoryAsync_System_String_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktUsersModule_GetWatchedHistoryAsync_System_String_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getusershistoryall">
 Trakt API Documentation: Users: History

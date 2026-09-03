@@ -1162,13 +1162,13 @@ Trakt API Documentation: Sync: Get minimal show collection
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSyncModule_GetPlaybackProgressAsync_" data-uid="TraktNET.TraktSyncModule.GetPlaybackProgressAsync*"></a>
-  <h4 id="TraktNET_TraktSyncModule_GetPlaybackProgressAsync_System_Nullable_TraktNET_TraktSyncType__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetPlaybackProgressAsync(System.Nullable{TraktNET.TraktSyncType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPlaybackProgressAsync(TraktSyncType?, DateTime?, DateTime?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSyncModule_GetPlaybackProgressAsync_System_Nullable_TraktNET_TraktSyncType__System_Nullable_System_DateTime__System_Nullable_System_DateTime__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetPlaybackProgressAsync(System.Nullable{TraktNET.TraktSyncType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetPlaybackProgressAsync(TraktSyncType?, DateTime?, DateTime?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the user's saved playback progress of scrobbles that are paused.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSyncPlaybackProgressItem&gt;&gt; GetPlaybackProgressAsync(TraktSyncType? objectType = null, DateTime? startAt = null, DateTime? endAt = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSyncPlaybackProgressItem&gt;&gt; GetPlaybackProgressAsync(TraktSyncType? objectType = null, DateTime? startAt = null, DateTime? endAt = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1196,6 +1196,20 @@ Trakt API Documentation: Sync: Get minimal show collection
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
         <td><span class="parametername">endAt</span></td>
         <td><p>Determines an optional end date and time for a range of the returned playback progress.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the playback progress items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the playback progress items.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1238,7 +1252,7 @@ Trakt API Documentation: Sync: Get minimal show collection
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSyncModule_GetPlaybackProgressAsync_System_Nullable_TraktNET_TraktSyncType__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSyncModule_GetPlaybackProgressAsync_System_Nullable_TraktNET_TraktSyncType__System_Nullable_System_DateTime__System_Nullable_System_DateTime__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getsyncprogressplayback">
 Trakt API Documentation: Sync: Playback
@@ -1688,13 +1702,13 @@ Trakt API Documentation: Sync: Get Watched
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSyncModule_GetWatchedHistoryAsync_" data-uid="TraktNET.TraktSyncModule.GetWatchedHistoryAsync*"></a>
-  <h4 id="TraktNET_TraktSyncModule_GetWatchedHistoryAsync_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetWatchedHistoryAsync(System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetWatchedHistoryAsync(TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSyncModule_GetWatchedHistoryAsync_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetWatchedHistoryAsync(System.Nullable{TraktNET.TraktSyncItemType},System.Nullable{System.UInt32},System.Nullable{System.DateTime},System.Nullable{System.DateTime},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetWatchedHistoryAsync(TraktSyncItemType?, uint?, DateTime?, DateTime?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all movies, shows, seasons and / or episodes the user has watched, sorted by most recent.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktHistoryItem&gt;&gt; GetWatchedHistoryAsync(TraktSyncItemType? historyItemType = null, uint? itemId = null, DateTime? startAt = null, DateTime? endAt = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktHistoryItem&gt;&gt; GetWatchedHistoryAsync(TraktSyncItemType? historyItemType = null, uint? itemId = null, DateTime? startAt = null, DateTime? endAt = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1728,6 +1742,13 @@ Trakt API Documentation: Sync: Get Watched
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
         <td><span class="parametername">endAt</span></td>
         <td><p>The datetime, until which history items should be queried. Will be converted to the Trakt UTC-datetime and -format.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the history items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1777,7 +1798,7 @@ Trakt API Documentation: Sync: Get Watched
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSyncModule_GetWatchedHistoryAsync_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSyncModule_GetWatchedHistoryAsync_System_Nullable_TraktNET_TraktSyncItemType__System_Nullable_System_UInt32__System_Nullable_System_DateTime__System_Nullable_System_DateTime__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getsynchistoryget">
 Trakt API Documentation: Sync: Get History

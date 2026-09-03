@@ -896,13 +896,13 @@ Trakt API Documentation: Lists: List Comments
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Lists/TraktListsModuleGetListItems.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktListsModule_GetListItemsAsync_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktListsModule_GetListItemsAsync_System_String_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync(System.String,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetListItemsAsync(string, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktListsModule_GetListItemsAsync_System_String_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync(System.String,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetListItemsAsync(string, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the items on a list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetListItemsAsync(string listIdOrSlug, TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetListItemsAsync(string listIdOrSlug, TraktListItemType? listItemType = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -924,6 +924,13 @@ Trakt API Documentation: Lists: List Comments
         <td><a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>?</td>
         <td><span class="parametername">listItemType</span></td>
         <td><p>Determines, which type of list items should be queried. See also <a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the list items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
 </td>
       </tr>
       <tr>
@@ -973,7 +980,7 @@ Trakt API Documentation: Lists: List Comments
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktListsModule_GetListItemsAsync_System_String_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktListsModule_GetListItemsAsync_System_String_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getlistsitemsall">
 Trakt API Documentation: Lists: List Items
@@ -1015,13 +1022,13 @@ Trakt API Documentation: Lists: List Items
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Lists/TraktListsModuleGetListItems.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktListsModule_GetListItemsAsync_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktListsModule_GetListItemsAsync_System_UInt32_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync(System.UInt32,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetListItemsAsync(uint, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktListsModule_GetListItemsAsync_System_UInt32_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync(System.UInt32,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetListItemsAsync(uint, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the items on a list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetListItemsAsync(uint traktListId, TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetListItemsAsync(uint traktListId, TraktListItemType? listItemType = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1043,6 +1050,13 @@ Trakt API Documentation: Lists: List Items
         <td><a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>?</td>
         <td><span class="parametername">listItemType</span></td>
         <td><p>Determines, which type of list items should be queried. See also <a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the list items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1092,7 +1106,7 @@ Trakt API Documentation: Lists: List Items
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktListsModule_GetListItemsAsync_System_UInt32_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktListsModule_GetListItemsAsync_System_UInt32_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getlistsitemsall">
 Trakt API Documentation: Lists: List Items
@@ -1129,13 +1143,13 @@ Trakt API Documentation: Lists: List Items
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Lists/TraktListsModuleGetListItems.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktListsModule_GetListItemsAsync_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetListItemsAsync(TraktList, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktList,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetListItemsAsync(TraktList, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the items on a list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetListItemsAsync(TraktList list, TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetListItemsAsync(TraktList list, TraktListItemType? listItemType = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1157,6 +1171,13 @@ Trakt API Documentation: Lists: List Items
         <td><a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>?</td>
         <td><span class="parametername">listItemType</span></td>
         <td><p>Determines, which type of list items should be queried. See also <a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the list items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1206,7 +1227,7 @@ Trakt API Documentation: Lists: List Items
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktList_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getlistsitemsall">
 Trakt API Documentation: Lists: List Items
@@ -1243,13 +1264,13 @@ Trakt API Documentation: Lists: List Items
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Lists/TraktListsModuleGetListItems.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktListsModule_GetListItemsAsync_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetListItemsAsync(TraktListIDs, TraktListItemType?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktListsModule.GetListItemsAsync(TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktListItemType},TraktNET.TraktFilter,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetListItemsAsync(TraktListIDs, TraktListItemType?, TraktFilter?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the items on a list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetListItemsAsync(TraktListIDs listIds, TraktListItemType? listItemType = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetListItemsAsync(TraktListIDs listIds, TraktListItemType? listItemType = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1271,6 +1292,13 @@ Trakt API Documentation: Lists: List Items
         <td><a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>?</td>
         <td><span class="parametername">listItemType</span></td>
         <td><p>Determines, which type of list items should be queried. See also <a class="xref" href="TraktNET.TraktListItemType.html">TraktListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>The filter, which determines the criteria about the list items should be queried.</p>
+<p>See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1320,7 +1348,7 @@ Trakt API Documentation: Lists: List Items
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktListsModule_GetListItemsAsync_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktListItemType__TraktNET_TraktFilter_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getlistsitemsall">
 Trakt API Documentation: Lists: List Items
