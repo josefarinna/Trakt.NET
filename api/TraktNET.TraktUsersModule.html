@@ -4580,7 +4580,7 @@ Trakt API Documentation: Users: List Likes
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserActivity&gt;&gt; GetMonthInReviewAsync(string usernameOrSlug, uint year, uint month, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserMonthInReview&gt;&gt; GetMonthInReviewAsync(string usernameOrSlug, uint year, uint month, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -4636,9 +4636,9 @@ Trakt API Documentation: Users: List Likes
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserActivity.html">TraktUserActivity</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserMonthInReview.html">TraktUserMonthInReview</a>&gt;&gt;</td>
         <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing month in review details.</p>
-<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserActivity.html">TraktUserActivity</a>.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserMonthInReview.html">TraktUserMonthInReview</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -4646,7 +4646,7 @@ Trakt API Documentation: Users: List Likes
   <h5 id="TraktNET_TraktUsersModule_GetMonthInReviewAsync_System_String_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p>VIP only.</p>
-<p><a href="https://docs.trakt.tv/reference/getusersmonthinreview">
+<p><a href="https://docs.trakt.tv/reference/getusersmonth_in_review">
 Trakt API Documentation: Users: Get month in review
 </a></p>
 </div>
@@ -8041,7 +8041,7 @@ Trakt API Documentation: Users: Watchlist Comments
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserActivity&gt;&gt; GetYearInReviewAsync(string usernameOrSlug, uint year, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserYearInReview&gt;&gt; GetYearInReviewAsync(string usernameOrSlug, uint year, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -8091,9 +8091,9 @@ Trakt API Documentation: Users: Watchlist Comments
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserActivity.html">TraktUserActivity</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserYearInReview.html">TraktUserYearInReview</a>&gt;&gt;</td>
         <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing year in review details.</p>
-<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserActivity.html">TraktUserActivity</a>.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserYearInReview.html">TraktUserYearInReview</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -8101,7 +8101,7 @@ Trakt API Documentation: Users: Watchlist Comments
   <h5 id="TraktNET_TraktUsersModule_GetYearInReviewAsync_System_String_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p>VIP only.</p>
-<p><a href="https://docs.trakt.tv/reference/getusersyearinreview">
+<p><a href="https://docs.trakt.tv/reference/getusersyear_in_review">
 Trakt API Documentation: Users: Get year in review
 </a></p>
 </div>
