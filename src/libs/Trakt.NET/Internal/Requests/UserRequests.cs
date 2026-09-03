@@ -215,6 +215,23 @@ namespace TraktNET
     {
     }
 
+    [TraktGetRequest("users/{id!!}/watched/movies", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    internal sealed partial class UserWatchedMinimalMoviesGetRequest
+    {
+    }
+
+    [TraktGetRequest("users/{id!!}/watched/shows", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    internal sealed partial class UserWatchedMinimalShowsGetRequest
+    {
+        [TraktRequestQuery("specials")]
+        internal bool? Specials { get; set; }
+
+        [TraktRequestQuery("season_numbers")]
+        internal bool? SeasonNumbers { get; set; }
+    }
+
     [TraktGetRequest("users/{id!!}/watched/episodes", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserWatchedEpisodesGetRequest

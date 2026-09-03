@@ -201,6 +201,8 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktUserReviewStreamingServices))]
     [JsonSerializable(typeof(TraktUserReviewStreamingService))]
     [JsonSerializable(typeof(IReadOnlyList<TraktUserReviewStreamingService>))]
+    [JsonSerializable(typeof(Dictionary<string, List<string>>))]
+    [JsonSerializable(typeof(Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>))]
     public sealed partial class UsersJsonSerializerContext : JsonSerializerContext
     {
     }
