@@ -118351,6 +118351,36 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.GetListLikesAsync
   fullName: TraktNET.TraktUsersModule.GetListLikesAsync
   nameWithType: TraktUsersModule.GetListLikesAsync
+- uid: TraktNET.TraktUsersModule.GetMinimalWatchedMoviesAsync(System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetMinimalWatchedMoviesAsync(string, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetMinimalWatchedMoviesAsync_System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetMinimalWatchedMoviesAsync(System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetMinimalWatchedMoviesAsync(String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetMinimalWatchedMoviesAsync(string, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetMinimalWatchedMoviesAsync(String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetMinimalWatchedMoviesAsync(string, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetMinimalWatchedMoviesAsync(String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetMinimalWatchedMoviesAsync*
+  name: GetMinimalWatchedMoviesAsync
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetMinimalWatchedMoviesAsync_
+  commentId: Overload:TraktNET.TraktUsersModule.GetMinimalWatchedMoviesAsync
+  fullName: TraktNET.TraktUsersModule.GetMinimalWatchedMoviesAsync
+  nameWithType: TraktUsersModule.GetMinimalWatchedMoviesAsync
+- uid: TraktNET.TraktUsersModule.GetMinimalWatchedShowsAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetMinimalWatchedShowsAsync(string, bool?, bool?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetMinimalWatchedShowsAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetMinimalWatchedShowsAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetMinimalWatchedShowsAsync(String, Boolean?, Boolean?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetMinimalWatchedShowsAsync(string, bool?, bool?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetMinimalWatchedShowsAsync(String, Boolean?, Boolean?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetMinimalWatchedShowsAsync(string, bool?, bool?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetMinimalWatchedShowsAsync(String, Boolean?, Boolean?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetMinimalWatchedShowsAsync*
+  name: GetMinimalWatchedShowsAsync
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetMinimalWatchedShowsAsync_
+  commentId: Overload:TraktNET.TraktUsersModule.GetMinimalWatchedShowsAsync
+  fullName: TraktNET.TraktUsersModule.GetMinimalWatchedShowsAsync
+  nameWithType: TraktUsersModule.GetMinimalWatchedShowsAsync
 - uid: TraktNET.TraktUsersModule.GetMonthInReviewAsync(System.String,System.UInt32,System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
   name: GetMonthInReviewAsync(string, uint, uint, TraktExtendedInfo?, CancellationToken)
   href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetMonthInReviewAsync_System_String_System_UInt32_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
@@ -123262,6 +123292,42 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.Default
   fullName: TraktNET.UsersJsonSerializerContext.Default
   nameWithType: UsersJsonSerializerContext.Default
+- uid: TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringListString
+  name: DictionaryStringDictionaryStringDictionaryStringListString
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_DictionaryStringDictionaryStringDictionaryStringListString
+  commentId: P:TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringListString
+  fullName: TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringListString
+  nameWithType: UsersJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringListString
+- uid: TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringListString*
+  name: DictionaryStringDictionaryStringDictionaryStringListString
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_DictionaryStringDictionaryStringDictionaryStringListString_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringListString
+  fullName: TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringListString
+  nameWithType: UsersJsonSerializerContext.DictionaryStringDictionaryStringDictionaryStringListString
+- uid: TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringListString
+  name: DictionaryStringDictionaryStringListString
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_DictionaryStringDictionaryStringListString
+  commentId: P:TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringListString
+  fullName: TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringListString
+  nameWithType: UsersJsonSerializerContext.DictionaryStringDictionaryStringListString
+- uid: TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringListString*
+  name: DictionaryStringDictionaryStringListString
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_DictionaryStringDictionaryStringListString_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringListString
+  fullName: TraktNET.UsersJsonSerializerContext.DictionaryStringDictionaryStringListString
+  nameWithType: UsersJsonSerializerContext.DictionaryStringDictionaryStringListString
+- uid: TraktNET.UsersJsonSerializerContext.DictionaryStringListString
+  name: DictionaryStringListString
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_DictionaryStringListString
+  commentId: P:TraktNET.UsersJsonSerializerContext.DictionaryStringListString
+  fullName: TraktNET.UsersJsonSerializerContext.DictionaryStringListString
+  nameWithType: UsersJsonSerializerContext.DictionaryStringListString
+- uid: TraktNET.UsersJsonSerializerContext.DictionaryStringListString*
+  name: DictionaryStringListString
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_DictionaryStringListString_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.DictionaryStringListString
+  fullName: TraktNET.UsersJsonSerializerContext.DictionaryStringListString
+  nameWithType: UsersJsonSerializerContext.DictionaryStringListString
 - uid: TraktNET.UsersJsonSerializerContext.DictionaryStringUInt32
   name: DictionaryStringUInt32
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_DictionaryStringUInt32
