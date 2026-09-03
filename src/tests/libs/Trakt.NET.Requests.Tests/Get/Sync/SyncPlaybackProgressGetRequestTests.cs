@@ -35,6 +35,31 @@ namespace TraktNET.GetRequests.Sync
         }
 
         [Fact]
+        public void TestSyncPlaybackProgressGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            var request = new SyncPlaybackProgressGetRequest
+            {
+                Filter = filter
+            };
+
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"{URIPath}?query=batman", UriKind.Relative));
+        }
+
+        [Fact]
+        public void TestSyncPlaybackProgressGetRequestHasValidURIPathWithExtendedInfo()
+        {
+            var request = new SyncPlaybackProgressGetRequest
+            {
+                ExtendedInfo = TraktExtendedInfo.Full
+            };
+
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"{URIPath}?extended=full", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestSyncPlaybackProgressGetRequestHasValidOAuthRequirement()
         {
             var syncPlaybackProgressGetRequest = new SyncPlaybackProgressGetRequest();

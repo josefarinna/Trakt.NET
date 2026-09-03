@@ -60,6 +60,19 @@ namespace TraktNET.GetRequests.Sync
         }
 
         [Fact]
+        public void TestSyncWatchedHistoryGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            var request = new SyncWatchedHistoryGetRequest
+            {
+                Filter = filter
+            };
+
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"{URIPath}?query=batman", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestSyncWatchedHistoryGetRequestHasValidOAuthRequirement()
         {
             var syncWatchedHistoryGetRequest = new SyncWatchedHistoryGetRequest();

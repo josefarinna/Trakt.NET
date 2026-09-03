@@ -109,6 +109,14 @@ namespace TraktNET
         /// <param name="objectType">Determines, which type of items should be queried. By default, all types will be returned. See also <seealso cref="TraktSyncType" />.</param>
         /// <param name="startAt">Determines an optional start date and time for a range of the returned playback progress.</param>
         /// <param name="endAt">Determines an optional end date and time for a range of the returned playback progress.</param>
+        /// <param name="filter">
+        /// The filter, which determines the criteria about the playback progress items should be queried.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the playback progress items.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -129,8 +137,9 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktSyncPlaybackProgressItem>> GetPlaybackProgressAsync(TraktSyncType? objectType = null,
-            DateTime? startAt = null, DateTime? endAt = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetPlaybackProgressImplAsync(objectType, startAt, endAt, page, limit, cancellationToken);
+            DateTime? startAt = null, DateTime? endAt = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetPlaybackProgressImplAsync(objectType, startAt, endAt, filter, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Removes a playback progress item from the user's playback progress list.</summary>
         /// <param name="playbackId">The id of the playback progress item, which should be removed.</param>
@@ -488,6 +497,10 @@ namespace TraktNET
         /// <param name="itemId">The Trakt Id for the item, which should be specifically queried. Will be ignored, if <paramref name="historyItemType" /> is not set or unspecified.</param>
         /// <param name="startAt">The datetime, after which history items should be queried. Will be converted to the Trakt UTC-datetime and -format.</param>
         /// <param name="endAt">The datetime, until which history items should be queried. Will be converted to the Trakt UTC-datetime and -format.</param>
+        /// <param name="filter">
+        /// The filter, which determines the criteria about the history items should be queried.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the history items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -512,9 +525,9 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktHistoryItem>> GetWatchedHistoryAsync(TraktSyncItemType? historyItemType = null, uint? itemId = null,
-            DateTime? startAt = null, DateTime? endAt = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
-            CancellationToken cancellationToken = default)
-            => GetWatchedHistoryImplAsync(historyItemType, itemId, startAt, endAt, extendedInfo, page, limit, cancellationToken);
+            DateTime? startAt = null, DateTime? endAt = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetWatchedHistoryImplAsync(historyItemType, itemId, startAt, endAt, filter, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Adds items to the user's watch history. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="historyPost">An <see cref="TraktSyncHistoryPost" /> instance containing all shows, seasons, episodes and movies, which should be added.</param>

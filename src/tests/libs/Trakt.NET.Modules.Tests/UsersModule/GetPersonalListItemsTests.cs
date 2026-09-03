@@ -23,7 +23,7 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, null, null, Page, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -39,7 +39,7 @@ namespace TraktNET.UsersModule
             
             TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
             
-            TraktPagedResponse<TraktListItem> response = await client.Users.GetPersonalListItemsAsync(Username, TraktListID, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Users.GetPersonalListItemsAsync(Username, TraktListID, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -60,7 +60,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
             
-            TraktPagedResponse<TraktListItem> response = await client.Users.GetPersonalListItemsAsync(Username, listIds, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Users.GetPersonalListItemsAsync(Username, listIds, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -81,7 +81,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"users/{Username}/lists/{ListSlug}/items?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
 
-            TraktPagedResponse<TraktListItem> response = await client.Users.GetPersonalListItemsAsync(Username, listIds, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Users.GetPersonalListItemsAsync(Username, listIds, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -102,7 +102,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
 
-            TraktPagedResponse<TraktListItem> response = await client.Users.GetPersonalListItemsAsync(Username, listIds, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Users.GetPersonalListItemsAsync(Username, listIds, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -126,7 +126,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListItemsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
 
-            TraktPagedResponse<TraktListItem> response = await client.Users.GetPersonalListItemsAsync(Username, list, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktListItem> response = await client.Users.GetPersonalListItemsAsync(Username, list, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -144,7 +144,7 @@ namespace TraktNET.UsersModule
             client.IgnoreOAuthIfOptional = false;
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, null, null, Page, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -180,7 +180,27 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, Limit, 10);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, null, Page, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(5);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListItemsWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listitems.json");
+
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetPersonalListItemsUri}?query=batman&page={Page}&limit={Limit}",
+                responseContent, Page, 1, Limit, 10);
+
+            TraktPagedResponse<TraktListItem> response =
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, filter: filter, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -199,7 +219,7 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, Limit, 10);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -218,7 +238,7 @@ namespace TraktNET.UsersModule
                 responseContent, Page, 1, Limit, 10);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
@@ -236,7 +256,7 @@ namespace TraktNET.UsersModule
                 responseContent, 2, 5, Limit, ListItemsCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -261,7 +281,7 @@ namespace TraktNET.UsersModule
                 responseContent, 2, 2, Limit, ListItemsCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -286,7 +306,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 2, Limit, ListItemsCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -311,7 +331,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 1, Limit, ListItemsCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -336,7 +356,7 @@ namespace TraktNET.UsersModule
                 responseContent, 2, 2, Limit, ListItemsCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, extendedInfo: ExtendedInfo, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -379,7 +399,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 2, Limit, ListItemsCount);
 
             TraktPagedResponse<TraktListItem> response =
-                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+                await client.Users.GetPersonalListItemsAsync(Username, ListID, ListItemType, extendedInfo: ExtendedInfo, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -442,7 +462,7 @@ namespace TraktNET.UsersModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonalListItemsUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktListItem>>> act = () => client.Users.GetPersonalListItemsAsync(Username, ListID, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktListItem>>> act = () => client.Users.GetPersonalListItemsAsync(Username, ListID, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
@@ -463,10 +483,10 @@ namespace TraktNET.UsersModule
             act = () => client.Users.GetPersonalListItemsAsync(Username, 0);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Users.GetPersonalListItemsAsync(Username, ListID, null, null, null, 10, TestContext.Current.CancellationToken);
+            act = () => client.Users.GetPersonalListItemsAsync(Username, ListID, page: null, limit: 10, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.Users.GetPersonalListItemsAsync(Username, ListID, null, null, 1, null, TestContext.Current.CancellationToken);
+            act = () => client.Users.GetPersonalListItemsAsync(Username, ListID, page: 1, limit: null, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
         }
     }

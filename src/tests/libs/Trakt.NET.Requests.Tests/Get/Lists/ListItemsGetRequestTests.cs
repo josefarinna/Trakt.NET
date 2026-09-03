@@ -103,6 +103,20 @@ namespace TraktNET.GetRequests.Lists
         }
 
         [Fact]
+        public void TestListItemsGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            var request = new ListItemsGetRequest
+            {
+                Id = "123",
+                Filter = filter
+            };
+
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"{URIPath}?query=batman", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestListItemsGetRequestHasValidOAuthRequirement()
         {
             var listItemsGetRequest = new ListItemsGetRequest { Id = default! };

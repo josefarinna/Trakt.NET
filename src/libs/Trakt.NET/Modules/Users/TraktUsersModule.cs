@@ -598,6 +598,10 @@ namespace TraktNET
         /// <param name="itemId">The Trakt Id for the item, which should be specifically queried. Will be ignored, if <paramref name="historyItemType" /> is not set or unspecified.</param>
         /// <param name="startAt">The datetime, after which history items should be queried. Will be converted to the Trakt UTC-datetime and -format.</param>
         /// <param name="endAt">The datetime, until which history items should be queried. Will be converted to the Trakt UTC-datetime and -format.</param>
+        /// <param name="filter">
+        /// The filter, which determines the criteria about the history items should be queried.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the shows.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -623,9 +627,9 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktHistoryItem>> GetWatchedHistoryAsync(string usernameOrSlug, TraktSyncItemType? historyItemType = null,
-            uint? itemId = null, DateTime? startAt = null, DateTime? endAt = null, TraktExtendedInfo? extendedInfo = null,
-            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetWatchedHistoryImplAsync(usernameOrSlug, historyItemType, itemId, startAt, endAt, extendedInfo, page, limit, cancellationToken);
+            uint? itemId = null, DateTime? startAt = null, DateTime? endAt = null, TraktFilter? filter = null,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetWatchedHistoryImplAsync(usernameOrSlug, historyItemType, itemId, startAt, endAt, filter, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Gets an user's favorite movies and / or shows.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the favorites should be queried.</param>

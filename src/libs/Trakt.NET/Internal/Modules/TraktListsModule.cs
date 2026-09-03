@@ -83,7 +83,8 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktListItem>> GetListItemsImplAsync(string listIdOrSlug, TraktListItemType? listItemType = null,
-            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(page);
             ArgumentValidator.ThrowIfNull(limit);
@@ -93,6 +94,7 @@ namespace TraktNET
                 Id = listIdOrSlug,
                 Type = listItemType,
                 ExtendedInfo = extendedInfo,
+                Filter = filter,
                 Page = page,
                 Limit = limit
             };
@@ -103,6 +105,7 @@ namespace TraktNET
                     Id = listIdOrSlug,
                     Type = listItemType,
                     ExtendedInfo = extendedInfo,
+                    Filter = filter,
                     Page = page,
                     Limit = limit
                 },

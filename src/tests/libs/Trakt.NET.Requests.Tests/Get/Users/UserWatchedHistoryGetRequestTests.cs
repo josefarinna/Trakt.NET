@@ -61,6 +61,20 @@ namespace TraktNET.GetRequests.Users
         }
 
         [Fact]
+        public void TestUserWatchedHistoryGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Query = "batman" };
+            var request = new UserWatchedHistoryGetRequest
+            {
+                Id = "123",
+                Filter = filter
+            };
+
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"{URIPath}?query=batman", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestUserWatchedHistoryGetRequestHasValidOAuthRequirement()
         {
             var userWatchedHistoryGetRequest = new UserWatchedHistoryGetRequest { Id = default! };
