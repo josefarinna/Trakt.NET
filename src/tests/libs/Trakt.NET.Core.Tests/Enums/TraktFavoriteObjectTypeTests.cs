@@ -8,6 +8,7 @@ namespace TraktNET.Enums
         public void TestTraktFavoriteObjectTypeToJson()
         {
             TraktFavoriteObjectType.Unspecified.ToJson().ShouldBeNull();
+            TraktFavoriteObjectType.Media.ToJson().ShouldBe("media");
             TraktFavoriteObjectType.Movie.ToJson().ShouldBe("movie");
             TraktFavoriteObjectType.Show.ToJson().ShouldBe("show");
             ((TraktFavoriteObjectType)99).ToJson().ShouldBeNull();
@@ -17,6 +18,7 @@ namespace TraktNET.Enums
         public void TestTraktFavoriteObjectTypeFromJson()
         {
             "unspecified".ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Unspecified);
+            "media".ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Media);
             "movie".ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Movie);
             "show".ToTraktFavoriteObjectType().ShouldBe(TraktFavoriteObjectType.Show);
 
@@ -27,9 +29,20 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktFavoriteObjectTypeToURI()
+        {
+            TraktFavoriteObjectType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktFavoriteObjectType.Media.ToURI().ShouldBe("media");
+            TraktFavoriteObjectType.Movie.ToURI().ShouldBe("movies");
+            TraktFavoriteObjectType.Show.ToURI().ShouldBe("shows");
+            ((TraktFavoriteObjectType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktFavoriteObjectTypeDisplayName()
         {
             TraktFavoriteObjectType.Unspecified.DisplayName().ShouldBe("Unspecified");
+            TraktFavoriteObjectType.Media.DisplayName().ShouldBe("Media");
             TraktFavoriteObjectType.Movie.DisplayName().ShouldBe("Movie");
             TraktFavoriteObjectType.Show.DisplayName().ShouldBe("Show");
             ((TraktFavoriteObjectType)99).DisplayName().ShouldBe("99");
@@ -47,7 +60,9 @@ namespace TraktNET.Enums
                 Converters = { converter }
             };
 
+            JsonSerializer.Serialize(TraktFavoriteObjectType.Media, options).ShouldBe("\"media\"");
             JsonSerializer.Serialize(TraktFavoriteObjectType.Movie, options).ShouldBe("\"movie\"");
+            JsonSerializer.Deserialize<TraktFavoriteObjectType>("\"media\"", options).ShouldBe(TraktFavoriteObjectType.Media);
             JsonSerializer.Deserialize<TraktFavoriteObjectType>("\"movie\"", options).ShouldBe(TraktFavoriteObjectType.Movie);
             JsonSerializer.Deserialize<TraktFavoriteObjectType>("\"\"", options).ShouldBe(TraktFavoriteObjectType.Unspecified);
         }

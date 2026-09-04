@@ -61,6 +61,19 @@ namespace TraktNET.GetRequests.Users
         }
 
         [Fact]
+        public void TestUserFavoritesGetRequestHasValidURIPathWithMedia()
+        {
+            var userFavoritesGetRequest = new UserFavoritesGetRequest
+            {
+                Id = "123",
+                Type = TraktFavoriteObjectType.Media,
+            };
+
+            userFavoritesGetRequest.BuildUri();
+            userFavoritesGetRequest.RequestUri.ShouldBe(new Uri("users/123/favorites/media", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestUserFavoritesGetRequestHasValidOAuthRequirement()
         {
             var userFavoritesGetRequest = new UserFavoritesGetRequest { Id = default! };

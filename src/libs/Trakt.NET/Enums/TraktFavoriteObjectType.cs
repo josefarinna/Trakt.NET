@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>Determines the type of an object in a favorite item.</summary>
     [TraktEnum(HasPathSupport = true)]
@@ -7,11 +7,15 @@
         /// <summary>An invalid object type.</summary>
         Unspecified,
 
-        /// <summary>The recommendation contains a movie.</summary>
+        /// <summary>The favorite contains media (movies and shows).</summary>
+        [TraktEnumMember(UriValue = "media")]
+        Media,
+
+        /// <summary>The favorite contains a movie.</summary>
         [TraktEnumMember(UriValue = "movies")]
         Movie,
 
-        /// <summary>The recommendation contains a show.</summary>
+        /// <summary>The favorite contains a show.</summary>
         [TraktEnumMember(UriValue = "shows")]
         Show
     }
