@@ -852,7 +852,7 @@
   "api/TraktNET.TraktFavoriteObjectType.html": {
     "href": "api/TraktNET.TraktFavoriteObjectType.html",
     "title": "Enum TraktFavoriteObjectType | Trakt.NET",
-    "summary": "Enum TraktFavoriteObjectType Determines the type of an object in a favorite item. Namespace: TraktNET Assembly: Trakt.NET.Ex.dll Syntax public enum TraktFavoriteObjectType Fields Name Description Movie The recommendation contains a movie. Show The recommendation contains a show. Unspecified An invalid object type. Extension Methods TraktFavoriteObjectTypeExtensions.AsPathParameter(TraktFavoriteObjectType) TraktFavoriteObjectTypeExtensions.DisplayName(TraktFavoriteObjectType) TraktFavoriteObjectTypeExtensions.ToJson(TraktFavoriteObjectType) TraktFavoriteObjectTypeExtensions.ToURI(TraktFavoriteObjectType)"
+    "summary": "Enum TraktFavoriteObjectType Determines the type of an object in a favorite item. Namespace: TraktNET Assembly: Trakt.NET.Ex.dll Syntax public enum TraktFavoriteObjectType Fields Name Description Media The favorite contains media (movies and shows). Movie The favorite contains a movie. Show The favorite contains a show. Unspecified An invalid object type. Extension Methods TraktFavoriteObjectTypeExtensions.AsPathParameter(TraktFavoriteObjectType) TraktFavoriteObjectTypeExtensions.DisplayName(TraktFavoriteObjectType) TraktFavoriteObjectTypeExtensions.ToJson(TraktFavoriteObjectType) TraktFavoriteObjectTypeExtensions.ToURI(TraktFavoriteObjectType)"
   },
   "api/TraktNET.TraktFavoriteObjectTypeExtensions.html": {
     "href": "api/TraktNET.TraktFavoriteObjectTypeExtensions.html",

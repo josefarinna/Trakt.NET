@@ -35278,6 +35278,12 @@ references:
   commentId: T:TraktNET.TraktFavoriteObjectType
   fullName: TraktNET.TraktFavoriteObjectType
   nameWithType: TraktFavoriteObjectType
+- uid: TraktNET.TraktFavoriteObjectType.Media
+  name: Media
+  href: api/TraktNET.TraktFavoriteObjectType.html#TraktNET_TraktFavoriteObjectType_Media
+  commentId: F:TraktNET.TraktFavoriteObjectType.Media
+  fullName: TraktNET.TraktFavoriteObjectType.Media
+  nameWithType: TraktFavoriteObjectType.Media
 - uid: TraktNET.TraktFavoriteObjectType.Movie
   name: Movie
   href: api/TraktNET.TraktFavoriteObjectType.html#TraktNET_TraktFavoriteObjectType_Movie
