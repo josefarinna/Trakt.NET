@@ -9,21 +9,71 @@ namespace TraktNET.UsersModule
         [Fact]
         public async Task TestAddSavedFilter()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usersavedfilter.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usersavedfilterpostresponse.json");
             TraktClient client = ModuleTestUtility.GetOAuthClient(URIPath, responseContent);
 
             var post = new TraktUserSavedFilterPost
             {
-                Name = "Test Filter",
-                Section = TraktFilterSection.Movies
+                Name = "Movies: IMDB + TMDB ratings",
+                Url = "/movies/recommended/weekly?imdb_ratings=6.9-10.0"
             };
 
-            TraktResponse<TraktUserSavedFilter> response = await client.Users.AddSavedFilterAsync(post, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse<TraktUserSavedFilterPostResponse> response = await client.Users.AddSavedFilterAsync(post, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
+            response.Content.Added.ShouldNotBeNull();
+            response.Content.Added.Count.ShouldBe(1);
+            response.Content.Skipped.ShouldNotBeNull();
+            response.Content.Skipped.Count.ShouldBe(1);
+        }
+
+        [Fact]
+        public async Task TestAddSavedFilterWithNameAndUrl()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usersavedfilterpostresponse.json");
+            TraktClient client = ModuleTestUtility.GetOAuthClient(URIPath, responseContent);
+
+            TraktResponse<TraktUserSavedFilterPostResponse> response = await client.Users.AddSavedFilterAsync(
+                "Movies: IMDB + TMDB ratings", "/movies/recommended/weekly?imdb_ratings=6.9-10.0", cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Added.ShouldNotBeNull();
+            response.Content.Added.Count.ShouldBe(1);
+            response.Content.Skipped.ShouldNotBeNull();
+            response.Content.Skipped.Count.ShouldBe(1);
+        }
+
+        [Fact]
+        public async Task TestAddSavedFilters()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\usersavedfilterpostresponse.json");
+            TraktClient client = ModuleTestUtility.GetOAuthClient(URIPath, responseContent);
+
+            var posts = new List<TraktUserSavedFilterPost>
+            {
+                new()
+                {
+                    Name = "Movies: IMDB + TMDB ratings",
+                    Url = "/movies/recommended/weekly?imdb_ratings=6.9-10.0"
+                }
+            };
+
+            TraktResponse<TraktUserSavedFilterPostResponse> response = await client.Users.AddSavedFiltersAsync(posts, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Added.ShouldNotBeNull();
+            response.Content.Added.Count.ShouldBe(1);
+            response.Content.Skipped.ShouldNotBeNull();
+            response.Content.Skipped.Count.ShouldBe(1);
         }
 
         [Theory]
@@ -59,10 +109,10 @@ namespace TraktNET.UsersModule
             var post = new TraktUserSavedFilterPost
             {
                 Name = "Test Filter",
-                Section = TraktFilterSection.Movies
+                Url = "/movies/recommended/weekly"
             };
 
-            Func<Task<TraktResponse<TraktUserSavedFilter>>> act = () => client.Users.AddSavedFilterAsync(post, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktUserSavedFilterPostResponse>>> act = () => client.Users.AddSavedFilterAsync(post, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
@@ -71,7 +121,10 @@ namespace TraktNET.UsersModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(URIPath, HttpStatusCode.OK);
 
-            Func<Task<TraktResponse<TraktUserSavedFilter>>> act = () => client.Users.AddSavedFilterAsync(null!, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktUserSavedFilterPostResponse>>> act = () => client.Users.AddSavedFilterAsync(default(TraktUserSavedFilterPost)!, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.Users.AddSavedFiltersAsync(null!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }

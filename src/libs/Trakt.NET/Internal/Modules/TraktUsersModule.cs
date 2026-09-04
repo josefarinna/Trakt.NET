@@ -1209,15 +1209,15 @@ namespace TraktNET
                 cancellationToken);
         }
 
-        private Task<TraktResponse<TraktUserSavedFilter>> AddSavedFilterImplAsync(TraktUserSavedFilterPost savedFilterPost,
+        private Task<TraktResponse<TraktUserSavedFilterPostResponse>> AddSavedFiltersImplAsync(IReadOnlyList<TraktUserSavedFilterPost> savedFilterPosts,
             CancellationToken cancellationToken = default)
         {
             var request = new UserSavedFilterAddPostRequest
             {
-                TraktUserSavedFilterPost = savedFilterPost
+                TraktUserSavedFilterPosts = savedFilterPosts
             };
 
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserSavedFilter>(_context, request, cancellationToken);
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserSavedFilterPostResponse>(_context, request, cancellationToken);
         }
 
         private Task<TraktResponse> DeleteSavedFilterImplAsync(uint filterId, CancellationToken cancellationToken = default)
