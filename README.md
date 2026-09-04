@@ -2,7 +2,7 @@
 
 > **Note**: This repository is a modernized, high-performance fork of `Trakt.NET`. It introduces full support for media image retrieval across Trakt.tv endpoints, source-generated `System.Text.Json` serialization, Native AOT & Trimming compatibility, concrete C# record data models (no interfaces), support for modern .NET runtimes (.NET 6 through .NET 10), and new API modules (Smart Lists, Social Recommendations, Notes, Team, WatchNow, Younify, Plex integration).
 
-[![NuGet Package](https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v2.0.0--alpha.2-blue.svg?style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex/2.0.0-alpha.2)
+[![NuGet Package](https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v2.0.0-blue.svg?style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex/2.0.0)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/github/josefarinna/Trakt.NET/graph/badge.svg?token=R66P6V55FL)](https://codecov.io/github/josefarinna/Trakt.NET)
 
@@ -119,7 +119,7 @@ catch (TraktException ex)
 
 ### Documentation
 
-- [Changelogs](Changelogs/v2.0.0-alpha.2.md)
+- [Changelogs](Changelogs/v2.0.0.md)
 - [Official Trakt API Documentation](https://docs.trakt.tv/)
 
 ### License

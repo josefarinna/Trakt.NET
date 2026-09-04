@@ -33,7 +33,7 @@
     <PackageTags>trakt rest api dotnet</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <PackageReleaseNotes>https://github.com/josefarinna/Trakt.NET/blob/v2.0.0-alpha.2/Changelogs/v2.0.0-alpha.2.md</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/josefarinna/Trakt.NET/blob/v2.0.0/Changelogs/v2.0.0.md</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
 
