@@ -13,7 +13,7 @@ namespace TraktNET.PostRequests.Users
         {
             var request = new UserSavedFilterAddPostRequest
             {
-                TraktUserSavedFilterPost = new TraktUserSavedFilterPost { Name = "Test Filter", Section = TraktFilterSection.Movies }
+                TraktUserSavedFilterPosts = [new TraktUserSavedFilterPost { Name = "Test Filter", Url = "/movies/recommended/weekly" }]
             };
 
             request.BuildUri();
@@ -25,7 +25,7 @@ namespace TraktNET.PostRequests.Users
         {
             var request = new UserSavedFilterAddPostRequest
             {
-                TraktUserSavedFilterPost = new TraktUserSavedFilterPost { Name = "Test Filter", Section = TraktFilterSection.Movies }
+                TraktUserSavedFilterPosts = [new TraktUserSavedFilterPost { Name = "Test Filter", Url = "/movies/recommended/weekly" }]
             };
             request.OAuthRequirement.ShouldBe(TraktOAuthRequirement.Required);
         }
@@ -35,7 +35,7 @@ namespace TraktNET.PostRequests.Users
         {
             var request = new UserSavedFilterAddPostRequest
             {
-                TraktUserSavedFilterPost = new TraktUserSavedFilterPost { Name = "Test Filter", Section = TraktFilterSection.Movies }
+                TraktUserSavedFilterPosts = [new TraktUserSavedFilterPost { Name = "Test Filter", Url = "/movies/recommended/weekly" }]
             };
             request.Method.ShouldBe(HttpMethod.Post);
         }
@@ -45,7 +45,7 @@ namespace TraktNET.PostRequests.Users
         {
             var request = new UserSavedFilterAddPostRequest
             {
-                TraktUserSavedFilterPost = new TraktUserSavedFilterPost { Name = "Test Filter", Section = TraktFilterSection.Movies }
+                TraktUserSavedFilterPosts = [new TraktUserSavedFilterPost { Name = "Test Filter", Url = "/movies/recommended/weekly" }]
             };
             request.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
         }
@@ -53,13 +53,13 @@ namespace TraktNET.PostRequests.Users
         [Fact]
         public void TestUserSavedFilterAddPostRequestValidate()
         {
-            var request = new UserSavedFilterAddPostRequest { TraktUserSavedFilterPost = default! };
+            var request = new UserSavedFilterAddPostRequest { TraktUserSavedFilterPosts = default! };
             Action act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
             request = new UserSavedFilterAddPostRequest
             {
-                TraktUserSavedFilterPost = new TraktUserSavedFilterPost { Name = "Test Filter", Section = TraktFilterSection.Movies }
+                TraktUserSavedFilterPosts = [new TraktUserSavedFilterPost { Name = "Test Filter", Url = "/movies/recommended/weekly" }]
             };
             act = () => request.Validate();
             act.ShouldNotThrow();

@@ -1379,27 +1379,85 @@ namespace TraktNET
             => GetCommentReactionsImplAsync(page, limit, cancellationToken);
 
         /// <summary>Adds a saved filter for the authenticated user.</summary>
-        /// <param name="savedFilterPost">A <see cref="TraktUserSavedFilterPost" /> instance containing section, name, path, and query.</param>
+        /// <param name="savedFilterPost">A <see cref="TraktUserSavedFilterPost" /> instance containing name and url.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
-        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created saved filter.
-        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserSavedFilter" />.</para>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created and skipped saved filters.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserSavedFilterPostResponse" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
         /// <para>VIP only.</para>
-        /// <para><see href="https://docs.trakt.tv/reference/postusersfilters">
-        /// Trakt API Documentation: Users: Add saved filter
+        /// <para><see href="https://docs.trakt.tv/reference/postusersfiltersadd">
+        /// Trakt API Documentation: Users: Add saved filters
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktResponse<TraktUserSavedFilter>> AddSavedFilterAsync(TraktUserSavedFilterPost savedFilterPost,
+        public Task<TraktResponse<TraktUserSavedFilterPostResponse>> AddSavedFilterAsync(TraktUserSavedFilterPost savedFilterPost,
             CancellationToken cancellationToken = default)
-            => AddSavedFilterImplAsync(savedFilterPost, cancellationToken);
+        {
+            var savedFilterPosts = savedFilterPost != null ? new List<TraktUserSavedFilterPost> { savedFilterPost } : null!;
+            return AddSavedFiltersImplAsync(savedFilterPosts, cancellationToken);
+        }
+
+        /// <summary>Adds a saved filter for the authenticated user.</summary>
+        /// <param name="name">The name of the saved filter.</param>
+        /// <param name="url">The URL of the saved filter.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created and skipped saved filters.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserSavedFilterPostResponse" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para>VIP only.</para>
+        /// <para><see href="https://docs.trakt.tv/reference/postusersfiltersadd">
+        /// Trakt API Documentation: Users: Add saved filters
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktUserSavedFilterPostResponse>> AddSavedFilterAsync(string name, string url,
+            CancellationToken cancellationToken = default)
+        {
+            var filter = new TraktUserSavedFilterPost
+            {
+                Name = name,
+                Url = url
+            };
+
+            return AddSavedFiltersImplAsync([filter], cancellationToken);
+        }
+
+        /// <summary>Adds saved filters for the authenticated user.</summary>
+        /// <param name="savedFilterPosts">A list of <see cref="TraktUserSavedFilterPost" /> instances.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the created and skipped saved filters.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserSavedFilterPostResponse" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para>VIP only.</para>
+        /// <para><see href="https://docs.trakt.tv/reference/postusersfiltersadd">
+        /// Trakt API Documentation: Users: Add saved filters
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktUserSavedFilterPostResponse>> AddSavedFiltersAsync(IReadOnlyList<TraktUserSavedFilterPost> savedFilterPosts,
+            CancellationToken cancellationToken = default)
+            => AddSavedFiltersImplAsync(savedFilterPosts, cancellationToken);
 
         /// <summary>Deletes a saved filter for the authenticated user.</summary>
         /// <param name="filterId">The numeric ID of the saved filter to delete.</param>

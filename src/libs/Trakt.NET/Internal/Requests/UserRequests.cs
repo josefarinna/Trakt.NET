@@ -527,7 +527,7 @@ namespace TraktNET
     internal sealed partial class UserSavedFilterAddPostRequest
     {
         [TraktRequestPayload]
-        internal required TraktUserSavedFilterPost TraktUserSavedFilterPost { get; set; }
+        internal required IReadOnlyList<TraktUserSavedFilterPost> TraktUserSavedFilterPosts { get; set; }
     }
 
     // -------------------------------------------------------
