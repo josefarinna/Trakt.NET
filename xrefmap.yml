@@ -25489,6 +25489,18 @@ references:
   commentId: Overload:TraktNET.TraktCollectionShow.ToString
   fullName: TraktNET.TraktCollectionShow.ToString
   nameWithType: TraktCollectionShow.ToString
+- uid: TraktNET.TraktCollectionShow.TotalRuntime
+  name: TotalRuntime
+  href: api/TraktNET.TraktCollectionShow.html#TraktNET_TraktCollectionShow_TotalRuntime
+  commentId: P:TraktNET.TraktCollectionShow.TotalRuntime
+  fullName: TraktNET.TraktCollectionShow.TotalRuntime
+  nameWithType: TraktCollectionShow.TotalRuntime
+- uid: TraktNET.TraktCollectionShow.TotalRuntime*
+  name: TotalRuntime
+  href: api/TraktNET.TraktCollectionShow.html#TraktNET_TraktCollectionShow_TotalRuntime_
+  commentId: Overload:TraktNET.TraktCollectionShow.TotalRuntime
+  fullName: TraktNET.TraktCollectionShow.TotalRuntime
+  nameWithType: TraktCollectionShow.TotalRuntime
 - uid: TraktNET.TraktCollectionShow.Trailer
   name: Trailer
   href: api/TraktNET.TraktCollectionShow.html#TraktNET_TraktCollectionShow_Trailer
@@ -67219,6 +67231,18 @@ references:
   commentId: Overload:TraktNET.TraktSeason.ToString
   fullName: TraktNET.TraktSeason.ToString
   nameWithType: TraktSeason.ToString
+- uid: TraktNET.TraktSeason.TotalRuntime
+  name: TotalRuntime
+  href: api/TraktNET.TraktSeason.html#TraktNET_TraktSeason_TotalRuntime
+  commentId: P:TraktNET.TraktSeason.TotalRuntime
+  fullName: TraktNET.TraktSeason.TotalRuntime
+  nameWithType: TraktSeason.TotalRuntime
+- uid: TraktNET.TraktSeason.TotalRuntime*
+  name: TotalRuntime
+  href: api/TraktNET.TraktSeason.html#TraktNET_TraktSeason_TotalRuntime_
+  commentId: Overload:TraktNET.TraktSeason.TotalRuntime
+  fullName: TraktNET.TraktSeason.TotalRuntime
+  nameWithType: TraktSeason.TotalRuntime
 - uid: TraktNET.TraktSeason.UpdatedAt
   name: UpdatedAt
   href: api/TraktNET.TraktSeason.html#TraktNET_TraktSeason_UpdatedAt
@@ -70573,6 +70597,18 @@ references:
   commentId: Overload:TraktNET.TraktShow.ToString
   fullName: TraktNET.TraktShow.ToString
   nameWithType: TraktShow.ToString
+- uid: TraktNET.TraktShow.TotalRuntime
+  name: TotalRuntime
+  href: api/TraktNET.TraktShow.html#TraktNET_TraktShow_TotalRuntime
+  commentId: P:TraktNET.TraktShow.TotalRuntime
+  fullName: TraktNET.TraktShow.TotalRuntime
+  nameWithType: TraktShow.TotalRuntime
+- uid: TraktNET.TraktShow.TotalRuntime*
+  name: TotalRuntime
+  href: api/TraktNET.TraktShow.html#TraktNET_TraktShow_TotalRuntime_
+  commentId: Overload:TraktNET.TraktShow.TotalRuntime
+  fullName: TraktNET.TraktShow.TotalRuntime
+  nameWithType: TraktShow.TotalRuntime
 - uid: TraktNET.TraktShow.Trailer
   name: Trailer
   href: api/TraktNET.TraktShow.html#TraktNET_TraktShow_Trailer
