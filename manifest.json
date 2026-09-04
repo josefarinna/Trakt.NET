@@ -9481,6 +9481,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserSavedFilterPostResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserSavedFilterPostResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserSavedFilterPostResponse",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserSavedFilterPostResponse.yml\" sourcestartlinenumber=\"1\">Represents the response of adding saved filters.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktUserSavedFiltersLimits.yml",
       "output": {
         ".html": {

@@ -113794,18 +113794,6 @@ references:
   commentId: Overload:TraktNET.TraktUserSavedFilterPost.Name
   fullName: TraktNET.TraktUserSavedFilterPost.Name
   nameWithType: TraktUserSavedFilterPost.Name
-- uid: TraktNET.TraktUserSavedFilterPost.Path
-  name: Path
-  href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_Path
-  commentId: P:TraktNET.TraktUserSavedFilterPost.Path
-  fullName: TraktNET.TraktUserSavedFilterPost.Path
-  nameWithType: TraktUserSavedFilterPost.Path
-- uid: TraktNET.TraktUserSavedFilterPost.Path*
-  name: Path
-  href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_Path_
-  commentId: Overload:TraktNET.TraktUserSavedFilterPost.Path
-  fullName: TraktNET.TraktUserSavedFilterPost.Path
-  nameWithType: TraktUserSavedFilterPost.Path
 - uid: TraktNET.TraktUserSavedFilterPost.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_PrintMembers_System_Text_StringBuilder_
@@ -113818,30 +113806,6 @@ references:
   commentId: Overload:TraktNET.TraktUserSavedFilterPost.PrintMembers
   fullName: TraktNET.TraktUserSavedFilterPost.PrintMembers
   nameWithType: TraktUserSavedFilterPost.PrintMembers
-- uid: TraktNET.TraktUserSavedFilterPost.Query
-  name: Query
-  href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_Query
-  commentId: P:TraktNET.TraktUserSavedFilterPost.Query
-  fullName: TraktNET.TraktUserSavedFilterPost.Query
-  nameWithType: TraktUserSavedFilterPost.Query
-- uid: TraktNET.TraktUserSavedFilterPost.Query*
-  name: Query
-  href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_Query_
-  commentId: Overload:TraktNET.TraktUserSavedFilterPost.Query
-  fullName: TraktNET.TraktUserSavedFilterPost.Query
-  nameWithType: TraktUserSavedFilterPost.Query
-- uid: TraktNET.TraktUserSavedFilterPost.Section
-  name: Section
-  href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_Section
-  commentId: P:TraktNET.TraktUserSavedFilterPost.Section
-  fullName: TraktNET.TraktUserSavedFilterPost.Section
-  nameWithType: TraktUserSavedFilterPost.Section
-- uid: TraktNET.TraktUserSavedFilterPost.Section*
-  name: Section
-  href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_Section_
-  commentId: Overload:TraktNET.TraktUserSavedFilterPost.Section
-  fullName: TraktNET.TraktUserSavedFilterPost.Section
-  nameWithType: TraktUserSavedFilterPost.Section
 - uid: TraktNET.TraktUserSavedFilterPost.ToString
   name: ToString()
   href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_ToString
@@ -113854,6 +113818,18 @@ references:
   commentId: Overload:TraktNET.TraktUserSavedFilterPost.ToString
   fullName: TraktNET.TraktUserSavedFilterPost.ToString
   nameWithType: TraktUserSavedFilterPost.ToString
+- uid: TraktNET.TraktUserSavedFilterPost.Url
+  name: Url
+  href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_Url
+  commentId: P:TraktNET.TraktUserSavedFilterPost.Url
+  fullName: TraktNET.TraktUserSavedFilterPost.Url
+  nameWithType: TraktUserSavedFilterPost.Url
+- uid: TraktNET.TraktUserSavedFilterPost.Url*
+  name: Url
+  href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_Url_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPost.Url
+  fullName: TraktNET.TraktUserSavedFilterPost.Url
+  nameWithType: TraktUserSavedFilterPost.Url
 - uid: TraktNET.TraktUserSavedFilterPost.op_Equality(TraktNET.TraktUserSavedFilterPost,TraktNET.TraktUserSavedFilterPost)
   name: operator ==(TraktUserSavedFilterPost?, TraktUserSavedFilterPost?)
   href: api/TraktNET.TraktUserSavedFilterPost.html#TraktNET_TraktUserSavedFilterPost_op_Equality_TraktNET_TraktUserSavedFilterPost_TraktNET_TraktUserSavedFilterPost_
@@ -113890,6 +113866,171 @@ references:
   fullName.vb: TraktNET.TraktUserSavedFilterPost.<>
   nameWithType: TraktUserSavedFilterPost.operator !=
   nameWithType.vb: TraktUserSavedFilterPost.<>
+- uid: TraktNET.TraktUserSavedFilterPostResponse
+  name: TraktUserSavedFilterPostResponse
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html
+  commentId: T:TraktNET.TraktUserSavedFilterPostResponse
+  fullName: TraktNET.TraktUserSavedFilterPostResponse
+  nameWithType: TraktUserSavedFilterPostResponse
+- uid: TraktNET.TraktUserSavedFilterPostResponse.#ctor
+  name: TraktUserSavedFilterPostResponse()
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse__ctor
+  commentId: M:TraktNET.TraktUserSavedFilterPostResponse.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.TraktUserSavedFilterPostResponse()
+  fullName.vb: TraktNET.TraktUserSavedFilterPostResponse.New()
+  nameWithType: TraktUserSavedFilterPostResponse.TraktUserSavedFilterPostResponse()
+  nameWithType.vb: TraktUserSavedFilterPostResponse.New()
+- uid: TraktNET.TraktUserSavedFilterPostResponse.#ctor(TraktNET.TraktUserSavedFilterPostResponse)
+  name: TraktUserSavedFilterPostResponse(TraktUserSavedFilterPostResponse)
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse__ctor_TraktNET_TraktUserSavedFilterPostResponse_
+  commentId: M:TraktNET.TraktUserSavedFilterPostResponse.#ctor(TraktNET.TraktUserSavedFilterPostResponse)
+  name.vb: New(TraktUserSavedFilterPostResponse)
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.TraktUserSavedFilterPostResponse(TraktNET.TraktUserSavedFilterPostResponse)
+  fullName.vb: TraktNET.TraktUserSavedFilterPostResponse.New(TraktNET.TraktUserSavedFilterPostResponse)
+  nameWithType: TraktUserSavedFilterPostResponse.TraktUserSavedFilterPostResponse(TraktUserSavedFilterPostResponse)
+  nameWithType.vb: TraktUserSavedFilterPostResponse.New(TraktUserSavedFilterPostResponse)
+- uid: TraktNET.TraktUserSavedFilterPostResponse.#ctor*
+  name: TraktUserSavedFilterPostResponse
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse__ctor_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPostResponse.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.TraktUserSavedFilterPostResponse
+  fullName.vb: TraktNET.TraktUserSavedFilterPostResponse.New
+  nameWithType: TraktUserSavedFilterPostResponse.TraktUserSavedFilterPostResponse
+  nameWithType.vb: TraktUserSavedFilterPostResponse.New
+- uid: TraktNET.TraktUserSavedFilterPostResponse.Added
+  name: Added
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_Added
+  commentId: P:TraktNET.TraktUserSavedFilterPostResponse.Added
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.Added
+  nameWithType: TraktUserSavedFilterPostResponse.Added
+- uid: TraktNET.TraktUserSavedFilterPostResponse.Added*
+  name: Added
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_Added_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPostResponse.Added
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.Added
+  nameWithType: TraktUserSavedFilterPostResponse.Added
+- uid: TraktNET.TraktUserSavedFilterPostResponse.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_EqualityContract
+  commentId: P:TraktNET.TraktUserSavedFilterPostResponse.EqualityContract
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.EqualityContract
+  nameWithType: TraktUserSavedFilterPostResponse.EqualityContract
+- uid: TraktNET.TraktUserSavedFilterPostResponse.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_EqualityContract_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPostResponse.EqualityContract
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.EqualityContract
+  nameWithType: TraktUserSavedFilterPostResponse.EqualityContract
+- uid: TraktNET.TraktUserSavedFilterPostResponse.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_Equals_System_Object_
+  commentId: M:TraktNET.TraktUserSavedFilterPostResponse.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.Equals(object?)
+  fullName.vb: TraktNET.TraktUserSavedFilterPostResponse.Equals(Object)
+  nameWithType: TraktUserSavedFilterPostResponse.Equals(object?)
+  nameWithType.vb: TraktUserSavedFilterPostResponse.Equals(Object)
+- uid: TraktNET.TraktUserSavedFilterPostResponse.Equals(TraktNET.TraktUserSavedFilterPostResponse)
+  name: Equals(TraktUserSavedFilterPostResponse?)
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_Equals_TraktNET_TraktUserSavedFilterPostResponse_
+  commentId: M:TraktNET.TraktUserSavedFilterPostResponse.Equals(TraktNET.TraktUserSavedFilterPostResponse)
+  name.vb: Equals(TraktUserSavedFilterPostResponse)
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.Equals(TraktNET.TraktUserSavedFilterPostResponse?)
+  fullName.vb: TraktNET.TraktUserSavedFilterPostResponse.Equals(TraktNET.TraktUserSavedFilterPostResponse)
+  nameWithType: TraktUserSavedFilterPostResponse.Equals(TraktUserSavedFilterPostResponse?)
+  nameWithType.vb: TraktUserSavedFilterPostResponse.Equals(TraktUserSavedFilterPostResponse)
+- uid: TraktNET.TraktUserSavedFilterPostResponse.Equals*
+  name: Equals
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_Equals_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPostResponse.Equals
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.Equals
+  nameWithType: TraktUserSavedFilterPostResponse.Equals
+- uid: TraktNET.TraktUserSavedFilterPostResponse.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_GetHashCode
+  commentId: M:TraktNET.TraktUserSavedFilterPostResponse.GetHashCode
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.GetHashCode()
+  nameWithType: TraktUserSavedFilterPostResponse.GetHashCode()
+- uid: TraktNET.TraktUserSavedFilterPostResponse.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_GetHashCode_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPostResponse.GetHashCode
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.GetHashCode
+  nameWithType: TraktUserSavedFilterPostResponse.GetHashCode
+- uid: TraktNET.TraktUserSavedFilterPostResponse.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktUserSavedFilterPostResponse.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktUserSavedFilterPostResponse.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktUserSavedFilterPostResponse.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_PrintMembers_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPostResponse.PrintMembers
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.PrintMembers
+  nameWithType: TraktUserSavedFilterPostResponse.PrintMembers
+- uid: TraktNET.TraktUserSavedFilterPostResponse.Skipped
+  name: Skipped
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_Skipped
+  commentId: P:TraktNET.TraktUserSavedFilterPostResponse.Skipped
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.Skipped
+  nameWithType: TraktUserSavedFilterPostResponse.Skipped
+- uid: TraktNET.TraktUserSavedFilterPostResponse.Skipped*
+  name: Skipped
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_Skipped_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPostResponse.Skipped
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.Skipped
+  nameWithType: TraktUserSavedFilterPostResponse.Skipped
+- uid: TraktNET.TraktUserSavedFilterPostResponse.ToString
+  name: ToString()
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_ToString
+  commentId: M:TraktNET.TraktUserSavedFilterPostResponse.ToString
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.ToString()
+  nameWithType: TraktUserSavedFilterPostResponse.ToString()
+- uid: TraktNET.TraktUserSavedFilterPostResponse.ToString*
+  name: ToString
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_ToString_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPostResponse.ToString
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.ToString
+  nameWithType: TraktUserSavedFilterPostResponse.ToString
+- uid: TraktNET.TraktUserSavedFilterPostResponse.op_Equality(TraktNET.TraktUserSavedFilterPostResponse,TraktNET.TraktUserSavedFilterPostResponse)
+  name: operator ==(TraktUserSavedFilterPostResponse?, TraktUserSavedFilterPostResponse?)
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_op_Equality_TraktNET_TraktUserSavedFilterPostResponse_TraktNET_TraktUserSavedFilterPostResponse_
+  commentId: M:TraktNET.TraktUserSavedFilterPostResponse.op_Equality(TraktNET.TraktUserSavedFilterPostResponse,TraktNET.TraktUserSavedFilterPostResponse)
+  name.vb: =(TraktUserSavedFilterPostResponse, TraktUserSavedFilterPostResponse)
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.operator ==(TraktNET.TraktUserSavedFilterPostResponse?, TraktNET.TraktUserSavedFilterPostResponse?)
+  fullName.vb: TraktNET.TraktUserSavedFilterPostResponse.=(TraktNET.TraktUserSavedFilterPostResponse, TraktNET.TraktUserSavedFilterPostResponse)
+  nameWithType: TraktUserSavedFilterPostResponse.operator ==(TraktUserSavedFilterPostResponse?, TraktUserSavedFilterPostResponse?)
+  nameWithType.vb: TraktUserSavedFilterPostResponse.=(TraktUserSavedFilterPostResponse, TraktUserSavedFilterPostResponse)
+- uid: TraktNET.TraktUserSavedFilterPostResponse.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_op_Equality_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPostResponse.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.operator ==
+  fullName.vb: TraktNET.TraktUserSavedFilterPostResponse.=
+  nameWithType: TraktUserSavedFilterPostResponse.operator ==
+  nameWithType.vb: TraktUserSavedFilterPostResponse.=
+- uid: TraktNET.TraktUserSavedFilterPostResponse.op_Inequality(TraktNET.TraktUserSavedFilterPostResponse,TraktNET.TraktUserSavedFilterPostResponse)
+  name: operator !=(TraktUserSavedFilterPostResponse?, TraktUserSavedFilterPostResponse?)
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_op_Inequality_TraktNET_TraktUserSavedFilterPostResponse_TraktNET_TraktUserSavedFilterPostResponse_
+  commentId: M:TraktNET.TraktUserSavedFilterPostResponse.op_Inequality(TraktNET.TraktUserSavedFilterPostResponse,TraktNET.TraktUserSavedFilterPostResponse)
+  name.vb: <>(TraktUserSavedFilterPostResponse, TraktUserSavedFilterPostResponse)
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.operator !=(TraktNET.TraktUserSavedFilterPostResponse?, TraktNET.TraktUserSavedFilterPostResponse?)
+  fullName.vb: TraktNET.TraktUserSavedFilterPostResponse.<>(TraktNET.TraktUserSavedFilterPostResponse, TraktNET.TraktUserSavedFilterPostResponse)
+  nameWithType: TraktUserSavedFilterPostResponse.operator !=(TraktUserSavedFilterPostResponse?, TraktUserSavedFilterPostResponse?)
+  nameWithType.vb: TraktUserSavedFilterPostResponse.<>(TraktUserSavedFilterPostResponse, TraktUserSavedFilterPostResponse)
+- uid: TraktNET.TraktUserSavedFilterPostResponse.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktUserSavedFilterPostResponse.html#TraktNET_TraktUserSavedFilterPostResponse_op_Inequality_
+  commentId: Overload:TraktNET.TraktUserSavedFilterPostResponse.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktUserSavedFilterPostResponse.operator !=
+  fullName.vb: TraktNET.TraktUserSavedFilterPostResponse.<>
+  nameWithType: TraktUserSavedFilterPostResponse.operator !=
+  nameWithType.vb: TraktUserSavedFilterPostResponse.<>
 - uid: TraktNET.TraktUserSavedFiltersLimits
   name: TraktUserSavedFiltersLimits
   href: api/TraktNET.TraktUserSavedFiltersLimits.html
@@ -117865,6 +118006,15 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.AddPersonalListItemsAsync
   fullName: TraktNET.TraktUsersModule.AddPersonalListItemsAsync
   nameWithType: TraktUsersModule.AddPersonalListItemsAsync
+- uid: TraktNET.TraktUsersModule.AddSavedFilterAsync(System.String,System.String,System.Threading.CancellationToken)
+  name: AddSavedFilterAsync(string, string, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_AddSavedFilterAsync_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.AddSavedFilterAsync(System.String,System.String,System.Threading.CancellationToken)
+  name.vb: AddSavedFilterAsync(String, String, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.AddSavedFilterAsync(string, string, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.AddSavedFilterAsync(String, String, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.AddSavedFilterAsync(string, string, CancellationToken)
+  nameWithType.vb: TraktUsersModule.AddSavedFilterAsync(String, String, CancellationToken)
 - uid: TraktNET.TraktUsersModule.AddSavedFilterAsync(TraktNET.TraktUserSavedFilterPost,System.Threading.CancellationToken)
   name: AddSavedFilterAsync(TraktUserSavedFilterPost, CancellationToken)
   href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_AddSavedFilterAsync_TraktNET_TraktUserSavedFilterPost_System_Threading_CancellationToken_
@@ -117877,6 +118027,21 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.AddSavedFilterAsync
   fullName: TraktNET.TraktUsersModule.AddSavedFilterAsync
   nameWithType: TraktUsersModule.AddSavedFilterAsync
+- uid: TraktNET.TraktUsersModule.AddSavedFiltersAsync(System.Collections.Generic.IReadOnlyList{TraktNET.TraktUserSavedFilterPost},System.Threading.CancellationToken)
+  name: AddSavedFiltersAsync(IReadOnlyList<TraktUserSavedFilterPost>, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_AddSavedFiltersAsync_System_Collections_Generic_IReadOnlyList_TraktNET_TraktUserSavedFilterPost__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.AddSavedFiltersAsync(System.Collections.Generic.IReadOnlyList{TraktNET.TraktUserSavedFilterPost},System.Threading.CancellationToken)
+  name.vb: AddSavedFiltersAsync(IReadOnlyList(Of TraktUserSavedFilterPost), CancellationToken)
+  fullName: TraktNET.TraktUsersModule.AddSavedFiltersAsync(System.Collections.Generic.IReadOnlyList<TraktNET.TraktUserSavedFilterPost>, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.AddSavedFiltersAsync(System.Collections.Generic.IReadOnlyList(Of TraktNET.TraktUserSavedFilterPost), System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.AddSavedFiltersAsync(IReadOnlyList<TraktUserSavedFilterPost>, CancellationToken)
+  nameWithType.vb: TraktUsersModule.AddSavedFiltersAsync(IReadOnlyList(Of TraktUserSavedFilterPost), CancellationToken)
+- uid: TraktNET.TraktUsersModule.AddSavedFiltersAsync*
+  name: AddSavedFiltersAsync
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_AddSavedFiltersAsync_
+  commentId: Overload:TraktNET.TraktUsersModule.AddSavedFiltersAsync
+  fullName: TraktNET.TraktUsersModule.AddSavedFiltersAsync
+  nameWithType: TraktUsersModule.AddSavedFiltersAsync
 - uid: TraktNET.TraktUsersModule.ApproveFollowRequestAsync(System.UInt32,System.Threading.CancellationToken)
   name: ApproveFollowRequestAsync(uint, CancellationToken)
   href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_ApproveFollowRequestAsync_System_UInt32_System_Threading_CancellationToken_
@@ -123874,6 +124039,30 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilter
   fullName: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilter
   nameWithType: UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilter
+- uid: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPost
+  name: IReadOnlyListTraktUserSavedFilterPost
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_IReadOnlyListTraktUserSavedFilterPost
+  commentId: P:TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPost
+  fullName: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPost
+  nameWithType: UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPost
+- uid: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPost*
+  name: IReadOnlyListTraktUserSavedFilterPost
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_IReadOnlyListTraktUserSavedFilterPost_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPost
+  fullName: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPost
+  nameWithType: UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPost
+- uid: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPostResponse
+  name: IReadOnlyListTraktUserSavedFilterPostResponse
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_IReadOnlyListTraktUserSavedFilterPostResponse
+  commentId: P:TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPostResponse
+  fullName: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPostResponse
+  nameWithType: UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPostResponse
+- uid: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPostResponse*
+  name: IReadOnlyListTraktUserSavedFilterPostResponse
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_IReadOnlyListTraktUserSavedFilterPostResponse_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPostResponse
+  fullName: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPostResponse
+  nameWithType: UsersJsonSerializerContext.IReadOnlyListTraktUserSavedFilterPostResponse
 - uid: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktUserSync
   name: IReadOnlyListTraktUserSync
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_IReadOnlyListTraktUserSync
@@ -126958,6 +127147,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktUserSavedFilterPost
   fullName: TraktNET.UsersJsonSerializerContext.TraktUserSavedFilterPost
   nameWithType: UsersJsonSerializerContext.TraktUserSavedFilterPost
+- uid: TraktNET.UsersJsonSerializerContext.TraktUserSavedFilterPostResponse
+  name: TraktUserSavedFilterPostResponse
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktUserSavedFilterPostResponse
+  commentId: P:TraktNET.UsersJsonSerializerContext.TraktUserSavedFilterPostResponse
+  fullName: TraktNET.UsersJsonSerializerContext.TraktUserSavedFilterPostResponse
+  nameWithType: UsersJsonSerializerContext.TraktUserSavedFilterPostResponse
+- uid: TraktNET.UsersJsonSerializerContext.TraktUserSavedFilterPostResponse*
+  name: TraktUserSavedFilterPostResponse
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktUserSavedFilterPostResponse_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktUserSavedFilterPostResponse
+  fullName: TraktNET.UsersJsonSerializerContext.TraktUserSavedFilterPostResponse
+  nameWithType: UsersJsonSerializerContext.TraktUserSavedFilterPostResponse
 - uid: TraktNET.UsersJsonSerializerContext.TraktUserSavedFiltersLimits
   name: TraktUserSavedFiltersLimits
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktUserSavedFiltersLimits

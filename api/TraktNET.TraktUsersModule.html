@@ -667,13 +667,13 @@ Trakt API Documentation: Users: List Items
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktUsersModule_AddSavedFilterAsync_" data-uid="TraktNET.TraktUsersModule.AddSavedFilterAsync*"></a>
-  <h4 id="TraktNET_TraktUsersModule_AddSavedFilterAsync_TraktNET_TraktUserSavedFilterPost_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.AddSavedFilterAsync(TraktNET.TraktUserSavedFilterPost,System.Threading.CancellationToken)">AddSavedFilterAsync(TraktUserSavedFilterPost, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktUsersModule_AddSavedFilterAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.AddSavedFilterAsync(System.String,System.String,System.Threading.CancellationToken)">AddSavedFilterAsync(string, string, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Adds a saved filter for the authenticated user.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserSavedFilter&gt;&gt; AddSavedFilterAsync(TraktUserSavedFilterPost savedFilterPost, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserSavedFilterPostResponse&gt;&gt; AddSavedFilterAsync(string name, string url, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -686,9 +686,15 @@ Trakt API Documentation: Users: List Items
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="TraktNET.TraktUserSavedFilterPost.html">TraktUserSavedFilterPost</a></td>
-        <td><span class="parametername">savedFilterPost</span></td>
-        <td><p>A <a class="xref" href="TraktNET.TraktUserSavedFilterPost.html">TraktUserSavedFilterPost</a> instance containing section, name, path, and query.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the saved filter.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>The URL of the saved filter.</p>
 </td>
       </tr>
       <tr>
@@ -710,9 +716,92 @@ Trakt API Documentation: Users: List Items
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserSavedFilter.html">TraktUserSavedFilter</a>&gt;&gt;</td>
-        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created saved filter.</p>
-<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserSavedFilter.html">TraktUserSavedFilter</a>.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserSavedFilterPostResponse.html">TraktUserSavedFilterPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created and skipped saved filters.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserSavedFilterPostResponse.html">TraktUserSavedFilterPostResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_AddSavedFilterAsync_System_String_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/postusersfiltersadd">
+Trakt API Documentation: Users: Add saved filters
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_AddSavedFilterAsync_" data-uid="TraktNET.TraktUsersModule.AddSavedFilterAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_AddSavedFilterAsync_TraktNET_TraktUserSavedFilterPost_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.AddSavedFilterAsync(TraktNET.TraktUserSavedFilterPost,System.Threading.CancellationToken)">AddSavedFilterAsync(TraktUserSavedFilterPost, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds a saved filter for the authenticated user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserSavedFilterPostResponse&gt;&gt; AddSavedFilterAsync(TraktUserSavedFilterPost savedFilterPost, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktUserSavedFilterPost.html">TraktUserSavedFilterPost</a></td>
+        <td><span class="parametername">savedFilterPost</span></td>
+        <td><p>A <a class="xref" href="TraktNET.TraktUserSavedFilterPost.html">TraktUserSavedFilterPost</a> instance containing name and url.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserSavedFilterPostResponse.html">TraktUserSavedFilterPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created and skipped saved filters.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserSavedFilterPostResponse.html">TraktUserSavedFilterPostResponse</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -720,8 +809,91 @@ Trakt API Documentation: Users: List Items
   <h5 id="TraktNET_TraktUsersModule_AddSavedFilterAsync_TraktNET_TraktUserSavedFilterPost_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p>VIP only.</p>
-<p><a href="https://docs.trakt.tv/reference/postusersfilters">
-Trakt API Documentation: Users: Add saved filter
+<p><a href="https://docs.trakt.tv/reference/postusersfiltersadd">
+Trakt API Documentation: Users: Add saved filters
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_AddSavedFiltersAsync_" data-uid="TraktNET.TraktUsersModule.AddSavedFiltersAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_AddSavedFiltersAsync_System_Collections_Generic_IReadOnlyList_TraktNET_TraktUserSavedFilterPost__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.AddSavedFiltersAsync(System.Collections.Generic.IReadOnlyList{TraktNET.TraktUserSavedFilterPost},System.Threading.CancellationToken)">AddSavedFiltersAsync(IReadOnlyList&lt;TraktUserSavedFilterPost&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds saved filters for the authenticated user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktUserSavedFilterPostResponse&gt;&gt; AddSavedFiltersAsync(IReadOnlyList&lt;TraktUserSavedFilterPost&gt; savedFilterPosts, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktUserSavedFilterPost.html">TraktUserSavedFilterPost</a>&gt;</td>
+        <td><span class="parametername">savedFilterPosts</span></td>
+        <td><p>A list of <a class="xref" href="TraktNET.TraktUserSavedFilterPost.html">TraktUserSavedFilterPost</a> instances.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserSavedFilterPostResponse.html">TraktUserSavedFilterPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the created and skipped saved filters.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserSavedFilterPostResponse.html">TraktUserSavedFilterPostResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_AddSavedFiltersAsync_System_Collections_Generic_IReadOnlyList_TraktNET_TraktUserSavedFilterPost__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>VIP only.</p>
+<p><a href="https://docs.trakt.tv/reference/postusersfiltersadd">
+Trakt API Documentation: Users: Add saved filters
 </a></p>
 </div>
   <h5 class="exceptions">Exceptions</h5>
