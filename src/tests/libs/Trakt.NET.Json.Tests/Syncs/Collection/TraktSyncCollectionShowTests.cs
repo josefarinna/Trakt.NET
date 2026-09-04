@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Syncs
+namespace TraktNET.Json.Syncs
 {
     public sealed class TraktSyncCollectionShowTests
     {
@@ -17,6 +17,7 @@
             syncCollectionShow.Tagline.ShouldBeNull();
             syncCollectionShow.Overview.ShouldBeNull();
             syncCollectionShow.Runtime.ShouldBeNull();
+            syncCollectionShow.TotalRuntime.ShouldBeNull();
             syncCollectionShow.Certification.ShouldBeNull();
             syncCollectionShow.Country.ShouldBeNull();
             syncCollectionShow.Trailer.ShouldBeNull();
