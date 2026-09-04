@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -19,6 +19,9 @@ namespace TraktNET
 
         /// <summary>The runtime of an show's epsiode.</summary>
         public uint? Runtime { get; set; }
+
+        /// <summary>The total runtime of the show in minutes.</summary>
+        public uint? TotalRuntime { get; set; }
 
         /// <summary>The content certification of the show.</summary>
         public string? Certification { get; set; }

@@ -15,6 +15,9 @@ namespace TraktNET
         /// <summary>The number of aired episodes in the season.</summary>
         public uint? AiredEpisodes { get; set; }
 
+        /// <summary>The total runtime of the season in minutes.</summary>
+        public uint? TotalRuntime { get; set; }
+
         /// <summary>The title of the season.</summary>
         public string? Title { get; set; }
 

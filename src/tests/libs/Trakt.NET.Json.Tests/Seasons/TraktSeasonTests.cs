@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Seasons
+namespace TraktNET.Json.Seasons
 {
     public sealed class TraktSeasonTests
     {
@@ -13,6 +13,7 @@
             season.Votes.ShouldBeNull();
             season.EpisodeCount.ShouldBeNull();
             season.AiredEpisodes.ShouldBeNull();
+            season.TotalRuntime.ShouldBeNull();
             season.Title.ShouldBeNull();
             season.Overview.ShouldBeNull();
             season.FirstAired.ShouldBeNull();
@@ -87,6 +88,7 @@
             season!.Votes.ShouldBe(4970U);
             season!.EpisodeCount.ShouldBe(10U);
             season!.AiredEpisodes.ShouldBe(10U);
+            season!.TotalRuntime.ShouldBe(570U);
             season!.Title.ShouldBe("Season 1");
             season!.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
             season!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
@@ -117,6 +119,7 @@
             season!.Votes.ShouldBe(4970U);
             season!.EpisodeCount.ShouldBe(10U);
             season!.AiredEpisodes.ShouldBe(10U);
+            season!.TotalRuntime.ShouldBe(570U);
             season!.Title.ShouldBe("Season 1");
             season!.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
             season!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
@@ -157,6 +160,7 @@
             season!.Votes.ShouldBe(4970U);
             season!.EpisodeCount.ShouldBe(10U);
             season!.AiredEpisodes.ShouldBe(10U);
+            season!.TotalRuntime.ShouldBe(570U);
             season!.Title.ShouldBe("Season 1");
             season!.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
             season!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
@@ -290,6 +294,7 @@
             season!.Votes.ShouldBe(4970U);
             season!.EpisodeCount.ShouldBe(10U);
             season!.AiredEpisodes.ShouldBe(10U);
+            season!.TotalRuntime.ShouldBe(570U);
             season!.Title.ShouldBe("Season 1");
             season!.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
             season!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));

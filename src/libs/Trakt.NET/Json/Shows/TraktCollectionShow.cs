@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -72,6 +72,14 @@ namespace TraktNET
         {
             get => Show?.Runtime;
             set => Show?.Runtime = value;
+        }
+
+        /// <summary>The total runtime of the show in minutes.</summary>
+        [JsonIgnore]
+        public uint? TotalRuntime
+        {
+            get => Show?.TotalRuntime;
+            set => Show?.TotalRuntime = value;
         }
 
         /// <summary>The content certification of the show.</summary>

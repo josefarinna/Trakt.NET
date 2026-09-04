@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Shows
+namespace TraktNET.Json.Shows
 {
     public sealed class TraktShowTests
     {
@@ -16,6 +16,7 @@
             show.UpdatedAt.ShouldBeNull();
             show.Airs.ShouldBeNull();
             show.Runtime.ShouldBeNull();
+            show.TotalRuntime.ShouldBeNull();
             show.Certification.ShouldBeNull();
             show.Network.ShouldBeNull();
             show.Country.ShouldBeNull();
@@ -140,6 +141,7 @@
             show!.Airs!.Timezone.ShouldBe("America/New_York");
 
             show!.Runtime.ShouldBe(57U);
+            show!.TotalRuntime.ShouldBe(4161U);
             show!.Certification.ShouldBe("TV-MA");
             show!.Network.ShouldBe("HBO");
             show!.Country.ShouldBe("us");
@@ -208,6 +210,7 @@
             show!.Airs!.Timezone.ShouldBe("America/New_York");
 
             show!.Runtime.ShouldBe(57U);
+            show!.TotalRuntime.ShouldBe(4161U);
             show!.Certification.ShouldBe("TV-MA");
             show!.Network.ShouldBe("HBO");
             show!.Country.ShouldBe("us");
