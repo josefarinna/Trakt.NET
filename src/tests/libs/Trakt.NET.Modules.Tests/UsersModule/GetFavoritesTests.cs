@@ -96,6 +96,26 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
+        public async Task TestGetFavoritesWithFavoriteTypeMedia()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\userfavorites.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetFavoritesUri}/{TraktFavoriteObjectType.Media.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, FavoritesItemCount);
+
+            TraktPagedResponse<TraktFavorite> response = await client.Users.GetFavoritesAsync(Username, TraktFavoriteObjectType.Media, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)FavoritesItemCount);
+            response.ItemCount.ShouldBe(FavoritesItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
         public async Task TestGetFavoritesWithFavoriteTypeAndSort()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\userfavorites.json");
