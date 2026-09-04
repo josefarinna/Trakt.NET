@@ -5980,7 +5980,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\\r\\n  \\",
+                  "raw": "{\r\n  \"reaction\": \"like\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -6041,6 +6041,60 @@
               }
             }
           ]
+        },
+        {
+          "name": "Report a comment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/comments/{{COMMENT_ID}}/report",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "comments",
+                "{{COMMENT_ID}}",
+                "report"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
         }
       ],
       "auth": {
@@ -7817,6 +7871,60 @@
               }
             }
           ]
+        },
+        {
+          "name": "Report a list",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/lists/{{TRAKT_LIST_ID}}/report",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "lists",
+                "{{TRAKT_LIST_ID}}",
+                "report"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
         }
       ],
       "auth": {
@@ -12690,6 +12798,60 @@
               }
             }
           ]
+        },
+        {
+          "name": "Report a movie",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/movies/{{TRAKT_MOVIE_ID}}/report",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "movies",
+                "{{TRAKT_MOVIE_ID}}",
+                "report"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
         }
       ],
       "auth": {
@@ -12713,6 +12875,98 @@
               ""
             ]
           }
+        }
+      ]
+    },
+    {
+      "name": "Media",
+      "item": [
+        {
+          "name": "Get trending media",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/media/trending",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "media",
+                "trending"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get popular media",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/media/popular",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "media",
+                "popular"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get anticipated media",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/media/anticipated",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "media",
+                "anticipated"
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -13907,6 +14161,60 @@
               }
             }
           ]
+        },
+        {
+          "name": "Report a person",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/people/{{TRAKT_PERSON_ID}}/report",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "people",
+                "{{TRAKT_PERSON_ID}}",
+                "report"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
         }
       ],
       "auth": {
@@ -15245,6 +15553,42 @@
               "response": []
             }
           ]
+        },
+        {
+          "name": "Search lists",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/search/list?query={{QUERY}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "search",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "{{QUERY}}",
+                  "description": "Query string"
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "auth": {
@@ -21032,6 +21376,174 @@
               }
             }
           ]
+        },
+        {
+          "name": "Report a show",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/shows/{{TRAKT_SHOW_ID}}/report",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "shows",
+                "{{TRAKT_SHOW_ID}}",
+                "report"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Report a show season",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/shows/{{TRAKT_SHOW_ID}}/seasons/{{SEASON_NUMBER}}/report",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "shows",
+                "{{TRAKT_SHOW_ID}}",
+                "seasons",
+                "{{SEASON_NUMBER}}",
+                "report"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Report a show episode",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/shows/{{TRAKT_SHOW_ID}}/seasons/{{SEASON_NUMBER}}/episodes/{{EPISODE_NUMBER}}/report",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "shows",
+                "{{TRAKT_SHOW_ID}}",
+                "seasons",
+                "{{SEASON_NUMBER}}",
+                "episodes",
+                "{{EPISODE_NUMBER}}",
+                "report"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
         }
       ],
       "auth": {
@@ -23275,6 +23787,60 @@
               }
             }
           ]
+        },
+        {
+          "name": "Report a season",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/seasons/{{SEASON_ID}}/report",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "seasons",
+                "{{SEASON_ID}}",
+                "report"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
         }
       ],
       "auth": {
@@ -25591,6 +26157,60 @@
               }
             }
           ]
+        },
+        {
+          "name": "Report an episode",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/episodes/{{EPISODE_ID}}/report",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "episodes",
+                "{{EPISODE_ID}}",
+                "report"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
         }
       ],
       "auth": {
@@ -27853,7 +28473,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\\r\\n  \\",
+                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 28\r\n      }\r\n    }\r\n  ]\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -27907,7 +28527,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\\r\\n  \\",
+                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 28\r\n      }\r\n    }\r\n  ]\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -28131,6 +28751,51 @@
                   }
                 ]
               }
+            }
+          ]
+        },
+        {
+          "name": "Progress",
+          "item": [
+            {
+              "name": "Get watched progress",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/sync/progress/watched",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "sync",
+                    "progress",
+                    "watched"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{ACCESS_TOKEN}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
             }
           ]
         }
@@ -28464,6 +29129,29 @@
             {
               "name": "Get saved filters",
               "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/users/saved_filters",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    "saved_filters"
+                  ]
+                },
                 "auth": {
                   "type": "bearer",
                   "bearer": [
@@ -28473,8 +29161,61 @@
                       "type": "string"
                     }
                   ]
-                },
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get saved filters (section)",
+              "request": {
                 "method": "GET",
+                "header": [
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/users/saved_filters/:section",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    "saved_filters",
+                    ":section"
+                  ],
+                  "variable": [
+                    {
+                      "key": "section",
+                      "value": "movies",
+                      "description": "Section: movies, shows, calendars, search"
+                    }
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{ACCESS_TOKEN}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Add saved filters",
+              "request": {
+                "method": "POST",
                 "header": [
                   {
                     "key": "Content-Type",
@@ -28500,28 +29241,8 @@
                   "path": [
                     "users",
                     "saved_filters"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1",
-                      "description": "Number of page of results to be returned. Default: 1",
-                      "disabled": true
-                    },
-                    {
-                      "key": "limit",
-                      "value": "10",
-                      "description": "Number of results to return per page. Default: 10",
-                      "disabled": true
-                    }
                   ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Get saved filters (section)",
-              "request": {
+                },
                 "auth": {
                   "type": "bearer",
                   "bearer": [
@@ -28532,13 +29253,23 @@
                     }
                   ]
                 },
-                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\r\n  {\r\n    \"name\": \"Movies: IMDB + TMDB ratings\",\r\n    \"url\": \"/movies/recommended/weekly?imdb_ratings=6.9-10.0\"\r\n  }\r\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete saved filter",
+              "request": {
+                "method": "DELETE",
                 "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
                   {
                     "key": "trakt-api-version",
                     "value": "{{API_VERSION}}",
@@ -28551,34 +29282,30 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{API_URL}}/users/saved_filters/:section",
+                  "raw": "{{API_URL}}/users/saved_filters/:id",
                   "host": [
                     "{{API_URL}}"
                   ],
                   "path": [
                     "users",
                     "saved_filters",
-                    ":section"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1",
-                      "description": "Number of page of results to be returned. Default: 1",
-                      "disabled": true
-                    },
-                    {
-                      "key": "limit",
-                      "value": "10",
-                      "description": "Number of results to return per page. Default: 10",
-                      "disabled": true
-                    }
+                    ":id"
                   ],
                   "variable": [
                     {
-                      "key": "section",
-                      "value": "movies",
-                      "description": "Possible values:  movies , shows , calendars , search ."
+                      "key": "id",
+                      "value": "{{FILTER_ID}}",
+                      "description": "ID of the saved filter"
+                    }
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{ACCESS_TOKEN}}",
+                      "type": "string"
                     }
                   ]
                 }
@@ -28734,6 +29461,46 @@
                       "key": "type",
                       "value": "movies",
                       "description": "Possible values:  movie , show , season , user ."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get dropped hidden items",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/users/hidden/dropped",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    "hidden",
+                    "dropped"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{ACCESS_TOKEN}}",
+                      "type": "string"
                     }
                   ]
                 }
@@ -34283,7 +35050,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\\r\\n  \\",
+                  "raw": "{\r\n  \"toggles\": {\r\n    \"history\": true\r\n  }\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -34754,143 +35521,6 @@
           ]
         },
         {
-          "name": "Saved Filters",
-          "item": [
-            {
-              "name": "Get saved filters",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "trakt-api-version",
-                    "value": "{{API_VERSION}}",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-key",
-                    "value": "{{CLIENT_ID}}",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{API_URL}}/users/filters",
-                  "host": [
-                    "{{API_URL}}"
-                  ],
-                  "path": [
-                    "users",
-                    "filters"
-                  ]
-                }
-              },
-              "response": [],
-              "auth": {
-                "type": "bearer",
-                "bearer": [
-                  {
-                    "key": "token",
-                    "value": "{{ACCESS_TOKEN}}",
-                    "type": "string"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Add saved filters",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-version",
-                    "value": "{{API_VERSION}}",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-key",
-                    "value": "{{CLIENT_ID}}",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{API_URL}}/users/filters",
-                  "host": [
-                    "{{API_URL}}"
-                  ],
-                  "path": [
-                    "users",
-                    "filters"
-                  ]
-                },
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\\r\\n  \\",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "response": [],
-              "auth": {
-                "type": "bearer",
-                "bearer": [
-                  {
-                    "key": "token",
-                    "value": "{{ACCESS_TOKEN}}",
-                    "type": "string"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "Delete saved filter",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "trakt-api-version",
-                    "value": "{{API_VERSION}}",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-key",
-                    "value": "{{CLIENT_ID}}",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{API_URL}}/users/filters/{{FILTER_ID}}",
-                  "host": [
-                    "{{API_URL}}"
-                  ],
-                  "path": [
-                    "users",
-                    "filters",
-                    "{{FILTER_ID}}"
-                  ]
-                }
-              },
-              "response": [],
-              "auth": {
-                "type": "bearer",
-                "bearer": [
-                  {
-                    "key": "token",
-                    "value": "{{ACCESS_TOKEN}}",
-                    "type": "string"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
           "name": "Review",
           "item": [
             {
@@ -34963,6 +35593,160 @@
               }
             }
           ]
+        },
+        {
+          "name": "Favorites",
+          "item": [
+            {
+              "name": "Get user favorites",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/users/{{USER_SLUG}}/favorites/:type/:sort",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    "{{USER_SLUG}}",
+                    "favorites",
+                    ":type",
+                    ":sort"
+                  ],
+                  "variable": [
+                    {
+                      "key": "type",
+                      "value": "media",
+                      "description": "Type: movies, shows, media"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "rank",
+                      "description": "Sort: rank, added, title, etc."
+                    }
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{ACCESS_TOKEN}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get user favorite comments",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/users/{{USER_SLUG}}/favorites/comments",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    "{{USER_SLUG}}",
+                    "favorites",
+                    "comments"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{ACCESS_TOKEN}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Report a user",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/users/{{USER_SLUG}}/report",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "{{USER_SLUG}}",
+                "report"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
         }
       ],
       "auth": {
@@ -35027,7 +35811,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\\r\\n  \\",
+                  "raw": "{\r\n  \"note\": \"Great movie!\",\r\n  \"privacy\": \"public\",\r\n  \"movie\": {\r\n    \"ids\": {\r\n      \"trakt\": 28\r\n    }\r\n  }\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -35122,7 +35906,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\\r\\n  \\",
+                  "raw": "{\r\n  \"note\": \"Updated note content.\",\r\n  \"privacy\": \"public\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -35537,7 +36321,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\\r\\n  \\",
+                  "raw": "{\r\n  \"name\": \"My Smart List\",\r\n  \"source\": \"trending\",\r\n  \"media_type\": \"movies\",\r\n  \"privacy\": \"private\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -35636,7 +36420,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\\r\\n  \\",
+                  "raw": "{\r\n  \"name\": \"Updated Smart List Name\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
