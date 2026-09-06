@@ -45,6 +45,18 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktRatingsItemTypeAsPathParameter()
+        {
+            TraktRatingsItemType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktRatingsItemType.Movie.AsPathParameter().ShouldBe("movies");
+            TraktRatingsItemType.Show.AsPathParameter().ShouldBe("shows");
+            TraktRatingsItemType.Season.AsPathParameter().ShouldBe("seasons");
+            TraktRatingsItemType.Episode.AsPathParameter().ShouldBe("episodes");
+            TraktRatingsItemType.All.AsPathParameter().ShouldBe("all");
+            ((TraktRatingsItemType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktRatingsItemTypeDisplayName()
         {
             TraktRatingsItemType.Unspecified.DisplayName().ShouldBe("Unspecified");

@@ -54,6 +54,21 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktCommentSortOrderAsPathParameter()
+        {
+            TraktCommentSortOrder.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktCommentSortOrder.Newest.AsPathParameter().ShouldBe("newest");
+            TraktCommentSortOrder.Oldest.AsPathParameter().ShouldBe("oldest");
+            TraktCommentSortOrder.Likes.AsPathParameter().ShouldBe("likes");
+            TraktCommentSortOrder.Replies.AsPathParameter().ShouldBe("replies");
+            TraktCommentSortOrder.Highest.AsPathParameter().ShouldBe("highest");
+            TraktCommentSortOrder.Lowest.AsPathParameter().ShouldBe("lowest");
+            TraktCommentSortOrder.Plays.AsPathParameter().ShouldBe("plays");
+            TraktCommentSortOrder.Watched.AsPathParameter().ShouldBe("watched");
+            ((TraktCommentSortOrder)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktCommentSortOrderDisplayName()
         {
             TraktCommentSortOrder.Unspecified.DisplayName().ShouldBe("Unspecified");

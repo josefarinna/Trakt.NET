@@ -51,6 +51,20 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktReactionTypeAsPathParameter()
+        {
+            TraktReactionType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktReactionType.Like.AsPathParameter().ShouldBe("like");
+            TraktReactionType.Dislike.AsPathParameter().ShouldBe("dislike");
+            TraktReactionType.Love.AsPathParameter().ShouldBe("love");
+            TraktReactionType.Laugh.AsPathParameter().ShouldBe("laugh");
+            TraktReactionType.Shocked.AsPathParameter().ShouldBe("shocked");
+            TraktReactionType.Bravo.AsPathParameter().ShouldBe("bravo");
+            TraktReactionType.Spoiler.AsPathParameter().ShouldBe("spoiler");
+            ((TraktReactionType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktReactionTypeDisplayName()
         {
             TraktReactionType.Unspecified.DisplayName().ShouldBe("Unspecified");

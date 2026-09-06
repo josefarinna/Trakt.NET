@@ -36,6 +36,15 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktSortHowAsPathParameter()
+        {
+            TraktSortHow.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktSortHow.Ascending.AsPathParameter().ShouldBe("asc");
+            TraktSortHow.Descending.AsPathParameter().ShouldBe("desc");
+            ((TraktSortHow)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktSortHowDisplayName()
         {
             TraktSortHow.Unspecified.DisplayName().ShouldBe("Unspecified");

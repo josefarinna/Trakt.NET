@@ -57,6 +57,22 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktNotesObjectTypeAsPathParameter()
+        {
+            TraktNotesObjectType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktNotesObjectType.All.AsPathParameter().ShouldBe("all");
+            TraktNotesObjectType.Movie.AsPathParameter().ShouldBe("movies");
+            TraktNotesObjectType.Show.AsPathParameter().ShouldBe("shows");
+            TraktNotesObjectType.Season.AsPathParameter().ShouldBe("seasons");
+            TraktNotesObjectType.Episode.AsPathParameter().ShouldBe("episodes");
+            TraktNotesObjectType.Person.AsPathParameter().ShouldBe("people");
+            TraktNotesObjectType.History.AsPathParameter().ShouldBe("history");
+            TraktNotesObjectType.Collection.AsPathParameter().ShouldBe("collection");
+            TraktNotesObjectType.Rating.AsPathParameter().ShouldBe("ratings");
+            ((TraktNotesObjectType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktNotesObjectTypeDisplayName()
         {
             TraktNotesObjectType.Unspecified.DisplayName().ShouldBe("Unspecified");

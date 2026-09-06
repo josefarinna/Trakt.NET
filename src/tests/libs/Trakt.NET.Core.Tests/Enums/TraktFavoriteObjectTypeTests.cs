@@ -39,6 +39,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktFavoriteObjectTypeAsPathParameter()
+        {
+            TraktFavoriteObjectType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktFavoriteObjectType.Media.AsPathParameter().ShouldBe("media");
+            TraktFavoriteObjectType.Movie.AsPathParameter().ShouldBe("movies");
+            TraktFavoriteObjectType.Show.AsPathParameter().ShouldBe("shows");
+            ((TraktFavoriteObjectType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktFavoriteObjectTypeDisplayName()
         {
             TraktFavoriteObjectType.Unspecified.DisplayName().ShouldBe("Unspecified");

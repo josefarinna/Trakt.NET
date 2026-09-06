@@ -42,6 +42,17 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktSearchRecentTypeAsPathParameter()
+        {
+            TraktSearchRecentType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktSearchRecentType.Movie.AsPathParameter().ShouldBe("movies");
+            TraktSearchRecentType.Show.AsPathParameter().ShouldBe("shows");
+            TraktSearchRecentType.Person.AsPathParameter().ShouldBe("people");
+            TraktSearchRecentType.List.AsPathParameter().ShouldBe("lists");
+            ((TraktSearchRecentType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktSearchRecentTypeDisplayName()
         {
             TraktSearchRecentType.Unspecified.DisplayName().ShouldBe("Unspecified");

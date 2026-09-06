@@ -39,6 +39,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktSmartListMediaTypeAsPathParameter()
+        {
+            TraktSmartListMediaType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktSmartListMediaType.Movies.AsPathParameter().ShouldBe("movies");
+            TraktSmartListMediaType.Shows.AsPathParameter().ShouldBe("shows");
+            TraktSmartListMediaType.Media.AsPathParameter().ShouldBe("media");
+            ((TraktSmartListMediaType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktSmartListMediaTypeDisplayName()
         {
             TraktSmartListMediaType.Unspecified.DisplayName().ShouldBe("Unspecified");

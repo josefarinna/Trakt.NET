@@ -39,6 +39,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktUserSyncTypeAsPathParameter()
+        {
+            TraktUserSyncType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktUserSyncType.Younify.AsPathParameter().ShouldBe("younify");
+            TraktUserSyncType.Plex.AsPathParameter().ShouldBe("plex");
+            TraktUserSyncType.Import.AsPathParameter().ShouldBe("import");
+            ((TraktUserSyncType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktUserSyncTypeDisplayName()
         {
             TraktUserSyncType.Unspecified.DisplayName().ShouldBe("Unspecified");
