@@ -1,0 +1,23 @@
+{
+  "type": "movie",
+  "collected_at": "2014-09-01T09:10:11.000Z",
+  "updated_at": "2014-09-01T09:10:11.000Z",
+  "movie": {
+    "title": "The Dark Knight",
+    "year": 2008,
+    "ids": {
+      "trakt": 120,
+      "slug": "the-dark-knight-2008",
+      "imdb": "tt0468569",
+      "tmdb": 155
+    }
+  },
+  "available_on": [
+    {
+      "name": "netflix"
+    },
+    {
+      "name": "max"
+    }
+  ]
+}

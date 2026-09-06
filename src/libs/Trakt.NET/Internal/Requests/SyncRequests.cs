@@ -14,6 +14,14 @@ namespace TraktNET
     {
     }
 
+    [TraktGetRequest("sync/collection/media", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SyncCollectionMediaGetRequest
+    {
+        [TraktRequestQuery("available_on")]
+        internal string? AvailableOn { get; set; }
+    }
+
     [TraktGetRequest("sync/collection/minimal/movies", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncCollectionMinimalMoviesGetRequest
     {

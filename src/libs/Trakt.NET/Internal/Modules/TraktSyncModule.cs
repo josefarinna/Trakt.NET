@@ -137,6 +137,27 @@ namespace TraktNET
             return RequestHandler.ExecuteListRequestAsync<TraktSyncCollectionShow>(_context, request, cancellationToken);
         }
 
+        private Task<TraktPagedResponse<TraktSyncCollectionMedia>> GetCollectionMediaImplAsync(TraktExtendedInfo? extendedInfo = null,
+            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new SyncCollectionMediaGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                AvailableOn = availableOn,
+                Page = page,
+                Limit = limit,
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktSyncCollectionMedia>(_context, request, (page, limit)
+                => new SyncCollectionMediaGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    AvailableOn = availableOn,
+                    Page = page,
+                    Limit = limit,
+                }, cancellationToken);
+        }
+
         private Task<TraktResponse<Dictionary<string, string>>> GetMinimalMovieCollectionImplAsync(string? availableOn = null,
             CancellationToken cancellationToken = default)
         {

@@ -207,6 +207,33 @@ namespace TraktNET
             CancellationToken cancellationToken = default)
             => GetCollectionShowsImplAsync(extendedInfo, cancellationToken);
 
+        /// <summary>Gets all collected movies, shows and episodes in the user's collection.</summary>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the media items.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried collected media items.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionMedia" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsynccollectionmedia">
+        /// Trakt API Documentation: Sync: Get media collection
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktSyncCollectionMedia>> GetCollectionMediaAsync(TraktExtendedInfo? extendedInfo = null,
+            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetCollectionMediaImplAsync(extendedInfo, availableOn, page, limit, cancellationToken);
+
         /// <summary>Gets the user's minimal movie collection.</summary>
         /// <param name="availableOn">Optional filter for streaming services.</param>
         /// <param name="cancellationToken">

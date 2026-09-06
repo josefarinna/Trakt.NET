@@ -1,0 +1,81 @@
+[
+  {
+    "type": "movie",
+    "collected_at": "2014-09-01T09:10:11.000Z",
+    "updated_at": "2014-09-01T09:10:11.000Z",
+    "movie": {
+      "title": "The Dark Knight",
+      "year": 2008,
+      "ids": {
+        "trakt": 120,
+        "slug": "the-dark-knight-2008",
+        "imdb": "tt0468569",
+        "tmdb": 155
+      }
+    },
+    "available_on": [
+      {
+        "name": "netflix"
+      }
+    ]
+  },
+  {
+    "type": "show",
+    "last_collected_at": "2026-04-02T17:26:44.000Z",
+    "last_updated_at": "2026-04-02T17:26:44.000Z",
+    "show": {
+      "title": "Game of Thrones",
+      "year": 2011,
+      "ids": {
+        "trakt": 1390,
+        "slug": "game-of-thrones",
+        "tvdb": 121361,
+        "imdb": "tt0944947",
+        "tmdb": 1399
+      }
+    },
+    "seasons": [
+      {
+        "number": 1,
+        "episodes": [
+          {
+            "number": 1,
+            "collected_at": "2014-09-01T09:10:11.000Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "episode",
+    "collected_at": "2014-09-01T09:10:11.000Z",
+    "updated_at": "2014-09-01T09:10:11.000Z",
+    "episode": {
+      "season": 1,
+      "number": 1,
+      "title": "Winter Is Coming",
+      "ids": {
+        "trakt": 73640,
+        "tvdb": 3254641,
+        "imdb": "tt1480055",
+        "tmdb": 63056
+      }
+    },
+    "show": {
+      "title": "Game of Thrones",
+      "year": 2011,
+      "ids": {
+        "trakt": 1390,
+        "slug": "game-of-thrones",
+        "tvdb": 121361,
+        "imdb": "tt0944947",
+        "tmdb": 1399
+      }
+    },
+    "available_on": [
+      {
+        "name": "max"
+      }
+    ]
+  }
+]
