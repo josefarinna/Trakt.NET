@@ -1,4 +1,4 @@
-﻿using static TraktNET.TestConstants;
+using static TraktNET.TestConstants;
 
 namespace TraktNET.Json.Syncs
 {
@@ -37,6 +37,7 @@ namespace TraktNET.Json.Syncs
             syncCollectionMovie.Colors.ShouldBeNull();
             syncCollectionMovie.Released.ShouldBeNull();
             syncCollectionMovie.Images.ShouldBeNull();
+            syncCollectionMovie.AvailableOn.ShouldBeNull();
 
             syncCollectionMovie.ToString().ShouldBeEmpty();
         }

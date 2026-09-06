@@ -115,15 +115,46 @@ namespace TraktNET
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktSyncCollectionMovie>> GetCollectionMoviesImplAsync(TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+        private Task<TraktPagedResponse<TraktSyncCollectionMovie>> GetCollectionMoviesImplAsync(TraktExtendedInfo? extendedInfo = null,
+            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new SyncCollectionMoviesGetRequest
             {
-                ExtendedInfo = extendedInfo
+                ExtendedInfo = extendedInfo,
+                AvailableOn = availableOn,
+                Page = page,
+                Limit = limit,
             };
 
-            return RequestHandler.ExecuteListRequestAsync<TraktSyncCollectionMovie>(_context, request, cancellationToken);
+            return RequestHandler.ExecutePagedListRequestAsync<TraktSyncCollectionMovie>(_context, request, (page, limit)
+                => new SyncCollectionMoviesGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    AvailableOn = availableOn,
+                    Page = page,
+                    Limit = limit,
+                }, cancellationToken);
+        }
+
+        private Task<TraktPagedResponse<TraktSyncCollectionEpisode>> GetCollectionEpisodesImplAsync(TraktExtendedInfo? extendedInfo = null,
+            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new SyncCollectionEpisodesGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                AvailableOn = availableOn,
+                Page = page,
+                Limit = limit,
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktSyncCollectionEpisode>(_context, request, (page, limit)
+                => new SyncCollectionEpisodesGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    AvailableOn = availableOn,
+                    Page = page,
+                    Limit = limit,
+                }, cancellationToken);
         }
 
         private Task<TraktListResponse<TraktSyncCollectionShow>> GetCollectionShowsImplAsync(TraktExtendedInfo? extendedInfo = null,

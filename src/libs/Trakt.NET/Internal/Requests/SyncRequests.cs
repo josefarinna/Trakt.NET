@@ -4,9 +4,20 @@ namespace TraktNET
     // GET Requests
     // -------------------------------------------------------
 
-    [TraktGetRequest("sync/collection/movies", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktGetRequest("sync/collection/movies", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncCollectionMoviesGetRequest
     {
+        [TraktRequestQuery("available_on")]
+        internal string? AvailableOn { get; set; }
+    }
+
+    [TraktGetRequest("sync/collection/episodes", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class SyncCollectionEpisodesGetRequest
+    {
+        [TraktRequestQuery("available_on")]
+        internal string? AvailableOn { get; set; }
     }
 
     [TraktGetRequest("sync/collection/shows", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
