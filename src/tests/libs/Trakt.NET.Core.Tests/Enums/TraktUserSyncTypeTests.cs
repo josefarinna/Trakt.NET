@@ -29,6 +29,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktUserSyncTypeToURI()
+        {
+            TraktUserSyncType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktUserSyncType.Younify.ToURI().ShouldBe("younify");
+            TraktUserSyncType.Plex.ToURI().ShouldBe("plex");
+            TraktUserSyncType.Import.ToURI().ShouldBe("import");
+            ((TraktUserSyncType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktUserSyncTypeDisplayName()
         {
             TraktUserSyncType.Unspecified.DisplayName().ShouldBe("Unspecified");

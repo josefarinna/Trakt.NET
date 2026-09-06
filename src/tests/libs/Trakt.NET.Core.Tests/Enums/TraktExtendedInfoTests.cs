@@ -49,6 +49,25 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktExtendedInfoToURI()
+        {
+            TraktExtendedInfo.None.ToURI().ShouldBe(string.Empty);
+            TraktExtendedInfo.Metadata.ToURI().ShouldBe("metadata");
+            TraktExtendedInfo.Full.ToURI().ShouldBe("full");
+            TraktExtendedInfo.Min.ToURI().ShouldBe("min");
+            TraktExtendedInfo.NoSeasons.ToURI().ShouldBe("noseasons");
+            TraktExtendedInfo.Progress.ToURI().ShouldBe("progress");
+            TraktExtendedInfo.Episodes.ToURI().ShouldBe("episodes");
+            TraktExtendedInfo.GuestStars.ToURI().ShouldBe("guest_stars");
+            TraktExtendedInfo.Comments.ToURI().ShouldBe("comments");
+            TraktExtendedInfo.VIP.ToURI().ShouldBe("vip");
+            TraktExtendedInfo.Images.ToURI().ShouldBe("images");
+            TraktExtendedInfo.Subgenres.ToURI().ShouldBe("subgenres");
+            TraktExtendedInfo.Browsing.ToURI().ShouldBe("browsing");
+            TraktExtendedInfo.All.ToURI().ShouldBe("all");
+        }
+
+        [Fact]
         public void TestTraktExtendedInfoDisplayName()
         {
             TraktExtendedInfo.None.DisplayName().ShouldBe("None");

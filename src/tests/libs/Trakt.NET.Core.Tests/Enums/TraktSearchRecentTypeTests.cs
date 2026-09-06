@@ -31,6 +31,17 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktSearchRecentTypeToURI()
+        {
+            TraktSearchRecentType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktSearchRecentType.Movie.ToURI().ShouldBe("movies");
+            TraktSearchRecentType.Show.ToURI().ShouldBe("shows");
+            TraktSearchRecentType.Person.ToURI().ShouldBe("people");
+            TraktSearchRecentType.List.ToURI().ShouldBe("lists");
+            ((TraktSearchRecentType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktSearchRecentTypeDisplayName()
         {
             TraktSearchRecentType.Unspecified.DisplayName().ShouldBe("Unspecified");

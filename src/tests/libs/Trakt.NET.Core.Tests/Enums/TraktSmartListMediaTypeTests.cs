@@ -29,6 +29,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktSmartListMediaTypeToURI()
+        {
+            TraktSmartListMediaType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktSmartListMediaType.Movies.ToURI().ShouldBe("movies");
+            TraktSmartListMediaType.Shows.ToURI().ShouldBe("shows");
+            TraktSmartListMediaType.Media.ToURI().ShouldBe("media");
+            ((TraktSmartListMediaType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktSmartListMediaTypeDisplayName()
         {
             TraktSmartListMediaType.Unspecified.DisplayName().ShouldBe("Unspecified");

@@ -35,6 +35,19 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktListSortOrderToURI()
+        {
+            TraktListSortOrder.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktListSortOrder.Popular.ToURI().ShouldBe("popular");
+            TraktListSortOrder.Likes.ToURI().ShouldBe("likes");
+            TraktListSortOrder.Comments.ToURI().ShouldBe("comments");
+            TraktListSortOrder.Items.ToURI().ShouldBe("items");
+            TraktListSortOrder.Added.ToURI().ShouldBe("added");
+            TraktListSortOrder.Updated.ToURI().ShouldBe("updated");
+            ((TraktListSortOrder)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktListSortOrderDisplayName()
         {
             TraktListSortOrder.Unspecified.DisplayName().ShouldBe("Unspecified");

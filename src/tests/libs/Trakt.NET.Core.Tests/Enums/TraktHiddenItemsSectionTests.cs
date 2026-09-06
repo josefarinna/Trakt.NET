@@ -37,6 +37,20 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktHiddenItemsSectionToURI()
+        {
+            TraktHiddenItemsSection.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktHiddenItemsSection.Calendar.ToURI().ShouldBe("calendar");
+            TraktHiddenItemsSection.ProgressWatched.ToURI().ShouldBe("progress_watched");
+            TraktHiddenItemsSection.ProgressCollected.ToURI().ShouldBe("progress_collected");
+            TraktHiddenItemsSection.Recommendations.ToURI().ShouldBe("recommendations");
+            TraktHiddenItemsSection.ProgressWatchedReset.ToURI().ShouldBe("progress_watched_reset");
+            TraktHiddenItemsSection.Comments.ToURI().ShouldBe("comments");
+            TraktHiddenItemsSection.Dropped.ToURI().ShouldBe("dropped");
+            ((TraktHiddenItemsSection)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktHiddenItemsSectionDisplayName()
         {
             TraktHiddenItemsSection.Unspecified.DisplayName().ShouldBe("Unspecified");

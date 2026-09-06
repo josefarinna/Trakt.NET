@@ -25,6 +25,14 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktCalendarGroupToURI()
+        {
+            TraktCalendarGroup.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktCalendarGroup.Day.ToURI().ShouldBe("day");
+            ((TraktCalendarGroup)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktCalendarGroupDisplayName()
         {
             TraktCalendarGroup.Unspecified.DisplayName().ShouldBe("Unspecified");

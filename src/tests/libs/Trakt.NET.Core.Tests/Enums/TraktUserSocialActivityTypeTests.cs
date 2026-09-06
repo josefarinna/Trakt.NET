@@ -29,6 +29,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktUserSocialActivityTypeToURI()
+        {
+            TraktUserSocialActivityType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktUserSocialActivityType.Friends.ToURI().ShouldBe("friends");
+            TraktUserSocialActivityType.Followers.ToURI().ShouldBe("followers");
+            TraktUserSocialActivityType.Following.ToURI().ShouldBe("following");
+            ((TraktUserSocialActivityType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktUserSocialActivityTypeDisplayName()
         {
             TraktUserSocialActivityType.Unspecified.DisplayName().ShouldBe("Unspecified");

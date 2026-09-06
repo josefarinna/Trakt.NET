@@ -31,6 +31,17 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktFilterSectionToURI()
+        {
+            TraktFilterSection.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktFilterSection.Movies.ToURI().ShouldBe("movies");
+            TraktFilterSection.Shows.ToURI().ShouldBe("shows");
+            TraktFilterSection.Calendars.ToURI().ShouldBe("calendars");
+            TraktFilterSection.Search.ToURI().ShouldBe("search");
+            ((TraktFilterSection)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktFilterSectionDisplayName()
         {
             TraktFilterSection.Unspecified.DisplayName().ShouldBe("Unspecified");

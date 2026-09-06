@@ -61,6 +61,32 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktSortByToURI()
+        {
+            TraktSortBy.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktSortBy.Rank.ToURI().ShouldBe("rank");
+            TraktSortBy.Added.ToURI().ShouldBe("added");
+            TraktSortBy.Title.ToURI().ShouldBe("title");
+            TraktSortBy.Released.ToURI().ShouldBe("released");
+            TraktSortBy.Runtime.ToURI().ShouldBe("runtime");
+            TraktSortBy.Popularity.ToURI().ShouldBe("popularity");
+            TraktSortBy.Percentage.ToURI().ShouldBe("percentage");
+            TraktSortBy.IMDBRating.ToURI().ShouldBe("imdb_rating");
+            TraktSortBy.TMDBRating.ToURI().ShouldBe("tmdb_rating");
+            TraktSortBy.RTTomatoMeter.ToURI().ShouldBe("rt_tomatometer");
+            TraktSortBy.RTAudience.ToURI().ShouldBe("rt_audience");
+            TraktSortBy.Metascore.ToURI().ShouldBe("metascore");
+            TraktSortBy.Votes.ToURI().ShouldBe("votes");
+            TraktSortBy.IMDBVotes.ToURI().ShouldBe("imdb_votes");
+            TraktSortBy.TMDBVotes.ToURI().ShouldBe("tmdb_votes");
+            TraktSortBy.MyRating.ToURI().ShouldBe("my_rating");
+            TraktSortBy.Random.ToURI().ShouldBe("random");
+            TraktSortBy.Watched.ToURI().ShouldBe("watched");
+            TraktSortBy.Collected.ToURI().ShouldBe("collected");
+            ((TraktSortBy)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktSortByDisplayName()
         {
             TraktSortBy.Unspecified.DisplayName().ShouldBe("Unspecified");

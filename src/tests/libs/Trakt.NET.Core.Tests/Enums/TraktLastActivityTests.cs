@@ -29,6 +29,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktLastActivityToURI()
+        {
+            TraktLastActivity.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktLastActivity.Collected.ToURI().ShouldBe("collected");
+            TraktLastActivity.Aired.ToURI().ShouldBe("aired");
+            TraktLastActivity.Watched.ToURI().ShouldBe("watched");
+            ((TraktLastActivity)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktLastActivityDisplayName()
         {
             TraktLastActivity.Unspecified.DisplayName().ShouldBe("Unspecified");

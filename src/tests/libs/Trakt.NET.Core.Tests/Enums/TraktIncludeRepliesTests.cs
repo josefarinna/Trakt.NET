@@ -29,6 +29,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktIncludeRepliesToURI()
+        {
+            TraktIncludeReplies.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktIncludeReplies.True.ToURI().ShouldBe("true");
+            TraktIncludeReplies.False.ToURI().ShouldBe("false");
+            TraktIncludeReplies.Only.ToURI().ShouldBe("only");
+            ((TraktIncludeReplies)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktIncludeRepliesDisplayName()
         {
             TraktIncludeReplies.Unspecified.DisplayName().ShouldBe("Unspecified");

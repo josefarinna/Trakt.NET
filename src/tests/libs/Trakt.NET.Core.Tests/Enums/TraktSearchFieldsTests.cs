@@ -38,6 +38,22 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktSearchFieldsToURI()
+        {
+            TraktSearchFields.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktSearchFields.Title.ToURI().ShouldBe("title");
+            TraktSearchFields.Tagline.ToURI().ShouldBe("tagline");
+            TraktSearchFields.Overview.ToURI().ShouldBe("overview");
+            TraktSearchFields.People.ToURI().ShouldBe("people");
+            TraktSearchFields.Translations.ToURI().ShouldBe("translations");
+            TraktSearchFields.Aliases.ToURI().ShouldBe("aliases");
+            TraktSearchFields.Name.ToURI().ShouldBe("name");
+            TraktSearchFields.Biography.ToURI().ShouldBe("biography");
+            TraktSearchFields.Description.ToURI().ShouldBe("description");
+            ((TraktSearchFields)9999).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktSearchFieldDisplayName()
         {
             TraktSearchFields.Unspecified.DisplayName().ShouldBe("Unspecified");
