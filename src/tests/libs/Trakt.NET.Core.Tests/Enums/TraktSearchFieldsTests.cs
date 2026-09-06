@@ -17,6 +17,9 @@ namespace TraktNET.Enums
             TraktSearchFields.Name.ToJson().ShouldBe("name");
             TraktSearchFields.Biography.ToJson().ShouldBe("biography");
             TraktSearchFields.Description.ToJson().ShouldBe("description");
+            TraktSearchFields titleAndOverview = TraktSearchFields.Title | TraktSearchFields.Overview;
+            titleAndOverview.ToJson().ShouldBeNull();
+            ((TraktSearchFields)9999).ToJson().ShouldBeNull();
         }
 
         [Fact]
@@ -35,6 +38,8 @@ namespace TraktNET.Enums
 
             string? nullValue = null;
             nullValue.ToTraktSearchFields().ShouldBe(TraktSearchFields.Unspecified);
+            "invalid".ToTraktSearchFields().ShouldBe(TraktSearchFields.Unspecified);
+            "".ToTraktSearchFields().ShouldBe(TraktSearchFields.Unspecified);
         }
 
         [Fact]
@@ -50,6 +55,9 @@ namespace TraktNET.Enums
             TraktSearchFields.Name.ToURI().ShouldBe("name");
             TraktSearchFields.Biography.ToURI().ShouldBe("biography");
             TraktSearchFields.Description.ToURI().ShouldBe("description");
+            TraktSearchFields titleAndOverview = TraktSearchFields.Title | TraktSearchFields.Overview;
+            titleAndOverview.ToURI().ShouldBe(string.Empty);
+            ((TraktSearchFields)9999).ToURI().ShouldBe(string.Empty);
         }
 
         [Fact]
@@ -65,6 +73,31 @@ namespace TraktNET.Enums
             TraktSearchFields.Name.DisplayName().ShouldBe("Name");
             TraktSearchFields.Biography.DisplayName().ShouldBe("Biography");
             TraktSearchFields.Description.DisplayName().ShouldBe("Description");
+            TraktSearchFields titleAndOverview = TraktSearchFields.Title | TraktSearchFields.Overview;
+            titleAndOverview.DisplayName().ShouldBe("Title, Overview");
+            TraktSearchFields multiple = TraktSearchFields.People | TraktSearchFields.Translations | TraktSearchFields.Aliases;
+            multiple.DisplayName().ShouldBe("People, Translations, Aliases");
+            TraktSearchFields names = TraktSearchFields.Name | TraktSearchFields.Biography | TraktSearchFields.Description;
+            names.DisplayName().ShouldBe("Name, Biography, Description");
+            ((TraktSearchFields)1024).DisplayName().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktSearchFieldsHasFlagSet()
+        {
+            TraktSearchFields.Unspecified.HasFlagSet(TraktSearchFields.Unspecified).ShouldBeTrue();
+            TraktSearchFields.Unspecified.HasFlagSet(TraktSearchFields.Title).ShouldBeFalse();
+            TraktSearchFields title = TraktSearchFields.Title;
+            title.HasFlagSet(TraktSearchFields.Unspecified).ShouldBeTrue();
+            title.HasFlagSet(TraktSearchFields.Title).ShouldBeTrue();
+            title.HasFlagSet(TraktSearchFields.Overview).ShouldBeFalse();
+            TraktSearchFields combined = TraktSearchFields.Title | TraktSearchFields.Overview;
+            combined.HasFlagSet(TraktSearchFields.Unspecified).ShouldBeTrue();
+            combined.HasFlagSet(TraktSearchFields.Title).ShouldBeTrue();
+            combined.HasFlagSet(TraktSearchFields.Overview).ShouldBeTrue();
+            combined.HasFlagSet(TraktSearchFields.People).ShouldBeFalse();
+            combined.HasFlagSet(TraktSearchFields.Title | TraktSearchFields.Overview).ShouldBeTrue();
+            combined.HasFlagSet(TraktSearchFields.Title | TraktSearchFields.People).ShouldBeFalse();
         }
 
         [Fact]
@@ -104,8 +137,10 @@ namespace TraktNET.Enums
             };
 
             JsonSerializer.Serialize(TraktSearchFields.Title, options).ShouldBe("\"title\"");
+            JsonSerializer.Serialize(TraktSearchFields.Title | TraktSearchFields.Overview, options).ShouldBe("null");
             JsonSerializer.Deserialize<TraktSearchFields>("\"title\"", options).ShouldBe(TraktSearchFields.Title);
             JsonSerializer.Deserialize<TraktSearchFields>("\"\"", options).ShouldBe(TraktSearchFields.Unspecified);
+            JsonSerializer.Deserialize<TraktSearchFields>("\"invalid\"", options).ShouldBe(TraktSearchFields.Unspecified);
         }
     }
 }

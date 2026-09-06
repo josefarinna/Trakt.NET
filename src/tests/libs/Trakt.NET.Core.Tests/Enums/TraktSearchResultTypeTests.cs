@@ -13,6 +13,8 @@ namespace TraktNET.Enums
             TraktSearchResultType.Episode.ToJson().ShouldBe("episode");
             TraktSearchResultType.Person.ToJson().ShouldBe("person");
             TraktSearchResultType.List.ToJson().ShouldBe("list");
+            TraktSearchResultType movieAndShow = TraktSearchResultType.Movie | TraktSearchResultType.Show;
+            movieAndShow.ToJson().ShouldBeNull();
             ((TraktSearchResultType)99).ToJson().ShouldBeNull();
         }
 
@@ -41,6 +43,9 @@ namespace TraktNET.Enums
             TraktSearchResultType.Episode.ToURI().ShouldBe("episode");
             TraktSearchResultType.Person.ToURI().ShouldBe("person");
             TraktSearchResultType.List.ToURI().ShouldBe("list");
+            TraktSearchResultType movieAndShow = TraktSearchResultType.Movie | TraktSearchResultType.Show;
+            movieAndShow.ToURI().ShouldBe(string.Empty);
+            ((TraktSearchResultType)99).ToURI().ShouldBe(string.Empty);
         }
 
         [Fact]
@@ -52,6 +57,29 @@ namespace TraktNET.Enums
             TraktSearchResultType.Episode.DisplayName().ShouldBe("Episode");
             TraktSearchResultType.Person.DisplayName().ShouldBe("Person");
             TraktSearchResultType.List.DisplayName().ShouldBe("List");
+            TraktSearchResultType movieAndShow = TraktSearchResultType.Movie | TraktSearchResultType.Show;
+            movieAndShow.DisplayName().ShouldBe("Movie, Show");
+            TraktSearchResultType multiple = TraktSearchResultType.Episode | TraktSearchResultType.Person | TraktSearchResultType.List;
+            multiple.DisplayName().ShouldBe("Episode, Person, List");
+            ((TraktSearchResultType)32).DisplayName().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktSearchResultTypeHasFlagSet()
+        {
+            TraktSearchResultType.Unspecified.HasFlagSet(TraktSearchResultType.Unspecified).ShouldBeTrue();
+            TraktSearchResultType.Unspecified.HasFlagSet(TraktSearchResultType.Movie).ShouldBeFalse();
+            TraktSearchResultType movie = TraktSearchResultType.Movie;
+            movie.HasFlagSet(TraktSearchResultType.Unspecified).ShouldBeTrue();
+            movie.HasFlagSet(TraktSearchResultType.Movie).ShouldBeTrue();
+            movie.HasFlagSet(TraktSearchResultType.Show).ShouldBeFalse();
+            TraktSearchResultType combined = TraktSearchResultType.Movie | TraktSearchResultType.Show;
+            combined.HasFlagSet(TraktSearchResultType.Unspecified).ShouldBeTrue();
+            combined.HasFlagSet(TraktSearchResultType.Movie).ShouldBeTrue();
+            combined.HasFlagSet(TraktSearchResultType.Show).ShouldBeTrue();
+            combined.HasFlagSet(TraktSearchResultType.Episode).ShouldBeFalse();
+            combined.HasFlagSet(TraktSearchResultType.Movie | TraktSearchResultType.Show).ShouldBeTrue();
+            combined.HasFlagSet(TraktSearchResultType.Movie | TraktSearchResultType.Episode).ShouldBeFalse();
         }
 
         [Fact]
@@ -101,8 +129,10 @@ namespace TraktNET.Enums
             };
 
             JsonSerializer.Serialize(TraktSearchResultType.Movie, options).ShouldBe("\"movie\"");
+            JsonSerializer.Serialize(TraktSearchResultType.Movie | TraktSearchResultType.Show, options).ShouldBe("null");
             JsonSerializer.Deserialize<TraktSearchResultType>("\"movie\"", options).ShouldBe(TraktSearchResultType.Movie);
             JsonSerializer.Deserialize<TraktSearchResultType>("\"\"", options).ShouldBe(TraktSearchResultType.Unspecified);
+            JsonSerializer.Deserialize<TraktSearchResultType>("\"invalid\"", options).ShouldBe(TraktSearchResultType.Unspecified);
         }
     }
 }
