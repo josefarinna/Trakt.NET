@@ -6639,6 +6639,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSyncCollectionEpisode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSyncCollectionEpisode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSyncCollectionEpisode",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionEpisode.yml\" sourcestartlinenumber=\"1\">A Trakt collected episode, containing an episode, show, and collection information about it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktSyncCollectionMedia.yml",
       "output": {
         ".html": {
