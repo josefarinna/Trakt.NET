@@ -49,6 +49,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktIncludeRepliesAsQuery()
+        {
+            TraktIncludeReplies.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktIncludeReplies.True.AsQuery().ShouldBe("include_replies=true");
+            TraktIncludeReplies.False.AsQuery().ShouldBe("include_replies=false");
+            TraktIncludeReplies.Only.AsQuery().ShouldBe("include_replies=only");
+            ((TraktIncludeReplies)99).AsQuery().ShouldBe("include_replies=");
+        }
+
+        [Fact]
         public void TestTraktIncludeRepliesJsonConverter()
         {
             var converter = new TraktIncludeRepliesJsonConverter();

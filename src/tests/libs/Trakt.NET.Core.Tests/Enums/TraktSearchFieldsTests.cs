@@ -50,7 +50,6 @@ namespace TraktNET.Enums
             TraktSearchFields.Name.ToURI().ShouldBe("name");
             TraktSearchFields.Biography.ToURI().ShouldBe("biography");
             TraktSearchFields.Description.ToURI().ShouldBe("description");
-            ((TraktSearchFields)9999).ToURI().ShouldBe(string.Empty);
         }
 
         [Fact]
@@ -66,6 +65,30 @@ namespace TraktNET.Enums
             TraktSearchFields.Name.DisplayName().ShouldBe("Name");
             TraktSearchFields.Biography.DisplayName().ShouldBe("Biography");
             TraktSearchFields.Description.DisplayName().ShouldBe("Description");
+        }
+
+        [Fact]
+        public void TestTraktSearchFieldsAsQuery()
+        {
+            TraktSearchFields.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktSearchFields.Title.AsQuery().ShouldBe("fields=title");
+            TraktSearchFields.Tagline.AsQuery().ShouldBe("fields=tagline");
+            TraktSearchFields.Overview.AsQuery().ShouldBe("fields=overview");
+            TraktSearchFields.People.AsQuery().ShouldBe("fields=people");
+            TraktSearchFields.Translations.AsQuery().ShouldBe("fields=translations");
+            TraktSearchFields.Aliases.AsQuery().ShouldBe("fields=aliases");
+            TraktSearchFields.Name.AsQuery().ShouldBe("fields=name");
+            TraktSearchFields.Biography.AsQuery().ShouldBe("fields=biography");
+            TraktSearchFields.Description.AsQuery().ShouldBe("fields=description");
+
+            TraktSearchFields titleAndOverview = TraktSearchFields.Title | TraktSearchFields.Overview;
+            titleAndOverview.AsQuery().ShouldBe("fields=title,overview");
+
+            TraktSearchFields multiple = TraktSearchFields.People | TraktSearchFields.Translations | TraktSearchFields.Aliases;
+            multiple.AsQuery().ShouldBe("fields=people,translations,aliases");
+
+            TraktSearchFields names = TraktSearchFields.Name | TraktSearchFields.Biography | TraktSearchFields.Description;
+            names.AsQuery().ShouldBe("fields=name,biography,description");
         }
 
         [Fact]

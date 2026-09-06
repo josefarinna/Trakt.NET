@@ -53,6 +53,17 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktFilterSectionAsQuery()
+        {
+            TraktFilterSection.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktFilterSection.Movies.AsQuery().ShouldBe("section=movies");
+            TraktFilterSection.Shows.AsQuery().ShouldBe("section=shows");
+            TraktFilterSection.Calendars.AsQuery().ShouldBe("section=calendars");
+            TraktFilterSection.Search.AsQuery().ShouldBe("section=search");
+            ((TraktFilterSection)99).AsQuery().ShouldBe("section=");
+        }
+
+        [Fact]
         public void TestTraktFilterSectionJsonConverter()
         {
             var converter = new TraktFilterSectionJsonConverter();

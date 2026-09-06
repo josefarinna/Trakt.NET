@@ -41,6 +41,14 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktCalendarGroupAsQuery()
+        {
+            TraktCalendarGroup.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktCalendarGroup.Day.AsQuery().ShouldBe("group=day");
+            ((TraktCalendarGroup)99).AsQuery().ShouldBe("group=");
+        }
+
+        [Fact]
         public void TestTraktCalendarGroupJsonConverter()
         {
             var converter = new TraktCalendarGroupJsonConverter();

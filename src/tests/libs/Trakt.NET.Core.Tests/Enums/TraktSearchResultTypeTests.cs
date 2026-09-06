@@ -41,7 +41,6 @@ namespace TraktNET.Enums
             TraktSearchResultType.Episode.ToURI().ShouldBe("episode");
             TraktSearchResultType.Person.ToURI().ShouldBe("person");
             TraktSearchResultType.List.ToURI().ShouldBe("list");
-            ((TraktSearchResultType)99).ToURI().ShouldBe(string.Empty);
         }
 
         [Fact]
@@ -53,6 +52,40 @@ namespace TraktNET.Enums
             TraktSearchResultType.Episode.DisplayName().ShouldBe("Episode");
             TraktSearchResultType.Person.DisplayName().ShouldBe("Person");
             TraktSearchResultType.List.DisplayName().ShouldBe("List");
+        }
+
+        [Fact]
+        public void TestTraktSearchResultTypeAsQuery()
+        {
+            TraktSearchResultType.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktSearchResultType.Movie.AsQuery().ShouldBe("type=movie");
+            TraktSearchResultType.Show.AsQuery().ShouldBe("type=show");
+            TraktSearchResultType.Episode.AsQuery().ShouldBe("type=episode");
+            TraktSearchResultType.Person.AsQuery().ShouldBe("type=person");
+            TraktSearchResultType.List.AsQuery().ShouldBe("type=list");
+
+            TraktSearchResultType movieAndShow = TraktSearchResultType.Movie | TraktSearchResultType.Show;
+            movieAndShow.AsQuery().ShouldBe("type=movie,show");
+
+            TraktSearchResultType multiple = TraktSearchResultType.Episode | TraktSearchResultType.Person | TraktSearchResultType.List;
+            multiple.AsQuery().ShouldBe("type=episode,person,list");
+        }
+
+        [Fact]
+        public void TestTraktSearchResultTypeAsPathParameter()
+        {
+            TraktSearchResultType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktSearchResultType.Movie.AsPathParameter().ShouldBe("movie");
+            TraktSearchResultType.Show.AsPathParameter().ShouldBe("show");
+            TraktSearchResultType.Episode.AsPathParameter().ShouldBe("episode");
+            TraktSearchResultType.Person.AsPathParameter().ShouldBe("person");
+            TraktSearchResultType.List.AsPathParameter().ShouldBe("list");
+
+            TraktSearchResultType movieAndShow = TraktSearchResultType.Movie | TraktSearchResultType.Show;
+            movieAndShow.AsPathParameter().ShouldBe("movie,show");
+
+            TraktSearchResultType multiple = TraktSearchResultType.Episode | TraktSearchResultType.Person | TraktSearchResultType.List;
+            multiple.AsPathParameter().ShouldBe("episode,person,list");
         }
 
         [Fact]

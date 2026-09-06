@@ -45,6 +45,15 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktCalendarMediaTypeAsQuery()
+        {
+            TraktCalendarMediaType.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktCalendarMediaType.Movie.AsQuery().ShouldBe("type=movie");
+            TraktCalendarMediaType.Show.AsQuery().ShouldBe("type=show");
+            ((TraktCalendarMediaType)99).AsQuery().ShouldBe("type=");
+        }
+
+        [Fact]
         public void TestTraktCalendarMediaTypeJsonConverter()
         {
             var converter = new TraktCalendarMediaTypeJsonConverter();

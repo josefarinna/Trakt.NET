@@ -49,6 +49,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktLastActivityAsQuery()
+        {
+            TraktLastActivity.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktLastActivity.Collected.AsQuery().ShouldBe("last_activity=collected");
+            TraktLastActivity.Aired.AsQuery().ShouldBe("last_activity=aired");
+            TraktLastActivity.Watched.AsQuery().ShouldBe("last_activity=watched");
+            ((TraktLastActivity)99).AsQuery().ShouldBe("last_activity=");
+        }
+
+        [Fact]
         public void TestTraktLastActivityJsonConverter()
         {
             var converter = new TraktLastActivityJsonConverter();

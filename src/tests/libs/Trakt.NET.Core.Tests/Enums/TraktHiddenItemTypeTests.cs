@@ -53,6 +53,17 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktHiddenItemTypeAsQuery()
+        {
+            TraktHiddenItemType.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktHiddenItemType.Movie.AsQuery().ShouldBe("type=movie");
+            TraktHiddenItemType.Show.AsQuery().ShouldBe("type=show");
+            TraktHiddenItemType.Season.AsQuery().ShouldBe("type=season");
+            TraktHiddenItemType.User.AsQuery().ShouldBe("type=user");
+            ((TraktHiddenItemType)99).AsQuery().ShouldBe("type=");
+        }
+
+        [Fact]
         public void TestTraktHiddenItemTypeJsonConverter()
         {
             var converter = new TraktHiddenItemTypeJsonConverter();
