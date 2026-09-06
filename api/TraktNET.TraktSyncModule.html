@@ -594,6 +594,102 @@ Trakt API Documentation: Sync: Add to Watchlist
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
   </span>
+  <a id="TraktNET_TraktSyncModule_GetCollectionMediaAsync_" data-uid="TraktNET.TraktSyncModule.GetCollectionMediaAsync*"></a>
+  <h4 id="TraktNET_TraktSyncModule_GetCollectionMediaAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetCollectionMediaAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetCollectionMediaAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets all collected movies, shows and episodes in the user's collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSyncCollectionMedia&gt;&gt; GetCollectionMediaAsync(TraktExtendedInfo? extendedInfo = null, string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>Specifies how much data should be queried about the media items.</p>
+<p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">availableOn</span></td>
+        <td><p>Optional filter for streaming services.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">page</span></td>
+        <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of items which should be queried per page. Defaults to 10.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse</a>&lt;<a class="xref" href="TraktNET.TraktSyncCollectionMedia.html">TraktSyncCollectionMedia</a>&gt;&gt;</td>
+        <td><p>A paged response of type <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> containing the queried collected media items.</p>
+<p>See also <a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSyncCollectionMedia.html">TraktSyncCollectionMedia</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktSyncModule_GetCollectionMediaAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/getsynccollectionmedia">
+Trakt API Documentation: Sync: Get media collection
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
+  </span>
   <a id="TraktNET_TraktSyncModule_GetCollectionMoviesAsync_" data-uid="TraktNET.TraktSyncModule.GetCollectionMoviesAsync*"></a>
   <h4 id="TraktNET_TraktSyncModule_GetCollectionMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetCollectionMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetCollectionMoviesAsync(TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all collected movies in the user's collection.</p>

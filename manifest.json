@@ -6625,6 +6625,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSyncCollectionAvailableOn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSyncCollectionAvailableOn.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSyncCollectionAvailableOn",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionAvailableOn.yml\" sourcestartlinenumber=\"1\">Represents a streaming service where a collected item is available.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSyncCollectionMedia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSyncCollectionMedia.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSyncCollectionMedia",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionMedia.yml\" sourcestartlinenumber=\"1\">A Trakt collection item, containing a movie, show, or episode and collection information about it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktSyncCollectionMovie.yml",
       "output": {
         ".html": {

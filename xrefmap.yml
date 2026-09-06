@@ -15595,6 +15595,30 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.GetTypeInfo
   fullName: TraktNET.SyncsJsonSerializerContext.GetTypeInfo
   nameWithType: SyncsJsonSerializerContext.GetTypeInfo
+- uid: TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionAvailableOn
+  name: IReadOnlyListTraktSyncCollectionAvailableOn
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_IReadOnlyListTraktSyncCollectionAvailableOn
+  commentId: P:TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionAvailableOn
+  fullName: TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionAvailableOn
+  nameWithType: SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionAvailableOn
+- uid: TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionAvailableOn*
+  name: IReadOnlyListTraktSyncCollectionAvailableOn
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_IReadOnlyListTraktSyncCollectionAvailableOn_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionAvailableOn
+  fullName: TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionAvailableOn
+  nameWithType: SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionAvailableOn
+- uid: TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionMedia
+  name: IReadOnlyListTraktSyncCollectionMedia
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_IReadOnlyListTraktSyncCollectionMedia
+  commentId: P:TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionMedia
+  fullName: TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionMedia
+  nameWithType: SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionMedia
+- uid: TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionMedia*
+  name: IReadOnlyListTraktSyncCollectionMedia
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_IReadOnlyListTraktSyncCollectionMedia_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionMedia
+  fullName: TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionMedia
+  nameWithType: SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionMedia
 - uid: TraktNET.SyncsJsonSerializerContext.IReadOnlyListTraktSyncCollectionMovie
   name: IReadOnlyListTraktSyncCollectionMovie
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_IReadOnlyListTraktSyncCollectionMovie
@@ -15799,6 +15823,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.ListTraktSeasonWatchedProgress
   fullName: TraktNET.SyncsJsonSerializerContext.ListTraktSeasonWatchedProgress
   nameWithType: SyncsJsonSerializerContext.ListTraktSeasonWatchedProgress
+- uid: TraktNET.SyncsJsonSerializerContext.ListTraktSyncCollectionAvailableOn
+  name: ListTraktSyncCollectionAvailableOn
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_ListTraktSyncCollectionAvailableOn
+  commentId: P:TraktNET.SyncsJsonSerializerContext.ListTraktSyncCollectionAvailableOn
+  fullName: TraktNET.SyncsJsonSerializerContext.ListTraktSyncCollectionAvailableOn
+  nameWithType: SyncsJsonSerializerContext.ListTraktSyncCollectionAvailableOn
+- uid: TraktNET.SyncsJsonSerializerContext.ListTraktSyncCollectionAvailableOn*
+  name: ListTraktSyncCollectionAvailableOn
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_ListTraktSyncCollectionAvailableOn_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.ListTraktSyncCollectionAvailableOn
+  fullName: TraktNET.SyncsJsonSerializerContext.ListTraktSyncCollectionAvailableOn
+  nameWithType: SyncsJsonSerializerContext.ListTraktSyncCollectionAvailableOn
 - uid: TraktNET.SyncsJsonSerializerContext.ListTraktSyncCollectionPostEpisode
   name: ListTraktSyncCollectionPostEpisode
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_ListTraktSyncCollectionPostEpisode
@@ -16483,6 +16519,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.NullableTraktSortHow
   fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktSortHow
   nameWithType: SyncsJsonSerializerContext.NullableTraktSortHow
+- uid: TraktNET.SyncsJsonSerializerContext.NullableTraktSyncItemType
+  name: NullableTraktSyncItemType
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktSyncItemType
+  commentId: P:TraktNET.SyncsJsonSerializerContext.NullableTraktSyncItemType
+  fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktSyncItemType
+  nameWithType: SyncsJsonSerializerContext.NullableTraktSyncItemType
+- uid: TraktNET.SyncsJsonSerializerContext.NullableTraktSyncItemType*
+  name: NullableTraktSyncItemType
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktSyncItemType_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.NullableTraktSyncItemType
+  fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktSyncItemType
+  nameWithType: SyncsJsonSerializerContext.NullableTraktSyncItemType
 - uid: TraktNET.SyncsJsonSerializerContext.NullableTraktSyncType
   name: NullableTraktSyncType
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktSyncType
@@ -17095,6 +17143,30 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktSyncCollaborationsLastActivities
   fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollaborationsLastActivities
   nameWithType: SyncsJsonSerializerContext.TraktSyncCollaborationsLastActivities
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionAvailableOn
+  name: TraktSyncCollectionAvailableOn
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionAvailableOn
+  commentId: P:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionAvailableOn
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionAvailableOn
+  nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionAvailableOn
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionAvailableOn*
+  name: TraktSyncCollectionAvailableOn
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionAvailableOn_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionAvailableOn
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionAvailableOn
+  nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionAvailableOn
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionMedia
+  name: TraktSyncCollectionMedia
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionMedia
+  commentId: P:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionMedia
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionMedia
+  nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionMedia
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionMedia*
+  name: TraktSyncCollectionMedia
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionMedia_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionMedia
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionMedia
+  nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionMedia
 - uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionMovie
   name: TraktSyncCollectionMovie
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionMovie
@@ -17539,6 +17611,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktSyncHistoryRemovePostResponseNotFoundGroup
   fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncHistoryRemovePostResponseNotFoundGroup
   nameWithType: SyncsJsonSerializerContext.TraktSyncHistoryRemovePostResponseNotFoundGroup
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncItemType
+  name: TraktSyncItemType
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncItemType
+  commentId: P:TraktNET.SyncsJsonSerializerContext.TraktSyncItemType
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncItemType
+  nameWithType: SyncsJsonSerializerContext.TraktSyncItemType
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncItemType*
+  name: TraktSyncItemType
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncItemType_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktSyncItemType
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncItemType
+  nameWithType: SyncsJsonSerializerContext.TraktSyncItemType
 - uid: TraktNET.SyncsJsonSerializerContext.TraktSyncLastActivities
   name: TraktSyncLastActivities
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncLastActivities
@@ -78676,6 +78760,420 @@ references:
   fullName.vb: TraktNET.TraktSyncCollaborationsLastActivities.<>
   nameWithType: TraktSyncCollaborationsLastActivities.operator !=
   nameWithType.vb: TraktSyncCollaborationsLastActivities.<>
+- uid: TraktNET.TraktSyncCollectionAvailableOn
+  name: TraktSyncCollectionAvailableOn
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html
+  commentId: T:TraktNET.TraktSyncCollectionAvailableOn
+  fullName: TraktNET.TraktSyncCollectionAvailableOn
+  nameWithType: TraktSyncCollectionAvailableOn
+- uid: TraktNET.TraktSyncCollectionAvailableOn.#ctor
+  name: TraktSyncCollectionAvailableOn()
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn__ctor
+  commentId: M:TraktNET.TraktSyncCollectionAvailableOn.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.TraktSyncCollectionAvailableOn()
+  fullName.vb: TraktNET.TraktSyncCollectionAvailableOn.New()
+  nameWithType: TraktSyncCollectionAvailableOn.TraktSyncCollectionAvailableOn()
+  nameWithType.vb: TraktSyncCollectionAvailableOn.New()
+- uid: TraktNET.TraktSyncCollectionAvailableOn.#ctor(TraktNET.TraktSyncCollectionAvailableOn)
+  name: TraktSyncCollectionAvailableOn(TraktSyncCollectionAvailableOn)
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn__ctor_TraktNET_TraktSyncCollectionAvailableOn_
+  commentId: M:TraktNET.TraktSyncCollectionAvailableOn.#ctor(TraktNET.TraktSyncCollectionAvailableOn)
+  name.vb: New(TraktSyncCollectionAvailableOn)
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.TraktSyncCollectionAvailableOn(TraktNET.TraktSyncCollectionAvailableOn)
+  fullName.vb: TraktNET.TraktSyncCollectionAvailableOn.New(TraktNET.TraktSyncCollectionAvailableOn)
+  nameWithType: TraktSyncCollectionAvailableOn.TraktSyncCollectionAvailableOn(TraktSyncCollectionAvailableOn)
+  nameWithType.vb: TraktSyncCollectionAvailableOn.New(TraktSyncCollectionAvailableOn)
+- uid: TraktNET.TraktSyncCollectionAvailableOn.#ctor*
+  name: TraktSyncCollectionAvailableOn
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn__ctor_
+  commentId: Overload:TraktNET.TraktSyncCollectionAvailableOn.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.TraktSyncCollectionAvailableOn
+  fullName.vb: TraktNET.TraktSyncCollectionAvailableOn.New
+  nameWithType: TraktSyncCollectionAvailableOn.TraktSyncCollectionAvailableOn
+  nameWithType.vb: TraktSyncCollectionAvailableOn.New
+- uid: TraktNET.TraktSyncCollectionAvailableOn.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_EqualityContract
+  commentId: P:TraktNET.TraktSyncCollectionAvailableOn.EqualityContract
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.EqualityContract
+  nameWithType: TraktSyncCollectionAvailableOn.EqualityContract
+- uid: TraktNET.TraktSyncCollectionAvailableOn.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_EqualityContract_
+  commentId: Overload:TraktNET.TraktSyncCollectionAvailableOn.EqualityContract
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.EqualityContract
+  nameWithType: TraktSyncCollectionAvailableOn.EqualityContract
+- uid: TraktNET.TraktSyncCollectionAvailableOn.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_Equals_System_Object_
+  commentId: M:TraktNET.TraktSyncCollectionAvailableOn.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.Equals(object?)
+  fullName.vb: TraktNET.TraktSyncCollectionAvailableOn.Equals(Object)
+  nameWithType: TraktSyncCollectionAvailableOn.Equals(object?)
+  nameWithType.vb: TraktSyncCollectionAvailableOn.Equals(Object)
+- uid: TraktNET.TraktSyncCollectionAvailableOn.Equals(TraktNET.TraktSyncCollectionAvailableOn)
+  name: Equals(TraktSyncCollectionAvailableOn?)
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_Equals_TraktNET_TraktSyncCollectionAvailableOn_
+  commentId: M:TraktNET.TraktSyncCollectionAvailableOn.Equals(TraktNET.TraktSyncCollectionAvailableOn)
+  name.vb: Equals(TraktSyncCollectionAvailableOn)
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.Equals(TraktNET.TraktSyncCollectionAvailableOn?)
+  fullName.vb: TraktNET.TraktSyncCollectionAvailableOn.Equals(TraktNET.TraktSyncCollectionAvailableOn)
+  nameWithType: TraktSyncCollectionAvailableOn.Equals(TraktSyncCollectionAvailableOn?)
+  nameWithType.vb: TraktSyncCollectionAvailableOn.Equals(TraktSyncCollectionAvailableOn)
+- uid: TraktNET.TraktSyncCollectionAvailableOn.Equals*
+  name: Equals
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_Equals_
+  commentId: Overload:TraktNET.TraktSyncCollectionAvailableOn.Equals
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.Equals
+  nameWithType: TraktSyncCollectionAvailableOn.Equals
+- uid: TraktNET.TraktSyncCollectionAvailableOn.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_GetHashCode
+  commentId: M:TraktNET.TraktSyncCollectionAvailableOn.GetHashCode
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.GetHashCode()
+  nameWithType: TraktSyncCollectionAvailableOn.GetHashCode()
+- uid: TraktNET.TraktSyncCollectionAvailableOn.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_GetHashCode_
+  commentId: Overload:TraktNET.TraktSyncCollectionAvailableOn.GetHashCode
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.GetHashCode
+  nameWithType: TraktSyncCollectionAvailableOn.GetHashCode
+- uid: TraktNET.TraktSyncCollectionAvailableOn.Name
+  name: Name
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_Name
+  commentId: P:TraktNET.TraktSyncCollectionAvailableOn.Name
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.Name
+  nameWithType: TraktSyncCollectionAvailableOn.Name
+- uid: TraktNET.TraktSyncCollectionAvailableOn.Name*
+  name: Name
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_Name_
+  commentId: Overload:TraktNET.TraktSyncCollectionAvailableOn.Name
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.Name
+  nameWithType: TraktSyncCollectionAvailableOn.Name
+- uid: TraktNET.TraktSyncCollectionAvailableOn.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktSyncCollectionAvailableOn.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktSyncCollectionAvailableOn.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktSyncCollectionAvailableOn.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_PrintMembers_
+  commentId: Overload:TraktNET.TraktSyncCollectionAvailableOn.PrintMembers
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.PrintMembers
+  nameWithType: TraktSyncCollectionAvailableOn.PrintMembers
+- uid: TraktNET.TraktSyncCollectionAvailableOn.ToString
+  name: ToString()
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_ToString
+  commentId: M:TraktNET.TraktSyncCollectionAvailableOn.ToString
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.ToString()
+  nameWithType: TraktSyncCollectionAvailableOn.ToString()
+- uid: TraktNET.TraktSyncCollectionAvailableOn.ToString*
+  name: ToString
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_ToString_
+  commentId: Overload:TraktNET.TraktSyncCollectionAvailableOn.ToString
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.ToString
+  nameWithType: TraktSyncCollectionAvailableOn.ToString
+- uid: TraktNET.TraktSyncCollectionAvailableOn.op_Equality(TraktNET.TraktSyncCollectionAvailableOn,TraktNET.TraktSyncCollectionAvailableOn)
+  name: operator ==(TraktSyncCollectionAvailableOn?, TraktSyncCollectionAvailableOn?)
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_op_Equality_TraktNET_TraktSyncCollectionAvailableOn_TraktNET_TraktSyncCollectionAvailableOn_
+  commentId: M:TraktNET.TraktSyncCollectionAvailableOn.op_Equality(TraktNET.TraktSyncCollectionAvailableOn,TraktNET.TraktSyncCollectionAvailableOn)
+  name.vb: =(TraktSyncCollectionAvailableOn, TraktSyncCollectionAvailableOn)
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.operator ==(TraktNET.TraktSyncCollectionAvailableOn?, TraktNET.TraktSyncCollectionAvailableOn?)
+  fullName.vb: TraktNET.TraktSyncCollectionAvailableOn.=(TraktNET.TraktSyncCollectionAvailableOn, TraktNET.TraktSyncCollectionAvailableOn)
+  nameWithType: TraktSyncCollectionAvailableOn.operator ==(TraktSyncCollectionAvailableOn?, TraktSyncCollectionAvailableOn?)
+  nameWithType.vb: TraktSyncCollectionAvailableOn.=(TraktSyncCollectionAvailableOn, TraktSyncCollectionAvailableOn)
+- uid: TraktNET.TraktSyncCollectionAvailableOn.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_op_Equality_
+  commentId: Overload:TraktNET.TraktSyncCollectionAvailableOn.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.operator ==
+  fullName.vb: TraktNET.TraktSyncCollectionAvailableOn.=
+  nameWithType: TraktSyncCollectionAvailableOn.operator ==
+  nameWithType.vb: TraktSyncCollectionAvailableOn.=
+- uid: TraktNET.TraktSyncCollectionAvailableOn.op_Inequality(TraktNET.TraktSyncCollectionAvailableOn,TraktNET.TraktSyncCollectionAvailableOn)
+  name: operator !=(TraktSyncCollectionAvailableOn?, TraktSyncCollectionAvailableOn?)
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_op_Inequality_TraktNET_TraktSyncCollectionAvailableOn_TraktNET_TraktSyncCollectionAvailableOn_
+  commentId: M:TraktNET.TraktSyncCollectionAvailableOn.op_Inequality(TraktNET.TraktSyncCollectionAvailableOn,TraktNET.TraktSyncCollectionAvailableOn)
+  name.vb: <>(TraktSyncCollectionAvailableOn, TraktSyncCollectionAvailableOn)
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.operator !=(TraktNET.TraktSyncCollectionAvailableOn?, TraktNET.TraktSyncCollectionAvailableOn?)
+  fullName.vb: TraktNET.TraktSyncCollectionAvailableOn.<>(TraktNET.TraktSyncCollectionAvailableOn, TraktNET.TraktSyncCollectionAvailableOn)
+  nameWithType: TraktSyncCollectionAvailableOn.operator !=(TraktSyncCollectionAvailableOn?, TraktSyncCollectionAvailableOn?)
+  nameWithType.vb: TraktSyncCollectionAvailableOn.<>(TraktSyncCollectionAvailableOn, TraktSyncCollectionAvailableOn)
+- uid: TraktNET.TraktSyncCollectionAvailableOn.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktSyncCollectionAvailableOn.html#TraktNET_TraktSyncCollectionAvailableOn_op_Inequality_
+  commentId: Overload:TraktNET.TraktSyncCollectionAvailableOn.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktSyncCollectionAvailableOn.operator !=
+  fullName.vb: TraktNET.TraktSyncCollectionAvailableOn.<>
+  nameWithType: TraktSyncCollectionAvailableOn.operator !=
+  nameWithType.vb: TraktSyncCollectionAvailableOn.<>
+- uid: TraktNET.TraktSyncCollectionMedia
+  name: TraktSyncCollectionMedia
+  href: api/TraktNET.TraktSyncCollectionMedia.html
+  commentId: T:TraktNET.TraktSyncCollectionMedia
+  fullName: TraktNET.TraktSyncCollectionMedia
+  nameWithType: TraktSyncCollectionMedia
+- uid: TraktNET.TraktSyncCollectionMedia.#ctor
+  name: TraktSyncCollectionMedia()
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia__ctor
+  commentId: M:TraktNET.TraktSyncCollectionMedia.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktSyncCollectionMedia.TraktSyncCollectionMedia()
+  fullName.vb: TraktNET.TraktSyncCollectionMedia.New()
+  nameWithType: TraktSyncCollectionMedia.TraktSyncCollectionMedia()
+  nameWithType.vb: TraktSyncCollectionMedia.New()
+- uid: TraktNET.TraktSyncCollectionMedia.#ctor(TraktNET.TraktSyncCollectionMedia)
+  name: TraktSyncCollectionMedia(TraktSyncCollectionMedia)
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia__ctor_TraktNET_TraktSyncCollectionMedia_
+  commentId: M:TraktNET.TraktSyncCollectionMedia.#ctor(TraktNET.TraktSyncCollectionMedia)
+  name.vb: New(TraktSyncCollectionMedia)
+  fullName: TraktNET.TraktSyncCollectionMedia.TraktSyncCollectionMedia(TraktNET.TraktSyncCollectionMedia)
+  fullName.vb: TraktNET.TraktSyncCollectionMedia.New(TraktNET.TraktSyncCollectionMedia)
+  nameWithType: TraktSyncCollectionMedia.TraktSyncCollectionMedia(TraktSyncCollectionMedia)
+  nameWithType.vb: TraktSyncCollectionMedia.New(TraktSyncCollectionMedia)
+- uid: TraktNET.TraktSyncCollectionMedia.#ctor*
+  name: TraktSyncCollectionMedia
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia__ctor_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktSyncCollectionMedia.TraktSyncCollectionMedia
+  fullName.vb: TraktNET.TraktSyncCollectionMedia.New
+  nameWithType: TraktSyncCollectionMedia.TraktSyncCollectionMedia
+  nameWithType.vb: TraktSyncCollectionMedia.New
+- uid: TraktNET.TraktSyncCollectionMedia.AvailableOn
+  name: AvailableOn
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_AvailableOn
+  commentId: P:TraktNET.TraktSyncCollectionMedia.AvailableOn
+  fullName: TraktNET.TraktSyncCollectionMedia.AvailableOn
+  nameWithType: TraktSyncCollectionMedia.AvailableOn
+- uid: TraktNET.TraktSyncCollectionMedia.AvailableOn*
+  name: AvailableOn
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_AvailableOn_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.AvailableOn
+  fullName: TraktNET.TraktSyncCollectionMedia.AvailableOn
+  nameWithType: TraktSyncCollectionMedia.AvailableOn
+- uid: TraktNET.TraktSyncCollectionMedia.CollectedAt
+  name: CollectedAt
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_CollectedAt
+  commentId: P:TraktNET.TraktSyncCollectionMedia.CollectedAt
+  fullName: TraktNET.TraktSyncCollectionMedia.CollectedAt
+  nameWithType: TraktSyncCollectionMedia.CollectedAt
+- uid: TraktNET.TraktSyncCollectionMedia.CollectedAt*
+  name: CollectedAt
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_CollectedAt_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.CollectedAt
+  fullName: TraktNET.TraktSyncCollectionMedia.CollectedAt
+  nameWithType: TraktSyncCollectionMedia.CollectedAt
+- uid: TraktNET.TraktSyncCollectionMedia.Episode
+  name: Episode
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Episode
+  commentId: P:TraktNET.TraktSyncCollectionMedia.Episode
+  fullName: TraktNET.TraktSyncCollectionMedia.Episode
+  nameWithType: TraktSyncCollectionMedia.Episode
+- uid: TraktNET.TraktSyncCollectionMedia.Episode*
+  name: Episode
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Episode_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.Episode
+  fullName: TraktNET.TraktSyncCollectionMedia.Episode
+  nameWithType: TraktSyncCollectionMedia.Episode
+- uid: TraktNET.TraktSyncCollectionMedia.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_EqualityContract
+  commentId: P:TraktNET.TraktSyncCollectionMedia.EqualityContract
+  fullName: TraktNET.TraktSyncCollectionMedia.EqualityContract
+  nameWithType: TraktSyncCollectionMedia.EqualityContract
+- uid: TraktNET.TraktSyncCollectionMedia.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_EqualityContract_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.EqualityContract
+  fullName: TraktNET.TraktSyncCollectionMedia.EqualityContract
+  nameWithType: TraktSyncCollectionMedia.EqualityContract
+- uid: TraktNET.TraktSyncCollectionMedia.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Equals_System_Object_
+  commentId: M:TraktNET.TraktSyncCollectionMedia.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktSyncCollectionMedia.Equals(object?)
+  fullName.vb: TraktNET.TraktSyncCollectionMedia.Equals(Object)
+  nameWithType: TraktSyncCollectionMedia.Equals(object?)
+  nameWithType.vb: TraktSyncCollectionMedia.Equals(Object)
+- uid: TraktNET.TraktSyncCollectionMedia.Equals(TraktNET.TraktSyncCollectionMedia)
+  name: Equals(TraktSyncCollectionMedia?)
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Equals_TraktNET_TraktSyncCollectionMedia_
+  commentId: M:TraktNET.TraktSyncCollectionMedia.Equals(TraktNET.TraktSyncCollectionMedia)
+  name.vb: Equals(TraktSyncCollectionMedia)
+  fullName: TraktNET.TraktSyncCollectionMedia.Equals(TraktNET.TraktSyncCollectionMedia?)
+  fullName.vb: TraktNET.TraktSyncCollectionMedia.Equals(TraktNET.TraktSyncCollectionMedia)
+  nameWithType: TraktSyncCollectionMedia.Equals(TraktSyncCollectionMedia?)
+  nameWithType.vb: TraktSyncCollectionMedia.Equals(TraktSyncCollectionMedia)
+- uid: TraktNET.TraktSyncCollectionMedia.Equals*
+  name: Equals
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Equals_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.Equals
+  fullName: TraktNET.TraktSyncCollectionMedia.Equals
+  nameWithType: TraktSyncCollectionMedia.Equals
+- uid: TraktNET.TraktSyncCollectionMedia.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_GetHashCode
+  commentId: M:TraktNET.TraktSyncCollectionMedia.GetHashCode
+  fullName: TraktNET.TraktSyncCollectionMedia.GetHashCode()
+  nameWithType: TraktSyncCollectionMedia.GetHashCode()
+- uid: TraktNET.TraktSyncCollectionMedia.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_GetHashCode_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.GetHashCode
+  fullName: TraktNET.TraktSyncCollectionMedia.GetHashCode
+  nameWithType: TraktSyncCollectionMedia.GetHashCode
+- uid: TraktNET.TraktSyncCollectionMedia.LastCollectedAt
+  name: LastCollectedAt
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_LastCollectedAt
+  commentId: P:TraktNET.TraktSyncCollectionMedia.LastCollectedAt
+  fullName: TraktNET.TraktSyncCollectionMedia.LastCollectedAt
+  nameWithType: TraktSyncCollectionMedia.LastCollectedAt
+- uid: TraktNET.TraktSyncCollectionMedia.LastCollectedAt*
+  name: LastCollectedAt
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_LastCollectedAt_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.LastCollectedAt
+  fullName: TraktNET.TraktSyncCollectionMedia.LastCollectedAt
+  nameWithType: TraktSyncCollectionMedia.LastCollectedAt
+- uid: TraktNET.TraktSyncCollectionMedia.LastUpdatedAt
+  name: LastUpdatedAt
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_LastUpdatedAt
+  commentId: P:TraktNET.TraktSyncCollectionMedia.LastUpdatedAt
+  fullName: TraktNET.TraktSyncCollectionMedia.LastUpdatedAt
+  nameWithType: TraktSyncCollectionMedia.LastUpdatedAt
+- uid: TraktNET.TraktSyncCollectionMedia.LastUpdatedAt*
+  name: LastUpdatedAt
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_LastUpdatedAt_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.LastUpdatedAt
+  fullName: TraktNET.TraktSyncCollectionMedia.LastUpdatedAt
+  nameWithType: TraktSyncCollectionMedia.LastUpdatedAt
+- uid: TraktNET.TraktSyncCollectionMedia.Movie
+  name: Movie
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Movie
+  commentId: P:TraktNET.TraktSyncCollectionMedia.Movie
+  fullName: TraktNET.TraktSyncCollectionMedia.Movie
+  nameWithType: TraktSyncCollectionMedia.Movie
+- uid: TraktNET.TraktSyncCollectionMedia.Movie*
+  name: Movie
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Movie_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.Movie
+  fullName: TraktNET.TraktSyncCollectionMedia.Movie
+  nameWithType: TraktSyncCollectionMedia.Movie
+- uid: TraktNET.TraktSyncCollectionMedia.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktSyncCollectionMedia.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktSyncCollectionMedia.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktSyncCollectionMedia.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktSyncCollectionMedia.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_PrintMembers_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.PrintMembers
+  fullName: TraktNET.TraktSyncCollectionMedia.PrintMembers
+  nameWithType: TraktSyncCollectionMedia.PrintMembers
+- uid: TraktNET.TraktSyncCollectionMedia.Seasons
+  name: Seasons
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Seasons
+  commentId: P:TraktNET.TraktSyncCollectionMedia.Seasons
+  fullName: TraktNET.TraktSyncCollectionMedia.Seasons
+  nameWithType: TraktSyncCollectionMedia.Seasons
+- uid: TraktNET.TraktSyncCollectionMedia.Seasons*
+  name: Seasons
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Seasons_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.Seasons
+  fullName: TraktNET.TraktSyncCollectionMedia.Seasons
+  nameWithType: TraktSyncCollectionMedia.Seasons
+- uid: TraktNET.TraktSyncCollectionMedia.Show
+  name: Show
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Show
+  commentId: P:TraktNET.TraktSyncCollectionMedia.Show
+  fullName: TraktNET.TraktSyncCollectionMedia.Show
+  nameWithType: TraktSyncCollectionMedia.Show
+- uid: TraktNET.TraktSyncCollectionMedia.Show*
+  name: Show
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Show_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.Show
+  fullName: TraktNET.TraktSyncCollectionMedia.Show
+  nameWithType: TraktSyncCollectionMedia.Show
+- uid: TraktNET.TraktSyncCollectionMedia.ToString
+  name: ToString()
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_ToString
+  commentId: M:TraktNET.TraktSyncCollectionMedia.ToString
+  fullName: TraktNET.TraktSyncCollectionMedia.ToString()
+  nameWithType: TraktSyncCollectionMedia.ToString()
+- uid: TraktNET.TraktSyncCollectionMedia.ToString*
+  name: ToString
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_ToString_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.ToString
+  fullName: TraktNET.TraktSyncCollectionMedia.ToString
+  nameWithType: TraktSyncCollectionMedia.ToString
+- uid: TraktNET.TraktSyncCollectionMedia.Type
+  name: Type
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Type
+  commentId: P:TraktNET.TraktSyncCollectionMedia.Type
+  fullName: TraktNET.TraktSyncCollectionMedia.Type
+  nameWithType: TraktSyncCollectionMedia.Type
+- uid: TraktNET.TraktSyncCollectionMedia.Type*
+  name: Type
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_Type_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.Type
+  fullName: TraktNET.TraktSyncCollectionMedia.Type
+  nameWithType: TraktSyncCollectionMedia.Type
+- uid: TraktNET.TraktSyncCollectionMedia.UpdatedAt
+  name: UpdatedAt
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_UpdatedAt
+  commentId: P:TraktNET.TraktSyncCollectionMedia.UpdatedAt
+  fullName: TraktNET.TraktSyncCollectionMedia.UpdatedAt
+  nameWithType: TraktSyncCollectionMedia.UpdatedAt
+- uid: TraktNET.TraktSyncCollectionMedia.UpdatedAt*
+  name: UpdatedAt
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_UpdatedAt_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.UpdatedAt
+  fullName: TraktNET.TraktSyncCollectionMedia.UpdatedAt
+  nameWithType: TraktSyncCollectionMedia.UpdatedAt
+- uid: TraktNET.TraktSyncCollectionMedia.op_Equality(TraktNET.TraktSyncCollectionMedia,TraktNET.TraktSyncCollectionMedia)
+  name: operator ==(TraktSyncCollectionMedia?, TraktSyncCollectionMedia?)
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_op_Equality_TraktNET_TraktSyncCollectionMedia_TraktNET_TraktSyncCollectionMedia_
+  commentId: M:TraktNET.TraktSyncCollectionMedia.op_Equality(TraktNET.TraktSyncCollectionMedia,TraktNET.TraktSyncCollectionMedia)
+  name.vb: =(TraktSyncCollectionMedia, TraktSyncCollectionMedia)
+  fullName: TraktNET.TraktSyncCollectionMedia.operator ==(TraktNET.TraktSyncCollectionMedia?, TraktNET.TraktSyncCollectionMedia?)
+  fullName.vb: TraktNET.TraktSyncCollectionMedia.=(TraktNET.TraktSyncCollectionMedia, TraktNET.TraktSyncCollectionMedia)
+  nameWithType: TraktSyncCollectionMedia.operator ==(TraktSyncCollectionMedia?, TraktSyncCollectionMedia?)
+  nameWithType.vb: TraktSyncCollectionMedia.=(TraktSyncCollectionMedia, TraktSyncCollectionMedia)
+- uid: TraktNET.TraktSyncCollectionMedia.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_op_Equality_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktSyncCollectionMedia.operator ==
+  fullName.vb: TraktNET.TraktSyncCollectionMedia.=
+  nameWithType: TraktSyncCollectionMedia.operator ==
+  nameWithType.vb: TraktSyncCollectionMedia.=
+- uid: TraktNET.TraktSyncCollectionMedia.op_Inequality(TraktNET.TraktSyncCollectionMedia,TraktNET.TraktSyncCollectionMedia)
+  name: operator !=(TraktSyncCollectionMedia?, TraktSyncCollectionMedia?)
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_op_Inequality_TraktNET_TraktSyncCollectionMedia_TraktNET_TraktSyncCollectionMedia_
+  commentId: M:TraktNET.TraktSyncCollectionMedia.op_Inequality(TraktNET.TraktSyncCollectionMedia,TraktNET.TraktSyncCollectionMedia)
+  name.vb: <>(TraktSyncCollectionMedia, TraktSyncCollectionMedia)
+  fullName: TraktNET.TraktSyncCollectionMedia.operator !=(TraktNET.TraktSyncCollectionMedia?, TraktNET.TraktSyncCollectionMedia?)
+  fullName.vb: TraktNET.TraktSyncCollectionMedia.<>(TraktNET.TraktSyncCollectionMedia, TraktNET.TraktSyncCollectionMedia)
+  nameWithType: TraktSyncCollectionMedia.operator !=(TraktSyncCollectionMedia?, TraktSyncCollectionMedia?)
+  nameWithType.vb: TraktSyncCollectionMedia.<>(TraktSyncCollectionMedia, TraktSyncCollectionMedia)
+- uid: TraktNET.TraktSyncCollectionMedia.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktSyncCollectionMedia.html#TraktNET_TraktSyncCollectionMedia_op_Inequality_
+  commentId: Overload:TraktNET.TraktSyncCollectionMedia.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktSyncCollectionMedia.operator !=
+  fullName.vb: TraktNET.TraktSyncCollectionMedia.<>
+  nameWithType: TraktSyncCollectionMedia.operator !=
+  nameWithType.vb: TraktSyncCollectionMedia.<>
 - uid: TraktNET.TraktSyncCollectionMovie
   name: TraktSyncCollectionMovie
   href: api/TraktNET.TraktSyncCollectionMovie.html
@@ -86011,6 +86509,21 @@ references:
   commentId: Overload:TraktNET.TraktSyncModule.AddWatchlistItemsAsync
   fullName: TraktNET.TraktSyncModule.AddWatchlistItemsAsync
   nameWithType: TraktSyncModule.AddWatchlistItemsAsync
+- uid: TraktNET.TraktSyncModule.GetCollectionMediaAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetCollectionMediaAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionMediaAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetCollectionMediaAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetCollectionMediaAsync(TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetCollectionMediaAsync(TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSyncModule.GetCollectionMediaAsync(TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetCollectionMediaAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSyncModule.GetCollectionMediaAsync(TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetCollectionMediaAsync*
+  name: GetCollectionMediaAsync
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionMediaAsync_
+  commentId: Overload:TraktNET.TraktSyncModule.GetCollectionMediaAsync
+  fullName: TraktNET.TraktSyncModule.GetCollectionMediaAsync
+  nameWithType: TraktSyncModule.GetCollectionMediaAsync
 - uid: TraktNET.TraktSyncModule.GetCollectionMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
   name: GetCollectionMoviesAsync(TraktExtendedInfo?, CancellationToken)
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
