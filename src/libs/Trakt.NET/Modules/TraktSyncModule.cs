@@ -164,13 +164,16 @@ namespace TraktNET
         /// Specifies how much data should be queried about the movies.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
-        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried collected movies.
-        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionMovie" />.</para>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried collected movies.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionMovie" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
@@ -179,9 +182,36 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        public Task<TraktListResponse<TraktSyncCollectionMovie>> GetCollectionMoviesAsync(TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetCollectionMoviesImplAsync(extendedInfo, cancellationToken);
+        public Task<TraktPagedResponse<TraktSyncCollectionMovie>> GetCollectionMoviesAsync(TraktExtendedInfo? extendedInfo = null,
+            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetCollectionMoviesImplAsync(extendedInfo, availableOn, page, limit, cancellationToken);
+
+        /// <summary>Gets all collected episodes in the user's collection.</summary>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the episodes.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried collected episodes.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktSyncCollectionEpisode" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/getsynccollectionall">
+        /// Trakt API Documentation: Sync: Get Collection
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktSyncCollectionEpisode>> GetCollectionEpisodesAsync(TraktExtendedInfo? extendedInfo = null,
+            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetCollectionEpisodesImplAsync(extendedInfo, availableOn, page, limit, cancellationToken);
 
         /// <summary>Gets all collected shows in the user's collection.</summary>
         /// <param name="extendedInfo">

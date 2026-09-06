@@ -21,6 +21,8 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktSyncWatchlistLastActivities))]
     [JsonSerializable(typeof(TraktSyncCollectionMovie))]
     [JsonSerializable(typeof(IReadOnlyList<TraktSyncCollectionMovie>))]
+    [JsonSerializable(typeof(TraktSyncCollectionEpisode))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktSyncCollectionEpisode>))]
     [JsonSerializable(typeof(TraktSyncCollectionMedia))]
     [JsonSerializable(typeof(IReadOnlyList<TraktSyncCollectionMedia>))]
     [JsonSerializable(typeof(TraktSyncCollectionAvailableOn))]
