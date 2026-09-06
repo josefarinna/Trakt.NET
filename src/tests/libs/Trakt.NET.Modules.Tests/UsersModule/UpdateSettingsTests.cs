@@ -17,6 +17,7 @@ namespace TraktNET.UsersModule
             {
                 Browsing = new TraktUserSettingsBrowsingPost
                 {
+                    WatchOnlyOnce = true,
                     Watchnow = new TraktUserWatchnowSettings
                     {
                         Country = "us",

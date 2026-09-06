@@ -8,6 +8,7 @@
   },
   "browsing": {
     "show_rating_prompt": true,
+    "watch_only_once": true,
     "locale": "fr-FR",
     "watchnow": {
       "country": "fr",
