@@ -115636,6 +115636,18 @@ references:
   commentId: Overload:TraktNET.TraktUserSettingsBrowsingPost.ToString
   fullName: TraktNET.TraktUserSettingsBrowsingPost.ToString
   nameWithType: TraktUserSettingsBrowsingPost.ToString
+- uid: TraktNET.TraktUserSettingsBrowsingPost.WatchOnlyOnce
+  name: WatchOnlyOnce
+  href: api/TraktNET.TraktUserSettingsBrowsingPost.html#TraktNET_TraktUserSettingsBrowsingPost_WatchOnlyOnce
+  commentId: P:TraktNET.TraktUserSettingsBrowsingPost.WatchOnlyOnce
+  fullName: TraktNET.TraktUserSettingsBrowsingPost.WatchOnlyOnce
+  nameWithType: TraktUserSettingsBrowsingPost.WatchOnlyOnce
+- uid: TraktNET.TraktUserSettingsBrowsingPost.WatchOnlyOnce*
+  name: WatchOnlyOnce
+  href: api/TraktNET.TraktUserSettingsBrowsingPost.html#TraktNET_TraktUserSettingsBrowsingPost_WatchOnlyOnce_
+  commentId: Overload:TraktNET.TraktUserSettingsBrowsingPost.WatchOnlyOnce
+  fullName: TraktNET.TraktUserSettingsBrowsingPost.WatchOnlyOnce
+  nameWithType: TraktUserSettingsBrowsingPost.WatchOnlyOnce
 - uid: TraktNET.TraktUserSettingsBrowsingPost.Watchnow
   name: Watchnow
   href: api/TraktNET.TraktUserSettingsBrowsingPost.html#TraktNET_TraktUserSettingsBrowsingPost_Watchnow
