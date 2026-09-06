@@ -27,6 +27,24 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktUserLikeTypeToURI()
+        {
+            TraktUserLikeType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktUserLikeType.Comment.ToURI().ShouldBe("comments");
+            TraktUserLikeType.List.ToURI().ShouldBe("lists");
+            ((TraktUserLikeType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktUserLikeTypeAsPathParameter()
+        {
+            TraktUserLikeType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktUserLikeType.Comment.AsPathParameter().ShouldBe("comments");
+            TraktUserLikeType.List.AsPathParameter().ShouldBe("lists");
+            ((TraktUserLikeType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktUserLikeTypeDisplayName()
         {
             TraktUserLikeType.Unspecified.DisplayName().ShouldBe("Unspecified");

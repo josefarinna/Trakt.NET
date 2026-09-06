@@ -21,6 +21,8 @@ namespace TraktNET.Enums
             TraktExtendedInfo.Subgenres.ToJson().ShouldBe("subgenres");
             TraktExtendedInfo.Browsing.ToJson().ShouldBe("browsing");
             TraktExtendedInfo.All.ToJson().ShouldBe("all");
+            TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
+            fullAndVIP.ToJson().ShouldBeNull();
             ((TraktExtendedInfo)99).ToJson().ShouldBeNull();
         }
 
@@ -46,6 +48,28 @@ namespace TraktNET.Enums
             nullValue.ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.None);
             "invalid".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.None);
             "".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.None);
+        }
+
+        [Fact]
+        public void TestTraktExtendedInfoToURI()
+        {
+            TraktExtendedInfo.None.ToURI().ShouldBe(string.Empty);
+            TraktExtendedInfo.Metadata.ToURI().ShouldBe("metadata");
+            TraktExtendedInfo.Full.ToURI().ShouldBe("full");
+            TraktExtendedInfo.Min.ToURI().ShouldBe("min");
+            TraktExtendedInfo.NoSeasons.ToURI().ShouldBe("noseasons");
+            TraktExtendedInfo.Progress.ToURI().ShouldBe("progress");
+            TraktExtendedInfo.Episodes.ToURI().ShouldBe("episodes");
+            TraktExtendedInfo.GuestStars.ToURI().ShouldBe("guest_stars");
+            TraktExtendedInfo.Comments.ToURI().ShouldBe("comments");
+            TraktExtendedInfo.VIP.ToURI().ShouldBe("vip");
+            TraktExtendedInfo.Images.ToURI().ShouldBe("images");
+            TraktExtendedInfo.Subgenres.ToURI().ShouldBe("subgenres");
+            TraktExtendedInfo.Browsing.ToURI().ShouldBe("browsing");
+            TraktExtendedInfo.All.ToURI().ShouldBe("all");
+            TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
+            fullAndVIP.ToURI().ShouldBe(string.Empty);
+            ((TraktExtendedInfo)8192).ToURI().ShouldBe(string.Empty);
         }
 
         [Fact]
@@ -77,6 +101,25 @@ namespace TraktNET.Enums
 
             TraktExtendedInfo episodesAndGuestStarts = TraktExtendedInfo.Episodes | TraktExtendedInfo.GuestStars;
             episodesAndGuestStarts.DisplayName().ShouldBe("Episodes, Guest Stars");
+            ((TraktExtendedInfo)8192).DisplayName().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktExtendedInfoHasFlagSet()
+        {
+            TraktExtendedInfo.None.HasFlagSet(TraktExtendedInfo.None).ShouldBeTrue();
+            TraktExtendedInfo.None.HasFlagSet(TraktExtendedInfo.Full).ShouldBeFalse();
+            TraktExtendedInfo full = TraktExtendedInfo.Full;
+            full.HasFlagSet(TraktExtendedInfo.None).ShouldBeTrue();
+            full.HasFlagSet(TraktExtendedInfo.Full).ShouldBeTrue();
+            full.HasFlagSet(TraktExtendedInfo.VIP).ShouldBeFalse();
+            TraktExtendedInfo combined = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
+            combined.HasFlagSet(TraktExtendedInfo.None).ShouldBeTrue();
+            combined.HasFlagSet(TraktExtendedInfo.Full).ShouldBeTrue();
+            combined.HasFlagSet(TraktExtendedInfo.VIP).ShouldBeTrue();
+            combined.HasFlagSet(TraktExtendedInfo.Images).ShouldBeFalse();
+            combined.HasFlagSet(TraktExtendedInfo.Full | TraktExtendedInfo.VIP).ShouldBeTrue();
+            combined.HasFlagSet(TraktExtendedInfo.Full | TraktExtendedInfo.Images).ShouldBeFalse();
         }
 
         [Fact]
@@ -123,8 +166,10 @@ namespace TraktNET.Enums
             };
 
             JsonSerializer.Serialize(TraktExtendedInfo.Metadata, options).ShouldBe("\"metadata\"");
+            JsonSerializer.Serialize(TraktExtendedInfo.Full | TraktExtendedInfo.VIP, options).ShouldBe("null");
             JsonSerializer.Deserialize<TraktExtendedInfo>("\"metadata\"", options).ShouldBe(TraktExtendedInfo.Metadata);
             JsonSerializer.Deserialize<TraktExtendedInfo>("\"\"", options).ShouldBe(TraktExtendedInfo.None);
+            JsonSerializer.Deserialize<TraktExtendedInfo>("\"invalid\"", options).ShouldBe(TraktExtendedInfo.None);
         }
     }
 }

@@ -33,6 +33,30 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktTimePeriodToURI()
+        {
+            TraktTimePeriod.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktTimePeriod.Daily.ToURI().ShouldBe("daily");
+            TraktTimePeriod.Weekly.ToURI().ShouldBe("weekly");
+            TraktTimePeriod.Monthly.ToURI().ShouldBe("monthly");
+            TraktTimePeriod.Yearly.ToURI().ShouldBe("yearly");
+            TraktTimePeriod.All.ToURI().ShouldBe("all");
+            ((TraktTimePeriod)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktTimePeriodAsPathParameter()
+        {
+            TraktTimePeriod.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktTimePeriod.Daily.AsPathParameter().ShouldBe("daily");
+            TraktTimePeriod.Weekly.AsPathParameter().ShouldBe("weekly");
+            TraktTimePeriod.Monthly.AsPathParameter().ShouldBe("monthly");
+            TraktTimePeriod.Yearly.AsPathParameter().ShouldBe("yearly");
+            TraktTimePeriod.All.AsPathParameter().ShouldBe("all");
+            ((TraktTimePeriod)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktTimePeriodDisplayName()
         {
             TraktTimePeriod.Unspecified.DisplayName().ShouldBe("Unspecified");

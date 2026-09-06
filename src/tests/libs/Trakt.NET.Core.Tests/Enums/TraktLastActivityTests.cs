@@ -29,6 +29,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktLastActivityToURI()
+        {
+            TraktLastActivity.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktLastActivity.Collected.ToURI().ShouldBe("collected");
+            TraktLastActivity.Aired.ToURI().ShouldBe("aired");
+            TraktLastActivity.Watched.ToURI().ShouldBe("watched");
+            ((TraktLastActivity)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktLastActivityDisplayName()
         {
             TraktLastActivity.Unspecified.DisplayName().ShouldBe("Unspecified");
@@ -36,6 +46,16 @@ namespace TraktNET.Enums
             TraktLastActivity.Aired.DisplayName().ShouldBe("Aired");
             TraktLastActivity.Watched.DisplayName().ShouldBe("Watched");
             ((TraktLastActivity)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktLastActivityAsQuery()
+        {
+            TraktLastActivity.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktLastActivity.Collected.AsQuery().ShouldBe("last_activity=collected");
+            TraktLastActivity.Aired.AsQuery().ShouldBe("last_activity=aired");
+            TraktLastActivity.Watched.AsQuery().ShouldBe("last_activity=watched");
+            ((TraktLastActivity)99).AsQuery().ShouldBe("last_activity=");
         }
 
         [Fact]

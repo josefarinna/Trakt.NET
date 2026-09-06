@@ -35,6 +35,32 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktListSortOrderToURI()
+        {
+            TraktListSortOrder.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktListSortOrder.Popular.ToURI().ShouldBe("popular");
+            TraktListSortOrder.Likes.ToURI().ShouldBe("likes");
+            TraktListSortOrder.Comments.ToURI().ShouldBe("comments");
+            TraktListSortOrder.Items.ToURI().ShouldBe("items");
+            TraktListSortOrder.Added.ToURI().ShouldBe("added");
+            TraktListSortOrder.Updated.ToURI().ShouldBe("updated");
+            ((TraktListSortOrder)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktListSortOrderAsPathParameter()
+        {
+            TraktListSortOrder.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktListSortOrder.Popular.AsPathParameter().ShouldBe("popular");
+            TraktListSortOrder.Likes.AsPathParameter().ShouldBe("likes");
+            TraktListSortOrder.Comments.AsPathParameter().ShouldBe("comments");
+            TraktListSortOrder.Items.AsPathParameter().ShouldBe("items");
+            TraktListSortOrder.Added.AsPathParameter().ShouldBe("added");
+            TraktListSortOrder.Updated.AsPathParameter().ShouldBe("updated");
+            ((TraktListSortOrder)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktListSortOrderDisplayName()
         {
             TraktListSortOrder.Unspecified.DisplayName().ShouldBe("Unspecified");

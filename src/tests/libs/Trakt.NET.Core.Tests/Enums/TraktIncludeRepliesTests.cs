@@ -29,6 +29,16 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktIncludeRepliesToURI()
+        {
+            TraktIncludeReplies.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktIncludeReplies.True.ToURI().ShouldBe("true");
+            TraktIncludeReplies.False.ToURI().ShouldBe("false");
+            TraktIncludeReplies.Only.ToURI().ShouldBe("only");
+            ((TraktIncludeReplies)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktIncludeRepliesDisplayName()
         {
             TraktIncludeReplies.Unspecified.DisplayName().ShouldBe("Unspecified");
@@ -36,6 +46,16 @@ namespace TraktNET.Enums
             TraktIncludeReplies.False.DisplayName().ShouldBe("False");
             TraktIncludeReplies.Only.DisplayName().ShouldBe("Only");
             ((TraktIncludeReplies)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktIncludeRepliesAsQuery()
+        {
+            TraktIncludeReplies.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktIncludeReplies.True.AsQuery().ShouldBe("include_replies=true");
+            TraktIncludeReplies.False.AsQuery().ShouldBe("include_replies=false");
+            TraktIncludeReplies.Only.AsQuery().ShouldBe("include_replies=only");
+            ((TraktIncludeReplies)99).AsQuery().ShouldBe("include_replies=");
         }
 
         [Fact]

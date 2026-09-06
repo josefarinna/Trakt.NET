@@ -31,6 +31,17 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktFilterSectionToURI()
+        {
+            TraktFilterSection.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktFilterSection.Movies.ToURI().ShouldBe("movies");
+            TraktFilterSection.Shows.ToURI().ShouldBe("shows");
+            TraktFilterSection.Calendars.ToURI().ShouldBe("calendars");
+            TraktFilterSection.Search.ToURI().ShouldBe("search");
+            ((TraktFilterSection)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktFilterSectionDisplayName()
         {
             TraktFilterSection.Unspecified.DisplayName().ShouldBe("Unspecified");
@@ -39,6 +50,17 @@ namespace TraktNET.Enums
             TraktFilterSection.Calendars.DisplayName().ShouldBe("Calendars");
             TraktFilterSection.Search.DisplayName().ShouldBe("Search");
             ((TraktFilterSection)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktFilterSectionAsQuery()
+        {
+            TraktFilterSection.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktFilterSection.Movies.AsQuery().ShouldBe("section=movies");
+            TraktFilterSection.Shows.AsQuery().ShouldBe("section=shows");
+            TraktFilterSection.Calendars.AsQuery().ShouldBe("section=calendars");
+            TraktFilterSection.Search.AsQuery().ShouldBe("section=search");
+            ((TraktFilterSection)99).AsQuery().ShouldBe("section=");
         }
 
         [Fact]

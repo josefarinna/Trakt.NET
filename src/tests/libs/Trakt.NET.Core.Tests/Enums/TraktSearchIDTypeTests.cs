@@ -31,6 +31,28 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktSearchIDTypeToURI()
+        {
+            TraktSearchIDType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktSearchIDType.Trakt.ToURI().ShouldBe("trakt");
+            TraktSearchIDType.ImDB.ToURI().ShouldBe("imdb");
+            TraktSearchIDType.TmDB.ToURI().ShouldBe("tmdb");
+            TraktSearchIDType.TvDB.ToURI().ShouldBe("tvdb");
+            ((TraktSearchIDType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktSearchIDTypeAsPathParameter()
+        {
+            TraktSearchIDType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktSearchIDType.Trakt.AsPathParameter().ShouldBe("trakt");
+            TraktSearchIDType.ImDB.AsPathParameter().ShouldBe("imdb");
+            TraktSearchIDType.TmDB.AsPathParameter().ShouldBe("tmdb");
+            TraktSearchIDType.TvDB.AsPathParameter().ShouldBe("tvdb");
+            ((TraktSearchIDType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktSearchIDTypeDisplayName()
         {
             TraktSearchIDType.Unspecified.DisplayName().ShouldBe("Unspecified");

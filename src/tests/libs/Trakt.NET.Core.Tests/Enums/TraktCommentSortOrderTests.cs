@@ -39,6 +39,36 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktCommentSortOrderToURI()
+        {
+            TraktCommentSortOrder.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktCommentSortOrder.Newest.ToURI().ShouldBe("newest");
+            TraktCommentSortOrder.Oldest.ToURI().ShouldBe("oldest");
+            TraktCommentSortOrder.Likes.ToURI().ShouldBe("likes");
+            TraktCommentSortOrder.Replies.ToURI().ShouldBe("replies");
+            TraktCommentSortOrder.Highest.ToURI().ShouldBe("highest");
+            TraktCommentSortOrder.Lowest.ToURI().ShouldBe("lowest");
+            TraktCommentSortOrder.Plays.ToURI().ShouldBe("plays");
+            TraktCommentSortOrder.Watched.ToURI().ShouldBe("watched");
+            ((TraktCommentSortOrder)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktCommentSortOrderAsPathParameter()
+        {
+            TraktCommentSortOrder.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktCommentSortOrder.Newest.AsPathParameter().ShouldBe("newest");
+            TraktCommentSortOrder.Oldest.AsPathParameter().ShouldBe("oldest");
+            TraktCommentSortOrder.Likes.AsPathParameter().ShouldBe("likes");
+            TraktCommentSortOrder.Replies.AsPathParameter().ShouldBe("replies");
+            TraktCommentSortOrder.Highest.AsPathParameter().ShouldBe("highest");
+            TraktCommentSortOrder.Lowest.AsPathParameter().ShouldBe("lowest");
+            TraktCommentSortOrder.Plays.AsPathParameter().ShouldBe("plays");
+            TraktCommentSortOrder.Watched.AsPathParameter().ShouldBe("watched");
+            ((TraktCommentSortOrder)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktCommentSortOrderDisplayName()
         {
             TraktCommentSortOrder.Unspecified.DisplayName().ShouldBe("Unspecified");

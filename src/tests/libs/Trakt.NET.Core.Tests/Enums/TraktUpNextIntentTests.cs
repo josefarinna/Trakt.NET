@@ -49,6 +49,7 @@ namespace TraktNET.Enums
             TraktUpNextIntent.Continue.ToURI().ShouldBe("continue");
             TraktUpNextIntent.Start.ToURI().ShouldBe("start");
             TraktUpNextIntent.Completed.ToURI().ShouldBe("completed");
+            ((TraktUpNextIntent)99).ToURI().ShouldBe(string.Empty);
         }
 
         [Fact]
@@ -59,6 +60,7 @@ namespace TraktNET.Enums
             TraktUpNextIntent.Continue.AsPathParameter().ShouldBe("continue");
             TraktUpNextIntent.Start.AsPathParameter().ShouldBe("start");
             TraktUpNextIntent.Completed.AsPathParameter().ShouldBe("completed");
+            ((TraktUpNextIntent)99).AsPathParameter().ShouldBe(string.Empty);
         }
 
         [Fact]

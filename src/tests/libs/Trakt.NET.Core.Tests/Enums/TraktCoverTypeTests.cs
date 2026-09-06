@@ -29,6 +29,26 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktCoverTypeToURI()
+        {
+            TraktCoverType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktCoverType.Movie.ToURI().ShouldBe("movie");
+            TraktCoverType.Show.ToURI().ShouldBe("show");
+            TraktCoverType.Episode.ToURI().ShouldBe("episode");
+            ((TraktCoverType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktCoverTypeAsPathParameter()
+        {
+            TraktCoverType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktCoverType.Movie.AsPathParameter().ShouldBe("movie");
+            TraktCoverType.Show.AsPathParameter().ShouldBe("show");
+            TraktCoverType.Episode.AsPathParameter().ShouldBe("episode");
+            ((TraktCoverType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktCoverTypeDisplayName()
         {
             TraktCoverType.Unspecified.DisplayName().ShouldBe("Unspecified");

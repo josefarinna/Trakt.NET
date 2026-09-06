@@ -33,6 +33,30 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktListTypeToURI()
+        {
+            TraktListType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktListType.Personal.ToURI().ShouldBe("personal");
+            TraktListType.Official.ToURI().ShouldBe("official");
+            TraktListType.Watchlist.ToURI().ShouldBe("watchlists");
+            TraktListType.Recommendations.ToURI().ShouldBe("recommendations");
+            TraktListType.All.ToURI().ShouldBe("all");
+            ((TraktListType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktListTypeAsPathParameter()
+        {
+            TraktListType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktListType.Personal.AsPathParameter().ShouldBe("personal");
+            TraktListType.Official.AsPathParameter().ShouldBe("official");
+            TraktListType.Watchlist.AsPathParameter().ShouldBe("watchlists");
+            TraktListType.Recommendations.AsPathParameter().ShouldBe("recommendations");
+            TraktListType.All.AsPathParameter().ShouldBe("all");
+            ((TraktListType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktListTypeDisplayName()
         {
             TraktListType.Unspecified.DisplayName().ShouldBe("Unspecified");

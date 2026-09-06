@@ -27,12 +27,30 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktCalendarMediaTypeToURI()
+        {
+            TraktCalendarMediaType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktCalendarMediaType.Movie.ToURI().ShouldBe("movie");
+            TraktCalendarMediaType.Show.ToURI().ShouldBe("show");
+            ((TraktCalendarMediaType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktCalendarMediaTypeDisplayName()
         {
             TraktCalendarMediaType.Unspecified.DisplayName().ShouldBe("Unspecified");
             TraktCalendarMediaType.Movie.DisplayName().ShouldBe("Movie");
             TraktCalendarMediaType.Show.DisplayName().ShouldBe("Show");
             ((TraktCalendarMediaType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktCalendarMediaTypeAsQuery()
+        {
+            TraktCalendarMediaType.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktCalendarMediaType.Movie.AsQuery().ShouldBe("type=movie");
+            TraktCalendarMediaType.Show.AsQuery().ShouldBe("type=show");
+            ((TraktCalendarMediaType)99).AsQuery().ShouldBe("type=");
         }
 
         [Fact]

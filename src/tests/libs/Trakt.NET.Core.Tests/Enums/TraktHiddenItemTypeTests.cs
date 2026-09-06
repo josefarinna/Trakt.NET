@@ -31,6 +31,17 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktHiddenItemTypeToURI()
+        {
+            TraktHiddenItemType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktHiddenItemType.Movie.ToURI().ShouldBe("movie");
+            TraktHiddenItemType.Show.ToURI().ShouldBe("show");
+            TraktHiddenItemType.Season.ToURI().ShouldBe("season");
+            TraktHiddenItemType.User.ToURI().ShouldBe("user");
+            ((TraktHiddenItemType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktHiddenItemTypeDisplayName()
         {
             TraktHiddenItemType.Unspecified.DisplayName().ShouldBe("Unspecified");
@@ -39,6 +50,17 @@ namespace TraktNET.Enums
             TraktHiddenItemType.Season.DisplayName().ShouldBe("Season");
             TraktHiddenItemType.User.DisplayName().ShouldBe("User");
             ((TraktHiddenItemType)99).DisplayName().ShouldBe("99");
+        }
+
+        [Fact]
+        public void TestTraktHiddenItemTypeAsQuery()
+        {
+            TraktHiddenItemType.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktHiddenItemType.Movie.AsQuery().ShouldBe("type=movie");
+            TraktHiddenItemType.Show.AsQuery().ShouldBe("type=show");
+            TraktHiddenItemType.Season.AsQuery().ShouldBe("type=season");
+            TraktHiddenItemType.User.AsQuery().ShouldBe("type=user");
+            ((TraktHiddenItemType)99).AsQuery().ShouldBe("type=");
         }
 
         [Fact]

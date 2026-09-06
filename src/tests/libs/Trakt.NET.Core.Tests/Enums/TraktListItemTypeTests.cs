@@ -35,6 +35,32 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktListItemTypeToURI()
+        {
+            TraktListItemType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktListItemType.Movie.ToURI().ShouldBe("movie");
+            TraktListItemType.Show.ToURI().ShouldBe("show");
+            TraktListItemType.Season.ToURI().ShouldBe("season");
+            TraktListItemType.Episode.ToURI().ShouldBe("episode");
+            TraktListItemType.Person.ToURI().ShouldBe("person");
+            TraktListItemType.List.ToURI().ShouldBe("list");
+            ((TraktListItemType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktListItemTypeAsPathParameter()
+        {
+            TraktListItemType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktListItemType.Movie.AsPathParameter().ShouldBe("movie");
+            TraktListItemType.Show.AsPathParameter().ShouldBe("show");
+            TraktListItemType.Season.AsPathParameter().ShouldBe("season");
+            TraktListItemType.Episode.AsPathParameter().ShouldBe("episode");
+            TraktListItemType.Person.AsPathParameter().ShouldBe("person");
+            TraktListItemType.List.AsPathParameter().ShouldBe("list");
+            ((TraktListItemType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktListItemTypeDisplayName()
         {
             TraktListItemType.Unspecified.DisplayName().ShouldBe("Unspecified");

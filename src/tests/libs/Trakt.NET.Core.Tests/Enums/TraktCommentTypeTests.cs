@@ -29,6 +29,26 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktCommentTypeToURI()
+        {
+            TraktCommentType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktCommentType.Review.ToURI().ShouldBe("reviews");
+            TraktCommentType.Shout.ToURI().ShouldBe("shouts");
+            TraktCommentType.All.ToURI().ShouldBe("all");
+            ((TraktCommentType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktCommentTypeAsPathParameter()
+        {
+            TraktCommentType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktCommentType.Review.AsPathParameter().ShouldBe("reviews");
+            TraktCommentType.Shout.AsPathParameter().ShouldBe("shouts");
+            TraktCommentType.All.AsPathParameter().ShouldBe("all");
+            ((TraktCommentType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktCommentTypeDisplayName()
         {
             TraktCommentType.Unspecified.DisplayName().ShouldBe("Unspecified");

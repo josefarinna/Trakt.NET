@@ -41,6 +41,38 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktNotesObjectTypeToURI()
+        {
+            TraktNotesObjectType.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktNotesObjectType.All.ToURI().ShouldBe("all");
+            TraktNotesObjectType.Movie.ToURI().ShouldBe("movies");
+            TraktNotesObjectType.Show.ToURI().ShouldBe("shows");
+            TraktNotesObjectType.Season.ToURI().ShouldBe("seasons");
+            TraktNotesObjectType.Episode.ToURI().ShouldBe("episodes");
+            TraktNotesObjectType.Person.ToURI().ShouldBe("people");
+            TraktNotesObjectType.History.ToURI().ShouldBe("history");
+            TraktNotesObjectType.Collection.ToURI().ShouldBe("collection");
+            TraktNotesObjectType.Rating.ToURI().ShouldBe("ratings");
+            ((TraktNotesObjectType)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktNotesObjectTypeAsPathParameter()
+        {
+            TraktNotesObjectType.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktNotesObjectType.All.AsPathParameter().ShouldBe("all");
+            TraktNotesObjectType.Movie.AsPathParameter().ShouldBe("movies");
+            TraktNotesObjectType.Show.AsPathParameter().ShouldBe("shows");
+            TraktNotesObjectType.Season.AsPathParameter().ShouldBe("seasons");
+            TraktNotesObjectType.Episode.AsPathParameter().ShouldBe("episodes");
+            TraktNotesObjectType.Person.AsPathParameter().ShouldBe("people");
+            TraktNotesObjectType.History.AsPathParameter().ShouldBe("history");
+            TraktNotesObjectType.Collection.AsPathParameter().ShouldBe("collection");
+            TraktNotesObjectType.Rating.AsPathParameter().ShouldBe("ratings");
+            ((TraktNotesObjectType)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktNotesObjectTypeDisplayName()
         {
             TraktNotesObjectType.Unspecified.DisplayName().ShouldBe("Unspecified");

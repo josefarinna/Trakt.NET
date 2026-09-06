@@ -27,6 +27,24 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktSortHowToURI()
+        {
+            TraktSortHow.Unspecified.ToURI().ShouldBe(string.Empty);
+            TraktSortHow.Ascending.ToURI().ShouldBe("asc");
+            TraktSortHow.Descending.ToURI().ShouldBe("desc");
+            ((TraktSortHow)99).ToURI().ShouldBe(string.Empty);
+        }
+
+        [Fact]
+        public void TestTraktSortHowAsPathParameter()
+        {
+            TraktSortHow.Unspecified.AsPathParameter().ShouldBe(string.Empty);
+            TraktSortHow.Ascending.AsPathParameter().ShouldBe("asc");
+            TraktSortHow.Descending.AsPathParameter().ShouldBe("desc");
+            ((TraktSortHow)99).AsPathParameter().ShouldBe(string.Empty);
+        }
+
+        [Fact]
         public void TestTraktSortHowDisplayName()
         {
             TraktSortHow.Unspecified.DisplayName().ShouldBe("Unspecified");
