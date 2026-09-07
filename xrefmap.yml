@@ -34999,6 +34999,12 @@ references:
   commentId: F:TraktNET.TraktExtendedInfo.Progress
   fullName: TraktNET.TraktExtendedInfo.Progress
   nameWithType: TraktExtendedInfo.Progress
+- uid: TraktNET.TraktExtendedInfo.StreamingRanks
+  name: StreamingRanks
+  href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_StreamingRanks
+  commentId: F:TraktNET.TraktExtendedInfo.StreamingRanks
+  fullName: TraktNET.TraktExtendedInfo.StreamingRanks
+  nameWithType: TraktExtendedInfo.StreamingRanks
 - uid: TraktNET.TraktExtendedInfo.Subgenres
   name: Subgenres
   href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Subgenres
