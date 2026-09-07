@@ -16,6 +16,8 @@ namespace TraktNET.GetRequests.Episodes
         [InlineData(false, null, $"{URIPath}?links=false")]
         [InlineData(null, TraktExtendedInfo.Full, $"{URIPath}?extended=full")]
         [InlineData(true, TraktExtendedInfo.Full, $"{URIPath}?links=true&extended=full")]
+        [InlineData(null, TraktExtendedInfo.StreamingRanks, $"{URIPath}?extended=streaming_ranks")]
+        [InlineData(true, TraktExtendedInfo.StreamingRanks, $"{URIPath}?links=true&extended=streaming_ranks")]
         public void TestEpisodeByIdWatchnowGetRequestHasValidURIPath(bool? links, TraktExtendedInfo? extendedInfo, string expectedURIPath)
         {
             var request = new EpisodeByIdWatchnowGetRequest

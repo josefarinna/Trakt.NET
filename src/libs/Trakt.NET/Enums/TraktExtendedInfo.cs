@@ -51,6 +51,10 @@ namespace TraktNET
         Browsing = 2048,
 
         /// <summary>All ratings or all information shall be retrieved.</summary>
-        All = 4096
+        All = 4096,
+
+        /// <summary>Streaming ranks information shall be retrieved.</summary>
+        [TraktEnumMember(JsonValue = "streaming_ranks")]
+        StreamingRanks = 8192
     }
 }
