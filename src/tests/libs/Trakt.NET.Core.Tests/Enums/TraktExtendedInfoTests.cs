@@ -21,6 +21,7 @@ namespace TraktNET.Enums
             TraktExtendedInfo.Subgenres.ToJson().ShouldBe("subgenres");
             TraktExtendedInfo.Browsing.ToJson().ShouldBe("browsing");
             TraktExtendedInfo.All.ToJson().ShouldBe("all");
+            TraktExtendedInfo.StreamingRanks.ToJson().ShouldBe("streaming_ranks");
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.ToJson().ShouldBeNull();
             ((TraktExtendedInfo)99).ToJson().ShouldBeNull();
@@ -43,6 +44,7 @@ namespace TraktNET.Enums
             "subgenres".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Subgenres);
             "browsing".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Browsing);
             "all".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.All);
+            "streaming_ranks".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.StreamingRanks);
 
             string? nullValue = null;
             nullValue.ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.None);
@@ -67,9 +69,10 @@ namespace TraktNET.Enums
             TraktExtendedInfo.Subgenres.ToURI().ShouldBe("subgenres");
             TraktExtendedInfo.Browsing.ToURI().ShouldBe("browsing");
             TraktExtendedInfo.All.ToURI().ShouldBe("all");
+            TraktExtendedInfo.StreamingRanks.ToURI().ShouldBe("streaming_ranks");
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.ToURI().ShouldBe(string.Empty);
-            ((TraktExtendedInfo)8192).ToURI().ShouldBe(string.Empty);
+            ((TraktExtendedInfo)16384).ToURI().ShouldBe(string.Empty);
         }
 
         [Fact]
@@ -89,6 +92,7 @@ namespace TraktNET.Enums
             TraktExtendedInfo.Subgenres.DisplayName().ShouldBe("Subgenres");
             TraktExtendedInfo.Browsing.DisplayName().ShouldBe("Browsing");
             TraktExtendedInfo.All.DisplayName().ShouldBe("All");
+            TraktExtendedInfo.StreamingRanks.DisplayName().ShouldBe("Streaming Ranks");
 
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.DisplayName().ShouldBe("Full, VIP");
@@ -101,7 +105,7 @@ namespace TraktNET.Enums
 
             TraktExtendedInfo episodesAndGuestStarts = TraktExtendedInfo.Episodes | TraktExtendedInfo.GuestStars;
             episodesAndGuestStarts.DisplayName().ShouldBe("Episodes, Guest Stars");
-            ((TraktExtendedInfo)8192).DisplayName().ShouldBe(string.Empty);
+            ((TraktExtendedInfo)16384).DisplayName().ShouldBe(string.Empty);
         }
 
         [Fact]
@@ -139,6 +143,7 @@ namespace TraktNET.Enums
             TraktExtendedInfo.Subgenres.AsQuery().ShouldBe("extended=subgenres");
             TraktExtendedInfo.Browsing.AsQuery().ShouldBe("extended=browsing");
             TraktExtendedInfo.All.AsQuery().ShouldBe("extended=all");
+            TraktExtendedInfo.StreamingRanks.AsQuery().ShouldBe("extended=streaming_ranks");
 
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.AsQuery().ShouldBe("extended=full,vip");
@@ -151,6 +156,9 @@ namespace TraktNET.Enums
 
             TraktExtendedInfo episodesAndGuestStarts = TraktExtendedInfo.Episodes | TraktExtendedInfo.GuestStars;
             episodesAndGuestStarts.AsQuery().ShouldBe("extended=episodes,guest_stars");
+
+            TraktExtendedInfo fullAndStreamingRanks = TraktExtendedInfo.Full | TraktExtendedInfo.StreamingRanks;
+            fullAndStreamingRanks.AsQuery().ShouldBe("extended=full,streaming_ranks");
         }
 
         [Fact]
