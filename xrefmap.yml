@@ -119722,15 +119722,15 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.GetPersonalListItemsAsync
   fullName: TraktNET.TraktUsersModule.GetPersonalListItemsAsync
   nameWithType: TraktUsersModule.GetPersonalListItemsAsync
-- uid: TraktNET.TraktUsersModule.GetPersonalListsAsync(System.String,System.Threading.CancellationToken)
-  name: GetPersonalListsAsync(string, CancellationToken)
-  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListsAsync_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktUsersModule.GetPersonalListsAsync(System.String,System.Threading.CancellationToken)
-  name.vb: GetPersonalListsAsync(String, CancellationToken)
-  fullName: TraktNET.TraktUsersModule.GetPersonalListsAsync(string, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktUsersModule.GetPersonalListsAsync(String, System.Threading.CancellationToken)
-  nameWithType: TraktUsersModule.GetPersonalListsAsync(string, CancellationToken)
-  nameWithType.vb: TraktUsersModule.GetPersonalListsAsync(String, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetPersonalListsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetPersonalListsAsync(string, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetPersonalListsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetPersonalListsAsync(String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetPersonalListsAsync(string, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetPersonalListsAsync(String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetPersonalListsAsync(string, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetPersonalListsAsync(String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktUsersModule.GetPersonalListsAsync*
   name: GetPersonalListsAsync
   href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetPersonalListsAsync_
