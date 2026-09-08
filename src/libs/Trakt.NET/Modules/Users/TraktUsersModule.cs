@@ -735,6 +735,10 @@ namespace TraktNET
         /// <param name="watchlistItemType">Determines, which type of items in the watchlist should be queried. See also <seealso cref="TraktSyncItemType" />.</param>
         /// <param name="sortBy">Sort by value for the watchlist items.</param>
         /// <param name="sortHow">Sort how value for the watchlist items.</param>
+        /// <param name="filter">
+        /// The filter, which determines the criteria about the watchlist items should be queried.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the watchlist items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -761,9 +765,9 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktWatchlistItem>> GetWatchlistAsync(string usernameOrSlug, TraktSyncItemType? watchlistItemType = null,
-            TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
-            CancellationToken cancellationToken = default)
-            => GetWatchlistImplAsync(usernameOrSlug, watchlistItemType, sortBy, sortHow, extendedInfo, page, limit, cancellationToken);
+            TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetWatchlistImplAsync(usernameOrSlug, watchlistItemType, sortBy, sortHow, filter, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Returns all top level comments for the watchlist.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the watchlist comments should be queried.</param>

@@ -69,6 +69,9 @@ namespace TraktNET
         /// <summary>Collection of episode types.</summary>
         public TraktEpisodeType[]? EpisodeTypes { get; set; }
 
+        /// <summary>Determines which items should be hidden.</summary>
+        public TraktFilterHide? Hide { get; set; }
+
         /// <summary>Gets or sets whether watched items should be ignored.</summary>
         public bool? IgnoreWatched { get; set; }
 

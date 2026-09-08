@@ -95,7 +95,7 @@ namespace TraktNET
         /// <param name="type">Determines, for which object types comments should be queried. See also <seealso cref="TraktCommentObjectType" />.</param>
         /// <param name="includeReplies">Determines, whether replies should be retrieved alongside with comments.</param>
         /// <param name="extendedInfo">
-        /// Specifies how much data should be queried about the comment's likes.
+        /// Specifies how much data should be queried about the recently updated comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
@@ -127,7 +127,7 @@ namespace TraktNET
         /// <param name="type">Determines, for which object types comments should be queried. See also <seealso cref="TraktCommentObjectType" />.</param>
         /// <param name="includeReplies">Determines, whether replies should be retrieved alongside with comments.</param>
         /// <param name="extendedInfo">
-        /// Specifies how much data should be queried about the comment's likes.
+        /// Specifies how much data should be queried about the recently created comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
@@ -159,7 +159,7 @@ namespace TraktNET
         /// <param name="type">Determines, for which object types comments should be queried. See also <seealso cref="TraktCommentObjectType" />.</param>
         /// <param name="includeReplies">Determines, whether replies should be retrieved alongside with comments.</param>
         /// <param name="extendedInfo">
-        /// Specifies how much data should be queried about the comment's likes.
+        /// Specifies how much data should be queried about the trending comments.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
@@ -414,7 +414,7 @@ namespace TraktNET
         /// <summary>Gets replies for comment with the given id.</summary>
         /// <param name="commentId">The comment's id.</param>
         /// <param name="extendedInfo">
-        /// Specifies how much data should be queried about the comment's likes.
+        /// Specifies how much data should be queried about the comment's replies.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
@@ -430,9 +430,9 @@ namespace TraktNET
         /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktComment" />.</para>
         /// </returns>
         /// <remarks>
-        /// OAuth authorization is not required.
+        /// OAuth authorization is optional.
         /// <para><see href="https://docs.trakt.tv/reference/getcommentsreplies">
-        /// Trakt API Documentation: Comments: Likes
+        /// Trakt API Documentation: Comments: Replies
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
