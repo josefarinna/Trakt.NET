@@ -2467,6 +2467,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktFilterHide.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktFilterHide.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktFilterHide",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktFilterHide.yml\" sourcestartlinenumber=\"1\">Determines the items to hide in a filter.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktFilterHideExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktFilterHideExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktFilterHideExtensions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktFilterHideExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktFilterHide\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktFilterHideJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktFilterHideJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktFilterHideJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktFilterHideJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktFilterHide\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktFilterOperator.yml",
       "output": {
         ".html": {
