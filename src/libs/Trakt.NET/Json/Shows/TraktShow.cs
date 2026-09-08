@@ -14,6 +14,9 @@ namespace TraktNET
         /// <summary>The UTC date and time when the show first aired.</summary>
         public DateTime? FirstAired { get; set; }
 
+        /// <summary>The UTC date and time when the show last aired.</summary>
+        public DateTime? LastAired { get; set; }
+
         /// <summary>The air time of the show. See also <seealso cref="TraktShowAirs" />.</summary>
         public TraktShowAirs? Airs { get; set; }
 

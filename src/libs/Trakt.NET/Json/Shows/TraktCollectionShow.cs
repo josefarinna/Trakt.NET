@@ -58,6 +58,14 @@ namespace TraktNET
             set => Show?.FirstAired = value;
         }
 
+        /// <summary>The UTC date and time when the show last aired.</summary>
+        [JsonIgnore]
+        public DateTime? LastAired
+        {
+            get => Show?.LastAired;
+            set => Show?.LastAired = value;
+        }
+
         /// <summary>The air time of the show. See also <seealso cref="TraktShowAirs" />.</summary>
         [JsonIgnore]
         public TraktShowAirs? Airs

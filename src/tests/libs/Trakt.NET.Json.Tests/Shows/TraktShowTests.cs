@@ -13,6 +13,7 @@ namespace TraktNET.Json.Shows
             show.Tagline.ShouldBeNull();
             show.Overview.ShouldBeNull();
             show.FirstAired.ShouldBeNull();
+            show.LastAired.ShouldBeNull();
             show.UpdatedAt.ShouldBeNull();
             show.Airs.ShouldBeNull();
             show.Runtime.ShouldBeNull();
@@ -129,6 +130,7 @@ namespace TraktNET.Json.Shows
             show!.Tagline.ShouldBe("Winter is coming.");
             show!.Overview.ShouldBe("Seven noble families fight for control of the mythical land of Westeros.");
             show!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
+            show!.LastAired.ShouldBe(TestUtility.ParseUTCDateTime("2019-05-20T01:00:00.000Z"));
             show!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:26:48.000Z"));
 
             show!.Airs.ShouldNotBeNull();
@@ -198,6 +200,7 @@ namespace TraktNET.Json.Shows
             show!.Tagline.ShouldBe("Winter is coming.");
             show!.Overview.ShouldBe("Seven noble families fight for control of the mythical land of Westeros.");
             show!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
+            show!.LastAired.ShouldBe(TestUtility.ParseUTCDateTime("2019-05-20T01:00:00.000Z"));
             show!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:26:48.000Z"));
 
             show!.Airs.ShouldNotBeNull();
