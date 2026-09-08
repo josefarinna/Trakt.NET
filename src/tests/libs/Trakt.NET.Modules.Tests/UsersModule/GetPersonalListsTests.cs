@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.UsersModule
 {
@@ -6,21 +6,205 @@ namespace TraktNET.UsersModule
     {
         private const string GetPersonalListsUri = $"users/{Username}/lists";
         private const string Username = "sean";
+        private const uint ListItemCount = 2U;
+        private const uint Page = 4U;
+        private const uint Limit = 20U;
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
         public async Task TestGetPersonalLists()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetPersonalListsUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(GetPersonalListsUri, responseContent, 1, 1, 10, ListItemCount);
 
-            TraktListResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(2);
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, extendedInfo: ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsWithPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, page: Page, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsWithLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsWithPageAndLimit()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsWithAllParameters()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
+                responseContent, Page, 1, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username,
+                extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsPagingGetPreviousPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
+
+            ModuleTestUtility.SetClient(client, $"{GetPersonalListsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+
+            response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsPagingGetNextPage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeTrue();
+
+            ModuleTestUtility.SetClient(client, $"{GetPersonalListsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+
+            response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(2U);
+            response.PageCount.ShouldBe(2U);
+            response.HasPreviousPage.ShouldBeTrue();
+            response.HasNextPage.ShouldBeFalse();
         }
 
         [Fact]
@@ -28,16 +212,20 @@ namespace TraktNET.UsersModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GetPersonalListsUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetPersonalListsUri, responseContent, 1, 1, 10, ListItemCount);
             client.IgnoreOAuthIfOptional = false;
 
-            TraktListResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(2);
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
         }
 
         [Fact]
@@ -45,15 +233,37 @@ namespace TraktNET.UsersModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient("users/me/lists", responseContent);
-            
-            TraktListResponse<TraktList> response = await client.Users.GetPersonalListsAsync("me", TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient("users/me/lists", responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync("me", cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(2);
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsThrowsValidationException()
+        {
+            TraktClient client = ModuleTestUtility.GetClient(GetPersonalListsUri, HttpStatusCode.OK);
+
+            Func<Task<TraktPagedResponse<TraktList>>> act = () => client.Users.GetPersonalListsAsync(null!, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.Users.GetPersonalListsAsync(string.Empty, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.Users.GetPersonalListsAsync("  ", cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.Users.GetPersonalListsAsync("id with spaces", cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
 
         [Theory]
@@ -86,7 +296,7 @@ namespace TraktNET.UsersModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonalListsUri, statusCode);
 
-            Func<Task<TraktListResponse<TraktList>>> act = () => client.Users.GetPersonalListsAsync(Username, TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktList>>> act = () => client.Users.GetPersonalListsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }

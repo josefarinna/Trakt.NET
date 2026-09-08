@@ -8,16 +8,31 @@ namespace TraktNET.GetRequests.Users
     {
         private const string URIPath = "users/123/lists";
 
-        [Fact]
-        public void TestUserPersonalListsGetRequestHasValidURIPath()
+        [Theory]
+        [InlineData(null, null, null, URIPath)]
+        [InlineData(null, 10, null, $"{URIPath}?page=10")]
+        [InlineData(null, null, 20, $"{URIPath}?limit=20")]
+        [InlineData(null, 10, 20, $"{URIPath}?page=10&limit=20")]
+        [InlineData(TraktExtendedInfo.None, null, null, URIPath)]
+        [InlineData(TraktExtendedInfo.None, 10, null, $"{URIPath}?page=10")]
+        [InlineData(TraktExtendedInfo.None, null, 20, $"{URIPath}?limit=20")]
+        [InlineData(TraktExtendedInfo.None, 10, 20, $"{URIPath}?page=10&limit=20")]
+        [InlineData(TraktExtendedInfo.Full, null, null, $"{URIPath}?extended=full")]
+        [InlineData(TraktExtendedInfo.Full, 10, null, $"{URIPath}?extended=full&page=10")]
+        [InlineData(TraktExtendedInfo.Full, null, 20, $"{URIPath}?extended=full&limit=20")]
+        [InlineData(TraktExtendedInfo.Full, 10, 20, $"{URIPath}?extended=full&page=10&limit=20")]
+        public void TestUserPersonalListsGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, int? page, int? limit, string expectedURIPath)
         {
             var userPersonalListsGetRequest = new UserPersonalListsGetRequest
             {
-                Id = "123"
+                Id = "123",
+                ExtendedInfo = extendedInfo,
+                Page = (uint?)page,
+                Limit = (uint?)limit
             };
 
             userPersonalListsGetRequest.BuildUri();
-            userPersonalListsGetRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            userPersonalListsGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
         [Fact]

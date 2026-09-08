@@ -348,24 +348,34 @@ namespace TraktNET
 
         /// <summary>Gets an user's personal lists.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal lists should be queried.</param>
+        /// <param name="extendedInfo">
+        /// The extended info, which determines how much data about the personal lists should be queried.
+        /// See also <seealso cref="TraktExtendedInfo" />.
+        /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
-        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried personal lists.
-        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktList" />.</para>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried personal lists.
+        /// <para>The response also contains information about the queried page number, the page's item count, maximum page count</para>
+        /// and maximum item count.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktList" />.</para>
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
-        /// <para><see href="https://docs.trakt.tv/reference/getuserslistslistsummary">
+        /// <para><see href="https://docs.trakt.tv/reference/getuserslistspersonal">
         /// Trakt API Documentation: Users: Lists
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktListResponse<TraktList>> GetPersonalListsAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
-            => GetPersonalListsImplAsync(usernameOrSlug, cancellationToken);
+        public Task<TraktPagedResponse<TraktList>> GetPersonalListsAsync(string usernameOrSlug,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
+            => GetPersonalListsImplAsync(usernameOrSlug, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Creates a new personal list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be created.</param>
