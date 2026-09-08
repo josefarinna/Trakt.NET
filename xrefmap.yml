@@ -25441,6 +25441,18 @@ references:
   commentId: Overload:TraktNET.TraktCollectionShow.Languages
   fullName: TraktNET.TraktCollectionShow.Languages
   nameWithType: TraktCollectionShow.Languages
+- uid: TraktNET.TraktCollectionShow.LastAired
+  name: LastAired
+  href: api/TraktNET.TraktCollectionShow.html#TraktNET_TraktCollectionShow_LastAired
+  commentId: P:TraktNET.TraktCollectionShow.LastAired
+  fullName: TraktNET.TraktCollectionShow.LastAired
+  nameWithType: TraktCollectionShow.LastAired
+- uid: TraktNET.TraktCollectionShow.LastAired*
+  name: LastAired
+  href: api/TraktNET.TraktCollectionShow.html#TraktNET_TraktCollectionShow_LastAired_
+  commentId: Overload:TraktNET.TraktCollectionShow.LastAired
+  fullName: TraktNET.TraktCollectionShow.LastAired
+  nameWithType: TraktCollectionShow.LastAired
 - uid: TraktNET.TraktCollectionShow.Network
   name: Network
   href: api/TraktNET.TraktCollectionShow.html#TraktNET_TraktCollectionShow_Network
@@ -70819,6 +70831,18 @@ references:
   commentId: Overload:TraktNET.TraktShow.Languages
   fullName: TraktNET.TraktShow.Languages
   nameWithType: TraktShow.Languages
+- uid: TraktNET.TraktShow.LastAired
+  name: LastAired
+  href: api/TraktNET.TraktShow.html#TraktNET_TraktShow_LastAired
+  commentId: P:TraktNET.TraktShow.LastAired
+  fullName: TraktNET.TraktShow.LastAired
+  nameWithType: TraktShow.LastAired
+- uid: TraktNET.TraktShow.LastAired*
+  name: LastAired
+  href: api/TraktNET.TraktShow.html#TraktNET_TraktShow_LastAired_
+  commentId: Overload:TraktNET.TraktShow.LastAired
+  fullName: TraktNET.TraktShow.LastAired
+  nameWithType: TraktShow.LastAired
 - uid: TraktNET.TraktShow.Network
   name: Network
   href: api/TraktNET.TraktShow.html#TraktNET_TraktShow_Network
