@@ -11,7 +11,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://docs.trakt.tv/reference/postusershiddenadd">
+        /// <para><see href="https://docs.trakt.tv/reference/deleterecommendationsshowshide">
         /// Trakt API Documentation: Recommendations: Shows
         /// </see></para>
         /// </remarks>
@@ -29,7 +29,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://docs.trakt.tv/reference/postusershiddenadd">
+        /// <para><see href="https://docs.trakt.tv/reference/deleterecommendationsshowshide">
         /// Trakt API Documentation: Recommendations: Shows
         /// </see></para>
         /// </remarks>
@@ -39,7 +39,7 @@ namespace TraktNET
         public Task<TraktResponse> HideShowRecommendationAsync(uint traktShowId, CancellationToken cancellationToken = default)
         {
             if (traktShowId == 0)
-                throw new ArgumentException("movie id must not be 0", nameof(traktShowId));
+                throw new ArgumentException("show id must not be 0", nameof(traktShowId));
 
             return HideShowRecommendationAsync(traktShowId.ToInvariantCultureString(), cancellationToken);
         }
@@ -53,7 +53,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://docs.trakt.tv/reference/postusershiddenadd">
+        /// <para><see href="https://docs.trakt.tv/reference/deleterecommendationsshowshide">
         /// Trakt API Documentation: Recommendations: Shows
         /// </see></para>
         /// </remarks>
@@ -80,7 +80,7 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
-        /// <para><see href="https://docs.trakt.tv/reference/postusershiddenadd">
+        /// <para><see href="https://docs.trakt.tv/reference/deleterecommendationsshowshide">
         /// Trakt API Documentation: Recommendations: Shows
         /// </see></para>
         /// </remarks>
