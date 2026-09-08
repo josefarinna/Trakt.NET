@@ -137,7 +137,8 @@ namespace TraktNET
         internal TraktFilter? Filter { get; set; }
     }
 
-    [TraktGetRequest("users/{id!!}/lists", OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    [TraktGetRequest("users/{id!!}/lists", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserPersonalListsGetRequest
     {
     }

@@ -221,14 +221,26 @@ namespace TraktNET
                 }, cancellationToken);
         }
 
-        private Task<TraktListResponse<TraktList>> GetPersonalListsImplAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
+        private Task<TraktPagedResponse<TraktList>> GetPersonalListsImplAsync(string usernameOrSlug,
+            TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
+            CancellationToken cancellationToken = default)
         {
             var request = new UserPersonalListsGetRequest
             {
-                Id = usernameOrSlug
+                Id = usernameOrSlug,
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
             };
 
-            return RequestHandler.ExecuteListRequestAsync<TraktList>(_context, request, cancellationToken);
+            return RequestHandler.ExecutePagedListRequestAsync<TraktList>(_context, request, (page, limit)
+                => new UserPersonalListsGetRequest
+                {
+                    Id = usernameOrSlug,
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                }, cancellationToken);
         }
 
         private Task<TraktResponse<TraktList>> CreatePersonalListImplAsync(string usernameOrSlug, TraktUserPersonalListPost personalListPost,
