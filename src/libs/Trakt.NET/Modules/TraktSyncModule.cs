@@ -788,6 +788,10 @@ namespace TraktNET
         /// <param name="watchlistItemType">Determines, which type of watchlist items should be queried. See also <seealso cref="TraktSyncItemType" />.</param>
         /// <param name="sortBy">Sort by value for the watchlist items.</param>
         /// <param name="sortHow">Sort how value for the watchlist items.</param>
+        /// <param name="filter">
+        /// The filter, which determines the criteria about the watchlist items should be queried.
+        /// <para>See also <seealso cref="TraktFilter" />.</para>
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the watchlist items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -813,9 +817,9 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktWatchlistItem>> GetWatchlistAsync(TraktSyncItemType? watchlistItemType = null,
-            TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
-            CancellationToken cancellationToken = default)
-            => GetWatchlistImplAsync(watchlistItemType, sortBy, sortHow, extendedInfo, page, limit, cancellationToken);
+            TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetWatchlistImplAsync(watchlistItemType, sortBy, sortHow, filter, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Reorders an user's watchlist.</summary>
         /// <param name="reorderedWatchlistItemRanks">A collection of list ids. Represents the new order of an user's watchlist.</param>

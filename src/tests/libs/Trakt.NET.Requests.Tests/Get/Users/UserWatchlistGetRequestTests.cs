@@ -61,6 +61,32 @@ namespace TraktNET.GetRequests.Users
         }
 
         [Fact]
+        public void TestUserWatchlistGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Hide = TraktFilterHide.Unwatched };
+            var userWatchlistGetRequest = new UserWatchlistGetRequest
+            {
+                Id = "123",
+                Filter = filter
+            };
+
+            userWatchlistGetRequest.BuildUri();
+            userWatchlistGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?hide=unwatched", UriKind.Relative));
+
+            userWatchlistGetRequest = new UserWatchlistGetRequest
+            {
+                Id = "123",
+                Filter = filter,
+                ExtendedInfo = TraktExtendedInfo.Full,
+                Page = 10,
+                Limit = 20
+            };
+
+            userWatchlistGetRequest.BuildUri();
+            userWatchlistGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?hide=unwatched&extended=full&page=10&limit=20", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestUserWatchlistGetRequestHasValidOAuthRequirement()
         {
             var userWatchlistGetRequest = new UserWatchlistGetRequest { Id = default! };

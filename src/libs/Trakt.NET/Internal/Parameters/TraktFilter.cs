@@ -25,6 +25,7 @@ namespace TraktNET
         private const string NetworkIDsName = "network_ids";
         private const string StatusName = "status";
         private const string EpisodeTypesName = "episode_types";
+        private const string HideName = "hide";
         private const string IgnoreWatchedName = "ignore_watched";
         private const string IgnoreCollectedName = "ignore_collected";
         private const string IgnoreWatchlistedName = "ignore_watchlisted";
@@ -124,6 +125,16 @@ namespace TraktNET
                 }
 
                 values.Add($"{EpisodeTypesName}={string.Join(",", episodeTypesValues)}");
+            }
+
+            if (Hide.HasValue && Hide.Value != TraktFilterHide.Unspecified)
+            {
+                string? hideJson = Hide.Value.ToJson();
+
+                if (!string.IsNullOrEmpty(hideJson))
+                {
+                    values.Add($"{HideName}={hideJson}");
+                }
             }
 
             if (IgnoreWatched.HasValue)

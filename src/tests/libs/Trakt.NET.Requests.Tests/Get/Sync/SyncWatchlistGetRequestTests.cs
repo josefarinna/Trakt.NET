@@ -60,6 +60,30 @@ namespace TraktNET.GetRequests.Sync
         }
 
         [Fact]
+        public void TestSyncWatchlistGetRequestHasValidURIPathWithFilter()
+        {
+            var filter = new TraktFilter { Hide = TraktFilterHide.Unwatched };
+            var syncWatchlistGetRequest = new SyncWatchlistGetRequest
+            {
+                Filter = filter
+            };
+
+            syncWatchlistGetRequest.BuildUri();
+            syncWatchlistGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?hide=unwatched", UriKind.Relative));
+
+            syncWatchlistGetRequest = new SyncWatchlistGetRequest
+            {
+                Filter = filter,
+                ExtendedInfo = TraktExtendedInfo.Full,
+                Page = 10,
+                Limit = 20
+            };
+
+            syncWatchlistGetRequest.BuildUri();
+            syncWatchlistGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?hide=unwatched&extended=full&page=10&limit=20", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestSyncWatchlistGetRequestHasValidOAuthRequirement()
         {
             var syncWatchlistGetRequest = new SyncWatchlistGetRequest();

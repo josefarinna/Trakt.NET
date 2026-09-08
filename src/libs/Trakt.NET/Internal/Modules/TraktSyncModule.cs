@@ -548,8 +548,8 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktWatchlistItem>> GetWatchlistImplAsync(TraktSyncItemType? watchlistItemType = null,
-            TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
-            CancellationToken cancellationToken = default)
+            TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(page);
             ArgumentValidator.ThrowIfNull(limit);
@@ -559,6 +559,7 @@ namespace TraktNET
                 Type = watchlistItemType,
                 SortBy = sortBy,
                 SortHow = sortHow,
+                Filter = filter,
                 ExtendedInfo = extendedInfo,
                 Page = page,
                 Limit = limit
@@ -570,6 +571,7 @@ namespace TraktNET
                     Type = watchlistItemType,
                     SortBy = sortBy,
                     SortHow = sortHow,
+                    Filter = filter,
                     ExtendedInfo = extendedInfo,
                     Page = page,
                     Limit = limit

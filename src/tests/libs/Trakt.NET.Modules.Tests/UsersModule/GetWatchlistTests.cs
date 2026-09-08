@@ -21,7 +21,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -44,7 +44,7 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchlistUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, WatchlistItemCount);
             client.IgnoreOAuthIfOptional = false;
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -66,7 +66,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetOAuthClient($"users/me/watchlist?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync("me", null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync("me", page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -88,7 +88,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}/{WatchlistItemType.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, WatchlistItemType, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, WatchlistItemType, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -110,7 +110,53 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}/{WatchlistItemType.ToURI()}/{SortBy.ToURI()}/{SortHow.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, WatchlistItemType, SortBy, SortHow, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, WatchlistItemType, SortBy, SortHow, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)WatchlistItemCount);
+            response.ItemCount.ShouldBe(WatchlistItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+            response.SortBy.ShouldBeNull();
+            response.SortHow.ShouldBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistWithFilter()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\watchlist.json");
+            var filter = new TraktFilter { Hide = TraktFilterHide.Unwatched };
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}?{filter}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, WatchlistItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, filter: filter, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)WatchlistItemCount);
+            response.ItemCount.ShouldBe(WatchlistItemCount);
+            response.Limit.ShouldBe(Limit);
+            response.Page.ShouldBe(Page);
+            response.PageCount.ShouldBe(1U);
+            response.SortBy.ShouldBeNull();
+            response.SortHow.ShouldBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetWatchlistWithTypeAndSortAndFilterAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\watchlist.json");
+            var filter = new TraktFilter { Hide = TraktFilterHide.NoReleaseDate };
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}/{WatchlistItemType.ToURI()}/{SortBy.ToURI()}/{SortHow.ToURI()}?{filter}&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, WatchlistItemCount);
+
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, WatchlistItemType, SortBy, SortHow, filter, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -132,7 +178,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}/{WatchlistItemType.ToURI()}/{SortBy.ToURI()}/{SortHow.ToURI()}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, WatchlistItemType, SortBy, SortHow, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, WatchlistItemType, SortBy, SortHow, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -154,7 +200,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, null, null, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -176,7 +222,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}?page=2&limit={Limit}", responseContent, 2, 5, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, null, null, null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -200,7 +246,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, null, null, null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -224,7 +270,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, null, null, null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -248,7 +294,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}?page=1&limit={Limit}", responseContent, 1, 1, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, null, null, null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -272,7 +318,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, null, null, null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -314,7 +360,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, WatchlistItemCount);
 
-            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, null, null, null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktWatchlistItem> response = await client.Users.GetWatchlistAsync(Username, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -379,7 +425,7 @@ namespace TraktNET.UsersModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetWatchlistUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktWatchlistItem>>> act = () => client.Users.GetWatchlistAsync(Username, null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktWatchlistItem>>> act = () => client.Users.GetWatchlistAsync(Username, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
@@ -388,10 +434,10 @@ namespace TraktNET.UsersModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetWatchlistUri, HttpStatusCode.OK);
 
-            Func<Task<TraktPagedResponse<TraktWatchlistItem>>> act = () => client.Users.GetWatchlistAsync(Username, null, null, null, null, null, Limit, TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktWatchlistItem>>> act = () => client.Users.GetWatchlistAsync(Username, page: null, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
 
-            act = () => client.Users.GetWatchlistAsync(Username, null, null, null, null, Page, null, TestContext.Current.CancellationToken);
+            act = () => client.Users.GetWatchlistAsync(Username, page: Page, limit: null, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
         }
     }

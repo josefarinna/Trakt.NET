@@ -211,6 +211,9 @@ namespace TraktNET
 
         [TraktRequestParameter]
         internal TraktSortHow? SortHow { get; set; }
+
+        [TraktRequestQuery("filter")]
+        internal TraktFilter? Filter { get; set; }
     }
 
     // -------------------------------------------------------
