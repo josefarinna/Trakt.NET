@@ -1,8 +1,0 @@
-{
-  "solution": {
-    "path": "Trakt.NET.sln",
-    "projects": [
-      "Lib\\Trakt.NET\\Trakt.NET.csproj"
-    ]
-  }
-}

@@ -82,6 +82,71 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "Build Core Tests Debug",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "src/tests/libs/Trakt.NET.Core.Tests/Trakt.NET.Core.Tests.csproj",
+                "--configuration",
+                "Debug"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build Json Tests Debug",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "src/tests/libs/Trakt.NET.Json.Tests/Trakt.NET.Json.Tests.csproj",
+                "--configuration",
+                "Debug"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build Module Tests Debug",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "src/tests/libs/Trakt.NET.Modules.Tests/Trakt.NET.Modules.Tests.csproj",
+                "--configuration",
+                "Debug"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build Requests Tests Debug",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "src/tests/libs/Trakt.NET.Requests.Tests/Trakt.NET.Requests.Tests.csproj",
+                "--configuration",
+                "Debug"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Build SourceGeneration Tests Debug",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "build",
+                "src/tests/tools/sourcegeneration/Trakt.NET.SourceGeneration.Tests/Trakt.NET.SourceGeneration.Tests.csproj",
+                "--configuration",
+                "Debug"
+            ],
+            "group": "build",
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "Run All Tests Debug",
             "type": "process",
             "command": "dotnet",
