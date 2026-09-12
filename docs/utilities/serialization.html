@@ -91,7 +91,7 @@ var client = new TraktClient(&quot;Your Trakt Client ID&quot;);
 
 // Get basic info about a show
 TraktResponse&lt;TraktShow&gt; showResponse = await client.Shows.GetShowAsync(&quot;the-last-of-us&quot;);
-TraktShow show = showResponse.Value;
+TraktShow show = showResponse.Content!;
 
 // Serialize the show object as a JSON string with indentation
 string showJson = JsonSerializer.Serialize(show, new JsonSerializerOptions { WriteIndented = true });
