@@ -78,7 +78,7 @@ Below is the list of supported API modules available via `TraktClient`:
 Install the package via the .NET CLI:
 
 ```bash
-dotnet add package Trakt.NET.Ex --version 2.0.0-alpha.2
+dotnet add package Trakt.NET.Ex --version 2.0.0
 ```
 
 #### Code Example
@@ -96,20 +96,24 @@ try
     // Request show information with extended image info
     TraktExtendedInfo extendedInfo = TraktExtendedInfo.Full | TraktExtendedInfo.Images;
     TraktResponse<TraktShow> showResponse = await client.Shows.GetShowAsync("the-last-of-us", extendedInfo);
-    TraktShow show = showResponse.Value;
-    
-    Console.WriteLine($"Title: {show.Title}");
-    Console.WriteLine($"Year: {show.Year}");
-    
-    if (show.Images != null)
-    {
-        Console.WriteLine($"Fanart: {show.Images.Fanart?.FirstOrDefault()}");
-        Console.WriteLine($"Poster: {show.Images.Poster?.FirstOrDefault()}");
-    }
 
-    // High-performance JSON serialization using System.Text.Json
-    string json = JsonSerializer.Serialize(show, new JsonSerializerOptions { WriteIndented = true });
-    Console.WriteLine(json);
+    if (showResponse.IsSuccess && showResponse.HasValue)
+    {
+        TraktShow show = showResponse.Content!;
+
+        Console.WriteLine($"Title: {show.Title}");
+        Console.WriteLine($"Year: {show.Year}");
+
+        if (show.Images != null)
+        {
+            Console.WriteLine($"Fanart: {show.Images.Fanart?.FirstOrDefault()}");
+            Console.WriteLine($"Poster: {show.Images.Poster?.FirstOrDefault()}");
+        }
+
+        // High-performance JSON serialization using System.Text.Json
+        string json = JsonSerializer.Serialize(show, new JsonSerializerOptions { WriteIndented = true });
+        Console.WriteLine(json);
+    }
 }
 catch (TraktException ex)
 {
