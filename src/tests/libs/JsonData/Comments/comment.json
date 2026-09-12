@@ -1,6 +1,7 @@
 {
     "id": 7149524,
     "comment": "Comment content.",
+    "gif": "https://example.com/image.gif",
     "spoiler": false,
     "review": false,
     "parent_id": 0,
