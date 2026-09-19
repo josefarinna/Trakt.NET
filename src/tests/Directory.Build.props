@@ -7,6 +7,8 @@
     <IsPackable>false</IsPackable>
     <OutputType Condition="'$(IsTestUtilityProject)' != 'true'">Exe</OutputType>
     <OutputType Condition="'$(IsTestUtilityProject)' == 'true'">Library</OutputType>
+    <Verify_SponsorshipExemption>OpenSource</Verify_SponsorshipExemption>
+    <Verify_SponsorshipExemptionUntil>$([System.DateTime]::UtcNow.AddMonths(6).ToString('yyyy-MM'))</Verify_SponsorshipExemptionUntil>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(IsTestProject)' == 'true' AND '$(IsTestUtilityProject)' != 'true'">
