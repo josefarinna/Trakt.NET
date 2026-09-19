@@ -11208,6 +11208,10 @@ Trakt API Documentation: Users: List Like
   </table>
   <h5 id="TraktNET_TraktUsersModule_UpdateAvatarAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>
+<b>Limited Access:</b> This endpoint is currently available only to first-party Trakt applications.
+Third-party applications receive a 401 response even with a valid OAuth token.
+</p>
 <p><a href="https://docs.trakt.tv/reference/putusersavatar">
 Trakt API Documentation: Users: Update avatar
 </a></p>
@@ -11300,6 +11304,10 @@ Trakt API Documentation: Users: Update avatar
   </table>
   <h5 id="TraktNET_TraktUsersModule_UpdateCoverImageAsync_TraktNET_TraktCoverType_System_UInt32_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>
+<b>Limited Access:</b> This endpoint is currently available only to first-party Trakt applications.
+Third-party applications receive a 401 response even with a valid OAuth token.
+</p>
 <p><a href="https://docs.trakt.tv/reference/putuserscover">
 Trakt API Documentation: Users: Update cover image
 </a></p>
