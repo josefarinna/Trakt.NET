@@ -26308,6 +26308,18 @@ references:
   commentId: Overload:TraktNET.TraktComment.GetHashCode
   fullName: TraktNET.TraktComment.GetHashCode
   nameWithType: TraktComment.GetHashCode
+- uid: TraktNET.TraktComment.Gif
+  name: Gif
+  href: api/TraktNET.TraktComment.html#TraktNET_TraktComment_Gif
+  commentId: P:TraktNET.TraktComment.Gif
+  fullName: TraktNET.TraktComment.Gif
+  nameWithType: TraktComment.Gif
+- uid: TraktNET.TraktComment.Gif*
+  name: Gif
+  href: api/TraktNET.TraktComment.html#TraktNET_TraktComment_Gif_
+  commentId: Overload:TraktNET.TraktComment.Gif
+  fullName: TraktNET.TraktComment.Gif
+  nameWithType: TraktComment.Gif
 - uid: TraktNET.TraktComment.ID
   name: ID
   href: api/TraktNET.TraktComment.html#TraktNET_TraktComment_ID
