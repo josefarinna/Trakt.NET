@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Comments
+namespace TraktNET.Json.Comments
 {
     public sealed class TraktCommentTests
     {
@@ -10,6 +10,7 @@
             comment.ID.ShouldBeNull();
             comment.ParentID.ShouldBeNull();
             comment.Comment.ShouldBeNull();
+            comment.Gif.ShouldBeNull();
             comment.Spoiler.ShouldBeNull();
             comment.Review.ShouldBeNull();
             comment.Replies.ShouldBeNull();
@@ -30,6 +31,7 @@
             comment!.ID.ShouldBe(7149524U);
             comment!.ParentID.ShouldBe(0U);
             comment!.Comment.ShouldBe("Comment content.");
+            comment!.Gif.ShouldBe("https://example.com/image.gif");
             comment!.Spoiler.ShouldBe(false);
             comment!.Review.ShouldBe(false);
             comment!.Replies.ShouldBe(0U);

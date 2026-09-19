@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Comments
+namespace TraktNET.Json.Comments
 {
     public sealed class TraktCommentPostResponseTests
     {
@@ -12,6 +12,7 @@
             commentPostResponse.CreatedAt.ShouldBe(default);
             commentPostResponse.UpdatedAt.ShouldBeNull();
             commentPostResponse.Comment.ShouldBeNull();
+            commentPostResponse.Gif.ShouldBeNull();
             commentPostResponse.Spoiler.ShouldBeNull();
             commentPostResponse.Review.ShouldBeNull();
             commentPostResponse.Replies.ShouldBeNull();
@@ -32,6 +33,7 @@
             commentPostResponse.CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2016-04-01T12:44:40Z"));
             commentPostResponse.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2016-04-03T08:23:38Z"));
             commentPostResponse.Comment.ShouldBe("I hate they made The flash a kids show. Could else be much better. And with a better flash offcourse.");
+            commentPostResponse.Gif.ShouldBeNull();
             commentPostResponse.Spoiler.ShouldBe(false);
             commentPostResponse.Review.ShouldBe(false);
             commentPostResponse.Replies.ShouldBe(1U);
