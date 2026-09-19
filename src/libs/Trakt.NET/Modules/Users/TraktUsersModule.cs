@@ -1101,6 +1101,10 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>
+        /// <b>Limited Access:</b> This endpoint is currently available only to first-party Trakt applications.
+        /// Third-party applications receive a 401 response even with a valid OAuth token.
+        /// </para>
         /// <para><see href="https://docs.trakt.tv/reference/putusersavatar">
         /// Trakt API Documentation: Users: Update avatar
         /// </see></para>
@@ -1121,6 +1125,10 @@ namespace TraktNET
         /// <returns>A <see cref="TraktResponse" />.</returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>
+        /// <b>Limited Access:</b> This endpoint is currently available only to first-party Trakt applications.
+        /// Third-party applications receive a 401 response even with a valid OAuth token.
+        /// </para>
         /// <para><see href="https://docs.trakt.tv/reference/putuserscover">
         /// Trakt API Documentation: Users: Update cover image
         /// </see></para>
