@@ -324,15 +324,13 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> UpdateCommentAsync(uint commentId, string comment, bool? containsSpoiler = null,
             CancellationToken cancellationToken = default)
-            => UpdateCommentImplAsync(commentId, comment, containsSpoiler, null, null, null, cancellationToken);
+            => UpdateCommentImplAsync(commentId, comment, containsSpoiler, null, cancellationToken);
 
         /// <summary>Updates a comment or reply with the given comment id, which was posted within the last hour.</summary>
         /// <param name="commentId">The id of the comment, which should be updated.</param>
         /// <param name="comment">The new comment's content. Should be at least five words long if no GIF is attached.</param>
         /// <param name="containsSpoiler">Determines, if the <paramref name="comment" /> contains any spoilers.</param>
-        /// <param name="gif">The URL of a GIF to attach to the comment.</param>
-        /// <param name="gifWidth">The intrinsic width in pixels of the GIF attached to the comment.</param>
-        /// <param name="gifHeight">The intrinsic height in pixels of the GIF attached to the comment.</param>
+        /// <param name="gif">The GIF to attach to the comment.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -351,8 +349,8 @@ namespace TraktNET
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> UpdateCommentAsync(uint commentId, string? comment, bool? containsSpoiler,
-            string? gif, uint? gifWidth = null, uint? gifHeight = null, CancellationToken cancellationToken = default)
-            => UpdateCommentImplAsync(commentId, comment, containsSpoiler, gif, gifWidth, gifHeight, cancellationToken);
+            TraktCommentGif? gif, CancellationToken cancellationToken = default)
+            => UpdateCommentImplAsync(commentId, comment, containsSpoiler, gif, cancellationToken);
 
         /// <summary>Updates a comment or reply with the given comment id, which was posted within the last hour.</summary>
         /// <param name="commentId">The id of the comment, which should be updated.</param>
@@ -401,15 +399,13 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> PostCommentReplyAsync(uint commentId, string comment, bool? containsSpoiler = null,
             CancellationToken cancellationToken = default)
-            => PostCommentReplyImplAsync(commentId, comment, containsSpoiler, null, null, null, cancellationToken);
+            => PostCommentReplyImplAsync(commentId, comment, containsSpoiler, null, cancellationToken);
 
         /// <summary>Posts a reply to a comment with the given comment id.</summary>
         /// <param name="commentId">The id of the comment, which should be updated.</param>
         /// <param name="comment">The new comment's content. Should be at least five words long if no GIF is attached.</param>
         /// <param name="containsSpoiler">Determines, if the <paramref name="comment" /> contains any spoilers.</param>
-        /// <param name="gif">The URL of a GIF to attach to the comment.</param>
-        /// <param name="gifWidth">The intrinsic width in pixels of the GIF attached to the comment.</param>
-        /// <param name="gifHeight">The intrinsic height in pixels of the GIF attached to the comment.</param>
+        /// <param name="gif">The GIF to attach to the comment.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -428,8 +424,8 @@ namespace TraktNET
         /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> PostCommentReplyAsync(uint commentId, string? comment, bool? containsSpoiler,
-            string? gif, uint? gifWidth = null, uint? gifHeight = null, CancellationToken cancellationToken = default)
-            => PostCommentReplyImplAsync(commentId, comment, containsSpoiler, gif, gifWidth, gifHeight, cancellationToken);
+            TraktCommentGif? gif, CancellationToken cancellationToken = default)
+            => PostCommentReplyImplAsync(commentId, comment, containsSpoiler, gif, cancellationToken);
 
         /// <summary>Posts a reply to a comment with the given comment id.</summary>
         /// <param name="commentId">The id of the comment, which should be updated.</param>

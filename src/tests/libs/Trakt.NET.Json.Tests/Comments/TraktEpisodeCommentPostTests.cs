@@ -44,9 +44,12 @@ namespace TraktNET.Json.Comments
 
             // valid with GIF and null comment
             episodeCommentPost.Comment = null;
-            episodeCommentPost.Gif = "https://example.com/test.gif";
-            episodeCommentPost.GifWidth = 480;
-            episodeCommentPost.GifHeight = 270;
+            episodeCommentPost.Gif = new TraktCommentGif
+            {
+                Url = "https://example.com/test.gif",
+                Width = 480,
+                Height = 270
+            };
             act.ShouldNotThrow();
 
             // valid with GIF and short comment

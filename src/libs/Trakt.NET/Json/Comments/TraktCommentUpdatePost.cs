@@ -11,20 +11,12 @@ namespace TraktNET
         /// <summary>Gets or sets, whether the comment contains spoiler.</summary>
         public bool? Spoiler { get; set; }
 
-        /// <summary>Gets or sets the URL of a GIF to attach to the comment.</summary>
-        public string? Gif { get; set; }
-
-        /// <summary>Gets or sets the intrinsic width in pixels of the GIF attached to the comment.</summary>
-        [JsonPropertyName("gif_width")]
-        public uint? GifWidth { get; set; }
-
-        /// <summary>Gets or sets the intrinsic height in pixels of the GIF attached to the comment.</summary>
-        [JsonPropertyName("gif_height")]
-        public uint? GifHeight { get; set; }
+        /// <summary>Gets or sets the GIF to attach to the comment.</summary>
+        public TraktCommentGif? Gif { get; set; }
 
         public virtual void Validate()
         {
-            if (string.IsNullOrWhiteSpace(Gif))
+            if (Gif == null || string.IsNullOrWhiteSpace(Gif.Url))
             {
                 if (Comment == null)
                     throw new TraktPostValidationException(nameof(Comment), "comment must not be null");

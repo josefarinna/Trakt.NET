@@ -187,15 +187,13 @@ namespace TraktNET
         }
 
         private Task<TraktResponse<TraktCommentPostResponse>> UpdateCommentImplAsync(uint commentId, string? comment, bool? containsSpoiler = null,
-            string? gif = null, uint? gifWidth = null, uint? gifHeight = null, CancellationToken cancellationToken = default)
+            TraktCommentGif? gif = null, CancellationToken cancellationToken = default)
         {
             var content = new TraktCommentUpdatePost
             {
                 Comment = comment,
                 Spoiler = containsSpoiler,
-                Gif = gif,
-                GifWidth = gifWidth,
-                GifHeight = gifHeight
+                Gif = gif
             };
 
             return UpdateCommentImplAsync(commentId, content, cancellationToken);
@@ -214,15 +212,13 @@ namespace TraktNET
         }
 
         private Task<TraktResponse<TraktCommentPostResponse>> PostCommentReplyImplAsync(uint commentId, string? comment, bool? containsSpoiler = null,
-            string? gif = null, uint? gifWidth = null, uint? gifHeight = null, CancellationToken cancellationToken = default)
+            TraktCommentGif? gif = null, CancellationToken cancellationToken = default)
         {
             var content = new TraktCommentReplyPost
             {
                 Comment = comment,
                 Spoiler = containsSpoiler,
-                Gif = gif,
-                GifWidth = gifWidth,
-                GifHeight = gifHeight
+                Gif = gif
             };
 
             return PostCommentReplyImplAsync(commentId, content, cancellationToken);

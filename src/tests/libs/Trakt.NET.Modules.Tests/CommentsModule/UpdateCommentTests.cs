@@ -100,8 +100,15 @@ namespace TraktNET.CommentsModule
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(UpdateCommentUri, responseContent);
 
+            var gif = new TraktCommentGif
+            {
+                Url = "https://example.com/test.gif",
+                Width = 480,
+                Height = 270
+            };
+
             TraktResponse<TraktCommentPostResponse> response = await client.Comments.UpdateCommentAsync(CommentID, CommentText, Spoiler,
-                "https://example.com/test.gif", 480, 270, cancellationToken: TestContext.Current.CancellationToken);
+                gif, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -120,9 +127,12 @@ namespace TraktNET.CommentsModule
             {
                 Comment = CommentText,
                 Spoiler = Spoiler,
-                Gif = "https://example.com/test.gif",
-                GifWidth = 480,
-                GifHeight = 270
+                Gif = new TraktCommentGif
+                {
+                    Url = "https://example.com/test.gif",
+                    Width = 480,
+                    Height = 270
+                }
             };
 
             TraktResponse<TraktCommentPostResponse> response = await client.Comments.UpdateCommentAsync(CommentID, postModel, cancellationToken: TestContext.Current.CancellationToken);

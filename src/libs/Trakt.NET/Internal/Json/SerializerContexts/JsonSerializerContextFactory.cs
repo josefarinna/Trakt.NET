@@ -327,6 +327,7 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_commentsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktComment),
+            typeof(TraktCommentGif),
             typeof(TraktCommentItem),
             typeof(TraktCommentLike),
             typeof(TraktCommentPost),
@@ -931,6 +932,7 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_commentsJsonTypes = [
             typeof(TraktComment),
+            typeof(TraktCommentGif),
             typeof(TraktCommentItem),
             typeof(TraktCommentLike),
             typeof(TraktCommentPost),

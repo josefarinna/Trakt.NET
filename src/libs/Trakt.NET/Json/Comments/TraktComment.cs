@@ -16,16 +16,8 @@ namespace TraktNET
         /// <summary>The comment's content.</summary>
         public string? Comment { get; set; }
 
-        /// <summary>The URL of a GIF attached to the comment.</summary>
-        public string? Gif { get; set; }
-
-        /// <summary>The intrinsic width in pixels of the GIF attached to the comment.</summary>
-        [JsonPropertyName("gif_width")]
-        public uint? GifWidth { get; set; }
-
-        /// <summary>The intrinsic height in pixels of the GIF attached to the comment.</summary>
-        [JsonPropertyName("gif_height")]
-        public uint? GifHeight { get; set; }
+        /// <summary>The GIF attached to the comment.</summary>
+        public TraktCommentGif? Gif { get; set; }
 
         /// <summary>The flag, whether the comment contains spoiler.</summary>
         public bool? Spoiler { get; set; }
