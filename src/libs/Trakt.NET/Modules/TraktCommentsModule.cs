@@ -324,7 +324,57 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> UpdateCommentAsync(uint commentId, string comment, bool? containsSpoiler = null,
             CancellationToken cancellationToken = default)
-            => UpdateCommentImplAsync(commentId, comment, containsSpoiler, cancellationToken);
+            => UpdateCommentImplAsync(commentId, comment, containsSpoiler, null, cancellationToken);
+
+        /// <summary>Updates a comment or reply with the given comment id, which was posted within the last hour.</summary>
+        /// <param name="commentId">The id of the comment, which should be updated.</param>
+        /// <param name="comment">The new comment's content. Should be at least five words long if no GIF is attached.</param>
+        /// <param name="containsSpoiler">Determines, if the <paramref name="comment" /> contains any spoilers.</param>
+        /// <param name="gif">The GIF to attach to the comment.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the updated comment.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCommentPostResponse" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/putcommentsedit">
+        /// Trakt API Documentation: Comments: Comment
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktCommentPostResponse>> UpdateCommentAsync(uint commentId, string? comment, bool? containsSpoiler,
+            TraktCommentGif? gif, CancellationToken cancellationToken = default)
+            => UpdateCommentImplAsync(commentId, comment, containsSpoiler, gif, cancellationToken);
+
+        /// <summary>Updates a comment or reply with the given comment id, which was posted within the last hour.</summary>
+        /// <param name="commentId">The id of the comment, which should be updated.</param>
+        /// <param name="commentUpdatePost">An <see cref="TraktCommentUpdatePost" /> instance, which should be updated.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the updated comment.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCommentPostResponse" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/putcommentsedit">
+        /// Trakt API Documentation: Comments: Comment
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktCommentPostResponse>> UpdateCommentAsync(uint commentId, TraktCommentUpdatePost commentUpdatePost,
+            CancellationToken cancellationToken = default)
+            => UpdateCommentImplAsync(commentId, commentUpdatePost, cancellationToken);
 
         /// <summary>Posts a reply to a comment with the given comment id.</summary>
         /// <param name="commentId">The id of the comment, which should be updated.</param>
@@ -349,7 +399,57 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktResponse<TraktCommentPostResponse>> PostCommentReplyAsync(uint commentId, string comment, bool? containsSpoiler = null,
             CancellationToken cancellationToken = default)
-            => PostCommentReplyImplAsync(commentId, comment, containsSpoiler, cancellationToken);
+            => PostCommentReplyImplAsync(commentId, comment, containsSpoiler, null, cancellationToken);
+
+        /// <summary>Posts a reply to a comment with the given comment id.</summary>
+        /// <param name="commentId">The id of the comment, which should be updated.</param>
+        /// <param name="comment">The new comment's content. Should be at least five words long if no GIF is attached.</param>
+        /// <param name="containsSpoiler">Determines, if the <paramref name="comment" /> contains any spoilers.</param>
+        /// <param name="gif">The GIF to attach to the comment.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the updated comment.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCommentPostResponse" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentsreply">
+        /// Trakt API Documentation: Comments: Replies
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktCommentPostResponse>> PostCommentReplyAsync(uint commentId, string? comment, bool? containsSpoiler,
+            TraktCommentGif? gif, CancellationToken cancellationToken = default)
+            => PostCommentReplyImplAsync(commentId, comment, containsSpoiler, gif, cancellationToken);
+
+        /// <summary>Posts a reply to a comment with the given comment id.</summary>
+        /// <param name="commentId">The id of the comment, which should be updated.</param>
+        /// <param name="commentReplyPost">An <see cref="TraktCommentReplyPost" /> instance, which should be posted.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the updated comment.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktCommentPostResponse" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://docs.trakt.tv/reference/postcommentsreply">
+        /// Trakt API Documentation: Comments: Replies
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
+        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
+        public Task<TraktResponse<TraktCommentPostResponse>> PostCommentReplyAsync(uint commentId, TraktCommentReplyPost commentReplyPost,
+            CancellationToken cancellationToken = default)
+            => PostCommentReplyImplAsync(commentId, commentReplyPost, cancellationToken);
 
         /// <summary>Deletes a comment with the given comment id.</summary>
         /// <param name="commentId">The id of the comment, which should be deleted.</param>

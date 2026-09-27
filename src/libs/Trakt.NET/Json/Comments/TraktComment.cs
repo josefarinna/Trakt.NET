@@ -16,8 +16,8 @@ namespace TraktNET
         /// <summary>The comment's content.</summary>
         public string? Comment { get; set; }
 
-        /// <summary>The URL of a GIF attached to the comment.</summary>
-        public string? Gif { get; set; }
+        /// <summary>The GIF attached to the comment.</summary>
+        public TraktCommentGif? Gif { get; set; }
 
         /// <summary>The flag, whether the comment contains spoiler.</summary>
         public bool? Spoiler { get; set; }
