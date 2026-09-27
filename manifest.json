@@ -1,4 +1,5 @@
 {
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
   "sitemap": {
     "baseUrl": "https://josefarinna.github.io/Trakt.NET/",
     "changefreq": "monthly",
@@ -1526,6 +1527,20 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktComment",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktComment.yml\" sourcestartlinenumber=\"1\">A Trakt comment or reply.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktCommentGif.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktCommentGif.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktCommentGif",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCommentGif.yml\" sourcestartlinenumber=\"1\">Represents a GIF attached to a comment.</p>\n"
     },
     {
       "type": "ManagedReference",

@@ -1412,6 +1412,204 @@ Trakt API Documentation: Comments: Replies
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktCommentsModule.cs">View Source</a>
   </span>
+  <a id="TraktNET_TraktCommentsModule_PostCommentReplyAsync_" data-uid="TraktNET.TraktCommentsModule.PostCommentReplyAsync*"></a>
+  <h4 id="TraktNET_TraktCommentsModule_PostCommentReplyAsync_System_UInt32_System_String_System_Nullable_System_Boolean__TraktNET_TraktCommentGif_System_Threading_CancellationToken_" data-uid="TraktNET.TraktCommentsModule.PostCommentReplyAsync(System.UInt32,System.String,System.Nullable{System.Boolean},TraktNET.TraktCommentGif,System.Threading.CancellationToken)">PostCommentReplyAsync(uint, string?, bool?, TraktCommentGif?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Posts a reply to a comment with the given comment id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktCommentPostResponse&gt;&gt; PostCommentReplyAsync(uint commentId, string? comment, bool? containsSpoiler, TraktCommentGif? gif, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">commentId</span></td>
+        <td><p>The id of the comment, which should be updated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">comment</span></td>
+        <td><p>The new comment's content. Should be at least five words long if no GIF is attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">containsSpoiler</span></td>
+        <td><p>Determines, if the <code class="paramref">comment</code> contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCommentGif.html">TraktCommentGif</a></td>
+        <td><span class="parametername">gif</span></td>
+        <td><p>The GIF to attach to the comment.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktCommentPostResponse.html">TraktCommentPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the updated comment.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktCommentPostResponse.html">TraktCommentPostResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktCommentsModule_PostCommentReplyAsync_System_UInt32_System_String_System_Nullable_System_Boolean__TraktNET_TraktCommentGif_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postcommentsreply">
+Trakt API Documentation: Comments: Replies
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktCommentsModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktCommentsModule_PostCommentReplyAsync_" data-uid="TraktNET.TraktCommentsModule.PostCommentReplyAsync*"></a>
+  <h4 id="TraktNET_TraktCommentsModule_PostCommentReplyAsync_System_UInt32_TraktNET_TraktCommentReplyPost_System_Threading_CancellationToken_" data-uid="TraktNET.TraktCommentsModule.PostCommentReplyAsync(System.UInt32,TraktNET.TraktCommentReplyPost,System.Threading.CancellationToken)">PostCommentReplyAsync(uint, TraktCommentReplyPost, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Posts a reply to a comment with the given comment id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktCommentPostResponse&gt;&gt; PostCommentReplyAsync(uint commentId, TraktCommentReplyPost commentReplyPost, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">commentId</span></td>
+        <td><p>The id of the comment, which should be updated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCommentReplyPost.html">TraktCommentReplyPost</a></td>
+        <td><span class="parametername">commentReplyPost</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktCommentReplyPost.html">TraktCommentReplyPost</a> instance, which should be posted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktCommentPostResponse.html">TraktCommentPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the updated comment.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktCommentPostResponse.html">TraktCommentPostResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktCommentsModule_PostCommentReplyAsync_System_UInt32_TraktNET_TraktCommentReplyPost_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postcommentsreply">
+Trakt API Documentation: Comments: Replies
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktCommentsModule.cs">View Source</a>
+  </span>
   <a id="TraktNET_TraktCommentsModule_PostEpisodeCommentAsync_" data-uid="TraktNET.TraktCommentsModule.PostEpisodeCommentAsync*"></a>
   <h4 id="TraktNET_TraktCommentsModule_PostEpisodeCommentAsync_TraktNET_TraktEpisodeCommentPost_System_Threading_CancellationToken_" data-uid="TraktNET.TraktCommentsModule.PostEpisodeCommentAsync(TraktNET.TraktEpisodeCommentPost,System.Threading.CancellationToken)">PostEpisodeCommentAsync(TraktEpisodeCommentPost, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Posts a comment for the given <a class="xref" href="TraktNET.TraktEpisode.html">TraktEpisode</a>.</p>
@@ -2182,6 +2380,204 @@ Trakt API Documentation: Comments: Like
     </tbody>
   </table>
   <h5 id="TraktNET_TraktCommentsModule_UpdateCommentAsync_System_UInt32_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/putcommentsedit">
+Trakt API Documentation: Comments: Comment
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktCommentsModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktCommentsModule_UpdateCommentAsync_" data-uid="TraktNET.TraktCommentsModule.UpdateCommentAsync*"></a>
+  <h4 id="TraktNET_TraktCommentsModule_UpdateCommentAsync_System_UInt32_System_String_System_Nullable_System_Boolean__TraktNET_TraktCommentGif_System_Threading_CancellationToken_" data-uid="TraktNET.TraktCommentsModule.UpdateCommentAsync(System.UInt32,System.String,System.Nullable{System.Boolean},TraktNET.TraktCommentGif,System.Threading.CancellationToken)">UpdateCommentAsync(uint, string?, bool?, TraktCommentGif?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates a comment or reply with the given comment id, which was posted within the last hour.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktCommentPostResponse&gt;&gt; UpdateCommentAsync(uint commentId, string? comment, bool? containsSpoiler, TraktCommentGif? gif, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">commentId</span></td>
+        <td><p>The id of the comment, which should be updated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">comment</span></td>
+        <td><p>The new comment's content. Should be at least five words long if no GIF is attached.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">containsSpoiler</span></td>
+        <td><p>Determines, if the <code class="paramref">comment</code> contains any spoilers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCommentGif.html">TraktCommentGif</a></td>
+        <td><span class="parametername">gif</span></td>
+        <td><p>The GIF to attach to the comment.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktCommentPostResponse.html">TraktCommentPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the updated comment.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktCommentPostResponse.html">TraktCommentPostResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktCommentsModule_UpdateCommentAsync_System_UInt32_System_String_System_Nullable_System_Boolean__TraktNET_TraktCommentGif_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/putcommentsedit">
+Trakt API Documentation: Comments: Comment
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktCommentsModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktCommentsModule_UpdateCommentAsync_" data-uid="TraktNET.TraktCommentsModule.UpdateCommentAsync*"></a>
+  <h4 id="TraktNET_TraktCommentsModule_UpdateCommentAsync_System_UInt32_TraktNET_TraktCommentUpdatePost_System_Threading_CancellationToken_" data-uid="TraktNET.TraktCommentsModule.UpdateCommentAsync(System.UInt32,TraktNET.TraktCommentUpdatePost,System.Threading.CancellationToken)">UpdateCommentAsync(uint, TraktCommentUpdatePost, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates a comment or reply with the given comment id, which was posted within the last hour.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktCommentPostResponse&gt;&gt; UpdateCommentAsync(uint commentId, TraktCommentUpdatePost commentUpdatePost, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">commentId</span></td>
+        <td><p>The id of the comment, which should be updated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCommentUpdatePost.html">TraktCommentUpdatePost</a></td>
+        <td><span class="parametername">commentUpdatePost</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktCommentUpdatePost.html">TraktCommentUpdatePost</a> instance, which should be updated.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktCommentPostResponse.html">TraktCommentPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the updated comment.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktCommentPostResponse.html">TraktCommentPostResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktCommentsModule_UpdateCommentAsync_System_UInt32_TraktNET_TraktCommentUpdatePost_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/putcommentsedit">
 Trakt API Documentation: Comments: Comment

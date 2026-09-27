@@ -137,6 +137,16 @@
 [JsonSerializable(typeof(TraktCommentUserReaction))]
 [JsonSerializable(typeof(IReadOnlyList&lt;TraktCommentUserReaction&gt;))]
 [JsonSerializable(typeof(TraktCommentReactionSummary))]
+[JsonSerializable(typeof(TraktCommentGif))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktCommentGif&gt;))]
+[JsonSerializable(typeof(TraktCommentPost))]
+[JsonSerializable(typeof(TraktCommentReplyPost))]
+[JsonSerializable(typeof(TraktCommentUpdatePost))]
+[JsonSerializable(typeof(TraktMovieCommentPost))]
+[JsonSerializable(typeof(TraktShowCommentPost))]
+[JsonSerializable(typeof(TraktSeasonCommentPost))]
+[JsonSerializable(typeof(TraktEpisodeCommentPost))]
+[JsonSerializable(typeof(TraktListCommentPost))]
 public sealed class CommentsJsonSerializerContext : JsonSerializerContext, IJsonTypeInfoResolver</code></pre>
   </div>
   <h3 id="constructors">Constructors
@@ -378,6 +388,34 @@ public sealed class CommentsJsonSerializerContext : JsonSerializerContext, IJson
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktComment.html">TraktComment</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_CommentsJsonSerializerContext_IReadOnlyListTraktCommentGif_" data-uid="TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif*"></a>
+  <h4 id="TraktNET_CommentsJsonSerializerContext_IReadOnlyListTraktCommentGif" data-uid="TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif">IReadOnlyListTraktCommentGif</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktCommentGif&gt;&gt; IReadOnlyListTraktCommentGif { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktCommentGif.html">TraktCommentGif</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1280,6 +1318,34 @@ public sealed class CommentsJsonSerializerContext : JsonSerializerContext, IJson
   </table>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktCommentGif.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_CommentsJsonSerializerContext_TraktCommentGif_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktCommentGif*"></a>
+  <h4 id="TraktNET_CommentsJsonSerializerContext_TraktCommentGif" data-uid="TraktNET.CommentsJsonSerializerContext.TraktCommentGif">TraktCommentGif</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktCommentGif&gt; TraktCommentGif { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktCommentGif.html">TraktCommentGif</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktCommentItem.g.cs">View Source</a>
   </span>
   <a id="TraktNET_CommentsJsonSerializerContext_TraktCommentItem_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktCommentItem*"></a>
@@ -1364,6 +1430,34 @@ public sealed class CommentsJsonSerializerContext : JsonSerializerContext, IJson
   </table>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktCommentPost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_CommentsJsonSerializerContext_TraktCommentPost_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktCommentPost*"></a>
+  <h4 id="TraktNET_CommentsJsonSerializerContext_TraktCommentPost" data-uid="TraktNET.CommentsJsonSerializerContext.TraktCommentPost">TraktCommentPost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktCommentPost&gt; TraktCommentPost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktCommentPost.html">TraktCommentPost</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktCommentPostResponse.g.cs">View Source</a>
   </span>
   <a id="TraktNET_CommentsJsonSerializerContext_TraktCommentPostResponse_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktCommentPostResponse*"></a>
@@ -1442,6 +1536,62 @@ public sealed class CommentsJsonSerializerContext : JsonSerializerContext, IJson
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktCommentReactionSummary.html">TraktCommentReactionSummary</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktCommentReplyPost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_CommentsJsonSerializerContext_TraktCommentReplyPost_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktCommentReplyPost*"></a>
+  <h4 id="TraktNET_CommentsJsonSerializerContext_TraktCommentReplyPost" data-uid="TraktNET.CommentsJsonSerializerContext.TraktCommentReplyPost">TraktCommentReplyPost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktCommentReplyPost&gt; TraktCommentReplyPost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktCommentReplyPost.html">TraktCommentReplyPost</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktCommentUpdatePost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_CommentsJsonSerializerContext_TraktCommentUpdatePost_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktCommentUpdatePost*"></a>
+  <h4 id="TraktNET_CommentsJsonSerializerContext_TraktCommentUpdatePost" data-uid="TraktNET.CommentsJsonSerializerContext.TraktCommentUpdatePost">TraktCommentUpdatePost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktCommentUpdatePost&gt; TraktCommentUpdatePost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktCommentUpdatePost.html">TraktCommentUpdatePost</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1582,6 +1732,34 @@ public sealed class CommentsJsonSerializerContext : JsonSerializerContext, IJson
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktEpisode.html">TraktEpisode</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktEpisodeCommentPost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_CommentsJsonSerializerContext_TraktEpisodeCommentPost_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktEpisodeCommentPost*"></a>
+  <h4 id="TraktNET_CommentsJsonSerializerContext_TraktEpisodeCommentPost" data-uid="TraktNET.CommentsJsonSerializerContext.TraktEpisodeCommentPost">TraktEpisodeCommentPost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktEpisodeCommentPost&gt; TraktEpisodeCommentPost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktEpisodeCommentPost.html">TraktEpisodeCommentPost</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1756,6 +1934,34 @@ public sealed class CommentsJsonSerializerContext : JsonSerializerContext, IJson
   </table>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktListCommentPost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_CommentsJsonSerializerContext_TraktListCommentPost_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktListCommentPost*"></a>
+  <h4 id="TraktNET_CommentsJsonSerializerContext_TraktListCommentPost" data-uid="TraktNET.CommentsJsonSerializerContext.TraktListCommentPost">TraktListCommentPost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktListCommentPost&gt; TraktListCommentPost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktListCommentPost.html">TraktListCommentPost</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktListIDs.g.cs">View Source</a>
   </span>
   <a id="TraktNET_CommentsJsonSerializerContext_TraktListIDs_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktListIDs*"></a>
@@ -1890,6 +2096,34 @@ public sealed class CommentsJsonSerializerContext : JsonSerializerContext, IJson
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktMovieCommentPost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_CommentsJsonSerializerContext_TraktMovieCommentPost_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktMovieCommentPost*"></a>
+  <h4 id="TraktNET_CommentsJsonSerializerContext_TraktMovieCommentPost" data-uid="TraktNET.CommentsJsonSerializerContext.TraktMovieCommentPost">TraktMovieCommentPost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktMovieCommentPost&gt; TraktMovieCommentPost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktMovieCommentPost.html">TraktMovieCommentPost</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -2064,6 +2298,34 @@ public sealed class CommentsJsonSerializerContext : JsonSerializerContext, IJson
   </table>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktSeasonCommentPost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_CommentsJsonSerializerContext_TraktSeasonCommentPost_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktSeasonCommentPost*"></a>
+  <h4 id="TraktNET_CommentsJsonSerializerContext_TraktSeasonCommentPost" data-uid="TraktNET.CommentsJsonSerializerContext.TraktSeasonCommentPost">TraktSeasonCommentPost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktSeasonCommentPost&gt; TraktSeasonCommentPost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktSeasonCommentPost.html">TraktSeasonCommentPost</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktSeasonIDs.g.cs">View Source</a>
   </span>
   <a id="TraktNET_CommentsJsonSerializerContext_TraktSeasonIDs_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktSeasonIDs*"></a>
@@ -2170,6 +2432,34 @@ public sealed class CommentsJsonSerializerContext : JsonSerializerContext, IJson
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktShowAirs.html">TraktShowAirs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/CommentsJsonSerializerContext.TraktShowCommentPost.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_CommentsJsonSerializerContext_TraktShowCommentPost_" data-uid="TraktNET.CommentsJsonSerializerContext.TraktShowCommentPost*"></a>
+  <h4 id="TraktNET_CommentsJsonSerializerContext_TraktShowCommentPost" data-uid="TraktNET.CommentsJsonSerializerContext.TraktShowCommentPost">TraktShowCommentPost</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktShowCommentPost&gt; TraktShowCommentPost { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktShowCommentPost.html">TraktShowCommentPost</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

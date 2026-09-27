@@ -139,8 +139,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[SetsRequiredMembers]
-protected TraktCommentUpdatePost(TraktCommentUpdatePost original)</code></pre>
+    <pre><code class="lang-csharp hljs">protected TraktCommentUpdatePost(TraktCommentUpdatePost original)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -167,12 +166,12 @@ protected TraktCommentUpdatePost(TraktCommentUpdatePost original)</code></pre>
   </span>
   <a id="TraktNET_TraktCommentUpdatePost_Comment_" data-uid="TraktNET.TraktCommentUpdatePost.Comment*"></a>
   <h4 id="TraktNET_TraktCommentUpdatePost_Comment" data-uid="TraktNET.TraktCommentUpdatePost.Comment">Comment</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the required comment's content.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the comment's content.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public required string Comment { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Comment { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -212,6 +211,34 @@ protected TraktCommentUpdatePost(TraktCommentUpdatePost original)</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Comments/TraktCommentUpdatePost.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktCommentUpdatePost_Gif_" data-uid="TraktNET.TraktCommentUpdatePost.Gif*"></a>
+  <h4 id="TraktNET_TraktCommentUpdatePost_Gif" data-uid="TraktNET.TraktCommentUpdatePost.Gif">Gif</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the GIF to attach to the comment.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraktCommentGif? Gif { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktCommentGif.html">TraktCommentGif</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -448,7 +475,7 @@ protected TraktCommentUpdatePost(TraktCommentUpdatePost original)</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Validate()</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void Validate()</code></pre>
   </div>
   <h3 id="operators">Operators
 </h3>

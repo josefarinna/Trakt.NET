@@ -1762,6 +1762,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktComment
   fullName: TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktComment
   nameWithType: CommentsJsonSerializerContext.IReadOnlyListTraktComment
+- uid: TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif
+  name: IReadOnlyListTraktCommentGif
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_IReadOnlyListTraktCommentGif
+  commentId: P:TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif
+  fullName: TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif
+  nameWithType: CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif
+- uid: TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif*
+  name: IReadOnlyListTraktCommentGif
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_IReadOnlyListTraktCommentGif_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif
+  fullName: TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif
+  nameWithType: CommentsJsonSerializerContext.IReadOnlyListTraktCommentGif
 - uid: TraktNET.CommentsJsonSerializerContext.IReadOnlyListTraktCommentItem
   name: IReadOnlyListTraktCommentItem
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_IReadOnlyListTraktCommentItem
@@ -2146,6 +2158,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktComment
   fullName: TraktNET.CommentsJsonSerializerContext.TraktComment
   nameWithType: CommentsJsonSerializerContext.TraktComment
+- uid: TraktNET.CommentsJsonSerializerContext.TraktCommentGif
+  name: TraktCommentGif
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentGif
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktCommentGif
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktCommentGif
+  nameWithType: CommentsJsonSerializerContext.TraktCommentGif
+- uid: TraktNET.CommentsJsonSerializerContext.TraktCommentGif*
+  name: TraktCommentGif
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentGif_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktCommentGif
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktCommentGif
+  nameWithType: CommentsJsonSerializerContext.TraktCommentGif
 - uid: TraktNET.CommentsJsonSerializerContext.TraktCommentItem
   name: TraktCommentItem
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentItem
@@ -2182,6 +2206,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktCommentObjectType
   fullName: TraktNET.CommentsJsonSerializerContext.TraktCommentObjectType
   nameWithType: CommentsJsonSerializerContext.TraktCommentObjectType
+- uid: TraktNET.CommentsJsonSerializerContext.TraktCommentPost
+  name: TraktCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentPost
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktCommentPost
+- uid: TraktNET.CommentsJsonSerializerContext.TraktCommentPost*
+  name: TraktCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentPost_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktCommentPost
 - uid: TraktNET.CommentsJsonSerializerContext.TraktCommentPostResponse
   name: TraktCommentPostResponse
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentPostResponse
@@ -2218,6 +2254,30 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktCommentReactionSummary
   fullName: TraktNET.CommentsJsonSerializerContext.TraktCommentReactionSummary
   nameWithType: CommentsJsonSerializerContext.TraktCommentReactionSummary
+- uid: TraktNET.CommentsJsonSerializerContext.TraktCommentReplyPost
+  name: TraktCommentReplyPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentReplyPost
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktCommentReplyPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktCommentReplyPost
+  nameWithType: CommentsJsonSerializerContext.TraktCommentReplyPost
+- uid: TraktNET.CommentsJsonSerializerContext.TraktCommentReplyPost*
+  name: TraktCommentReplyPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentReplyPost_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktCommentReplyPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktCommentReplyPost
+  nameWithType: CommentsJsonSerializerContext.TraktCommentReplyPost
+- uid: TraktNET.CommentsJsonSerializerContext.TraktCommentUpdatePost
+  name: TraktCommentUpdatePost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentUpdatePost
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktCommentUpdatePost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktCommentUpdatePost
+  nameWithType: CommentsJsonSerializerContext.TraktCommentUpdatePost
+- uid: TraktNET.CommentsJsonSerializerContext.TraktCommentUpdatePost*
+  name: TraktCommentUpdatePost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentUpdatePost_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktCommentUpdatePost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktCommentUpdatePost
+  nameWithType: CommentsJsonSerializerContext.TraktCommentUpdatePost
 - uid: TraktNET.CommentsJsonSerializerContext.TraktCommentUserReaction
   name: TraktCommentUserReaction
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktCommentUserReaction
@@ -2278,6 +2338,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktEpisode
   fullName: TraktNET.CommentsJsonSerializerContext.TraktEpisode
   nameWithType: CommentsJsonSerializerContext.TraktEpisode
+- uid: TraktNET.CommentsJsonSerializerContext.TraktEpisodeCommentPost
+  name: TraktEpisodeCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktEpisodeCommentPost
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktEpisodeCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktEpisodeCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktEpisodeCommentPost
+- uid: TraktNET.CommentsJsonSerializerContext.TraktEpisodeCommentPost*
+  name: TraktEpisodeCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktEpisodeCommentPost_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktEpisodeCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktEpisodeCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktEpisodeCommentPost
 - uid: TraktNET.CommentsJsonSerializerContext.TraktEpisodeIDs
   name: TraktEpisodeIDs
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktEpisodeIDs
@@ -2350,6 +2422,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktList
   fullName: TraktNET.CommentsJsonSerializerContext.TraktList
   nameWithType: CommentsJsonSerializerContext.TraktList
+- uid: TraktNET.CommentsJsonSerializerContext.TraktListCommentPost
+  name: TraktListCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktListCommentPost
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktListCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktListCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktListCommentPost
+- uid: TraktNET.CommentsJsonSerializerContext.TraktListCommentPost*
+  name: TraktListCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktListCommentPost_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktListCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktListCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktListCommentPost
 - uid: TraktNET.CommentsJsonSerializerContext.TraktListIDs
   name: TraktListIDs
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktListIDs
@@ -2410,6 +2494,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktMovie
   fullName: TraktNET.CommentsJsonSerializerContext.TraktMovie
   nameWithType: CommentsJsonSerializerContext.TraktMovie
+- uid: TraktNET.CommentsJsonSerializerContext.TraktMovieCommentPost
+  name: TraktMovieCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktMovieCommentPost
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktMovieCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktMovieCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktMovieCommentPost
+- uid: TraktNET.CommentsJsonSerializerContext.TraktMovieCommentPost*
+  name: TraktMovieCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktMovieCommentPost_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktMovieCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktMovieCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktMovieCommentPost
 - uid: TraktNET.CommentsJsonSerializerContext.TraktMovieIDs
   name: TraktMovieIDs
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktMovieIDs
@@ -2482,6 +2578,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktSeason
   fullName: TraktNET.CommentsJsonSerializerContext.TraktSeason
   nameWithType: CommentsJsonSerializerContext.TraktSeason
+- uid: TraktNET.CommentsJsonSerializerContext.TraktSeasonCommentPost
+  name: TraktSeasonCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktSeasonCommentPost
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktSeasonCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktSeasonCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktSeasonCommentPost
+- uid: TraktNET.CommentsJsonSerializerContext.TraktSeasonCommentPost*
+  name: TraktSeasonCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktSeasonCommentPost_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktSeasonCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktSeasonCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktSeasonCommentPost
 - uid: TraktNET.CommentsJsonSerializerContext.TraktSeasonIDs
   name: TraktSeasonIDs
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktSeasonIDs
@@ -2530,6 +2638,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.CommentsJsonSerializerContext.TraktShowAirs
   nameWithType: CommentsJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.CommentsJsonSerializerContext.TraktShowCommentPost
+  name: TraktShowCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktShowCommentPost
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktShowCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktShowCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktShowCommentPost
+- uid: TraktNET.CommentsJsonSerializerContext.TraktShowCommentPost*
+  name: TraktShowCommentPost
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktShowCommentPost_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktShowCommentPost
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktShowCommentPost
+  nameWithType: CommentsJsonSerializerContext.TraktShowCommentPost
 - uid: TraktNET.CommentsJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktShowIDs
@@ -26512,6 +26632,183 @@ references:
   fullName.vb: TraktNET.TraktComment.<>
   nameWithType: TraktComment.operator !=
   nameWithType.vb: TraktComment.<>
+- uid: TraktNET.TraktCommentGif
+  name: TraktCommentGif
+  href: api/TraktNET.TraktCommentGif.html
+  commentId: T:TraktNET.TraktCommentGif
+  fullName: TraktNET.TraktCommentGif
+  nameWithType: TraktCommentGif
+- uid: TraktNET.TraktCommentGif.#ctor
+  name: TraktCommentGif()
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif__ctor
+  commentId: M:TraktNET.TraktCommentGif.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktCommentGif.TraktCommentGif()
+  fullName.vb: TraktNET.TraktCommentGif.New()
+  nameWithType: TraktCommentGif.TraktCommentGif()
+  nameWithType.vb: TraktCommentGif.New()
+- uid: TraktNET.TraktCommentGif.#ctor(TraktNET.TraktCommentGif)
+  name: TraktCommentGif(TraktCommentGif)
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif__ctor_TraktNET_TraktCommentGif_
+  commentId: M:TraktNET.TraktCommentGif.#ctor(TraktNET.TraktCommentGif)
+  name.vb: New(TraktCommentGif)
+  fullName: TraktNET.TraktCommentGif.TraktCommentGif(TraktNET.TraktCommentGif)
+  fullName.vb: TraktNET.TraktCommentGif.New(TraktNET.TraktCommentGif)
+  nameWithType: TraktCommentGif.TraktCommentGif(TraktCommentGif)
+  nameWithType.vb: TraktCommentGif.New(TraktCommentGif)
+- uid: TraktNET.TraktCommentGif.#ctor*
+  name: TraktCommentGif
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif__ctor_
+  commentId: Overload:TraktNET.TraktCommentGif.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktCommentGif.TraktCommentGif
+  fullName.vb: TraktNET.TraktCommentGif.New
+  nameWithType: TraktCommentGif.TraktCommentGif
+  nameWithType.vb: TraktCommentGif.New
+- uid: TraktNET.TraktCommentGif.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_EqualityContract
+  commentId: P:TraktNET.TraktCommentGif.EqualityContract
+  fullName: TraktNET.TraktCommentGif.EqualityContract
+  nameWithType: TraktCommentGif.EqualityContract
+- uid: TraktNET.TraktCommentGif.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_EqualityContract_
+  commentId: Overload:TraktNET.TraktCommentGif.EqualityContract
+  fullName: TraktNET.TraktCommentGif.EqualityContract
+  nameWithType: TraktCommentGif.EqualityContract
+- uid: TraktNET.TraktCommentGif.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Equals_System_Object_
+  commentId: M:TraktNET.TraktCommentGif.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktCommentGif.Equals(object?)
+  fullName.vb: TraktNET.TraktCommentGif.Equals(Object)
+  nameWithType: TraktCommentGif.Equals(object?)
+  nameWithType.vb: TraktCommentGif.Equals(Object)
+- uid: TraktNET.TraktCommentGif.Equals(TraktNET.TraktCommentGif)
+  name: Equals(TraktCommentGif?)
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Equals_TraktNET_TraktCommentGif_
+  commentId: M:TraktNET.TraktCommentGif.Equals(TraktNET.TraktCommentGif)
+  name.vb: Equals(TraktCommentGif)
+  fullName: TraktNET.TraktCommentGif.Equals(TraktNET.TraktCommentGif?)
+  fullName.vb: TraktNET.TraktCommentGif.Equals(TraktNET.TraktCommentGif)
+  nameWithType: TraktCommentGif.Equals(TraktCommentGif?)
+  nameWithType.vb: TraktCommentGif.Equals(TraktCommentGif)
+- uid: TraktNET.TraktCommentGif.Equals*
+  name: Equals
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Equals_
+  commentId: Overload:TraktNET.TraktCommentGif.Equals
+  fullName: TraktNET.TraktCommentGif.Equals
+  nameWithType: TraktCommentGif.Equals
+- uid: TraktNET.TraktCommentGif.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_GetHashCode
+  commentId: M:TraktNET.TraktCommentGif.GetHashCode
+  fullName: TraktNET.TraktCommentGif.GetHashCode()
+  nameWithType: TraktCommentGif.GetHashCode()
+- uid: TraktNET.TraktCommentGif.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_GetHashCode_
+  commentId: Overload:TraktNET.TraktCommentGif.GetHashCode
+  fullName: TraktNET.TraktCommentGif.GetHashCode
+  nameWithType: TraktCommentGif.GetHashCode
+- uid: TraktNET.TraktCommentGif.Height
+  name: Height
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Height
+  commentId: P:TraktNET.TraktCommentGif.Height
+  fullName: TraktNET.TraktCommentGif.Height
+  nameWithType: TraktCommentGif.Height
+- uid: TraktNET.TraktCommentGif.Height*
+  name: Height
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Height_
+  commentId: Overload:TraktNET.TraktCommentGif.Height
+  fullName: TraktNET.TraktCommentGif.Height
+  nameWithType: TraktCommentGif.Height
+- uid: TraktNET.TraktCommentGif.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktCommentGif.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktCommentGif.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktCommentGif.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktCommentGif.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_PrintMembers_
+  commentId: Overload:TraktNET.TraktCommentGif.PrintMembers
+  fullName: TraktNET.TraktCommentGif.PrintMembers
+  nameWithType: TraktCommentGif.PrintMembers
+- uid: TraktNET.TraktCommentGif.ToString
+  name: ToString()
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_ToString
+  commentId: M:TraktNET.TraktCommentGif.ToString
+  fullName: TraktNET.TraktCommentGif.ToString()
+  nameWithType: TraktCommentGif.ToString()
+- uid: TraktNET.TraktCommentGif.ToString*
+  name: ToString
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_ToString_
+  commentId: Overload:TraktNET.TraktCommentGif.ToString
+  fullName: TraktNET.TraktCommentGif.ToString
+  nameWithType: TraktCommentGif.ToString
+- uid: TraktNET.TraktCommentGif.Url
+  name: Url
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Url
+  commentId: P:TraktNET.TraktCommentGif.Url
+  fullName: TraktNET.TraktCommentGif.Url
+  nameWithType: TraktCommentGif.Url
+- uid: TraktNET.TraktCommentGif.Url*
+  name: Url
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Url_
+  commentId: Overload:TraktNET.TraktCommentGif.Url
+  fullName: TraktNET.TraktCommentGif.Url
+  nameWithType: TraktCommentGif.Url
+- uid: TraktNET.TraktCommentGif.Width
+  name: Width
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Width
+  commentId: P:TraktNET.TraktCommentGif.Width
+  fullName: TraktNET.TraktCommentGif.Width
+  nameWithType: TraktCommentGif.Width
+- uid: TraktNET.TraktCommentGif.Width*
+  name: Width
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Width_
+  commentId: Overload:TraktNET.TraktCommentGif.Width
+  fullName: TraktNET.TraktCommentGif.Width
+  nameWithType: TraktCommentGif.Width
+- uid: TraktNET.TraktCommentGif.op_Equality(TraktNET.TraktCommentGif,TraktNET.TraktCommentGif)
+  name: operator ==(TraktCommentGif?, TraktCommentGif?)
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_op_Equality_TraktNET_TraktCommentGif_TraktNET_TraktCommentGif_
+  commentId: M:TraktNET.TraktCommentGif.op_Equality(TraktNET.TraktCommentGif,TraktNET.TraktCommentGif)
+  name.vb: =(TraktCommentGif, TraktCommentGif)
+  fullName: TraktNET.TraktCommentGif.operator ==(TraktNET.TraktCommentGif?, TraktNET.TraktCommentGif?)
+  fullName.vb: TraktNET.TraktCommentGif.=(TraktNET.TraktCommentGif, TraktNET.TraktCommentGif)
+  nameWithType: TraktCommentGif.operator ==(TraktCommentGif?, TraktCommentGif?)
+  nameWithType.vb: TraktCommentGif.=(TraktCommentGif, TraktCommentGif)
+- uid: TraktNET.TraktCommentGif.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_op_Equality_
+  commentId: Overload:TraktNET.TraktCommentGif.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktCommentGif.operator ==
+  fullName.vb: TraktNET.TraktCommentGif.=
+  nameWithType: TraktCommentGif.operator ==
+  nameWithType.vb: TraktCommentGif.=
+- uid: TraktNET.TraktCommentGif.op_Inequality(TraktNET.TraktCommentGif,TraktNET.TraktCommentGif)
+  name: operator !=(TraktCommentGif?, TraktCommentGif?)
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_op_Inequality_TraktNET_TraktCommentGif_TraktNET_TraktCommentGif_
+  commentId: M:TraktNET.TraktCommentGif.op_Inequality(TraktNET.TraktCommentGif,TraktNET.TraktCommentGif)
+  name.vb: <>(TraktCommentGif, TraktCommentGif)
+  fullName: TraktNET.TraktCommentGif.operator !=(TraktNET.TraktCommentGif?, TraktNET.TraktCommentGif?)
+  fullName.vb: TraktNET.TraktCommentGif.<>(TraktNET.TraktCommentGif, TraktNET.TraktCommentGif)
+  nameWithType: TraktCommentGif.operator !=(TraktCommentGif?, TraktCommentGif?)
+  nameWithType.vb: TraktCommentGif.<>(TraktCommentGif, TraktCommentGif)
+- uid: TraktNET.TraktCommentGif.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_op_Inequality_
+  commentId: Overload:TraktNET.TraktCommentGif.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktCommentGif.operator !=
+  fullName.vb: TraktNET.TraktCommentGif.<>
+  nameWithType: TraktCommentGif.operator !=
+  nameWithType.vb: TraktCommentGif.<>
 - uid: TraktNET.TraktCommentItem
   name: TraktCommentItem
   href: api/TraktNET.TraktCommentItem.html
@@ -27163,6 +27460,18 @@ references:
   commentId: Overload:TraktNET.TraktCommentPost.GetHashCode
   fullName: TraktNET.TraktCommentPost.GetHashCode
   nameWithType: TraktCommentPost.GetHashCode
+- uid: TraktNET.TraktCommentPost.Gif
+  name: Gif
+  href: api/TraktNET.TraktCommentPost.html#TraktNET_TraktCommentPost_Gif
+  commentId: P:TraktNET.TraktCommentPost.Gif
+  fullName: TraktNET.TraktCommentPost.Gif
+  nameWithType: TraktCommentPost.Gif
+- uid: TraktNET.TraktCommentPost.Gif*
+  name: Gif
+  href: api/TraktNET.TraktCommentPost.html#TraktNET_TraktCommentPost_Gif_
+  commentId: Overload:TraktNET.TraktCommentPost.Gif
+  fullName: TraktNET.TraktCommentPost.Gif
+  nameWithType: TraktCommentPost.Gif
 - uid: TraktNET.TraktCommentPost.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktCommentPost.html#TraktNET_TraktCommentPost_PrintMembers_System_Text_StringBuilder_
@@ -28348,6 +28657,18 @@ references:
   commentId: Overload:TraktNET.TraktCommentUpdatePost.GetHashCode
   fullName: TraktNET.TraktCommentUpdatePost.GetHashCode
   nameWithType: TraktCommentUpdatePost.GetHashCode
+- uid: TraktNET.TraktCommentUpdatePost.Gif
+  name: Gif
+  href: api/TraktNET.TraktCommentUpdatePost.html#TraktNET_TraktCommentUpdatePost_Gif
+  commentId: P:TraktNET.TraktCommentUpdatePost.Gif
+  fullName: TraktNET.TraktCommentUpdatePost.Gif
+  nameWithType: TraktCommentUpdatePost.Gif
+- uid: TraktNET.TraktCommentUpdatePost.Gif*
+  name: Gif
+  href: api/TraktNET.TraktCommentUpdatePost.html#TraktNET_TraktCommentUpdatePost_Gif_
+  commentId: Overload:TraktNET.TraktCommentUpdatePost.Gif
+  fullName: TraktNET.TraktCommentUpdatePost.Gif
+  nameWithType: TraktCommentUpdatePost.Gif
 - uid: TraktNET.TraktCommentUpdatePost.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktCommentUpdatePost.html#TraktNET_TraktCommentUpdatePost_PrintMembers_System_Text_StringBuilder_
@@ -28999,6 +29320,24 @@ references:
   fullName.vb: TraktNET.TraktCommentsModule.PostCommentReplyAsync(UInteger, String, Boolean?, System.Threading.CancellationToken)
   nameWithType: TraktCommentsModule.PostCommentReplyAsync(uint, string, bool?, CancellationToken)
   nameWithType.vb: TraktCommentsModule.PostCommentReplyAsync(UInteger, String, Boolean?, CancellationToken)
+- uid: TraktNET.TraktCommentsModule.PostCommentReplyAsync(System.UInt32,System.String,System.Nullable{System.Boolean},TraktNET.TraktCommentGif,System.Threading.CancellationToken)
+  name: PostCommentReplyAsync(uint, string?, bool?, TraktCommentGif?, CancellationToken)
+  href: api/TraktNET.TraktCommentsModule.html#TraktNET_TraktCommentsModule_PostCommentReplyAsync_System_UInt32_System_String_System_Nullable_System_Boolean__TraktNET_TraktCommentGif_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCommentsModule.PostCommentReplyAsync(System.UInt32,System.String,System.Nullable{System.Boolean},TraktNET.TraktCommentGif,System.Threading.CancellationToken)
+  name.vb: PostCommentReplyAsync(UInteger, String, Boolean?, TraktCommentGif, CancellationToken)
+  fullName: TraktNET.TraktCommentsModule.PostCommentReplyAsync(uint, string?, bool?, TraktNET.TraktCommentGif?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCommentsModule.PostCommentReplyAsync(UInteger, String, Boolean?, TraktNET.TraktCommentGif, System.Threading.CancellationToken)
+  nameWithType: TraktCommentsModule.PostCommentReplyAsync(uint, string?, bool?, TraktCommentGif?, CancellationToken)
+  nameWithType.vb: TraktCommentsModule.PostCommentReplyAsync(UInteger, String, Boolean?, TraktCommentGif, CancellationToken)
+- uid: TraktNET.TraktCommentsModule.PostCommentReplyAsync(System.UInt32,TraktNET.TraktCommentReplyPost,System.Threading.CancellationToken)
+  name: PostCommentReplyAsync(uint, TraktCommentReplyPost, CancellationToken)
+  href: api/TraktNET.TraktCommentsModule.html#TraktNET_TraktCommentsModule_PostCommentReplyAsync_System_UInt32_TraktNET_TraktCommentReplyPost_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCommentsModule.PostCommentReplyAsync(System.UInt32,TraktNET.TraktCommentReplyPost,System.Threading.CancellationToken)
+  name.vb: PostCommentReplyAsync(UInteger, TraktCommentReplyPost, CancellationToken)
+  fullName: TraktNET.TraktCommentsModule.PostCommentReplyAsync(uint, TraktNET.TraktCommentReplyPost, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCommentsModule.PostCommentReplyAsync(UInteger, TraktNET.TraktCommentReplyPost, System.Threading.CancellationToken)
+  nameWithType: TraktCommentsModule.PostCommentReplyAsync(uint, TraktCommentReplyPost, CancellationToken)
+  nameWithType.vb: TraktCommentsModule.PostCommentReplyAsync(UInteger, TraktCommentReplyPost, CancellationToken)
 - uid: TraktNET.TraktCommentsModule.PostCommentReplyAsync*
   name: PostCommentReplyAsync
   href: api/TraktNET.TraktCommentsModule.html#TraktNET_TraktCommentsModule_PostCommentReplyAsync_
@@ -29119,6 +29458,24 @@ references:
   fullName.vb: TraktNET.TraktCommentsModule.UpdateCommentAsync(UInteger, String, Boolean?, System.Threading.CancellationToken)
   nameWithType: TraktCommentsModule.UpdateCommentAsync(uint, string, bool?, CancellationToken)
   nameWithType.vb: TraktCommentsModule.UpdateCommentAsync(UInteger, String, Boolean?, CancellationToken)
+- uid: TraktNET.TraktCommentsModule.UpdateCommentAsync(System.UInt32,System.String,System.Nullable{System.Boolean},TraktNET.TraktCommentGif,System.Threading.CancellationToken)
+  name: UpdateCommentAsync(uint, string?, bool?, TraktCommentGif?, CancellationToken)
+  href: api/TraktNET.TraktCommentsModule.html#TraktNET_TraktCommentsModule_UpdateCommentAsync_System_UInt32_System_String_System_Nullable_System_Boolean__TraktNET_TraktCommentGif_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCommentsModule.UpdateCommentAsync(System.UInt32,System.String,System.Nullable{System.Boolean},TraktNET.TraktCommentGif,System.Threading.CancellationToken)
+  name.vb: UpdateCommentAsync(UInteger, String, Boolean?, TraktCommentGif, CancellationToken)
+  fullName: TraktNET.TraktCommentsModule.UpdateCommentAsync(uint, string?, bool?, TraktNET.TraktCommentGif?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCommentsModule.UpdateCommentAsync(UInteger, String, Boolean?, TraktNET.TraktCommentGif, System.Threading.CancellationToken)
+  nameWithType: TraktCommentsModule.UpdateCommentAsync(uint, string?, bool?, TraktCommentGif?, CancellationToken)
+  nameWithType.vb: TraktCommentsModule.UpdateCommentAsync(UInteger, String, Boolean?, TraktCommentGif, CancellationToken)
+- uid: TraktNET.TraktCommentsModule.UpdateCommentAsync(System.UInt32,TraktNET.TraktCommentUpdatePost,System.Threading.CancellationToken)
+  name: UpdateCommentAsync(uint, TraktCommentUpdatePost, CancellationToken)
+  href: api/TraktNET.TraktCommentsModule.html#TraktNET_TraktCommentsModule_UpdateCommentAsync_System_UInt32_TraktNET_TraktCommentUpdatePost_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktCommentsModule.UpdateCommentAsync(System.UInt32,TraktNET.TraktCommentUpdatePost,System.Threading.CancellationToken)
+  name.vb: UpdateCommentAsync(UInteger, TraktCommentUpdatePost, CancellationToken)
+  fullName: TraktNET.TraktCommentsModule.UpdateCommentAsync(uint, TraktNET.TraktCommentUpdatePost, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktCommentsModule.UpdateCommentAsync(UInteger, TraktNET.TraktCommentUpdatePost, System.Threading.CancellationToken)
+  nameWithType: TraktCommentsModule.UpdateCommentAsync(uint, TraktCommentUpdatePost, CancellationToken)
+  nameWithType.vb: TraktCommentsModule.UpdateCommentAsync(UInteger, TraktCommentUpdatePost, CancellationToken)
 - uid: TraktNET.TraktCommentsModule.UpdateCommentAsync*
   name: UpdateCommentAsync
   href: api/TraktNET.TraktCommentsModule.html#TraktNET_TraktCommentsModule_UpdateCommentAsync_
@@ -125983,6 +126340,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktComment
   fullName: TraktNET.UsersJsonSerializerContext.TraktComment
   nameWithType: UsersJsonSerializerContext.TraktComment
+- uid: TraktNET.UsersJsonSerializerContext.TraktCommentGif
+  name: TraktCommentGif
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktCommentGif
+  commentId: P:TraktNET.UsersJsonSerializerContext.TraktCommentGif
+  fullName: TraktNET.UsersJsonSerializerContext.TraktCommentGif
+  nameWithType: UsersJsonSerializerContext.TraktCommentGif
+- uid: TraktNET.UsersJsonSerializerContext.TraktCommentGif*
+  name: TraktCommentGif
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktCommentGif_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktCommentGif
+  fullName: TraktNET.UsersJsonSerializerContext.TraktCommentGif
+  nameWithType: UsersJsonSerializerContext.TraktCommentGif
 - uid: TraktNET.UsersJsonSerializerContext.TraktCommentObjectType
   name: TraktCommentObjectType
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktCommentObjectType
