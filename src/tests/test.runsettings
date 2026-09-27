@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <!-- MaxCpuCount: 0 value causes parallel execution using all available CPU cores in VSTest / Visual Studio Test Explorer -->
+    <MaxCpuCount>0</MaxCpuCount>
+  </RunConfiguration>
+  <xUnit>
+    <MaxParallelThreads>0</MaxParallelThreads>
+    <ParallelizeTestCollections>true</ParallelizeTestCollections>
+  </xUnit>
+</RunSettings>

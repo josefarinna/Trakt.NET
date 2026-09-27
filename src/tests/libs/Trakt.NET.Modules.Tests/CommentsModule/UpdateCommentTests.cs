@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.CommentsModule
 {
@@ -91,6 +91,46 @@ namespace TraktNET.CommentsModule
             responseValue.Sharing.ShouldNotBeNull();
             responseValue.Sharing.Twitter.ShouldBe(true);
             responseValue.Sharing.Tumblr.ShouldBe(true);
+        }
+
+        [Fact]
+        public async Task TestUpdateCommentWithGif()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentpostresponse.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(UpdateCommentUri, responseContent);
+
+            TraktResponse<TraktCommentPostResponse> response = await client.Comments.UpdateCommentAsync(CommentID, CommentText, Spoiler,
+                "https://example.com/test.gif", 480, 270, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestUpdateCommentWithPostModel()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Comments\\commentpostresponse.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(UpdateCommentUri, responseContent);
+
+            var postModel = new TraktCommentUpdatePost
+            {
+                Comment = CommentText,
+                Spoiler = Spoiler,
+                Gif = "https://example.com/test.gif",
+                GifWidth = 480,
+                GifHeight = 270
+            };
+
+            TraktResponse<TraktCommentPostResponse> response = await client.Comments.UpdateCommentAsync(CommentID, postModel, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Theory]

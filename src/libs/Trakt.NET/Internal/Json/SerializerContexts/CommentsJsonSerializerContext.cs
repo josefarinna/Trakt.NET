@@ -20,6 +20,14 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktCommentUserReaction))]
     [JsonSerializable(typeof(IReadOnlyList<TraktCommentUserReaction>))]
     [JsonSerializable(typeof(TraktCommentReactionSummary))]
+    [JsonSerializable(typeof(TraktCommentPost))]
+    [JsonSerializable(typeof(TraktCommentReplyPost))]
+    [JsonSerializable(typeof(TraktCommentUpdatePost))]
+    [JsonSerializable(typeof(TraktMovieCommentPost))]
+    [JsonSerializable(typeof(TraktShowCommentPost))]
+    [JsonSerializable(typeof(TraktSeasonCommentPost))]
+    [JsonSerializable(typeof(TraktEpisodeCommentPost))]
+    [JsonSerializable(typeof(TraktListCommentPost))]
     public sealed partial class CommentsJsonSerializerContext : JsonSerializerContext
     {
     }

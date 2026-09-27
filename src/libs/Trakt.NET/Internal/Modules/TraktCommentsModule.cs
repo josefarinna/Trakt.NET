@@ -186,37 +186,55 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktCommentPostResponse>> UpdateCommentImplAsync(uint commentId, string comment, bool? containsSpoiler = null,
-            CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktCommentPostResponse>> UpdateCommentImplAsync(uint commentId, string? comment, bool? containsSpoiler = null,
+            string? gif = null, uint? gifWidth = null, uint? gifHeight = null, CancellationToken cancellationToken = default)
         {
             var content = new TraktCommentUpdatePost
             {
                 Comment = comment,
-                Spoiler = containsSpoiler
+                Spoiler = containsSpoiler,
+                Gif = gif,
+                GifWidth = gifWidth,
+                GifHeight = gifHeight
             };
 
+            return UpdateCommentImplAsync(commentId, content, cancellationToken);
+        }
+
+        private Task<TraktResponse<TraktCommentPostResponse>> UpdateCommentImplAsync(uint commentId, TraktCommentUpdatePost commentUpdatePost,
+            CancellationToken cancellationToken = default)
+        {
             var request = new CommentUpdatePutRequest
             {
                 Id = commentId,
-                TraktCommentUpdatePost = content
+                TraktCommentUpdatePost = commentUpdatePost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktCommentPostResponse>> PostCommentReplyImplAsync(uint commentId, string comment, bool? containsSpoiler = null,
-            CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktCommentPostResponse>> PostCommentReplyImplAsync(uint commentId, string? comment, bool? containsSpoiler = null,
+            string? gif = null, uint? gifWidth = null, uint? gifHeight = null, CancellationToken cancellationToken = default)
         {
             var content = new TraktCommentReplyPost
             {
                 Comment = comment,
-                Spoiler = containsSpoiler
+                Spoiler = containsSpoiler,
+                Gif = gif,
+                GifWidth = gifWidth,
+                GifHeight = gifHeight
             };
 
+            return PostCommentReplyImplAsync(commentId, content, cancellationToken);
+        }
+
+        private Task<TraktResponse<TraktCommentPostResponse>> PostCommentReplyImplAsync(uint commentId, TraktCommentReplyPost commentReplyPost,
+            CancellationToken cancellationToken = default)
+        {
             var request = new CommentReplyPostRequest
             {
                 Id = commentId,
-                TraktCommentReplyPost = content
+                TraktCommentReplyPost = commentReplyPost
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktCommentPostResponse>(_context, request, cancellationToken);

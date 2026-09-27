@@ -11,6 +11,8 @@ namespace TraktNET.Json.Comments
             comment.ParentID.ShouldBeNull();
             comment.Comment.ShouldBeNull();
             comment.Gif.ShouldBeNull();
+            comment.GifWidth.ShouldBeNull();
+            comment.GifHeight.ShouldBeNull();
             comment.Spoiler.ShouldBeNull();
             comment.Review.ShouldBeNull();
             comment.Replies.ShouldBeNull();
@@ -32,6 +34,8 @@ namespace TraktNET.Json.Comments
             comment!.ParentID.ShouldBe(0U);
             comment!.Comment.ShouldBe("Comment content.");
             comment!.Gif.ShouldBe("https://example.com/image.gif");
+            comment!.GifWidth.ShouldBe(480U);
+            comment!.GifHeight.ShouldBe(270U);
             comment!.Spoiler.ShouldBe(false);
             comment!.Review.ShouldBe(false);
             comment!.Replies.ShouldBe(0U);

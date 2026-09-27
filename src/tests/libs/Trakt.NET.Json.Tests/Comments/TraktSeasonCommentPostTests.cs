@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Comments
+namespace TraktNET.Json.Comments
 {
     public sealed class TraktSeasonCommentPostTests
     {
@@ -40,6 +40,17 @@
             {
                 IDs = new TraktSeasonIDs { Trakt = 1U }
             };
+            act.ShouldNotThrow();
+
+            // valid with GIF and null comment
+            SeasonCommentPost.Comment = null;
+            SeasonCommentPost.Gif = "https://example.com/test.gif";
+            SeasonCommentPost.GifWidth = 480;
+            SeasonCommentPost.GifHeight = 270;
+            act.ShouldNotThrow();
+
+            // valid with GIF and short comment
+            SeasonCommentPost.Comment = "nice";
             act.ShouldNotThrow();
         }
     }

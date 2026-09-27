@@ -68,12 +68,9 @@ namespace TraktNET
             }
 
 #if TRAKT_NET_4XX_FRAMEWORK_TARGET
-            _location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
-
-            // Known issue in 4.x.x .NET versions.
-            // Filepaths do not work with URIs.
-            // This is a workaround.
-            _location = _location.Replace("file:\\", string.Empty);
+            string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+            var uri = new Uri(codeBase);
+            _location = Path.GetDirectoryName(uri.LocalPath);
 #else
             _location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 #endif

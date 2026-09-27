@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Comments
+namespace TraktNET.Json.Comments
 {
     public sealed class TraktCommentUpdatePostTests
     {
@@ -22,6 +22,17 @@
 
             // valid
             commentReplyPost.Comment = "one two three four five";
+            act.ShouldNotThrow();
+
+            // valid with GIF and null comment
+            commentReplyPost.Comment = null;
+            commentReplyPost.Gif = "https://example.com/test.gif";
+            commentReplyPost.GifWidth = 480;
+            commentReplyPost.GifHeight = 270;
+            act.ShouldNotThrow();
+
+            // valid with GIF and short comment
+            commentReplyPost.Comment = "nice";
             act.ShouldNotThrow();
         }
     }
