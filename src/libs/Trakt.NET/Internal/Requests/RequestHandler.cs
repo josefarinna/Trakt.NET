@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Http.Headers;
 
 namespace TraktNET
@@ -17,11 +18,16 @@ namespace TraktNET
         {
             using var response = (ContentRequestResponse)await ExecuteRequestAsync(true, context, request, cancellationToken).ConfigureAwait(false);
 
-            TResponseContentType? responseContent =
-                await response.ResponseContentStream.ReadAsJsonAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
+            TResponseContentType? responseContent = null;
+
+            if (response.ResponseMessage.StatusCode != HttpStatusCode.NoContent)
+            {
+                responseContent =
+                    await response.ResponseContentStream.ReadAsJsonAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
+            }
 
             return TraktResponse<TResponseContentType>.Create(response.ResponseMessage.StatusCode, responseContent,
-                response.TraktHeaders, response.ResponseMessage.Headers, response.ResponseMessage.Content.Headers);
+                response.TraktHeaders, response.ResponseMessage.Headers, response.ResponseMessage.Content?.Headers);
         }
 
         internal static async Task<TraktListResponse<TResponseContentType>> ExecuteListRequestAsync<TResponseContentType>(
@@ -29,11 +35,16 @@ namespace TraktNET
         {
             using var response = (ContentRequestResponse)await ExecuteRequestAsync(true, context, request, cancellationToken).ConfigureAwait(false);
 
-            IReadOnlyList<TResponseContentType>? responseContent =
-                await response.ResponseContentStream.ReadAsJsonArrayAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
+            IReadOnlyList<TResponseContentType>? responseContent = null;
+
+            if (response.ResponseMessage.StatusCode != HttpStatusCode.NoContent)
+            {
+                responseContent =
+                    await response.ResponseContentStream.ReadAsJsonArrayAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
+            }
 
             return TraktListResponse<TResponseContentType>.Create(response.ResponseMessage.StatusCode, responseContent,
-                response.TraktHeaders, response.ResponseMessage.Headers, response.ResponseMessage.Content.Headers);
+                response.TraktHeaders, response.ResponseMessage.Headers, response.ResponseMessage.Content?.Headers);
         }
 
         internal static async Task<TraktPagedResponse<TResponseContentType>> ExecutePagedListRequestAsync<TResponseContentType>(
@@ -41,11 +52,16 @@ namespace TraktNET
         {
             using var response = (ContentRequestResponse)await ExecuteRequestAsync(true, context, request, cancellationToken).ConfigureAwait(false);
 
-            IReadOnlyList<TResponseContentType>? responseContent =
-                await response.ResponseContentStream.ReadAsJsonArrayAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
+            IReadOnlyList<TResponseContentType>? responseContent = null;
+
+            if (response.ResponseMessage.StatusCode != HttpStatusCode.NoContent)
+            {
+                responseContent =
+                    await response.ResponseContentStream.ReadAsJsonArrayAsync<TResponseContentType>(cancellationToken).ConfigureAwait(false);
+            }
 
             var pagedResponse = TraktPagedResponse<TResponseContentType>.Create(response.ResponseMessage.StatusCode, responseContent,
-                response.TraktHeaders, response.ResponseMessage.Headers, response.ResponseMessage.Content.Headers);
+                response.TraktHeaders, response.ResponseMessage.Headers, response.ResponseMessage.Content?.Headers);
 
             pagedResponse.Context = context;
             pagedResponse.RequestBuilder = requestBuilder;
@@ -74,11 +90,16 @@ namespace TraktNET
 
             if (withContent)
             {
+                Stream responseContentStream = Stream.Null;
+
+                if (responseMessage.StatusCode != HttpStatusCode.NoContent && responseMessage.Content != null)
+                {
 #if NET5_0_OR_GREATER
-                Stream responseContentStream = await GetResponseContentStreamAsync(responseMessage, cancellationToken).ConfigureAwait(false);
+                    responseContentStream = await GetResponseContentStreamAsync(responseMessage, cancellationToken).ConfigureAwait(false);
 #else
-                Stream responseContentStream = await GetResponseContentStreamAsync(responseMessage).ConfigureAwait(false);
+                    responseContentStream = await GetResponseContentStreamAsync(responseMessage).ConfigureAwait(false);
 #endif
+                }
 
                 return new ContentRequestResponse
                 {

@@ -973,9 +973,11 @@ namespace TraktNET
         /// </param>
         /// <returns>
         /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing statistics about movies, shows and episodes.
+        /// <para>Returns <c>204 No Content</c> when no precomputed stats are available.</para>
         /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktUserStatistics" />.</para>
         /// </returns>
         /// <remarks>
+        /// <para>VIP only.</para>
         /// OAuth authorization is optional.
         /// <para><see href="https://docs.trakt.tv/reference/getusersstats">
         /// Trakt API Documentation: Users: Stats
