@@ -7022,13 +7022,15 @@ Trakt API Documentation: Users: Smart Lists
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktUserStatistics.html">TraktUserStatistics</a>&gt;&gt;</td>
         <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing statistics about movies, shows and episodes.</p>
+<p>Returns <code>204 No Content</code> when no precomputed stats are available.</p>
 <p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktUserStatistics.html">TraktUserStatistics</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="TraktNET_TraktUsersModule_GetStatisticsAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
+  <div class="markdown level1 remarks"><p>VIP only.</p>
+<p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getusersstats">
 Trakt API Documentation: Users: Stats
 </a></p>
