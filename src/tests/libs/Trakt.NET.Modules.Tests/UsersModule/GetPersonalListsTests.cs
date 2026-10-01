@@ -9,6 +9,8 @@ namespace TraktNET.UsersModule
         private const uint ListItemCount = 2U;
         private const uint Page = 4U;
         private const uint Limit = 20U;
+        private const TraktSortBy SortBy = TraktSortBy.Rank;
+        private const TraktSortHow SortHow = TraktSortHow.Ascending;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
@@ -19,6 +21,66 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetClient(GetPersonalListsUri, responseContent, 1, 1, 10, ListItemCount);
 
             TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsWithSortBy()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?sort_by={SortBy.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, sortBy: SortBy, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsWithSortHow()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?sort_how={SortHow.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, sortHow: SortHow, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(10U);
+            response.Page.ShouldBe(1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetPersonalListsWithSortByAndSortHow()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?sort_by={SortBy.ToURI()}&sort_how={SortHow.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
+
+            TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username, SortBy, SortHow, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -116,11 +178,12 @@ namespace TraktNET.UsersModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\lists.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonalListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetPersonalListsUri}?sort_by={SortBy.ToURI()}&sort_how={SortHow.ToURI()}&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
                 responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktList> response = await client.Users.GetPersonalListsAsync(Username,
-                extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                SortBy, SortHow, ExtendedInfo, Page, Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();

@@ -348,6 +348,8 @@ namespace TraktNET
 
         /// <summary>Gets an user's personal lists.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal lists should be queried.</param>
+        /// <param name="sortBy">The sort by criteria for the personal lists. See also <seealso cref="TraktSortBy" />.</param>
+        /// <param name="sortHow">The sort order for the personal lists. See also <seealso cref="TraktSortHow" />.</param>
         /// <param name="extendedInfo">
         /// The extended info, which determines how much data about the personal lists should be queried.
         /// See also <seealso cref="TraktExtendedInfo" />.
@@ -373,9 +375,10 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         public Task<TraktPagedResponse<TraktList>> GetPersonalListsAsync(string usernameOrSlug,
+            TraktSortBy? sortBy = null, TraktSortHow? sortHow = null,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
-            => GetPersonalListsImplAsync(usernameOrSlug, extendedInfo, page, limit, cancellationToken);
+            => GetPersonalListsImplAsync(usernameOrSlug, sortBy, sortHow, extendedInfo, page, limit, cancellationToken);
 
         /// <summary>Creates a new personal list.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the personal list should be created.</param>

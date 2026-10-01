@@ -222,12 +222,15 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktList>> GetPersonalListsImplAsync(string usernameOrSlug,
+            TraktSortBy? sortBy = null, TraktSortHow? sortHow = null,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
             CancellationToken cancellationToken = default)
         {
             var request = new UserPersonalListsGetRequest
             {
                 Id = usernameOrSlug,
+                SortBy = sortBy,
+                SortHow = sortHow,
                 ExtendedInfo = extendedInfo,
                 Page = page,
                 Limit = limit
@@ -237,6 +240,8 @@ namespace TraktNET
                 => new UserPersonalListsGetRequest
                 {
                     Id = usernameOrSlug,
+                    SortBy = sortBy,
+                    SortHow = sortHow,
                     ExtendedInfo = extendedInfo,
                     Page = page,
                     Limit = limit

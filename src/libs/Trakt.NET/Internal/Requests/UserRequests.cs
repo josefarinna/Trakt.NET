@@ -141,6 +141,11 @@ namespace TraktNET
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserPersonalListsGetRequest
     {
+        [TraktRequestQuery("sort_by")]
+        internal TraktSortBy? SortBy { get; set; }
+
+        [TraktRequestQuery("sort_how")]
+        internal TraktSortHow? SortHow { get; set; }
     }
 
     [TraktGetRequest("users/{id!!}/lists/{list_id!!}", OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
