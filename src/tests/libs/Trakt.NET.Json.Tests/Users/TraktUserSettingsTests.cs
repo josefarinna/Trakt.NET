@@ -43,6 +43,7 @@ namespace TraktNET.Json.Users
             userSettings.User.VIPOG.ShouldBe(true);
             userSettings.User.VIPYears.ShouldBe(5U);
             userSettings.User.VIPCoverImage.ShouldBe("https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg");
+            userSettings.User.Email.ShouldBe("sean@example.com");
 
             userSettings.Account.ShouldNotBeNull();
             userSettings.Account.Timezone.ShouldBe("America/Los_Angeles");

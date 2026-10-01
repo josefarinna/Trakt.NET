@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -37,5 +37,8 @@ namespace TraktNET
         /// <summary>The user's VIP cover image.</summary>
         [JsonPropertyName("vip_cover_image")]
         public string? VIPCoverImage { get; set; }
+
+        /// <summary>The user's email address.</summary>
+        public string? Email { get; set; }
     }
 }

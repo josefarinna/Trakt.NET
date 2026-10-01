@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Users
+namespace TraktNET.Json.Users
 {
     public sealed class TraktUserTests
     {
@@ -22,6 +22,7 @@
             user.VIPOG.ShouldBeNull();
             user.VIPYears.ShouldBeNull();
             user.VIPCoverImage.ShouldBeNull();
+            user.Email.ShouldBeNull();
         }
 
         [Fact]
@@ -76,6 +77,7 @@
             user!.VIPOG.ShouldBe(false);
             user!.VIPYears.ShouldBe(6U);
             user!.VIPCoverImage.ShouldBe("https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg");
+            user!.Email.ShouldBeNull();
         }
     }
 }
