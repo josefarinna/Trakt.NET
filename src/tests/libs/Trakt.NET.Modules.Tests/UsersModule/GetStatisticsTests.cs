@@ -218,6 +218,35 @@ namespace TraktNET.UsersModule
             responseValue.TotalPlays.ShouldBe(12473U);
         }
 
+        [Fact]
+        public async Task TestGetStatisticsWithNoContent()
+        {
+            TraktClient client = ModuleTestUtility.GetClient(GetStatisticsUri, HttpStatusCode.NoContent);
+
+            TraktResponse<TraktUserStatistics> response = await client.Users.GetStatisticsAsync(Username, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeFalse();
+            response.Content.ShouldBeNull();
+            response.StatusCode.ShouldBe(HttpStatusCode.NoContent);
+        }
+
+        [Fact]
+        public async Task TestGetStatisticsWithNoContentOAuthEnforced()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(GetStatisticsUri, HttpStatusCode.NoContent);
+            client.IgnoreOAuthIfOptional = false;
+
+            TraktResponse<TraktUserStatistics> response = await client.Users.GetStatisticsAsync(Username, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeFalse();
+            response.Content.ShouldBeNull();
+            response.StatusCode.ShouldBe(HttpStatusCode.NoContent);
+        }
+
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
