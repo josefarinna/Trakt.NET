@@ -50,6 +50,7 @@ namespace TraktNET.UsersModule
             responseValue.User.Images.ShouldNotBeNull();
             responseValue.User.Images.Avatar.ShouldNotBeNull();
             responseValue.User.Images.Avatar.Full.ShouldBe("https://walter-dev.trakt.tv/images/users/000/000/001/avatars/large/0ba3f72910.jpg");
+            responseValue.User.Email.ShouldBe("sean@example.com");
             responseValue.Account.ShouldNotBeNull();
             responseValue.Account.DateFormat.ShouldBe(TraktDateFormat.DayMonthYear);
             responseValue.Account.Timezone.ShouldBe("America/Los_Angeles");
