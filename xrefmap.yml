@@ -97663,6 +97663,18 @@ references:
   commentId: Overload:TraktNET.TraktUser.Deleted
   fullName: TraktNET.TraktUser.Deleted
   nameWithType: TraktUser.Deleted
+- uid: TraktNET.TraktUser.Email
+  name: Email
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_Email
+  commentId: P:TraktNET.TraktUser.Email
+  fullName: TraktNET.TraktUser.Email
+  nameWithType: TraktUser.Email
+- uid: TraktNET.TraktUser.Email*
+  name: Email
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_Email_
+  commentId: Overload:TraktNET.TraktUser.Email
+  fullName: TraktNET.TraktUser.Email
+  nameWithType: TraktUser.Email
 - uid: TraktNET.TraktUser.EqualityContract
   name: EqualityContract
   href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_EqualityContract
