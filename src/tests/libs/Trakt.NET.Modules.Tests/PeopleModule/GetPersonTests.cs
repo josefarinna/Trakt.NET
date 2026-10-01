@@ -139,6 +139,7 @@ namespace TraktNET.PeopleModule
                 age--;
             responseValue.Age.ShouldBe(age);
             responseValue.Birthplace.ShouldBe("Hollywood, Los Angeles, California, USA");
+            responseValue.Height.ShouldBe(179.0f);
             responseValue.Homepage.ShouldBe("http://www.bryancranston.com/");
         }
 

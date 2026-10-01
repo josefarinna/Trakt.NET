@@ -1,4 +1,4 @@
-﻿#if NET7_0_OR_GREATER
+#if NET7_0_OR_GREATER
 using System.Globalization;
 #endif
 using System.Text.Json.Serialization;
@@ -54,6 +54,9 @@ namespace TraktNET
                 return 0;
             }
         }
+
+        /// <summary>The height of the person.</summary>
+        public float? Height { get; set; }
 
         /// <summary>The birthplace of the person.</summary>
         public string? Birthplace { get; set; }

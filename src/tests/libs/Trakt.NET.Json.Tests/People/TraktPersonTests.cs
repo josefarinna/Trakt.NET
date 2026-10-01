@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.People
+namespace TraktNET.Json.People
 {
     public sealed class TraktPersonTests
     {
@@ -17,6 +17,7 @@
             person.Homepage.ShouldBeNull();
             person.KnownForDepartment.ShouldBeNull();
             person.Gender.ShouldBeNull();
+            person.Height.ShouldBeNull();
             person.UpdatedAt.ShouldBeNull();
         }
 
@@ -104,6 +105,7 @@
             person!.Homepage.ShouldBe("http://www.bryancranston.com/");
             person!.KnownForDepartment.ShouldBe(TraktKnownForDepartment.Acting);
             person!.Gender.ShouldBe(TraktGender.Male);
+            person!.Height.ShouldBe(179.0f);
             person!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-22T08:01:24.000Z"));
         }
 
@@ -145,6 +147,7 @@
             person!.Homepage.ShouldBeNull();
             person!.KnownForDepartment.ShouldBe(TraktKnownForDepartment.Acting);
             person!.Gender.ShouldBe(TraktGender.Male);
+            person!.Height.ShouldBe(179.0f);
             person!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-22T08:01:24.000Z"));
 
             person!.Images.ShouldNotBeNull();

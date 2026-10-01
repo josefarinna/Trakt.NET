@@ -20,6 +20,7 @@ namespace TraktNET.Json.People
             recentlyUpdatedPerson.Birthplace.ShouldBeNull();
             recentlyUpdatedPerson.Homepage.ShouldBeNull();
             recentlyUpdatedPerson.Gender.ShouldBeNull();
+            recentlyUpdatedPerson.Height.ShouldBeNull();
             recentlyUpdatedPerson.KnownForDepartment.ShouldBeNull();
             recentlyUpdatedPerson.SocialIds.ShouldBeNull();
             recentlyUpdatedPerson.UpdatedAt.ShouldBeNull();
@@ -51,6 +52,7 @@ namespace TraktNET.Json.People
             recentlyUpdatedPerson.Person.Birthplace.ShouldBe("San Fernando Valley, California, USA");
             recentlyUpdatedPerson.Person.Homepage.ShouldBe("http://www.bryancranston.com/");
             recentlyUpdatedPerson.Person.Gender.ShouldBe(TraktGender.Male);
+            recentlyUpdatedPerson.Person.Height.ShouldBe(179.0f);
             recentlyUpdatedPerson.Person.KnownForDepartment.ShouldBe(TraktKnownForDepartment.Acting);
             recentlyUpdatedPerson.Person.SocialIDs.ShouldNotBeNull();
             recentlyUpdatedPerson.Person.SocialIDs.Twitter.ShouldBe("BryanCranston");
@@ -77,6 +79,7 @@ namespace TraktNET.Json.People
             recentlyUpdatedPerson.Birthplace.ShouldBe("San Fernando Valley, California, USA");
             recentlyUpdatedPerson.Homepage.ShouldBe("http://www.bryancranston.com/");
             recentlyUpdatedPerson.Gender.ShouldBe(TraktGender.Male);
+            recentlyUpdatedPerson.Height.ShouldBe(179.0f);
             recentlyUpdatedPerson.KnownForDepartment.ShouldBe(TraktKnownForDepartment.Acting);
             recentlyUpdatedPerson.SocialIds.ShouldNotBeNull();
             recentlyUpdatedPerson.SocialIds.Twitter.ShouldBe("BryanCranston");

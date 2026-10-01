@@ -69,6 +69,13 @@ namespace TraktNET
         public int Age => Person != null ? Person.Age : 0;
 
         [JsonIgnore]
+        public float? Height
+        {
+            get => Person?.Height;
+            set => Person?.Height = value;
+        }
+
+        [JsonIgnore]
         public string? Birthplace
         {
             get => Person?.Birthplace;
