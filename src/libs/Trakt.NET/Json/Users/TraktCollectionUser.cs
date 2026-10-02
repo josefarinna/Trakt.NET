@@ -134,5 +134,53 @@ namespace TraktNET
             get => User?.VIPCoverImage;
             set => User?.VIPCoverImage = value;
         }
+
+        /// <summary>Gets or sets the UTC datetime when the user's unbroken paid VIP status started.</summary>
+        [JsonIgnore]
+        public DateTime? VIPVeteranSince
+        {
+            get => User?.VIPVeteranSince;
+            set => User?.VIPVeteranSince = value;
+        }
+
+        /// <summary>Gets or sets the whole years since the user's unbroken paid VIP status started.</summary>
+        [JsonIgnore]
+        public uint? VIPVeteranYears
+        {
+            get => User?.VIPVeteranYears;
+            set => User?.VIPVeteranYears = value;
+        }
+
+        /// <summary>Gets or sets the highest reached rung of the 1 / 3 / 5 / 7 / 10 year ladder for the user's VIP status.</summary>
+        [JsonIgnore]
+        public uint? VIPVeteranTier
+        {
+            get => User?.VIPVeteranTier;
+            set => User?.VIPVeteranTier = value;
+        }
+
+        /// <summary>Gets or sets the VIP veteran title for the user. See also <seealso cref="TraktVIPVeteranTitle" />.</summary>
+        [JsonIgnore]
+        public TraktVIPVeteranTitle? VIPVeteranTitle
+        {
+            get => User?.VIPVeteranTitle;
+            set => User?.VIPVeteranTitle = value;
+        }
+
+        /// <summary>Gets or sets the UTC datetime when the user's VIP grace period ends.</summary>
+        [JsonIgnore]
+        public DateTime? VIPGraceEndsAt
+        {
+            get => User?.VIPGraceEndsAt;
+            set => User?.VIPGraceEndsAt = value;
+        }
+
+        /// <summary>Gets or sets the user's email address.</summary>
+        [JsonIgnore]
+        public string? Email
+        {
+            get => User?.Email;
+            set => User?.Email = value;
+        }
     }
 }

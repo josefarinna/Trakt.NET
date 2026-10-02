@@ -20,5 +20,10 @@
   },
   "vip_og": false,
   "vip_years": 6,
-  "vip_cover_image": "https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg"
+  "vip_cover_image": "https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg",
+  "vip_veteran_since": "2020-03-01T00:00:00.000Z",
+  "vip_veteran_years": 5,
+  "vip_veteran_tier": 5,
+  "vip_veteran_title": "veteran",
+  "vip_grace_ends_at": "2025-04-01T00:00:00.000Z"
 }

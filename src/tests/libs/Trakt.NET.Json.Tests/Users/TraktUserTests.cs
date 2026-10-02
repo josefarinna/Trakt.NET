@@ -22,6 +22,11 @@ namespace TraktNET.Json.Users
             user.VIPOG.ShouldBeNull();
             user.VIPYears.ShouldBeNull();
             user.VIPCoverImage.ShouldBeNull();
+            user.VIPVeteranSince.ShouldBeNull();
+            user.VIPVeteranYears.ShouldBeNull();
+            user.VIPVeteranTier.ShouldBeNull();
+            user.VIPVeteranTitle.ShouldBeNull();
+            user.VIPGraceEndsAt.ShouldBeNull();
             user.Email.ShouldBeNull();
         }
 
@@ -77,6 +82,11 @@ namespace TraktNET.Json.Users
             user!.VIPOG.ShouldBe(false);
             user!.VIPYears.ShouldBe(6U);
             user!.VIPCoverImage.ShouldBe("https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg");
+            user!.VIPVeteranSince.ShouldBe(TestUtility.ParseUTCDateTime("2020-03-01T00:00:00.000Z"));
+            user!.VIPVeteranYears.ShouldBe(5U);
+            user!.VIPVeteranTier.ShouldBe(5U);
+            user!.VIPVeteranTitle.ShouldBe(TraktVIPVeteranTitle.Veteran);
+            user!.VIPGraceEndsAt.ShouldBe(TestUtility.ParseUTCDateTime("2025-04-01T00:00:00.000Z"));
             user!.Email.ShouldBeNull();
         }
     }

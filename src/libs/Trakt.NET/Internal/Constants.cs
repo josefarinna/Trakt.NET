@@ -175,6 +175,7 @@ namespace TraktNET
                     new TraktUserSocialActivityTypeJsonConverter(),
                     new TraktUserSyncItemKindJsonConverter(),
                     new TraktUserSyncTypeJsonConverter(),
+                    new TraktVIPVeteranTitleJsonConverter(),
                     new TraktVideoTypeJsonConverter()
                 }
             };
