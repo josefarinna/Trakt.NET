@@ -9972,6 +9972,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktVIPVeteranTitle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktVIPVeteranTitle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktVIPVeteranTitle",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktVIPVeteranTitle.yml\" sourcestartlinenumber=\"1\">Determines the VIP veteran title of a user.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktVIPVeteranTitleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktVIPVeteranTitleExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktVIPVeteranTitleExtensions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktVIPVeteranTitleExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktVIPVeteranTitle\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktVIPVeteranTitleJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktVIPVeteranTitleJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktVIPVeteranTitleJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktVIPVeteranTitleJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktVIPVeteranTitle\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktVideo.yml",
       "output": {
         ".html": {

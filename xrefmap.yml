@@ -2086,6 +2086,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.NullableTraktSortHow
   fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktSortHow
   nameWithType: CommentsJsonSerializerContext.NullableTraktSortHow
+- uid: TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableTraktVIPVeteranTitle
+  commentId: P:TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle*
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableTraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
 - uid: TraktNET.CommentsJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableUInt32
@@ -2782,6 +2794,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.CommentsJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: CommentsJsonSerializerContext.TraktUserImagesAvatar
+- uid: TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktVIPVeteranTitle
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: CommentsJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle*
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: CommentsJsonSerializerContext.TraktVIPVeteranTitle
 - uid: TraktNET.CommentsJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_UInt32
@@ -5815,6 +5839,18 @@ references:
   commentId: Overload:TraktNET.ListsJsonSerializerContext.NullableTraktSortHow
   fullName: TraktNET.ListsJsonSerializerContext.NullableTraktSortHow
   nameWithType: ListsJsonSerializerContext.NullableTraktSortHow
+- uid: TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableTraktVIPVeteranTitle
+  commentId: P:TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle*
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableTraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
 - uid: TraktNET.ListsJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableUInt32
@@ -6427,6 +6463,18 @@ references:
   commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.ListsJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: ListsJsonSerializerContext.TraktUserImagesAvatar
+- uid: TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktVIPVeteranTitle
+  commentId: P:TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: ListsJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle*
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: ListsJsonSerializerContext.TraktVIPVeteranTitle
 - uid: TraktNET.ListsJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_UInt32
@@ -8263,6 +8311,18 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktSortHow
   fullName: TraktNET.NotesJsonSerializerContext.NullableTraktSortHow
   nameWithType: NotesJsonSerializerContext.NullableTraktSortHow
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktVIPVeteranTitle
+  commentId: P:TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle*
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
 - uid: TraktNET.NotesJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableUInt32
@@ -8851,6 +8911,18 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.NotesJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: NotesJsonSerializerContext.TraktUserImagesAvatar
+- uid: TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktVIPVeteranTitle
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: NotesJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle*
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: NotesJsonSerializerContext.TraktVIPVeteranTitle
 - uid: TraktNET.NotesJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_UInt32
@@ -10807,6 +10879,18 @@ references:
   commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowStatus
   fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowStatus
   nameWithType: RecommendationsJsonSerializerContext.NullableTraktShowStatus
+- uid: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableTraktVIPVeteranTitle
+  commentId: P:TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle*
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableTraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
 - uid: TraktNET.RecommendationsJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableUInt32
@@ -11083,6 +11167,18 @@ references:
   commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.RecommendationsJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: RecommendationsJsonSerializerContext.TraktUserImagesAvatar
+- uid: TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_TraktVIPVeteranTitle
+  commentId: P:TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle*
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_TraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
 - uid: TraktNET.RecommendationsJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_UInt32
@@ -12406,6 +12502,18 @@ references:
   commentId: Overload:TraktNET.SearchsJsonSerializerContext.NullableTraktSortHow
   fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktSortHow
   nameWithType: SearchsJsonSerializerContext.NullableTraktSortHow
+- uid: TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableTraktVIPVeteranTitle
+  commentId: P:TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle*
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableTraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
 - uid: TraktNET.SearchsJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableUInt32
@@ -12934,6 +13042,18 @@ references:
   commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.SearchsJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: SearchsJsonSerializerContext.TraktUserImagesAvatar
+- uid: TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktVIPVeteranTitle
+  commentId: P:TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: SearchsJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle*
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: SearchsJsonSerializerContext.TraktVIPVeteranTitle
 - uid: TraktNET.SearchsJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_UInt32
@@ -15298,6 +15418,18 @@ references:
   commentId: Overload:TraktNET.SocialRecommendationsJsonSerializerContext.NullableTraktShowStatus
   fullName: TraktNET.SocialRecommendationsJsonSerializerContext.NullableTraktShowStatus
   nameWithType: SocialRecommendationsJsonSerializerContext.NullableTraktShowStatus
+- uid: TraktNET.SocialRecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.SocialRecommendationsJsonSerializerContext.html#TraktNET_SocialRecommendationsJsonSerializerContext_NullableTraktVIPVeteranTitle
+  commentId: P:TraktNET.SocialRecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.SocialRecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: SocialRecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.SocialRecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle*
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.SocialRecommendationsJsonSerializerContext.html#TraktNET_SocialRecommendationsJsonSerializerContext_NullableTraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.SocialRecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.SocialRecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: SocialRecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
 - uid: TraktNET.SocialRecommendationsJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.SocialRecommendationsJsonSerializerContext.html#TraktNET_SocialRecommendationsJsonSerializerContext_NullableUInt32
@@ -15562,6 +15694,18 @@ references:
   commentId: Overload:TraktNET.SocialRecommendationsJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.SocialRecommendationsJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: SocialRecommendationsJsonSerializerContext.TraktUserImagesAvatar
+- uid: TraktNET.SocialRecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.SocialRecommendationsJsonSerializerContext.html#TraktNET_SocialRecommendationsJsonSerializerContext_TraktVIPVeteranTitle
+  commentId: P:TraktNET.SocialRecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.SocialRecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: SocialRecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.SocialRecommendationsJsonSerializerContext.TraktVIPVeteranTitle*
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.SocialRecommendationsJsonSerializerContext.html#TraktNET_SocialRecommendationsJsonSerializerContext_TraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.SocialRecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.SocialRecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: SocialRecommendationsJsonSerializerContext.TraktVIPVeteranTitle
 - uid: TraktNET.SocialRecommendationsJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.SocialRecommendationsJsonSerializerContext.html#TraktNET_SocialRecommendationsJsonSerializerContext_UInt32
@@ -18496,6 +18640,18 @@ references:
   commentId: Overload:TraktNET.TeamJsonSerializerContext.NullableTraktGender
   fullName: TraktNET.TeamJsonSerializerContext.NullableTraktGender
   nameWithType: TeamJsonSerializerContext.NullableTraktGender
+- uid: TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_NullableTraktVIPVeteranTitle
+  commentId: P:TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle*
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_NullableTraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
 - uid: TraktNET.TeamJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_NullableUInt32
@@ -18592,6 +18748,18 @@ references:
   commentId: Overload:TraktNET.TeamJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.TeamJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: TeamJsonSerializerContext.TraktUserImagesAvatar
+- uid: TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_TraktVIPVeteranTitle
+  commentId: P:TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: TeamJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle*
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_TraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: TeamJsonSerializerContext.TraktVIPVeteranTitle
 - uid: TraktNET.TeamJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_UInt32
@@ -25894,6 +26062,18 @@ references:
   commentId: Overload:TraktNET.TraktCollectionUser.Deleted
   fullName: TraktNET.TraktCollectionUser.Deleted
   nameWithType: TraktCollectionUser.Deleted
+- uid: TraktNET.TraktCollectionUser.Email
+  name: Email
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_Email
+  commentId: P:TraktNET.TraktCollectionUser.Email
+  fullName: TraktNET.TraktCollectionUser.Email
+  nameWithType: TraktCollectionUser.Email
+- uid: TraktNET.TraktCollectionUser.Email*
+  name: Email
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_Email_
+  commentId: Overload:TraktNET.TraktCollectionUser.Email
+  fullName: TraktNET.TraktCollectionUser.Email
+  nameWithType: TraktCollectionUser.Email
 - uid: TraktNET.TraktCollectionUser.EqualityContract
   name: EqualityContract
   href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_EqualityContract
@@ -26110,6 +26290,18 @@ references:
   commentId: Overload:TraktNET.TraktCollectionUser.VIPEP
   fullName: TraktNET.TraktCollectionUser.VIPEP
   nameWithType: TraktCollectionUser.VIPEP
+- uid: TraktNET.TraktCollectionUser.VIPGraceEndsAt
+  name: VIPGraceEndsAt
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPGraceEndsAt
+  commentId: P:TraktNET.TraktCollectionUser.VIPGraceEndsAt
+  fullName: TraktNET.TraktCollectionUser.VIPGraceEndsAt
+  nameWithType: TraktCollectionUser.VIPGraceEndsAt
+- uid: TraktNET.TraktCollectionUser.VIPGraceEndsAt*
+  name: VIPGraceEndsAt
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPGraceEndsAt_
+  commentId: Overload:TraktNET.TraktCollectionUser.VIPGraceEndsAt
+  fullName: TraktNET.TraktCollectionUser.VIPGraceEndsAt
+  nameWithType: TraktCollectionUser.VIPGraceEndsAt
 - uid: TraktNET.TraktCollectionUser.VIPOG
   name: VIPOG
   href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPOG
@@ -26122,6 +26314,54 @@ references:
   commentId: Overload:TraktNET.TraktCollectionUser.VIPOG
   fullName: TraktNET.TraktCollectionUser.VIPOG
   nameWithType: TraktCollectionUser.VIPOG
+- uid: TraktNET.TraktCollectionUser.VIPVeteranSince
+  name: VIPVeteranSince
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPVeteranSince
+  commentId: P:TraktNET.TraktCollectionUser.VIPVeteranSince
+  fullName: TraktNET.TraktCollectionUser.VIPVeteranSince
+  nameWithType: TraktCollectionUser.VIPVeteranSince
+- uid: TraktNET.TraktCollectionUser.VIPVeteranSince*
+  name: VIPVeteranSince
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPVeteranSince_
+  commentId: Overload:TraktNET.TraktCollectionUser.VIPVeteranSince
+  fullName: TraktNET.TraktCollectionUser.VIPVeteranSince
+  nameWithType: TraktCollectionUser.VIPVeteranSince
+- uid: TraktNET.TraktCollectionUser.VIPVeteranTier
+  name: VIPVeteranTier
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPVeteranTier
+  commentId: P:TraktNET.TraktCollectionUser.VIPVeteranTier
+  fullName: TraktNET.TraktCollectionUser.VIPVeteranTier
+  nameWithType: TraktCollectionUser.VIPVeteranTier
+- uid: TraktNET.TraktCollectionUser.VIPVeteranTier*
+  name: VIPVeteranTier
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPVeteranTier_
+  commentId: Overload:TraktNET.TraktCollectionUser.VIPVeteranTier
+  fullName: TraktNET.TraktCollectionUser.VIPVeteranTier
+  nameWithType: TraktCollectionUser.VIPVeteranTier
+- uid: TraktNET.TraktCollectionUser.VIPVeteranTitle
+  name: VIPVeteranTitle
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPVeteranTitle
+  commentId: P:TraktNET.TraktCollectionUser.VIPVeteranTitle
+  fullName: TraktNET.TraktCollectionUser.VIPVeteranTitle
+  nameWithType: TraktCollectionUser.VIPVeteranTitle
+- uid: TraktNET.TraktCollectionUser.VIPVeteranTitle*
+  name: VIPVeteranTitle
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPVeteranTitle_
+  commentId: Overload:TraktNET.TraktCollectionUser.VIPVeteranTitle
+  fullName: TraktNET.TraktCollectionUser.VIPVeteranTitle
+  nameWithType: TraktCollectionUser.VIPVeteranTitle
+- uid: TraktNET.TraktCollectionUser.VIPVeteranYears
+  name: VIPVeteranYears
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPVeteranYears
+  commentId: P:TraktNET.TraktCollectionUser.VIPVeteranYears
+  fullName: TraktNET.TraktCollectionUser.VIPVeteranYears
+  nameWithType: TraktCollectionUser.VIPVeteranYears
+- uid: TraktNET.TraktCollectionUser.VIPVeteranYears*
+  name: VIPVeteranYears
+  href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPVeteranYears_
+  commentId: Overload:TraktNET.TraktCollectionUser.VIPVeteranYears
+  fullName: TraktNET.TraktCollectionUser.VIPVeteranYears
+  nameWithType: TraktCollectionUser.VIPVeteranYears
 - uid: TraktNET.TraktCollectionUser.VIPYears
   name: VIPYears
   href: api/TraktNET.TraktCollectionUser.html#TraktNET_TraktCollectionUser_VIPYears
@@ -97816,6 +98056,18 @@ references:
   commentId: Overload:TraktNET.TraktUser.VIPCoverImage
   fullName: TraktNET.TraktUser.VIPCoverImage
   nameWithType: TraktUser.VIPCoverImage
+- uid: TraktNET.TraktUser.VIPGraceEndsAt
+  name: VIPGraceEndsAt
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPGraceEndsAt
+  commentId: P:TraktNET.TraktUser.VIPGraceEndsAt
+  fullName: TraktNET.TraktUser.VIPGraceEndsAt
+  nameWithType: TraktUser.VIPGraceEndsAt
+- uid: TraktNET.TraktUser.VIPGraceEndsAt*
+  name: VIPGraceEndsAt
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPGraceEndsAt_
+  commentId: Overload:TraktNET.TraktUser.VIPGraceEndsAt
+  fullName: TraktNET.TraktUser.VIPGraceEndsAt
+  nameWithType: TraktUser.VIPGraceEndsAt
 - uid: TraktNET.TraktUser.VIPOG
   name: VIPOG
   href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPOG
@@ -97828,6 +98080,54 @@ references:
   commentId: Overload:TraktNET.TraktUser.VIPOG
   fullName: TraktNET.TraktUser.VIPOG
   nameWithType: TraktUser.VIPOG
+- uid: TraktNET.TraktUser.VIPVeteranSince
+  name: VIPVeteranSince
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPVeteranSince
+  commentId: P:TraktNET.TraktUser.VIPVeteranSince
+  fullName: TraktNET.TraktUser.VIPVeteranSince
+  nameWithType: TraktUser.VIPVeteranSince
+- uid: TraktNET.TraktUser.VIPVeteranSince*
+  name: VIPVeteranSince
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPVeteranSince_
+  commentId: Overload:TraktNET.TraktUser.VIPVeteranSince
+  fullName: TraktNET.TraktUser.VIPVeteranSince
+  nameWithType: TraktUser.VIPVeteranSince
+- uid: TraktNET.TraktUser.VIPVeteranTier
+  name: VIPVeteranTier
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPVeteranTier
+  commentId: P:TraktNET.TraktUser.VIPVeteranTier
+  fullName: TraktNET.TraktUser.VIPVeteranTier
+  nameWithType: TraktUser.VIPVeteranTier
+- uid: TraktNET.TraktUser.VIPVeteranTier*
+  name: VIPVeteranTier
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPVeteranTier_
+  commentId: Overload:TraktNET.TraktUser.VIPVeteranTier
+  fullName: TraktNET.TraktUser.VIPVeteranTier
+  nameWithType: TraktUser.VIPVeteranTier
+- uid: TraktNET.TraktUser.VIPVeteranTitle
+  name: VIPVeteranTitle
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPVeteranTitle
+  commentId: P:TraktNET.TraktUser.VIPVeteranTitle
+  fullName: TraktNET.TraktUser.VIPVeteranTitle
+  nameWithType: TraktUser.VIPVeteranTitle
+- uid: TraktNET.TraktUser.VIPVeteranTitle*
+  name: VIPVeteranTitle
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPVeteranTitle_
+  commentId: Overload:TraktNET.TraktUser.VIPVeteranTitle
+  fullName: TraktNET.TraktUser.VIPVeteranTitle
+  nameWithType: TraktUser.VIPVeteranTitle
+- uid: TraktNET.TraktUser.VIPVeteranYears
+  name: VIPVeteranYears
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPVeteranYears
+  commentId: P:TraktNET.TraktUser.VIPVeteranYears
+  fullName: TraktNET.TraktUser.VIPVeteranYears
+  nameWithType: TraktUser.VIPVeteranYears
+- uid: TraktNET.TraktUser.VIPVeteranYears*
+  name: VIPVeteranYears
+  href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPVeteranYears_
+  commentId: Overload:TraktNET.TraktUser.VIPVeteranYears
+  fullName: TraktNET.TraktUser.VIPVeteranYears
+  nameWithType: TraktUser.VIPVeteranYears
 - uid: TraktNET.TraktUser.VIPYears
   name: VIPYears
   href: api/TraktNET.TraktUser.html#TraktNET_TraktUser_VIPYears
@@ -121009,6 +121309,138 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.UpdateSmartListAsync
   fullName: TraktNET.TraktUsersModule.UpdateSmartListAsync
   nameWithType: TraktUsersModule.UpdateSmartListAsync
+- uid: TraktNET.TraktVIPVeteranTitle
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.TraktVIPVeteranTitle.html
+  commentId: T:TraktNET.TraktVIPVeteranTitle
+  fullName: TraktNET.TraktVIPVeteranTitle
+  nameWithType: TraktVIPVeteranTitle
+- uid: TraktNET.TraktVIPVeteranTitle.Legend
+  name: Legend
+  href: api/TraktNET.TraktVIPVeteranTitle.html#TraktNET_TraktVIPVeteranTitle_Legend
+  commentId: F:TraktNET.TraktVIPVeteranTitle.Legend
+  fullName: TraktNET.TraktVIPVeteranTitle.Legend
+  nameWithType: TraktVIPVeteranTitle.Legend
+- uid: TraktNET.TraktVIPVeteranTitle.Unspecified
+  name: Unspecified
+  href: api/TraktNET.TraktVIPVeteranTitle.html#TraktNET_TraktVIPVeteranTitle_Unspecified
+  commentId: F:TraktNET.TraktVIPVeteranTitle.Unspecified
+  fullName: TraktNET.TraktVIPVeteranTitle.Unspecified
+  nameWithType: TraktVIPVeteranTitle.Unspecified
+- uid: TraktNET.TraktVIPVeteranTitle.Veteran
+  name: Veteran
+  href: api/TraktNET.TraktVIPVeteranTitle.html#TraktNET_TraktVIPVeteranTitle_Veteran
+  commentId: F:TraktNET.TraktVIPVeteranTitle.Veteran
+  fullName: TraktNET.TraktVIPVeteranTitle.Veteran
+  nameWithType: TraktVIPVeteranTitle.Veteran
+- uid: TraktNET.TraktVIPVeteranTitleExtensions
+  name: TraktVIPVeteranTitleExtensions
+  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html
+  commentId: T:TraktNET.TraktVIPVeteranTitleExtensions
+  fullName: TraktNET.TraktVIPVeteranTitleExtensions
+  nameWithType: TraktVIPVeteranTitleExtensions
+- uid: TraktNET.TraktVIPVeteranTitleExtensions.DisplayName(TraktNET.TraktVIPVeteranTitle)
+  name: DisplayName(TraktVIPVeteranTitle)
+  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_DisplayName_TraktNET_TraktVIPVeteranTitle_
+  commentId: M:TraktNET.TraktVIPVeteranTitleExtensions.DisplayName(TraktNET.TraktVIPVeteranTitle)
+  fullName: TraktNET.TraktVIPVeteranTitleExtensions.DisplayName(TraktNET.TraktVIPVeteranTitle)
+  nameWithType: TraktVIPVeteranTitleExtensions.DisplayName(TraktVIPVeteranTitle)
+- uid: TraktNET.TraktVIPVeteranTitleExtensions.DisplayName*
+  name: DisplayName
+  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_DisplayName_
+  commentId: Overload:TraktNET.TraktVIPVeteranTitleExtensions.DisplayName
+  fullName: TraktNET.TraktVIPVeteranTitleExtensions.DisplayName
+  nameWithType: TraktVIPVeteranTitleExtensions.DisplayName
+- uid: TraktNET.TraktVIPVeteranTitleExtensions.ToJson(TraktNET.TraktVIPVeteranTitle)
+  name: ToJson(TraktVIPVeteranTitle)
+  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_ToJson_TraktNET_TraktVIPVeteranTitle_
+  commentId: M:TraktNET.TraktVIPVeteranTitleExtensions.ToJson(TraktNET.TraktVIPVeteranTitle)
+  fullName: TraktNET.TraktVIPVeteranTitleExtensions.ToJson(TraktNET.TraktVIPVeteranTitle)
+  nameWithType: TraktVIPVeteranTitleExtensions.ToJson(TraktVIPVeteranTitle)
+- uid: TraktNET.TraktVIPVeteranTitleExtensions.ToJson*
+  name: ToJson
+  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_ToJson_
+  commentId: Overload:TraktNET.TraktVIPVeteranTitleExtensions.ToJson
+  fullName: TraktNET.TraktVIPVeteranTitleExtensions.ToJson
+  nameWithType: TraktVIPVeteranTitleExtensions.ToJson
+- uid: TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(System.String)
+  name: ToTraktVIPVeteranTitle(string?)
+  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_ToTraktVIPVeteranTitle_System_String_
+  commentId: M:TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(System.String)
+  name.vb: ToTraktVIPVeteranTitle(String)
+  fullName: TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(string?)
+  fullName.vb: TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(String)
+  nameWithType: TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(string?)
+  nameWithType.vb: TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(String)
+- uid: TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle*
+  name: ToTraktVIPVeteranTitle
+  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_ToTraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle
+  fullName: TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle
+  nameWithType: TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle
+- uid: TraktNET.TraktVIPVeteranTitleJsonConverter
+  name: TraktVIPVeteranTitleJsonConverter
+  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html
+  commentId: T:TraktNET.TraktVIPVeteranTitleJsonConverter
+  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter
+  nameWithType: TraktVIPVeteranTitleJsonConverter
+- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.#ctor
+  name: TraktVIPVeteranTitleJsonConverter()
+  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter__ctor
+  commentId: M:TraktNET.TraktVIPVeteranTitleJsonConverter.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.TraktVIPVeteranTitleJsonConverter()
+  fullName.vb: TraktNET.TraktVIPVeteranTitleJsonConverter.New()
+  nameWithType: TraktVIPVeteranTitleJsonConverter.TraktVIPVeteranTitleJsonConverter()
+  nameWithType.vb: TraktVIPVeteranTitleJsonConverter.New()
+- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.#ctor*
+  name: TraktVIPVeteranTitleJsonConverter
+  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktVIPVeteranTitleJsonConverter.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.TraktVIPVeteranTitleJsonConverter
+  fullName.vb: TraktNET.TraktVIPVeteranTitleJsonConverter.New
+  nameWithType: TraktVIPVeteranTitleJsonConverter.TraktVIPVeteranTitleJsonConverter
+  nameWithType.vb: TraktVIPVeteranTitleJsonConverter.New
+- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktVIPVeteranTitleJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert*
+  name: CanConvert
+  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert
+  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert
+  nameWithType: TraktVIPVeteranTitleJsonConverter.CanConvert
+- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktVIPVeteranTitleJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktVIPVeteranTitleJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktVIPVeteranTitleJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktVIPVeteranTitleJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.Read*
+  name: Read
+  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktVIPVeteranTitleJsonConverter.Read
+  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.Read
+  nameWithType: TraktVIPVeteranTitleJsonConverter.Read
+- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktVIPVeteranTitle,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktVIPVeteranTitle, JsonSerializerOptions)
+  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktVIPVeteranTitle_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktVIPVeteranTitleJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktVIPVeteranTitle,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktVIPVeteranTitle, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktVIPVeteranTitleJsonConverter.Write(Utf8JsonWriter, TraktVIPVeteranTitle, JsonSerializerOptions)
+- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.Write*
+  name: Write
+  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktVIPVeteranTitleJsonConverter.Write
+  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.Write
+  nameWithType: TraktVIPVeteranTitleJsonConverter.Write
 - uid: TraktNET.TraktVideo
   name: TraktVideo
   href: api/TraktNET.TraktVideo.html
@@ -126244,6 +126676,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.NullableTraktUserSyncType
   fullName: TraktNET.UsersJsonSerializerContext.NullableTraktUserSyncType
   nameWithType: UsersJsonSerializerContext.NullableTraktUserSyncType
+- uid: TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableTraktVIPVeteranTitle
+  commentId: P:TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle*
+  name: NullableTraktVIPVeteranTitle
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableTraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
+  fullName: TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
+  nameWithType: UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
 - uid: TraktNET.UsersJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableUInt32
@@ -128836,6 +129280,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktUserYearInReview
   fullName: TraktNET.UsersJsonSerializerContext.TraktUserYearInReview
   nameWithType: UsersJsonSerializerContext.TraktUserYearInReview
+- uid: TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktVIPVeteranTitle
+  commentId: P:TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: UsersJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle*
+  name: TraktVIPVeteranTitle
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktVIPVeteranTitle_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle
+  fullName: TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle
+  nameWithType: UsersJsonSerializerContext.TraktVIPVeteranTitle
 - uid: TraktNET.UsersJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_UInt32

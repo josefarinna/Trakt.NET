@@ -465,6 +465,35 @@ public string? VIPCoverImage { get; set; }</code></pre>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Users/TraktUser.cs">View Source</a>
   </span>
+  <a id="TraktNET_TraktUser_VIPGraceEndsAt_" data-uid="TraktNET.TraktUser.VIPGraceEndsAt*"></a>
+  <h4 id="TraktNET_TraktUser_VIPGraceEndsAt" data-uid="TraktNET.TraktUser.VIPGraceEndsAt">VIPGraceEndsAt</h4>
+  <div class="markdown level1 summary"><p>The UTC datetime when the user's VIP grace period ends.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;vip_grace_ends_at&quot;)]
+public DateTime? VIPGraceEndsAt { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Users/TraktUser.cs">View Source</a>
+  </span>
   <a id="TraktNET_TraktUser_VIPOG_" data-uid="TraktNET.TraktUser.VIPOG*"></a>
   <h4 id="TraktNET_TraktUser_VIPOG" data-uid="TraktNET.TraktUser.VIPOG">VIPOG</h4>
   <div class="markdown level1 summary"><p>The user's VIP OG status.</p>
@@ -486,6 +515,122 @@ public bool? VIPOG { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Users/TraktUser.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUser_VIPVeteranSince_" data-uid="TraktNET.TraktUser.VIPVeteranSince*"></a>
+  <h4 id="TraktNET_TraktUser_VIPVeteranSince" data-uid="TraktNET.TraktUser.VIPVeteranSince">VIPVeteranSince</h4>
+  <div class="markdown level1 summary"><p>The UTC datetime when the user's unbroken paid VIP status started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;vip_veteran_since&quot;)]
+public DateTime? VIPVeteranSince { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Users/TraktUser.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUser_VIPVeteranTier_" data-uid="TraktNET.TraktUser.VIPVeteranTier*"></a>
+  <h4 id="TraktNET_TraktUser_VIPVeteranTier" data-uid="TraktNET.TraktUser.VIPVeteranTier">VIPVeteranTier</h4>
+  <div class="markdown level1 summary"><p>The highest reached rung of the 1 / 3 / 5 / 7 / 10 year ladder for the user's VIP status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;vip_veteran_tier&quot;)]
+public uint? VIPVeteranTier { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Users/TraktUser.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUser_VIPVeteranTitle_" data-uid="TraktNET.TraktUser.VIPVeteranTitle*"></a>
+  <h4 id="TraktNET_TraktUser_VIPVeteranTitle" data-uid="TraktNET.TraktUser.VIPVeteranTitle">VIPVeteranTitle</h4>
+  <div class="markdown level1 summary"><p>The VIP veteran title for the user. See also <a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;vip_veteran_title&quot;)]
+public TraktVIPVeteranTitle? VIPVeteranTitle { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Users/TraktUser.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUser_VIPVeteranYears_" data-uid="TraktNET.TraktUser.VIPVeteranYears*"></a>
+  <h4 id="TraktNET_TraktUser_VIPVeteranYears" data-uid="TraktNET.TraktUser.VIPVeteranYears">VIPVeteranYears</h4>
+  <div class="markdown level1 summary"><p>The whole years since the user's unbroken paid VIP status started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;vip_veteran_years&quot;)]
+public uint? VIPVeteranYears { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
         <td></td>
       </tr>
     </tbody>
