@@ -6,8 +6,8 @@
 	"episodes": [
 		{
 			"number": 1,
-			"completed": false,
-			"collected_at": null
+			"completed": true,
+			"collected_at": "2012-10-09T14:32:00.000Z"
 		},
 		{
 			"number": 2,

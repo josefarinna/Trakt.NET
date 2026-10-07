@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -16,14 +16,19 @@ namespace TraktNET.GetRequests.Shows
         [InlineData(null, null, true, null, $"{URIPath}?count_specials=true")]
         [InlineData(null, null, null, TraktLastActivity.Unspecified, URIPath)]
         [InlineData(null, null, null, TraktLastActivity.Collected, $"{URIPath}?last_activity=collected")]
+        [InlineData(null, null, null, TraktLastActivity.Aired, $"{URIPath}?last_activity=aired")]
         [InlineData(true, null, null, TraktLastActivity.Unspecified, $"{URIPath}?hidden=true")]
         [InlineData(true, null, null, TraktLastActivity.Collected, $"{URIPath}?hidden=true&last_activity=collected")]
+        [InlineData(true, null, null, TraktLastActivity.Aired, $"{URIPath}?hidden=true&last_activity=aired")]
         [InlineData(null, true, null, TraktLastActivity.Unspecified, $"{URIPath}?specials=true")]
         [InlineData(null, true, null, TraktLastActivity.Collected, $"{URIPath}?specials=true&last_activity=collected")]
+        [InlineData(null, true, null, TraktLastActivity.Aired, $"{URIPath}?specials=true&last_activity=aired")]
         [InlineData(null, null, true, TraktLastActivity.Unspecified, $"{URIPath}?count_specials=true")]
         [InlineData(null, null, true, TraktLastActivity.Collected, $"{URIPath}?count_specials=true&last_activity=collected")]
+        [InlineData(null, null, true, TraktLastActivity.Aired, $"{URIPath}?count_specials=true&last_activity=aired")]
         [InlineData(true, true, true, TraktLastActivity.Unspecified, $"{URIPath}?hidden=true&specials=true&count_specials=true")]
         [InlineData(true, true, true, TraktLastActivity.Collected, $"{URIPath}?hidden=true&specials=true&count_specials=true&last_activity=collected")]
+        [InlineData(true, true, true, TraktLastActivity.Aired, $"{URIPath}?hidden=true&specials=true&count_specials=true&last_activity=aired")]
         public void TestShowCollectionProgressGetRequestHasValidURIPath(bool? hidden, bool? specials, bool? countSpecials,
             TraktLastActivity? lastActivity, string expectedURIPath)
         {
