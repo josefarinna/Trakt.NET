@@ -30701,6 +30701,38 @@
                     ":id",
                     "lists"
                   ],
+                  "query": [
+                    {
+                      "key": "sort_by",
+                      "value": "rank",
+                      "description": "The field to sort by.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "sort_how",
+                      "value": "asc",
+                      "description": "The direction to sort in. Possible values:  asc , desc .",
+                      "disabled": true
+                    },
+                    {
+                      "key": "extended",
+                      "value": "full",
+                      "description": "Complete info for an item.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "Number of page of results to be returned. Default: 1",
+                      "disabled": true
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10",
+                      "description": "Number of results to return per page. Default: 10",
+                      "disabled": true
+                    }
+                  ],
                   "variable": [
                     {
                       "key": "id",
@@ -30745,6 +30777,38 @@
                     "users",
                     ":id",
                     "lists"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort_by",
+                      "value": "rank",
+                      "description": "The field to sort by.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "sort_how",
+                      "value": "asc",
+                      "description": "The direction to sort in. Possible values:  asc , desc .",
+                      "disabled": true
+                    },
+                    {
+                      "key": "extended",
+                      "value": "full",
+                      "description": "Complete info for an item.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "Number of page of results to be returned. Default: 1",
+                      "disabled": true
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10",
+                      "description": "Number of results to return per page. Default: 10",
+                      "disabled": true
+                    }
                   ],
                   "variable": [
                     {

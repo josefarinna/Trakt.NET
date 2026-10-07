@@ -74,12 +74,15 @@ Trakt.NET/
    - **Zero-Reflection**: Never rely on reflection-based JSON serialization; all JSON operations must compile cleanly with source generators for Native AOT (`IsAotCompatible`) and assembly trimming (`IsTrimmable`).
 ---
 
-## 4. Trakt.tv API Reference (Official LLM Docs)
+## 4. Trakt.tv API Reference (LLM Context & Discovery)
 
-For any development involving Trakt.tv API calls, consult the official LLM-optimized references:
-- **Main Index**: https://docs.trakt.tv/llms.txt
-- **Official Guides**: https://docs.trakt.tv/docs/llms.txt
-- **Endpoint Reference**: https://docs.trakt.tv/reference/llms.txt
+The official Trakt developer portal has migrated to `developer.trakt.tv`. Note that a centralized `llms.txt` file is no longer maintained on the root domain. Use the following sources for up-to-date API schema details:
+
+- **Official Developer Portal**: https://developer.trakt.tv
+- **Raw Markdown Context**: To pull clean documentation for context injection, append `.md` to any guide URL on the developer portal.
+- **API Blueprints & OpenAPISpec**: Ground your knowledge of modules, endpoints, and structural parameters using the official [trakt/trakt-api](https://github.com) GitHub repository. 
+  - Review the `/openapi` folder for strict JSON schemas.
+  - Review the `/developer` folder for authentication and markdown guide sources.
 
 ---
 
