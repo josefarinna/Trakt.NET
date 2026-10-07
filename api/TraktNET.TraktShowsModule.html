@@ -1855,13 +1855,13 @@ Trakt API Documentation: Shows: Certifications - Get all show certifications
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleGetShowCollectionProgress.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_" data-uid="TraktNET.TraktShowsModule.GetShowCollectionProgressAsync*"></a>
-  <h4 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Threading.CancellationToken)">GetShowCollectionProgressAsync(string, bool?, bool?, bool?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktLastActivity__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktLastActivity},System.Threading.CancellationToken)">GetShowCollectionProgressAsync(string, bool?, bool?, bool?, TraktLastActivity?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets collection progress for a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified Trakt-ID or -Slug.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktShowCollectionProgress&gt;&gt; GetShowCollectionProgressAsync(string traktShowIDOrSlug, bool? hidden = null, bool? specials = null, bool? countSpecials = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktShowCollectionProgress&gt;&gt; GetShowCollectionProgressAsync(string traktShowIDOrSlug, bool? hidden = null, bool? specials = null, bool? countSpecials = null, TraktLastActivity? lastActivity = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1898,6 +1898,12 @@ Trakt API Documentation: Shows: Certifications - Get all show certifications
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktLastActivity.html">TraktLastActivity</a>?</td>
+        <td><span class="parametername">lastActivity</span></td>
+        <td><p>Determines the last activity type for collection progress. See also <a class="xref" href="TraktNET.TraktLastActivity.html">TraktLastActivity</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Propagates notification that the request should be canceled.</p>
@@ -1924,9 +1930,9 @@ Trakt API Documentation: Shows: Certifications - Get all show certifications
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktLastActivity__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
-<p><a href="https://docs.trakt.tv/reference/getshowsprogresscollections">
+<p><a href="https://docs.trakt.tv/reference/getshowsprogresscollection">
 Trakt API Documentation: Shows: Collection - Get show collection progress
 </a></p>
 </div>
@@ -1956,13 +1962,13 @@ Trakt API Documentation: Shows: Collection - Get show collection progress
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleGetShowCollectionProgress.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_" data-uid="TraktNET.TraktShowsModule.GetShowCollectionProgressAsync*"></a>
-  <h4 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_UInt32_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.UInt32,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Threading.CancellationToken)">GetShowCollectionProgressAsync(uint, bool?, bool?, bool?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_UInt32_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktLastActivity__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.UInt32,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktLastActivity},System.Threading.CancellationToken)">GetShowCollectionProgressAsync(uint, bool?, bool?, bool?, TraktLastActivity?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets collection progress for a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified Trakt-ID.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktShowCollectionProgress&gt;&gt; GetShowCollectionProgressAsync(uint traktShowID, bool? hidden = null, bool? specials = null, bool? countSpecials = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktShowCollectionProgress&gt;&gt; GetShowCollectionProgressAsync(uint traktShowID, bool? hidden = null, bool? specials = null, bool? countSpecials = null, TraktLastActivity? lastActivity = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1999,6 +2005,12 @@ Trakt API Documentation: Shows: Collection - Get show collection progress
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktLastActivity.html">TraktLastActivity</a>?</td>
+        <td><span class="parametername">lastActivity</span></td>
+        <td><p>Determines the last activity type for collection progress. See also <a class="xref" href="TraktNET.TraktLastActivity.html">TraktLastActivity</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Propagates notification that the request should be canceled.</p>
@@ -2025,7 +2037,7 @@ Trakt API Documentation: Shows: Collection - Get show collection progress
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_UInt32_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_UInt32_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktLastActivity__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsprogresscollection">
 Trakt API Documentation: Shows: Collection - Get show collection progress
@@ -2057,13 +2069,13 @@ Trakt API Documentation: Shows: Collection - Get show collection progress
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Shows/TraktShowsModuleGetShowCollectionProgress.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_" data-uid="TraktNET.TraktShowsModule.GetShowCollectionProgressAsync*"></a>
-  <h4 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_TraktNET_TraktShowIDs_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(TraktNET.TraktShowIDs,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Threading.CancellationToken)">GetShowCollectionProgressAsync(TraktShowIDs, bool?, bool?, bool?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_TraktNET_TraktShowIDs_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktLastActivity__System_Threading_CancellationToken_" data-uid="TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(TraktNET.TraktShowIDs,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktLastActivity},System.Threading.CancellationToken)">GetShowCollectionProgressAsync(TraktShowIDs, bool?, bool?, bool?, TraktLastActivity?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets collection progress for a <a class="xref" href="TraktNET.TraktShow.html">TraktShow</a> with the specified <a class="xref" href="TraktNET.TraktShowIDs.html">TraktShowIDs</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktShowCollectionProgress&gt;&gt; GetShowCollectionProgressAsync(TraktShowIDs showIDs, bool? hidden = null, bool? specials = null, bool? countSpecials = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktShowCollectionProgress&gt;&gt; GetShowCollectionProgressAsync(TraktShowIDs showIDs, bool? hidden = null, bool? specials = null, bool? countSpecials = null, TraktLastActivity? lastActivity = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2100,6 +2112,12 @@ Trakt API Documentation: Shows: Collection - Get show collection progress
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktLastActivity.html">TraktLastActivity</a>?</td>
+        <td><span class="parametername">lastActivity</span></td>
+        <td><p>Determines the last activity type for collection progress. See also <a class="xref" href="TraktNET.TraktLastActivity.html">TraktLastActivity</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>Propagates notification that the request should be canceled.</p>
@@ -2126,7 +2144,7 @@ Trakt API Documentation: Shows: Collection - Get show collection progress
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_TraktNET_TraktShowIDs_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_TraktNET_TraktShowIDs_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktLastActivity__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getshowsprogresscollection">
 Trakt API Documentation: Shows: Collection - Get show collection progress

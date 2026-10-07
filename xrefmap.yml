@@ -32713,6 +32713,18 @@ references:
   fullName.vb: TraktNET.TraktEpisodeCollectionProgress.New
   nameWithType: TraktEpisodeCollectionProgress.TraktEpisodeCollectionProgress
   nameWithType.vb: TraktEpisodeCollectionProgress.New
+- uid: TraktNET.TraktEpisodeCollectionProgress.CollectedAt
+  name: CollectedAt
+  href: api/TraktNET.TraktEpisodeCollectionProgress.html#TraktNET_TraktEpisodeCollectionProgress_CollectedAt
+  commentId: P:TraktNET.TraktEpisodeCollectionProgress.CollectedAt
+  fullName: TraktNET.TraktEpisodeCollectionProgress.CollectedAt
+  nameWithType: TraktEpisodeCollectionProgress.CollectedAt
+- uid: TraktNET.TraktEpisodeCollectionProgress.CollectedAt*
+  name: CollectedAt
+  href: api/TraktNET.TraktEpisodeCollectionProgress.html#TraktNET_TraktEpisodeCollectionProgress_CollectedAt_
+  commentId: Overload:TraktNET.TraktEpisodeCollectionProgress.CollectedAt
+  fullName: TraktNET.TraktEpisodeCollectionProgress.CollectedAt
+  nameWithType: TraktEpisodeCollectionProgress.CollectedAt
 - uid: TraktNET.TraktEpisodeCollectionProgress.EqualityContract
   name: EqualityContract
   href: api/TraktNET.TraktEpisodeCollectionProgress.html#TraktNET_TraktEpisodeCollectionProgress_EqualityContract
@@ -32770,18 +32782,6 @@ references:
   commentId: Overload:TraktNET.TraktEpisodeCollectionProgress.GetHashCode
   fullName: TraktNET.TraktEpisodeCollectionProgress.GetHashCode
   nameWithType: TraktEpisodeCollectionProgress.GetHashCode
-- uid: TraktNET.TraktEpisodeCollectionProgress.LastWatchedAt
-  name: LastWatchedAt
-  href: api/TraktNET.TraktEpisodeCollectionProgress.html#TraktNET_TraktEpisodeCollectionProgress_LastWatchedAt
-  commentId: P:TraktNET.TraktEpisodeCollectionProgress.LastWatchedAt
-  fullName: TraktNET.TraktEpisodeCollectionProgress.LastWatchedAt
-  nameWithType: TraktEpisodeCollectionProgress.LastWatchedAt
-- uid: TraktNET.TraktEpisodeCollectionProgress.LastWatchedAt*
-  name: LastWatchedAt
-  href: api/TraktNET.TraktEpisodeCollectionProgress.html#TraktNET_TraktEpisodeCollectionProgress_LastWatchedAt_
-  commentId: Overload:TraktNET.TraktEpisodeCollectionProgress.LastWatchedAt
-  fullName: TraktNET.TraktEpisodeCollectionProgress.LastWatchedAt
-  nameWithType: TraktEpisodeCollectionProgress.LastWatchedAt
 - uid: TraktNET.TraktEpisodeCollectionProgress.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktEpisodeCollectionProgress.html#TraktNET_TraktEpisodeCollectionProgress_PrintMembers_System_Text_StringBuilder_
@@ -74947,33 +74947,33 @@ references:
   commentId: Overload:TraktNET.TraktShowsModule.GetShowCertificationsAsync
   fullName: TraktNET.TraktShowsModule.GetShowCertificationsAsync
   nameWithType: TraktShowsModule.GetShowCertificationsAsync
-- uid: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Threading.CancellationToken)
-  name: GetShowCollectionProgressAsync(string, bool?, bool?, bool?, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Threading.CancellationToken)
-  name.vb: GetShowCollectionProgressAsync(String, Boolean?, Boolean?, Boolean?, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(string, bool?, bool?, bool?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(String, Boolean?, Boolean?, Boolean?, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowCollectionProgressAsync(string, bool?, bool?, bool?, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowCollectionProgressAsync(String, Boolean?, Boolean?, Boolean?, CancellationToken)
-- uid: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.UInt32,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Threading.CancellationToken)
-  name: GetShowCollectionProgressAsync(uint, bool?, bool?, bool?, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_UInt32_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.UInt32,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Threading.CancellationToken)
-  name.vb: GetShowCollectionProgressAsync(UInteger, Boolean?, Boolean?, Boolean?, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(uint, bool?, bool?, bool?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(UInteger, Boolean?, Boolean?, Boolean?, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowCollectionProgressAsync(uint, bool?, bool?, bool?, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowCollectionProgressAsync(UInteger, Boolean?, Boolean?, Boolean?, CancellationToken)
-- uid: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(TraktNET.TraktShowIDs,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Threading.CancellationToken)
-  name: GetShowCollectionProgressAsync(TraktShowIDs, bool?, bool?, bool?, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_TraktNET_TraktShowIDs_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(TraktNET.TraktShowIDs,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Threading.CancellationToken)
-  name.vb: GetShowCollectionProgressAsync(TraktShowIDs, Boolean?, Boolean?, Boolean?, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(TraktNET.TraktShowIDs, bool?, bool?, bool?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(TraktNET.TraktShowIDs, Boolean?, Boolean?, Boolean?, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowCollectionProgressAsync(TraktShowIDs, bool?, bool?, bool?, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowCollectionProgressAsync(TraktShowIDs, Boolean?, Boolean?, Boolean?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktLastActivity},System.Threading.CancellationToken)
+  name: GetShowCollectionProgressAsync(string, bool?, bool?, bool?, TraktLastActivity?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktLastActivity__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktLastActivity},System.Threading.CancellationToken)
+  name.vb: GetShowCollectionProgressAsync(String, Boolean?, Boolean?, Boolean?, TraktLastActivity?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(string, bool?, bool?, bool?, TraktNET.TraktLastActivity?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(String, Boolean?, Boolean?, Boolean?, TraktNET.TraktLastActivity?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowCollectionProgressAsync(string, bool?, bool?, bool?, TraktLastActivity?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowCollectionProgressAsync(String, Boolean?, Boolean?, Boolean?, TraktLastActivity?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.UInt32,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktLastActivity},System.Threading.CancellationToken)
+  name: GetShowCollectionProgressAsync(uint, bool?, bool?, bool?, TraktLastActivity?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_System_UInt32_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktLastActivity__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(System.UInt32,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktLastActivity},System.Threading.CancellationToken)
+  name.vb: GetShowCollectionProgressAsync(UInteger, Boolean?, Boolean?, Boolean?, TraktLastActivity?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(uint, bool?, bool?, bool?, TraktNET.TraktLastActivity?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(UInteger, Boolean?, Boolean?, Boolean?, TraktNET.TraktLastActivity?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowCollectionProgressAsync(uint, bool?, bool?, bool?, TraktLastActivity?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowCollectionProgressAsync(UInteger, Boolean?, Boolean?, Boolean?, TraktLastActivity?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(TraktNET.TraktShowIDs,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktLastActivity},System.Threading.CancellationToken)
+  name: GetShowCollectionProgressAsync(TraktShowIDs, bool?, bool?, bool?, TraktLastActivity?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_TraktNET_TraktShowIDs_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_TraktNET_TraktLastActivity__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(TraktNET.TraktShowIDs,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{TraktNET.TraktLastActivity},System.Threading.CancellationToken)
+  name.vb: GetShowCollectionProgressAsync(TraktShowIDs, Boolean?, Boolean?, Boolean?, TraktLastActivity?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(TraktNET.TraktShowIDs, bool?, bool?, bool?, TraktNET.TraktLastActivity?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync(TraktNET.TraktShowIDs, Boolean?, Boolean?, Boolean?, TraktNET.TraktLastActivity?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowCollectionProgressAsync(TraktShowIDs, bool?, bool?, bool?, TraktLastActivity?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowCollectionProgressAsync(TraktShowIDs, Boolean?, Boolean?, Boolean?, TraktLastActivity?, CancellationToken)
 - uid: TraktNET.TraktShowsModule.GetShowCollectionProgressAsync*
   name: GetShowCollectionProgressAsync
   href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowCollectionProgressAsync_
