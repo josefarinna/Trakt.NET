@@ -68,13 +68,39 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
+        public async Task TestGetShowCollectionProgressWithLastActivity()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcollectionprogress.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCollectionProgressUriWithSlug}?last_activity=collected", responseContent);
+
+            TraktResponse<TraktShowCollectionProgress> response = await client.Shows.GetShowCollectionProgressAsync(
+                TestConstants.Shows.ShowSlug, lastActivity: TraktLastActivity.Collected, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+
+            client = ModuleTestUtility.GetClient($"{GetShowCollectionProgressUriWithSlug}?last_activity=aired", responseContent);
+
+            response = await client.Shows.GetShowCollectionProgressAsync(
+                TestConstants.Shows.ShowSlug, lastActivity: TraktLastActivity.Aired, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
         public async Task TestGetShowCollectionProgressWithAllParameters()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showcollectionprogress.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCollectionProgressUriWithSlug}?hidden=true&specials=true&count_specials=true", responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowCollectionProgressUriWithSlug}?hidden=true&specials=true&count_specials=true&last_activity=collected", responseContent);
 
             TraktResponse<TraktShowCollectionProgress> response = await client.Shows.GetShowCollectionProgressAsync(
-                TestConstants.Shows.ShowSlug, hidden: true, specials: true, countSpecials: true, cancellationToken: TestContext.Current.CancellationToken);
+                TestConstants.Shows.ShowSlug, hidden: true, specials: true, countSpecials: true, lastActivity: TraktLastActivity.Collected,
+                cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();

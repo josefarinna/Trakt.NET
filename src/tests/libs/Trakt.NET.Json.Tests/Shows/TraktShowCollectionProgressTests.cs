@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Shows
+namespace TraktNET.Json.Shows
 {
     public sealed class TraktShowCollectionProgressTests
     {
@@ -48,8 +48,14 @@
             TraktEpisodeCollectionProgress episode1 = season1.Episodes[0];
             episode1.ShouldNotBeNull();
             episode1.Number.ShouldBe(1U);
-            episode1.Completed.ShouldBe(false);
-            episode1.LastWatchedAt.ShouldBeNull();
+            episode1.Completed.ShouldBe(true);
+            episode1.CollectedAt.ShouldBe(TestUtility.ParseUTCDateTime("2012-10-09T14:32:00.000Z"));
+
+            TraktEpisodeCollectionProgress episode2 = season1.Episodes[1];
+            episode2.ShouldNotBeNull();
+            episode2.Number.ShouldBe(2U);
+            episode2.Completed.ShouldBe(false);
+            episode2.CollectedAt.ShouldBeNull();
 
             TraktSeasonCollectionProgress season8 = collectionProgress.Seasons[7];
             season8.ShouldNotBeNull();

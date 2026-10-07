@@ -243,14 +243,15 @@ namespace TraktNET
         }
 
         private Task<TraktResponse<TraktShowCollectionProgress>> GetShowCollectionProgressImplAsync(string showIDOrSlug, bool? hidden,
-            bool? specials, bool? countSpecials, CancellationToken cancellationToken = default)
+            bool? specials, bool? countSpecials, TraktLastActivity? lastActivity, CancellationToken cancellationToken = default)
         {
             var request = new ShowCollectionProgressGetRequest
             {
                 Id = showIDOrSlug,
                 Hidden = hidden,
                 Specials = specials,
-                CountSpecials = countSpecials
+                CountSpecials = countSpecials,
+                LastActivity = lastActivity
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktShowCollectionProgress>(_context, request, cancellationToken);
