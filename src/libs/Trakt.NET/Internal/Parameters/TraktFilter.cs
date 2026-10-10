@@ -31,6 +31,12 @@ namespace TraktNET
         private const string IgnoreWatchlistedName = "ignore_watchlisted";
         private const string StartDateName = "start_date";
         private const string EndDateName = "end_date";
+        private const string ParentalNudityName = "parental_nudity";
+        private const string ParentalViolenceName = "parental_violence";
+        private const string ParentalProfanityName = "parental_profanity";
+        private const string ParentalAlcoholName = "parental_alcohol";
+        private const string ParentalFrighteningName = "parental_frightening";
+        private const string ParentalIncludeUnratedName = "parental_include_unrated";
 
         public override string ToString()
         {
@@ -162,7 +168,36 @@ namespace TraktNET
                 values.Add($"{EndDateName}={EndDate.Value.ToTraktSortDateTimeString()}");
             }
 
+            AddParentalRange(values, ParentalNudity, ParentalNudityName);
+            AddParentalRange(values, ParentalViolence, ParentalViolenceName);
+            AddParentalRange(values, ParentalProfanity, ParentalProfanityName);
+            AddParentalRange(values, ParentalAlcohol, ParentalAlcoholName);
+            AddParentalRange(values, ParentalFrightening, ParentalFrighteningName);
+
+            if (ParentalIncludeUnrated.HasValue)
+            {
+                values.Add($"{ParentalIncludeUnratedName}={ParentalIncludeUnrated.Value.ToString().ToLower(CultureInfo.CurrentCulture)}");
+            }
+
             return string.Join("&", values);
+        }
+
+        private static void AddParentalRange(List<string> values, Range<uint>? range, string name)
+        {
+            if (range.HasValue)
+            {
+                uint firstValue = range.Value.From;
+                uint secondValue = range.Value.To;
+
+                if (firstValue <= secondValue)
+                {
+                    values.Add($"{name}={firstValue}-{secondValue}");
+                }
+                else
+                {
+                    values.Add($"{name}={secondValue}-{firstValue}");
+                }
+            }
         }
 
         private static void AddRange(List<string> values, Range<uint>? range, string name)

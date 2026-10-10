@@ -45,7 +45,7 @@ namespace TraktNET.SmartListsModule
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, filter, watchnow: "netflix", cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, filter: filter, watchnow: "netflix", cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -240,6 +240,67 @@ namespace TraktNET.SmartListsModule
         }
 
         [Fact]
+        public async Task TestGetSmartListItemsWithTypeSortByAndSortHow()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
+
+            string expectedUri = $"smart-lists/{ListSlug}/items/movies/rank/desc";
+
+            TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent);
+
+            TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
+                ListSlug, TraktSmartListItemType.Movies, TraktSortBy.Rank, TraktSortHow.Descending,
+                cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSmartListItemsWithWatchnowCountry()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
+
+            string expectedUri = $"{GetSmartListItemsUri}?watchnow=netflix&watchnow_country=us";
+
+            TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent);
+
+            TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
+                ListSlug, watchnow: "netflix", watchnowCountry: "us", cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSmartListItemsWithParentalFilter()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
+
+            var filter = new TraktFilter
+            {
+                ParentalNudity = new Range<uint>(0, 1),
+                ParentalIncludeUnrated = true
+            };
+
+            string expectedUri = $"{GetSmartListItemsUri}?parental_nudity=0-1&parental_include_unrated=true";
+
+            TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent);
+
+            TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
+                ListSlug, filter: filter, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
         public async Task TestGetSmartListItemsComplete()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listitems.json");
@@ -247,15 +308,17 @@ namespace TraktNET.SmartListsModule
             var filter = new TraktFilter
             {
                 Genres = ["science-fiction"],
-                IgnoreWatched = true
+                IgnoreWatched = true,
+                ParentalViolence = new Range<uint>(1, 2)
             };
 
-            string expectedUri = $"{GetSmartListItemsUri}?genres=science-fiction&ignore_watched=true&watchnow=netflix&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}";
+            string expectedUri = $"smart-lists/{ListSlug}/items/movies/rank/desc?genres=science-fiction&ignore_watched=true&parental_violence=1-2&watchnow=netflix&watchnow_country=us&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}";
 
             TraktClient client = ModuleTestUtility.GetClient(expectedUri, responseContent, Page, 1, Limit, ListItemCount);
 
             TraktPagedResponse<TraktListItem> response = await client.SmartLists.GetSmartListItemsAsync(
-                ListSlug, filter, watchnow: "netflix", extendedInfo: ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+                ListSlug, TraktSmartListItemType.Movies, TraktSortBy.Rank, TraktSortHow.Descending,
+                filter, "netflix", "us", ExtendedInfo, Page, Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
