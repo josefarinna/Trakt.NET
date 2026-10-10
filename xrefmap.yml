@@ -36814,6 +36814,18 @@ references:
   commentId: Overload:TraktNET.TraktFilter.TMDBVotes
   fullName: TraktNET.TraktFilter.TMDBVotes
   nameWithType: TraktFilter.TMDBVotes
+- uid: TraktNET.TraktFilter.Theme
+  name: Theme
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_Theme
+  commentId: P:TraktNET.TraktFilter.Theme
+  fullName: TraktNET.TraktFilter.Theme
+  nameWithType: TraktFilter.Theme
+- uid: TraktNET.TraktFilter.Theme*
+  name: Theme
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_Theme_
+  commentId: Overload:TraktNET.TraktFilter.Theme
+  fullName: TraktNET.TraktFilter.Theme
+  nameWithType: TraktFilter.Theme
 - uid: TraktNET.TraktFilter.ToString
   name: ToString()
   href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ToString
