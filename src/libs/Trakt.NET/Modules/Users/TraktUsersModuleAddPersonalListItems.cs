@@ -2,10 +2,10 @@ namespace TraktNET
 {
     public sealed partial class TraktUsersModule
     {
-        /// <summary>Adds items to an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
+        /// <summary>Adds items to an user's personal list. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be added to a personal list.</param>
         /// <param name="listIdOrSlug">The id or slug of the personal list, to which items should be added.</param>
-        /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes, movies and people, which should be added.</param>
+        /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes and movies, which should be added.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -27,10 +27,10 @@ namespace TraktNET
             TraktUserPersonalListItemsPost listItemsPost, CancellationToken cancellationToken = default)
             => AddPersonalListItemsImplAsync(usernameOrSlug, listIdOrSlug, listItemsPost, cancellationToken);
 
-        /// <summary>Adds items to an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
+        /// <summary>Adds items to an user's personal list. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be added to a personal list.</param>
         /// <param name="traktListId">The Trakt-ID of the personal list, to which items should be added.</param>
-        /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes, movies and people, which should be added.</param>
+        /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes and movies, which should be added.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -58,10 +58,10 @@ namespace TraktNET
             return AddPersonalListItemsAsync(usernameOrSlug, traktListId.ToInvariantCultureString(), listItemsPost, cancellationToken);
         }
 
-        /// <summary>Adds items to an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
+        /// <summary>Adds items to an user's personal list. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be added to a personal list.</param>
         /// <param name="listIds">The ids of the personal list, to which items should be added.</param>
-        /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes, movies and people, which should be added.</param>
+        /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes and movies, which should be added.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -92,10 +92,10 @@ namespace TraktNET
             return AddPersonalListItemsAsync(usernameOrSlug, listIds.BestID, listItemsPost, cancellationToken);
         }
 
-        /// <summary>Adds items to an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
+        /// <summary>Adds items to an user's personal list. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be added to a personal list.</param>
         /// <param name="list">The personal list, to which items should be added.</param>
-        /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes, movies and people, which should be added.</param>
+        /// <param name="listItemsPost">An <see cref="TraktUserPersonalListItemsPost" /> instance containing all shows, seasons, episodes and movies, which should be added.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
