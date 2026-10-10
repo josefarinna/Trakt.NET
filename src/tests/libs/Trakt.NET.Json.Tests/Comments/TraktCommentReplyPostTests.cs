@@ -29,8 +29,7 @@ namespace TraktNET.Json.Comments
             commentReplyPost.Gif = new TraktCommentGif
             {
                 Url = "https://example.com/test.gif",
-                Width = 480,
-                Height = 270
+                Slug = "test-gif"
             };
             act.ShouldNotThrow();
 

@@ -3,8 +3,7 @@
     "comment": "Comment content.",
     "gif": {
         "url": "https://example.com/image.gif",
-        "width": 480,
-        "height": 270
+        "slug": "funny-cat"
     },
     "spoiler": false,
     "review": false,

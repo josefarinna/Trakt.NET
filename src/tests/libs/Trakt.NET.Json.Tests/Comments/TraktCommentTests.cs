@@ -33,8 +33,7 @@ namespace TraktNET.Json.Comments
             comment!.Comment.ShouldBe("Comment content.");
             comment!.Gif.ShouldNotBeNull();
             comment!.Gif!.Url.ShouldBe("https://example.com/image.gif");
-            comment!.Gif!.Width.ShouldBe(480U);
-            comment!.Gif!.Height.ShouldBe(270U);
+            comment!.Gif!.Slug.ShouldBe("funny-cat");
             comment!.Spoiler.ShouldBe(false);
             comment!.Review.ShouldBe(false);
             comment!.Replies.ShouldBe(0U);
