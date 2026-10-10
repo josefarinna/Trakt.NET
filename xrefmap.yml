@@ -26953,18 +26953,6 @@ references:
   commentId: Overload:TraktNET.TraktCommentGif.GetHashCode
   fullName: TraktNET.TraktCommentGif.GetHashCode
   nameWithType: TraktCommentGif.GetHashCode
-- uid: TraktNET.TraktCommentGif.Height
-  name: Height
-  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Height
-  commentId: P:TraktNET.TraktCommentGif.Height
-  fullName: TraktNET.TraktCommentGif.Height
-  nameWithType: TraktCommentGif.Height
-- uid: TraktNET.TraktCommentGif.Height*
-  name: Height
-  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Height_
-  commentId: Overload:TraktNET.TraktCommentGif.Height
-  fullName: TraktNET.TraktCommentGif.Height
-  nameWithType: TraktCommentGif.Height
 - uid: TraktNET.TraktCommentGif.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_PrintMembers_System_Text_StringBuilder_
@@ -26977,6 +26965,18 @@ references:
   commentId: Overload:TraktNET.TraktCommentGif.PrintMembers
   fullName: TraktNET.TraktCommentGif.PrintMembers
   nameWithType: TraktCommentGif.PrintMembers
+- uid: TraktNET.TraktCommentGif.Slug
+  name: Slug
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Slug
+  commentId: P:TraktNET.TraktCommentGif.Slug
+  fullName: TraktNET.TraktCommentGif.Slug
+  nameWithType: TraktCommentGif.Slug
+- uid: TraktNET.TraktCommentGif.Slug*
+  name: Slug
+  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Slug_
+  commentId: Overload:TraktNET.TraktCommentGif.Slug
+  fullName: TraktNET.TraktCommentGif.Slug
+  nameWithType: TraktCommentGif.Slug
 - uid: TraktNET.TraktCommentGif.ToString
   name: ToString()
   href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_ToString
@@ -27001,18 +27001,6 @@ references:
   commentId: Overload:TraktNET.TraktCommentGif.Url
   fullName: TraktNET.TraktCommentGif.Url
   nameWithType: TraktCommentGif.Url
-- uid: TraktNET.TraktCommentGif.Width
-  name: Width
-  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Width
-  commentId: P:TraktNET.TraktCommentGif.Width
-  fullName: TraktNET.TraktCommentGif.Width
-  nameWithType: TraktCommentGif.Width
-- uid: TraktNET.TraktCommentGif.Width*
-  name: Width
-  href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_Width_
-  commentId: Overload:TraktNET.TraktCommentGif.Width
-  fullName: TraktNET.TraktCommentGif.Width
-  nameWithType: TraktCommentGif.Width
 - uid: TraktNET.TraktCommentGif.op_Equality(TraktNET.TraktCommentGif,TraktNET.TraktCommentGif)
   name: operator ==(TraktCommentGif?, TraktCommentGif?)
   href: api/TraktNET.TraktCommentGif.html#TraktNET_TraktCommentGif_op_Equality_TraktNET_TraktCommentGif_TraktNET_TraktCommentGif_
