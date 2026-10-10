@@ -45,6 +45,7 @@ namespace TraktNET.Paramters
             filter.PeopleOperator.ShouldBeNull();
             filter.PeopleRole.ShouldBeNull();
             filter.ReleasedWithinDays.ShouldBeNull();
+            filter.Theme.ShouldBeNull();
         }
 
         [Fact]
@@ -727,6 +728,25 @@ namespace TraktNET.Paramters
         }
 
         [Fact]
+        public void TestTraktFilterToStringTheme()
+        {
+            var filter = new TraktFilter
+            {
+                Theme = "halloween"
+            };
+
+            filter.ToString().ShouldBe("theme=halloween");
+
+            filter = new TraktFilter
+            {
+                Theme = string.Empty
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
+        }
+
+        [Fact]
         public void TestTraktFilterToStringAllValues()
         {
             var filter = new TraktFilter
@@ -767,7 +787,8 @@ namespace TraktNET.Paramters
                 People = ["christopher-nolan", "tom-hardy"],
                 PeopleOperator = TraktFilterOperator.And,
                 PeopleRole = TraktPeopleRole.Directing,
-                ReleasedWithinDays = 30
+                ReleasedWithinDays = 30,
+                Theme = "halloween"
             };
 
             filter.ToString().ShouldBe("query=testquery&years=2020-2024&genres=action,drama&languages=en,de"
@@ -778,7 +799,8 @@ namespace TraktNET.Paramters
                 + "&ignore_watchlisted=true&start_date=2024-01-01&end_date=2024-12-31"
                 + "&parental_nudity=0-1&parental_violence=1-2&parental_profanity=0-3&parental_alcohol=2-3&parental_frightening=1-3"
                 + "&parental_include_unrated=true&studios=warner-bros-pictures,universal-pictures"
-                + "&people=christopher-nolan,tom-hardy&people_operator=and&people_role=directing&released_within_days=30");
+                + "&people=christopher-nolan,tom-hardy&people_operator=and&people_role=directing&released_within_days=30"
+                + "&theme=halloween");
         }
     }
 }
