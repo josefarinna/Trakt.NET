@@ -86,5 +86,23 @@ namespace TraktNET
 
         /// <summary>Gets or sets the end date constraint.</summary>
         public DateTime? EndDate { get; set; }
+
+        /// <summary>Parental guide nudity severity range between 0 (none) and 3 (severe).</summary>
+        public Range<uint>? ParentalNudity { get; set; }
+
+        /// <summary>Parental guide violence severity range between 0 (none) and 3 (severe).</summary>
+        public Range<uint>? ParentalViolence { get; set; }
+
+        /// <summary>Parental guide profanity severity range between 0 (none) and 3 (severe).</summary>
+        public Range<uint>? ParentalProfanity { get; set; }
+
+        /// <summary>Parental guide alcohol severity range between 0 (none) and 3 (severe).</summary>
+        public Range<uint>? ParentalAlcohol { get; set; }
+
+        /// <summary>Parental guide frightening severity range between 0 (none) and 3 (severe).</summary>
+        public Range<uint>? ParentalFrightening { get; set; }
+
+        /// <summary>Gets or sets whether to keep titles without a parental guide when a parental range is set.</summary>
+        public bool? ParentalIncludeUnrated { get; set; }
     }
 }

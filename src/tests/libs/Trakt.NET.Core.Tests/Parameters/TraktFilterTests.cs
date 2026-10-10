@@ -34,6 +34,12 @@ namespace TraktNET.Paramters
             filter.IgnoreWatchlisted.ShouldBeNull();
             filter.StartDate.ShouldBeNull();
             filter.EndDate.ShouldBeNull();
+            filter.ParentalNudity.ShouldBeNull();
+            filter.ParentalViolence.ShouldBeNull();
+            filter.ParentalProfanity.ShouldBeNull();
+            filter.ParentalAlcohol.ShouldBeNull();
+            filter.ParentalFrightening.ShouldBeNull();
+            filter.ParentalIncludeUnrated.ShouldBeNull();
         }
 
         [Fact]
@@ -507,6 +513,114 @@ namespace TraktNET.Paramters
         }
 
         [Fact]
+        public void TestTraktFilterToStringParentalNudity()
+        {
+            var filter = new TraktFilter
+            {
+                ParentalNudity = new Range<uint>(0, 1)
+            };
+
+            filter.ToString().ShouldBe("parental_nudity=0-1");
+
+            filter = new TraktFilter
+            {
+                ParentalNudity = new Range<uint>(1, 0)
+            };
+
+            filter.ToString().ShouldBe("parental_nudity=0-1");
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringParentalViolence()
+        {
+            var filter = new TraktFilter
+            {
+                ParentalViolence = new Range<uint>(1, 2)
+            };
+
+            filter.ToString().ShouldBe("parental_violence=1-2");
+
+            filter = new TraktFilter
+            {
+                ParentalViolence = new Range<uint>(2, 1)
+            };
+
+            filter.ToString().ShouldBe("parental_violence=1-2");
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringParentalProfanity()
+        {
+            var filter = new TraktFilter
+            {
+                ParentalProfanity = new Range<uint>(0, 3)
+            };
+
+            filter.ToString().ShouldBe("parental_profanity=0-3");
+
+            filter = new TraktFilter
+            {
+                ParentalProfanity = new Range<uint>(3, 0)
+            };
+
+            filter.ToString().ShouldBe("parental_profanity=0-3");
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringParentalAlcohol()
+        {
+            var filter = new TraktFilter
+            {
+                ParentalAlcohol = new Range<uint>(2, 3)
+            };
+
+            filter.ToString().ShouldBe("parental_alcohol=2-3");
+
+            filter = new TraktFilter
+            {
+                ParentalAlcohol = new Range<uint>(3, 2)
+            };
+
+            filter.ToString().ShouldBe("parental_alcohol=2-3");
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringParentalFrightening()
+        {
+            var filter = new TraktFilter
+            {
+                ParentalFrightening = new Range<uint>(1, 3)
+            };
+
+            filter.ToString().ShouldBe("parental_frightening=1-3");
+
+            filter = new TraktFilter
+            {
+                ParentalFrightening = new Range<uint>(3, 1)
+            };
+
+            filter.ToString().ShouldBe("parental_frightening=1-3");
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringParentalIncludeUnrated()
+        {
+            var filter = new TraktFilter
+            {
+                ParentalIncludeUnrated = true
+            };
+
+            filter.ToString().ShouldBe("parental_include_unrated=true");
+
+            filter = new TraktFilter
+            {
+                ParentalIncludeUnrated = false
+            };
+
+            filter.ToString().ShouldBe("parental_include_unrated=false");
+        }
+
+        [Fact]
         public void TestTraktFilterToStringAllValues()
         {
             var filter = new TraktFilter
@@ -536,7 +650,13 @@ namespace TraktNET.Paramters
                 IgnoreCollected = true,
                 IgnoreWatchlisted = true,
                 StartDate = new DateTime(2024, 01, 01, 0, 0, 0, DateTimeKind.Utc),
-                EndDate = new DateTime(2024, 12, 31, 0, 0, 0, DateTimeKind.Utc)
+                EndDate = new DateTime(2024, 12, 31, 0, 0, 0, DateTimeKind.Utc),
+                ParentalNudity = new Range<uint>(0, 1),
+                ParentalViolence = new Range<uint>(1, 2),
+                ParentalProfanity = new Range<uint>(0, 3),
+                ParentalAlcohol = new Range<uint>(2, 3),
+                ParentalFrightening = new Range<uint>(1, 3),
+                ParentalIncludeUnrated = true
             };
 
             filter.ToString().ShouldBe("query=testquery&years=2020-2024&genres=action,drama&languages=en,de"
@@ -544,7 +664,9 @@ namespace TraktNET.Paramters
                 + "&tmdb_votes=2000-5000&imdb_ratings=5.5-10&imdb_votes=2000-5000&rt_meters=70-90&rt_user_meters=70-90"
                 + "&metascores=5.5-10&certifications=R,tv-pg&network_ids=7,8,9&status=ended,planned"
                 + "&episode_types=series_premiere,season_premiere&hide=unwatched&ignore_watched=true&ignore_collected=true"
-                + "&ignore_watchlisted=true&start_date=2024-01-01&end_date=2024-12-31");
+                + "&ignore_watchlisted=true&start_date=2024-01-01&end_date=2024-12-31"
+                + "&parental_nudity=0-1&parental_violence=1-2&parental_profanity=0-3&parental_alcohol=2-3&parental_frightening=1-3"
+                + "&parental_include_unrated=true");
         }
     }
 }

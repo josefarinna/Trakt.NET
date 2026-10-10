@@ -42,6 +42,9 @@ namespace TraktNET
         /// <summary>Collection of watchnow streaming service options.</summary>
         public string[]? Watchnow { get; set; }
 
+        /// <summary>2-character country code for watchnow.</summary>
+        public string? WatchnowCountry { get; set; }
+
         /// <summary>Year range [min, max]. Max 2 items.</summary>
         public uint[]? Years { get; set; }
 
@@ -65,6 +68,24 @@ namespace TraktNET
 
         /// <summary>MyAnimeList ratings range [min, max]. Max 2 items.</summary>
         public float[]? MalRatings { get; set; }
+
+        /// <summary>Parental guide nudity severity range [min, max] from 0 (none) to 3 (severe). Max 2 items.</summary>
+        public uint[]? ParentalNudity { get; set; }
+
+        /// <summary>Parental guide violence severity range [min, max] from 0 (none) to 3 (severe). Max 2 items.</summary>
+        public uint[]? ParentalViolence { get; set; }
+
+        /// <summary>Parental guide profanity severity range [min, max] from 0 (none) to 3 (severe). Max 2 items.</summary>
+        public uint[]? ParentalProfanity { get; set; }
+
+        /// <summary>Parental guide alcohol severity range [min, max] from 0 (none) to 3 (severe). Max 2 items.</summary>
+        public uint[]? ParentalAlcohol { get; set; }
+
+        /// <summary>Parental guide frightening severity range [min, max] from 0 (none) to 3 (severe). Max 2 items.</summary>
+        public uint[]? ParentalFrightening { get; set; }
+
+        /// <summary>Gets or sets whether to keep titles without a parental guide when a parental range is set.</summary>
+        public bool? ParentalIncludeUnrated { get; set; }
 
         /// <summary>Gets or sets whether watched items should be ignored.</summary>
         public bool? IgnoreWatched { get; set; }

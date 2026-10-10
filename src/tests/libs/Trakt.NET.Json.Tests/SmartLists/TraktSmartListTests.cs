@@ -84,6 +84,8 @@ namespace TraktNET.Json.SmartLists
             smartList.Filters.Watchnow.Length.ShouldBe(1);
             smartList.Filters.Watchnow[0].ShouldBe("netflix");
 
+            smartList.Filters.WatchnowCountry.ShouldBe("us");
+
             smartList.Filters.Years.ShouldNotBeNull();
             smartList.Filters.Years.Length.ShouldBe(2);
             smartList.Filters.Years[0].ShouldBe(2010U);
@@ -123,6 +125,33 @@ namespace TraktNET.Json.SmartLists
             smartList.Filters.MalRatings.Length.ShouldBe(2);
             smartList.Filters.MalRatings[0].ShouldBe(7.0f);
             smartList.Filters.MalRatings[1].ShouldBe(9.5f);
+
+            smartList.Filters.ParentalNudity.ShouldNotBeNull();
+            smartList.Filters.ParentalNudity.Length.ShouldBe(2);
+            smartList.Filters.ParentalNudity[0].ShouldBe(0U);
+            smartList.Filters.ParentalNudity[1].ShouldBe(1U);
+
+            smartList.Filters.ParentalViolence.ShouldNotBeNull();
+            smartList.Filters.ParentalViolence.Length.ShouldBe(2);
+            smartList.Filters.ParentalViolence[0].ShouldBe(0U);
+            smartList.Filters.ParentalViolence[1].ShouldBe(2U);
+
+            smartList.Filters.ParentalProfanity.ShouldNotBeNull();
+            smartList.Filters.ParentalProfanity.Length.ShouldBe(2);
+            smartList.Filters.ParentalProfanity[0].ShouldBe(1U);
+            smartList.Filters.ParentalProfanity[1].ShouldBe(3U);
+
+            smartList.Filters.ParentalAlcohol.ShouldNotBeNull();
+            smartList.Filters.ParentalAlcohol.Length.ShouldBe(2);
+            smartList.Filters.ParentalAlcohol[0].ShouldBe(0U);
+            smartList.Filters.ParentalAlcohol[1].ShouldBe(0U);
+
+            smartList.Filters.ParentalFrightening.ShouldNotBeNull();
+            smartList.Filters.ParentalFrightening.Length.ShouldBe(2);
+            smartList.Filters.ParentalFrightening[0].ShouldBe(2U);
+            smartList.Filters.ParentalFrightening[1].ShouldBe(3U);
+
+            smartList.Filters.ParentalIncludeUnrated.ShouldBe(true);
 
             smartList.Filters.IgnoreWatched.ShouldBe(true);
             smartList.Filters.IgnoreWatchlisted.ShouldBe(false);
