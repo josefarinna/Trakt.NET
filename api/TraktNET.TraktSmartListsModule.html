@@ -530,13 +530,13 @@ Trakt API Documentation: Lists: Smart List
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSmartListsModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_String_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.String,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSmartListItemsAsync(string, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_String_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.String,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSmartListItemsAsync(string, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets items of a smart list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetSmartListItemsAsync(string listIdOrSlug, TraktFilter? filter = null, string? watchnow = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetSmartListItemsAsync(string listIdOrSlug, TraktSmartListItemType? type = null, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktFilter? filter = null, string? watchnow = null, string? watchnowCountry = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -555,6 +555,24 @@ Trakt API Documentation: Lists: Smart List
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktSmartListItemType.html">TraktSmartListItemType</a>?</td>
+        <td><span class="parametername">type</span></td>
+        <td><p>Determines, which type of smart list items should be queried. See also <a class="xref" href="TraktNET.TraktSmartListItemType.html">TraktSmartListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortBy.html">TraktSortBy</a>?</td>
+        <td><span class="parametername">sortBy</span></td>
+        <td><p>Determines, how to sort the smart list items. See also <a class="xref" href="TraktNET.TraktSortBy.html">TraktSortBy</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortHow.html">TraktSortHow</a>?</td>
+        <td><span class="parametername">sortHow</span></td>
+        <td><p>Determines, the sort direction for the smart list items. See also <a class="xref" href="TraktNET.TraktSortHow.html">TraktSortHow</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
         <td><span class="parametername">filter</span></td>
         <td><p>Optional filters. See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
@@ -564,6 +582,12 @@ Trakt API Documentation: Lists: Smart List
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">watchnow</span></td>
         <td><p>Optional watchnow streaming service options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">watchnowCountry</span></td>
+        <td><p>Optional 2-letter country code for watchnow streaming services.</p>
 </td>
       </tr>
       <tr>
@@ -610,7 +634,7 @@ Trakt API Documentation: Lists: Smart List
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_String_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_String_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getsmart_listsitems">
 Trakt API Documentation: Lists: Smart List Items
@@ -642,13 +666,13 @@ Trakt API Documentation: Lists: Smart List Items
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSmartListsModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_UInt32_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.UInt32,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSmartListItemsAsync(uint, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_UInt32_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.UInt32,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSmartListItemsAsync(uint, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets items of a smart list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetSmartListItemsAsync(uint traktListId, TraktFilter? filter = null, string? watchnow = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetSmartListItemsAsync(uint traktListId, TraktSmartListItemType? type = null, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktFilter? filter = null, string? watchnow = null, string? watchnowCountry = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -667,6 +691,24 @@ Trakt API Documentation: Lists: Smart List Items
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktSmartListItemType.html">TraktSmartListItemType</a>?</td>
+        <td><span class="parametername">type</span></td>
+        <td><p>Determines, which type of smart list items should be queried. See also <a class="xref" href="TraktNET.TraktSmartListItemType.html">TraktSmartListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortBy.html">TraktSortBy</a>?</td>
+        <td><span class="parametername">sortBy</span></td>
+        <td><p>Determines, how to sort the smart list items. See also <a class="xref" href="TraktNET.TraktSortBy.html">TraktSortBy</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortHow.html">TraktSortHow</a>?</td>
+        <td><span class="parametername">sortHow</span></td>
+        <td><p>Determines, the sort direction for the smart list items. See also <a class="xref" href="TraktNET.TraktSortHow.html">TraktSortHow</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
         <td><span class="parametername">filter</span></td>
         <td><p>Optional filters. See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
@@ -676,6 +718,12 @@ Trakt API Documentation: Lists: Smart List Items
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">watchnow</span></td>
         <td><p>Optional watchnow streaming service options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">watchnowCountry</span></td>
+        <td><p>Optional 2-letter country code for watchnow streaming services.</p>
 </td>
       </tr>
       <tr>
@@ -722,7 +770,7 @@ Trakt API Documentation: Lists: Smart List Items
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_UInt32_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_UInt32_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getsmart_listsitems">
 Trakt API Documentation: Lists: Smart List Items
@@ -759,13 +807,13 @@ Trakt API Documentation: Lists: Smart List Items
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSmartListsModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktListIDs_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktListIDs,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSmartListItemsAsync(TraktListIDs, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSmartListItemsAsync(TraktListIDs, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets items of a smart list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetSmartListItemsAsync(TraktListIDs listIds, TraktFilter? filter = null, string? watchnow = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetSmartListItemsAsync(TraktListIDs listIds, TraktSmartListItemType? type = null, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktFilter? filter = null, string? watchnow = null, string? watchnowCountry = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -784,6 +832,24 @@ Trakt API Documentation: Lists: Smart List Items
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktSmartListItemType.html">TraktSmartListItemType</a>?</td>
+        <td><span class="parametername">type</span></td>
+        <td><p>Determines, which type of smart list items should be queried. See also <a class="xref" href="TraktNET.TraktSmartListItemType.html">TraktSmartListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortBy.html">TraktSortBy</a>?</td>
+        <td><span class="parametername">sortBy</span></td>
+        <td><p>Determines, how to sort the smart list items. See also <a class="xref" href="TraktNET.TraktSortBy.html">TraktSortBy</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortHow.html">TraktSortHow</a>?</td>
+        <td><span class="parametername">sortHow</span></td>
+        <td><p>Determines, the sort direction for the smart list items. See also <a class="xref" href="TraktNET.TraktSortHow.html">TraktSortHow</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
         <td><span class="parametername">filter</span></td>
         <td><p>Optional filters. See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
@@ -793,6 +859,12 @@ Trakt API Documentation: Lists: Smart List Items
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">watchnow</span></td>
         <td><p>Optional watchnow streaming service options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">watchnowCountry</span></td>
+        <td><p>Optional 2-letter country code for watchnow streaming services.</p>
 </td>
       </tr>
       <tr>
@@ -839,7 +911,7 @@ Trakt API Documentation: Lists: Smart List Items
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktListIDs_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getsmart_listsitems">
 Trakt API Documentation: Lists: Smart List Items
@@ -881,13 +953,13 @@ Trakt API Documentation: Lists: Smart List Items
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSmartListsModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync*"></a>
-  <h4 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktSmartList_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktSmartList,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSmartListItemsAsync(TraktSmartList, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktSmartList_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktSmartList,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetSmartListItemsAsync(TraktSmartList, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets items of a smart list.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetSmartListItemsAsync(TraktSmartList list, TraktFilter? filter = null, string? watchnow = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktListItem&gt;&gt; GetSmartListItemsAsync(TraktSmartList list, TraktSmartListItemType? type = null, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktFilter? filter = null, string? watchnow = null, string? watchnowCountry = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -906,6 +978,24 @@ Trakt API Documentation: Lists: Smart List Items
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="TraktNET.TraktSmartListItemType.html">TraktSmartListItemType</a>?</td>
+        <td><span class="parametername">type</span></td>
+        <td><p>Determines, which type of smart list items should be queried. See also <a class="xref" href="TraktNET.TraktSmartListItemType.html">TraktSmartListItemType</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortBy.html">TraktSortBy</a>?</td>
+        <td><span class="parametername">sortBy</span></td>
+        <td><p>Determines, how to sort the smart list items. See also <a class="xref" href="TraktNET.TraktSortBy.html">TraktSortBy</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSortHow.html">TraktSortHow</a>?</td>
+        <td><span class="parametername">sortHow</span></td>
+        <td><p>Determines, the sort direction for the smart list items. See also <a class="xref" href="TraktNET.TraktSortHow.html">TraktSortHow</a>.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a></td>
         <td><span class="parametername">filter</span></td>
         <td><p>Optional filters. See also <a class="xref" href="TraktNET.TraktFilter.html">TraktFilter</a>.</p>
@@ -915,6 +1005,12 @@ Trakt API Documentation: Lists: Smart List Items
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">watchnow</span></td>
         <td><p>Optional watchnow streaming service options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">watchnowCountry</span></td>
+        <td><p>Optional 2-letter country code for watchnow streaming services.</p>
 </td>
       </tr>
       <tr>
@@ -961,7 +1057,7 @@ Trakt API Documentation: Lists: Smart List Items
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktSmartList_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktSmartList_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
 <p><a href="https://docs.trakt.tv/reference/getsmart_listsitems">
 Trakt API Documentation: Lists: Smart List Items

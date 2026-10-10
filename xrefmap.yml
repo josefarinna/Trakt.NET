@@ -36526,6 +36526,78 @@ references:
   commentId: Overload:TraktNET.TraktFilter.NetworkIDs
   fullName: TraktNET.TraktFilter.NetworkIDs
   nameWithType: TraktFilter.NetworkIDs
+- uid: TraktNET.TraktFilter.ParentalAlcohol
+  name: ParentalAlcohol
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalAlcohol
+  commentId: P:TraktNET.TraktFilter.ParentalAlcohol
+  fullName: TraktNET.TraktFilter.ParentalAlcohol
+  nameWithType: TraktFilter.ParentalAlcohol
+- uid: TraktNET.TraktFilter.ParentalAlcohol*
+  name: ParentalAlcohol
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalAlcohol_
+  commentId: Overload:TraktNET.TraktFilter.ParentalAlcohol
+  fullName: TraktNET.TraktFilter.ParentalAlcohol
+  nameWithType: TraktFilter.ParentalAlcohol
+- uid: TraktNET.TraktFilter.ParentalFrightening
+  name: ParentalFrightening
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalFrightening
+  commentId: P:TraktNET.TraktFilter.ParentalFrightening
+  fullName: TraktNET.TraktFilter.ParentalFrightening
+  nameWithType: TraktFilter.ParentalFrightening
+- uid: TraktNET.TraktFilter.ParentalFrightening*
+  name: ParentalFrightening
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalFrightening_
+  commentId: Overload:TraktNET.TraktFilter.ParentalFrightening
+  fullName: TraktNET.TraktFilter.ParentalFrightening
+  nameWithType: TraktFilter.ParentalFrightening
+- uid: TraktNET.TraktFilter.ParentalIncludeUnrated
+  name: ParentalIncludeUnrated
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalIncludeUnrated
+  commentId: P:TraktNET.TraktFilter.ParentalIncludeUnrated
+  fullName: TraktNET.TraktFilter.ParentalIncludeUnrated
+  nameWithType: TraktFilter.ParentalIncludeUnrated
+- uid: TraktNET.TraktFilter.ParentalIncludeUnrated*
+  name: ParentalIncludeUnrated
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalIncludeUnrated_
+  commentId: Overload:TraktNET.TraktFilter.ParentalIncludeUnrated
+  fullName: TraktNET.TraktFilter.ParentalIncludeUnrated
+  nameWithType: TraktFilter.ParentalIncludeUnrated
+- uid: TraktNET.TraktFilter.ParentalNudity
+  name: ParentalNudity
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalNudity
+  commentId: P:TraktNET.TraktFilter.ParentalNudity
+  fullName: TraktNET.TraktFilter.ParentalNudity
+  nameWithType: TraktFilter.ParentalNudity
+- uid: TraktNET.TraktFilter.ParentalNudity*
+  name: ParentalNudity
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalNudity_
+  commentId: Overload:TraktNET.TraktFilter.ParentalNudity
+  fullName: TraktNET.TraktFilter.ParentalNudity
+  nameWithType: TraktFilter.ParentalNudity
+- uid: TraktNET.TraktFilter.ParentalProfanity
+  name: ParentalProfanity
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalProfanity
+  commentId: P:TraktNET.TraktFilter.ParentalProfanity
+  fullName: TraktNET.TraktFilter.ParentalProfanity
+  nameWithType: TraktFilter.ParentalProfanity
+- uid: TraktNET.TraktFilter.ParentalProfanity*
+  name: ParentalProfanity
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalProfanity_
+  commentId: Overload:TraktNET.TraktFilter.ParentalProfanity
+  fullName: TraktNET.TraktFilter.ParentalProfanity
+  nameWithType: TraktFilter.ParentalProfanity
+- uid: TraktNET.TraktFilter.ParentalViolence
+  name: ParentalViolence
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalViolence
+  commentId: P:TraktNET.TraktFilter.ParentalViolence
+  fullName: TraktNET.TraktFilter.ParentalViolence
+  nameWithType: TraktFilter.ParentalViolence
+- uid: TraktNET.TraktFilter.ParentalViolence*
+  name: ParentalViolence
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ParentalViolence_
+  commentId: Overload:TraktNET.TraktFilter.ParentalViolence
+  fullName: TraktNET.TraktFilter.ParentalViolence
+  nameWithType: TraktFilter.ParentalViolence
 - uid: TraktNET.TraktFilter.Query
   name: Query
   href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_Query
@@ -76318,6 +76390,78 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.Networks
   fullName: TraktNET.TraktSmartListFilters.Networks
   nameWithType: TraktSmartListFilters.Networks
+- uid: TraktNET.TraktSmartListFilters.ParentalAlcohol
+  name: ParentalAlcohol
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalAlcohol
+  commentId: P:TraktNET.TraktSmartListFilters.ParentalAlcohol
+  fullName: TraktNET.TraktSmartListFilters.ParentalAlcohol
+  nameWithType: TraktSmartListFilters.ParentalAlcohol
+- uid: TraktNET.TraktSmartListFilters.ParentalAlcohol*
+  name: ParentalAlcohol
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalAlcohol_
+  commentId: Overload:TraktNET.TraktSmartListFilters.ParentalAlcohol
+  fullName: TraktNET.TraktSmartListFilters.ParentalAlcohol
+  nameWithType: TraktSmartListFilters.ParentalAlcohol
+- uid: TraktNET.TraktSmartListFilters.ParentalFrightening
+  name: ParentalFrightening
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalFrightening
+  commentId: P:TraktNET.TraktSmartListFilters.ParentalFrightening
+  fullName: TraktNET.TraktSmartListFilters.ParentalFrightening
+  nameWithType: TraktSmartListFilters.ParentalFrightening
+- uid: TraktNET.TraktSmartListFilters.ParentalFrightening*
+  name: ParentalFrightening
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalFrightening_
+  commentId: Overload:TraktNET.TraktSmartListFilters.ParentalFrightening
+  fullName: TraktNET.TraktSmartListFilters.ParentalFrightening
+  nameWithType: TraktSmartListFilters.ParentalFrightening
+- uid: TraktNET.TraktSmartListFilters.ParentalIncludeUnrated
+  name: ParentalIncludeUnrated
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalIncludeUnrated
+  commentId: P:TraktNET.TraktSmartListFilters.ParentalIncludeUnrated
+  fullName: TraktNET.TraktSmartListFilters.ParentalIncludeUnrated
+  nameWithType: TraktSmartListFilters.ParentalIncludeUnrated
+- uid: TraktNET.TraktSmartListFilters.ParentalIncludeUnrated*
+  name: ParentalIncludeUnrated
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalIncludeUnrated_
+  commentId: Overload:TraktNET.TraktSmartListFilters.ParentalIncludeUnrated
+  fullName: TraktNET.TraktSmartListFilters.ParentalIncludeUnrated
+  nameWithType: TraktSmartListFilters.ParentalIncludeUnrated
+- uid: TraktNET.TraktSmartListFilters.ParentalNudity
+  name: ParentalNudity
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalNudity
+  commentId: P:TraktNET.TraktSmartListFilters.ParentalNudity
+  fullName: TraktNET.TraktSmartListFilters.ParentalNudity
+  nameWithType: TraktSmartListFilters.ParentalNudity
+- uid: TraktNET.TraktSmartListFilters.ParentalNudity*
+  name: ParentalNudity
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalNudity_
+  commentId: Overload:TraktNET.TraktSmartListFilters.ParentalNudity
+  fullName: TraktNET.TraktSmartListFilters.ParentalNudity
+  nameWithType: TraktSmartListFilters.ParentalNudity
+- uid: TraktNET.TraktSmartListFilters.ParentalProfanity
+  name: ParentalProfanity
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalProfanity
+  commentId: P:TraktNET.TraktSmartListFilters.ParentalProfanity
+  fullName: TraktNET.TraktSmartListFilters.ParentalProfanity
+  nameWithType: TraktSmartListFilters.ParentalProfanity
+- uid: TraktNET.TraktSmartListFilters.ParentalProfanity*
+  name: ParentalProfanity
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalProfanity_
+  commentId: Overload:TraktNET.TraktSmartListFilters.ParentalProfanity
+  fullName: TraktNET.TraktSmartListFilters.ParentalProfanity
+  nameWithType: TraktSmartListFilters.ParentalProfanity
+- uid: TraktNET.TraktSmartListFilters.ParentalViolence
+  name: ParentalViolence
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalViolence
+  commentId: P:TraktNET.TraktSmartListFilters.ParentalViolence
+  fullName: TraktNET.TraktSmartListFilters.ParentalViolence
+  nameWithType: TraktSmartListFilters.ParentalViolence
+- uid: TraktNET.TraktSmartListFilters.ParentalViolence*
+  name: ParentalViolence
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ParentalViolence_
+  commentId: Overload:TraktNET.TraktSmartListFilters.ParentalViolence
+  fullName: TraktNET.TraktSmartListFilters.ParentalViolence
+  nameWithType: TraktSmartListFilters.ParentalViolence
 - uid: TraktNET.TraktSmartListFilters.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_PrintMembers_System_Text_StringBuilder_
@@ -76426,6 +76570,18 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.Watchnow
   fullName: TraktNET.TraktSmartListFilters.Watchnow
   nameWithType: TraktSmartListFilters.Watchnow
+- uid: TraktNET.TraktSmartListFilters.WatchnowCountry
+  name: WatchnowCountry
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_WatchnowCountry
+  commentId: P:TraktNET.TraktSmartListFilters.WatchnowCountry
+  fullName: TraktNET.TraktSmartListFilters.WatchnowCountry
+  nameWithType: TraktSmartListFilters.WatchnowCountry
+- uid: TraktNET.TraktSmartListFilters.WatchnowCountry*
+  name: WatchnowCountry
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_WatchnowCountry_
+  commentId: Overload:TraktNET.TraktSmartListFilters.WatchnowCountry
+  fullName: TraktNET.TraktSmartListFilters.WatchnowCountry
+  nameWithType: TraktSmartListFilters.WatchnowCountry
 - uid: TraktNET.TraktSmartListFilters.Years
   name: Years
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Years
@@ -76627,6 +76783,168 @@ references:
   fullName.vb: TraktNET.TraktSmartListImages.<>
   nameWithType: TraktSmartListImages.operator !=
   nameWithType.vb: TraktSmartListImages.<>
+- uid: TraktNET.TraktSmartListItemType
+  name: TraktSmartListItemType
+  href: api/TraktNET.TraktSmartListItemType.html
+  commentId: T:TraktNET.TraktSmartListItemType
+  fullName: TraktNET.TraktSmartListItemType
+  nameWithType: TraktSmartListItemType
+- uid: TraktNET.TraktSmartListItemType.All
+  name: All
+  href: api/TraktNET.TraktSmartListItemType.html#TraktNET_TraktSmartListItemType_All
+  commentId: F:TraktNET.TraktSmartListItemType.All
+  fullName: TraktNET.TraktSmartListItemType.All
+  nameWithType: TraktSmartListItemType.All
+- uid: TraktNET.TraktSmartListItemType.Movies
+  name: Movies
+  href: api/TraktNET.TraktSmartListItemType.html#TraktNET_TraktSmartListItemType_Movies
+  commentId: F:TraktNET.TraktSmartListItemType.Movies
+  fullName: TraktNET.TraktSmartListItemType.Movies
+  nameWithType: TraktSmartListItemType.Movies
+- uid: TraktNET.TraktSmartListItemType.Shows
+  name: Shows
+  href: api/TraktNET.TraktSmartListItemType.html#TraktNET_TraktSmartListItemType_Shows
+  commentId: F:TraktNET.TraktSmartListItemType.Shows
+  fullName: TraktNET.TraktSmartListItemType.Shows
+  nameWithType: TraktSmartListItemType.Shows
+- uid: TraktNET.TraktSmartListItemType.Unspecified
+  name: Unspecified
+  href: api/TraktNET.TraktSmartListItemType.html#TraktNET_TraktSmartListItemType_Unspecified
+  commentId: F:TraktNET.TraktSmartListItemType.Unspecified
+  fullName: TraktNET.TraktSmartListItemType.Unspecified
+  nameWithType: TraktSmartListItemType.Unspecified
+- uid: TraktNET.TraktSmartListItemTypeExtensions
+  name: TraktSmartListItemTypeExtensions
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html
+  commentId: T:TraktNET.TraktSmartListItemTypeExtensions
+  fullName: TraktNET.TraktSmartListItemTypeExtensions
+  nameWithType: TraktSmartListItemTypeExtensions
+- uid: TraktNET.TraktSmartListItemTypeExtensions.AsPathParameter(TraktNET.TraktSmartListItemType)
+  name: AsPathParameter(TraktSmartListItemType)
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html#TraktNET_TraktSmartListItemTypeExtensions_AsPathParameter_TraktNET_TraktSmartListItemType_
+  commentId: M:TraktNET.TraktSmartListItemTypeExtensions.AsPathParameter(TraktNET.TraktSmartListItemType)
+  fullName: TraktNET.TraktSmartListItemTypeExtensions.AsPathParameter(TraktNET.TraktSmartListItemType)
+  nameWithType: TraktSmartListItemTypeExtensions.AsPathParameter(TraktSmartListItemType)
+- uid: TraktNET.TraktSmartListItemTypeExtensions.AsPathParameter*
+  name: AsPathParameter
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html#TraktNET_TraktSmartListItemTypeExtensions_AsPathParameter_
+  commentId: Overload:TraktNET.TraktSmartListItemTypeExtensions.AsPathParameter
+  fullName: TraktNET.TraktSmartListItemTypeExtensions.AsPathParameter
+  nameWithType: TraktSmartListItemTypeExtensions.AsPathParameter
+- uid: TraktNET.TraktSmartListItemTypeExtensions.DisplayName(TraktNET.TraktSmartListItemType)
+  name: DisplayName(TraktSmartListItemType)
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html#TraktNET_TraktSmartListItemTypeExtensions_DisplayName_TraktNET_TraktSmartListItemType_
+  commentId: M:TraktNET.TraktSmartListItemTypeExtensions.DisplayName(TraktNET.TraktSmartListItemType)
+  fullName: TraktNET.TraktSmartListItemTypeExtensions.DisplayName(TraktNET.TraktSmartListItemType)
+  nameWithType: TraktSmartListItemTypeExtensions.DisplayName(TraktSmartListItemType)
+- uid: TraktNET.TraktSmartListItemTypeExtensions.DisplayName*
+  name: DisplayName
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html#TraktNET_TraktSmartListItemTypeExtensions_DisplayName_
+  commentId: Overload:TraktNET.TraktSmartListItemTypeExtensions.DisplayName
+  fullName: TraktNET.TraktSmartListItemTypeExtensions.DisplayName
+  nameWithType: TraktSmartListItemTypeExtensions.DisplayName
+- uid: TraktNET.TraktSmartListItemTypeExtensions.ToJson(TraktNET.TraktSmartListItemType)
+  name: ToJson(TraktSmartListItemType)
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html#TraktNET_TraktSmartListItemTypeExtensions_ToJson_TraktNET_TraktSmartListItemType_
+  commentId: M:TraktNET.TraktSmartListItemTypeExtensions.ToJson(TraktNET.TraktSmartListItemType)
+  fullName: TraktNET.TraktSmartListItemTypeExtensions.ToJson(TraktNET.TraktSmartListItemType)
+  nameWithType: TraktSmartListItemTypeExtensions.ToJson(TraktSmartListItemType)
+- uid: TraktNET.TraktSmartListItemTypeExtensions.ToJson*
+  name: ToJson
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html#TraktNET_TraktSmartListItemTypeExtensions_ToJson_
+  commentId: Overload:TraktNET.TraktSmartListItemTypeExtensions.ToJson
+  fullName: TraktNET.TraktSmartListItemTypeExtensions.ToJson
+  nameWithType: TraktSmartListItemTypeExtensions.ToJson
+- uid: TraktNET.TraktSmartListItemTypeExtensions.ToTraktSmartListItemType(System.String)
+  name: ToTraktSmartListItemType(string?)
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html#TraktNET_TraktSmartListItemTypeExtensions_ToTraktSmartListItemType_System_String_
+  commentId: M:TraktNET.TraktSmartListItemTypeExtensions.ToTraktSmartListItemType(System.String)
+  name.vb: ToTraktSmartListItemType(String)
+  fullName: TraktNET.TraktSmartListItemTypeExtensions.ToTraktSmartListItemType(string?)
+  fullName.vb: TraktNET.TraktSmartListItemTypeExtensions.ToTraktSmartListItemType(String)
+  nameWithType: TraktSmartListItemTypeExtensions.ToTraktSmartListItemType(string?)
+  nameWithType.vb: TraktSmartListItemTypeExtensions.ToTraktSmartListItemType(String)
+- uid: TraktNET.TraktSmartListItemTypeExtensions.ToTraktSmartListItemType*
+  name: ToTraktSmartListItemType
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html#TraktNET_TraktSmartListItemTypeExtensions_ToTraktSmartListItemType_
+  commentId: Overload:TraktNET.TraktSmartListItemTypeExtensions.ToTraktSmartListItemType
+  fullName: TraktNET.TraktSmartListItemTypeExtensions.ToTraktSmartListItemType
+  nameWithType: TraktSmartListItemTypeExtensions.ToTraktSmartListItemType
+- uid: TraktNET.TraktSmartListItemTypeExtensions.ToURI(TraktNET.TraktSmartListItemType)
+  name: ToURI(TraktSmartListItemType)
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html#TraktNET_TraktSmartListItemTypeExtensions_ToURI_TraktNET_TraktSmartListItemType_
+  commentId: M:TraktNET.TraktSmartListItemTypeExtensions.ToURI(TraktNET.TraktSmartListItemType)
+  fullName: TraktNET.TraktSmartListItemTypeExtensions.ToURI(TraktNET.TraktSmartListItemType)
+  nameWithType: TraktSmartListItemTypeExtensions.ToURI(TraktSmartListItemType)
+- uid: TraktNET.TraktSmartListItemTypeExtensions.ToURI*
+  name: ToURI
+  href: api/TraktNET.TraktSmartListItemTypeExtensions.html#TraktNET_TraktSmartListItemTypeExtensions_ToURI_
+  commentId: Overload:TraktNET.TraktSmartListItemTypeExtensions.ToURI
+  fullName: TraktNET.TraktSmartListItemTypeExtensions.ToURI
+  nameWithType: TraktSmartListItemTypeExtensions.ToURI
+- uid: TraktNET.TraktSmartListItemTypeJsonConverter
+  name: TraktSmartListItemTypeJsonConverter
+  href: api/TraktNET.TraktSmartListItemTypeJsonConverter.html
+  commentId: T:TraktNET.TraktSmartListItemTypeJsonConverter
+  fullName: TraktNET.TraktSmartListItemTypeJsonConverter
+  nameWithType: TraktSmartListItemTypeJsonConverter
+- uid: TraktNET.TraktSmartListItemTypeJsonConverter.#ctor
+  name: TraktSmartListItemTypeJsonConverter()
+  href: api/TraktNET.TraktSmartListItemTypeJsonConverter.html#TraktNET_TraktSmartListItemTypeJsonConverter__ctor
+  commentId: M:TraktNET.TraktSmartListItemTypeJsonConverter.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktSmartListItemTypeJsonConverter.TraktSmartListItemTypeJsonConverter()
+  fullName.vb: TraktNET.TraktSmartListItemTypeJsonConverter.New()
+  nameWithType: TraktSmartListItemTypeJsonConverter.TraktSmartListItemTypeJsonConverter()
+  nameWithType.vb: TraktSmartListItemTypeJsonConverter.New()
+- uid: TraktNET.TraktSmartListItemTypeJsonConverter.#ctor*
+  name: TraktSmartListItemTypeJsonConverter
+  href: api/TraktNET.TraktSmartListItemTypeJsonConverter.html#TraktNET_TraktSmartListItemTypeJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktSmartListItemTypeJsonConverter.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktSmartListItemTypeJsonConverter.TraktSmartListItemTypeJsonConverter
+  fullName.vb: TraktNET.TraktSmartListItemTypeJsonConverter.New
+  nameWithType: TraktSmartListItemTypeJsonConverter.TraktSmartListItemTypeJsonConverter
+  nameWithType.vb: TraktSmartListItemTypeJsonConverter.New
+- uid: TraktNET.TraktSmartListItemTypeJsonConverter.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: api/TraktNET.TraktSmartListItemTypeJsonConverter.html#TraktNET_TraktSmartListItemTypeJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktSmartListItemTypeJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktSmartListItemTypeJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktSmartListItemTypeJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktSmartListItemTypeJsonConverter.CanConvert*
+  name: CanConvert
+  href: api/TraktNET.TraktSmartListItemTypeJsonConverter.html#TraktNET_TraktSmartListItemTypeJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktSmartListItemTypeJsonConverter.CanConvert
+  fullName: TraktNET.TraktSmartListItemTypeJsonConverter.CanConvert
+  nameWithType: TraktSmartListItemTypeJsonConverter.CanConvert
+- uid: TraktNET.TraktSmartListItemTypeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/TraktNET.TraktSmartListItemTypeJsonConverter.html#TraktNET_TraktSmartListItemTypeJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktSmartListItemTypeJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: TraktNET.TraktSmartListItemTypeJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktSmartListItemTypeJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktSmartListItemTypeJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktSmartListItemTypeJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktSmartListItemTypeJsonConverter.Read*
+  name: Read
+  href: api/TraktNET.TraktSmartListItemTypeJsonConverter.html#TraktNET_TraktSmartListItemTypeJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktSmartListItemTypeJsonConverter.Read
+  fullName: TraktNET.TraktSmartListItemTypeJsonConverter.Read
+  nameWithType: TraktSmartListItemTypeJsonConverter.Read
+- uid: TraktNET.TraktSmartListItemTypeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktSmartListItemType,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktSmartListItemType, JsonSerializerOptions)
+  href: api/TraktNET.TraktSmartListItemTypeJsonConverter.html#TraktNET_TraktSmartListItemTypeJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktSmartListItemType_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktSmartListItemTypeJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktSmartListItemType,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktSmartListItemTypeJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktSmartListItemType, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktSmartListItemTypeJsonConverter.Write(Utf8JsonWriter, TraktSmartListItemType, JsonSerializerOptions)
+- uid: TraktNET.TraktSmartListItemTypeJsonConverter.Write*
+  name: Write
+  href: api/TraktNET.TraktSmartListItemTypeJsonConverter.html#TraktNET_TraktSmartListItemTypeJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktSmartListItemTypeJsonConverter.Write
+  fullName: TraktNET.TraktSmartListItemTypeJsonConverter.Write
+  nameWithType: TraktSmartListItemTypeJsonConverter.Write
 - uid: TraktNET.TraktSmartListMediaType
   name: TraktSmartListMediaType
   href: api/TraktNET.TraktSmartListMediaType.html
@@ -77377,42 +77695,42 @@ references:
   commentId: Overload:TraktNET.TraktSmartListsModule.GetSmartListAsync
   fullName: TraktNET.TraktSmartListsModule.GetSmartListAsync
   nameWithType: TraktSmartListsModule.GetSmartListAsync
-- uid: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.String,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetSmartListItemsAsync(string, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSmartListsModule.html#TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_String_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.String,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetSmartListItemsAsync(String, TraktFilter, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(string, TraktNET.TraktFilter?, string?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(String, TraktNET.TraktFilter, String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSmartListsModule.GetSmartListItemsAsync(string, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSmartListsModule.GetSmartListItemsAsync(String, TraktFilter, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.UInt32,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetSmartListItemsAsync(uint, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSmartListsModule.html#TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_UInt32_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.UInt32,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetSmartListItemsAsync(UInteger, TraktFilter, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(uint, TraktNET.TraktFilter?, string?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(UInteger, TraktNET.TraktFilter, String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSmartListsModule.GetSmartListItemsAsync(uint, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSmartListsModule.GetSmartListItemsAsync(UInteger, TraktFilter, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktListIDs,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetSmartListItemsAsync(TraktListIDs, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSmartListsModule.html#TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktListIDs_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktListIDs,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetSmartListItemsAsync(TraktListIDs, TraktFilter, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktListIDs, TraktNET.TraktFilter?, string?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktListIDs, TraktNET.TraktFilter, String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSmartListsModule.GetSmartListItemsAsync(TraktListIDs, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSmartListsModule.GetSmartListItemsAsync(TraktListIDs, TraktFilter, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktSmartList,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetSmartListItemsAsync(TraktSmartList, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSmartListsModule.html#TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktSmartList_TraktNET_TraktFilter_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktSmartList,TraktNET.TraktFilter,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetSmartListItemsAsync(TraktSmartList, TraktFilter, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktSmartList, TraktNET.TraktFilter?, string?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktSmartList, TraktNET.TraktFilter, String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSmartListsModule.GetSmartListItemsAsync(TraktSmartList, TraktFilter?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSmartListsModule.GetSmartListItemsAsync(TraktSmartList, TraktFilter, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.String,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetSmartListItemsAsync(string, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSmartListsModule.html#TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_String_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.String,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetSmartListItemsAsync(String, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter, String, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(string, TraktNET.TraktSmartListItemType?, TraktNET.TraktSortBy?, TraktNET.TraktSortHow?, TraktNET.TraktFilter?, string?, string?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(String, TraktNET.TraktSmartListItemType?, TraktNET.TraktSortBy?, TraktNET.TraktSortHow?, TraktNET.TraktFilter, String, String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSmartListsModule.GetSmartListItemsAsync(string, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSmartListsModule.GetSmartListItemsAsync(String, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter, String, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.UInt32,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetSmartListItemsAsync(uint, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSmartListsModule.html#TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_System_UInt32_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(System.UInt32,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetSmartListItemsAsync(UInteger, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter, String, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(uint, TraktNET.TraktSmartListItemType?, TraktNET.TraktSortBy?, TraktNET.TraktSortHow?, TraktNET.TraktFilter?, string?, string?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(UInteger, TraktNET.TraktSmartListItemType?, TraktNET.TraktSortBy?, TraktNET.TraktSortHow?, TraktNET.TraktFilter, String, String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSmartListsModule.GetSmartListItemsAsync(uint, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSmartListsModule.GetSmartListItemsAsync(UInteger, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter, String, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetSmartListItemsAsync(TraktListIDs, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSmartListsModule.html#TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktListIDs_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktListIDs,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetSmartListItemsAsync(TraktListIDs, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter, String, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktListIDs, TraktNET.TraktSmartListItemType?, TraktNET.TraktSortBy?, TraktNET.TraktSortHow?, TraktNET.TraktFilter?, string?, string?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktListIDs, TraktNET.TraktSmartListItemType?, TraktNET.TraktSortBy?, TraktNET.TraktSortHow?, TraktNET.TraktFilter, String, String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSmartListsModule.GetSmartListItemsAsync(TraktListIDs, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSmartListsModule.GetSmartListItemsAsync(TraktListIDs, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter, String, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktSmartList,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetSmartListItemsAsync(TraktSmartList, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSmartListsModule.html#TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_TraktNET_TraktSmartList_System_Nullable_TraktNET_TraktSmartListItemType__System_Nullable_TraktNET_TraktSortBy__System_Nullable_TraktNET_TraktSortHow__TraktNET_TraktFilter_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktSmartList,System.Nullable{TraktNET.TraktSmartListItemType},System.Nullable{TraktNET.TraktSortBy},System.Nullable{TraktNET.TraktSortHow},TraktNET.TraktFilter,System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetSmartListItemsAsync(TraktSmartList, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter, String, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktSmartList, TraktNET.TraktSmartListItemType?, TraktNET.TraktSortBy?, TraktNET.TraktSortHow?, TraktNET.TraktFilter?, string?, string?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync(TraktNET.TraktSmartList, TraktNET.TraktSmartListItemType?, TraktNET.TraktSortBy?, TraktNET.TraktSortHow?, TraktNET.TraktFilter, String, String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSmartListsModule.GetSmartListItemsAsync(TraktSmartList, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter?, string?, string?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSmartListsModule.GetSmartListItemsAsync(TraktSmartList, TraktSmartListItemType?, TraktSortBy?, TraktSortHow?, TraktFilter, String, String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktSmartListsModule.GetSmartListItemsAsync*
   name: GetSmartListItemsAsync
   href: api/TraktNET.TraktSmartListsModule.html#TraktNET_TraktSmartListsModule_GetSmartListItemsAsync_

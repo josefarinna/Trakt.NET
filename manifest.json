@@ -6318,6 +6318,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSmartListItemType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSmartListItemType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSmartListItemType",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartListItemType.yml\" sourcestartlinenumber=\"1\">Determines the item type to narrow a smart list holding both media types.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSmartListItemTypeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSmartListItemTypeExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSmartListItemTypeExtensions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartListItemTypeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktSmartListItemType\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSmartListItemTypeJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSmartListItemTypeJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSmartListItemTypeJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartListItemTypeJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktSmartListItemType\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktSmartListMediaType.yml",
       "output": {
         ".html": {
