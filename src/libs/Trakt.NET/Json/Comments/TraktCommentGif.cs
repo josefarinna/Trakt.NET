@@ -6,10 +6,7 @@ namespace TraktNET
         /// <summary>The URL of the GIF.</summary>
         public string? Url { get; set; }
 
-        /// <summary>The intrinsic width in pixels of the GIF.</summary>
-        public uint? Width { get; set; }
-
-        /// <summary>The intrinsic height in pixels of the GIF.</summary>
-        public uint? Height { get; set; }
+        /// <summary>The Klipy slug of the GIF.</summary>
+        public string? Slug { get; set; }
     }
 }

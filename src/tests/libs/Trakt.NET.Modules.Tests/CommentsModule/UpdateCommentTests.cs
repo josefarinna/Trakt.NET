@@ -103,8 +103,7 @@ namespace TraktNET.CommentsModule
             var gif = new TraktCommentGif
             {
                 Url = "https://example.com/test.gif",
-                Width = 480,
-                Height = 270
+                Slug = "test-gif"
             };
 
             TraktResponse<TraktCommentPostResponse> response = await client.Comments.UpdateCommentAsync(CommentID, CommentText, Spoiler,
@@ -130,8 +129,7 @@ namespace TraktNET.CommentsModule
                 Gif = new TraktCommentGif
                 {
                     Url = "https://example.com/test.gif",
-                    Width = 480,
-                    Height = 270
+                    Slug = "test-gif"
                 }
             };
 
