@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -53,6 +53,21 @@ namespace TraktNET.GetRequests.Movies
         {
             var trendingMoviesGetRequest = new TrendingMoviesGetRequest();
             trendingMoviesGetRequest.RequestObjectType.ShouldBe(TraktRequestObjectType.None);
+        }
+
+        [Fact]
+        public void TestTrendingMoviesGetRequestHasValidURIPathWithTheme()
+        {
+            var trendingMoviesGetRequest = new TrendingMoviesGetRequest
+            {
+                Filter = new TraktFilter
+                {
+                    Theme = "halloween"
+                }
+            };
+
+            trendingMoviesGetRequest.BuildUri();
+            trendingMoviesGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?theme=halloween", UriKind.Relative));
         }
     }
 }

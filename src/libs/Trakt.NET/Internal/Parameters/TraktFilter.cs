@@ -42,6 +42,7 @@ namespace TraktNET
         private const string PeopleOperatorName = "people_operator";
         private const string PeopleRoleName = "people_role";
         private const string ReleasedWithinDaysName = "released_within_days";
+        private const string ThemeName = "theme";
 
         public override string ToString()
         {
@@ -217,6 +218,11 @@ namespace TraktNET
             if (ReleasedWithinDays.HasValue)
             {
                 values.Add($"{ReleasedWithinDaysName}={ReleasedWithinDays.Value}");
+            }
+
+            if (!string.IsNullOrEmpty(Theme))
+            {
+                values.Add($"{ThemeName}={Theme}");
             }
 
             return string.Join("&", values);

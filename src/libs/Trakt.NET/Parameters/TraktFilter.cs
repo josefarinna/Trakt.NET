@@ -125,5 +125,8 @@ namespace TraktNET
 
         /// <summary>Number of days within which items were released.</summary>
         public uint? ReleasedWithinDays { get; set; }
+
+        /// <summary>Apply a seasonal theme such as <c>halloween</c> or <c>christmas</c>.</summary>
+        public string? Theme { get; set; }
     }
 }
