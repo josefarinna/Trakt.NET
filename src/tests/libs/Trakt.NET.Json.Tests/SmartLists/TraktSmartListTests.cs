@@ -161,6 +161,38 @@ namespace TraktNET.Json.SmartLists
             smartList.Filters.IgnoreEnded.ShouldBe(false);
             smartList.Filters.IgnoreAiring.ShouldBe(true);
             smartList.Filters.IgnoreNoReleaseDate.ShouldBe(false);
+
+            smartList.Filters.Studios.ShouldNotBeNull();
+            smartList.Filters.Studios.Length.ShouldBe(1);
+            smartList.Filters.Studios[0].ShouldBe("warner-bros-pictures");
+
+            smartList.Filters.People.ShouldNotBeNull();
+            smartList.Filters.People.Length.ShouldBe(1);
+            smartList.Filters.People[0].ShouldBe("christopher-nolan");
+
+            smartList.Filters.PeopleOperator.ShouldBe(TraktFilterOperator.And);
+            smartList.Filters.PeopleRole.ShouldBe(TraktPeopleRole.Directing);
+            smartList.Filters.ReleasedWithinDays.ShouldBe(30U);
+
+            smartList.Filters.TmdbRatings.ShouldNotBeNull();
+            smartList.Filters.TmdbRatings.Length.ShouldBe(2);
+            smartList.Filters.TmdbRatings[0].ShouldBe(7.0f);
+            smartList.Filters.TmdbRatings[1].ShouldBe(9.0f);
+
+            smartList.Filters.Metascores.ShouldNotBeNull();
+            smartList.Filters.Metascores.Length.ShouldBe(2);
+            smartList.Filters.Metascores[0].ShouldBe(75U);
+            smartList.Filters.Metascores[1].ShouldBe(95U);
+
+            smartList.Filters.Votes.ShouldNotBeNull();
+            smartList.Filters.Votes.Length.ShouldBe(2);
+            smartList.Filters.Votes[0].ShouldBe(10000U);
+            smartList.Filters.Votes[1].ShouldBe(50000U);
+
+            smartList.Filters.ImdbVotes.ShouldNotBeNull();
+            smartList.Filters.ImdbVotes.Length.ShouldBe(2);
+            smartList.Filters.ImdbVotes[0].ShouldBe(20000U);
+            smartList.Filters.ImdbVotes[1].ShouldBe(100000U);
         }
 
         [Fact]

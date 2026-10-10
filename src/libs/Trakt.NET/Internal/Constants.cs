@@ -153,6 +153,7 @@ namespace TraktNET
                     new TraktMediaTypeJsonConverter(),
                     new TraktMovieStatusJsonConverter(),
                     new TraktNotesObjectTypeJsonConverter(),
+                    new TraktPeopleRoleJsonConverter(),
                     new TraktRatingsItemTypeJsonConverter(),
                     new TraktReactionTypeJsonConverter(),
                     new TraktReasonJsonConverter(),

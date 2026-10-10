@@ -84,6 +84,27 @@ namespace TraktNET.GetRequests.SmartLists
         }
 
         [Fact]
+        public void TestSmartListItemsGetRequestHasValidURIPathWithSmartListFilters()
+        {
+            var filter = new TraktFilter
+            {
+                Studios = ["warner-bros-pictures"],
+                People = ["christopher-nolan"],
+                PeopleOperator = TraktFilterOperator.And,
+                PeopleRole = TraktPeopleRole.Directing,
+                ReleasedWithinDays = 30
+            };
+            var request = new SmartListItemsGetRequest
+            {
+                ListId = "123",
+                Filter = filter
+            };
+
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"{URIPath}?studios=warner-bros-pictures&people=christopher-nolan&people_operator=and&people_role=directing&released_within_days=30", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestSmartListItemsGetRequestHasValidOAuthRequirement()
         {
             var request = new SmartListItemsGetRequest { ListId = default! };

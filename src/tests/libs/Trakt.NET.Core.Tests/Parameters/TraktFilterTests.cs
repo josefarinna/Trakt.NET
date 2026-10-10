@@ -40,6 +40,11 @@ namespace TraktNET.Paramters
             filter.ParentalAlcohol.ShouldBeNull();
             filter.ParentalFrightening.ShouldBeNull();
             filter.ParentalIncludeUnrated.ShouldBeNull();
+            filter.Studios.ShouldBeNull();
+            filter.People.ShouldBeNull();
+            filter.PeopleOperator.ShouldBeNull();
+            filter.PeopleRole.ShouldBeNull();
+            filter.ReleasedWithinDays.ShouldBeNull();
         }
 
         [Fact]
@@ -621,6 +626,107 @@ namespace TraktNET.Paramters
         }
 
         [Fact]
+        public void TestTraktFilterToStringStudios()
+        {
+            var filter = new TraktFilter
+            {
+                Studios = ["warner-bros-pictures", "universal-pictures"]
+            };
+
+            filter.ToString().ShouldBe("studios=warner-bros-pictures,universal-pictures");
+
+            filter = new TraktFilter
+            {
+                Studios = []
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringPeople()
+        {
+            var filter = new TraktFilter
+            {
+                People = ["christopher-nolan", "tom-hardy"]
+            };
+
+            filter.ToString().ShouldBe("people=christopher-nolan,tom-hardy");
+
+            filter = new TraktFilter
+            {
+                People = []
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringPeopleOperator()
+        {
+            var filter = new TraktFilter
+            {
+                PeopleOperator = TraktFilterOperator.And
+            };
+
+            filter.ToString().ShouldBe("people_operator=and");
+
+            filter = new TraktFilter
+            {
+                PeopleOperator = TraktFilterOperator.Or
+            };
+
+            filter.ToString().ShouldBe("people_operator=or");
+
+            filter = new TraktFilter
+            {
+                PeopleOperator = TraktFilterOperator.Unspecified
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringPeopleRole()
+        {
+            var filter = new TraktFilter
+            {
+                PeopleRole = TraktPeopleRole.Directing
+            };
+
+            filter.ToString().ShouldBe("people_role=directing");
+
+            filter = new TraktFilter
+            {
+                PeopleRole = TraktPeopleRole.Cast
+            };
+
+            filter.ToString().ShouldBe("people_role=cast");
+
+            filter = new TraktFilter
+            {
+                PeopleRole = TraktPeopleRole.Unspecified
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
+        }
+
+        [Fact]
+        public void TestTraktFilterToStringReleasedWithinDays()
+        {
+            var filter = new TraktFilter
+            {
+                ReleasedWithinDays = 30
+            };
+
+            filter.ToString().ShouldBe("released_within_days=30");
+        }
+
+        [Fact]
         public void TestTraktFilterToStringAllValues()
         {
             var filter = new TraktFilter
@@ -656,7 +762,12 @@ namespace TraktNET.Paramters
                 ParentalProfanity = new Range<uint>(0, 3),
                 ParentalAlcohol = new Range<uint>(2, 3),
                 ParentalFrightening = new Range<uint>(1, 3),
-                ParentalIncludeUnrated = true
+                ParentalIncludeUnrated = true,
+                Studios = ["warner-bros-pictures", "universal-pictures"],
+                People = ["christopher-nolan", "tom-hardy"],
+                PeopleOperator = TraktFilterOperator.And,
+                PeopleRole = TraktPeopleRole.Directing,
+                ReleasedWithinDays = 30
             };
 
             filter.ToString().ShouldBe("query=testquery&years=2020-2024&genres=action,drama&languages=en,de"
@@ -666,7 +777,8 @@ namespace TraktNET.Paramters
                 + "&episode_types=series_premiere,season_premiere&hide=unwatched&ignore_watched=true&ignore_collected=true"
                 + "&ignore_watchlisted=true&start_date=2024-01-01&end_date=2024-12-31"
                 + "&parental_nudity=0-1&parental_violence=1-2&parental_profanity=0-3&parental_alcohol=2-3&parental_frightening=1-3"
-                + "&parental_include_unrated=true");
+                + "&parental_include_unrated=true&studios=warner-bros-pictures,universal-pictures"
+                + "&people=christopher-nolan,tom-hardy&people_operator=and&people_role=directing&released_within_days=30");
         }
     }
 }
