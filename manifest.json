@@ -4218,6 +4218,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktPeopleRole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktPeopleRole.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktPeopleRole",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktPeopleRole.yml\" sourcestartlinenumber=\"1\">Determines the role used for filtering people.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktPeopleRoleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktPeopleRoleExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktPeopleRoleExtensions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktPeopleRoleExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktPeopleRole\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktPeopleRoleJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktPeopleRoleJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktPeopleRoleJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktPeopleRoleJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktPeopleRole\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktPermissions.yml",
       "output": {
         ".html": {

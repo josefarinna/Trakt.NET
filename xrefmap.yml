@@ -14929,6 +14929,18 @@ references:
   commentId: Overload:TraktNET.SmartListsJsonSerializerContext.NullableTraktListPrivacy
   fullName: TraktNET.SmartListsJsonSerializerContext.NullableTraktListPrivacy
   nameWithType: SmartListsJsonSerializerContext.NullableTraktListPrivacy
+- uid: TraktNET.SmartListsJsonSerializerContext.NullableTraktPeopleRole
+  name: NullableTraktPeopleRole
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableTraktPeopleRole
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.NullableTraktPeopleRole
+  fullName: TraktNET.SmartListsJsonSerializerContext.NullableTraktPeopleRole
+  nameWithType: SmartListsJsonSerializerContext.NullableTraktPeopleRole
+- uid: TraktNET.SmartListsJsonSerializerContext.NullableTraktPeopleRole*
+  name: NullableTraktPeopleRole
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableTraktPeopleRole_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.NullableTraktPeopleRole
+  fullName: TraktNET.SmartListsJsonSerializerContext.NullableTraktPeopleRole
+  nameWithType: SmartListsJsonSerializerContext.NullableTraktPeopleRole
 - uid: TraktNET.SmartListsJsonSerializerContext.NullableTraktSmartListMediaType
   name: NullableTraktSmartListMediaType
   href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableTraktSmartListMediaType
@@ -15049,6 +15061,18 @@ references:
   commentId: Overload:TraktNET.SmartListsJsonSerializerContext.TraktListPrivacy
   fullName: TraktNET.SmartListsJsonSerializerContext.TraktListPrivacy
   nameWithType: SmartListsJsonSerializerContext.TraktListPrivacy
+- uid: TraktNET.SmartListsJsonSerializerContext.TraktPeopleRole
+  name: TraktPeopleRole
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktPeopleRole
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.TraktPeopleRole
+  fullName: TraktNET.SmartListsJsonSerializerContext.TraktPeopleRole
+  nameWithType: SmartListsJsonSerializerContext.TraktPeopleRole
+- uid: TraktNET.SmartListsJsonSerializerContext.TraktPeopleRole*
+  name: TraktPeopleRole
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktPeopleRole_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.TraktPeopleRole
+  fullName: TraktNET.SmartListsJsonSerializerContext.TraktPeopleRole
+  nameWithType: SmartListsJsonSerializerContext.TraktPeopleRole
 - uid: TraktNET.SmartListsJsonSerializerContext.TraktSmartList
   name: TraktSmartList
   href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktSmartList
@@ -36598,6 +36622,42 @@ references:
   commentId: Overload:TraktNET.TraktFilter.ParentalViolence
   fullName: TraktNET.TraktFilter.ParentalViolence
   nameWithType: TraktFilter.ParentalViolence
+- uid: TraktNET.TraktFilter.People
+  name: People
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_People
+  commentId: P:TraktNET.TraktFilter.People
+  fullName: TraktNET.TraktFilter.People
+  nameWithType: TraktFilter.People
+- uid: TraktNET.TraktFilter.People*
+  name: People
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_People_
+  commentId: Overload:TraktNET.TraktFilter.People
+  fullName: TraktNET.TraktFilter.People
+  nameWithType: TraktFilter.People
+- uid: TraktNET.TraktFilter.PeopleOperator
+  name: PeopleOperator
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_PeopleOperator
+  commentId: P:TraktNET.TraktFilter.PeopleOperator
+  fullName: TraktNET.TraktFilter.PeopleOperator
+  nameWithType: TraktFilter.PeopleOperator
+- uid: TraktNET.TraktFilter.PeopleOperator*
+  name: PeopleOperator
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_PeopleOperator_
+  commentId: Overload:TraktNET.TraktFilter.PeopleOperator
+  fullName: TraktNET.TraktFilter.PeopleOperator
+  nameWithType: TraktFilter.PeopleOperator
+- uid: TraktNET.TraktFilter.PeopleRole
+  name: PeopleRole
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_PeopleRole
+  commentId: P:TraktNET.TraktFilter.PeopleRole
+  fullName: TraktNET.TraktFilter.PeopleRole
+  nameWithType: TraktFilter.PeopleRole
+- uid: TraktNET.TraktFilter.PeopleRole*
+  name: PeopleRole
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_PeopleRole_
+  commentId: Overload:TraktNET.TraktFilter.PeopleRole
+  fullName: TraktNET.TraktFilter.PeopleRole
+  nameWithType: TraktFilter.PeopleRole
 - uid: TraktNET.TraktFilter.Query
   name: Query
   href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_Query
@@ -36622,6 +36682,18 @@ references:
   commentId: Overload:TraktNET.TraktFilter.Ratings
   fullName: TraktNET.TraktFilter.Ratings
   nameWithType: TraktFilter.Ratings
+- uid: TraktNET.TraktFilter.ReleasedWithinDays
+  name: ReleasedWithinDays
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ReleasedWithinDays
+  commentId: P:TraktNET.TraktFilter.ReleasedWithinDays
+  fullName: TraktNET.TraktFilter.ReleasedWithinDays
+  nameWithType: TraktFilter.ReleasedWithinDays
+- uid: TraktNET.TraktFilter.ReleasedWithinDays*
+  name: ReleasedWithinDays
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_ReleasedWithinDays_
+  commentId: Overload:TraktNET.TraktFilter.ReleasedWithinDays
+  fullName: TraktNET.TraktFilter.ReleasedWithinDays
+  nameWithType: TraktFilter.ReleasedWithinDays
 - uid: TraktNET.TraktFilter.RottenTomatoesMeters
   name: RottenTomatoesMeters
   href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_RottenTomatoesMeters
@@ -36694,6 +36766,18 @@ references:
   commentId: Overload:TraktNET.TraktFilter.StudioIDs
   fullName: TraktNET.TraktFilter.StudioIDs
   nameWithType: TraktFilter.StudioIDs
+- uid: TraktNET.TraktFilter.Studios
+  name: Studios
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_Studios
+  commentId: P:TraktNET.TraktFilter.Studios
+  fullName: TraktNET.TraktFilter.Studios
+  nameWithType: TraktFilter.Studios
+- uid: TraktNET.TraktFilter.Studios*
+  name: Studios
+  href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_Studios_
+  commentId: Overload:TraktNET.TraktFilter.Studios
+  fullName: TraktNET.TraktFilter.Studios
+  nameWithType: TraktFilter.Studios
 - uid: TraktNET.TraktFilter.Subgenres
   name: Subgenres
   href: api/TraktNET.TraktFilter.html#TraktNET_TraktFilter_Subgenres
@@ -51383,6 +51467,156 @@ references:
   commentId: Overload:TraktNET.TraktPeopleModule.ReportPersonAsync
   fullName: TraktNET.TraktPeopleModule.ReportPersonAsync
   nameWithType: TraktPeopleModule.ReportPersonAsync
+- uid: TraktNET.TraktPeopleRole
+  name: TraktPeopleRole
+  href: api/TraktNET.TraktPeopleRole.html
+  commentId: T:TraktNET.TraktPeopleRole
+  fullName: TraktNET.TraktPeopleRole
+  nameWithType: TraktPeopleRole
+- uid: TraktNET.TraktPeopleRole.Any
+  name: Any
+  href: api/TraktNET.TraktPeopleRole.html#TraktNET_TraktPeopleRole_Any
+  commentId: F:TraktNET.TraktPeopleRole.Any
+  fullName: TraktNET.TraktPeopleRole.Any
+  nameWithType: TraktPeopleRole.Any
+- uid: TraktNET.TraktPeopleRole.Cast
+  name: Cast
+  href: api/TraktNET.TraktPeopleRole.html#TraktNET_TraktPeopleRole_Cast
+  commentId: F:TraktNET.TraktPeopleRole.Cast
+  fullName: TraktNET.TraktPeopleRole.Cast
+  nameWithType: TraktPeopleRole.Cast
+- uid: TraktNET.TraktPeopleRole.Directing
+  name: Directing
+  href: api/TraktNET.TraktPeopleRole.html#TraktNET_TraktPeopleRole_Directing
+  commentId: F:TraktNET.TraktPeopleRole.Directing
+  fullName: TraktNET.TraktPeopleRole.Directing
+  nameWithType: TraktPeopleRole.Directing
+- uid: TraktNET.TraktPeopleRole.Producing
+  name: Producing
+  href: api/TraktNET.TraktPeopleRole.html#TraktNET_TraktPeopleRole_Producing
+  commentId: F:TraktNET.TraktPeopleRole.Producing
+  fullName: TraktNET.TraktPeopleRole.Producing
+  nameWithType: TraktPeopleRole.Producing
+- uid: TraktNET.TraktPeopleRole.Unspecified
+  name: Unspecified
+  href: api/TraktNET.TraktPeopleRole.html#TraktNET_TraktPeopleRole_Unspecified
+  commentId: F:TraktNET.TraktPeopleRole.Unspecified
+  fullName: TraktNET.TraktPeopleRole.Unspecified
+  nameWithType: TraktPeopleRole.Unspecified
+- uid: TraktNET.TraktPeopleRole.Writing
+  name: Writing
+  href: api/TraktNET.TraktPeopleRole.html#TraktNET_TraktPeopleRole_Writing
+  commentId: F:TraktNET.TraktPeopleRole.Writing
+  fullName: TraktNET.TraktPeopleRole.Writing
+  nameWithType: TraktPeopleRole.Writing
+- uid: TraktNET.TraktPeopleRoleExtensions
+  name: TraktPeopleRoleExtensions
+  href: api/TraktNET.TraktPeopleRoleExtensions.html
+  commentId: T:TraktNET.TraktPeopleRoleExtensions
+  fullName: TraktNET.TraktPeopleRoleExtensions
+  nameWithType: TraktPeopleRoleExtensions
+- uid: TraktNET.TraktPeopleRoleExtensions.DisplayName(TraktNET.TraktPeopleRole)
+  name: DisplayName(TraktPeopleRole)
+  href: api/TraktNET.TraktPeopleRoleExtensions.html#TraktNET_TraktPeopleRoleExtensions_DisplayName_TraktNET_TraktPeopleRole_
+  commentId: M:TraktNET.TraktPeopleRoleExtensions.DisplayName(TraktNET.TraktPeopleRole)
+  fullName: TraktNET.TraktPeopleRoleExtensions.DisplayName(TraktNET.TraktPeopleRole)
+  nameWithType: TraktPeopleRoleExtensions.DisplayName(TraktPeopleRole)
+- uid: TraktNET.TraktPeopleRoleExtensions.DisplayName*
+  name: DisplayName
+  href: api/TraktNET.TraktPeopleRoleExtensions.html#TraktNET_TraktPeopleRoleExtensions_DisplayName_
+  commentId: Overload:TraktNET.TraktPeopleRoleExtensions.DisplayName
+  fullName: TraktNET.TraktPeopleRoleExtensions.DisplayName
+  nameWithType: TraktPeopleRoleExtensions.DisplayName
+- uid: TraktNET.TraktPeopleRoleExtensions.ToJson(TraktNET.TraktPeopleRole)
+  name: ToJson(TraktPeopleRole)
+  href: api/TraktNET.TraktPeopleRoleExtensions.html#TraktNET_TraktPeopleRoleExtensions_ToJson_TraktNET_TraktPeopleRole_
+  commentId: M:TraktNET.TraktPeopleRoleExtensions.ToJson(TraktNET.TraktPeopleRole)
+  fullName: TraktNET.TraktPeopleRoleExtensions.ToJson(TraktNET.TraktPeopleRole)
+  nameWithType: TraktPeopleRoleExtensions.ToJson(TraktPeopleRole)
+- uid: TraktNET.TraktPeopleRoleExtensions.ToJson*
+  name: ToJson
+  href: api/TraktNET.TraktPeopleRoleExtensions.html#TraktNET_TraktPeopleRoleExtensions_ToJson_
+  commentId: Overload:TraktNET.TraktPeopleRoleExtensions.ToJson
+  fullName: TraktNET.TraktPeopleRoleExtensions.ToJson
+  nameWithType: TraktPeopleRoleExtensions.ToJson
+- uid: TraktNET.TraktPeopleRoleExtensions.ToTraktPeopleRole(System.String)
+  name: ToTraktPeopleRole(string?)
+  href: api/TraktNET.TraktPeopleRoleExtensions.html#TraktNET_TraktPeopleRoleExtensions_ToTraktPeopleRole_System_String_
+  commentId: M:TraktNET.TraktPeopleRoleExtensions.ToTraktPeopleRole(System.String)
+  name.vb: ToTraktPeopleRole(String)
+  fullName: TraktNET.TraktPeopleRoleExtensions.ToTraktPeopleRole(string?)
+  fullName.vb: TraktNET.TraktPeopleRoleExtensions.ToTraktPeopleRole(String)
+  nameWithType: TraktPeopleRoleExtensions.ToTraktPeopleRole(string?)
+  nameWithType.vb: TraktPeopleRoleExtensions.ToTraktPeopleRole(String)
+- uid: TraktNET.TraktPeopleRoleExtensions.ToTraktPeopleRole*
+  name: ToTraktPeopleRole
+  href: api/TraktNET.TraktPeopleRoleExtensions.html#TraktNET_TraktPeopleRoleExtensions_ToTraktPeopleRole_
+  commentId: Overload:TraktNET.TraktPeopleRoleExtensions.ToTraktPeopleRole
+  fullName: TraktNET.TraktPeopleRoleExtensions.ToTraktPeopleRole
+  nameWithType: TraktPeopleRoleExtensions.ToTraktPeopleRole
+- uid: TraktNET.TraktPeopleRoleJsonConverter
+  name: TraktPeopleRoleJsonConverter
+  href: api/TraktNET.TraktPeopleRoleJsonConverter.html
+  commentId: T:TraktNET.TraktPeopleRoleJsonConverter
+  fullName: TraktNET.TraktPeopleRoleJsonConverter
+  nameWithType: TraktPeopleRoleJsonConverter
+- uid: TraktNET.TraktPeopleRoleJsonConverter.#ctor
+  name: TraktPeopleRoleJsonConverter()
+  href: api/TraktNET.TraktPeopleRoleJsonConverter.html#TraktNET_TraktPeopleRoleJsonConverter__ctor
+  commentId: M:TraktNET.TraktPeopleRoleJsonConverter.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktPeopleRoleJsonConverter.TraktPeopleRoleJsonConverter()
+  fullName.vb: TraktNET.TraktPeopleRoleJsonConverter.New()
+  nameWithType: TraktPeopleRoleJsonConverter.TraktPeopleRoleJsonConverter()
+  nameWithType.vb: TraktPeopleRoleJsonConverter.New()
+- uid: TraktNET.TraktPeopleRoleJsonConverter.#ctor*
+  name: TraktPeopleRoleJsonConverter
+  href: api/TraktNET.TraktPeopleRoleJsonConverter.html#TraktNET_TraktPeopleRoleJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktPeopleRoleJsonConverter.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktPeopleRoleJsonConverter.TraktPeopleRoleJsonConverter
+  fullName.vb: TraktNET.TraktPeopleRoleJsonConverter.New
+  nameWithType: TraktPeopleRoleJsonConverter.TraktPeopleRoleJsonConverter
+  nameWithType.vb: TraktPeopleRoleJsonConverter.New
+- uid: TraktNET.TraktPeopleRoleJsonConverter.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: api/TraktNET.TraktPeopleRoleJsonConverter.html#TraktNET_TraktPeopleRoleJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktPeopleRoleJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktPeopleRoleJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktPeopleRoleJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktPeopleRoleJsonConverter.CanConvert*
+  name: CanConvert
+  href: api/TraktNET.TraktPeopleRoleJsonConverter.html#TraktNET_TraktPeopleRoleJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktPeopleRoleJsonConverter.CanConvert
+  fullName: TraktNET.TraktPeopleRoleJsonConverter.CanConvert
+  nameWithType: TraktPeopleRoleJsonConverter.CanConvert
+- uid: TraktNET.TraktPeopleRoleJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/TraktNET.TraktPeopleRoleJsonConverter.html#TraktNET_TraktPeopleRoleJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktPeopleRoleJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: TraktNET.TraktPeopleRoleJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktPeopleRoleJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktPeopleRoleJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktPeopleRoleJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktPeopleRoleJsonConverter.Read*
+  name: Read
+  href: api/TraktNET.TraktPeopleRoleJsonConverter.html#TraktNET_TraktPeopleRoleJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktPeopleRoleJsonConverter.Read
+  fullName: TraktNET.TraktPeopleRoleJsonConverter.Read
+  nameWithType: TraktPeopleRoleJsonConverter.Read
+- uid: TraktNET.TraktPeopleRoleJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktPeopleRole,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktPeopleRole, JsonSerializerOptions)
+  href: api/TraktNET.TraktPeopleRoleJsonConverter.html#TraktNET_TraktPeopleRoleJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktPeopleRole_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktPeopleRoleJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktPeopleRole,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktPeopleRoleJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktPeopleRole, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktPeopleRoleJsonConverter.Write(Utf8JsonWriter, TraktPeopleRole, JsonSerializerOptions)
+- uid: TraktNET.TraktPeopleRoleJsonConverter.Write*
+  name: Write
+  href: api/TraktNET.TraktPeopleRoleJsonConverter.html#TraktNET_TraktPeopleRoleJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktPeopleRoleJsonConverter.Write
+  fullName: TraktNET.TraktPeopleRoleJsonConverter.Write
+  nameWithType: TraktPeopleRoleJsonConverter.Write
 - uid: TraktNET.TraktPermissions
   name: TraktPermissions
   href: api/TraktNET.TraktPermissions.html
@@ -76318,6 +76552,18 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.ImdbRatings
   fullName: TraktNET.TraktSmartListFilters.ImdbRatings
   nameWithType: TraktSmartListFilters.ImdbRatings
+- uid: TraktNET.TraktSmartListFilters.ImdbVotes
+  name: ImdbVotes
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ImdbVotes
+  commentId: P:TraktNET.TraktSmartListFilters.ImdbVotes
+  fullName: TraktNET.TraktSmartListFilters.ImdbVotes
+  nameWithType: TraktSmartListFilters.ImdbVotes
+- uid: TraktNET.TraktSmartListFilters.ImdbVotes*
+  name: ImdbVotes
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ImdbVotes_
+  commentId: Overload:TraktNET.TraktSmartListFilters.ImdbVotes
+  fullName: TraktNET.TraktSmartListFilters.ImdbVotes
+  nameWithType: TraktSmartListFilters.ImdbVotes
 - uid: TraktNET.TraktSmartListFilters.Keywords
   name: Keywords
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Keywords
@@ -76378,6 +76624,18 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.MalRatings
   fullName: TraktNET.TraktSmartListFilters.MalRatings
   nameWithType: TraktSmartListFilters.MalRatings
+- uid: TraktNET.TraktSmartListFilters.Metascores
+  name: Metascores
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Metascores
+  commentId: P:TraktNET.TraktSmartListFilters.Metascores
+  fullName: TraktNET.TraktSmartListFilters.Metascores
+  nameWithType: TraktSmartListFilters.Metascores
+- uid: TraktNET.TraktSmartListFilters.Metascores*
+  name: Metascores
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Metascores_
+  commentId: Overload:TraktNET.TraktSmartListFilters.Metascores
+  fullName: TraktNET.TraktSmartListFilters.Metascores
+  nameWithType: TraktSmartListFilters.Metascores
 - uid: TraktNET.TraktSmartListFilters.Networks
   name: Networks
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Networks
@@ -76462,6 +76720,42 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.ParentalViolence
   fullName: TraktNET.TraktSmartListFilters.ParentalViolence
   nameWithType: TraktSmartListFilters.ParentalViolence
+- uid: TraktNET.TraktSmartListFilters.People
+  name: People
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_People
+  commentId: P:TraktNET.TraktSmartListFilters.People
+  fullName: TraktNET.TraktSmartListFilters.People
+  nameWithType: TraktSmartListFilters.People
+- uid: TraktNET.TraktSmartListFilters.People*
+  name: People
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_People_
+  commentId: Overload:TraktNET.TraktSmartListFilters.People
+  fullName: TraktNET.TraktSmartListFilters.People
+  nameWithType: TraktSmartListFilters.People
+- uid: TraktNET.TraktSmartListFilters.PeopleOperator
+  name: PeopleOperator
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_PeopleOperator
+  commentId: P:TraktNET.TraktSmartListFilters.PeopleOperator
+  fullName: TraktNET.TraktSmartListFilters.PeopleOperator
+  nameWithType: TraktSmartListFilters.PeopleOperator
+- uid: TraktNET.TraktSmartListFilters.PeopleOperator*
+  name: PeopleOperator
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_PeopleOperator_
+  commentId: Overload:TraktNET.TraktSmartListFilters.PeopleOperator
+  fullName: TraktNET.TraktSmartListFilters.PeopleOperator
+  nameWithType: TraktSmartListFilters.PeopleOperator
+- uid: TraktNET.TraktSmartListFilters.PeopleRole
+  name: PeopleRole
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_PeopleRole
+  commentId: P:TraktNET.TraktSmartListFilters.PeopleRole
+  fullName: TraktNET.TraktSmartListFilters.PeopleRole
+  nameWithType: TraktSmartListFilters.PeopleRole
+- uid: TraktNET.TraktSmartListFilters.PeopleRole*
+  name: PeopleRole
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_PeopleRole_
+  commentId: Overload:TraktNET.TraktSmartListFilters.PeopleRole
+  fullName: TraktNET.TraktSmartListFilters.PeopleRole
+  nameWithType: TraktSmartListFilters.PeopleRole
 - uid: TraktNET.TraktSmartListFilters.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_PrintMembers_System_Text_StringBuilder_
@@ -76486,6 +76780,18 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.Ratings
   fullName: TraktNET.TraktSmartListFilters.Ratings
   nameWithType: TraktSmartListFilters.Ratings
+- uid: TraktNET.TraktSmartListFilters.ReleasedWithinDays
+  name: ReleasedWithinDays
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ReleasedWithinDays
+  commentId: P:TraktNET.TraktSmartListFilters.ReleasedWithinDays
+  fullName: TraktNET.TraktSmartListFilters.ReleasedWithinDays
+  nameWithType: TraktSmartListFilters.ReleasedWithinDays
+- uid: TraktNET.TraktSmartListFilters.ReleasedWithinDays*
+  name: ReleasedWithinDays
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ReleasedWithinDays_
+  commentId: Overload:TraktNET.TraktSmartListFilters.ReleasedWithinDays
+  fullName: TraktNET.TraktSmartListFilters.ReleasedWithinDays
+  nameWithType: TraktSmartListFilters.ReleasedWithinDays
 - uid: TraktNET.TraktSmartListFilters.RtMeters
   name: RtMeters
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_RtMeters
@@ -76534,6 +76840,18 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.Statuses
   fullName: TraktNET.TraktSmartListFilters.Statuses
   nameWithType: TraktSmartListFilters.Statuses
+- uid: TraktNET.TraktSmartListFilters.Studios
+  name: Studios
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Studios
+  commentId: P:TraktNET.TraktSmartListFilters.Studios
+  fullName: TraktNET.TraktSmartListFilters.Studios
+  nameWithType: TraktSmartListFilters.Studios
+- uid: TraktNET.TraktSmartListFilters.Studios*
+  name: Studios
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Studios_
+  commentId: Overload:TraktNET.TraktSmartListFilters.Studios
+  fullName: TraktNET.TraktSmartListFilters.Studios
+  nameWithType: TraktSmartListFilters.Studios
 - uid: TraktNET.TraktSmartListFilters.Subgenres
   name: Subgenres
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Subgenres
@@ -76546,6 +76864,18 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.Subgenres
   fullName: TraktNET.TraktSmartListFilters.Subgenres
   nameWithType: TraktSmartListFilters.Subgenres
+- uid: TraktNET.TraktSmartListFilters.TmdbRatings
+  name: TmdbRatings
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_TmdbRatings
+  commentId: P:TraktNET.TraktSmartListFilters.TmdbRatings
+  fullName: TraktNET.TraktSmartListFilters.TmdbRatings
+  nameWithType: TraktSmartListFilters.TmdbRatings
+- uid: TraktNET.TraktSmartListFilters.TmdbRatings*
+  name: TmdbRatings
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_TmdbRatings_
+  commentId: Overload:TraktNET.TraktSmartListFilters.TmdbRatings
+  fullName: TraktNET.TraktSmartListFilters.TmdbRatings
+  nameWithType: TraktSmartListFilters.TmdbRatings
 - uid: TraktNET.TraktSmartListFilters.ToString
   name: ToString()
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_ToString
@@ -76558,6 +76888,18 @@ references:
   commentId: Overload:TraktNET.TraktSmartListFilters.ToString
   fullName: TraktNET.TraktSmartListFilters.ToString
   nameWithType: TraktSmartListFilters.ToString
+- uid: TraktNET.TraktSmartListFilters.Votes
+  name: Votes
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Votes
+  commentId: P:TraktNET.TraktSmartListFilters.Votes
+  fullName: TraktNET.TraktSmartListFilters.Votes
+  nameWithType: TraktSmartListFilters.Votes
+- uid: TraktNET.TraktSmartListFilters.Votes*
+  name: Votes
+  href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Votes_
+  commentId: Overload:TraktNET.TraktSmartListFilters.Votes
+  fullName: TraktNET.TraktSmartListFilters.Votes
+  nameWithType: TraktSmartListFilters.Votes
 - uid: TraktNET.TraktSmartListFilters.Watchnow
   name: Watchnow
   href: api/TraktNET.TraktSmartListFilters.html#TraktNET_TraktSmartListFilters_Watchnow
