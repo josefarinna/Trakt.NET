@@ -104,5 +104,26 @@ namespace TraktNET
 
         /// <summary>Gets or sets whether to keep titles without a parental guide when a parental range is set.</summary>
         public bool? ParentalIncludeUnrated { get; set; }
+
+        /// <summary>Studio slugs.</summary>
+        public string[]? Studios { get; set; }
+
+        /// <summary>Person slugs or Trakt IDs.</summary>
+        public string[]? People { get; set; }
+
+        /// <summary>
+        /// Gets or sets the logical operator for people filtering.
+        /// See also <seealso cref="TraktFilterOperator" />.
+        /// </summary>
+        public TraktFilterOperator? PeopleOperator { get; set; }
+
+        /// <summary>
+        /// Gets or sets the role for people filtering.
+        /// See also <seealso cref="TraktPeopleRole" />.
+        /// </summary>
+        public TraktPeopleRole? PeopleRole { get; set; }
+
+        /// <summary>Number of days within which items were released.</summary>
+        public uint? ReleasedWithinDays { get; set; }
     }
 }

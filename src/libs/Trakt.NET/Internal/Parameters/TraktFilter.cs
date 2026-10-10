@@ -37,6 +37,11 @@ namespace TraktNET
         private const string ParentalAlcoholName = "parental_alcohol";
         private const string ParentalFrighteningName = "parental_frightening";
         private const string ParentalIncludeUnratedName = "parental_include_unrated";
+        private const string StudiosName = "studios";
+        private const string PeopleName = "people";
+        private const string PeopleOperatorName = "people_operator";
+        private const string PeopleRoleName = "people_role";
+        private const string ReleasedWithinDaysName = "released_within_days";
 
         public override string ToString()
         {
@@ -177,6 +182,41 @@ namespace TraktNET
             if (ParentalIncludeUnrated.HasValue)
             {
                 values.Add($"{ParentalIncludeUnratedName}={ParentalIncludeUnrated.Value.ToString().ToLower(CultureInfo.CurrentCulture)}");
+            }
+
+            if (Studios != null && Studios.Length > 0)
+            {
+                values.Add($"{StudiosName}={string.Join(",", Studios)}");
+            }
+
+            if (People != null && People.Length > 0)
+            {
+                values.Add($"{PeopleName}={string.Join(",", People)}");
+            }
+
+            if (PeopleOperator.HasValue && PeopleOperator.Value != TraktFilterOperator.Unspecified)
+            {
+                string? peopleOperatorJson = PeopleOperator.Value.ToJson();
+
+                if (!string.IsNullOrEmpty(peopleOperatorJson))
+                {
+                    values.Add($"{PeopleOperatorName}={peopleOperatorJson}");
+                }
+            }
+
+            if (PeopleRole.HasValue && PeopleRole.Value != TraktPeopleRole.Unspecified)
+            {
+                string? peopleRoleJson = PeopleRole.Value.ToJson();
+
+                if (!string.IsNullOrEmpty(peopleRoleJson))
+                {
+                    values.Add($"{PeopleRoleName}={peopleRoleJson}");
+                }
+            }
+
+            if (ReleasedWithinDays.HasValue)
+            {
+                values.Add($"{ReleasedWithinDaysName}={ReleasedWithinDays.Value}");
             }
 
             return string.Join("&", values);

@@ -110,6 +110,40 @@ namespace TraktNET
 
         /// <summary>Gets or sets whether items without a release date should be ignored.</summary>
         public bool? IgnoreNoReleaseDate { get; set; }
+
+        /// <summary>Studio slugs.</summary>
+        public string[]? Studios { get; set; }
+
+        /// <summary>Person slugs or Trakt IDs.</summary>
+        public string[]? People { get; set; }
+
+        /// <summary>
+        /// Gets or sets the logical operator for people filtering.
+        /// See also <seealso cref="TraktFilterOperator" />.
+        /// </summary>
+        public TraktFilterOperator? PeopleOperator { get; set; }
+
+        /// <summary>
+        /// Gets or sets the role for people filtering.
+        /// See also <seealso cref="TraktPeopleRole" />.
+        /// </summary>
+        public TraktPeopleRole? PeopleRole { get; set; }
+
+        /// <summary>Number of days within which items were released.</summary>
+        public uint? ReleasedWithinDays { get; set; }
+
+        /// <summary>TMDb ratings range [min, max]. Max 2 items.</summary>
+        public float[]? TmdbRatings { get; set; }
+
+        /// <summary>Metascore range [min, max]. Max 2 items.</summary>
+        public uint[]? Metascores { get; set; }
+
+        /// <summary>Trakt votes range [min, max]. Max 2 items.</summary>
+        public uint[]? Votes { get; set; }
+
+        /// <summary>IMDb votes range [min, max]. Max 2 items.</summary>
+        public uint[]? ImdbVotes { get; set; }
     }
 }
+
 

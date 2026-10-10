@@ -6,6 +6,7 @@ namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
     [JsonSerializable(typeof(TraktFilterOperator))]
+    [JsonSerializable(typeof(TraktPeopleRole))]
     [JsonSerializable(typeof(TraktSmartList))]
     [JsonSerializable(typeof(IReadOnlyList<TraktSmartList>))]
     [JsonSerializable(typeof(TraktSmartListImages))]

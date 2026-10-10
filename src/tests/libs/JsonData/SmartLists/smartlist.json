@@ -106,7 +106,32 @@
     "ignore_released": true,
     "ignore_ended": false,
     "ignore_airing": true,
-    "ignore_no_release_date": false
+    "ignore_no_release_date": false,
+    "studios": [
+      "warner-bros-pictures"
+    ],
+    "people": [
+      "christopher-nolan"
+    ],
+    "people_operator": "and",
+    "people_role": "directing",
+    "released_within_days": 30,
+    "tmdb_ratings": [
+      7.0,
+      9.0
+    ],
+    "metascores": [
+      75,
+      95
+    ],
+    "votes": [
+      10000,
+      50000
+    ],
+    "imdb_votes": [
+      20000,
+      100000
+    ]
   }
 }
 
