@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -20,6 +20,9 @@ namespace TraktNET
 
         /// <summary>Gets or sets the user's token.</summary>
         public string? Token { get; set; }
+
+        /// <summary>Gets or sets the user's permanent share code.</summary>
+        public string? ShareCode { get; set; }
 
         /// <summary>Gets or sets if the user's should see ads.</summary>
         public bool? DisplayAds { get; set; }

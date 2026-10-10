@@ -51,6 +51,7 @@ namespace TraktNET.Json.Users
             userSettings.Account.Time24Hr.ShouldBe(true);
             userSettings.Account.CoverImage.ShouldBe("https://walter.trakt.us/images/movies/000/001/545/fanarts/original/0abb604492.jpg?1406095042");
             userSettings.Account.Token.ShouldBe("60fa34c4f5e7f093ecc5a2d16d691e24");
+            userSettings.Account.ShareCode.ShouldBe("60fa34c4");
 
             userSettings.Connections.ShouldNotBeNull();
             userSettings.Connections.Twitter.ShouldBe(true);
