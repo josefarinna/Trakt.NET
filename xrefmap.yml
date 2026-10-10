@@ -19297,6 +19297,18 @@ references:
   commentId: Overload:TraktNET.TraktAccountSettings.PrintMembers
   fullName: TraktNET.TraktAccountSettings.PrintMembers
   nameWithType: TraktAccountSettings.PrintMembers
+- uid: TraktNET.TraktAccountSettings.ShareCode
+  name: ShareCode
+  href: api/TraktNET.TraktAccountSettings.html#TraktNET_TraktAccountSettings_ShareCode
+  commentId: P:TraktNET.TraktAccountSettings.ShareCode
+  fullName: TraktNET.TraktAccountSettings.ShareCode
+  nameWithType: TraktAccountSettings.ShareCode
+- uid: TraktNET.TraktAccountSettings.ShareCode*
+  name: ShareCode
+  href: api/TraktNET.TraktAccountSettings.html#TraktNET_TraktAccountSettings_ShareCode_
+  commentId: Overload:TraktNET.TraktAccountSettings.ShareCode
+  fullName: TraktNET.TraktAccountSettings.ShareCode
+  nameWithType: TraktAccountSettings.ShareCode
 - uid: TraktNET.TraktAccountSettings.Time24Hr
   name: Time24Hr
   href: api/TraktNET.TraktAccountSettings.html#TraktNET_TraktAccountSettings_Time24Hr
