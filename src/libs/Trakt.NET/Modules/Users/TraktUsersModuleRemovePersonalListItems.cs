@@ -2,10 +2,10 @@ namespace TraktNET
 {
     public sealed partial class TraktUsersModule
     {
-        /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
+        /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be removed from a personal list.</param>
         /// <param name="listIdOrSlug">The id or slug of the personal list, from which items should be removed.</param>
-        /// <param name="listItemsRemovePost">An <see cref="TraktUserPersonalListItemsRemovePost" /> instance containing all shows, seasons, episodes, movies and people, which should be removed.</param>
+        /// <param name="listItemsRemovePost">An <see cref="TraktUserPersonalListItemsRemovePost" /> instance containing all shows, seasons, episodes and movies, which should be removed.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -27,10 +27,10 @@ namespace TraktNET
             TraktUserPersonalListItemsRemovePost listItemsRemovePost, CancellationToken cancellationToken = default)
             => RemovePersonalListItemsImplAsync(usernameOrSlug, listIdOrSlug, listItemsRemovePost, cancellationToken);
 
-        /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
+        /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be removed from a personal list.</param>
         /// <param name="traktListId">The Trakt-ID of the personal list, from which items should be removed.</param>
-        /// <param name="listItemsRemovePost">An <see cref="TraktUserPersonalListItemsRemovePost" /> instance containing all shows, seasons, episodes, movies and people, which should be removed.</param>
+        /// <param name="listItemsRemovePost">An <see cref="TraktUserPersonalListItemsRemovePost" /> instance containing all shows, seasons, episodes and movies, which should be removed.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -58,10 +58,10 @@ namespace TraktNET
             return RemovePersonalListItemsAsync(usernameOrSlug, traktListId.ToInvariantCultureString(), listItemsRemovePost, cancellationToken);
         }
 
-        /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
+        /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be removed from a personal list.</param>
         /// <param name="listIds">The ids of the personal list, from which items should be removed.</param>
-        /// <param name="listItemsRemovePost">An <see cref="TraktUserPersonalListItemsRemovePost" /> instance containing all shows, seasons, episodes, movies and people, which should be removed.</param>
+        /// <param name="listItemsRemovePost">An <see cref="TraktUserPersonalListItemsRemovePost" /> instance containing all shows, seasons, episodes and movies, which should be removed.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -92,10 +92,10 @@ namespace TraktNET
             return RemovePersonalListItemsAsync(usernameOrSlug, listIds.BestID, listItemsRemovePost, cancellationToken);
         }
 
-        /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes, movies and people.</summary>
+        /// <summary>Removes items from an user's personal list. Accepts shows, seasons, episodes and movies.</summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which items should be removed from a personal list.</param>
         /// <param name="list">The personal list, from which items should be removed.</param>
-        /// <param name="listItemsRemovePost">An <see cref="TraktUserPersonalListItemsRemovePost" /> instance containing all shows, seasons, episodes, movies and people, which should be removed.</param>
+        /// <param name="listItemsRemovePost">An <see cref="TraktUserPersonalListItemsRemovePost" /> instance containing all shows, seasons, episodes and movies, which should be removed.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
