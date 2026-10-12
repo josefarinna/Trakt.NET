@@ -13,6 +13,12 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktSmartListFilters))]
     [JsonSerializable(typeof(TraktSmartListPost))]
     [JsonSerializable(typeof(TraktSmartListPostResponse))]
+    [JsonSerializable(typeof(TraktSmartListDraft))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktSmartListDraft>))]
+    [JsonSerializable(typeof(TraktSmartListDraftList))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktSmartListDraftList>))]
+    [JsonSerializable(typeof(TraktSmartListDraftConverted))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktSmartListDraftConverted>))]
     public sealed partial class SmartListsJsonSerializerContext : JsonSerializerContext
     {
     }

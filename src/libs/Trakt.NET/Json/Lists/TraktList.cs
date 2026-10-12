@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -65,5 +65,17 @@ namespace TraktNET
         /// See also <seealso cref="TraktListImages" />.
         /// </summary>
         public TraktListImages? Images { get; set; }
+
+        /// <summary>
+        /// The smart list this list was converted to, if any.
+        /// See also <seealso cref="TraktSmartListPostResponse" />.
+        /// </summary>
+        public TraktSmartListPostResponse? ConvertedTo { get; set; }
+
+        /// <summary>
+        /// Information about the tool that kept this list updated when it stopped syncing it, if any.
+        /// See also <seealso cref="TraktListStaleOrigin" />.
+        /// </summary>
+        public TraktListStaleOrigin? StaleOrigin { get; set; }
     }
 }
