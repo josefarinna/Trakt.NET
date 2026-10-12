@@ -26,5 +26,15 @@
         "ids": {
             "slug": "donxy"
         }
+    },
+    "converted_to": {
+        "ids": {
+            "trakt": 99999,
+            "slug": "marvel-cinematic-universe-smart"
+        }
+    },
+    "stale_origin": {
+        "name": "mdblist",
+        "url": "https://mdblist.com"
     }
 }

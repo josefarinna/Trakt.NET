@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Lists
+namespace TraktNET.Json.Lists
 {
     public sealed class TraktListTests
     {
@@ -24,6 +24,8 @@
             list.IDs.ShouldBeNull();
             list.User.ShouldBeNull();
             list.Images.ShouldBeNull();
+            list.ConvertedTo.ShouldBeNull();
+            list.StaleOrigin.ShouldBeNull();
         }
 
         [Fact]
@@ -62,6 +64,15 @@
             list!.User!.VIPEP.ShouldBe(true);
             list!.User!.IDs.ShouldNotBeNull();
             list!.User!.IDs!.Slug.ShouldBe("donxy");
+
+            list!.ConvertedTo.ShouldNotBeNull();
+            list!.ConvertedTo!.IDs.ShouldNotBeNull();
+            list!.ConvertedTo!.IDs!.Trakt.ShouldBe(99999U);
+            list!.ConvertedTo!.IDs!.Slug.ShouldBe("marvel-cinematic-universe-smart");
+
+            list!.StaleOrigin.ShouldNotBeNull();
+            list!.StaleOrigin!.Name.ShouldBe("mdblist");
+            list!.StaleOrigin!.Url.ShouldBe("https://mdblist.com");
         }
     }
 }

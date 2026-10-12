@@ -1,0 +1,29 @@
+{
+  "list": {
+    "ids": {
+      "trakt": 1248149,
+      "slug": "marvel-cinematic-universe"
+    }
+  },
+  "origin_url": "https://mdblist.com/lists/trakt/mcu",
+  "source": "popular",
+  "media_type": "movies",
+  "filters": {
+    "genres": [
+      "action",
+      "adventure"
+    ],
+    "years": [
+      2008,
+      2024
+    ]
+  },
+  "unsupported": [
+    "custom_rank"
+  ],
+  "confidence": 0.95,
+  "converted": {
+    "smart_list_id": 99999,
+    "converted_at": "2026-10-12T12:00:00.000Z"
+  }
+}

@@ -113,6 +113,12 @@ namespace TraktNET
     {
     }
 
+    [TraktGetRequest("users/{id!!}/lists/{list_id!!}/smart-list-draft", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSmartListDraftGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
+    }
+
     [TraktGetRequest("users/{id!!}/notes", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserNotesGetRequest
@@ -468,6 +474,15 @@ namespace TraktNET
     {
         [TraktRequestPayload]
         internal required TraktSmartListPost TraktSmartListPost { get; set; }
+    }
+
+    [TraktPostRequest("users/{id!!}/lists/{list_id!!}/smart-list-draft/convert", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserListConvertToSmartListPostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktSmartListPost TraktSmartListPost { get; set; }
+
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
     // -------------------------------------------------------
