@@ -937,6 +937,24 @@ namespace TraktNET
             }, cancellationToken);
         }
 
+        private Task<TraktResponse<TraktSmartListPostResponse>> ConvertListToSmartListImplAsync(string usernameOrSlug, string listIdOrSlug, TraktSmartListPost smartListPost, CancellationToken cancellationToken = default)
+        {
+            ArgumentValidator.ThrowIfNull(smartListPost);
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktSmartListPostResponse>(_context, new UserListConvertToSmartListPostRequest
+            {
+                Id = usernameOrSlug,
+                ListId = listIdOrSlug,
+                TraktSmartListPost = smartListPost
+            }, cancellationToken);
+        }
+
+        private Task<TraktResponse<TraktSmartListDraft>> GetSmartListDraftImplAsync(string usernameOrSlug, string listIdOrSlug, CancellationToken cancellationToken = default)
+            => RequestHandler.ExecuteSingleItemRequestAsync<TraktSmartListDraft>(_context, new UserSmartListDraftGetRequest
+            {
+                Id = usernameOrSlug,
+                ListId = listIdOrSlug
+            }, cancellationToken);
+
         private Task<TraktResponse<TraktSmartList>> GetSmartListImplAsync(string usernameOrSlug, string listIdOrSlug, CancellationToken cancellationToken = default)
             => RequestHandler.ExecuteSingleItemRequestAsync<TraktSmartList>(_context, new UserSmartListGetRequest
             {

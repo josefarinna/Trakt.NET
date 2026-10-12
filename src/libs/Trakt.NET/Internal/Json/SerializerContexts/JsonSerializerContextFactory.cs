@@ -414,7 +414,8 @@ namespace TraktNET
             typeof(TraktListLike),
             typeof(TraktPopularList),
             typeof(TraktTrendingList),
-            typeof(TraktTrendingOrPopularList)
+            typeof(TraktTrendingOrPopularList),
+            typeof(TraktListStaleOrigin)
         });
 
         private static readonly FrozenSet<Type> s_mediaJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -571,7 +572,10 @@ namespace TraktNET
             typeof(TraktSmartListImages),
             typeof(TraktSmartListFilters),
             typeof(TraktSmartListPost),
-            typeof(TraktSmartListPostResponse)
+            typeof(TraktSmartListPostResponse),
+            typeof(TraktSmartListDraft),
+            typeof(TraktSmartListDraftList),
+            typeof(TraktSmartListDraftConverted)
         });
 
         private static readonly FrozenSet<Type> s_socialrecommendationsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -1012,7 +1016,8 @@ namespace TraktNET
             typeof(TraktListLike),
             typeof(TraktPopularList),
             typeof(TraktTrendingList),
-            typeof(TraktTrendingOrPopularList)
+            typeof(TraktTrendingOrPopularList),
+            typeof(TraktListStaleOrigin)
         ];
 
         private static readonly HashSet<Type> s_mediaJsonTypes = [
@@ -1156,7 +1161,10 @@ namespace TraktNET
             typeof(TraktSmartListImages),
             typeof(TraktSmartListFilters),
             typeof(TraktSmartListPost),
-            typeof(TraktSmartListPostResponse)
+            typeof(TraktSmartListPostResponse),
+            typeof(TraktSmartListDraft),
+            typeof(TraktSmartListDraftList),
+            typeof(TraktSmartListDraftConverted)
         ];
 
         private static readonly HashSet<Type> s_socialrecommendationsJsonTypes = [
