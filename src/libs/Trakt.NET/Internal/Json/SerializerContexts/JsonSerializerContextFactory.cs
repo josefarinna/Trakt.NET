@@ -575,7 +575,9 @@ namespace TraktNET
             typeof(TraktSmartListPostResponse),
             typeof(TraktSmartListDraft),
             typeof(TraktSmartListDraftList),
-            typeof(TraktSmartListDraftConverted)
+            typeof(TraktSmartListDraftConverted),
+            typeof(TraktSmartListDraftsSummary),
+            typeof(TraktSmartListDraftSummaryList)
         });
 
         private static readonly FrozenSet<Type> s_socialrecommendationsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -1164,7 +1166,9 @@ namespace TraktNET
             typeof(TraktSmartListPostResponse),
             typeof(TraktSmartListDraft),
             typeof(TraktSmartListDraftList),
-            typeof(TraktSmartListDraftConverted)
+            typeof(TraktSmartListDraftConverted),
+            typeof(TraktSmartListDraftsSummary),
+            typeof(TraktSmartListDraftSummaryList)
         ];
 
         private static readonly HashSet<Type> s_socialrecommendationsJsonTypes = [
