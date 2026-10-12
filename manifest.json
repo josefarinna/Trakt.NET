@@ -6388,6 +6388,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSmartListDraftSummaryList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSmartListDraftSummaryList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSmartListDraftSummaryList",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartListDraftSummaryList.yml\" sourcestartlinenumber=\"1\">Information about a list in a smart list drafts summary.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSmartListDraftsSummary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSmartListDraftsSummary.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSmartListDraftsSummary",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartListDraftsSummary.yml\" sourcestartlinenumber=\"1\">Represents a summary of the owner's lists that are ready to become smart lists.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktSmartListFilters.yml",
       "output": {
         ".html": {

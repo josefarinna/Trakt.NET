@@ -7692,6 +7692,88 @@ Trakt API Documentation: Users: Lists: Smart List Draft
   </table>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleGetSmartListDraftsSummary.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_GetSmartListDraftsSummaryAsync_" data-uid="TraktNET.TraktUsersModule.GetSmartListDraftsSummaryAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_GetSmartListDraftsSummaryAsync_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetSmartListDraftsSummaryAsync(System.String,System.Threading.CancellationToken)">GetSmartListDraftsSummaryAsync(string, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a summary of an user's lists that are ready to become smart lists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktSmartListDraftsSummary&gt;&gt; GetSmartListDraftsSummaryAsync(string usernameOrSlug, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which the smart list drafts summary should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be caught.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraftsSummary.html">TraktSmartListDraftsSummary</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried smart list drafts summary.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSmartListDraftsSummary.html">TraktSmartListDraftsSummary</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_GetSmartListDraftsSummaryAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/getuserssmartlistdrafts">
+Trakt API Documentation: Users: Smart List Drafts
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleSmartLists.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktUsersModule_GetSmartListsAsync_" data-uid="TraktNET.TraktUsersModule.GetSmartListsAsync*"></a>
