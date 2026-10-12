@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.General
+namespace TraktNET.Json.General
 {
     public sealed class TraktCastAndCrewTests
     {
@@ -8,6 +8,7 @@
             var castAndCrew = new TraktCastAndCrew();
 
             castAndCrew.Cast.ShouldBeNull();
+            castAndCrew.GuestStars.ShouldBeNull();
             castAndCrew.Crew.ShouldBeNull();
         }
 

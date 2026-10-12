@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -13,6 +13,8 @@ namespace TraktNET.GetRequests.Shows
         [InlineData(null, URIPath)]
         [InlineData(TraktExtendedInfo.None, URIPath)]
         [InlineData(TraktExtendedInfo.Full, $"{URIPath}?extended=full")]
+        [InlineData(TraktExtendedInfo.GuestStars, $"{URIPath}?extended=guest_stars")]
+        [InlineData(TraktExtendedInfo.Full | TraktExtendedInfo.GuestStars, $"{URIPath}?extended=full,guest_stars")]
         public void TestShowPeopleGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, string expectedURIPath)
         {
             var showPeopleGetRequest = new ShowPeopleGetRequest
