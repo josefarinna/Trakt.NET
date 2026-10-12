@@ -955,6 +955,12 @@ namespace TraktNET
                 ListId = listIdOrSlug
             }, cancellationToken);
 
+        private Task<TraktResponse<TraktSmartListDraftsSummary>> GetSmartListDraftsSummaryImplAsync(string usernameOrSlug, CancellationToken cancellationToken = default)
+            => RequestHandler.ExecuteSingleItemRequestAsync<TraktSmartListDraftsSummary>(_context, new UserSmartListDraftsGetRequest
+            {
+                Id = usernameOrSlug
+            }, cancellationToken);
+
         private Task<TraktResponse<TraktSmartList>> GetSmartListImplAsync(string usernameOrSlug, string listIdOrSlug, CancellationToken cancellationToken = default)
             => RequestHandler.ExecuteSingleItemRequestAsync<TraktSmartList>(_context, new UserSmartListGetRequest
             {

@@ -119,6 +119,11 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
 
+    [TraktGetRequest("users/{id!!}/smart-list-drafts", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserSmartListDraftsGetRequest
+    {
+    }
+
     [TraktGetRequest("users/{id!!}/notes", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserNotesGetRequest

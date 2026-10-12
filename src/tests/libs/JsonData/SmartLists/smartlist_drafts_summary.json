@@ -1,0 +1,24 @@
+{
+  "convertible_count": 2,
+  "best_confidence": 0.95,
+  "lists": [
+    {
+      "ids": {
+        "trakt": 1248149,
+        "slug": "marvel-cinematic-universe"
+      },
+      "name": "Marvel Cinematic Universe",
+      "item_count": 33,
+      "confidence": 0.95
+    },
+    {
+      "ids": {
+        "trakt": 987654,
+        "slug": "dc-extended-universe"
+      },
+      "name": "DC Extended Universe",
+      "item_count": 15,
+      "confidence": 0.8
+    }
+  ]
+}
