@@ -130,6 +130,12 @@
 [JsonSerializable(typeof(TraktSmartListFilters))]
 [JsonSerializable(typeof(TraktSmartListPost))]
 [JsonSerializable(typeof(TraktSmartListPostResponse))]
+[JsonSerializable(typeof(TraktSmartListDraft))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktSmartListDraft&gt;))]
+[JsonSerializable(typeof(TraktSmartListDraftList))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktSmartListDraftList&gt;))]
+[JsonSerializable(typeof(TraktSmartListDraftConverted))]
+[JsonSerializable(typeof(IReadOnlyList&lt;TraktSmartListDraftConverted&gt;))]
 public sealed class SmartListsJsonSerializerContext : JsonSerializerContext, IJsonTypeInfoResolver</code></pre>
   </div>
   <h3 id="constructors">Constructors
@@ -293,6 +299,34 @@ public sealed class SmartListsJsonSerializerContext : JsonSerializerContext, IJs
   <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.jsonserializercontext.generatedserializeroptions">JsonSerializerContext.GeneratedSerializerOptions</a></div>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.IReadOnlyListString.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SmartListsJsonSerializerContext_IReadOnlyListString_" data-uid="TraktNET.SmartListsJsonSerializerContext.IReadOnlyListString*"></a>
+  <h4 id="TraktNET_SmartListsJsonSerializerContext_IReadOnlyListString" data-uid="TraktNET.SmartListsJsonSerializerContext.IReadOnlyListString">IReadOnlyListString</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;string&gt;&gt; IReadOnlyListString { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.IReadOnlyListTraktSmartList.g.cs">View Source</a>
   </span>
   <a id="TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartList_" data-uid="TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartList*"></a>
@@ -315,6 +349,118 @@ public sealed class SmartListsJsonSerializerContext : JsonSerializerContext, IJs
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktSmartList.html">TraktSmartList</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraft_" data-uid="TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft*"></a>
+  <h4 id="TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraft" data-uid="TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft">IReadOnlyListTraktSmartListDraft</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktSmartListDraft&gt;&gt; IReadOnlyListTraktSmartListDraft { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraft.html">TraktSmartListDraft</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraftConverted_" data-uid="TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted*"></a>
+  <h4 id="TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraftConverted" data-uid="TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted">IReadOnlyListTraktSmartListDraftConverted</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktSmartListDraftConverted&gt;&gt; IReadOnlyListTraktSmartListDraftConverted { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraftConverted.html">TraktSmartListDraftConverted</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraftList_" data-uid="TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList*"></a>
+  <h4 id="TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraftList" data-uid="TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList">IReadOnlyListTraktSmartListDraftList</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;IReadOnlyList&lt;TraktSmartListDraftList&gt;&gt; IReadOnlyListTraktSmartListDraftList { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraftList.html">TraktSmartListDraftList</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.Int32.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SmartListsJsonSerializerContext_Int32_" data-uid="TraktNET.SmartListsJsonSerializerContext.Int32*"></a>
+  <h4 id="TraktNET_SmartListsJsonSerializerContext_Int32" data-uid="TraktNET.SmartListsJsonSerializerContext.Int32">Int32</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;int&gt; Int32 { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -399,6 +545,62 @@ public sealed class SmartListsJsonSerializerContext : JsonSerializerContext, IJs
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.NullableInt32.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SmartListsJsonSerializerContext_NullableInt32_" data-uid="TraktNET.SmartListsJsonSerializerContext.NullableInt32*"></a>
+  <h4 id="TraktNET_SmartListsJsonSerializerContext_NullableInt32" data-uid="TraktNET.SmartListsJsonSerializerContext.NullableInt32">NullableInt32</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;int?&gt; NullableInt32 { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.NullableSingle.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SmartListsJsonSerializerContext_NullableSingle_" data-uid="TraktNET.SmartListsJsonSerializerContext.NullableSingle*"></a>
+  <h4 id="TraktNET_SmartListsJsonSerializerContext_NullableSingle" data-uid="TraktNET.SmartListsJsonSerializerContext.NullableSingle">NullableSingle</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;float?&gt; NullableSingle { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>?&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -819,6 +1021,90 @@ public sealed class SmartListsJsonSerializerContext : JsonSerializerContext, IJs
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktSmartList.html">TraktSmartList</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.TraktSmartListDraft.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraft_" data-uid="TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraft*"></a>
+  <h4 id="TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraft" data-uid="TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraft">TraktSmartListDraft</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktSmartListDraft&gt; TraktSmartListDraft { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraft.html">TraktSmartListDraft</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.TraktSmartListDraftConverted.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraftConverted_" data-uid="TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftConverted*"></a>
+  <h4 id="TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraftConverted" data-uid="TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftConverted">TraktSmartListDraftConverted</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktSmartListDraftConverted&gt; TraktSmartListDraftConverted { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraftConverted.html">TraktSmartListDraftConverted</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SmartListsJsonSerializerContext.TraktSmartListDraftList.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraftList_" data-uid="TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftList*"></a>
+  <h4 id="TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraftList" data-uid="TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftList">TraktSmartListDraftList</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktSmartListDraftList&gt; TraktSmartListDraftList { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraftList.html">TraktSmartListDraftList</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

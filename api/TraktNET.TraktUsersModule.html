@@ -1169,6 +1169,422 @@ Trakt API Documentation: Users: Connect Plex
   </table>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleConvertListToSmartList.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_" data-uid="TraktNET.TraktUsersModule.ConvertListToSmartListAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_System_String_TraktNET_TraktSmartListPost_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,System.String,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)">ConvertListToSmartListAsync(string, string, TraktSmartListPost, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Converts an user's personal list into a smart list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktSmartListPostResponse&gt;&gt; ConvertListToSmartListAsync(string usernameOrSlug, string listIdOrSlug, TraktSmartListPost smartListPost, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which the personal list should be converted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">listIdOrSlug</span></td>
+        <td><p>The id or slug of the personal list, which should be converted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSmartListPost.html">TraktSmartListPost</a></td>
+        <td><span class="parametername">smartListPost</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktSmartListPost.html">TraktSmartListPost</a> instance containing the data about the smart list to be created.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be caught.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktSmartListPostResponse.html">TraktSmartListPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing information about the successfully converted smart list.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSmartListPostResponse.html">TraktSmartListPostResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_System_String_TraktNET_TraktSmartListPost_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postuserslistslistconvert">
+Trakt API Documentation: Users: Lists: Convert to Smart List
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleConvertListToSmartList.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_" data-uid="TraktNET.TraktUsersModule.ConvertListToSmartListAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_System_UInt32_TraktNET_TraktSmartListPost_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,System.UInt32,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)">ConvertListToSmartListAsync(string, uint, TraktSmartListPost, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Converts an user's personal list into a smart list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktSmartListPostResponse&gt;&gt; ConvertListToSmartListAsync(string usernameOrSlug, uint traktListId, TraktSmartListPost smartListPost, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which the personal list should be converted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">traktListId</span></td>
+        <td><p>The Trakt-ID of the personal list, which should be converted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSmartListPost.html">TraktSmartListPost</a></td>
+        <td><span class="parametername">smartListPost</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktSmartListPost.html">TraktSmartListPost</a> instance containing the data about the smart list to be created.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be caught.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktSmartListPostResponse.html">TraktSmartListPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing information about the successfully converted smart list.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSmartListPostResponse.html">TraktSmartListPostResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_System_UInt32_TraktNET_TraktSmartListPost_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postuserslistslistconvert">
+Trakt API Documentation: Users: Lists: Convert to Smart List
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">traktListId</code> is 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleConvertListToSmartList.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_" data-uid="TraktNET.TraktUsersModule.ConvertListToSmartListAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_TraktNET_TraktList_TraktNET_TraktSmartListPost_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,TraktNET.TraktList,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)">ConvertListToSmartListAsync(string, TraktList, TraktSmartListPost, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Converts an user's personal list into a smart list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktSmartListPostResponse&gt;&gt; ConvertListToSmartListAsync(string usernameOrSlug, TraktList list, TraktSmartListPost smartListPost, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which the personal list should be converted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktList.html">TraktList</a></td>
+        <td><span class="parametername">list</span></td>
+        <td><p>The personal list, which should be converted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSmartListPost.html">TraktSmartListPost</a></td>
+        <td><span class="parametername">smartListPost</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktSmartListPost.html">TraktSmartListPost</a> instance containing the data about the smart list to be created.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be caught.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktSmartListPostResponse.html">TraktSmartListPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing information about the successfully converted smart list.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSmartListPostResponse.html">TraktSmartListPostResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_TraktNET_TraktList_TraktNET_TraktSmartListPost_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postuserslistslistconvert">
+Trakt API Documentation: Users: Lists: Convert to Smart List
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">list</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleConvertListToSmartList.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_" data-uid="TraktNET.TraktUsersModule.ConvertListToSmartListAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_TraktNET_TraktListIDs_TraktNET_TraktSmartListPost_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,TraktNET.TraktListIDs,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)">ConvertListToSmartListAsync(string, TraktListIDs, TraktSmartListPost, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Converts an user's personal list into a smart list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktSmartListPostResponse&gt;&gt; ConvertListToSmartListAsync(string usernameOrSlug, TraktListIDs listIds, TraktSmartListPost smartListPost, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which the personal list should be converted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListIDs.html">TraktListIDs</a></td>
+        <td><span class="parametername">listIds</span></td>
+        <td><p>The ids of the personal list, which should be converted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktSmartListPost.html">TraktSmartListPost</a></td>
+        <td><span class="parametername">smartListPost</span></td>
+        <td><p>An <a class="xref" href="TraktNET.TraktSmartListPost.html">TraktSmartListPost</a> instance containing the data about the smart list to be created.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be caught.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktSmartListPostResponse.html">TraktSmartListPostResponse</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing information about the successfully converted smart list.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSmartListPostResponse.html">TraktSmartListPostResponse</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_TraktNET_TraktListIDs_TraktNET_TraktSmartListPost_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/postuserslistslistconvert">
+Trakt API Documentation: Users: Lists: Convert to Smart List
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPostValidationException.html">TraktPostValidationException</a></td>
+        <td><p>Thrown, if validation of post data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">listIds</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">listIds</code> has not any ids set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktUsersModule_CreatePersonalListAsync_" data-uid="TraktNET.TraktUsersModule.CreatePersonalListAsync*"></a>
@@ -6898,6 +7314,378 @@ Trakt API Documentation: Users: Smart List
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
         <td><p>Thrown, if the given <code class="paramref">list</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleGetSmartListDraft.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_" data-uid="TraktNET.TraktUsersModule.GetSmartListDraftAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,System.String,System.Threading.CancellationToken)">GetSmartListDraftAsync(string, string, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a smart list draft for an user's personal list that stopped updating.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktSmartListDraft&gt;&gt; GetSmartListDraftAsync(string usernameOrSlug, string listIdOrSlug, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which the smart list draft should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">listIdOrSlug</span></td>
+        <td><p>The id or slug of the personal list, for which the smart list draft should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be caught.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraft.html">TraktSmartListDraft</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried smart list draft.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSmartListDraft.html">TraktSmartListDraft</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/getuserslistslistsmartlistdraft">
+Trakt API Documentation: Users: Lists: Smart List Draft
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleGetSmartListDraft.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_" data-uid="TraktNET.TraktUsersModule.GetSmartListDraftAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_System_UInt32_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,System.UInt32,System.Threading.CancellationToken)">GetSmartListDraftAsync(string, uint, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a smart list draft for an user's personal list that stopped updating.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktSmartListDraft&gt;&gt; GetSmartListDraftAsync(string usernameOrSlug, uint traktListId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which the smart list draft should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td><span class="parametername">traktListId</span></td>
+        <td><p>The Trakt-ID of the personal list, for which the smart list draft should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be caught.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraft.html">TraktSmartListDraft</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried smart list draft.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSmartListDraft.html">TraktSmartListDraft</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_System_UInt32_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/getuserslistslistsmartlistdraft">
+Trakt API Documentation: Users: Lists: Smart List Draft
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">traktListId</code> is 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleGetSmartListDraft.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_" data-uid="TraktNET.TraktUsersModule.GetSmartListDraftAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_TraktNET_TraktList_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,TraktNET.TraktList,System.Threading.CancellationToken)">GetSmartListDraftAsync(string, TraktList, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a smart list draft for an user's personal list that stopped updating.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktSmartListDraft&gt;&gt; GetSmartListDraftAsync(string usernameOrSlug, TraktList list, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which the smart list draft should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktList.html">TraktList</a></td>
+        <td><span class="parametername">list</span></td>
+        <td><p>The personal list, for which the smart list draft should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be caught.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraft.html">TraktSmartListDraft</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried smart list draft.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSmartListDraft.html">TraktSmartListDraft</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_TraktNET_TraktList_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/getuserslistslistsmartlistdraft">
+Trakt API Documentation: Users: Lists: Smart List Draft
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">list</code> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Users/TraktUsersModuleGetSmartListDraft.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_" data-uid="TraktNET.TraktUsersModule.GetSmartListDraftAsync*"></a>
+  <h4 id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_TraktNET_TraktListIDs_System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,TraktNET.TraktListIDs,System.Threading.CancellationToken)">GetSmartListDraftAsync(string, TraktListIDs, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a smart list draft for an user's personal list that stopped updating.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktSmartListDraft&gt;&gt; GetSmartListDraftAsync(string usernameOrSlug, TraktListIDs listIds, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">usernameOrSlug</span></td>
+        <td><p>The username or slug of the user, for which the smart list draft should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktListIDs.html">TraktListIDs</a></td>
+        <td><span class="parametername">listIds</span></td>
+        <td><p>The ids of the personal list, for which the smart list draft should be queried.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be caught.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktSmartListDraft.html">TraktSmartListDraft</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried smart list draft.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSmartListDraft.html">TraktSmartListDraft</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_TraktNET_TraktListIDs_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p><a href="https://docs.trakt.tv/reference/getuserslistslistsmartlistdraft">
+Trakt API Documentation: Users: Lists: Smart List Draft
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktRequestValidationException.html">TraktRequestValidationException</a></td>
+        <td><p>Thrown, if validation of request data fails.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">listIds</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown, if the given <code class="paramref">listIds</code> has not any ids set.</p>
 </td>
       </tr>
     </tbody>

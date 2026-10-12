@@ -2482,6 +2482,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktListPrivacy
   fullName: TraktNET.CommentsJsonSerializerContext.TraktListPrivacy
   nameWithType: CommentsJsonSerializerContext.TraktListPrivacy
+- uid: TraktNET.CommentsJsonSerializerContext.TraktListStaleOrigin
+  name: TraktListStaleOrigin
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktListStaleOrigin
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktListStaleOrigin
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktListStaleOrigin
+  nameWithType: CommentsJsonSerializerContext.TraktListStaleOrigin
+- uid: TraktNET.CommentsJsonSerializerContext.TraktListStaleOrigin*
+  name: TraktListStaleOrigin
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktListStaleOrigin_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktListStaleOrigin
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktListStaleOrigin
+  nameWithType: CommentsJsonSerializerContext.TraktListStaleOrigin
 - uid: TraktNET.CommentsJsonSerializerContext.TraktListType
   name: TraktListType
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktListType
@@ -2710,6 +2722,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktShowStatus
   fullName: TraktNET.CommentsJsonSerializerContext.TraktShowStatus
   nameWithType: CommentsJsonSerializerContext.TraktShowStatus
+- uid: TraktNET.CommentsJsonSerializerContext.TraktSmartListPostResponse
+  name: TraktSmartListPostResponse
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktSmartListPostResponse
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktSmartListPostResponse
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktSmartListPostResponse
+  nameWithType: CommentsJsonSerializerContext.TraktSmartListPostResponse
+- uid: TraktNET.CommentsJsonSerializerContext.TraktSmartListPostResponse*
+  name: TraktSmartListPostResponse
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktSmartListPostResponse_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktSmartListPostResponse
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktSmartListPostResponse
+  nameWithType: CommentsJsonSerializerContext.TraktSmartListPostResponse
 - uid: TraktNET.CommentsJsonSerializerContext.TraktSortBy
   name: TraktSortBy
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktSortBy
@@ -5563,6 +5587,18 @@ references:
   commentId: Overload:TraktNET.ListsJsonSerializerContext.IReadOnlyListTraktListLike
   fullName: TraktNET.ListsJsonSerializerContext.IReadOnlyListTraktListLike
   nameWithType: ListsJsonSerializerContext.IReadOnlyListTraktListLike
+- uid: TraktNET.ListsJsonSerializerContext.IReadOnlyListTraktListStaleOrigin
+  name: IReadOnlyListTraktListStaleOrigin
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_IReadOnlyListTraktListStaleOrigin
+  commentId: P:TraktNET.ListsJsonSerializerContext.IReadOnlyListTraktListStaleOrigin
+  fullName: TraktNET.ListsJsonSerializerContext.IReadOnlyListTraktListStaleOrigin
+  nameWithType: ListsJsonSerializerContext.IReadOnlyListTraktListStaleOrigin
+- uid: TraktNET.ListsJsonSerializerContext.IReadOnlyListTraktListStaleOrigin*
+  name: IReadOnlyListTraktListStaleOrigin
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_IReadOnlyListTraktListStaleOrigin_
+  commentId: Overload:TraktNET.ListsJsonSerializerContext.IReadOnlyListTraktListStaleOrigin
+  fullName: TraktNET.ListsJsonSerializerContext.IReadOnlyListTraktListStaleOrigin
+  nameWithType: ListsJsonSerializerContext.IReadOnlyListTraktListStaleOrigin
 - uid: TraktNET.ListsJsonSerializerContext.IReadOnlyListTraktPopularList
   name: IReadOnlyListTraktPopularList
   href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_IReadOnlyListTraktPopularList
@@ -6127,6 +6163,18 @@ references:
   commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktListPrivacy
   fullName: TraktNET.ListsJsonSerializerContext.TraktListPrivacy
   nameWithType: ListsJsonSerializerContext.TraktListPrivacy
+- uid: TraktNET.ListsJsonSerializerContext.TraktListStaleOrigin
+  name: TraktListStaleOrigin
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktListStaleOrigin
+  commentId: P:TraktNET.ListsJsonSerializerContext.TraktListStaleOrigin
+  fullName: TraktNET.ListsJsonSerializerContext.TraktListStaleOrigin
+  nameWithType: ListsJsonSerializerContext.TraktListStaleOrigin
+- uid: TraktNET.ListsJsonSerializerContext.TraktListStaleOrigin*
+  name: TraktListStaleOrigin
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktListStaleOrigin_
+  commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktListStaleOrigin
+  fullName: TraktNET.ListsJsonSerializerContext.TraktListStaleOrigin
+  nameWithType: ListsJsonSerializerContext.TraktListStaleOrigin
 - uid: TraktNET.ListsJsonSerializerContext.TraktListType
   name: TraktListType
   href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktListType
@@ -6379,6 +6427,18 @@ references:
   commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktShowStatus
   fullName: TraktNET.ListsJsonSerializerContext.TraktShowStatus
   nameWithType: ListsJsonSerializerContext.TraktShowStatus
+- uid: TraktNET.ListsJsonSerializerContext.TraktSmartListPostResponse
+  name: TraktSmartListPostResponse
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktSmartListPostResponse
+  commentId: P:TraktNET.ListsJsonSerializerContext.TraktSmartListPostResponse
+  fullName: TraktNET.ListsJsonSerializerContext.TraktSmartListPostResponse
+  nameWithType: ListsJsonSerializerContext.TraktSmartListPostResponse
+- uid: TraktNET.ListsJsonSerializerContext.TraktSmartListPostResponse*
+  name: TraktSmartListPostResponse
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktSmartListPostResponse_
+  commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktSmartListPostResponse
+  fullName: TraktNET.ListsJsonSerializerContext.TraktSmartListPostResponse
+  nameWithType: ListsJsonSerializerContext.TraktSmartListPostResponse
 - uid: TraktNET.ListsJsonSerializerContext.TraktSortBy
   name: TraktSortBy
   href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktSortBy
@@ -8551,6 +8611,18 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktListPrivacy
   fullName: TraktNET.NotesJsonSerializerContext.TraktListPrivacy
   nameWithType: NotesJsonSerializerContext.TraktListPrivacy
+- uid: TraktNET.NotesJsonSerializerContext.TraktListStaleOrigin
+  name: TraktListStaleOrigin
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktListStaleOrigin
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktListStaleOrigin
+  fullName: TraktNET.NotesJsonSerializerContext.TraktListStaleOrigin
+  nameWithType: NotesJsonSerializerContext.TraktListStaleOrigin
+- uid: TraktNET.NotesJsonSerializerContext.TraktListStaleOrigin*
+  name: TraktListStaleOrigin
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktListStaleOrigin_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktListStaleOrigin
+  fullName: TraktNET.NotesJsonSerializerContext.TraktListStaleOrigin
+  nameWithType: NotesJsonSerializerContext.TraktListStaleOrigin
 - uid: TraktNET.NotesJsonSerializerContext.TraktListType
   name: TraktListType
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktListType
@@ -8839,6 +8911,18 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktShowStatus
   fullName: TraktNET.NotesJsonSerializerContext.TraktShowStatus
   nameWithType: NotesJsonSerializerContext.TraktShowStatus
+- uid: TraktNET.NotesJsonSerializerContext.TraktSmartListPostResponse
+  name: TraktSmartListPostResponse
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktSmartListPostResponse
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktSmartListPostResponse
+  fullName: TraktNET.NotesJsonSerializerContext.TraktSmartListPostResponse
+  nameWithType: NotesJsonSerializerContext.TraktSmartListPostResponse
+- uid: TraktNET.NotesJsonSerializerContext.TraktSmartListPostResponse*
+  name: TraktSmartListPostResponse
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktSmartListPostResponse_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktSmartListPostResponse
+  fullName: TraktNET.NotesJsonSerializerContext.TraktSmartListPostResponse
+  nameWithType: NotesJsonSerializerContext.TraktSmartListPostResponse
 - uid: TraktNET.NotesJsonSerializerContext.TraktSortBy
   name: TraktSortBy
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktSortBy
@@ -12718,6 +12802,18 @@ references:
   commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktListPrivacy
   fullName: TraktNET.SearchsJsonSerializerContext.TraktListPrivacy
   nameWithType: SearchsJsonSerializerContext.TraktListPrivacy
+- uid: TraktNET.SearchsJsonSerializerContext.TraktListStaleOrigin
+  name: TraktListStaleOrigin
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktListStaleOrigin
+  commentId: P:TraktNET.SearchsJsonSerializerContext.TraktListStaleOrigin
+  fullName: TraktNET.SearchsJsonSerializerContext.TraktListStaleOrigin
+  nameWithType: SearchsJsonSerializerContext.TraktListStaleOrigin
+- uid: TraktNET.SearchsJsonSerializerContext.TraktListStaleOrigin*
+  name: TraktListStaleOrigin
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktListStaleOrigin_
+  commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktListStaleOrigin
+  fullName: TraktNET.SearchsJsonSerializerContext.TraktListStaleOrigin
+  nameWithType: SearchsJsonSerializerContext.TraktListStaleOrigin
 - uid: TraktNET.SearchsJsonSerializerContext.TraktListType
   name: TraktListType
   href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktListType
@@ -12958,6 +13054,18 @@ references:
   commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktShowStatus
   fullName: TraktNET.SearchsJsonSerializerContext.TraktShowStatus
   nameWithType: SearchsJsonSerializerContext.TraktShowStatus
+- uid: TraktNET.SearchsJsonSerializerContext.TraktSmartListPostResponse
+  name: TraktSmartListPostResponse
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktSmartListPostResponse
+  commentId: P:TraktNET.SearchsJsonSerializerContext.TraktSmartListPostResponse
+  fullName: TraktNET.SearchsJsonSerializerContext.TraktSmartListPostResponse
+  nameWithType: SearchsJsonSerializerContext.TraktSmartListPostResponse
+- uid: TraktNET.SearchsJsonSerializerContext.TraktSmartListPostResponse*
+  name: TraktSmartListPostResponse
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktSmartListPostResponse_
+  commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktSmartListPostResponse
+  fullName: TraktNET.SearchsJsonSerializerContext.TraktSmartListPostResponse
+  nameWithType: SearchsJsonSerializerContext.TraktSmartListPostResponse
 - uid: TraktNET.SearchsJsonSerializerContext.TraktSortBy
   name: TraktSortBy
   href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktSortBy
@@ -14857,6 +14965,18 @@ references:
   commentId: Overload:TraktNET.SmartListsJsonSerializerContext.GetTypeInfo
   fullName: TraktNET.SmartListsJsonSerializerContext.GetTypeInfo
   nameWithType: SmartListsJsonSerializerContext.GetTypeInfo
+- uid: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListString
+  name: IReadOnlyListString
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_IReadOnlyListString
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.IReadOnlyListString
+  fullName: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListString
+  nameWithType: SmartListsJsonSerializerContext.IReadOnlyListString
+- uid: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListString*
+  name: IReadOnlyListString
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_IReadOnlyListString_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.IReadOnlyListString
+  fullName: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListString
+  nameWithType: SmartListsJsonSerializerContext.IReadOnlyListString
 - uid: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartList
   name: IReadOnlyListTraktSmartList
   href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartList
@@ -14869,6 +14989,54 @@ references:
   commentId: Overload:TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartList
   fullName: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartList
   nameWithType: SmartListsJsonSerializerContext.IReadOnlyListTraktSmartList
+- uid: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft
+  name: IReadOnlyListTraktSmartListDraft
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraft
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft
+  fullName: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft
+  nameWithType: SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft
+- uid: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft*
+  name: IReadOnlyListTraktSmartListDraft
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraft_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft
+  fullName: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft
+  nameWithType: SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraft
+- uid: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted
+  name: IReadOnlyListTraktSmartListDraftConverted
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraftConverted
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted
+  fullName: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted
+  nameWithType: SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted
+- uid: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted*
+  name: IReadOnlyListTraktSmartListDraftConverted
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraftConverted_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted
+  fullName: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted
+  nameWithType: SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftConverted
+- uid: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList
+  name: IReadOnlyListTraktSmartListDraftList
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraftList
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList
+  fullName: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList
+  nameWithType: SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList
+- uid: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList*
+  name: IReadOnlyListTraktSmartListDraftList
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_IReadOnlyListTraktSmartListDraftList_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList
+  fullName: TraktNET.SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList
+  nameWithType: SmartListsJsonSerializerContext.IReadOnlyListTraktSmartListDraftList
+- uid: TraktNET.SmartListsJsonSerializerContext.Int32
+  name: Int32
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_Int32
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.Int32
+  fullName: TraktNET.SmartListsJsonSerializerContext.Int32
+  nameWithType: SmartListsJsonSerializerContext.Int32
+- uid: TraktNET.SmartListsJsonSerializerContext.Int32*
+  name: Int32
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_Int32_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.Int32
+  fullName: TraktNET.SmartListsJsonSerializerContext.Int32
+  nameWithType: SmartListsJsonSerializerContext.Int32
 - uid: TraktNET.SmartListsJsonSerializerContext.ListString
   name: ListString
   href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_ListString
@@ -14905,6 +15073,30 @@ references:
   commentId: Overload:TraktNET.SmartListsJsonSerializerContext.NullableDateTime
   fullName: TraktNET.SmartListsJsonSerializerContext.NullableDateTime
   nameWithType: SmartListsJsonSerializerContext.NullableDateTime
+- uid: TraktNET.SmartListsJsonSerializerContext.NullableInt32
+  name: NullableInt32
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableInt32
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.NullableInt32
+  fullName: TraktNET.SmartListsJsonSerializerContext.NullableInt32
+  nameWithType: SmartListsJsonSerializerContext.NullableInt32
+- uid: TraktNET.SmartListsJsonSerializerContext.NullableInt32*
+  name: NullableInt32
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableInt32_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.NullableInt32
+  fullName: TraktNET.SmartListsJsonSerializerContext.NullableInt32
+  nameWithType: SmartListsJsonSerializerContext.NullableInt32
+- uid: TraktNET.SmartListsJsonSerializerContext.NullableSingle
+  name: NullableSingle
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableSingle
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.NullableSingle
+  fullName: TraktNET.SmartListsJsonSerializerContext.NullableSingle
+  nameWithType: SmartListsJsonSerializerContext.NullableSingle
+- uid: TraktNET.SmartListsJsonSerializerContext.NullableSingle*
+  name: NullableSingle
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableSingle_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.NullableSingle
+  fullName: TraktNET.SmartListsJsonSerializerContext.NullableSingle
+  nameWithType: SmartListsJsonSerializerContext.NullableSingle
 - uid: TraktNET.SmartListsJsonSerializerContext.NullableTraktFilterOperator
   name: NullableTraktFilterOperator
   href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_NullableTraktFilterOperator
@@ -15085,6 +15277,42 @@ references:
   commentId: Overload:TraktNET.SmartListsJsonSerializerContext.TraktSmartList
   fullName: TraktNET.SmartListsJsonSerializerContext.TraktSmartList
   nameWithType: SmartListsJsonSerializerContext.TraktSmartList
+- uid: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraft
+  name: TraktSmartListDraft
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraft
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraft
+  fullName: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraft
+  nameWithType: SmartListsJsonSerializerContext.TraktSmartListDraft
+- uid: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraft*
+  name: TraktSmartListDraft
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraft_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraft
+  fullName: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraft
+  nameWithType: SmartListsJsonSerializerContext.TraktSmartListDraft
+- uid: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftConverted
+  name: TraktSmartListDraftConverted
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraftConverted
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftConverted
+  fullName: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftConverted
+  nameWithType: SmartListsJsonSerializerContext.TraktSmartListDraftConverted
+- uid: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftConverted*
+  name: TraktSmartListDraftConverted
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraftConverted_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftConverted
+  fullName: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftConverted
+  nameWithType: SmartListsJsonSerializerContext.TraktSmartListDraftConverted
+- uid: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftList
+  name: TraktSmartListDraftList
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraftList
+  commentId: P:TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftList
+  fullName: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftList
+  nameWithType: SmartListsJsonSerializerContext.TraktSmartListDraftList
+- uid: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftList*
+  name: TraktSmartListDraftList
+  href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktSmartListDraftList_
+  commentId: Overload:TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftList
+  fullName: TraktNET.SmartListsJsonSerializerContext.TraktSmartListDraftList
+  nameWithType: SmartListsJsonSerializerContext.TraktSmartListDraftList
 - uid: TraktNET.SmartListsJsonSerializerContext.TraktSmartListFilters
   name: TraktSmartListFilters
   href: api/TraktNET.SmartListsJsonSerializerContext.html#TraktNET_SmartListsJsonSerializerContext_TraktSmartListFilters
@@ -39742,6 +39970,18 @@ references:
   commentId: Overload:TraktNET.TraktList.CommentCount
   fullName: TraktNET.TraktList.CommentCount
   nameWithType: TraktList.CommentCount
+- uid: TraktNET.TraktList.ConvertedTo
+  name: ConvertedTo
+  href: api/TraktNET.TraktList.html#TraktNET_TraktList_ConvertedTo
+  commentId: P:TraktNET.TraktList.ConvertedTo
+  fullName: TraktNET.TraktList.ConvertedTo
+  nameWithType: TraktList.ConvertedTo
+- uid: TraktNET.TraktList.ConvertedTo*
+  name: ConvertedTo
+  href: api/TraktNET.TraktList.html#TraktNET_TraktList_ConvertedTo_
+  commentId: Overload:TraktNET.TraktList.ConvertedTo
+  fullName: TraktNET.TraktList.ConvertedTo
+  nameWithType: TraktList.ConvertedTo
 - uid: TraktNET.TraktList.CreatedAt
   name: CreatedAt
   href: api/TraktNET.TraktList.html#TraktNET_TraktList_CreatedAt
@@ -39946,6 +40186,18 @@ references:
   commentId: Overload:TraktNET.TraktList.SortHow
   fullName: TraktNET.TraktList.SortHow
   nameWithType: TraktList.SortHow
+- uid: TraktNET.TraktList.StaleOrigin
+  name: StaleOrigin
+  href: api/TraktNET.TraktList.html#TraktNET_TraktList_StaleOrigin
+  commentId: P:TraktNET.TraktList.StaleOrigin
+  fullName: TraktNET.TraktList.StaleOrigin
+  nameWithType: TraktList.StaleOrigin
+- uid: TraktNET.TraktList.StaleOrigin*
+  name: StaleOrigin
+  href: api/TraktNET.TraktList.html#TraktNET_TraktList_StaleOrigin_
+  commentId: Overload:TraktNET.TraktList.StaleOrigin
+  fullName: TraktNET.TraktList.StaleOrigin
+  nameWithType: TraktList.StaleOrigin
 - uid: TraktNET.TraktList.ToString
   name: ToString()
   href: api/TraktNET.TraktList.html#TraktNET_TraktList_ToString
@@ -41833,6 +42085,171 @@ references:
   commentId: Overload:TraktNET.TraktListSortOrderJsonConverter.Write
   fullName: TraktNET.TraktListSortOrderJsonConverter.Write
   nameWithType: TraktListSortOrderJsonConverter.Write
+- uid: TraktNET.TraktListStaleOrigin
+  name: TraktListStaleOrigin
+  href: api/TraktNET.TraktListStaleOrigin.html
+  commentId: T:TraktNET.TraktListStaleOrigin
+  fullName: TraktNET.TraktListStaleOrigin
+  nameWithType: TraktListStaleOrigin
+- uid: TraktNET.TraktListStaleOrigin.#ctor
+  name: TraktListStaleOrigin()
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin__ctor
+  commentId: M:TraktNET.TraktListStaleOrigin.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktListStaleOrigin.TraktListStaleOrigin()
+  fullName.vb: TraktNET.TraktListStaleOrigin.New()
+  nameWithType: TraktListStaleOrigin.TraktListStaleOrigin()
+  nameWithType.vb: TraktListStaleOrigin.New()
+- uid: TraktNET.TraktListStaleOrigin.#ctor(TraktNET.TraktListStaleOrigin)
+  name: TraktListStaleOrigin(TraktListStaleOrigin)
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin__ctor_TraktNET_TraktListStaleOrigin_
+  commentId: M:TraktNET.TraktListStaleOrigin.#ctor(TraktNET.TraktListStaleOrigin)
+  name.vb: New(TraktListStaleOrigin)
+  fullName: TraktNET.TraktListStaleOrigin.TraktListStaleOrigin(TraktNET.TraktListStaleOrigin)
+  fullName.vb: TraktNET.TraktListStaleOrigin.New(TraktNET.TraktListStaleOrigin)
+  nameWithType: TraktListStaleOrigin.TraktListStaleOrigin(TraktListStaleOrigin)
+  nameWithType.vb: TraktListStaleOrigin.New(TraktListStaleOrigin)
+- uid: TraktNET.TraktListStaleOrigin.#ctor*
+  name: TraktListStaleOrigin
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin__ctor_
+  commentId: Overload:TraktNET.TraktListStaleOrigin.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktListStaleOrigin.TraktListStaleOrigin
+  fullName.vb: TraktNET.TraktListStaleOrigin.New
+  nameWithType: TraktListStaleOrigin.TraktListStaleOrigin
+  nameWithType.vb: TraktListStaleOrigin.New
+- uid: TraktNET.TraktListStaleOrigin.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_EqualityContract
+  commentId: P:TraktNET.TraktListStaleOrigin.EqualityContract
+  fullName: TraktNET.TraktListStaleOrigin.EqualityContract
+  nameWithType: TraktListStaleOrigin.EqualityContract
+- uid: TraktNET.TraktListStaleOrigin.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_EqualityContract_
+  commentId: Overload:TraktNET.TraktListStaleOrigin.EqualityContract
+  fullName: TraktNET.TraktListStaleOrigin.EqualityContract
+  nameWithType: TraktListStaleOrigin.EqualityContract
+- uid: TraktNET.TraktListStaleOrigin.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_Equals_System_Object_
+  commentId: M:TraktNET.TraktListStaleOrigin.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktListStaleOrigin.Equals(object?)
+  fullName.vb: TraktNET.TraktListStaleOrigin.Equals(Object)
+  nameWithType: TraktListStaleOrigin.Equals(object?)
+  nameWithType.vb: TraktListStaleOrigin.Equals(Object)
+- uid: TraktNET.TraktListStaleOrigin.Equals(TraktNET.TraktListStaleOrigin)
+  name: Equals(TraktListStaleOrigin?)
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_Equals_TraktNET_TraktListStaleOrigin_
+  commentId: M:TraktNET.TraktListStaleOrigin.Equals(TraktNET.TraktListStaleOrigin)
+  name.vb: Equals(TraktListStaleOrigin)
+  fullName: TraktNET.TraktListStaleOrigin.Equals(TraktNET.TraktListStaleOrigin?)
+  fullName.vb: TraktNET.TraktListStaleOrigin.Equals(TraktNET.TraktListStaleOrigin)
+  nameWithType: TraktListStaleOrigin.Equals(TraktListStaleOrigin?)
+  nameWithType.vb: TraktListStaleOrigin.Equals(TraktListStaleOrigin)
+- uid: TraktNET.TraktListStaleOrigin.Equals*
+  name: Equals
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_Equals_
+  commentId: Overload:TraktNET.TraktListStaleOrigin.Equals
+  fullName: TraktNET.TraktListStaleOrigin.Equals
+  nameWithType: TraktListStaleOrigin.Equals
+- uid: TraktNET.TraktListStaleOrigin.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_GetHashCode
+  commentId: M:TraktNET.TraktListStaleOrigin.GetHashCode
+  fullName: TraktNET.TraktListStaleOrigin.GetHashCode()
+  nameWithType: TraktListStaleOrigin.GetHashCode()
+- uid: TraktNET.TraktListStaleOrigin.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_GetHashCode_
+  commentId: Overload:TraktNET.TraktListStaleOrigin.GetHashCode
+  fullName: TraktNET.TraktListStaleOrigin.GetHashCode
+  nameWithType: TraktListStaleOrigin.GetHashCode
+- uid: TraktNET.TraktListStaleOrigin.Name
+  name: Name
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_Name
+  commentId: P:TraktNET.TraktListStaleOrigin.Name
+  fullName: TraktNET.TraktListStaleOrigin.Name
+  nameWithType: TraktListStaleOrigin.Name
+- uid: TraktNET.TraktListStaleOrigin.Name*
+  name: Name
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_Name_
+  commentId: Overload:TraktNET.TraktListStaleOrigin.Name
+  fullName: TraktNET.TraktListStaleOrigin.Name
+  nameWithType: TraktListStaleOrigin.Name
+- uid: TraktNET.TraktListStaleOrigin.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktListStaleOrigin.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktListStaleOrigin.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktListStaleOrigin.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktListStaleOrigin.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_PrintMembers_
+  commentId: Overload:TraktNET.TraktListStaleOrigin.PrintMembers
+  fullName: TraktNET.TraktListStaleOrigin.PrintMembers
+  nameWithType: TraktListStaleOrigin.PrintMembers
+- uid: TraktNET.TraktListStaleOrigin.ToString
+  name: ToString()
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_ToString
+  commentId: M:TraktNET.TraktListStaleOrigin.ToString
+  fullName: TraktNET.TraktListStaleOrigin.ToString()
+  nameWithType: TraktListStaleOrigin.ToString()
+- uid: TraktNET.TraktListStaleOrigin.ToString*
+  name: ToString
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_ToString_
+  commentId: Overload:TraktNET.TraktListStaleOrigin.ToString
+  fullName: TraktNET.TraktListStaleOrigin.ToString
+  nameWithType: TraktListStaleOrigin.ToString
+- uid: TraktNET.TraktListStaleOrigin.Url
+  name: Url
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_Url
+  commentId: P:TraktNET.TraktListStaleOrigin.Url
+  fullName: TraktNET.TraktListStaleOrigin.Url
+  nameWithType: TraktListStaleOrigin.Url
+- uid: TraktNET.TraktListStaleOrigin.Url*
+  name: Url
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_Url_
+  commentId: Overload:TraktNET.TraktListStaleOrigin.Url
+  fullName: TraktNET.TraktListStaleOrigin.Url
+  nameWithType: TraktListStaleOrigin.Url
+- uid: TraktNET.TraktListStaleOrigin.op_Equality(TraktNET.TraktListStaleOrigin,TraktNET.TraktListStaleOrigin)
+  name: operator ==(TraktListStaleOrigin?, TraktListStaleOrigin?)
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_op_Equality_TraktNET_TraktListStaleOrigin_TraktNET_TraktListStaleOrigin_
+  commentId: M:TraktNET.TraktListStaleOrigin.op_Equality(TraktNET.TraktListStaleOrigin,TraktNET.TraktListStaleOrigin)
+  name.vb: =(TraktListStaleOrigin, TraktListStaleOrigin)
+  fullName: TraktNET.TraktListStaleOrigin.operator ==(TraktNET.TraktListStaleOrigin?, TraktNET.TraktListStaleOrigin?)
+  fullName.vb: TraktNET.TraktListStaleOrigin.=(TraktNET.TraktListStaleOrigin, TraktNET.TraktListStaleOrigin)
+  nameWithType: TraktListStaleOrigin.operator ==(TraktListStaleOrigin?, TraktListStaleOrigin?)
+  nameWithType.vb: TraktListStaleOrigin.=(TraktListStaleOrigin, TraktListStaleOrigin)
+- uid: TraktNET.TraktListStaleOrigin.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_op_Equality_
+  commentId: Overload:TraktNET.TraktListStaleOrigin.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktListStaleOrigin.operator ==
+  fullName.vb: TraktNET.TraktListStaleOrigin.=
+  nameWithType: TraktListStaleOrigin.operator ==
+  nameWithType.vb: TraktListStaleOrigin.=
+- uid: TraktNET.TraktListStaleOrigin.op_Inequality(TraktNET.TraktListStaleOrigin,TraktNET.TraktListStaleOrigin)
+  name: operator !=(TraktListStaleOrigin?, TraktListStaleOrigin?)
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_op_Inequality_TraktNET_TraktListStaleOrigin_TraktNET_TraktListStaleOrigin_
+  commentId: M:TraktNET.TraktListStaleOrigin.op_Inequality(TraktNET.TraktListStaleOrigin,TraktNET.TraktListStaleOrigin)
+  name.vb: <>(TraktListStaleOrigin, TraktListStaleOrigin)
+  fullName: TraktNET.TraktListStaleOrigin.operator !=(TraktNET.TraktListStaleOrigin?, TraktNET.TraktListStaleOrigin?)
+  fullName.vb: TraktNET.TraktListStaleOrigin.<>(TraktNET.TraktListStaleOrigin, TraktNET.TraktListStaleOrigin)
+  nameWithType: TraktListStaleOrigin.operator !=(TraktListStaleOrigin?, TraktListStaleOrigin?)
+  nameWithType.vb: TraktListStaleOrigin.<>(TraktListStaleOrigin, TraktListStaleOrigin)
+- uid: TraktNET.TraktListStaleOrigin.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktListStaleOrigin.html#TraktNET_TraktListStaleOrigin_op_Inequality_
+  commentId: Overload:TraktNET.TraktListStaleOrigin.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktListStaleOrigin.operator !=
+  fullName.vb: TraktNET.TraktListStaleOrigin.<>
+  nameWithType: TraktListStaleOrigin.operator !=
+  nameWithType.vb: TraktListStaleOrigin.<>
 - uid: TraktNET.TraktListType
   name: TraktListType
   href: api/TraktNET.TraktListType.html
@@ -76327,6 +76744,561 @@ references:
   fullName.vb: TraktNET.TraktSmartList.<>
   nameWithType: TraktSmartList.operator !=
   nameWithType.vb: TraktSmartList.<>
+- uid: TraktNET.TraktSmartListDraft
+  name: TraktSmartListDraft
+  href: api/TraktNET.TraktSmartListDraft.html
+  commentId: T:TraktNET.TraktSmartListDraft
+  fullName: TraktNET.TraktSmartListDraft
+  nameWithType: TraktSmartListDraft
+- uid: TraktNET.TraktSmartListDraft.#ctor
+  name: TraktSmartListDraft()
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft__ctor
+  commentId: M:TraktNET.TraktSmartListDraft.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktSmartListDraft.TraktSmartListDraft()
+  fullName.vb: TraktNET.TraktSmartListDraft.New()
+  nameWithType: TraktSmartListDraft.TraktSmartListDraft()
+  nameWithType.vb: TraktSmartListDraft.New()
+- uid: TraktNET.TraktSmartListDraft.#ctor(TraktNET.TraktSmartListDraft)
+  name: TraktSmartListDraft(TraktSmartListDraft)
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft__ctor_TraktNET_TraktSmartListDraft_
+  commentId: M:TraktNET.TraktSmartListDraft.#ctor(TraktNET.TraktSmartListDraft)
+  name.vb: New(TraktSmartListDraft)
+  fullName: TraktNET.TraktSmartListDraft.TraktSmartListDraft(TraktNET.TraktSmartListDraft)
+  fullName.vb: TraktNET.TraktSmartListDraft.New(TraktNET.TraktSmartListDraft)
+  nameWithType: TraktSmartListDraft.TraktSmartListDraft(TraktSmartListDraft)
+  nameWithType.vb: TraktSmartListDraft.New(TraktSmartListDraft)
+- uid: TraktNET.TraktSmartListDraft.#ctor*
+  name: TraktSmartListDraft
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft__ctor_
+  commentId: Overload:TraktNET.TraktSmartListDraft.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktSmartListDraft.TraktSmartListDraft
+  fullName.vb: TraktNET.TraktSmartListDraft.New
+  nameWithType: TraktSmartListDraft.TraktSmartListDraft
+  nameWithType.vb: TraktSmartListDraft.New
+- uid: TraktNET.TraktSmartListDraft.Confidence
+  name: Confidence
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Confidence
+  commentId: P:TraktNET.TraktSmartListDraft.Confidence
+  fullName: TraktNET.TraktSmartListDraft.Confidence
+  nameWithType: TraktSmartListDraft.Confidence
+- uid: TraktNET.TraktSmartListDraft.Confidence*
+  name: Confidence
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Confidence_
+  commentId: Overload:TraktNET.TraktSmartListDraft.Confidence
+  fullName: TraktNET.TraktSmartListDraft.Confidence
+  nameWithType: TraktSmartListDraft.Confidence
+- uid: TraktNET.TraktSmartListDraft.Converted
+  name: Converted
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Converted
+  commentId: P:TraktNET.TraktSmartListDraft.Converted
+  fullName: TraktNET.TraktSmartListDraft.Converted
+  nameWithType: TraktSmartListDraft.Converted
+- uid: TraktNET.TraktSmartListDraft.Converted*
+  name: Converted
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Converted_
+  commentId: Overload:TraktNET.TraktSmartListDraft.Converted
+  fullName: TraktNET.TraktSmartListDraft.Converted
+  nameWithType: TraktSmartListDraft.Converted
+- uid: TraktNET.TraktSmartListDraft.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_EqualityContract
+  commentId: P:TraktNET.TraktSmartListDraft.EqualityContract
+  fullName: TraktNET.TraktSmartListDraft.EqualityContract
+  nameWithType: TraktSmartListDraft.EqualityContract
+- uid: TraktNET.TraktSmartListDraft.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_EqualityContract_
+  commentId: Overload:TraktNET.TraktSmartListDraft.EqualityContract
+  fullName: TraktNET.TraktSmartListDraft.EqualityContract
+  nameWithType: TraktSmartListDraft.EqualityContract
+- uid: TraktNET.TraktSmartListDraft.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Equals_System_Object_
+  commentId: M:TraktNET.TraktSmartListDraft.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktSmartListDraft.Equals(object?)
+  fullName.vb: TraktNET.TraktSmartListDraft.Equals(Object)
+  nameWithType: TraktSmartListDraft.Equals(object?)
+  nameWithType.vb: TraktSmartListDraft.Equals(Object)
+- uid: TraktNET.TraktSmartListDraft.Equals(TraktNET.TraktSmartListDraft)
+  name: Equals(TraktSmartListDraft?)
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Equals_TraktNET_TraktSmartListDraft_
+  commentId: M:TraktNET.TraktSmartListDraft.Equals(TraktNET.TraktSmartListDraft)
+  name.vb: Equals(TraktSmartListDraft)
+  fullName: TraktNET.TraktSmartListDraft.Equals(TraktNET.TraktSmartListDraft?)
+  fullName.vb: TraktNET.TraktSmartListDraft.Equals(TraktNET.TraktSmartListDraft)
+  nameWithType: TraktSmartListDraft.Equals(TraktSmartListDraft?)
+  nameWithType.vb: TraktSmartListDraft.Equals(TraktSmartListDraft)
+- uid: TraktNET.TraktSmartListDraft.Equals*
+  name: Equals
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Equals_
+  commentId: Overload:TraktNET.TraktSmartListDraft.Equals
+  fullName: TraktNET.TraktSmartListDraft.Equals
+  nameWithType: TraktSmartListDraft.Equals
+- uid: TraktNET.TraktSmartListDraft.Filters
+  name: Filters
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Filters
+  commentId: P:TraktNET.TraktSmartListDraft.Filters
+  fullName: TraktNET.TraktSmartListDraft.Filters
+  nameWithType: TraktSmartListDraft.Filters
+- uid: TraktNET.TraktSmartListDraft.Filters*
+  name: Filters
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Filters_
+  commentId: Overload:TraktNET.TraktSmartListDraft.Filters
+  fullName: TraktNET.TraktSmartListDraft.Filters
+  nameWithType: TraktSmartListDraft.Filters
+- uid: TraktNET.TraktSmartListDraft.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_GetHashCode
+  commentId: M:TraktNET.TraktSmartListDraft.GetHashCode
+  fullName: TraktNET.TraktSmartListDraft.GetHashCode()
+  nameWithType: TraktSmartListDraft.GetHashCode()
+- uid: TraktNET.TraktSmartListDraft.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_GetHashCode_
+  commentId: Overload:TraktNET.TraktSmartListDraft.GetHashCode
+  fullName: TraktNET.TraktSmartListDraft.GetHashCode
+  nameWithType: TraktSmartListDraft.GetHashCode
+- uid: TraktNET.TraktSmartListDraft.List
+  name: List
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_List
+  commentId: P:TraktNET.TraktSmartListDraft.List
+  fullName: TraktNET.TraktSmartListDraft.List
+  nameWithType: TraktSmartListDraft.List
+- uid: TraktNET.TraktSmartListDraft.List*
+  name: List
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_List_
+  commentId: Overload:TraktNET.TraktSmartListDraft.List
+  fullName: TraktNET.TraktSmartListDraft.List
+  nameWithType: TraktSmartListDraft.List
+- uid: TraktNET.TraktSmartListDraft.MediaType
+  name: MediaType
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_MediaType
+  commentId: P:TraktNET.TraktSmartListDraft.MediaType
+  fullName: TraktNET.TraktSmartListDraft.MediaType
+  nameWithType: TraktSmartListDraft.MediaType
+- uid: TraktNET.TraktSmartListDraft.MediaType*
+  name: MediaType
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_MediaType_
+  commentId: Overload:TraktNET.TraktSmartListDraft.MediaType
+  fullName: TraktNET.TraktSmartListDraft.MediaType
+  nameWithType: TraktSmartListDraft.MediaType
+- uid: TraktNET.TraktSmartListDraft.OriginUrl
+  name: OriginUrl
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_OriginUrl
+  commentId: P:TraktNET.TraktSmartListDraft.OriginUrl
+  fullName: TraktNET.TraktSmartListDraft.OriginUrl
+  nameWithType: TraktSmartListDraft.OriginUrl
+- uid: TraktNET.TraktSmartListDraft.OriginUrl*
+  name: OriginUrl
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_OriginUrl_
+  commentId: Overload:TraktNET.TraktSmartListDraft.OriginUrl
+  fullName: TraktNET.TraktSmartListDraft.OriginUrl
+  nameWithType: TraktSmartListDraft.OriginUrl
+- uid: TraktNET.TraktSmartListDraft.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktSmartListDraft.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktSmartListDraft.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktSmartListDraft.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktSmartListDraft.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_PrintMembers_
+  commentId: Overload:TraktNET.TraktSmartListDraft.PrintMembers
+  fullName: TraktNET.TraktSmartListDraft.PrintMembers
+  nameWithType: TraktSmartListDraft.PrintMembers
+- uid: TraktNET.TraktSmartListDraft.Source
+  name: Source
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Source
+  commentId: P:TraktNET.TraktSmartListDraft.Source
+  fullName: TraktNET.TraktSmartListDraft.Source
+  nameWithType: TraktSmartListDraft.Source
+- uid: TraktNET.TraktSmartListDraft.Source*
+  name: Source
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Source_
+  commentId: Overload:TraktNET.TraktSmartListDraft.Source
+  fullName: TraktNET.TraktSmartListDraft.Source
+  nameWithType: TraktSmartListDraft.Source
+- uid: TraktNET.TraktSmartListDraft.ToString
+  name: ToString()
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_ToString
+  commentId: M:TraktNET.TraktSmartListDraft.ToString
+  fullName: TraktNET.TraktSmartListDraft.ToString()
+  nameWithType: TraktSmartListDraft.ToString()
+- uid: TraktNET.TraktSmartListDraft.ToString*
+  name: ToString
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_ToString_
+  commentId: Overload:TraktNET.TraktSmartListDraft.ToString
+  fullName: TraktNET.TraktSmartListDraft.ToString
+  nameWithType: TraktSmartListDraft.ToString
+- uid: TraktNET.TraktSmartListDraft.Unsupported
+  name: Unsupported
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Unsupported
+  commentId: P:TraktNET.TraktSmartListDraft.Unsupported
+  fullName: TraktNET.TraktSmartListDraft.Unsupported
+  nameWithType: TraktSmartListDraft.Unsupported
+- uid: TraktNET.TraktSmartListDraft.Unsupported*
+  name: Unsupported
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_Unsupported_
+  commentId: Overload:TraktNET.TraktSmartListDraft.Unsupported
+  fullName: TraktNET.TraktSmartListDraft.Unsupported
+  nameWithType: TraktSmartListDraft.Unsupported
+- uid: TraktNET.TraktSmartListDraft.op_Equality(TraktNET.TraktSmartListDraft,TraktNET.TraktSmartListDraft)
+  name: operator ==(TraktSmartListDraft?, TraktSmartListDraft?)
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_op_Equality_TraktNET_TraktSmartListDraft_TraktNET_TraktSmartListDraft_
+  commentId: M:TraktNET.TraktSmartListDraft.op_Equality(TraktNET.TraktSmartListDraft,TraktNET.TraktSmartListDraft)
+  name.vb: =(TraktSmartListDraft, TraktSmartListDraft)
+  fullName: TraktNET.TraktSmartListDraft.operator ==(TraktNET.TraktSmartListDraft?, TraktNET.TraktSmartListDraft?)
+  fullName.vb: TraktNET.TraktSmartListDraft.=(TraktNET.TraktSmartListDraft, TraktNET.TraktSmartListDraft)
+  nameWithType: TraktSmartListDraft.operator ==(TraktSmartListDraft?, TraktSmartListDraft?)
+  nameWithType.vb: TraktSmartListDraft.=(TraktSmartListDraft, TraktSmartListDraft)
+- uid: TraktNET.TraktSmartListDraft.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_op_Equality_
+  commentId: Overload:TraktNET.TraktSmartListDraft.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktSmartListDraft.operator ==
+  fullName.vb: TraktNET.TraktSmartListDraft.=
+  nameWithType: TraktSmartListDraft.operator ==
+  nameWithType.vb: TraktSmartListDraft.=
+- uid: TraktNET.TraktSmartListDraft.op_Inequality(TraktNET.TraktSmartListDraft,TraktNET.TraktSmartListDraft)
+  name: operator !=(TraktSmartListDraft?, TraktSmartListDraft?)
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_op_Inequality_TraktNET_TraktSmartListDraft_TraktNET_TraktSmartListDraft_
+  commentId: M:TraktNET.TraktSmartListDraft.op_Inequality(TraktNET.TraktSmartListDraft,TraktNET.TraktSmartListDraft)
+  name.vb: <>(TraktSmartListDraft, TraktSmartListDraft)
+  fullName: TraktNET.TraktSmartListDraft.operator !=(TraktNET.TraktSmartListDraft?, TraktNET.TraktSmartListDraft?)
+  fullName.vb: TraktNET.TraktSmartListDraft.<>(TraktNET.TraktSmartListDraft, TraktNET.TraktSmartListDraft)
+  nameWithType: TraktSmartListDraft.operator !=(TraktSmartListDraft?, TraktSmartListDraft?)
+  nameWithType.vb: TraktSmartListDraft.<>(TraktSmartListDraft, TraktSmartListDraft)
+- uid: TraktNET.TraktSmartListDraft.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktSmartListDraft.html#TraktNET_TraktSmartListDraft_op_Inequality_
+  commentId: Overload:TraktNET.TraktSmartListDraft.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktSmartListDraft.operator !=
+  fullName.vb: TraktNET.TraktSmartListDraft.<>
+  nameWithType: TraktSmartListDraft.operator !=
+  nameWithType.vb: TraktSmartListDraft.<>
+- uid: TraktNET.TraktSmartListDraftConverted
+  name: TraktSmartListDraftConverted
+  href: api/TraktNET.TraktSmartListDraftConverted.html
+  commentId: T:TraktNET.TraktSmartListDraftConverted
+  fullName: TraktNET.TraktSmartListDraftConverted
+  nameWithType: TraktSmartListDraftConverted
+- uid: TraktNET.TraktSmartListDraftConverted.#ctor
+  name: TraktSmartListDraftConverted()
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted__ctor
+  commentId: M:TraktNET.TraktSmartListDraftConverted.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktSmartListDraftConverted.TraktSmartListDraftConverted()
+  fullName.vb: TraktNET.TraktSmartListDraftConverted.New()
+  nameWithType: TraktSmartListDraftConverted.TraktSmartListDraftConverted()
+  nameWithType.vb: TraktSmartListDraftConverted.New()
+- uid: TraktNET.TraktSmartListDraftConverted.#ctor(TraktNET.TraktSmartListDraftConverted)
+  name: TraktSmartListDraftConverted(TraktSmartListDraftConverted)
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted__ctor_TraktNET_TraktSmartListDraftConverted_
+  commentId: M:TraktNET.TraktSmartListDraftConverted.#ctor(TraktNET.TraktSmartListDraftConverted)
+  name.vb: New(TraktSmartListDraftConverted)
+  fullName: TraktNET.TraktSmartListDraftConverted.TraktSmartListDraftConverted(TraktNET.TraktSmartListDraftConverted)
+  fullName.vb: TraktNET.TraktSmartListDraftConverted.New(TraktNET.TraktSmartListDraftConverted)
+  nameWithType: TraktSmartListDraftConverted.TraktSmartListDraftConverted(TraktSmartListDraftConverted)
+  nameWithType.vb: TraktSmartListDraftConverted.New(TraktSmartListDraftConverted)
+- uid: TraktNET.TraktSmartListDraftConverted.#ctor*
+  name: TraktSmartListDraftConverted
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted__ctor_
+  commentId: Overload:TraktNET.TraktSmartListDraftConverted.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktSmartListDraftConverted.TraktSmartListDraftConverted
+  fullName.vb: TraktNET.TraktSmartListDraftConverted.New
+  nameWithType: TraktSmartListDraftConverted.TraktSmartListDraftConverted
+  nameWithType.vb: TraktSmartListDraftConverted.New
+- uid: TraktNET.TraktSmartListDraftConverted.ConvertedAt
+  name: ConvertedAt
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_ConvertedAt
+  commentId: P:TraktNET.TraktSmartListDraftConverted.ConvertedAt
+  fullName: TraktNET.TraktSmartListDraftConverted.ConvertedAt
+  nameWithType: TraktSmartListDraftConverted.ConvertedAt
+- uid: TraktNET.TraktSmartListDraftConverted.ConvertedAt*
+  name: ConvertedAt
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_ConvertedAt_
+  commentId: Overload:TraktNET.TraktSmartListDraftConverted.ConvertedAt
+  fullName: TraktNET.TraktSmartListDraftConverted.ConvertedAt
+  nameWithType: TraktSmartListDraftConverted.ConvertedAt
+- uid: TraktNET.TraktSmartListDraftConverted.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_EqualityContract
+  commentId: P:TraktNET.TraktSmartListDraftConverted.EqualityContract
+  fullName: TraktNET.TraktSmartListDraftConverted.EqualityContract
+  nameWithType: TraktSmartListDraftConverted.EqualityContract
+- uid: TraktNET.TraktSmartListDraftConverted.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_EqualityContract_
+  commentId: Overload:TraktNET.TraktSmartListDraftConverted.EqualityContract
+  fullName: TraktNET.TraktSmartListDraftConverted.EqualityContract
+  nameWithType: TraktSmartListDraftConverted.EqualityContract
+- uid: TraktNET.TraktSmartListDraftConverted.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_Equals_System_Object_
+  commentId: M:TraktNET.TraktSmartListDraftConverted.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktSmartListDraftConverted.Equals(object?)
+  fullName.vb: TraktNET.TraktSmartListDraftConverted.Equals(Object)
+  nameWithType: TraktSmartListDraftConverted.Equals(object?)
+  nameWithType.vb: TraktSmartListDraftConverted.Equals(Object)
+- uid: TraktNET.TraktSmartListDraftConverted.Equals(TraktNET.TraktSmartListDraftConverted)
+  name: Equals(TraktSmartListDraftConverted?)
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_Equals_TraktNET_TraktSmartListDraftConverted_
+  commentId: M:TraktNET.TraktSmartListDraftConverted.Equals(TraktNET.TraktSmartListDraftConverted)
+  name.vb: Equals(TraktSmartListDraftConverted)
+  fullName: TraktNET.TraktSmartListDraftConverted.Equals(TraktNET.TraktSmartListDraftConverted?)
+  fullName.vb: TraktNET.TraktSmartListDraftConverted.Equals(TraktNET.TraktSmartListDraftConverted)
+  nameWithType: TraktSmartListDraftConverted.Equals(TraktSmartListDraftConverted?)
+  nameWithType.vb: TraktSmartListDraftConverted.Equals(TraktSmartListDraftConverted)
+- uid: TraktNET.TraktSmartListDraftConverted.Equals*
+  name: Equals
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_Equals_
+  commentId: Overload:TraktNET.TraktSmartListDraftConverted.Equals
+  fullName: TraktNET.TraktSmartListDraftConverted.Equals
+  nameWithType: TraktSmartListDraftConverted.Equals
+- uid: TraktNET.TraktSmartListDraftConverted.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_GetHashCode
+  commentId: M:TraktNET.TraktSmartListDraftConverted.GetHashCode
+  fullName: TraktNET.TraktSmartListDraftConverted.GetHashCode()
+  nameWithType: TraktSmartListDraftConverted.GetHashCode()
+- uid: TraktNET.TraktSmartListDraftConverted.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_GetHashCode_
+  commentId: Overload:TraktNET.TraktSmartListDraftConverted.GetHashCode
+  fullName: TraktNET.TraktSmartListDraftConverted.GetHashCode
+  nameWithType: TraktSmartListDraftConverted.GetHashCode
+- uid: TraktNET.TraktSmartListDraftConverted.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktSmartListDraftConverted.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktSmartListDraftConverted.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktSmartListDraftConverted.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktSmartListDraftConverted.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_PrintMembers_
+  commentId: Overload:TraktNET.TraktSmartListDraftConverted.PrintMembers
+  fullName: TraktNET.TraktSmartListDraftConverted.PrintMembers
+  nameWithType: TraktSmartListDraftConverted.PrintMembers
+- uid: TraktNET.TraktSmartListDraftConverted.SmartListId
+  name: SmartListId
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_SmartListId
+  commentId: P:TraktNET.TraktSmartListDraftConverted.SmartListId
+  fullName: TraktNET.TraktSmartListDraftConverted.SmartListId
+  nameWithType: TraktSmartListDraftConverted.SmartListId
+- uid: TraktNET.TraktSmartListDraftConverted.SmartListId*
+  name: SmartListId
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_SmartListId_
+  commentId: Overload:TraktNET.TraktSmartListDraftConverted.SmartListId
+  fullName: TraktNET.TraktSmartListDraftConverted.SmartListId
+  nameWithType: TraktSmartListDraftConverted.SmartListId
+- uid: TraktNET.TraktSmartListDraftConverted.ToString
+  name: ToString()
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_ToString
+  commentId: M:TraktNET.TraktSmartListDraftConverted.ToString
+  fullName: TraktNET.TraktSmartListDraftConverted.ToString()
+  nameWithType: TraktSmartListDraftConverted.ToString()
+- uid: TraktNET.TraktSmartListDraftConverted.ToString*
+  name: ToString
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_ToString_
+  commentId: Overload:TraktNET.TraktSmartListDraftConverted.ToString
+  fullName: TraktNET.TraktSmartListDraftConverted.ToString
+  nameWithType: TraktSmartListDraftConverted.ToString
+- uid: TraktNET.TraktSmartListDraftConverted.op_Equality(TraktNET.TraktSmartListDraftConverted,TraktNET.TraktSmartListDraftConverted)
+  name: operator ==(TraktSmartListDraftConverted?, TraktSmartListDraftConverted?)
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_op_Equality_TraktNET_TraktSmartListDraftConverted_TraktNET_TraktSmartListDraftConverted_
+  commentId: M:TraktNET.TraktSmartListDraftConverted.op_Equality(TraktNET.TraktSmartListDraftConverted,TraktNET.TraktSmartListDraftConverted)
+  name.vb: =(TraktSmartListDraftConverted, TraktSmartListDraftConverted)
+  fullName: TraktNET.TraktSmartListDraftConverted.operator ==(TraktNET.TraktSmartListDraftConverted?, TraktNET.TraktSmartListDraftConverted?)
+  fullName.vb: TraktNET.TraktSmartListDraftConverted.=(TraktNET.TraktSmartListDraftConverted, TraktNET.TraktSmartListDraftConverted)
+  nameWithType: TraktSmartListDraftConverted.operator ==(TraktSmartListDraftConverted?, TraktSmartListDraftConverted?)
+  nameWithType.vb: TraktSmartListDraftConverted.=(TraktSmartListDraftConverted, TraktSmartListDraftConverted)
+- uid: TraktNET.TraktSmartListDraftConverted.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_op_Equality_
+  commentId: Overload:TraktNET.TraktSmartListDraftConverted.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktSmartListDraftConverted.operator ==
+  fullName.vb: TraktNET.TraktSmartListDraftConverted.=
+  nameWithType: TraktSmartListDraftConverted.operator ==
+  nameWithType.vb: TraktSmartListDraftConverted.=
+- uid: TraktNET.TraktSmartListDraftConverted.op_Inequality(TraktNET.TraktSmartListDraftConverted,TraktNET.TraktSmartListDraftConverted)
+  name: operator !=(TraktSmartListDraftConverted?, TraktSmartListDraftConverted?)
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_op_Inequality_TraktNET_TraktSmartListDraftConverted_TraktNET_TraktSmartListDraftConverted_
+  commentId: M:TraktNET.TraktSmartListDraftConverted.op_Inequality(TraktNET.TraktSmartListDraftConverted,TraktNET.TraktSmartListDraftConverted)
+  name.vb: <>(TraktSmartListDraftConverted, TraktSmartListDraftConverted)
+  fullName: TraktNET.TraktSmartListDraftConverted.operator !=(TraktNET.TraktSmartListDraftConverted?, TraktNET.TraktSmartListDraftConverted?)
+  fullName.vb: TraktNET.TraktSmartListDraftConverted.<>(TraktNET.TraktSmartListDraftConverted, TraktNET.TraktSmartListDraftConverted)
+  nameWithType: TraktSmartListDraftConverted.operator !=(TraktSmartListDraftConverted?, TraktSmartListDraftConverted?)
+  nameWithType.vb: TraktSmartListDraftConverted.<>(TraktSmartListDraftConverted, TraktSmartListDraftConverted)
+- uid: TraktNET.TraktSmartListDraftConverted.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktSmartListDraftConverted.html#TraktNET_TraktSmartListDraftConverted_op_Inequality_
+  commentId: Overload:TraktNET.TraktSmartListDraftConverted.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktSmartListDraftConverted.operator !=
+  fullName.vb: TraktNET.TraktSmartListDraftConverted.<>
+  nameWithType: TraktSmartListDraftConverted.operator !=
+  nameWithType.vb: TraktSmartListDraftConverted.<>
+- uid: TraktNET.TraktSmartListDraftList
+  name: TraktSmartListDraftList
+  href: api/TraktNET.TraktSmartListDraftList.html
+  commentId: T:TraktNET.TraktSmartListDraftList
+  fullName: TraktNET.TraktSmartListDraftList
+  nameWithType: TraktSmartListDraftList
+- uid: TraktNET.TraktSmartListDraftList.#ctor
+  name: TraktSmartListDraftList()
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList__ctor
+  commentId: M:TraktNET.TraktSmartListDraftList.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktSmartListDraftList.TraktSmartListDraftList()
+  fullName.vb: TraktNET.TraktSmartListDraftList.New()
+  nameWithType: TraktSmartListDraftList.TraktSmartListDraftList()
+  nameWithType.vb: TraktSmartListDraftList.New()
+- uid: TraktNET.TraktSmartListDraftList.#ctor(TraktNET.TraktSmartListDraftList)
+  name: TraktSmartListDraftList(TraktSmartListDraftList)
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList__ctor_TraktNET_TraktSmartListDraftList_
+  commentId: M:TraktNET.TraktSmartListDraftList.#ctor(TraktNET.TraktSmartListDraftList)
+  name.vb: New(TraktSmartListDraftList)
+  fullName: TraktNET.TraktSmartListDraftList.TraktSmartListDraftList(TraktNET.TraktSmartListDraftList)
+  fullName.vb: TraktNET.TraktSmartListDraftList.New(TraktNET.TraktSmartListDraftList)
+  nameWithType: TraktSmartListDraftList.TraktSmartListDraftList(TraktSmartListDraftList)
+  nameWithType.vb: TraktSmartListDraftList.New(TraktSmartListDraftList)
+- uid: TraktNET.TraktSmartListDraftList.#ctor*
+  name: TraktSmartListDraftList
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList__ctor_
+  commentId: Overload:TraktNET.TraktSmartListDraftList.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktSmartListDraftList.TraktSmartListDraftList
+  fullName.vb: TraktNET.TraktSmartListDraftList.New
+  nameWithType: TraktSmartListDraftList.TraktSmartListDraftList
+  nameWithType.vb: TraktSmartListDraftList.New
+- uid: TraktNET.TraktSmartListDraftList.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_EqualityContract
+  commentId: P:TraktNET.TraktSmartListDraftList.EqualityContract
+  fullName: TraktNET.TraktSmartListDraftList.EqualityContract
+  nameWithType: TraktSmartListDraftList.EqualityContract
+- uid: TraktNET.TraktSmartListDraftList.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_EqualityContract_
+  commentId: Overload:TraktNET.TraktSmartListDraftList.EqualityContract
+  fullName: TraktNET.TraktSmartListDraftList.EqualityContract
+  nameWithType: TraktSmartListDraftList.EqualityContract
+- uid: TraktNET.TraktSmartListDraftList.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_Equals_System_Object_
+  commentId: M:TraktNET.TraktSmartListDraftList.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktSmartListDraftList.Equals(object?)
+  fullName.vb: TraktNET.TraktSmartListDraftList.Equals(Object)
+  nameWithType: TraktSmartListDraftList.Equals(object?)
+  nameWithType.vb: TraktSmartListDraftList.Equals(Object)
+- uid: TraktNET.TraktSmartListDraftList.Equals(TraktNET.TraktSmartListDraftList)
+  name: Equals(TraktSmartListDraftList?)
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_Equals_TraktNET_TraktSmartListDraftList_
+  commentId: M:TraktNET.TraktSmartListDraftList.Equals(TraktNET.TraktSmartListDraftList)
+  name.vb: Equals(TraktSmartListDraftList)
+  fullName: TraktNET.TraktSmartListDraftList.Equals(TraktNET.TraktSmartListDraftList?)
+  fullName.vb: TraktNET.TraktSmartListDraftList.Equals(TraktNET.TraktSmartListDraftList)
+  nameWithType: TraktSmartListDraftList.Equals(TraktSmartListDraftList?)
+  nameWithType.vb: TraktSmartListDraftList.Equals(TraktSmartListDraftList)
+- uid: TraktNET.TraktSmartListDraftList.Equals*
+  name: Equals
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_Equals_
+  commentId: Overload:TraktNET.TraktSmartListDraftList.Equals
+  fullName: TraktNET.TraktSmartListDraftList.Equals
+  nameWithType: TraktSmartListDraftList.Equals
+- uid: TraktNET.TraktSmartListDraftList.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_GetHashCode
+  commentId: M:TraktNET.TraktSmartListDraftList.GetHashCode
+  fullName: TraktNET.TraktSmartListDraftList.GetHashCode()
+  nameWithType: TraktSmartListDraftList.GetHashCode()
+- uid: TraktNET.TraktSmartListDraftList.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_GetHashCode_
+  commentId: Overload:TraktNET.TraktSmartListDraftList.GetHashCode
+  fullName: TraktNET.TraktSmartListDraftList.GetHashCode
+  nameWithType: TraktSmartListDraftList.GetHashCode
+- uid: TraktNET.TraktSmartListDraftList.IDs
+  name: IDs
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_IDs
+  commentId: P:TraktNET.TraktSmartListDraftList.IDs
+  fullName: TraktNET.TraktSmartListDraftList.IDs
+  nameWithType: TraktSmartListDraftList.IDs
+- uid: TraktNET.TraktSmartListDraftList.IDs*
+  name: IDs
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_IDs_
+  commentId: Overload:TraktNET.TraktSmartListDraftList.IDs
+  fullName: TraktNET.TraktSmartListDraftList.IDs
+  nameWithType: TraktSmartListDraftList.IDs
+- uid: TraktNET.TraktSmartListDraftList.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktSmartListDraftList.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktSmartListDraftList.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktSmartListDraftList.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktSmartListDraftList.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_PrintMembers_
+  commentId: Overload:TraktNET.TraktSmartListDraftList.PrintMembers
+  fullName: TraktNET.TraktSmartListDraftList.PrintMembers
+  nameWithType: TraktSmartListDraftList.PrintMembers
+- uid: TraktNET.TraktSmartListDraftList.ToString
+  name: ToString()
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_ToString
+  commentId: M:TraktNET.TraktSmartListDraftList.ToString
+  fullName: TraktNET.TraktSmartListDraftList.ToString()
+  nameWithType: TraktSmartListDraftList.ToString()
+- uid: TraktNET.TraktSmartListDraftList.ToString*
+  name: ToString
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_ToString_
+  commentId: Overload:TraktNET.TraktSmartListDraftList.ToString
+  fullName: TraktNET.TraktSmartListDraftList.ToString
+  nameWithType: TraktSmartListDraftList.ToString
+- uid: TraktNET.TraktSmartListDraftList.op_Equality(TraktNET.TraktSmartListDraftList,TraktNET.TraktSmartListDraftList)
+  name: operator ==(TraktSmartListDraftList?, TraktSmartListDraftList?)
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_op_Equality_TraktNET_TraktSmartListDraftList_TraktNET_TraktSmartListDraftList_
+  commentId: M:TraktNET.TraktSmartListDraftList.op_Equality(TraktNET.TraktSmartListDraftList,TraktNET.TraktSmartListDraftList)
+  name.vb: =(TraktSmartListDraftList, TraktSmartListDraftList)
+  fullName: TraktNET.TraktSmartListDraftList.operator ==(TraktNET.TraktSmartListDraftList?, TraktNET.TraktSmartListDraftList?)
+  fullName.vb: TraktNET.TraktSmartListDraftList.=(TraktNET.TraktSmartListDraftList, TraktNET.TraktSmartListDraftList)
+  nameWithType: TraktSmartListDraftList.operator ==(TraktSmartListDraftList?, TraktSmartListDraftList?)
+  nameWithType.vb: TraktSmartListDraftList.=(TraktSmartListDraftList, TraktSmartListDraftList)
+- uid: TraktNET.TraktSmartListDraftList.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_op_Equality_
+  commentId: Overload:TraktNET.TraktSmartListDraftList.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktSmartListDraftList.operator ==
+  fullName.vb: TraktNET.TraktSmartListDraftList.=
+  nameWithType: TraktSmartListDraftList.operator ==
+  nameWithType.vb: TraktSmartListDraftList.=
+- uid: TraktNET.TraktSmartListDraftList.op_Inequality(TraktNET.TraktSmartListDraftList,TraktNET.TraktSmartListDraftList)
+  name: operator !=(TraktSmartListDraftList?, TraktSmartListDraftList?)
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_op_Inequality_TraktNET_TraktSmartListDraftList_TraktNET_TraktSmartListDraftList_
+  commentId: M:TraktNET.TraktSmartListDraftList.op_Inequality(TraktNET.TraktSmartListDraftList,TraktNET.TraktSmartListDraftList)
+  name.vb: <>(TraktSmartListDraftList, TraktSmartListDraftList)
+  fullName: TraktNET.TraktSmartListDraftList.operator !=(TraktNET.TraktSmartListDraftList?, TraktNET.TraktSmartListDraftList?)
+  fullName.vb: TraktNET.TraktSmartListDraftList.<>(TraktNET.TraktSmartListDraftList, TraktNET.TraktSmartListDraftList)
+  nameWithType: TraktSmartListDraftList.operator !=(TraktSmartListDraftList?, TraktSmartListDraftList?)
+  nameWithType.vb: TraktSmartListDraftList.<>(TraktSmartListDraftList, TraktSmartListDraftList)
+- uid: TraktNET.TraktSmartListDraftList.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktSmartListDraftList.html#TraktNET_TraktSmartListDraftList_op_Inequality_
+  commentId: Overload:TraktNET.TraktSmartListDraftList.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktSmartListDraftList.operator !=
+  fullName.vb: TraktNET.TraktSmartListDraftList.<>
+  nameWithType: TraktSmartListDraftList.operator !=
+  nameWithType.vb: TraktSmartListDraftList.<>
 - uid: TraktNET.TraktSmartListFilters
   name: TraktSmartListFilters
   href: api/TraktNET.TraktSmartListFilters.html
@@ -120493,6 +121465,48 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.ConnectPlexAsync
   fullName: TraktNET.TraktUsersModule.ConnectPlexAsync
   nameWithType: TraktUsersModule.ConnectPlexAsync
+- uid: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,System.String,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)
+  name: ConvertListToSmartListAsync(string, string, TraktSmartListPost, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_System_String_TraktNET_TraktSmartListPost_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,System.String,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)
+  name.vb: ConvertListToSmartListAsync(String, String, TraktSmartListPost, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(string, string, TraktNET.TraktSmartListPost, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(String, String, TraktNET.TraktSmartListPost, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.ConvertListToSmartListAsync(string, string, TraktSmartListPost, CancellationToken)
+  nameWithType.vb: TraktUsersModule.ConvertListToSmartListAsync(String, String, TraktSmartListPost, CancellationToken)
+- uid: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,System.UInt32,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)
+  name: ConvertListToSmartListAsync(string, uint, TraktSmartListPost, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_System_UInt32_TraktNET_TraktSmartListPost_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,System.UInt32,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)
+  name.vb: ConvertListToSmartListAsync(String, UInteger, TraktSmartListPost, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(string, uint, TraktNET.TraktSmartListPost, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(String, UInteger, TraktNET.TraktSmartListPost, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.ConvertListToSmartListAsync(string, uint, TraktSmartListPost, CancellationToken)
+  nameWithType.vb: TraktUsersModule.ConvertListToSmartListAsync(String, UInteger, TraktSmartListPost, CancellationToken)
+- uid: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,TraktNET.TraktList,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)
+  name: ConvertListToSmartListAsync(string, TraktList, TraktSmartListPost, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_TraktNET_TraktList_TraktNET_TraktSmartListPost_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,TraktNET.TraktList,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)
+  name.vb: ConvertListToSmartListAsync(String, TraktList, TraktSmartListPost, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(string, TraktNET.TraktList, TraktNET.TraktSmartListPost, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(String, TraktNET.TraktList, TraktNET.TraktSmartListPost, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.ConvertListToSmartListAsync(string, TraktList, TraktSmartListPost, CancellationToken)
+  nameWithType.vb: TraktUsersModule.ConvertListToSmartListAsync(String, TraktList, TraktSmartListPost, CancellationToken)
+- uid: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,TraktNET.TraktListIDs,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)
+  name: ConvertListToSmartListAsync(string, TraktListIDs, TraktSmartListPost, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_ConvertListToSmartListAsync_System_String_TraktNET_TraktListIDs_TraktNET_TraktSmartListPost_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.ConvertListToSmartListAsync(System.String,TraktNET.TraktListIDs,TraktNET.TraktSmartListPost,System.Threading.CancellationToken)
+  name.vb: ConvertListToSmartListAsync(String, TraktListIDs, TraktSmartListPost, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(string, TraktNET.TraktListIDs, TraktNET.TraktSmartListPost, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.ConvertListToSmartListAsync(String, TraktNET.TraktListIDs, TraktNET.TraktSmartListPost, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.ConvertListToSmartListAsync(string, TraktListIDs, TraktSmartListPost, CancellationToken)
+  nameWithType.vb: TraktUsersModule.ConvertListToSmartListAsync(String, TraktListIDs, TraktSmartListPost, CancellationToken)
+- uid: TraktNET.TraktUsersModule.ConvertListToSmartListAsync*
+  name: ConvertListToSmartListAsync
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_ConvertListToSmartListAsync_
+  commentId: Overload:TraktNET.TraktUsersModule.ConvertListToSmartListAsync
+  fullName: TraktNET.TraktUsersModule.ConvertListToSmartListAsync
+  nameWithType: TraktUsersModule.ConvertListToSmartListAsync
 - uid: TraktNET.TraktUsersModule.CreatePersonalListAsync(System.String,TraktNET.TraktUserPersonalListPost,System.Threading.CancellationToken)
   name: CreatePersonalListAsync(string, TraktUserPersonalListPost, CancellationToken)
   href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_CreatePersonalListAsync_System_String_TraktNET_TraktUserPersonalListPost_System_Threading_CancellationToken_
@@ -121237,6 +122251,48 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.GetSmartListAsync
   fullName: TraktNET.TraktUsersModule.GetSmartListAsync
   nameWithType: TraktUsersModule.GetSmartListAsync
+- uid: TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,System.String,System.Threading.CancellationToken)
+  name: GetSmartListDraftAsync(string, string, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,System.String,System.Threading.CancellationToken)
+  name.vb: GetSmartListDraftAsync(String, String, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetSmartListDraftAsync(string, string, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetSmartListDraftAsync(String, String, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetSmartListDraftAsync(string, string, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetSmartListDraftAsync(String, String, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,System.UInt32,System.Threading.CancellationToken)
+  name: GetSmartListDraftAsync(string, uint, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_System_UInt32_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,System.UInt32,System.Threading.CancellationToken)
+  name.vb: GetSmartListDraftAsync(String, UInteger, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetSmartListDraftAsync(string, uint, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetSmartListDraftAsync(String, UInteger, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetSmartListDraftAsync(string, uint, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetSmartListDraftAsync(String, UInteger, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,TraktNET.TraktList,System.Threading.CancellationToken)
+  name: GetSmartListDraftAsync(string, TraktList, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_TraktNET_TraktList_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,TraktNET.TraktList,System.Threading.CancellationToken)
+  name.vb: GetSmartListDraftAsync(String, TraktList, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetSmartListDraftAsync(string, TraktNET.TraktList, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetSmartListDraftAsync(String, TraktNET.TraktList, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetSmartListDraftAsync(string, TraktList, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetSmartListDraftAsync(String, TraktList, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,TraktNET.TraktListIDs,System.Threading.CancellationToken)
+  name: GetSmartListDraftAsync(string, TraktListIDs, CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetSmartListDraftAsync_System_String_TraktNET_TraktListIDs_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.GetSmartListDraftAsync(System.String,TraktNET.TraktListIDs,System.Threading.CancellationToken)
+  name.vb: GetSmartListDraftAsync(String, TraktListIDs, CancellationToken)
+  fullName: TraktNET.TraktUsersModule.GetSmartListDraftAsync(string, TraktNET.TraktListIDs, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktUsersModule.GetSmartListDraftAsync(String, TraktNET.TraktListIDs, System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.GetSmartListDraftAsync(string, TraktListIDs, CancellationToken)
+  nameWithType.vb: TraktUsersModule.GetSmartListDraftAsync(String, TraktListIDs, CancellationToken)
+- uid: TraktNET.TraktUsersModule.GetSmartListDraftAsync*
+  name: GetSmartListDraftAsync
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetSmartListDraftAsync_
+  commentId: Overload:TraktNET.TraktUsersModule.GetSmartListDraftAsync
+  fullName: TraktNET.TraktUsersModule.GetSmartListDraftAsync
+  nameWithType: TraktUsersModule.GetSmartListDraftAsync
 - uid: TraktNET.TraktUsersModule.GetSmartListsAsync(System.String,System.Threading.CancellationToken)
   name: GetSmartListsAsync(string, CancellationToken)
   href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_GetSmartListsAsync_System_String_System_Threading_CancellationToken_
@@ -127732,6 +128788,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktListPrivacy
   fullName: TraktNET.UsersJsonSerializerContext.TraktListPrivacy
   nameWithType: UsersJsonSerializerContext.TraktListPrivacy
+- uid: TraktNET.UsersJsonSerializerContext.TraktListStaleOrigin
+  name: TraktListStaleOrigin
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktListStaleOrigin
+  commentId: P:TraktNET.UsersJsonSerializerContext.TraktListStaleOrigin
+  fullName: TraktNET.UsersJsonSerializerContext.TraktListStaleOrigin
+  nameWithType: UsersJsonSerializerContext.TraktListStaleOrigin
+- uid: TraktNET.UsersJsonSerializerContext.TraktListStaleOrigin*
+  name: TraktListStaleOrigin
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktListStaleOrigin_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktListStaleOrigin
+  fullName: TraktNET.UsersJsonSerializerContext.TraktListStaleOrigin
+  nameWithType: UsersJsonSerializerContext.TraktListStaleOrigin
 - uid: TraktNET.UsersJsonSerializerContext.TraktListType
   name: TraktListType
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktListType
@@ -128500,6 +129568,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktShowStatus
   fullName: TraktNET.UsersJsonSerializerContext.TraktShowStatus
   nameWithType: UsersJsonSerializerContext.TraktShowStatus
+- uid: TraktNET.UsersJsonSerializerContext.TraktSmartListPostResponse
+  name: TraktSmartListPostResponse
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktSmartListPostResponse
+  commentId: P:TraktNET.UsersJsonSerializerContext.TraktSmartListPostResponse
+  fullName: TraktNET.UsersJsonSerializerContext.TraktSmartListPostResponse
+  nameWithType: UsersJsonSerializerContext.TraktSmartListPostResponse
+- uid: TraktNET.UsersJsonSerializerContext.TraktSmartListPostResponse*
+  name: TraktSmartListPostResponse
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktSmartListPostResponse_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktSmartListPostResponse
+  fullName: TraktNET.UsersJsonSerializerContext.TraktSmartListPostResponse
+  nameWithType: UsersJsonSerializerContext.TraktSmartListPostResponse
 - uid: TraktNET.UsersJsonSerializerContext.TraktSortBy
   name: TraktSortBy
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktSortBy

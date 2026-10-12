@@ -3308,6 +3308,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktListStaleOrigin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktListStaleOrigin.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktListStaleOrigin",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktListStaleOrigin.yml\" sourcestartlinenumber=\"1\">Information about a tool that kept a list updated but stopped syncing it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktListType.yml",
       "output": {
         ".html": {
@@ -6329,6 +6343,48 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktSmartList",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartList.yml\" sourcestartlinenumber=\"1\">A Trakt smart list definition.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSmartListDraft.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSmartListDraft.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSmartListDraft",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartListDraft.yml\" sourcestartlinenumber=\"1\">Represents a smart list draft response for a list that stopped updating.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSmartListDraftConverted.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSmartListDraftConverted.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSmartListDraftConverted",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartListDraftConverted.yml\" sourcestartlinenumber=\"1\">Information about a converted smart list.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSmartListDraftList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSmartListDraftList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSmartListDraftList",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartListDraftList.yml\" sourcestartlinenumber=\"1\">Information about a list in a smart list draft.</p>\n"
     },
     {
       "type": "ManagedReference",
