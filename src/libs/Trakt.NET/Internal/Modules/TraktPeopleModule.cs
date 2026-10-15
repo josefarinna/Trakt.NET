@@ -106,17 +106,6 @@ namespace TraktNET
             cancellationToken);
         }
 
-        private Task<TraktResponse> RefreshPersonImplAsync(string personIDOrSlug, bool? images = null, CancellationToken cancellationToken = default)
-        {
-            var request = new PersonRefreshPostRequest
-            {
-                Id = personIDOrSlug,
-                Images = images
-            };
-
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
-        }
-
         private Task<TraktResponse> ReportPersonImplAsync(string personIdOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
         {
             var content = new TraktReportPost

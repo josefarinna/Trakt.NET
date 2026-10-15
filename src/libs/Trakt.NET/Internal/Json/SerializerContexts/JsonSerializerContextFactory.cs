@@ -163,12 +163,6 @@ namespace TraktNET
                 return s_jsonSerializerContexts[SmartListsContextCacheKey];
             }
 
-            if (s_socialrecommendationsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(SocialRecommendationsContextCacheKey));
-                return s_jsonSerializerContexts[SocialRecommendationsContextCacheKey];
-            }
-
             if (s_syncsJsonTypes.Contains(typeof(TJsonObjectType)))
             {
                 Debug.Assert(s_jsonSerializerContexts.ContainsKey(SyncsContextCacheKey));
@@ -239,7 +233,6 @@ namespace TraktNET
         private const string SeasonsContextCacheKey = "seasons";
         private const string ShowsContextCacheKey = "shows";
         private const string SmartListsContextCacheKey = "smartlists";
-        private const string SocialRecommendationsContextCacheKey = "socialrecommendations";
         private const string SyncsContextCacheKey = "syncs";
         private const string TeamContextCacheKey = "team";
         private const string UsersContextCacheKey = "users";
@@ -281,7 +274,6 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(ShowsContextCacheKey, new ShowsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SmartListsContextCacheKey, new SmartListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
-            new KeyValuePair<string, JsonSerializerContext>(SocialRecommendationsContextCacheKey, new SocialRecommendationsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(SyncsContextCacheKey, new SyncsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(TeamContextCacheKey, new TeamJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
@@ -580,12 +572,6 @@ namespace TraktNET
             typeof(TraktSmartListDraftSummaryList)
         });
 
-        private static readonly FrozenSet<Type> s_socialrecommendationsJsonTypes = FrozenSet.ToFrozenSet(new[]
-        {
-            typeof(TraktSocialMovieRecommendation),
-            typeof(TraktSocialShowRecommendation)
-        });
-
         private static readonly FrozenSet<Type> s_syncsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktSyncAccountLastActivities),
@@ -746,8 +732,6 @@ namespace TraktNET
             typeof(TraktUserRemovePostShowEpisode),
             typeof(TraktUserRemovePostShowSeason),
             typeof(TraktUserSavedFilter),
-            typeof(TraktUserSavedFilterPost),
-            typeof(TraktUserSavedFilterPostResponse),
             typeof(TraktUserSettings),
             typeof(TraktUserWatchingItem),
             typeof(TraktUserWatchlistLimits),
@@ -897,7 +881,6 @@ namespace TraktNET
             { SeasonsContextCacheKey, new SeasonsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { ShowsContextCacheKey, new ShowsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SmartListsContextCacheKey, new SmartListsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
-            { SocialRecommendationsContextCacheKey, new SocialRecommendationsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { SyncsContextCacheKey, new SyncsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { TeamContextCacheKey, new TeamJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { UsersContextCacheKey, new UsersJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -1171,11 +1154,6 @@ namespace TraktNET
             typeof(TraktSmartListDraftSummaryList)
         ];
 
-        private static readonly HashSet<Type> s_socialrecommendationsJsonTypes = [
-            typeof(TraktSocialMovieRecommendation),
-            typeof(TraktSocialShowRecommendation)
-        ];
-
         private static readonly HashSet<Type> s_syncsJsonTypes = [
             typeof(TraktSyncAccountLastActivities),
             typeof(TraktSyncCollaborationsLastActivities),
@@ -1332,8 +1310,6 @@ namespace TraktNET
             typeof(TraktUserRemovePostShowEpisode),
             typeof(TraktUserRemovePostShowSeason),
             typeof(TraktUserSavedFilter),
-            typeof(TraktUserSavedFilterPost),
-            typeof(TraktUserSavedFilterPostResponse),
             typeof(TraktUserSettings),
             typeof(TraktUserWatchingItem),
             typeof(TraktUserWatchlistLimits),

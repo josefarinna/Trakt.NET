@@ -223,15 +223,6 @@ namespace TraktNET
     // POST Requests
     // -------------------------------------------------------
 
-    [TraktPostRequest("movies/{id!!}/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class MovieRefreshPostRequest
-    {
-        [TraktRequestQuery("images")]
-        internal bool? Images { get; set; }
-
-        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
-    }
-
     [TraktPostRequest("movies/{id!!}/report", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class MovieReportPostRequest
     {

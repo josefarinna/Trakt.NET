@@ -78,22 +78,6 @@ namespace TraktNET
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse> RemoveRecentSearchImplAsync(string searchQuery, uint itemId, TraktSearchRecentType type,
-            CancellationToken cancellationToken = default)
-        {
-            var request = new SearchRecentRemovePostRequest
-            {
-                TraktSearchRecentPost = new TraktSearchRecentPost
-                {
-                    Query = searchQuery,
-                    Id = itemId,
-                    Type = type
-                }
-            };
-
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
-        }
-
         private Task<TraktPagedResponse<TraktSearchResult>> GetExactTextQueryResultsImplAsync(TraktSearchResultType searchResultTypes, string searchQuery,
             TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {

@@ -552,13 +552,6 @@ namespace TraktNET
         internal required TraktUserCoverPost TraktUserCoverPost { get; set; }
     }
 
-    [TraktPostRequest("users/saved_filters", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class UserSavedFilterAddPostRequest
-    {
-        [TraktRequestPayload]
-        internal required IReadOnlyList<TraktUserSavedFilterPost> TraktUserSavedFilterPosts { get; set; }
-    }
-
     // -------------------------------------------------------
     // DELETE Requests
     // -------------------------------------------------------
@@ -603,11 +596,6 @@ namespace TraktNET
 
     [TraktDeleteRequest("users/syncs/{id:ulong!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class UserSyncUndoDeleteRequest
-    {
-    }
-
-    [TraktDeleteRequest("users/saved_filters/{id:uint!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class UserSavedFilterDeleteRequest
     {
     }
 }

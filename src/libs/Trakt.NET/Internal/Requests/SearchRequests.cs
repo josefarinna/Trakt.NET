@@ -60,11 +60,4 @@ namespace TraktNET
         [TraktRequestPayload]
         internal required TraktSearchRecentPost TraktSearchRecentPost { get; set; }
     }
-
-    [TraktPostRequest("search/recent/remove", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class SearchRecentRemovePostRequest
-    {
-        [TraktRequestPayload]
-        internal required TraktSearchRecentPost TraktSearchRecentPost { get; set; }
-    }
 }
