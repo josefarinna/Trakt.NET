@@ -759,31 +759,6 @@ namespace TraktNET
             CancellationToken cancellationToken = default)
             => RemoveFavoriteItemsImplAsync(favoritesRemovePost, cancellationToken);
 
-        /// <summary>Update the favorites list by sending 1 or more parameters.</summary>
-        /// <param name="description">Description for the favorites list.</param>
-        /// <param name="sortBy">Sort by value for the favorites list.</param>
-        /// <param name="sortHow">Sort how value for the favorites list.</param>
-        /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.
-        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
-        /// </param>
-        /// <returns>
-        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing information about the updated favorites list.
-        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktList" />.</para>
-        /// </returns>
-        /// <remarks>
-        /// OAuth authorization is required.
-        /// <para><see href="https://docs.trakt.tv/reference/putsyncfavoritesupdate">
-        /// Trakt API Documentation: Sync: Update Favorites
-        /// </see></para>
-        /// </remarks>
-        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        /// <exception cref="TraktPostValidationException">Thrown, if validation of post data fails.</exception>
-        /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktResponse<TraktList>> UpdateFavoritesAsync(string description, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null,
-            CancellationToken cancellationToken = default)
-            => UpdateFavoritesImplAsync(description, sortBy, sortHow, cancellationToken);
-
         /// <summary>Gets the user's watchlist containing movies, shows, seasons and / or episodes.</summary>
         /// <param name="watchlistItemType">Determines, which type of watchlist items should be queried. See also <seealso cref="TraktSyncItemType" />.</param>
         /// <param name="sortBy">Sort by value for the watchlist items.</param>

@@ -106,9 +106,6 @@ namespace TraktNET
         /// <summary>Provides access to the smart lists module. See <seealso cref="TraktSmartListsModule" />.</summary>
         public TraktSmartListsModule SmartLists { get; }
 
-        /// <summary>Provides access to the social recommendations module. See <seealso cref="TraktSocialRecommendationsModule" />.</summary>
-        public TraktSocialRecommendationsModule SocialRecommendations { get; }
-
         /// <summary>Provides access to the sync module. See <seealso cref="TraktSyncModule" />.</summary>
         public TraktSyncModule Sync { get; }
 
@@ -178,7 +175,6 @@ namespace TraktNET
             Seasons = new TraktSeasonsModule(this);
             Shows = new TraktShowsModule(this);
             SmartLists = new TraktSmartListsModule(this);
-            SocialRecommendations = new TraktSocialRecommendationsModule(this);
             Sync = new TraktSyncModule(this);
             Team = new TraktTeamModule(this);
             Users = new TraktUsersModule(this);

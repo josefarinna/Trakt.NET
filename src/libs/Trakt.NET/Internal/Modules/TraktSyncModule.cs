@@ -529,24 +529,6 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktSyncFavoritesRemovePostResponse>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktList>> UpdateFavoritesImplAsync(string description, TraktSortBy? sortBy = null, TraktSortHow? sortHow = null,
-            CancellationToken cancellationToken = default)
-        {
-            var content = new TraktUpdateListPost
-            {
-                Description = description,
-                SortBy = sortBy,
-                SortHow = sortHow
-            };
-
-            var request = new SyncFavoritesUpdatePostRequest
-            {
-                TraktUpdateListPost = content
-            };
-
-            return RequestHandler.ExecuteSingleItemRequestAsync<TraktList>(_context, request, cancellationToken);
-        }
-
         private Task<TraktPagedResponse<TraktWatchlistItem>> GetWatchlistImplAsync(TraktSyncItemType? watchlistItemType = null,
             TraktSortBy? sortBy = null, TraktSortHow? sortHow = null, TraktFilter? filter = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)

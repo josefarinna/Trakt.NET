@@ -130,9 +130,6 @@ namespace TraktNET
         /// <summary>Provides access to the smart lists module. See <seealso cref="TraktSmartListsModule" />.</summary>
         public TraktSmartListsModule SmartLists => _context.SmartLists;
 
-        /// <summary>Provides access to the social recommendations module. See <seealso cref="TraktSocialRecommendationsModule" />.</summary>
-        public TraktSocialRecommendationsModule SocialRecommendations => _context.SocialRecommendations;
-
         /// <summary>Provides access to the watchnow module. See <seealso cref="TraktWatchnowModule" />.</summary>
         public TraktWatchnowModule Watchnow => _context.Watchnow;
 

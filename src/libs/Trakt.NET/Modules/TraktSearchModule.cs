@@ -103,30 +103,6 @@ namespace TraktNET
             CancellationToken cancellationToken = default)
             => AddRecentSearchImplAsync(searchQuery, itemId, type, cancellationToken);
 
-        /// <summary>Removes a recent search query from the history of the authenticated user.</summary>
-        /// <param name="searchQuery">The search query to remove.</param>
-        /// <param name="itemId">The Trakt ID of the item.</param>
-        /// <param name="type">The type of the search item. See also <seealso cref="TraktSearchRecentType" />.</param>
-        /// <param name="cancellationToken">
-        /// Propagates notification that the request should be canceled.
-        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
-        /// </param>
-        /// <returns>
-        /// A response of type <see cref="TraktResponse" />.
-        /// <para>See also <seealso cref="TraktResponse" />.</para>
-        /// </returns>
-        /// <remarks>
-        /// OAuth authorization is required.
-        /// <para><see href="https://docs.trakt.tv/reference/postsearchrecentremove">
-        /// Trakt API Documentation: Search: Remove recent search
-        /// </see></para>
-        /// </remarks>
-        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
-        /// <exception cref="TraktRequestValidationException">Thrown if the validation of the request fails.</exception>
-        public Task<TraktResponse> RemoveRecentSearchAsync(string searchQuery, uint itemId, TraktSearchRecentType type,
-            CancellationToken cancellationToken = default)
-            => RemoveRecentSearchImplAsync(searchQuery, itemId, type, cancellationToken);
-
         /// <summary>Searches for exact movie or show matches with the given search query.</summary>
         /// <param name="searchResultTypes">
         /// The object type(s), for which will be searched. See also <seealso cref="TraktSearchResultType" />.

@@ -318,13 +318,6 @@ namespace TraktNET
         internal TraktListItemUpdatePost? TraktListItemUpdatePost { get; set; }
     }
 
-    [TraktPutRequest("sync/favorites", OAuthRequirement = TraktOAuthRequirement.Required)]
-    internal sealed partial class SyncFavoritesUpdatePostRequest
-    {
-        [TraktRequestPayload]
-        internal required TraktUpdateListPost TraktUpdateListPost { get; set; }
-    }
-
     [TraktPutRequest("sync/watchlist", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncWatchlistItemUpdatePostRequest
     {

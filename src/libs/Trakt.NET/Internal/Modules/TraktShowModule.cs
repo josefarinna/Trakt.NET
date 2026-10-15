@@ -257,17 +257,6 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktShowCollectionProgress>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse> RefreshShowImplAsync(string showIDOrSlug, bool? images = null, CancellationToken cancellationToken = default)
-        {
-            var request = new ShowRefreshPostRequest
-            {
-                Id = showIDOrSlug,
-                Images = images
-            };
-
-            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
-        }
-
         private Task<TraktResponse<TraktShowResetWatchedProgress>> ResetShowWatchedProgressImplAsync(string showIDOrSlug, DateTime? resetAt,
             CancellationToken cancellationToken = default)
         {

@@ -133,7 +133,6 @@ namespace TraktNET
             client.Seasons.ShouldNotBeNull();
             client.Shows.ShouldNotBeNull();
             client.SmartLists.ShouldNotBeNull();
-            client.SocialRecommendations.ShouldNotBeNull();
             client.Sync.ShouldNotBeNull();
             client.Team.ShouldNotBeNull();
             client.Users.ShouldNotBeNull();
