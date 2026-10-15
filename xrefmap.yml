@@ -35305,6 +35305,12 @@ references:
   commentId: F:TraktNET.TraktExtendedInfo.Images
   fullName: TraktNET.TraktExtendedInfo.Images
   nameWithType: TraktExtendedInfo.Images
+- uid: TraktNET.TraktExtendedInfo.Markdown
+  name: Markdown
+  href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Markdown
+  commentId: F:TraktNET.TraktExtendedInfo.Markdown
+  fullName: TraktNET.TraktExtendedInfo.Markdown
+  nameWithType: TraktExtendedInfo.Markdown
 - uid: TraktNET.TraktExtendedInfo.Metadata
   name: Metadata
   href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Metadata
