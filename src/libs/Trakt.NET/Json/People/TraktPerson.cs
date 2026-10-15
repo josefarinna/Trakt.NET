@@ -15,7 +15,10 @@ namespace TraktNET
         [JsonPropertyName("social_ids")]
         public TraktPersonSocialIDs? SocialIDs { get; set; }
 
-        /// <summary>The biography of the person.</summary>
+        /// <summary>
+        /// The biography of the person.
+        /// <para>Includes markdown links to movies and shows only when requesting extended info <see cref="TraktExtendedInfo.Markdown"/>.</para>
+        /// </summary>
         public string? Biography { get; set; }
 
 #if NET7_0_OR_GREATER

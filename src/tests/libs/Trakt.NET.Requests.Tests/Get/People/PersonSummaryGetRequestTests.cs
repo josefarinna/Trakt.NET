@@ -12,6 +12,9 @@ namespace TraktNET.GetRequests.People
         [InlineData(null, URIPath)]
         [InlineData(TraktExtendedInfo.None, URIPath)]
         [InlineData(TraktExtendedInfo.Full, $"{URIPath}?extended=full")]
+        [InlineData(TraktExtendedInfo.Markdown, $"{URIPath}?extended=markdown")]
+        [InlineData(TraktExtendedInfo.Full | TraktExtendedInfo.Markdown, $"{URIPath}?extended=full,markdown")]
+        [InlineData(TraktExtendedInfo.Full | TraktExtendedInfo.Images | TraktExtendedInfo.Markdown, $"{URIPath}?extended=full,images,markdown")]
         public void TestPersonSummaryGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, string expectedURIPath)
         {
             var personSummaryGetRequest = new PersonSummaryGetRequest

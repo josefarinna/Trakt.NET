@@ -142,6 +142,30 @@ namespace TraktNET.PeopleModule
             responseValue.Homepage.ShouldBe("http://www.bryancranston.com/");
         }
 
+        [Fact]
+        public async Task TestGetPersonWithExtendedInfoMarkdown()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\person_full.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonUri}?extended=full,markdown", responseContent);
+            TraktResponse<TraktPerson> response = await client.People.GetPersonAsync(PersonID, TraktExtendedInfo.Full | TraktExtendedInfo.Markdown, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+
+            TraktPerson responseValue = response.Content;
+
+            responseValue.Name.ShouldBe("Bryan Cranston");
+            responseValue.IDs.ShouldNotBeNull();
+            responseValue.IDs.Trakt.ShouldBe(297737U);
+            responseValue.IDs.Slug.ShouldBe("bryan-cranston");
+            responseValue.IDs.IMDB.ShouldBe("nm0186505");
+            responseValue.IDs.TMDB.ShouldBe(17419U);
+            responseValue.Biography.ShouldBe("Bryan Lee Cranston (born March 7, 1956) is an American actor, director, and producer who is mainly known for portraying Walter White in the AMC crime drama series Breaking Bad (2008–2013) and Hal in the Fox sitcom Malcolm in the Middle (2000–2006).");
+        }
+
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiPersonNotFoundException))]
         [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]

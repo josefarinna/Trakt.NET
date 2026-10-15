@@ -55,6 +55,9 @@ namespace TraktNET
 
         /// <summary>Streaming ranks information shall be retrieved.</summary>
         [TraktEnumMember(JsonValue = "streaming_ranks")]
-        StreamingRanks = 8192
+        StreamingRanks = 8192,
+
+        /// <summary>Markdown links in content shall be retrieved.</summary>
+        Markdown = 16384
     }
 }
