@@ -32,6 +32,7 @@ namespace TraktNET.Json.Shows
             show.Genres.ShouldBeNull();
             show.AiredEpisodes.ShouldBeNull();
             show.Status.ShouldBeNull();
+            show.Ending.ShouldBeNull();
 
             show.ToString().ShouldBeEmpty();
         }
@@ -174,6 +175,7 @@ namespace TraktNET.Json.Shows
 
             show!.AiredEpisodes.ShouldBe(73U);
             show!.Status.ShouldBe(TraktShowStatus.Ended);
+            show!.Ending.ShouldBe(TraktShowEnding.Concluded);
         }
 
         [Fact]
@@ -244,6 +246,7 @@ namespace TraktNET.Json.Shows
 
             show!.AiredEpisodes.ShouldBe(73U);
             show!.Status.ShouldBe(TraktShowStatus.Ended);
+            show!.Ending.ShouldBe(TraktShowEnding.Concluded);
 
             show!.Images.ShouldNotBeNull();
 

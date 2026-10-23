@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Shows
+namespace TraktNET.Json.Shows
 {
     public sealed class TraktMostPWCShowTests
     {
@@ -21,6 +21,7 @@
             mostPWCShow.Trailer.ShouldBeNull();
             mostPWCShow.Homepage.ShouldBeNull();
             mostPWCShow.Status.ShouldBeNull();
+            mostPWCShow.Ending.ShouldBeNull();
             mostPWCShow.Rating.ShouldBeNull();
             mostPWCShow.Votes.ShouldBeNull();
             mostPWCShow.CommentCount.ShouldBeNull();

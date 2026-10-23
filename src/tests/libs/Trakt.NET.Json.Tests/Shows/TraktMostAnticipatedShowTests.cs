@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Shows
+namespace TraktNET.Json.Shows
 {
     public sealed class TraktMostAnticipatedShowTests
     {
@@ -19,6 +19,7 @@
             mostAnticipatedShow.Trailer.ShouldBeNull();
             mostAnticipatedShow.Homepage.ShouldBeNull();
             mostAnticipatedShow.Status.ShouldBeNull();
+            mostAnticipatedShow.Ending.ShouldBeNull();
             mostAnticipatedShow.Rating.ShouldBeNull();
             mostAnticipatedShow.Votes.ShouldBeNull();
             mostAnticipatedShow.CommentCount.ShouldBeNull();

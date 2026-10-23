@@ -138,6 +138,14 @@ namespace TraktNET
             set => Show?.Status = value;
         }
 
+        /// <summary>How the story ended for canceled and ended shows. See also <seealso cref="TraktShowEnding" />.</summary>
+        [JsonIgnore]
+        public TraktShowEnding? Ending
+        {
+            get => Show?.Ending;
+            set => Show?.Ending = value;
+        }
+
         /// <summary>The average user rating of the show.</summary>
         [JsonIgnore]
         public float? Rating

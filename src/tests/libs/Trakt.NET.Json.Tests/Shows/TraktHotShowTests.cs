@@ -18,6 +18,7 @@ namespace TraktNET.Json.Shows
             hotShow.Trailer.ShouldBeNull();
             hotShow.Homepage.ShouldBeNull();
             hotShow.Status.ShouldBeNull();
+            hotShow.Ending.ShouldBeNull();
             hotShow.Rating.ShouldBeNull();
             hotShow.Votes.ShouldBeNull();
             hotShow.CommentCount.ShouldBeNull();

@@ -19,6 +19,7 @@ namespace TraktNET.Json.Shows
             streamingShow.Trailer.ShouldBeNull();
             streamingShow.Homepage.ShouldBeNull();
             streamingShow.Status.ShouldBeNull();
+            streamingShow.Ending.ShouldBeNull();
             streamingShow.Rating.ShouldBeNull();
             streamingShow.Votes.ShouldBeNull();
             streamingShow.CommentCount.ShouldBeNull();

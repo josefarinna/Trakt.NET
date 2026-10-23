@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Shows
+namespace TraktNET.Json.Shows
 {
     public sealed class TraktTrendingShowTests
     {
@@ -22,6 +22,7 @@
             trendingShow.Trailer.ShouldBeNull();
             trendingShow.Homepage.ShouldBeNull();
             trendingShow.Status.ShouldBeNull();
+            trendingShow.Ending.ShouldBeNull();
             trendingShow.Rating.ShouldBeNull();
             trendingShow.Votes.ShouldBeNull();
             trendingShow.CommentCount.ShouldBeNull();
