@@ -34,4 +34,9 @@ namespace TraktNET
 
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.List;
     }
+
+    [TraktGetRequest("smart-lists/templates", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Optional)]
+    internal sealed partial class SmartListTemplatesGetRequest
+    {
+    }
 }

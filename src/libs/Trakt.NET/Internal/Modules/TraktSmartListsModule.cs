@@ -53,5 +53,16 @@ namespace TraktNET
                 },
                 cancellationToken);
         }
+
+        private Task<TraktListResponse<TraktSmartListTemplate>> GetSmartListTemplatesImplAsync(
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+        {
+            var request = new SmartListTemplatesGetRequest
+            {
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteListRequestAsync<TraktSmartListTemplate>(_context, request, cancellationToken);
+        }
     }
 }
