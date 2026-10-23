@@ -55,7 +55,7 @@ namespace TraktNET.Json.SmartLists
             item.Type.ShouldBe(TraktListItemType.Movie);
             item.Movie.ShouldNotBeNull();
             item.Movie.Title.ShouldBe("Ne Zha 2");
-            item.Movie.Year.ShouldBe(2025);
+            item.Movie.Year.ShouldBe(2025U);
             item.Movie.IDs.ShouldNotBeNull();
             item.Movie.IDs.Trakt.ShouldBe(787956U);
             item.Movie.IDs.Slug.ShouldBe("ne-zha-2-2025");
@@ -125,7 +125,7 @@ namespace TraktNET.Json.SmartLists
                         Movie = new TraktMovie
                         {
                             Title = "Ne Zha 2",
-                            Year = 2025,
+                            Year = 2025U,
                             IDs = new TraktMovieIDs
                             {
                                 Trakt = 787956U,
