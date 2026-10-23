@@ -595,13 +595,13 @@ Trakt API Documentation: Sync: Add to Watchlist
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSyncModule_GetCollectionEpisodesAsync_" data-uid="TraktNET.TraktSyncModule.GetCollectionEpisodesAsync*"></a>
-  <h4 id="TraktNET_TraktSyncModule_GetCollectionEpisodesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetCollectionEpisodesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetCollectionEpisodesAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSyncModule_GetCollectionEpisodesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetCollectionEpisodesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetCollectionEpisodesAsync(TraktExtendedInfo?, TraktAvailableOn?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all collected episodes in the user's collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSyncCollectionEpisode&gt;&gt; GetCollectionEpisodesAsync(TraktExtendedInfo? extendedInfo = null, string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSyncCollectionEpisode&gt;&gt; GetCollectionEpisodesAsync(TraktExtendedInfo? extendedInfo = null, TraktAvailableOn? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -621,9 +621,9 @@ Trakt API Documentation: Sync: Add to Watchlist
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>?</td>
         <td><span class="parametername">availableOn</span></td>
-        <td><p>Optional filter for streaming services.</p>
+        <td><p>Optional filter for media server sources. See also <a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>.</p>
 </td>
       </tr>
       <tr>
@@ -664,7 +664,7 @@ Trakt API Documentation: Sync: Add to Watchlist
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSyncModule_GetCollectionEpisodesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSyncModule_GetCollectionEpisodesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getsynccollectionall">
 Trakt API Documentation: Sync: Get Collection
@@ -691,13 +691,13 @@ Trakt API Documentation: Sync: Get Collection
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSyncModule_GetCollectionMediaAsync_" data-uid="TraktNET.TraktSyncModule.GetCollectionMediaAsync*"></a>
-  <h4 id="TraktNET_TraktSyncModule_GetCollectionMediaAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetCollectionMediaAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetCollectionMediaAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSyncModule_GetCollectionMediaAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetCollectionMediaAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetCollectionMediaAsync(TraktExtendedInfo?, TraktAvailableOn?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all collected movies, shows and episodes in the user's collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSyncCollectionMedia&gt;&gt; GetCollectionMediaAsync(TraktExtendedInfo? extendedInfo = null, string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSyncCollectionMedia&gt;&gt; GetCollectionMediaAsync(TraktExtendedInfo? extendedInfo = null, TraktAvailableOn? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -717,9 +717,9 @@ Trakt API Documentation: Sync: Get Collection
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>?</td>
         <td><span class="parametername">availableOn</span></td>
-        <td><p>Optional filter for streaming services.</p>
+        <td><p>Optional filter for media server sources. See also <a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>.</p>
 </td>
       </tr>
       <tr>
@@ -760,7 +760,7 @@ Trakt API Documentation: Sync: Get Collection
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSyncModule_GetCollectionMediaAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSyncModule_GetCollectionMediaAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getsynccollectionmedia">
 Trakt API Documentation: Sync: Get media collection
@@ -787,13 +787,13 @@ Trakt API Documentation: Sync: Get media collection
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSyncModule_GetCollectionMoviesAsync_" data-uid="TraktNET.TraktSyncModule.GetCollectionMoviesAsync*"></a>
-  <h4 id="TraktNET_TraktSyncModule_GetCollectionMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetCollectionMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetCollectionMoviesAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSyncModule_GetCollectionMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetCollectionMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetCollectionMoviesAsync(TraktExtendedInfo?, TraktAvailableOn?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all collected movies in the user's collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSyncCollectionMovie&gt;&gt; GetCollectionMoviesAsync(TraktExtendedInfo? extendedInfo = null, string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktSyncCollectionMovie&gt;&gt; GetCollectionMoviesAsync(TraktExtendedInfo? extendedInfo = null, TraktAvailableOn? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -813,9 +813,9 @@ Trakt API Documentation: Sync: Get media collection
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>?</td>
         <td><span class="parametername">availableOn</span></td>
-        <td><p>Optional filter for streaming services.</p>
+        <td><p>Optional filter for media server sources. See also <a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>.</p>
 </td>
       </tr>
       <tr>
@@ -856,7 +856,7 @@ Trakt API Documentation: Sync: Get media collection
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSyncModule_GetCollectionMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSyncModule_GetCollectionMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getsynccollectionall">
 Trakt API Documentation: Sync: Get Collection
@@ -883,13 +883,13 @@ Trakt API Documentation: Sync: Get Collection
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSyncModule_GetCollectionShowsAsync_" data-uid="TraktNET.TraktSyncModule.GetCollectionShowsAsync*"></a>
-  <h4 id="TraktNET_TraktSyncModule_GetCollectionShowsAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetCollectionShowsAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetCollectionShowsAsync(TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSyncModule_GetCollectionShowsAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetCollectionShowsAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)">GetCollectionShowsAsync(TraktExtendedInfo?, TraktAvailableOn?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets all collected shows in the user's collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktSyncCollectionShow&gt;&gt; GetCollectionShowsAsync(TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktSyncCollectionShow&gt;&gt; GetCollectionShowsAsync(TraktExtendedInfo? extendedInfo = null, TraktAvailableOn? availableOn = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -904,8 +904,14 @@ Trakt API Documentation: Sync: Get Collection
       <tr>
         <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
         <td><span class="parametername">extendedInfo</span></td>
-        <td><p>Specifies how much data should be queried about the movies.</p>
+        <td><p>Specifies how much data should be queried about the shows.</p>
 <p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>?</td>
+        <td><span class="parametername">availableOn</span></td>
+        <td><p>Optional filter for media server sources. See also <a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>.</p>
 </td>
       </tr>
       <tr>
@@ -934,7 +940,7 @@ Trakt API Documentation: Sync: Get Collection
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSyncModule_GetCollectionShowsAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSyncModule_GetCollectionShowsAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getsynccollectionall">
 Trakt API Documentation: Sync: Get Collection
@@ -1144,13 +1150,13 @@ Trakt API Documentation: Sync: Last Activities
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSyncModule_GetMinimalEpisodeCollectionAsync_" data-uid="TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync*"></a>
-  <h4 id="TraktNET_TraktSyncModule_GetMinimalEpisodeCollectionAsync_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(System.String,System.Threading.CancellationToken)">GetMinimalEpisodeCollectionAsync(string?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSyncModule_GetMinimalEpisodeCollectionAsync_System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)">GetMinimalEpisodeCollectionAsync(TraktAvailableOn?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the user's minimal episode collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;Dictionary&lt;string, string&gt;&gt;&gt; GetMinimalEpisodeCollectionAsync(string? availableOn = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;Dictionary&lt;string, string&gt;&gt;&gt; GetMinimalEpisodeCollectionAsync(TraktAvailableOn? availableOn = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1163,9 +1169,9 @@ Trakt API Documentation: Sync: Last Activities
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>?</td>
         <td><span class="parametername">availableOn</span></td>
-        <td><p>Optional filter for streaming services.</p>
+        <td><p>Optional filter for media server sources. See also <a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1193,7 +1199,7 @@ Trakt API Documentation: Sync: Last Activities
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSyncModule_GetMinimalEpisodeCollectionAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSyncModule_GetMinimalEpisodeCollectionAsync_System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getsynccollectionminimalepisodes">
 Trakt API Documentation: Sync: Get minimal episode collection
@@ -1220,13 +1226,13 @@ Trakt API Documentation: Sync: Get minimal episode collection
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSyncModule_GetMinimalMovieCollectionAsync_" data-uid="TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync*"></a>
-  <h4 id="TraktNET_TraktSyncModule_GetMinimalMovieCollectionAsync_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(System.String,System.Threading.CancellationToken)">GetMinimalMovieCollectionAsync(string?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSyncModule_GetMinimalMovieCollectionAsync_System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)">GetMinimalMovieCollectionAsync(TraktAvailableOn?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the user's minimal movie collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;Dictionary&lt;string, string&gt;&gt;&gt; GetMinimalMovieCollectionAsync(string? availableOn = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;Dictionary&lt;string, string&gt;&gt;&gt; GetMinimalMovieCollectionAsync(TraktAvailableOn? availableOn = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1239,9 +1245,9 @@ Trakt API Documentation: Sync: Get minimal episode collection
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>?</td>
         <td><span class="parametername">availableOn</span></td>
-        <td><p>Optional filter for streaming services.</p>
+        <td><p>Optional filter for media server sources. See also <a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1269,7 +1275,7 @@ Trakt API Documentation: Sync: Get minimal episode collection
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSyncModule_GetMinimalMovieCollectionAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSyncModule_GetMinimalMovieCollectionAsync_System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getsynccollectionminimalmovies">
 Trakt API Documentation: Sync: Get minimal movie collection
@@ -1296,13 +1302,13 @@ Trakt API Documentation: Sync: Get minimal movie collection
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSyncModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktSyncModule_GetMinimalShowCollectionAsync_" data-uid="TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync*"></a>
-  <h4 id="TraktNET_TraktSyncModule_GetMinimalShowCollectionAsync_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(System.String,System.Threading.CancellationToken)">GetMinimalShowCollectionAsync(string?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktSyncModule_GetMinimalShowCollectionAsync_System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)">GetMinimalShowCollectionAsync(TraktAvailableOn?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the user's minimal show collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;Dictionary&lt;string, Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt;&gt;&gt;&gt; GetMinimalShowCollectionAsync(string? availableOn = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;Dictionary&lt;string, Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt;&gt;&gt;&gt; GetMinimalShowCollectionAsync(TraktAvailableOn? availableOn = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1315,9 +1321,9 @@ Trakt API Documentation: Sync: Get minimal movie collection
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>?</td>
         <td><span class="parametername">availableOn</span></td>
-        <td><p>Optional filter for streaming services.</p>
+        <td><p>Optional filter for media server sources. See also <a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>.</p>
 </td>
       </tr>
       <tr>
@@ -1345,7 +1351,7 @@ Trakt API Documentation: Sync: Get minimal movie collection
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktSyncModule_GetMinimalShowCollectionAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktSyncModule_GetMinimalShowCollectionAsync_System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
 <p><a href="https://docs.trakt.tv/reference/getsynccollectionminimalshows">
 Trakt API Documentation: Sync: Get minimal show collection

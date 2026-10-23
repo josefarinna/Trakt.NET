@@ -16702,6 +16702,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.NullableTimeOnly
   fullName: TraktNET.SyncsJsonSerializerContext.NullableTimeOnly
   nameWithType: SyncsJsonSerializerContext.NullableTimeOnly
+- uid: TraktNET.SyncsJsonSerializerContext.NullableTraktAvailableOn
+  name: NullableTraktAvailableOn
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktAvailableOn
+  commentId: P:TraktNET.SyncsJsonSerializerContext.NullableTraktAvailableOn
+  fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktAvailableOn
+  nameWithType: SyncsJsonSerializerContext.NullableTraktAvailableOn
+- uid: TraktNET.SyncsJsonSerializerContext.NullableTraktAvailableOn*
+  name: NullableTraktAvailableOn
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktAvailableOn_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.NullableTraktAvailableOn
+  fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktAvailableOn
+  nameWithType: SyncsJsonSerializerContext.NullableTraktAvailableOn
 - uid: TraktNET.SyncsJsonSerializerContext.NullableTraktDayOfWeek
   name: NullableTraktDayOfWeek
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktDayOfWeek
@@ -16930,6 +16942,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.TimeOnly
   fullName: TraktNET.SyncsJsonSerializerContext.TimeOnly
   nameWithType: SyncsJsonSerializerContext.TimeOnly
+- uid: TraktNET.SyncsJsonSerializerContext.TraktAvailableOn
+  name: TraktAvailableOn
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktAvailableOn
+  commentId: P:TraktNET.SyncsJsonSerializerContext.TraktAvailableOn
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktAvailableOn
+  nameWithType: SyncsJsonSerializerContext.TraktAvailableOn
+- uid: TraktNET.SyncsJsonSerializerContext.TraktAvailableOn*
+  name: TraktAvailableOn
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktAvailableOn_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktAvailableOn
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktAvailableOn
+  nameWithType: SyncsJsonSerializerContext.TraktAvailableOn
 - uid: TraktNET.SyncsJsonSerializerContext.TraktColors
   name: TraktColors
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktColors
@@ -21670,6 +21694,174 @@ references:
   fullName.vb: TraktNET.TraktAuthorizationRevokePost.<>
   nameWithType: TraktAuthorizationRevokePost.operator !=
   nameWithType.vb: TraktAuthorizationRevokePost.<>
+- uid: TraktNET.TraktAvailableOn
+  name: TraktAvailableOn
+  href: api/TraktNET.TraktAvailableOn.html
+  commentId: T:TraktNET.TraktAvailableOn
+  fullName: TraktNET.TraktAvailableOn
+  nameWithType: TraktAvailableOn
+- uid: TraktNET.TraktAvailableOn.Digital
+  name: Digital
+  href: api/TraktNET.TraktAvailableOn.html#TraktNET_TraktAvailableOn_Digital
+  commentId: F:TraktNET.TraktAvailableOn.Digital
+  fullName: TraktNET.TraktAvailableOn.Digital
+  nameWithType: TraktAvailableOn.Digital
+- uid: TraktNET.TraktAvailableOn.Jellyfin
+  name: Jellyfin
+  href: api/TraktNET.TraktAvailableOn.html#TraktNET_TraktAvailableOn_Jellyfin
+  commentId: F:TraktNET.TraktAvailableOn.Jellyfin
+  fullName: TraktNET.TraktAvailableOn.Jellyfin
+  nameWithType: TraktAvailableOn.Jellyfin
+- uid: TraktNET.TraktAvailableOn.Other
+  name: Other
+  href: api/TraktNET.TraktAvailableOn.html#TraktNET_TraktAvailableOn_Other
+  commentId: F:TraktNET.TraktAvailableOn.Other
+  fullName: TraktNET.TraktAvailableOn.Other
+  nameWithType: TraktAvailableOn.Other
+- uid: TraktNET.TraktAvailableOn.Plex
+  name: Plex
+  href: api/TraktNET.TraktAvailableOn.html#TraktNET_TraktAvailableOn_Plex
+  commentId: F:TraktNET.TraktAvailableOn.Plex
+  fullName: TraktNET.TraktAvailableOn.Plex
+  nameWithType: TraktAvailableOn.Plex
+- uid: TraktNET.TraktAvailableOn.Unspecified
+  name: Unspecified
+  href: api/TraktNET.TraktAvailableOn.html#TraktNET_TraktAvailableOn_Unspecified
+  commentId: F:TraktNET.TraktAvailableOn.Unspecified
+  fullName: TraktNET.TraktAvailableOn.Unspecified
+  nameWithType: TraktAvailableOn.Unspecified
+- uid: TraktNET.TraktAvailableOnExtensions
+  name: TraktAvailableOnExtensions
+  href: api/TraktNET.TraktAvailableOnExtensions.html
+  commentId: T:TraktNET.TraktAvailableOnExtensions
+  fullName: TraktNET.TraktAvailableOnExtensions
+  nameWithType: TraktAvailableOnExtensions
+- uid: TraktNET.TraktAvailableOnExtensions.AsQuery(TraktNET.TraktAvailableOn)
+  name: AsQuery(TraktAvailableOn)
+  href: api/TraktNET.TraktAvailableOnExtensions.html#TraktNET_TraktAvailableOnExtensions_AsQuery_TraktNET_TraktAvailableOn_
+  commentId: M:TraktNET.TraktAvailableOnExtensions.AsQuery(TraktNET.TraktAvailableOn)
+  fullName: TraktNET.TraktAvailableOnExtensions.AsQuery(TraktNET.TraktAvailableOn)
+  nameWithType: TraktAvailableOnExtensions.AsQuery(TraktAvailableOn)
+- uid: TraktNET.TraktAvailableOnExtensions.AsQuery*
+  name: AsQuery
+  href: api/TraktNET.TraktAvailableOnExtensions.html#TraktNET_TraktAvailableOnExtensions_AsQuery_
+  commentId: Overload:TraktNET.TraktAvailableOnExtensions.AsQuery
+  fullName: TraktNET.TraktAvailableOnExtensions.AsQuery
+  nameWithType: TraktAvailableOnExtensions.AsQuery
+- uid: TraktNET.TraktAvailableOnExtensions.DisplayName(TraktNET.TraktAvailableOn)
+  name: DisplayName(TraktAvailableOn)
+  href: api/TraktNET.TraktAvailableOnExtensions.html#TraktNET_TraktAvailableOnExtensions_DisplayName_TraktNET_TraktAvailableOn_
+  commentId: M:TraktNET.TraktAvailableOnExtensions.DisplayName(TraktNET.TraktAvailableOn)
+  fullName: TraktNET.TraktAvailableOnExtensions.DisplayName(TraktNET.TraktAvailableOn)
+  nameWithType: TraktAvailableOnExtensions.DisplayName(TraktAvailableOn)
+- uid: TraktNET.TraktAvailableOnExtensions.DisplayName*
+  name: DisplayName
+  href: api/TraktNET.TraktAvailableOnExtensions.html#TraktNET_TraktAvailableOnExtensions_DisplayName_
+  commentId: Overload:TraktNET.TraktAvailableOnExtensions.DisplayName
+  fullName: TraktNET.TraktAvailableOnExtensions.DisplayName
+  nameWithType: TraktAvailableOnExtensions.DisplayName
+- uid: TraktNET.TraktAvailableOnExtensions.ToJson(TraktNET.TraktAvailableOn)
+  name: ToJson(TraktAvailableOn)
+  href: api/TraktNET.TraktAvailableOnExtensions.html#TraktNET_TraktAvailableOnExtensions_ToJson_TraktNET_TraktAvailableOn_
+  commentId: M:TraktNET.TraktAvailableOnExtensions.ToJson(TraktNET.TraktAvailableOn)
+  fullName: TraktNET.TraktAvailableOnExtensions.ToJson(TraktNET.TraktAvailableOn)
+  nameWithType: TraktAvailableOnExtensions.ToJson(TraktAvailableOn)
+- uid: TraktNET.TraktAvailableOnExtensions.ToJson*
+  name: ToJson
+  href: api/TraktNET.TraktAvailableOnExtensions.html#TraktNET_TraktAvailableOnExtensions_ToJson_
+  commentId: Overload:TraktNET.TraktAvailableOnExtensions.ToJson
+  fullName: TraktNET.TraktAvailableOnExtensions.ToJson
+  nameWithType: TraktAvailableOnExtensions.ToJson
+- uid: TraktNET.TraktAvailableOnExtensions.ToTraktAvailableOn(System.String)
+  name: ToTraktAvailableOn(string?)
+  href: api/TraktNET.TraktAvailableOnExtensions.html#TraktNET_TraktAvailableOnExtensions_ToTraktAvailableOn_System_String_
+  commentId: M:TraktNET.TraktAvailableOnExtensions.ToTraktAvailableOn(System.String)
+  name.vb: ToTraktAvailableOn(String)
+  fullName: TraktNET.TraktAvailableOnExtensions.ToTraktAvailableOn(string?)
+  fullName.vb: TraktNET.TraktAvailableOnExtensions.ToTraktAvailableOn(String)
+  nameWithType: TraktAvailableOnExtensions.ToTraktAvailableOn(string?)
+  nameWithType.vb: TraktAvailableOnExtensions.ToTraktAvailableOn(String)
+- uid: TraktNET.TraktAvailableOnExtensions.ToTraktAvailableOn*
+  name: ToTraktAvailableOn
+  href: api/TraktNET.TraktAvailableOnExtensions.html#TraktNET_TraktAvailableOnExtensions_ToTraktAvailableOn_
+  commentId: Overload:TraktNET.TraktAvailableOnExtensions.ToTraktAvailableOn
+  fullName: TraktNET.TraktAvailableOnExtensions.ToTraktAvailableOn
+  nameWithType: TraktAvailableOnExtensions.ToTraktAvailableOn
+- uid: TraktNET.TraktAvailableOnExtensions.ToURI(TraktNET.TraktAvailableOn)
+  name: ToURI(TraktAvailableOn)
+  href: api/TraktNET.TraktAvailableOnExtensions.html#TraktNET_TraktAvailableOnExtensions_ToURI_TraktNET_TraktAvailableOn_
+  commentId: M:TraktNET.TraktAvailableOnExtensions.ToURI(TraktNET.TraktAvailableOn)
+  fullName: TraktNET.TraktAvailableOnExtensions.ToURI(TraktNET.TraktAvailableOn)
+  nameWithType: TraktAvailableOnExtensions.ToURI(TraktAvailableOn)
+- uid: TraktNET.TraktAvailableOnExtensions.ToURI*
+  name: ToURI
+  href: api/TraktNET.TraktAvailableOnExtensions.html#TraktNET_TraktAvailableOnExtensions_ToURI_
+  commentId: Overload:TraktNET.TraktAvailableOnExtensions.ToURI
+  fullName: TraktNET.TraktAvailableOnExtensions.ToURI
+  nameWithType: TraktAvailableOnExtensions.ToURI
+- uid: TraktNET.TraktAvailableOnJsonConverter
+  name: TraktAvailableOnJsonConverter
+  href: api/TraktNET.TraktAvailableOnJsonConverter.html
+  commentId: T:TraktNET.TraktAvailableOnJsonConverter
+  fullName: TraktNET.TraktAvailableOnJsonConverter
+  nameWithType: TraktAvailableOnJsonConverter
+- uid: TraktNET.TraktAvailableOnJsonConverter.#ctor
+  name: TraktAvailableOnJsonConverter()
+  href: api/TraktNET.TraktAvailableOnJsonConverter.html#TraktNET_TraktAvailableOnJsonConverter__ctor
+  commentId: M:TraktNET.TraktAvailableOnJsonConverter.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktAvailableOnJsonConverter.TraktAvailableOnJsonConverter()
+  fullName.vb: TraktNET.TraktAvailableOnJsonConverter.New()
+  nameWithType: TraktAvailableOnJsonConverter.TraktAvailableOnJsonConverter()
+  nameWithType.vb: TraktAvailableOnJsonConverter.New()
+- uid: TraktNET.TraktAvailableOnJsonConverter.#ctor*
+  name: TraktAvailableOnJsonConverter
+  href: api/TraktNET.TraktAvailableOnJsonConverter.html#TraktNET_TraktAvailableOnJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktAvailableOnJsonConverter.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktAvailableOnJsonConverter.TraktAvailableOnJsonConverter
+  fullName.vb: TraktNET.TraktAvailableOnJsonConverter.New
+  nameWithType: TraktAvailableOnJsonConverter.TraktAvailableOnJsonConverter
+  nameWithType.vb: TraktAvailableOnJsonConverter.New
+- uid: TraktNET.TraktAvailableOnJsonConverter.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: api/TraktNET.TraktAvailableOnJsonConverter.html#TraktNET_TraktAvailableOnJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktAvailableOnJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktAvailableOnJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktAvailableOnJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktAvailableOnJsonConverter.CanConvert*
+  name: CanConvert
+  href: api/TraktNET.TraktAvailableOnJsonConverter.html#TraktNET_TraktAvailableOnJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktAvailableOnJsonConverter.CanConvert
+  fullName: TraktNET.TraktAvailableOnJsonConverter.CanConvert
+  nameWithType: TraktAvailableOnJsonConverter.CanConvert
+- uid: TraktNET.TraktAvailableOnJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/TraktNET.TraktAvailableOnJsonConverter.html#TraktNET_TraktAvailableOnJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktAvailableOnJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: TraktNET.TraktAvailableOnJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktAvailableOnJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktAvailableOnJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktAvailableOnJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktAvailableOnJsonConverter.Read*
+  name: Read
+  href: api/TraktNET.TraktAvailableOnJsonConverter.html#TraktNET_TraktAvailableOnJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktAvailableOnJsonConverter.Read
+  fullName: TraktNET.TraktAvailableOnJsonConverter.Read
+  nameWithType: TraktAvailableOnJsonConverter.Read
+- uid: TraktNET.TraktAvailableOnJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktAvailableOn,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktAvailableOn, JsonSerializerOptions)
+  href: api/TraktNET.TraktAvailableOnJsonConverter.html#TraktNET_TraktAvailableOnJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktAvailableOn_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktAvailableOnJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktAvailableOn,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktAvailableOnJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktAvailableOn, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktAvailableOnJsonConverter.Write(Utf8JsonWriter, TraktAvailableOn, JsonSerializerOptions)
+- uid: TraktNET.TraktAvailableOnJsonConverter.Write*
+  name: Write
+  href: api/TraktNET.TraktAvailableOnJsonConverter.html#TraktNET_TraktAvailableOnJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktAvailableOnJsonConverter.Write
+  fullName: TraktNET.TraktAvailableOnJsonConverter.Write
+  nameWithType: TraktAvailableOnJsonConverter.Write
 - uid: TraktNET.TraktBoxOfficeMovie
   name: TraktBoxOfficeMovie
   href: api/TraktNET.TraktBoxOfficeMovie.html
@@ -83968,6 +84160,18 @@ references:
   fullName.vb: TraktNET.TraktSyncCollectionShowEpisode.New
   nameWithType: TraktSyncCollectionShowEpisode.TraktSyncCollectionShowEpisode
   nameWithType.vb: TraktSyncCollectionShowEpisode.New
+- uid: TraktNET.TraktSyncCollectionShowEpisode.AvailableOn
+  name: AvailableOn
+  href: api/TraktNET.TraktSyncCollectionShowEpisode.html#TraktNET_TraktSyncCollectionShowEpisode_AvailableOn
+  commentId: P:TraktNET.TraktSyncCollectionShowEpisode.AvailableOn
+  fullName: TraktNET.TraktSyncCollectionShowEpisode.AvailableOn
+  nameWithType: TraktSyncCollectionShowEpisode.AvailableOn
+- uid: TraktNET.TraktSyncCollectionShowEpisode.AvailableOn*
+  name: AvailableOn
+  href: api/TraktNET.TraktSyncCollectionShowEpisode.html#TraktNET_TraktSyncCollectionShowEpisode_AvailableOn_
+  commentId: Overload:TraktNET.TraktSyncCollectionShowEpisode.AvailableOn
+  fullName: TraktNET.TraktSyncCollectionShowEpisode.AvailableOn
+  nameWithType: TraktSyncCollectionShowEpisode.AvailableOn
 - uid: TraktNET.TraktSyncCollectionShowEpisode.CollectedAt
   name: CollectedAt
   href: api/TraktNET.TraktSyncCollectionShowEpisode.html#TraktNET_TraktSyncCollectionShowEpisode_CollectedAt
@@ -89014,57 +89218,57 @@ references:
   commentId: Overload:TraktNET.TraktSyncModule.AddWatchlistItemsAsync
   fullName: TraktNET.TraktSyncModule.AddWatchlistItemsAsync
   nameWithType: TraktSyncModule.AddWatchlistItemsAsync
-- uid: TraktNET.TraktSyncModule.GetCollectionEpisodesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetCollectionEpisodesAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionEpisodesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSyncModule.GetCollectionEpisodesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetCollectionEpisodesAsync(TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSyncModule.GetCollectionEpisodesAsync(TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSyncModule.GetCollectionEpisodesAsync(TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSyncModule.GetCollectionEpisodesAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSyncModule.GetCollectionEpisodesAsync(TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetCollectionEpisodesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetCollectionEpisodesAsync(TraktExtendedInfo?, TraktAvailableOn?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionEpisodesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetCollectionEpisodesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetCollectionEpisodesAsync(TraktExtendedInfo?, TraktAvailableOn?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetCollectionEpisodesAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktAvailableOn?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSyncModule.GetCollectionEpisodesAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktAvailableOn?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetCollectionEpisodesAsync(TraktExtendedInfo?, TraktAvailableOn?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSyncModule.GetCollectionEpisodesAsync(TraktExtendedInfo?, TraktAvailableOn?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktSyncModule.GetCollectionEpisodesAsync*
   name: GetCollectionEpisodesAsync
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionEpisodesAsync_
   commentId: Overload:TraktNET.TraktSyncModule.GetCollectionEpisodesAsync
   fullName: TraktNET.TraktSyncModule.GetCollectionEpisodesAsync
   nameWithType: TraktSyncModule.GetCollectionEpisodesAsync
-- uid: TraktNET.TraktSyncModule.GetCollectionMediaAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetCollectionMediaAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionMediaAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSyncModule.GetCollectionMediaAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetCollectionMediaAsync(TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSyncModule.GetCollectionMediaAsync(TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSyncModule.GetCollectionMediaAsync(TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSyncModule.GetCollectionMediaAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSyncModule.GetCollectionMediaAsync(TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetCollectionMediaAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetCollectionMediaAsync(TraktExtendedInfo?, TraktAvailableOn?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionMediaAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetCollectionMediaAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetCollectionMediaAsync(TraktExtendedInfo?, TraktAvailableOn?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetCollectionMediaAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktAvailableOn?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSyncModule.GetCollectionMediaAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktAvailableOn?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetCollectionMediaAsync(TraktExtendedInfo?, TraktAvailableOn?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSyncModule.GetCollectionMediaAsync(TraktExtendedInfo?, TraktAvailableOn?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktSyncModule.GetCollectionMediaAsync*
   name: GetCollectionMediaAsync
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionMediaAsync_
   commentId: Overload:TraktNET.TraktSyncModule.GetCollectionMediaAsync
   fullName: TraktNET.TraktSyncModule.GetCollectionMediaAsync
   nameWithType: TraktSyncModule.GetCollectionMediaAsync
-- uid: TraktNET.TraktSyncModule.GetCollectionMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetCollectionMoviesAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_String_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSyncModule.GetCollectionMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.String,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetCollectionMoviesAsync(TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktSyncModule.GetCollectionMoviesAsync(TraktNET.TraktExtendedInfo?, string?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSyncModule.GetCollectionMoviesAsync(TraktNET.TraktExtendedInfo?, String, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktSyncModule.GetCollectionMoviesAsync(TraktExtendedInfo?, string?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktSyncModule.GetCollectionMoviesAsync(TraktExtendedInfo?, String, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetCollectionMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetCollectionMoviesAsync(TraktExtendedInfo?, TraktAvailableOn?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionMoviesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetCollectionMoviesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetCollectionMoviesAsync(TraktExtendedInfo?, TraktAvailableOn?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetCollectionMoviesAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktAvailableOn?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktSyncModule.GetCollectionMoviesAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktAvailableOn?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetCollectionMoviesAsync(TraktExtendedInfo?, TraktAvailableOn?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktSyncModule.GetCollectionMoviesAsync(TraktExtendedInfo?, TraktAvailableOn?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktSyncModule.GetCollectionMoviesAsync*
   name: GetCollectionMoviesAsync
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionMoviesAsync_
   commentId: Overload:TraktNET.TraktSyncModule.GetCollectionMoviesAsync
   fullName: TraktNET.TraktSyncModule.GetCollectionMoviesAsync
   nameWithType: TraktSyncModule.GetCollectionMoviesAsync
-- uid: TraktNET.TraktSyncModule.GetCollectionShowsAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetCollectionShowsAsync(TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionShowsAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSyncModule.GetCollectionShowsAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  fullName: TraktNET.TraktSyncModule.GetCollectionShowsAsync(TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktSyncModule.GetCollectionShowsAsync(TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetCollectionShowsAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)
+  name: GetCollectionShowsAsync(TraktExtendedInfo?, TraktAvailableOn?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionShowsAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetCollectionShowsAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetCollectionShowsAsync(TraktNET.TraktExtendedInfo?, TraktNET.TraktAvailableOn?, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetCollectionShowsAsync(TraktExtendedInfo?, TraktAvailableOn?, CancellationToken)
 - uid: TraktNET.TraktSyncModule.GetCollectionShowsAsync*
   name: GetCollectionShowsAsync
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetCollectionShowsAsync_
@@ -89098,45 +89302,36 @@ references:
   commentId: Overload:TraktNET.TraktSyncModule.GetLastActivitiesAsync
   fullName: TraktNET.TraktSyncModule.GetLastActivitiesAsync
   nameWithType: TraktSyncModule.GetLastActivitiesAsync
-- uid: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(System.String,System.Threading.CancellationToken)
-  name: GetMinimalEpisodeCollectionAsync(string?, CancellationToken)
-  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalEpisodeCollectionAsync_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(System.String,System.Threading.CancellationToken)
-  name.vb: GetMinimalEpisodeCollectionAsync(String, CancellationToken)
-  fullName: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(string?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(String, System.Threading.CancellationToken)
-  nameWithType: TraktSyncModule.GetMinimalEpisodeCollectionAsync(string?, CancellationToken)
-  nameWithType.vb: TraktSyncModule.GetMinimalEpisodeCollectionAsync(String, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)
+  name: GetMinimalEpisodeCollectionAsync(TraktAvailableOn?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalEpisodeCollectionAsync_System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync(TraktNET.TraktAvailableOn?, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetMinimalEpisodeCollectionAsync(TraktAvailableOn?, CancellationToken)
 - uid: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync*
   name: GetMinimalEpisodeCollectionAsync
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalEpisodeCollectionAsync_
   commentId: Overload:TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync
   fullName: TraktNET.TraktSyncModule.GetMinimalEpisodeCollectionAsync
   nameWithType: TraktSyncModule.GetMinimalEpisodeCollectionAsync
-- uid: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(System.String,System.Threading.CancellationToken)
-  name: GetMinimalMovieCollectionAsync(string?, CancellationToken)
-  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalMovieCollectionAsync_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(System.String,System.Threading.CancellationToken)
-  name.vb: GetMinimalMovieCollectionAsync(String, CancellationToken)
-  fullName: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(string?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(String, System.Threading.CancellationToken)
-  nameWithType: TraktSyncModule.GetMinimalMovieCollectionAsync(string?, CancellationToken)
-  nameWithType.vb: TraktSyncModule.GetMinimalMovieCollectionAsync(String, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)
+  name: GetMinimalMovieCollectionAsync(TraktAvailableOn?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalMovieCollectionAsync_System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync(TraktNET.TraktAvailableOn?, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetMinimalMovieCollectionAsync(TraktAvailableOn?, CancellationToken)
 - uid: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync*
   name: GetMinimalMovieCollectionAsync
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalMovieCollectionAsync_
   commentId: Overload:TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync
   fullName: TraktNET.TraktSyncModule.GetMinimalMovieCollectionAsync
   nameWithType: TraktSyncModule.GetMinimalMovieCollectionAsync
-- uid: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(System.String,System.Threading.CancellationToken)
-  name: GetMinimalShowCollectionAsync(string?, CancellationToken)
-  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalShowCollectionAsync_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(System.String,System.Threading.CancellationToken)
-  name.vb: GetMinimalShowCollectionAsync(String, CancellationToken)
-  fullName: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(string?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(String, System.Threading.CancellationToken)
-  nameWithType: TraktSyncModule.GetMinimalShowCollectionAsync(string?, CancellationToken)
-  nameWithType.vb: TraktSyncModule.GetMinimalShowCollectionAsync(String, CancellationToken)
+- uid: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)
+  name: GetMinimalShowCollectionAsync(TraktAvailableOn?, CancellationToken)
+  href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalShowCollectionAsync_System_Nullable_TraktNET_TraktAvailableOn__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(System.Nullable{TraktNET.TraktAvailableOn},System.Threading.CancellationToken)
+  fullName: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync(TraktNET.TraktAvailableOn?, System.Threading.CancellationToken)
+  nameWithType: TraktSyncModule.GetMinimalShowCollectionAsync(TraktAvailableOn?, CancellationToken)
 - uid: TraktNET.TraktSyncModule.GetMinimalShowCollectionAsync*
   name: GetMinimalShowCollectionAsync
   href: api/TraktNET.TraktSyncModule.html#TraktNET_TraktSyncModule_GetMinimalShowCollectionAsync_

@@ -1152,6 +1152,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktAvailableOn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktAvailableOn.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktAvailableOn",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktAvailableOn.yml\" sourcestartlinenumber=\"1\">Determines the media server or source where a collected item is available.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktAvailableOnExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktAvailableOnExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktAvailableOnExtensions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktAvailableOnExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktAvailableOn\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktAvailableOnJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktAvailableOnJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktAvailableOnJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktAvailableOnJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktAvailableOn\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktBoxOfficeMovie.yml",
       "output": {
         ".html": {
@@ -6846,7 +6888,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncCollectionAvailableOn",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionAvailableOn.yml\" sourcestartlinenumber=\"1\">Represents a streaming service where a collected item is available.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionAvailableOn.yml\" sourcestartlinenumber=\"1\">Represents a source where a collected item is available.</p>\n"
     },
     {
       "type": "ManagedReference",
