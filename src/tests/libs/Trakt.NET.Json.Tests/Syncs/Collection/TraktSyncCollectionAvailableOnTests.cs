@@ -15,7 +15,8 @@ namespace TraktNET.Json.Syncs
             TraktSyncCollectionAvailableOn? availableOn = await TestUtility.DeserializeJsonAsync<TraktSyncCollectionAvailableOn>("Syncs\\Collection\\synccollectionavailableon.json");
 
             availableOn.ShouldNotBeNull();
-            availableOn.Name.ShouldBe("netflix");
+            availableOn.Name.ShouldBe(TraktAvailableOn.Digital);
         }
     }
 }
+

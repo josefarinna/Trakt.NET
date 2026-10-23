@@ -8,7 +8,7 @@ namespace TraktNET.SyncModule
         private const uint Page = 2U;
         private const uint Limit = 4U;
         private const uint ItemCount = 2U;
-        private const string AvailableOn = "max";
+        private const TraktAvailableOn AvailableOn = TraktAvailableOn.Digital;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
@@ -96,7 +96,7 @@ namespace TraktNET.SyncModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionepisodes.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionEpisodesUri}?available_on={AvailableOn}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionEpisodesUri}?available_on={AvailableOn.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
 
             TraktPagedResponse<TraktSyncCollectionEpisode> response = await client.Sync.GetCollectionEpisodesAsync(availableOn: AvailableOn, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
@@ -136,7 +136,7 @@ namespace TraktNET.SyncModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionepisodes.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionEpisodesUri}?available_on={AvailableOn}&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionEpisodesUri}?available_on={AvailableOn.ToURI()}&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
 
             TraktPagedResponse<TraktSyncCollectionEpisode> response = await client.Sync.GetCollectionEpisodesAsync(ExtendedInfo, AvailableOn, Page, Limit, TestContext.Current.CancellationToken);
 

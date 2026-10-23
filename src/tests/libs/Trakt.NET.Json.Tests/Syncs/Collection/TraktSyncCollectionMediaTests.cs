@@ -41,8 +41,8 @@ namespace TraktNET.Json.Syncs
 
             syncCollectionMedia.AvailableOn.ShouldNotBeNull();
             syncCollectionMedia.AvailableOn.Count.ShouldBe(2);
-            syncCollectionMedia.AvailableOn[0].Name.ShouldBe("netflix");
-            syncCollectionMedia.AvailableOn[1].Name.ShouldBe("max");
+            syncCollectionMedia.AvailableOn[0].Name.ShouldBe(TraktAvailableOn.Digital);
+            syncCollectionMedia.AvailableOn[1].Name.ShouldBe(TraktAvailableOn.Plex);
 
             syncCollectionMedia.Show.ShouldBeNull();
             syncCollectionMedia.Episode.ShouldBeNull();
@@ -122,7 +122,7 @@ namespace TraktNET.Json.Syncs
 
             syncCollectionMedia.AvailableOn.ShouldNotBeNull();
             syncCollectionMedia.AvailableOn.Count.ShouldBe(1);
-            syncCollectionMedia.AvailableOn[0].Name.ShouldBe("max");
+            syncCollectionMedia.AvailableOn[0].Name.ShouldBe(TraktAvailableOn.Digital);
 
             syncCollectionMedia.Movie.ShouldBeNull();
             syncCollectionMedia.Seasons.ShouldBeNull();

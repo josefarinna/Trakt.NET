@@ -116,7 +116,7 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktSyncCollectionMovie>> GetCollectionMoviesImplAsync(TraktExtendedInfo? extendedInfo = null,
-            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktAvailableOn? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new SyncCollectionMoviesGetRequest
             {
@@ -137,7 +137,7 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktSyncCollectionEpisode>> GetCollectionEpisodesImplAsync(TraktExtendedInfo? extendedInfo = null,
-            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktAvailableOn? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new SyncCollectionEpisodesGetRequest
             {
@@ -158,18 +158,19 @@ namespace TraktNET
         }
 
         private Task<TraktListResponse<TraktSyncCollectionShow>> GetCollectionShowsImplAsync(TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+            TraktAvailableOn? availableOn = null, CancellationToken cancellationToken = default)
         {
             var request = new SyncCollectionShowsGetRequest
             {
-                ExtendedInfo = extendedInfo
+                ExtendedInfo = extendedInfo,
+                AvailableOn = availableOn
             };
 
             return RequestHandler.ExecuteListRequestAsync<TraktSyncCollectionShow>(_context, request, cancellationToken);
         }
 
         private Task<TraktPagedResponse<TraktSyncCollectionMedia>> GetCollectionMediaImplAsync(TraktExtendedInfo? extendedInfo = null,
-            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktAvailableOn? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new SyncCollectionMediaGetRequest
             {
@@ -189,7 +190,7 @@ namespace TraktNET
                 }, cancellationToken);
         }
 
-        private Task<TraktResponse<Dictionary<string, string>>> GetMinimalMovieCollectionImplAsync(string? availableOn = null,
+        private Task<TraktResponse<Dictionary<string, string>>> GetMinimalMovieCollectionImplAsync(TraktAvailableOn? availableOn = null,
             CancellationToken cancellationToken = default)
         {
             var request = new SyncCollectionMinimalMoviesGetRequest
@@ -200,7 +201,7 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, string>>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<Dictionary<string, Dictionary<string, Dictionary<string, string>>>>> GetMinimalShowCollectionImplAsync(string? availableOn = null,
+        private Task<TraktResponse<Dictionary<string, Dictionary<string, Dictionary<string, string>>>>> GetMinimalShowCollectionImplAsync(TraktAvailableOn? availableOn = null,
             CancellationToken cancellationToken = default)
         {
             var request = new SyncCollectionMinimalShowsGetRequest
@@ -211,7 +212,7 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<Dictionary<string, Dictionary<string, Dictionary<string, string>>>>(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<Dictionary<string, string>>> GetMinimalEpisodeCollectionImplAsync(string? availableOn = null,
+        private Task<TraktResponse<Dictionary<string, string>>> GetMinimalEpisodeCollectionImplAsync(TraktAvailableOn? availableOn = null,
             CancellationToken cancellationToken = default)
         {
             var request = new SyncCollectionMinimalEpisodesGetRequest

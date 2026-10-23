@@ -10,14 +10,17 @@ namespace TraktNET.GetRequests.Sync
 
         [Theory]
         [InlineData(null, null, null, null, URIPath)]
-        [InlineData("max", null, null, null, $"{URIPath}?available_on=max")]
+        [InlineData(TraktAvailableOn.Digital, null, null, null, $"{URIPath}?available_on=digital")]
+        [InlineData(TraktAvailableOn.Other, null, null, null, $"{URIPath}?available_on=other")]
+        [InlineData(TraktAvailableOn.Plex, null, null, null, $"{URIPath}?available_on=plex")]
+        [InlineData(TraktAvailableOn.Jellyfin, null, null, null, $"{URIPath}?available_on=jellyfin")]
         [InlineData(null, TraktExtendedInfo.None, null, null, URIPath)]
         [InlineData(null, TraktExtendedInfo.Full, null, null, $"{URIPath}?extended=full")]
         [InlineData(null, null, 10, null, $"{URIPath}?page=10")]
         [InlineData(null, null, null, 20, $"{URIPath}?limit=20")]
         [InlineData(null, null, 10, 20, $"{URIPath}?page=10&limit=20")]
-        [InlineData("max", TraktExtendedInfo.Full, 10, 20, $"{URIPath}?available_on=max&extended=full&page=10&limit=20")]
-        public void TestSyncCollectionEpisodesGetRequestHasValidURIPath(string? availableOn, TraktExtendedInfo? extendedInfo, int? page, int? limit, string expectedURIPath)
+        [InlineData(TraktAvailableOn.Digital, TraktExtendedInfo.Full, 10, 20, $"{URIPath}?available_on=digital&extended=full&page=10&limit=20")]
+        public void TestSyncCollectionEpisodesGetRequestHasValidURIPath(TraktAvailableOn? availableOn, TraktExtendedInfo? extendedInfo, int? page, int? limit, string expectedURIPath)
         {
             var syncCollectionEpisodesGetRequest = new SyncCollectionEpisodesGetRequest
             {
@@ -53,3 +56,4 @@ namespace TraktNET.GetRequests.Sync
         }
     }
 }
+
