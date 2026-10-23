@@ -51614,48 +51614,6 @@ references:
   commentId: Overload:TraktNET.TraktPeopleModule.GetPersonAsync
   fullName: TraktNET.TraktPeopleModule.GetPersonAsync
   nameWithType: TraktPeopleModule.GetPersonAsync
-- uid: TraktNET.TraktPeopleModule.GetPersonListsAsync(System.String,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetPersonListsAsync(string, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonListsAsync_System_String_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktPeopleModule.GetPersonListsAsync(System.String,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetPersonListsAsync(String, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktPeopleModule.GetPersonListsAsync(string, TraktNET.TraktListType?, TraktNET.TraktListSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktPeopleModule.GetPersonListsAsync(String, TraktNET.TraktListType?, TraktNET.TraktListSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktPeopleModule.GetPersonListsAsync(string, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktPeopleModule.GetPersonListsAsync(String, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktPeopleModule.GetPersonListsAsync(System.UInt32,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetPersonListsAsync(uint, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonListsAsync_System_UInt32_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktPeopleModule.GetPersonListsAsync(System.UInt32,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetPersonListsAsync(UInteger, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktPeopleModule.GetPersonListsAsync(uint, TraktNET.TraktListType?, TraktNET.TraktListSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktPeopleModule.GetPersonListsAsync(UInteger, TraktNET.TraktListType?, TraktNET.TraktListSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktPeopleModule.GetPersonListsAsync(uint, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktPeopleModule.GetPersonListsAsync(UInteger, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktPeopleModule.GetPersonListsAsync(TraktNET.TraktPerson,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetPersonListsAsync(TraktPerson, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonListsAsync_TraktNET_TraktPerson_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktPeopleModule.GetPersonListsAsync(TraktNET.TraktPerson,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetPersonListsAsync(TraktPerson, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktPeopleModule.GetPersonListsAsync(TraktNET.TraktPerson, TraktNET.TraktListType?, TraktNET.TraktListSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktPeopleModule.GetPersonListsAsync(TraktNET.TraktPerson, TraktNET.TraktListType?, TraktNET.TraktListSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktPeopleModule.GetPersonListsAsync(TraktPerson, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktPeopleModule.GetPersonListsAsync(TraktPerson, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktPeopleModule.GetPersonListsAsync(TraktNET.TraktPersonIDs,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetPersonListsAsync(TraktPersonIDs, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonListsAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktListType__System_Nullable_TraktNET_TraktListSortOrder__System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktPeopleModule.GetPersonListsAsync(TraktNET.TraktPersonIDs,System.Nullable{TraktNET.TraktListType},System.Nullable{TraktNET.TraktListSortOrder},System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetPersonListsAsync(TraktPersonIDs, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktPeopleModule.GetPersonListsAsync(TraktNET.TraktPersonIDs, TraktNET.TraktListType?, TraktNET.TraktListSortOrder?, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktPeopleModule.GetPersonListsAsync(TraktNET.TraktPersonIDs, TraktNET.TraktListType?, TraktNET.TraktListSortOrder?, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktPeopleModule.GetPersonListsAsync(TraktPersonIDs, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktPeopleModule.GetPersonListsAsync(TraktPersonIDs, TraktListType?, TraktListSortOrder?, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktPeopleModule.GetPersonListsAsync*
-  name: GetPersonListsAsync
-  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonListsAsync_
-  commentId: Overload:TraktNET.TraktPeopleModule.GetPersonListsAsync
-  fullName: TraktNET.TraktPeopleModule.GetPersonListsAsync
-  nameWithType: TraktPeopleModule.GetPersonListsAsync
 - uid: TraktNET.TraktPeopleModule.GetPersonMovieCreditsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
   name: GetPersonMovieCreditsAsync(string, TraktExtendedInfo?, CancellationToken)
   href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonMovieCreditsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
