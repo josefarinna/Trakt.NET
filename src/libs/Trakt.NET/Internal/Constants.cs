@@ -121,6 +121,7 @@ namespace TraktNET
                     new TraktAccessScopeJsonConverter(),
                     new TraktAccessTokenGrantTypeJsonConverter(),
                     new TraktAccessTokenTypeJsonConverter(),
+                    new TraktAvailableOnJsonConverter(),
                     new TraktCalendarMediaTypeJsonConverter(),
                     new TraktCommentObjectTypeJsonConverter(),
                     new TraktCommentSortOrderJsonConverter(),

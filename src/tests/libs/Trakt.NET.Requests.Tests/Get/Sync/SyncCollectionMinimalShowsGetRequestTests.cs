@@ -10,8 +10,11 @@ namespace TraktNET.GetRequests.Sync
 
         [Theory]
         [InlineData(null, URIPath)]
-        [InlineData("netflix", $"{URIPath}?available_on=netflix")]
-        public void TestSyncCollectionMinimalShowsGetRequestHasValidURIPath(string? availableOn, string expectedURIPath)
+        [InlineData(TraktAvailableOn.Digital, $"{URIPath}?available_on=digital")]
+        [InlineData(TraktAvailableOn.Other, $"{URIPath}?available_on=other")]
+        [InlineData(TraktAvailableOn.Plex, $"{URIPath}?available_on=plex")]
+        [InlineData(TraktAvailableOn.Jellyfin, $"{URIPath}?available_on=jellyfin")]
+        public void TestSyncCollectionMinimalShowsGetRequestHasValidURIPath(TraktAvailableOn? availableOn, string expectedURIPath)
         {
             var syncCollectionMinimalShowsGetRequest = new SyncCollectionMinimalShowsGetRequest
             {
@@ -44,3 +47,4 @@ namespace TraktNET.GetRequests.Sync
         }
     }
 }
+

@@ -50,7 +50,7 @@ namespace TraktNET.Json.Syncs
 
             syncCollectionEpisode.AvailableOn.ShouldNotBeNull();
             syncCollectionEpisode.AvailableOn.Count.ShouldBe(1);
-            syncCollectionEpisode.AvailableOn[0].Name.ShouldBe("max");
+            syncCollectionEpisode.AvailableOn[0].Name.ShouldBe(TraktAvailableOn.Digital);
 
             syncCollectionEpisode.ToString().ShouldBe(syncCollectionEpisode.Episode.ToString());
         }
@@ -75,7 +75,7 @@ namespace TraktNET.Json.Syncs
             episode1.Show.Title.ShouldBe("Game of Thrones");
             episode1.AvailableOn.ShouldNotBeNull();
             episode1.AvailableOn.Count.ShouldBe(1);
-            episode1.AvailableOn[0].Name.ShouldBe("max");
+            episode1.AvailableOn[0].Name.ShouldBe(TraktAvailableOn.Digital);
 
             TraktSyncCollectionEpisode episode2 = syncCollectionEpisodes[1];
             episode2.Type.ShouldBe(TraktSyncItemType.Episode);
@@ -89,7 +89,7 @@ namespace TraktNET.Json.Syncs
             episode2.Show.Title.ShouldBe("Game of Thrones");
             episode2.AvailableOn.ShouldNotBeNull();
             episode2.AvailableOn.Count.ShouldBe(1);
-            episode2.AvailableOn[0].Name.ShouldBe("max");
+            episode2.AvailableOn[0].Name.ShouldBe(TraktAvailableOn.Digital);
         }
     }
 }

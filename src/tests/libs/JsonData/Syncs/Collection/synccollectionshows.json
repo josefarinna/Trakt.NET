@@ -18,7 +18,12 @@
                 "episodes": [
                     {
                         "number": 1,
-                        "collected_at": "2014-09-01T09:10:11.000Z"
+                        "collected_at": "2014-09-01T09:10:11.000Z",
+                        "available_on": [
+                            {
+                                "name": "digital"
+                            }
+                        ]
                     },
                     {
                         "number": 2,
@@ -31,7 +36,12 @@
                 "episodes": [
                     {
                         "number": 1,
-                        "collected_at": "2014-09-01T09:10:11.000Z"
+                        "collected_at": "2014-09-01T09:10:11.000Z",
+                        "available_on": [
+                            {
+                                "name": "digital"
+                            }
+                        ]
                     },
                     {
                         "number": 2,
@@ -60,7 +70,12 @@
                 "episodes": [
                     {
                         "number": 1,
-                        "collected_at": "2014-09-01T09:10:11.000Z"
+                        "collected_at": "2014-09-01T09:10:11.000Z",
+                        "available_on": [
+                            {
+                                "name": "digital"
+                            }
+                        ]
                     },
                     {
                         "number": 2,
@@ -73,7 +88,12 @@
                 "episodes": [
                     {
                         "number": 1,
-                        "collected_at": "2014-09-01T09:10:11.000Z"
+                        "collected_at": "2014-09-01T09:10:11.000Z",
+                        "available_on": [
+                            {
+                                "name": "digital"
+                            }
+                        ]
                     },
                     {
                         "number": 2,

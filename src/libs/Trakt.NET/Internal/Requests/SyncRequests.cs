@@ -9,7 +9,7 @@ namespace TraktNET
     internal sealed partial class SyncCollectionMoviesGetRequest
     {
         [TraktRequestQuery("available_on")]
-        internal string? AvailableOn { get; set; }
+        internal TraktAvailableOn? AvailableOn { get; set; }
     }
 
     [TraktGetRequest("sync/collection/episodes", SupportsExtendedInfo = true, SupportsPagination = true,
@@ -17,12 +17,14 @@ namespace TraktNET
     internal sealed partial class SyncCollectionEpisodesGetRequest
     {
         [TraktRequestQuery("available_on")]
-        internal string? AvailableOn { get; set; }
+        internal TraktAvailableOn? AvailableOn { get; set; }
     }
 
     [TraktGetRequest("sync/collection/shows", SupportsExtendedInfo = true, OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncCollectionShowsGetRequest
     {
+        [TraktRequestQuery("available_on")]
+        internal TraktAvailableOn? AvailableOn { get; set; }
     }
 
     [TraktGetRequest("sync/collection/media", SupportsExtendedInfo = true, SupportsPagination = true,
@@ -30,28 +32,28 @@ namespace TraktNET
     internal sealed partial class SyncCollectionMediaGetRequest
     {
         [TraktRequestQuery("available_on")]
-        internal string? AvailableOn { get; set; }
+        internal TraktAvailableOn? AvailableOn { get; set; }
     }
 
     [TraktGetRequest("sync/collection/minimal/movies", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncCollectionMinimalMoviesGetRequest
     {
         [TraktRequestQuery("available_on")]
-        internal string? AvailableOn { get; set; }
+        internal TraktAvailableOn? AvailableOn { get; set; }
     }
 
     [TraktGetRequest("sync/collection/minimal/shows", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncCollectionMinimalShowsGetRequest
     {
         [TraktRequestQuery("available_on")]
-        internal string? AvailableOn { get; set; }
+        internal TraktAvailableOn? AvailableOn { get; set; }
     }
 
     [TraktGetRequest("sync/collection/minimal/episodes", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class SyncCollectionMinimalEpisodesGetRequest
     {
         [TraktRequestQuery("available_on")]
-        internal string? AvailableOn { get; set; }
+        internal TraktAvailableOn? AvailableOn { get; set; }
     }
 
     [TraktGetRequest("sync/favorites", SupportsExtendedInfo = true, SupportsPagination = true,

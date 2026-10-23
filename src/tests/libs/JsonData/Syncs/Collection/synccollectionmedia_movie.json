@@ -14,10 +14,10 @@
   },
   "available_on": [
     {
-      "name": "netflix"
+      "name": "digital"
     },
     {
-      "name": "max"
+      "name": "plex"
     }
   ]
 }

@@ -164,7 +164,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the movies.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
-        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="availableOn">Optional filter for media server sources. See also <seealso cref="TraktAvailableOn" />.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -183,7 +183,7 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktSyncCollectionMovie>> GetCollectionMoviesAsync(TraktExtendedInfo? extendedInfo = null,
-            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktAvailableOn? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetCollectionMoviesImplAsync(extendedInfo, availableOn, page, limit, cancellationToken);
 
         /// <summary>Gets all collected episodes in the user's collection.</summary>
@@ -191,7 +191,7 @@ namespace TraktNET
         /// Specifies how much data should be queried about the episodes.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
-        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="availableOn">Optional filter for media server sources. See also <seealso cref="TraktAvailableOn" />.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -210,14 +210,15 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktSyncCollectionEpisode>> GetCollectionEpisodesAsync(TraktExtendedInfo? extendedInfo = null,
-            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktAvailableOn? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetCollectionEpisodesImplAsync(extendedInfo, availableOn, page, limit, cancellationToken);
 
         /// <summary>Gets all collected shows in the user's collection.</summary>
         /// <param name="extendedInfo">
-        /// Specifies how much data should be queried about the movies.
+        /// Specifies how much data should be queried about the shows.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="availableOn">Optional filter for media server sources. See also <seealso cref="TraktAvailableOn" />.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -234,15 +235,15 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktListResponse<TraktSyncCollectionShow>> GetCollectionShowsAsync(TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetCollectionShowsImplAsync(extendedInfo, cancellationToken);
+            TraktAvailableOn? availableOn = null, CancellationToken cancellationToken = default)
+            => GetCollectionShowsImplAsync(extendedInfo, availableOn, cancellationToken);
 
         /// <summary>Gets all collected movies, shows and episodes in the user's collection.</summary>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the media items.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
-        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="availableOn">Optional filter for media server sources. See also <seealso cref="TraktAvailableOn" />.</param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -261,11 +262,11 @@ namespace TraktNET
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         public Task<TraktPagedResponse<TraktSyncCollectionMedia>> GetCollectionMediaAsync(TraktExtendedInfo? extendedInfo = null,
-            string? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            TraktAvailableOn? availableOn = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
             => GetCollectionMediaImplAsync(extendedInfo, availableOn, page, limit, cancellationToken);
 
         /// <summary>Gets the user's minimal movie collection.</summary>
-        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="availableOn">Optional filter for media server sources. See also <seealso cref="TraktAvailableOn" />.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -280,12 +281,12 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        public Task<TraktResponse<Dictionary<string, string>>> GetMinimalMovieCollectionAsync(string? availableOn = null,
+        public Task<TraktResponse<Dictionary<string, string>>> GetMinimalMovieCollectionAsync(TraktAvailableOn? availableOn = null,
             CancellationToken cancellationToken = default)
             => GetMinimalMovieCollectionImplAsync(availableOn, cancellationToken);
 
         /// <summary>Gets the user's minimal show collection.</summary>
-        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="availableOn">Optional filter for media server sources. See also <seealso cref="TraktAvailableOn" />.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -300,12 +301,12 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        public Task<TraktResponse<Dictionary<string, Dictionary<string, Dictionary<string, string>>>>> GetMinimalShowCollectionAsync(string? availableOn = null,
+        public Task<TraktResponse<Dictionary<string, Dictionary<string, Dictionary<string, string>>>>> GetMinimalShowCollectionAsync(TraktAvailableOn? availableOn = null,
             CancellationToken cancellationToken = default)
             => GetMinimalShowCollectionImplAsync(availableOn, cancellationToken);
 
         /// <summary>Gets the user's minimal episode collection.</summary>
-        /// <param name="availableOn">Optional filter for streaming services.</param>
+        /// <param name="availableOn">Optional filter for media server sources. See also <seealso cref="TraktAvailableOn" />.</param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -320,7 +321,7 @@ namespace TraktNET
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
-        public Task<TraktResponse<Dictionary<string, string>>> GetMinimalEpisodeCollectionAsync(string? availableOn = null,
+        public Task<TraktResponse<Dictionary<string, string>>> GetMinimalEpisodeCollectionAsync(TraktAvailableOn? availableOn = null,
             CancellationToken cancellationToken = default)
             => GetMinimalEpisodeCollectionImplAsync(availableOn, cancellationToken);
 

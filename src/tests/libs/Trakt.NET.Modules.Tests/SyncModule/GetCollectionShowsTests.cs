@@ -5,6 +5,7 @@ namespace TraktNET.SyncModule
     public sealed class GetCollectionShowsTests
     {
         private const string GetCollectionsShowUri = "sync/collection/shows";
+        private const TraktAvailableOn AvailableOn = TraktAvailableOn.Digital;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
@@ -13,7 +14,31 @@ namespace TraktNET.SyncModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionshows.json");
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetCollectionsShowUri, responseContent, null, null, null, null);
-            TraktListResponse<TraktSyncCollectionShow> response = await client.Sync.GetCollectionShowsAsync(null, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktSyncCollectionShow> response = await client.Sync.GetCollectionShowsAsync(null, null, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
+
+            TraktSyncCollectionShow show1 = response.Content[0];
+            show1.Seasons.ShouldNotBeNull();
+            show1.Seasons.Count.ShouldBe(2);
+            show1.Seasons[0].Episodes.ShouldNotBeNull();
+            show1.Seasons[0].Episodes!.Count.ShouldBe(2);
+            show1.Seasons[0].Episodes![0].AvailableOn.ShouldNotBeNull();
+            show1.Seasons[0].Episodes![0].AvailableOn!.Count.ShouldBe(1);
+            show1.Seasons[0].Episodes![0].AvailableOn![0].Name.ShouldBe(TraktAvailableOn.Digital);
+        }
+
+        [Fact]
+        public async Task TestGetCollectionShowsWithAvailableOn()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionsShowUri}?available_on={AvailableOn.ToURI()}", responseContent, null, null, null, null);
+            TraktListResponse<TraktSyncCollectionShow> response = await client.Sync.GetCollectionShowsAsync(availableOn: AvailableOn, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -28,7 +53,22 @@ namespace TraktNET.SyncModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionshows.json");
 
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionsShowUri}?extended={ExtendedInfo.ToURI()}", responseContent, null, null, null, null);
-            TraktListResponse<TraktSyncCollectionShow> response = await client.Sync.GetCollectionShowsAsync(ExtendedInfo, TestContext.Current.CancellationToken);
+            TraktListResponse<TraktSyncCollectionShow> response = await client.Sync.GetCollectionShowsAsync(ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe(2);
+        }
+
+        [Fact]
+        public async Task TestGetCollectionShowsWithAvailableOnAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionshows.json");
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionsShowUri}?available_on={AvailableOn.ToURI()}&extended={ExtendedInfo.ToURI()}", responseContent, null, null, null, null);
+            TraktListResponse<TraktSyncCollectionShow> response = await client.Sync.GetCollectionShowsAsync(ExtendedInfo, AvailableOn, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -72,3 +112,4 @@ namespace TraktNET.SyncModule
         }
     }
 }
+

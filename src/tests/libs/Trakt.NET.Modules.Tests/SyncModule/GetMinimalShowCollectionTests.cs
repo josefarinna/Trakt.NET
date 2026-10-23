@@ -28,8 +28,8 @@ namespace TraktNET.SyncModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\getsynccollectionminimalshows.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMinimalShowCollectionUri}?available_on=netflix", responseContent);
-            TraktResponse<Dictionary<string, Dictionary<string, Dictionary<string, string>>>> response = await client.Sync.GetMinimalShowCollectionAsync("netflix", TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetMinimalShowCollectionUri}?available_on={TraktAvailableOn.Digital.ToURI()}", responseContent);
+            TraktResponse<Dictionary<string, Dictionary<string, Dictionary<string, string>>>> response = await client.Sync.GetMinimalShowCollectionAsync(TraktAvailableOn.Digital, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();

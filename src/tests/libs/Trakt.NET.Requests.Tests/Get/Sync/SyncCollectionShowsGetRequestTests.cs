@@ -9,13 +9,19 @@ namespace TraktNET.GetRequests.Sync
         private const string URIPath = "sync/collection/shows";
 
         [Theory]
-        [InlineData(null, URIPath)]
-        [InlineData(TraktExtendedInfo.None, URIPath)]
-        [InlineData(TraktExtendedInfo.Full, $"{URIPath}?extended=full")]
-        public void TestSyncCollectionShowsGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, string expectedURIPath)
+        [InlineData(null, null, URIPath)]
+        [InlineData(TraktAvailableOn.Digital, null, $"{URIPath}?available_on=digital")]
+        [InlineData(TraktAvailableOn.Other, null, $"{URIPath}?available_on=other")]
+        [InlineData(TraktAvailableOn.Plex, null, $"{URIPath}?available_on=plex")]
+        [InlineData(TraktAvailableOn.Jellyfin, null, $"{URIPath}?available_on=jellyfin")]
+        [InlineData(null, TraktExtendedInfo.None, URIPath)]
+        [InlineData(null, TraktExtendedInfo.Full, $"{URIPath}?extended=full")]
+        [InlineData(TraktAvailableOn.Digital, TraktExtendedInfo.Full, $"{URIPath}?available_on=digital&extended=full")]
+        public void TestSyncCollectionShowsGetRequestHasValidURIPath(TraktAvailableOn? availableOn, TraktExtendedInfo? extendedInfo, string expectedURIPath)
         {
             var syncCollectionShowsGetRequest = new SyncCollectionShowsGetRequest
             {
+                AvailableOn = availableOn,
                 ExtendedInfo = extendedInfo
             };
 
@@ -45,3 +51,4 @@ namespace TraktNET.GetRequests.Sync
         }
     }
 }
+
