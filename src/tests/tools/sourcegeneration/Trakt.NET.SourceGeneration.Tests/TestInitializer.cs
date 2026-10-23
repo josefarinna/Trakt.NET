@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace TraktNET.SourceGeneration
 {
@@ -8,7 +8,6 @@ namespace TraktNET.SourceGeneration
         public static void Init()
         {
             VerifySourceGenerators.Initialize();
-            VerifyDiffPlex.Initialize();
         }
     }
 }

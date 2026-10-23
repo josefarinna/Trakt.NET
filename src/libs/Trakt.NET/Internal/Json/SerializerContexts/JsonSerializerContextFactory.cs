@@ -569,7 +569,8 @@ namespace TraktNET
             typeof(TraktSmartListDraftList),
             typeof(TraktSmartListDraftConverted),
             typeof(TraktSmartListDraftsSummary),
-            typeof(TraktSmartListDraftSummaryList)
+            typeof(TraktSmartListDraftSummaryList),
+            typeof(TraktSmartListTemplate)
         });
 
         private static readonly FrozenSet<Type> s_syncsJsonTypes = FrozenSet.ToFrozenSet(new[]
@@ -1151,7 +1152,8 @@ namespace TraktNET
             typeof(TraktSmartListDraftList),
             typeof(TraktSmartListDraftConverted),
             typeof(TraktSmartListDraftsSummary),
-            typeof(TraktSmartListDraftSummaryList)
+            typeof(TraktSmartListDraftSummaryList),
+            typeof(TraktSmartListTemplate)
         ];
 
         private static readonly HashSet<Type> s_syncsJsonTypes = [

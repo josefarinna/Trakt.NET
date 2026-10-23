@@ -1,0 +1,36 @@
+{
+  "id": "hidden-gems",
+  "source": "discover",
+  "media_type": "movies",
+  "filters": {
+    "ratings": [
+      78
+    ],
+    "votes": [
+      300,
+      3000
+    ],
+    "runtimes": [
+      80
+    ],
+    "metascores": [
+      65
+    ]
+  },
+  "personal": false,
+  "total": 315,
+  "items": [
+    {
+      "rank": 1,
+      "type": "movie",
+      "movie": {
+        "title": "Ne Zha 2",
+        "year": 2025,
+        "ids": {
+          "trakt": 787956,
+          "slug": "ne-zha-2-2025"
+        }
+      }
+    }
+  ]
+}

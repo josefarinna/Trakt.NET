@@ -267,5 +267,26 @@ namespace TraktNET
             ArgumentValidator.ThrowIfNull(list);
             return GetSmartListItemsAsync(list.IDs!, type, sortBy, sortHow, filter, watchnow, watchnowCountry, extendedInfo, page, limit, cancellationToken);
         }
+
+        /// <summary>Gets official smart list templates in display order.</summary>
+        /// <param name="extendedInfo">The extended information options. See also <seealso cref="TraktExtendedInfo" />.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be caught.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the queried smart list templates.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktSmartListTemplate" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is optional.
+        /// <para><see href="https://docs.trakt.tv/reference/getsmart_liststemplates">
+        /// Trakt API Documentation: Lists: Smart List Templates
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktListResponse<TraktSmartListTemplate>> GetSmartListTemplatesAsync(
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            => GetSmartListTemplatesImplAsync(extendedInfo, cancellationToken);
     }
 }
