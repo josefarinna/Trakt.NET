@@ -22,18 +22,6 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Person;
     }
 
-    [TraktGetRequest("people/{id!!}/lists", SupportsExtendedInfo = true, SupportsPagination = true)]
-    internal sealed partial class PersonListsGetRequest
-    {
-        [TraktRequestParameter]
-        internal TraktListType? Type { get; set; }
-
-        [TraktRequestParameter]
-        internal TraktListSortOrder? SortOrder { get; set; }
-
-        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Person;
-    }
-
     [TraktGetRequest("people/{id!!}/movies", SupportsExtendedInfo = true)]
     internal sealed partial class PersonMovieCreditsGetRequest
     {

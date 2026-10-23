@@ -58,32 +58,6 @@ namespace TraktNET
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktPerson>(_context, request, cancellationToken);
         }
 
-        private Task<TraktPagedResponse<TraktList>> GetPersonListsImplAsync(string personIdOrSlug, TraktListType? listType = null,
-            TraktListSortOrder? listSortOrder = null, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null,
-            CancellationToken cancellationToken = default)
-        {
-            var request = new PersonListsGetRequest
-            {
-                Id = personIdOrSlug,
-                Type = listType,
-                SortOrder = listSortOrder,
-                ExtendedInfo = extendedInfo,
-                Page = page,
-                Limit = limit
-            };
-
-            return RequestHandler.ExecutePagedListRequestAsync<TraktList>(_context, request, (page, limit)
-                => new PersonListsGetRequest
-                {
-                    Id = personIdOrSlug,
-                    Type = listType,
-                    SortOrder = listSortOrder,
-                    ExtendedInfo = extendedInfo,
-                    Page = page,
-                    Limit = limit
-                }, cancellationToken);
-        }
-
         private Task<TraktResponse<TraktPersonMovieCredits>> GetPersonMovieCreditsImplAsync(string personIdOrSlug, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {
