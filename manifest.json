@@ -6668,6 +6668,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSmartListTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSmartListTemplate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSmartListTemplate",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSmartListTemplate.yml\" sourcestartlinenumber=\"1\">A Trakt smart list template.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktSmartListsModule.yml",
       "output": {
         ".html": {

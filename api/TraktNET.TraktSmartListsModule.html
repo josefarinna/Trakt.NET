@@ -1090,6 +1090,83 @@ Trakt API Documentation: Lists: Smart List Items
     </tbody>
   </table>
 
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktSmartListsModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktSmartListsModule_GetSmartListTemplatesAsync_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListTemplatesAsync*"></a>
+  <h4 id="TraktNET_TraktSmartListsModule_GetSmartListTemplatesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktSmartListsModule.GetSmartListTemplatesAsync(System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetSmartListTemplatesAsync(TraktExtendedInfo?, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets official smart list templates in display order.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktListResponse&lt;TraktSmartListTemplate&gt;&gt; GetSmartListTemplatesAsync(TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
+        <td><span class="parametername">extendedInfo</span></td>
+        <td><p>The extended information options. See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be caught.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktListResponse-1.html">TraktListResponse</a>&lt;<a class="xref" href="TraktNET.TraktSmartListTemplate.html">TraktSmartListTemplate</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktListResponse-1.html">TraktListResponse&lt;TResponseContentType&gt;</a> containing the queried smart list templates.</p>
+<p>See also <a class="xref" href="TraktNET.TraktListResponse-1.html">TraktListResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktSmartListTemplate.html">TraktSmartListTemplate</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktSmartListsModule_GetSmartListTemplatesAsync_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
+<p><a href="https://docs.trakt.tv/reference/getsmart_liststemplates">
+Trakt API Documentation: Lists: Smart List Templates
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktApiException.html">TraktApiException</a></td>
+        <td><p>Thrown, if the request fails.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
 </article>
           </div>
 
