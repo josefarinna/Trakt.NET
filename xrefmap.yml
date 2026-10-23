@@ -571,6 +571,18 @@ references:
   commentId: Overload:TraktNET.CalendarsJsonSerializerContext.NullableTraktMovieStatus
   fullName: TraktNET.CalendarsJsonSerializerContext.NullableTraktMovieStatus
   nameWithType: CalendarsJsonSerializerContext.NullableTraktMovieStatus
+- uid: TraktNET.CalendarsJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.CalendarsJsonSerializerContext.html#TraktNET_CalendarsJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.CalendarsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.CalendarsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: CalendarsJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.CalendarsJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.CalendarsJsonSerializerContext.html#TraktNET_CalendarsJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.CalendarsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.CalendarsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: CalendarsJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.CalendarsJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.CalendarsJsonSerializerContext.html#TraktNET_CalendarsJsonSerializerContext_NullableTraktShowStatus
@@ -835,6 +847,18 @@ references:
   commentId: Overload:TraktNET.CalendarsJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.CalendarsJsonSerializerContext.TraktShowAirs
   nameWithType: CalendarsJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.CalendarsJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.CalendarsJsonSerializerContext.html#TraktNET_CalendarsJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.CalendarsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.CalendarsJsonSerializerContext.TraktShowEnding
+  nameWithType: CalendarsJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.CalendarsJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.CalendarsJsonSerializerContext.html#TraktNET_CalendarsJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.CalendarsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.CalendarsJsonSerializerContext.TraktShowEnding
+  nameWithType: CalendarsJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.CalendarsJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.CalendarsJsonSerializerContext.html#TraktNET_CalendarsJsonSerializerContext_TraktShowIDs
@@ -1261,6 +1285,18 @@ references:
   commentId: Overload:TraktNET.CheckinJsonSerializerContext.NullableTraktMovieStatus
   fullName: TraktNET.CheckinJsonSerializerContext.NullableTraktMovieStatus
   nameWithType: CheckinJsonSerializerContext.NullableTraktMovieStatus
+- uid: TraktNET.CheckinJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.CheckinJsonSerializerContext.html#TraktNET_CheckinJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.CheckinJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.CheckinJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: CheckinJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.CheckinJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.CheckinJsonSerializerContext.html#TraktNET_CheckinJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.CheckinJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.CheckinJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: CheckinJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.CheckinJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.CheckinJsonSerializerContext.html#TraktNET_CheckinJsonSerializerContext_NullableTraktShowStatus
@@ -1561,6 +1597,18 @@ references:
   commentId: Overload:TraktNET.CheckinJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.CheckinJsonSerializerContext.TraktShowAirs
   nameWithType: CheckinJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.CheckinJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.CheckinJsonSerializerContext.html#TraktNET_CheckinJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.CheckinJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.CheckinJsonSerializerContext.TraktShowEnding
+  nameWithType: CheckinJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.CheckinJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.CheckinJsonSerializerContext.html#TraktNET_CheckinJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.CheckinJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.CheckinJsonSerializerContext.TraktShowEnding
+  nameWithType: CheckinJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.CheckinJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.CheckinJsonSerializerContext.html#TraktNET_CheckinJsonSerializerContext_TraktShowIDs
@@ -2050,6 +2098,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.NullableTraktReactionType
   fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktReactionType
   nameWithType: CommentsJsonSerializerContext.NullableTraktReactionType
+- uid: TraktNET.CommentsJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.CommentsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: CommentsJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.CommentsJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: CommentsJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.CommentsJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableTraktShowStatus
@@ -2674,6 +2734,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktShowCommentPost
   fullName: TraktNET.CommentsJsonSerializerContext.TraktShowCommentPost
   nameWithType: CommentsJsonSerializerContext.TraktShowCommentPost
+- uid: TraktNET.CommentsJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktShowEnding
+  nameWithType: CommentsJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.CommentsJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktShowEnding
+  nameWithType: CommentsJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.CommentsJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktShowIDs
@@ -4639,6 +4711,18 @@ references:
   commentId: Overload:TraktNET.HistoryJsonSerializerContext.NullableTraktMovieStatus
   fullName: TraktNET.HistoryJsonSerializerContext.NullableTraktMovieStatus
   nameWithType: HistoryJsonSerializerContext.NullableTraktMovieStatus
+- uid: TraktNET.HistoryJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.HistoryJsonSerializerContext.html#TraktNET_HistoryJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.HistoryJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.HistoryJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: HistoryJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.HistoryJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.HistoryJsonSerializerContext.html#TraktNET_HistoryJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.HistoryJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.HistoryJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: HistoryJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.HistoryJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.HistoryJsonSerializerContext.html#TraktNET_HistoryJsonSerializerContext_NullableTraktShowStatus
@@ -4939,6 +5023,18 @@ references:
   commentId: Overload:TraktNET.HistoryJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.HistoryJsonSerializerContext.TraktShowAirs
   nameWithType: HistoryJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.HistoryJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.HistoryJsonSerializerContext.html#TraktNET_HistoryJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.HistoryJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.HistoryJsonSerializerContext.TraktShowEnding
+  nameWithType: HistoryJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.HistoryJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.HistoryJsonSerializerContext.html#TraktNET_HistoryJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.HistoryJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.HistoryJsonSerializerContext.TraktShowEnding
+  nameWithType: HistoryJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.HistoryJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.HistoryJsonSerializerContext.html#TraktNET_HistoryJsonSerializerContext_TraktShowIDs
@@ -5839,6 +5935,18 @@ references:
   commentId: Overload:TraktNET.ListsJsonSerializerContext.NullableTraktMovieStatus
   fullName: TraktNET.ListsJsonSerializerContext.NullableTraktMovieStatus
   nameWithType: ListsJsonSerializerContext.NullableTraktMovieStatus
+- uid: TraktNET.ListsJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.ListsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.ListsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: ListsJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.ListsJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.ListsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.ListsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: ListsJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.ListsJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableTraktShowStatus
@@ -6379,6 +6487,18 @@ references:
   commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.ListsJsonSerializerContext.TraktShowAirs
   nameWithType: ListsJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.ListsJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.ListsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.ListsJsonSerializerContext.TraktShowEnding
+  nameWithType: ListsJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.ListsJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.ListsJsonSerializerContext.TraktShowEnding
+  nameWithType: ListsJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.ListsJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktShowIDs
@@ -6796,6 +6916,18 @@ references:
   commentId: Overload:TraktNET.MediaJsonSerializerContext.NullableTraktSearchResultType
   fullName: TraktNET.MediaJsonSerializerContext.NullableTraktSearchResultType
   nameWithType: MediaJsonSerializerContext.NullableTraktSearchResultType
+- uid: TraktNET.MediaJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.MediaJsonSerializerContext.html#TraktNET_MediaJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.MediaJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.MediaJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: MediaJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.MediaJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.MediaJsonSerializerContext.html#TraktNET_MediaJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.MediaJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.MediaJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: MediaJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.MediaJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.MediaJsonSerializerContext.html#TraktNET_MediaJsonSerializerContext_NullableTraktShowStatus
@@ -7000,6 +7132,18 @@ references:
   commentId: Overload:TraktNET.MediaJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.MediaJsonSerializerContext.TraktShowAirs
   nameWithType: MediaJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.MediaJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.MediaJsonSerializerContext.html#TraktNET_MediaJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.MediaJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.MediaJsonSerializerContext.TraktShowEnding
+  nameWithType: MediaJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.MediaJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.MediaJsonSerializerContext.html#TraktNET_MediaJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.MediaJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.MediaJsonSerializerContext.TraktShowEnding
+  nameWithType: MediaJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.MediaJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.MediaJsonSerializerContext.html#TraktNET_MediaJsonSerializerContext_TraktShowIDs
@@ -8335,6 +8479,18 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktNotesObjectType
   fullName: TraktNET.NotesJsonSerializerContext.NullableTraktNotesObjectType
   nameWithType: NotesJsonSerializerContext.NullableTraktNotesObjectType
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.NotesJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: NotesJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: NotesJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.NotesJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktShowStatus
@@ -8863,6 +9019,18 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.NotesJsonSerializerContext.TraktShowAirs
   nameWithType: NotesJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.NotesJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.NotesJsonSerializerContext.TraktShowEnding
+  nameWithType: NotesJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.NotesJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.NotesJsonSerializerContext.TraktShowEnding
+  nameWithType: NotesJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.NotesJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktShowIDs
@@ -9484,6 +9652,18 @@ references:
   commentId: Overload:TraktNET.PeopleJsonSerializerContext.NullableTraktMovieStatus
   fullName: TraktNET.PeopleJsonSerializerContext.NullableTraktMovieStatus
   nameWithType: PeopleJsonSerializerContext.NullableTraktMovieStatus
+- uid: TraktNET.PeopleJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.PeopleJsonSerializerContext.html#TraktNET_PeopleJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.PeopleJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.PeopleJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: PeopleJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.PeopleJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.PeopleJsonSerializerContext.html#TraktNET_PeopleJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.PeopleJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.PeopleJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: PeopleJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.PeopleJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.PeopleJsonSerializerContext.html#TraktNET_PeopleJsonSerializerContext_NullableTraktShowStatus
@@ -9844,6 +10024,18 @@ references:
   commentId: Overload:TraktNET.PeopleJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.PeopleJsonSerializerContext.TraktShowAirs
   nameWithType: PeopleJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.PeopleJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.PeopleJsonSerializerContext.html#TraktNET_PeopleJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.PeopleJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.PeopleJsonSerializerContext.TraktShowEnding
+  nameWithType: PeopleJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.PeopleJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.PeopleJsonSerializerContext.html#TraktNET_PeopleJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.PeopleJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.PeopleJsonSerializerContext.TraktShowEnding
+  nameWithType: PeopleJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.PeopleJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.PeopleJsonSerializerContext.html#TraktNET_PeopleJsonSerializerContext_TraktShowIDs
@@ -10342,6 +10534,18 @@ references:
   commentId: Overload:TraktNET.RatingsJsonSerializerContext.NullableTraktRatingsItemType
   fullName: TraktNET.RatingsJsonSerializerContext.NullableTraktRatingsItemType
   nameWithType: RatingsJsonSerializerContext.NullableTraktRatingsItemType
+- uid: TraktNET.RatingsJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.RatingsJsonSerializerContext.html#TraktNET_RatingsJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.RatingsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.RatingsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: RatingsJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.RatingsJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.RatingsJsonSerializerContext.html#TraktNET_RatingsJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.RatingsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.RatingsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: RatingsJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.RatingsJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.RatingsJsonSerializerContext.html#TraktNET_RatingsJsonSerializerContext_NullableTraktShowStatus
@@ -10630,6 +10834,18 @@ references:
   commentId: Overload:TraktNET.RatingsJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.RatingsJsonSerializerContext.TraktShowAirs
   nameWithType: RatingsJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.RatingsJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.RatingsJsonSerializerContext.html#TraktNET_RatingsJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.RatingsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.RatingsJsonSerializerContext.TraktShowEnding
+  nameWithType: RatingsJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.RatingsJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.RatingsJsonSerializerContext.html#TraktNET_RatingsJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.RatingsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.RatingsJsonSerializerContext.TraktShowEnding
+  nameWithType: RatingsJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.RatingsJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.RatingsJsonSerializerContext.html#TraktNET_RatingsJsonSerializerContext_TraktShowIDs
@@ -10951,6 +11167,18 @@ references:
   commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.NullableTraktMovieStatus
   fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktMovieStatus
   nameWithType: RecommendationsJsonSerializerContext.NullableTraktMovieStatus
+- uid: TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: RecommendationsJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: RecommendationsJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableTraktShowStatus
@@ -11155,6 +11383,18 @@ references:
   commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.RecommendationsJsonSerializerContext.TraktShowAirs
   nameWithType: RecommendationsJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.RecommendationsJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.RecommendationsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.RecommendationsJsonSerializerContext.TraktShowEnding
+  nameWithType: RecommendationsJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.RecommendationsJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.RecommendationsJsonSerializerContext.TraktShowEnding
+  nameWithType: RecommendationsJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.RecommendationsJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_TraktShowIDs
@@ -11809,6 +12049,18 @@ references:
   commentId: Overload:TraktNET.ScrobblesJsonSerializerContext.NullableTraktScrobbleActionType
   fullName: TraktNET.ScrobblesJsonSerializerContext.NullableTraktScrobbleActionType
   nameWithType: ScrobblesJsonSerializerContext.NullableTraktScrobbleActionType
+- uid: TraktNET.ScrobblesJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.ScrobblesJsonSerializerContext.html#TraktNET_ScrobblesJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.ScrobblesJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.ScrobblesJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: ScrobblesJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.ScrobblesJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.ScrobblesJsonSerializerContext.html#TraktNET_ScrobblesJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.ScrobblesJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.ScrobblesJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: ScrobblesJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.ScrobblesJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.ScrobblesJsonSerializerContext.html#TraktNET_ScrobblesJsonSerializerContext_NullableTraktShowStatus
@@ -12133,6 +12385,18 @@ references:
   commentId: Overload:TraktNET.ScrobblesJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.ScrobblesJsonSerializerContext.TraktShowAirs
   nameWithType: ScrobblesJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.ScrobblesJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.ScrobblesJsonSerializerContext.html#TraktNET_ScrobblesJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.ScrobblesJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.ScrobblesJsonSerializerContext.TraktShowEnding
+  nameWithType: ScrobblesJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.ScrobblesJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.ScrobblesJsonSerializerContext.html#TraktNET_ScrobblesJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.ScrobblesJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.ScrobblesJsonSerializerContext.TraktShowEnding
+  nameWithType: ScrobblesJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.ScrobblesJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.ScrobblesJsonSerializerContext.html#TraktNET_ScrobblesJsonSerializerContext_TraktShowIDs
@@ -12550,6 +12814,18 @@ references:
   commentId: Overload:TraktNET.SearchsJsonSerializerContext.NullableTraktSearchResultType
   fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktSearchResultType
   nameWithType: SearchsJsonSerializerContext.NullableTraktSearchResultType
+- uid: TraktNET.SearchsJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.SearchsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: SearchsJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.SearchsJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.SearchsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: SearchsJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.SearchsJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableTraktShowStatus
@@ -13006,6 +13282,18 @@ references:
   commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.SearchsJsonSerializerContext.TraktShowAirs
   nameWithType: SearchsJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.SearchsJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.SearchsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.SearchsJsonSerializerContext.TraktShowEnding
+  nameWithType: SearchsJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.SearchsJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.SearchsJsonSerializerContext.TraktShowEnding
+  nameWithType: SearchsJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.SearchsJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktShowIDs
@@ -14296,6 +14584,18 @@ references:
   commentId: Overload:TraktNET.ShowsJsonSerializerContext.NullableTraktEpisodeType
   fullName: TraktNET.ShowsJsonSerializerContext.NullableTraktEpisodeType
   nameWithType: ShowsJsonSerializerContext.NullableTraktEpisodeType
+- uid: TraktNET.ShowsJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.ShowsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.ShowsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: ShowsJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.ShowsJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.ShowsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.ShowsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: ShowsJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.ShowsJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_NullableTraktShowStatus
@@ -14704,6 +15004,18 @@ references:
   commentId: Overload:TraktNET.ShowsJsonSerializerContext.TraktShowCollectionProgress
   fullName: TraktNET.ShowsJsonSerializerContext.TraktShowCollectionProgress
   nameWithType: ShowsJsonSerializerContext.TraktShowCollectionProgress
+- uid: TraktNET.ShowsJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.ShowsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.ShowsJsonSerializerContext.TraktShowEnding
+  nameWithType: ShowsJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.ShowsJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.ShowsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.ShowsJsonSerializerContext.TraktShowEnding
+  nameWithType: ShowsJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.ShowsJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.ShowsJsonSerializerContext.html#TraktNET_ShowsJsonSerializerContext_TraktShowIDs
@@ -16498,6 +16810,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.NullableTraktMovieStatus
   fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktMovieStatus
   nameWithType: SyncsJsonSerializerContext.NullableTraktMovieStatus
+- uid: TraktNET.SyncsJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.SyncsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: SyncsJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.SyncsJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: SyncsJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.SyncsJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktShowStatus
@@ -17038,6 +17362,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.SyncsJsonSerializerContext.TraktShowAirs
   nameWithType: SyncsJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.SyncsJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.SyncsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktShowEnding
+  nameWithType: SyncsJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.SyncsJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktShowEnding
+  nameWithType: SyncsJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.SyncsJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktShowIDs
@@ -25336,6 +25672,18 @@ references:
   commentId: Overload:TraktNET.TraktCollectionShow.Country
   fullName: TraktNET.TraktCollectionShow.Country
   nameWithType: TraktCollectionShow.Country
+- uid: TraktNET.TraktCollectionShow.Ending
+  name: Ending
+  href: api/TraktNET.TraktCollectionShow.html#TraktNET_TraktCollectionShow_Ending
+  commentId: P:TraktNET.TraktCollectionShow.Ending
+  fullName: TraktNET.TraktCollectionShow.Ending
+  nameWithType: TraktCollectionShow.Ending
+- uid: TraktNET.TraktCollectionShow.Ending*
+  name: Ending
+  href: api/TraktNET.TraktCollectionShow.html#TraktNET_TraktCollectionShow_Ending_
+  commentId: Overload:TraktNET.TraktCollectionShow.Ending
+  fullName: TraktNET.TraktCollectionShow.Ending
+  nameWithType: TraktCollectionShow.Ending
 - uid: TraktNET.TraktCollectionShow.EqualityContract
   name: EqualityContract
   href: api/TraktNET.TraktCollectionShow.html#TraktNET_TraktCollectionShow_EqualityContract
@@ -71398,6 +71746,18 @@ references:
   commentId: Overload:TraktNET.TraktShow.Country
   fullName: TraktNET.TraktShow.Country
   nameWithType: TraktShow.Country
+- uid: TraktNET.TraktShow.Ending
+  name: Ending
+  href: api/TraktNET.TraktShow.html#TraktNET_TraktShow_Ending
+  commentId: P:TraktNET.TraktShow.Ending
+  fullName: TraktNET.TraktShow.Ending
+  nameWithType: TraktShow.Ending
+- uid: TraktNET.TraktShow.Ending*
+  name: Ending
+  href: api/TraktNET.TraktShow.html#TraktNET_TraktShow_Ending_
+  commentId: Overload:TraktNET.TraktShow.Ending
+  fullName: TraktNET.TraktShow.Ending
+  nameWithType: TraktShow.Ending
 - uid: TraktNET.TraktShow.EqualityContract
   name: EqualityContract
   href: api/TraktNET.TraktShow.html#TraktNET_TraktShow_EqualityContract
@@ -72598,6 +72958,138 @@ references:
   fullName.vb: TraktNET.TraktShowCommentPost.<>
   nameWithType: TraktShowCommentPost.operator !=
   nameWithType.vb: TraktShowCommentPost.<>
+- uid: TraktNET.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.TraktShowEnding.html
+  commentId: T:TraktNET.TraktShowEnding
+  fullName: TraktNET.TraktShowEnding
+  nameWithType: TraktShowEnding
+- uid: TraktNET.TraktShowEnding.Concluded
+  name: Concluded
+  href: api/TraktNET.TraktShowEnding.html#TraktNET_TraktShowEnding_Concluded
+  commentId: F:TraktNET.TraktShowEnding.Concluded
+  fullName: TraktNET.TraktShowEnding.Concluded
+  nameWithType: TraktShowEnding.Concluded
+- uid: TraktNET.TraktShowEnding.Open
+  name: Open
+  href: api/TraktNET.TraktShowEnding.html#TraktNET_TraktShowEnding_Open
+  commentId: F:TraktNET.TraktShowEnding.Open
+  fullName: TraktNET.TraktShowEnding.Open
+  nameWithType: TraktShowEnding.Open
+- uid: TraktNET.TraktShowEnding.Unspecified
+  name: Unspecified
+  href: api/TraktNET.TraktShowEnding.html#TraktNET_TraktShowEnding_Unspecified
+  commentId: F:TraktNET.TraktShowEnding.Unspecified
+  fullName: TraktNET.TraktShowEnding.Unspecified
+  nameWithType: TraktShowEnding.Unspecified
+- uid: TraktNET.TraktShowEndingExtensions
+  name: TraktShowEndingExtensions
+  href: api/TraktNET.TraktShowEndingExtensions.html
+  commentId: T:TraktNET.TraktShowEndingExtensions
+  fullName: TraktNET.TraktShowEndingExtensions
+  nameWithType: TraktShowEndingExtensions
+- uid: TraktNET.TraktShowEndingExtensions.DisplayName(TraktNET.TraktShowEnding)
+  name: DisplayName(TraktShowEnding)
+  href: api/TraktNET.TraktShowEndingExtensions.html#TraktNET_TraktShowEndingExtensions_DisplayName_TraktNET_TraktShowEnding_
+  commentId: M:TraktNET.TraktShowEndingExtensions.DisplayName(TraktNET.TraktShowEnding)
+  fullName: TraktNET.TraktShowEndingExtensions.DisplayName(TraktNET.TraktShowEnding)
+  nameWithType: TraktShowEndingExtensions.DisplayName(TraktShowEnding)
+- uid: TraktNET.TraktShowEndingExtensions.DisplayName*
+  name: DisplayName
+  href: api/TraktNET.TraktShowEndingExtensions.html#TraktNET_TraktShowEndingExtensions_DisplayName_
+  commentId: Overload:TraktNET.TraktShowEndingExtensions.DisplayName
+  fullName: TraktNET.TraktShowEndingExtensions.DisplayName
+  nameWithType: TraktShowEndingExtensions.DisplayName
+- uid: TraktNET.TraktShowEndingExtensions.ToJson(TraktNET.TraktShowEnding)
+  name: ToJson(TraktShowEnding)
+  href: api/TraktNET.TraktShowEndingExtensions.html#TraktNET_TraktShowEndingExtensions_ToJson_TraktNET_TraktShowEnding_
+  commentId: M:TraktNET.TraktShowEndingExtensions.ToJson(TraktNET.TraktShowEnding)
+  fullName: TraktNET.TraktShowEndingExtensions.ToJson(TraktNET.TraktShowEnding)
+  nameWithType: TraktShowEndingExtensions.ToJson(TraktShowEnding)
+- uid: TraktNET.TraktShowEndingExtensions.ToJson*
+  name: ToJson
+  href: api/TraktNET.TraktShowEndingExtensions.html#TraktNET_TraktShowEndingExtensions_ToJson_
+  commentId: Overload:TraktNET.TraktShowEndingExtensions.ToJson
+  fullName: TraktNET.TraktShowEndingExtensions.ToJson
+  nameWithType: TraktShowEndingExtensions.ToJson
+- uid: TraktNET.TraktShowEndingExtensions.ToTraktShowEnding(System.String)
+  name: ToTraktShowEnding(string?)
+  href: api/TraktNET.TraktShowEndingExtensions.html#TraktNET_TraktShowEndingExtensions_ToTraktShowEnding_System_String_
+  commentId: M:TraktNET.TraktShowEndingExtensions.ToTraktShowEnding(System.String)
+  name.vb: ToTraktShowEnding(String)
+  fullName: TraktNET.TraktShowEndingExtensions.ToTraktShowEnding(string?)
+  fullName.vb: TraktNET.TraktShowEndingExtensions.ToTraktShowEnding(String)
+  nameWithType: TraktShowEndingExtensions.ToTraktShowEnding(string?)
+  nameWithType.vb: TraktShowEndingExtensions.ToTraktShowEnding(String)
+- uid: TraktNET.TraktShowEndingExtensions.ToTraktShowEnding*
+  name: ToTraktShowEnding
+  href: api/TraktNET.TraktShowEndingExtensions.html#TraktNET_TraktShowEndingExtensions_ToTraktShowEnding_
+  commentId: Overload:TraktNET.TraktShowEndingExtensions.ToTraktShowEnding
+  fullName: TraktNET.TraktShowEndingExtensions.ToTraktShowEnding
+  nameWithType: TraktShowEndingExtensions.ToTraktShowEnding
+- uid: TraktNET.TraktShowEndingJsonConverter
+  name: TraktShowEndingJsonConverter
+  href: api/TraktNET.TraktShowEndingJsonConverter.html
+  commentId: T:TraktNET.TraktShowEndingJsonConverter
+  fullName: TraktNET.TraktShowEndingJsonConverter
+  nameWithType: TraktShowEndingJsonConverter
+- uid: TraktNET.TraktShowEndingJsonConverter.#ctor
+  name: TraktShowEndingJsonConverter()
+  href: api/TraktNET.TraktShowEndingJsonConverter.html#TraktNET_TraktShowEndingJsonConverter__ctor
+  commentId: M:TraktNET.TraktShowEndingJsonConverter.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktShowEndingJsonConverter.TraktShowEndingJsonConverter()
+  fullName.vb: TraktNET.TraktShowEndingJsonConverter.New()
+  nameWithType: TraktShowEndingJsonConverter.TraktShowEndingJsonConverter()
+  nameWithType.vb: TraktShowEndingJsonConverter.New()
+- uid: TraktNET.TraktShowEndingJsonConverter.#ctor*
+  name: TraktShowEndingJsonConverter
+  href: api/TraktNET.TraktShowEndingJsonConverter.html#TraktNET_TraktShowEndingJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktShowEndingJsonConverter.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktShowEndingJsonConverter.TraktShowEndingJsonConverter
+  fullName.vb: TraktNET.TraktShowEndingJsonConverter.New
+  nameWithType: TraktShowEndingJsonConverter.TraktShowEndingJsonConverter
+  nameWithType.vb: TraktShowEndingJsonConverter.New
+- uid: TraktNET.TraktShowEndingJsonConverter.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: api/TraktNET.TraktShowEndingJsonConverter.html#TraktNET_TraktShowEndingJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktShowEndingJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktShowEndingJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktShowEndingJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktShowEndingJsonConverter.CanConvert*
+  name: CanConvert
+  href: api/TraktNET.TraktShowEndingJsonConverter.html#TraktNET_TraktShowEndingJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktShowEndingJsonConverter.CanConvert
+  fullName: TraktNET.TraktShowEndingJsonConverter.CanConvert
+  nameWithType: TraktShowEndingJsonConverter.CanConvert
+- uid: TraktNET.TraktShowEndingJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/TraktNET.TraktShowEndingJsonConverter.html#TraktNET_TraktShowEndingJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktShowEndingJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: TraktNET.TraktShowEndingJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktShowEndingJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktShowEndingJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktShowEndingJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktShowEndingJsonConverter.Read*
+  name: Read
+  href: api/TraktNET.TraktShowEndingJsonConverter.html#TraktNET_TraktShowEndingJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktShowEndingJsonConverter.Read
+  fullName: TraktNET.TraktShowEndingJsonConverter.Read
+  nameWithType: TraktShowEndingJsonConverter.Read
+- uid: TraktNET.TraktShowEndingJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktShowEnding,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktShowEnding, JsonSerializerOptions)
+  href: api/TraktNET.TraktShowEndingJsonConverter.html#TraktNET_TraktShowEndingJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktShowEnding_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktShowEndingJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktShowEnding,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktShowEndingJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktShowEnding, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktShowEndingJsonConverter.Write(Utf8JsonWriter, TraktShowEnding, JsonSerializerOptions)
+- uid: TraktNET.TraktShowEndingJsonConverter.Write*
+  name: Write
+  href: api/TraktNET.TraktShowEndingJsonConverter.html#TraktNET_TraktShowEndingJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktShowEndingJsonConverter.Write
+  fullName: TraktNET.TraktShowEndingJsonConverter.Write
+  nameWithType: TraktShowEndingJsonConverter.Write
 - uid: TraktNET.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.TraktShowIDs.html
@@ -127150,6 +127642,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.NullableTraktMovieStatus
   fullName: TraktNET.UsersJsonSerializerContext.NullableTraktMovieStatus
   nameWithType: UsersJsonSerializerContext.NullableTraktMovieStatus
+- uid: TraktNET.UsersJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.UsersJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.UsersJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: UsersJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.UsersJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.UsersJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: UsersJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.UsersJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableTraktShowStatus
@@ -128362,6 +128866,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.UsersJsonSerializerContext.TraktShowAirs
   nameWithType: UsersJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.UsersJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.UsersJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.UsersJsonSerializerContext.TraktShowEnding
+  nameWithType: UsersJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.UsersJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.UsersJsonSerializerContext.TraktShowEnding
+  nameWithType: UsersJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.UsersJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktShowIDs
@@ -130207,6 +130723,18 @@ references:
   commentId: Overload:TraktNET.WatchedJsonSerializerContext.NullableTraktMovieStatus
   fullName: TraktNET.WatchedJsonSerializerContext.NullableTraktMovieStatus
   nameWithType: WatchedJsonSerializerContext.NullableTraktMovieStatus
+- uid: TraktNET.WatchedJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.WatchedJsonSerializerContext.html#TraktNET_WatchedJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.WatchedJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.WatchedJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: WatchedJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.WatchedJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.WatchedJsonSerializerContext.html#TraktNET_WatchedJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.WatchedJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.WatchedJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: WatchedJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.WatchedJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.WatchedJsonSerializerContext.html#TraktNET_WatchedJsonSerializerContext_NullableTraktShowStatus
@@ -130435,6 +130963,18 @@ references:
   commentId: Overload:TraktNET.WatchedJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.WatchedJsonSerializerContext.TraktShowAirs
   nameWithType: WatchedJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.WatchedJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.WatchedJsonSerializerContext.html#TraktNET_WatchedJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.WatchedJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.WatchedJsonSerializerContext.TraktShowEnding
+  nameWithType: WatchedJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.WatchedJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.WatchedJsonSerializerContext.html#TraktNET_WatchedJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.WatchedJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.WatchedJsonSerializerContext.TraktShowEnding
+  nameWithType: WatchedJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.WatchedJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.WatchedJsonSerializerContext.html#TraktNET_WatchedJsonSerializerContext_TraktShowIDs
@@ -130828,6 +131368,18 @@ references:
   commentId: Overload:TraktNET.WatchlistJsonSerializerContext.NullableTraktMovieStatus
   fullName: TraktNET.WatchlistJsonSerializerContext.NullableTraktMovieStatus
   nameWithType: WatchlistJsonSerializerContext.NullableTraktMovieStatus
+- uid: TraktNET.WatchlistJsonSerializerContext.NullableTraktShowEnding
+  name: NullableTraktShowEnding
+  href: api/TraktNET.WatchlistJsonSerializerContext.html#TraktNET_WatchlistJsonSerializerContext_NullableTraktShowEnding
+  commentId: P:TraktNET.WatchlistJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.WatchlistJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: WatchlistJsonSerializerContext.NullableTraktShowEnding
+- uid: TraktNET.WatchlistJsonSerializerContext.NullableTraktShowEnding*
+  name: NullableTraktShowEnding
+  href: api/TraktNET.WatchlistJsonSerializerContext.html#TraktNET_WatchlistJsonSerializerContext_NullableTraktShowEnding_
+  commentId: Overload:TraktNET.WatchlistJsonSerializerContext.NullableTraktShowEnding
+  fullName: TraktNET.WatchlistJsonSerializerContext.NullableTraktShowEnding
+  nameWithType: WatchlistJsonSerializerContext.NullableTraktShowEnding
 - uid: TraktNET.WatchlistJsonSerializerContext.NullableTraktShowStatus
   name: NullableTraktShowStatus
   href: api/TraktNET.WatchlistJsonSerializerContext.html#TraktNET_WatchlistJsonSerializerContext_NullableTraktShowStatus
@@ -131116,6 +131668,18 @@ references:
   commentId: Overload:TraktNET.WatchlistJsonSerializerContext.TraktShowAirs
   fullName: TraktNET.WatchlistJsonSerializerContext.TraktShowAirs
   nameWithType: WatchlistJsonSerializerContext.TraktShowAirs
+- uid: TraktNET.WatchlistJsonSerializerContext.TraktShowEnding
+  name: TraktShowEnding
+  href: api/TraktNET.WatchlistJsonSerializerContext.html#TraktNET_WatchlistJsonSerializerContext_TraktShowEnding
+  commentId: P:TraktNET.WatchlistJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.WatchlistJsonSerializerContext.TraktShowEnding
+  nameWithType: WatchlistJsonSerializerContext.TraktShowEnding
+- uid: TraktNET.WatchlistJsonSerializerContext.TraktShowEnding*
+  name: TraktShowEnding
+  href: api/TraktNET.WatchlistJsonSerializerContext.html#TraktNET_WatchlistJsonSerializerContext_TraktShowEnding_
+  commentId: Overload:TraktNET.WatchlistJsonSerializerContext.TraktShowEnding
+  fullName: TraktNET.WatchlistJsonSerializerContext.TraktShowEnding
+  nameWithType: WatchlistJsonSerializerContext.TraktShowEnding
 - uid: TraktNET.WatchlistJsonSerializerContext.TraktShowIDs
   name: TraktShowIDs
   href: api/TraktNET.WatchlistJsonSerializerContext.html#TraktNET_WatchlistJsonSerializerContext_TraktShowIDs

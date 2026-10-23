@@ -6122,6 +6122,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktShowEnding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktShowEnding.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktShowEnding",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktShowEnding.yml\" sourcestartlinenumber=\"1\">Determines how the story ended for a show.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktShowEndingExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktShowEndingExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktShowEndingExtensions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktShowEndingExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktShowEnding\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktShowEndingJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktShowEndingJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktShowEndingJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktShowEndingJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktShowEnding\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktShowIDs.yml",
       "output": {
         ".html": {
