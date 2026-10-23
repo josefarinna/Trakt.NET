@@ -44,6 +44,9 @@ namespace TraktNET
         /// <summary>The show's current status. See also <seealso cref="TraktShowStatus" />.</summary>
         public TraktShowStatus? Status { get; set; }
 
+        /// <summary>How the story ended for canceled and ended shows. See also <seealso cref="TraktShowEnding" />.</summary>
+        public TraktShowEnding? Ending { get; set; }
+
         /// <summary>The average user rating of the show.</summary>
         public float? Rating { get; set; }
 

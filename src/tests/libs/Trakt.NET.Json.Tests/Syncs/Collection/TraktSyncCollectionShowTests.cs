@@ -23,6 +23,7 @@ namespace TraktNET.Json.Syncs
             syncCollectionShow.Trailer.ShouldBeNull();
             syncCollectionShow.Homepage.ShouldBeNull();
             syncCollectionShow.Status.ShouldBeNull();
+            syncCollectionShow.Ending.ShouldBeNull();
             syncCollectionShow.Rating.ShouldBeNull();
             syncCollectionShow.Votes.ShouldBeNull();
             syncCollectionShow.CommentCount.ShouldBeNull();

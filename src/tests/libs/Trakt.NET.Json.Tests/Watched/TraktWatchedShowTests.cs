@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Watched
+namespace TraktNET.Json.Watched
 {
     public sealed class TraktWatchedShowTests
     {
@@ -31,6 +31,7 @@
             watchedShow.Trailer.ShouldBeNullOrEmpty();
             watchedShow.Homepage.ShouldBeNullOrEmpty();
             watchedShow.Status.ShouldBeNull();
+            watchedShow.Ending.ShouldBeNull();
             watchedShow.Rating.ShouldBeNull();
             watchedShow.Votes.ShouldBeNull();
             watchedShow.Language.ShouldBeNullOrEmpty();
@@ -98,6 +99,7 @@
             watchedShow.Trailer.ShouldBeNullOrEmpty();
             watchedShow.Homepage.ShouldBeNullOrEmpty();
             watchedShow.Status.ShouldBeNull();
+            watchedShow.Ending.ShouldBeNull();
             watchedShow.Rating.ShouldBeNull();
             watchedShow.Votes.ShouldBeNull();
             watchedShow.Language.ShouldBeNullOrEmpty();
