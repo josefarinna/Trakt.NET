@@ -7676,20 +7676,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.yml\" sourcestartlinenumber=\"1\">A rated Trakt episode, which was not found.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktSyncRatingsPostResponseNotFoundGroup.yml",
       "output": {
         ".html": {
@@ -7715,20 +7701,6 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncRatingsPostResponseNotFoundMovie",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.yml\" sourcestartlinenumber=\"1\">A rated Trakt movie, which was not found.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TraktNET.TraktSyncRatingsPostResponseNotFoundSeason",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.yml\" sourcestartlinenumber=\"1\">A rated Trakt season, which was not found.</p>\n"
     },
     {
       "type": "ManagedReference",
