@@ -10,7 +10,7 @@ namespace TraktNET.CommentsModule
         [Fact]
         public async Task TestAddCommentReaction()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(AddCommentReactionUri, HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(AddCommentReactionUri, HttpStatusCode.NoContent);
             TraktResponse response = await client.Comments.AddCommentReactionAsync(CommentID, TraktReactionType.Like, TestContext.Current.CancellationToken);
             response.IsSuccess.ShouldBeTrue();
         }
@@ -18,7 +18,7 @@ namespace TraktNET.CommentsModule
         [Fact]
         public async Task TestAddCommentReactionThrowsArgumentException()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(AddCommentReactionUri, HttpStatusCode.Created);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(AddCommentReactionUri, HttpStatusCode.NoContent);
 
             Func<Task<TraktResponse>> act = () => client.Comments.AddCommentReactionAsync(0, TraktReactionType.Like, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
