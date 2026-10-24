@@ -127162,6 +127162,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.IReadOnlyListString
   fullName: TraktNET.UsersJsonSerializerContext.IReadOnlyListString
   nameWithType: UsersJsonSerializerContext.IReadOnlyListString
+- uid: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktCollectionUser
+  name: IReadOnlyListTraktCollectionUser
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_IReadOnlyListTraktCollectionUser
+  commentId: P:TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktCollectionUser
+  fullName: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktCollectionUser
+  nameWithType: UsersJsonSerializerContext.IReadOnlyListTraktCollectionUser
+- uid: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktCollectionUser*
+  name: IReadOnlyListTraktCollectionUser
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_IReadOnlyListTraktCollectionUser_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktCollectionUser
+  fullName: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktCollectionUser
+  nameWithType: UsersJsonSerializerContext.IReadOnlyListTraktCollectionUser
 - uid: TraktNET.UsersJsonSerializerContext.IReadOnlyListTraktFavorite
   name: IReadOnlyListTraktFavorite
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_IReadOnlyListTraktFavorite
