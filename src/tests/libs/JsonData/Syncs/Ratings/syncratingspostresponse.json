@@ -1,4 +1,4 @@
-{
+﻿{
     "added": {
         "movies": 1,
         "shows": 2,
@@ -15,7 +15,29 @@
                 }
             }
         ],
-        "shows": [ ],
+        "shows": [
+            {
+                "rating": 9,
+                "rated_at": "2014-10-11T17:00:54.000Z",
+                "ids": {
+                    "trakt": 1
+                },
+                "seasons": [
+                    {
+                        "number": 1,
+                        "rating": 8,
+                        "rated_at": "2014-10-11T17:00:54.000Z",
+                        "episodes": [
+                            {
+                                "number": 1,
+                                "rating": 7,
+                                "rated_at": "2014-10-11T17:00:54.000Z"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
         "seasons": [ ],
         "episodes": [ ]
     }

@@ -1,4 +1,4 @@
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -14,5 +14,10 @@ namespace TraktNET
         /// <summary>Gets or sets the ids of the not found show. See also <seealso cref="TraktShowIDs" />.</summary>
         [JsonPropertyName("ids")]
         public TraktShowIDs? IDs { get; set; }
+
+        /// <summary>
+        /// An optional list of <see cref="TraktSyncRatingsPostShowSeason" />s.
+        /// </summary>
+        public List<TraktSyncRatingsPostShowSeason>? Seasons { get; set; }
     }
 }
