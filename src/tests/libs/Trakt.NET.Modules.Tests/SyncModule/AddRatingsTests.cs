@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SyncModule
 {
@@ -39,6 +39,7 @@ namespace TraktNET.SyncModule
             TraktSyncRatingsPostResponseNotFoundMovie[] movies = [.. responseValue.NotFound.Movies!];
 
             movies[0].Rating.ShouldBe(10);
+            movies[0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
             movies[0].IDs.ShouldNotBeNull();
             movies[0].IDs!.Trakt.ShouldBeNull();
             movies[0].IDs!.Slug.ShouldBeNullOrEmpty();
