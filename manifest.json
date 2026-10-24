@@ -7770,7 +7770,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncRatingsPostShow",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncRatingsPostShow.yml\" sourcestartlinenumber=\"1\">A Trakt ratings post show, containing the required show ids,\na rating and an optional datetime, when the show was rated.</p>\n<p>Can also contain optional seasons.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncRatingsPostShow.yml\" sourcestartlinenumber=\"1\">A Trakt ratings post show, containing the required show ids,\nan optional rating and an optional datetime, when the show was rated.</p>\n<p>Can also contain optional seasons.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -7798,7 +7798,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncRatingsPostShowSeason",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncRatingsPostShowSeason.yml\" sourcestartlinenumber=\"1\">A Trakt ratings post season, containing the required season number and optional episodes,\na rating and an optional datetime, when the season was rated.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncRatingsPostShowSeason.yml\" sourcestartlinenumber=\"1\">A Trakt ratings post season, containing the required season number and optional episodes,\nan optional rating and an optional datetime, when the season was rated.</p>\n"
     },
     {
       "type": "ManagedReference",

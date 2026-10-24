@@ -93166,6 +93166,18 @@ references:
   commentId: Overload:TraktNET.TraktSyncRatingsPostResponseNotFoundShow.Rating
   fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.Rating
   nameWithType: TraktSyncRatingsPostResponseNotFoundShow.Rating
+- uid: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.Seasons
+  name: Seasons
+  href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundShow.html#TraktNET_TraktSyncRatingsPostResponseNotFoundShow_Seasons
+  commentId: P:TraktNET.TraktSyncRatingsPostResponseNotFoundShow.Seasons
+  fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.Seasons
+  nameWithType: TraktSyncRatingsPostResponseNotFoundShow.Seasons
+- uid: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.Seasons*
+  name: Seasons
+  href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundShow.html#TraktNET_TraktSyncRatingsPostResponseNotFoundShow_Seasons_
+  commentId: Overload:TraktNET.TraktSyncRatingsPostResponseNotFoundShow.Seasons
+  fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.Seasons
+  nameWithType: TraktSyncRatingsPostResponseNotFoundShow.Seasons
 - uid: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.ToString
   name: ToString()
   href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundShow.html#TraktNET_TraktSyncRatingsPostResponseNotFoundShow_ToString
@@ -93736,6 +93748,18 @@ references:
   commentId: Overload:TraktNET.TraktSyncRatingsPostShowEpisode.ToString
   fullName: TraktNET.TraktSyncRatingsPostShowEpisode.ToString
   nameWithType: TraktSyncRatingsPostShowEpisode.ToString
+- uid: TraktNET.TraktSyncRatingsPostShowEpisode.Validate
+  name: Validate()
+  href: api/TraktNET.TraktSyncRatingsPostShowEpisode.html#TraktNET_TraktSyncRatingsPostShowEpisode_Validate
+  commentId: M:TraktNET.TraktSyncRatingsPostShowEpisode.Validate
+  fullName: TraktNET.TraktSyncRatingsPostShowEpisode.Validate()
+  nameWithType: TraktSyncRatingsPostShowEpisode.Validate()
+- uid: TraktNET.TraktSyncRatingsPostShowEpisode.Validate*
+  name: Validate
+  href: api/TraktNET.TraktSyncRatingsPostShowEpisode.html#TraktNET_TraktSyncRatingsPostShowEpisode_Validate_
+  commentId: Overload:TraktNET.TraktSyncRatingsPostShowEpisode.Validate
+  fullName: TraktNET.TraktSyncRatingsPostShowEpisode.Validate
+  nameWithType: TraktSyncRatingsPostShowEpisode.Validate
 - uid: TraktNET.TraktSyncRatingsPostShowEpisode.op_Equality(TraktNET.TraktSyncRatingsPostShowEpisode,TraktNET.TraktSyncRatingsPostShowEpisode)
   name: operator ==(TraktSyncRatingsPostShowEpisode?, TraktSyncRatingsPostShowEpisode?)
   href: api/TraktNET.TraktSyncRatingsPostShowEpisode.html#TraktNET_TraktSyncRatingsPostShowEpisode_op_Equality_TraktNET_TraktSyncRatingsPostShowEpisode_TraktNET_TraktSyncRatingsPostShowEpisode_
@@ -93922,6 +93946,18 @@ references:
   commentId: Overload:TraktNET.TraktSyncRatingsPostShowSeason.ToString
   fullName: TraktNET.TraktSyncRatingsPostShowSeason.ToString
   nameWithType: TraktSyncRatingsPostShowSeason.ToString
+- uid: TraktNET.TraktSyncRatingsPostShowSeason.Validate
+  name: Validate()
+  href: api/TraktNET.TraktSyncRatingsPostShowSeason.html#TraktNET_TraktSyncRatingsPostShowSeason_Validate
+  commentId: M:TraktNET.TraktSyncRatingsPostShowSeason.Validate
+  fullName: TraktNET.TraktSyncRatingsPostShowSeason.Validate()
+  nameWithType: TraktSyncRatingsPostShowSeason.Validate()
+- uid: TraktNET.TraktSyncRatingsPostShowSeason.Validate*
+  name: Validate
+  href: api/TraktNET.TraktSyncRatingsPostShowSeason.html#TraktNET_TraktSyncRatingsPostShowSeason_Validate_
+  commentId: Overload:TraktNET.TraktSyncRatingsPostShowSeason.Validate
+  fullName: TraktNET.TraktSyncRatingsPostShowSeason.Validate
+  nameWithType: TraktSyncRatingsPostShowSeason.Validate
 - uid: TraktNET.TraktSyncRatingsPostShowSeason.op_Equality(TraktNET.TraktSyncRatingsPostShowSeason,TraktNET.TraktSyncRatingsPostShowSeason)
   name: operator ==(TraktSyncRatingsPostShowSeason?, TraktSyncRatingsPostShowSeason?)
   href: api/TraktNET.TraktSyncRatingsPostShowSeason.html#TraktNET_TraktSyncRatingsPostShowSeason_op_Equality_TraktNET_TraktSyncRatingsPostShowSeason_TraktNET_TraktSyncRatingsPostShowSeason_
