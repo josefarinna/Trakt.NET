@@ -92422,6 +92422,18 @@ references:
   commentId: Overload:TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.PrintMembers
   fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.PrintMembers
   nameWithType: TraktSyncRatingsPostResponseNotFoundEpisode.PrintMembers
+- uid: TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.RatedAt
+  name: RatedAt
+  href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.html#TraktNET_TraktSyncRatingsPostResponseNotFoundEpisode_RatedAt
+  commentId: P:TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.RatedAt
+  fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.RatedAt
+  nameWithType: TraktSyncRatingsPostResponseNotFoundEpisode.RatedAt
+- uid: TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.RatedAt*
+  name: RatedAt
+  href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.html#TraktNET_TraktSyncRatingsPostResponseNotFoundEpisode_RatedAt_
+  commentId: Overload:TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.RatedAt
+  fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.RatedAt
+  nameWithType: TraktSyncRatingsPostResponseNotFoundEpisode.RatedAt
 - uid: TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.Rating
   name: Rating
   href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundEpisode.html#TraktNET_TraktSyncRatingsPostResponseNotFoundEpisode_Rating
@@ -92776,6 +92788,18 @@ references:
   commentId: Overload:TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.PrintMembers
   fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.PrintMembers
   nameWithType: TraktSyncRatingsPostResponseNotFoundMovie.PrintMembers
+- uid: TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.RatedAt
+  name: RatedAt
+  href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.html#TraktNET_TraktSyncRatingsPostResponseNotFoundMovie_RatedAt
+  commentId: P:TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.RatedAt
+  fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.RatedAt
+  nameWithType: TraktSyncRatingsPostResponseNotFoundMovie.RatedAt
+- uid: TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.RatedAt*
+  name: RatedAt
+  href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.html#TraktNET_TraktSyncRatingsPostResponseNotFoundMovie_RatedAt_
+  commentId: Overload:TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.RatedAt
+  fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.RatedAt
+  nameWithType: TraktSyncRatingsPostResponseNotFoundMovie.RatedAt
 - uid: TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.Rating
   name: Rating
   href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundMovie.html#TraktNET_TraktSyncRatingsPostResponseNotFoundMovie_Rating
@@ -92941,6 +92965,18 @@ references:
   commentId: Overload:TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.PrintMembers
   fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.PrintMembers
   nameWithType: TraktSyncRatingsPostResponseNotFoundSeason.PrintMembers
+- uid: TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.RatedAt
+  name: RatedAt
+  href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.html#TraktNET_TraktSyncRatingsPostResponseNotFoundSeason_RatedAt
+  commentId: P:TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.RatedAt
+  fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.RatedAt
+  nameWithType: TraktSyncRatingsPostResponseNotFoundSeason.RatedAt
+- uid: TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.RatedAt*
+  name: RatedAt
+  href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.html#TraktNET_TraktSyncRatingsPostResponseNotFoundSeason_RatedAt_
+  commentId: Overload:TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.RatedAt
+  fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.RatedAt
+  nameWithType: TraktSyncRatingsPostResponseNotFoundSeason.RatedAt
 - uid: TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.Rating
   name: Rating
   href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundSeason.html#TraktNET_TraktSyncRatingsPostResponseNotFoundSeason_Rating
@@ -93106,6 +93142,18 @@ references:
   commentId: Overload:TraktNET.TraktSyncRatingsPostResponseNotFoundShow.PrintMembers
   fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.PrintMembers
   nameWithType: TraktSyncRatingsPostResponseNotFoundShow.PrintMembers
+- uid: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.RatedAt
+  name: RatedAt
+  href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundShow.html#TraktNET_TraktSyncRatingsPostResponseNotFoundShow_RatedAt
+  commentId: P:TraktNET.TraktSyncRatingsPostResponseNotFoundShow.RatedAt
+  fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.RatedAt
+  nameWithType: TraktSyncRatingsPostResponseNotFoundShow.RatedAt
+- uid: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.RatedAt*
+  name: RatedAt
+  href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundShow.html#TraktNET_TraktSyncRatingsPostResponseNotFoundShow_RatedAt_
+  commentId: Overload:TraktNET.TraktSyncRatingsPostResponseNotFoundShow.RatedAt
+  fullName: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.RatedAt
+  nameWithType: TraktSyncRatingsPostResponseNotFoundShow.RatedAt
 - uid: TraktNET.TraktSyncRatingsPostResponseNotFoundShow.Rating
   name: Rating
   href: api/TraktNET.TraktSyncRatingsPostResponseNotFoundShow.html#TraktNET_TraktSyncRatingsPostResponseNotFoundShow_Rating
