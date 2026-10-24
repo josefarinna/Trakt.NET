@@ -1,4 +1,4 @@
-namespace TraktNET.Json.Syncs
+﻿namespace TraktNET.Json.Syncs
 {
     public sealed class TraktSyncRatingsPostResponseTests
     {
@@ -29,6 +29,7 @@ namespace TraktNET.Json.Syncs
             notFoundShow.Rating.ShouldBeNull();
             notFoundShow.RatedAt.ShouldBeNull();
             notFoundShow.IDs.ShouldBeNull();
+            notFoundShow.Seasons.ShouldBeNull();
         }
 
         [Fact]
@@ -81,7 +82,26 @@ namespace TraktNET.Json.Syncs
             notFoundMovies[0].IDs!.TMDB.ShouldBeNull();
 
             syncRatingsPostResponse.NotFound.Shows.ShouldNotBeNull();
-            syncRatingsPostResponse.NotFound.Shows.Count.ShouldBe(0);
+            syncRatingsPostResponse.NotFound.Shows.Count.ShouldBe(1);
+
+            TraktSyncRatingsPostResponseNotFoundShow[] notFoundShows = [.. syncRatingsPostResponse.NotFound.Shows];
+
+            notFoundShows[0].ShouldNotBeNull();
+            notFoundShows[0].Rating.ShouldBe(9);
+            notFoundShows[0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
+            notFoundShows[0].IDs.ShouldNotBeNull();
+            notFoundShows[0].IDs!.Trakt.ShouldBe(1U);
+            notFoundShows[0].Seasons.ShouldNotBeNull();
+            notFoundShows[0].Seasons!.Count.ShouldBe(1);
+
+            notFoundShows[0].Seasons![0].Number.ShouldBe(1U);
+            notFoundShows[0].Seasons![0].Rating.ShouldBe(8);
+            notFoundShows[0].Seasons![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
+            notFoundShows[0].Seasons![0].Episodes.ShouldNotBeNull();
+            notFoundShows[0].Seasons![0].Episodes!.Count.ShouldBe(1);
+            notFoundShows[0].Seasons![0].Episodes![0].Number.ShouldBe(1U);
+            notFoundShows[0].Seasons![0].Episodes![0].Rating.ShouldBe(7);
+            notFoundShows[0].Seasons![0].Episodes![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
 
             syncRatingsPostResponse.NotFound.Seasons.ShouldNotBeNull();
             syncRatingsPostResponse.NotFound.Seasons.Count.ShouldBe(0);

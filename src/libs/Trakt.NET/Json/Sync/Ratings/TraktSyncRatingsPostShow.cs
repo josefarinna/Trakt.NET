@@ -4,12 +4,12 @@ namespace TraktNET
 {
     /// <summary>
     /// A Trakt ratings post show, containing the required show ids,
-    /// a rating and an optional datetime, when the show was rated.
+    /// an optional rating and an optional datetime, when the show was rated.
     /// <para>Can also contain optional seasons.</para>
     /// </summary>
     public record class TraktSyncRatingsPostShow : TraktSyncRemovePostShow
     {
-        /// <summary>Gets or sets the rating for the show.</summary>
+        /// <summary>Gets or sets the optional rating for the show. Required if <see cref="Seasons" /> is not set.</summary>
         public int? Rating { get; set; }
 
         /// <summary>Gets or sets the optional UTC datetime, when the Trakt show was rated.</summary>
@@ -26,9 +26,24 @@ namespace TraktNET
 
         public void Validate()
         {
-            if (Rating == null || (Rating < 1 || Rating > 10))
+            bool hasSeasons = Seasons != null && Seasons.Count > 0;
+
+            if (Rating == null && !hasSeasons)
+            {
+                throw new TraktPostValidationException(nameof(Rating), "Rating must be set when no seasons are set.");
+            }
+
+            if (Rating != null && (Rating < 1 || Rating > 10))
             {
                 throw new TraktPostValidationException(nameof(Rating), "Rating must be between 1 and 10.");
+            }
+
+            if (hasSeasons)
+            {
+                foreach (TraktSyncRatingsPostShowSeason season in Seasons!)
+                {
+                    season.Validate();
+                }
             }
         }
     }

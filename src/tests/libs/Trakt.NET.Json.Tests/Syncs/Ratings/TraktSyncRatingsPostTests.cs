@@ -54,6 +54,35 @@
             syncRatingsPost.Shows[0].Rating = 1;
             act.ShouldNotThrow();
 
+            // shows with nested seasons
+            syncRatingsPost.Shows[0].Rating = null;
+            syncRatingsPost.Shows[0].Seasons = [];
+            act.ShouldThrow<TraktPostValidationException>();
+
+            syncRatingsPost.Shows[0].Seasons!.Add(new TraktSyncRatingsPostShowSeason());
+            syncRatingsPost.Shows[0].Seasons![0].Rating = 0;
+            act.ShouldThrow<TraktPostValidationException>();
+
+            syncRatingsPost.Shows[0].Seasons![0].Rating = 11;
+            act.ShouldThrow<TraktPostValidationException>();
+
+            syncRatingsPost.Shows[0].Seasons![0].Rating = 1;
+            act.ShouldNotThrow();
+
+            // shows with nested seasons and episodes
+            syncRatingsPost.Shows[0].Seasons![0].Rating = null;
+            syncRatingsPost.Shows[0].Seasons![0].Episodes = [new TraktSyncRatingsPostShowEpisode()];
+            act.ShouldThrow<TraktPostValidationException>();
+
+            syncRatingsPost.Shows[0].Seasons![0].Episodes![0].Rating = 0;
+            act.ShouldThrow<TraktPostValidationException>();
+
+            syncRatingsPost.Shows[0].Seasons![0].Episodes![0].Rating = 11;
+            act.ShouldThrow<TraktPostValidationException>();
+
+            syncRatingsPost.Shows[0].Seasons![0].Episodes![0].Rating = 1;
+            act.ShouldNotThrow();
+
             // movies = empty, shows = empty, seasons with at least one item, episodes = empty
             syncRatingsPost.Shows.Clear();
             syncRatingsPost.Seasons.Add(new TraktSyncRatingsPostSeason());

@@ -1,4 +1,4 @@
-using System.Net;
+﻿using System.Net;
 
 namespace TraktNET.SyncModule
 {
@@ -47,7 +47,26 @@ namespace TraktNET.SyncModule
             movies[0].IDs!.TMDB.ShouldBeNull();
 
             responseValue.NotFound.Shows.ShouldNotBeNull();
-            responseValue.NotFound.Shows.Count.ShouldBe(0);
+            responseValue.NotFound.Shows.Count.ShouldBe(1);
+
+            TraktSyncRatingsPostResponseNotFoundShow[] shows = [.. responseValue.NotFound.Shows!];
+
+            shows[0].Rating.ShouldBe(9);
+            shows[0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
+            shows[0].IDs.ShouldNotBeNull();
+            shows[0].IDs!.Trakt.ShouldBe(1U);
+            shows[0].Seasons.ShouldNotBeNull();
+            shows[0].Seasons!.Count.ShouldBe(1);
+
+            shows[0].Seasons![0].Number.ShouldBe(1U);
+            shows[0].Seasons![0].Rating.ShouldBe(8);
+            shows[0].Seasons![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
+            shows[0].Seasons![0].Episodes.ShouldNotBeNull();
+            shows[0].Seasons![0].Episodes!.Count.ShouldBe(1);
+            shows[0].Seasons![0].Episodes![0].Number.ShouldBe(1U);
+            shows[0].Seasons![0].Episodes![0].Rating.ShouldBe(7);
+            shows[0].Seasons![0].Episodes![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
+
             responseValue.NotFound.Seasons.ShouldNotBeNull();
             responseValue.NotFound.Seasons.Count.ShouldBe(0);
             responseValue.NotFound.Episodes.ShouldNotBeNull();
