@@ -49,6 +49,7 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktUserStatistics))]
     [JsonSerializable(typeof(TraktAccountSettings))]
     [JsonSerializable(typeof(TraktCollectionUser))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktCollectionUser>))]
     [JsonSerializable(typeof(TraktFavorite))]
     [JsonSerializable(typeof(IReadOnlyList<TraktFavorite>))]
     [JsonSerializable(typeof(TraktPermissions))]

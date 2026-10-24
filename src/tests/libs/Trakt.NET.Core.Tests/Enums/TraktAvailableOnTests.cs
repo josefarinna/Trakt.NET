@@ -53,6 +53,17 @@ namespace TraktNET.Enums
         }
 
         [Fact]
+        public void TestTraktCalendarGroupAsQuery()
+        {
+            TraktAvailableOn.Unspecified.AsQuery().ShouldBe(string.Empty);
+            TraktAvailableOn.Digital.AsQuery().ShouldBe("available_on=digital");
+            TraktAvailableOn.Other.AsQuery().ShouldBe("available_on=other");
+            TraktAvailableOn.Plex.AsQuery().ShouldBe("available_on=plex");
+            TraktAvailableOn.Jellyfin.AsQuery().ShouldBe("available_on=jellyfin");
+            ((TraktAvailableOn)99).AsQuery().ShouldBe("available_on=");
+        }
+
+        [Fact]
         public void TestTraktAvailableOnJsonConverter()
         {
             var converter = new TraktAvailableOnJsonConverter();

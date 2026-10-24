@@ -1,0 +1,107 @@
+{
+  "movie": {
+    "title": "Deadpool & Wolverine",
+    "year": 2024,
+    "ids": {
+      "trakt": 395672,
+      "slug": "deadpool-wolverine-2024",
+      "imdb": "tt6263850",
+      "tmdb": 533535
+    },
+    "tagline": "Come together.",
+    "overview": "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him.",
+    "released": "2024-07-26",
+    "runtime": 128,
+    "country": "us",
+    "trailer": "https://youtube.com/watch?v=Idh8n5XuYIA",
+    "homepage": "http://www.marvel.com/movies/deadpool-and-wolverine",
+    "status": "released",
+    "rating": 8.244876693296284,
+    "votes": 5758,
+    "colors": {
+      "poster": [
+        "#E50914",
+        "#FFD700"
+      ]
+    },
+    "comment_count": 159,
+    "updated_at": "2024-08-07T08:05:37.000Z",
+    "language": "en",
+    "languages": [
+      "en"
+    ],
+    "available_translations": [
+      "ar",
+      "bg",
+      "cs",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fa",
+      "fr",
+      "he",
+      "hu",
+      "id",
+      "it",
+      "ja",
+      "ka",
+      "kk",
+      "ko",
+      "lt",
+      "nl",
+      "pl",
+      "pt",
+      "ru",
+      "sk",
+      "sl",
+      "sr",
+      "sv",
+      "th",
+      "tr",
+      "uk",
+      "vi",
+      "zh"
+    ],
+    "genres": [
+      "comedy",
+      "superhero",
+      "science-fiction",
+      "action"
+    ],
+    "subgenres": [
+      "buddy-comedy",
+      "multiverse"
+    ],
+    "certification": "R",
+    "after_credits": true,
+    "during_credits": true,
+    "images": {
+      "fanart": [
+        "walter-r2.trakt.tv/images/movies/000/395/672/fanarts/medium/fanart.jpg.webp"
+      ],
+      "poster": [
+        "walter-r2.trakt.tv/images/movies/000/395/672/posters/thumb/poster.jpg.webp"
+      ],
+      "logo": [
+        "walter-r2.trakt.tv/images/movies/000/395/672/logos/medium/logo.png.webp"
+      ],
+      "clearart": [
+        "walter-r2.trakt.tv/images/movies/000/395/672/cleararts/medium/clearart.png.webp"
+      ],
+      "banner": [
+        "walter-r2.trakt.tv/images/movies/000/395/672/banners/medium/banner.jpg.webp"
+      ],
+      "thumb": [
+        "walter-r2.trakt.tv/images/movies/000/395/672/thumbs/medium/thumb.jpg.webp"
+      ]
+    },
+    "original_title": "Deadpool & Wolverine",
+    "social_ids": {
+      "twitter": "deadpoolmovie",
+      "facebook": "DeadpoolMovie",
+      "instagram": "deadpoolmovie",
+      "wikipedia": "https://en.wikipedia.org/wiki/Deadpool_%26_Wolverine"
+    }
+  }
+}

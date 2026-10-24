@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -125,6 +125,7 @@ namespace TraktNET
         }
 
         /// <summary>The movie colors. See also <seealso cref="TraktColors" />.</summary>
+        [JsonIgnore]
         public TraktColors? Colors
         {
             get => Movie?.Colors;
@@ -180,6 +181,7 @@ namespace TraktNET
         }
 
         /// <summary>The list of Trakt subgenre slugs of the movie.</summary>
+        [JsonIgnore]
         public List<string>? Subgenres
         {
             get => Movie?.Subgenres;
@@ -195,6 +197,7 @@ namespace TraktNET
         }
 
         /// <summary>Extra scene after the credits.</summary>
+        [JsonIgnore]
         public bool? AfterCredits
         {
             get => Movie?.AfterCredits;
@@ -202,6 +205,7 @@ namespace TraktNET
         }
 
         /// <summary>Extra scene during the credits.</summary>
+        [JsonIgnore]
         public bool? DuringCredits
         {
             get => Movie?.DuringCredits;
@@ -217,6 +221,7 @@ namespace TraktNET
         }
 
         /// <summary>The movie original title.</summary>
+        [JsonIgnore]
         public string? OriginalTitle
         {
             get => Movie?.OriginalTitle;
@@ -224,6 +229,7 @@ namespace TraktNET
         }
 
         /// <summary>A collection of social IDs for various web services for the movie.</summary>
+        [JsonIgnore]
         public TraktMovieSocialIDs? SocialIDs
         {
             get => Movie?.SocialIDs;

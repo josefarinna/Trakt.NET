@@ -1,0 +1,28 @@
+[
+  {
+    "user": {
+      "username": "ixxus",
+      "private": false,
+      "name": "Henrik",
+      "vip": true,
+      "vip_ep": false,
+      "ids": {
+        "slug": "ixxus",
+        "uuid": "jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82"
+      }
+    }
+  },
+  {
+    "user": {
+      "username": "sean",
+      "private": false,
+      "name": "Sean Rudford",
+      "vip": true,
+      "vip_ep": true,
+      "ids": {
+        "slug": "sean",
+        "uuid": "b62f8c7a3e914d5f8a1b2c3d4e5f6a7b"
+      }
+    }
+  }
+]
