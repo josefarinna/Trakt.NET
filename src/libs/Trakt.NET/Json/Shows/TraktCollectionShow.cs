@@ -231,7 +231,8 @@ namespace TraktNET
         /// See also <seealso cref="TraktShowImages" />.
         /// </summary>
         [JsonIgnore]
-        public TraktShowImages? Images {
+        public TraktShowImages? Images
+        {
             get => Show?.Images;
             set => Show?.Images = value;
         }
@@ -253,6 +254,7 @@ namespace TraktNET
         }
 
         /// <summary>A collection of social IDs for various web services for the show.</summary>
+        [JsonIgnore]
         public TraktShowSocialIDs? SocialIDs
         {
             get => Show?.SocialIDs;

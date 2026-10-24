@@ -1,0 +1,28 @@
+[
+  {
+    "show": {
+      "title": "Game of Thrones",
+      "year": 2011,
+      "ids": {
+        "trakt": 1390,
+        "slug": "game-of-thrones",
+        "tvdb": 121361,
+        "imdb": "tt0944947",
+        "tmdb": 1399
+      }
+    }
+  },
+  {
+    "show": {
+      "title": "The Pitt",
+      "year": 2025,
+      "ids": {
+        "trakt": 232884,
+        "slug": "the-pitt",
+        "tvdb": 448176,
+        "imdb": "tt31938062",
+        "tmdb": 250307
+      }
+    }
+  }
+]
