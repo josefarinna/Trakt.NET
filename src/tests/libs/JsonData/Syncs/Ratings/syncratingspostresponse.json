@@ -38,7 +38,39 @@
                 ]
             }
         ],
-        "seasons": [ ],
-        "episodes": [ ]
+        "seasons": [
+            {
+                "ids": {
+                    "trakt": 2
+                },
+                "seasons": [
+                    {
+                        "number": 2,
+                        "rating": 6,
+                        "rated_at": "2014-10-11T17:00:54.000Z"
+                    }
+                ]
+            }
+        ],
+        "episodes": [
+            {
+                "ids": {
+                    "trakt": 3
+                },
+                "seasons": [
+                    {
+                        "number": 1,
+                        "episodes": [
+                            {
+                                "number": 2,
+                                "rating": 5,
+                                "rated_at": "2014-10-11T17:00:54.000Z"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
+

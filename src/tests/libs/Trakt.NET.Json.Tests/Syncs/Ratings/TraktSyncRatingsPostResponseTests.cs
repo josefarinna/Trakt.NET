@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Syncs
+namespace TraktNET.Json.Syncs
 {
     public sealed class TraktSyncRatingsPostResponseTests
     {
@@ -30,26 +30,6 @@
             notFoundShow.RatedAt.ShouldBeNull();
             notFoundShow.IDs.ShouldBeNull();
             notFoundShow.Seasons.ShouldBeNull();
-        }
-
-        [Fact]
-        public void TestTraktSyncRatingsPostResponseNotFoundSeasonDefaultConstructor()
-        {
-            var notFoundSeason = new TraktSyncRatingsPostResponseNotFoundSeason();
-
-            notFoundSeason.Rating.ShouldBeNull();
-            notFoundSeason.RatedAt.ShouldBeNull();
-            notFoundSeason.IDs.ShouldBeNull();
-        }
-
-        [Fact]
-        public void TestTraktSyncRatingsPostResponseNotFoundEpisodeDefaultConstructor()
-        {
-            var notFoundEpisode = new TraktSyncRatingsPostResponseNotFoundEpisode();
-
-            notFoundEpisode.Rating.ShouldBeNull();
-            notFoundEpisode.RatedAt.ShouldBeNull();
-            notFoundEpisode.IDs.ShouldBeNull();
         }
 
         [Fact]
@@ -104,10 +84,40 @@
             notFoundShows[0].Seasons![0].Episodes![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
 
             syncRatingsPostResponse.NotFound.Seasons.ShouldNotBeNull();
-            syncRatingsPostResponse.NotFound.Seasons.Count.ShouldBe(0);
+            syncRatingsPostResponse.NotFound.Seasons!.Count.ShouldBe(1);
+
+            TraktSyncRatingsPostResponseNotFoundShow[] notFoundSeasons = [.. syncRatingsPostResponse.NotFound.Seasons!];
+
+            notFoundSeasons[0].ShouldNotBeNull();
+            notFoundSeasons[0].Rating.ShouldBeNull();
+            notFoundSeasons[0].RatedAt.ShouldBeNull();
+            notFoundSeasons[0].IDs.ShouldNotBeNull();
+            notFoundSeasons[0].IDs!.Trakt.ShouldBe(2U);
+            notFoundSeasons[0].Seasons.ShouldNotBeNull();
+            notFoundSeasons[0].Seasons!.Count.ShouldBe(1);
+            notFoundSeasons[0].Seasons![0].Number.ShouldBe(2U);
+            notFoundSeasons[0].Seasons![0].Rating.ShouldBe(6);
+            notFoundSeasons[0].Seasons![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
 
             syncRatingsPostResponse.NotFound.Episodes.ShouldNotBeNull();
-            syncRatingsPostResponse.NotFound.Episodes.Count.ShouldBe(0);
+            syncRatingsPostResponse.NotFound.Episodes!.Count.ShouldBe(1);
+
+            TraktSyncRatingsPostResponseNotFoundShow[] notFoundEpisodes = [.. syncRatingsPostResponse.NotFound.Episodes!];
+
+            notFoundEpisodes[0].ShouldNotBeNull();
+            notFoundEpisodes[0].Rating.ShouldBeNull();
+            notFoundEpisodes[0].RatedAt.ShouldBeNull();
+            notFoundEpisodes[0].IDs.ShouldNotBeNull();
+            notFoundEpisodes[0].IDs!.Trakt.ShouldBe(3U);
+            notFoundEpisodes[0].Seasons.ShouldNotBeNull();
+            notFoundEpisodes[0].Seasons!.Count.ShouldBe(1);
+            notFoundEpisodes[0].Seasons![0].Number.ShouldBe(1U);
+            notFoundEpisodes[0].Seasons![0].Rating.ShouldBeNull();
+            notFoundEpisodes[0].Seasons![0].Episodes.ShouldNotBeNull();
+            notFoundEpisodes[0].Seasons![0].Episodes!.Count.ShouldBe(1);
+            notFoundEpisodes[0].Seasons![0].Episodes![0].Number.ShouldBe(2U);
+            notFoundEpisodes[0].Seasons![0].Episodes![0].Rating.ShouldBe(5);
+            notFoundEpisodes[0].Seasons![0].Episodes![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
         }
     }
 }

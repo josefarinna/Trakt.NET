@@ -1,4 +1,4 @@
-﻿using System.Net;
+using System.Net;
 
 namespace TraktNET.SyncModule
 {
@@ -68,9 +68,38 @@ namespace TraktNET.SyncModule
             shows[0].Seasons![0].Episodes![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
 
             responseValue.NotFound.Seasons.ShouldNotBeNull();
-            responseValue.NotFound.Seasons.Count.ShouldBe(0);
+            responseValue.NotFound.Seasons!.Count.ShouldBe(1);
+
+            TraktSyncRatingsPostResponseNotFoundShow[] seasons = [.. responseValue.NotFound.Seasons!];
+
+            seasons[0].Rating.ShouldBeNull();
+            seasons[0].RatedAt.ShouldBeNull();
+            seasons[0].IDs.ShouldNotBeNull();
+            seasons[0].IDs!.Trakt.ShouldBe(2U);
+            seasons[0].Seasons.ShouldNotBeNull();
+            seasons[0].Seasons!.Count.ShouldBe(1);
+            seasons[0].Seasons![0].Number.ShouldBe(2U);
+            seasons[0].Seasons![0].Rating.ShouldBe(6);
+            seasons[0].Seasons![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
+
             responseValue.NotFound.Episodes.ShouldNotBeNull();
-            responseValue.NotFound.Episodes.Count.ShouldBe(0);
+            responseValue.NotFound.Episodes!.Count.ShouldBe(1);
+
+            TraktSyncRatingsPostResponseNotFoundShow[] episodes = [.. responseValue.NotFound.Episodes!];
+
+            episodes[0].Rating.ShouldBeNull();
+            episodes[0].RatedAt.ShouldBeNull();
+            episodes[0].IDs.ShouldNotBeNull();
+            episodes[0].IDs!.Trakt.ShouldBe(3U);
+            episodes[0].Seasons.ShouldNotBeNull();
+            episodes[0].Seasons!.Count.ShouldBe(1);
+            episodes[0].Seasons![0].Number.ShouldBe(1U);
+            episodes[0].Seasons![0].Rating.ShouldBeNull();
+            episodes[0].Seasons![0].Episodes.ShouldNotBeNull();
+            episodes[0].Seasons![0].Episodes!.Count.ShouldBe(1);
+            episodes[0].Seasons![0].Episodes![0].Number.ShouldBe(2U);
+            episodes[0].Seasons![0].Episodes![0].Rating.ShouldBe(5);
+            episodes[0].Seasons![0].Episodes![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
         }
 
         [Theory]
