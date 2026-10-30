@@ -23,6 +23,7 @@ namespace TraktNET.ShowsModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
+            response.Content!.ResetAt.ShouldBe(ResetAt);
         }
 
         [Fact]
@@ -38,6 +39,7 @@ namespace TraktNET.ShowsModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
+            response.Content!.ResetAt.ShouldBe(ResetAt);
         }
 
         [Fact]
@@ -53,6 +55,7 @@ namespace TraktNET.ShowsModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
+            response.Content!.ResetAt.ShouldBe(ResetAt);
         }
 
         [Fact]
@@ -68,6 +71,39 @@ namespace TraktNET.ShowsModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
+            response.Content!.ResetAt.ShouldBe(ResetAt);
+        }
+
+        [Fact]
+        public async Task TestResetShowWatchedProgressWithIDAndResetAt()
+        {
+            string responseContent = $"{{\"reset_at\": \"{ResetAtValue}\"}}";
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUri, responseContent, null, null, null, null);
+
+            TraktResponse<TraktShowResetWatchedProgress> response = await client.Shows.ResetShowWatchedProgressAsync(
+                TestConstants.Shows.TraktShowID, ResetAt, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content!.ResetAt.ShouldBe(ResetAt);
+        }
+
+        [Fact]
+        public async Task TestResetShowWatchedProgressWithIDsAndResetAt()
+        {
+            string responseContent = $"{{\"reset_at\": \"{ResetAtValue}\"}}";
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUriWithSlug, responseContent, null, null, null, null);
+
+            TraktResponse<TraktShowResetWatchedProgress> response = await client.Shows.ResetShowWatchedProgressAsync(
+                TestConstants.Shows.ShowIDs, ResetAt, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content!.ResetAt.ShouldBe(ResetAt);
         }
 
         [Theory]
@@ -107,7 +143,7 @@ namespace TraktNET.ShowsModule
         [Fact]
         public async Task TestResetShowWatchedProgressWithIDsThrowsArgumentException()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUriWithSlug, HttpStatusCode.OK);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(ResetShowWatchedProgressUriWithSlug, HttpStatusCode.Created);
 
             Func<Task<TraktResponse<TraktShowResetWatchedProgress>>> act = () => client.Shows.ResetShowWatchedProgressAsync(default(TraktShowIDs)!, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentNullException>();
