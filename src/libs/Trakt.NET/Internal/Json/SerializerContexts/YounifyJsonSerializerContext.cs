@@ -10,6 +10,8 @@ namespace TraktNET
     [JsonSerializable(typeof(TraktYounifyConnectionImages))]
     [JsonSerializable(typeof(TraktYounifyConnectPost))]
     [JsonSerializable(typeof(TraktYounifyConnectResponse))]
+    [JsonSerializable(typeof(TraktYounifyRefreshPost))]
+    [JsonSerializable(typeof(TraktYounifyRefreshServicePost))]
     public sealed partial class YounifyJsonSerializerContext : JsonSerializerContext
     {
     }

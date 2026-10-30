@@ -850,7 +850,9 @@ namespace TraktNET
             typeof(IReadOnlyList<TraktYounifyConnection>),
             typeof(TraktYounifyConnectionImages),
             typeof(TraktYounifyConnectPost),
-            typeof(TraktYounifyConnectResponse)
+            typeof(TraktYounifyConnectResponse),
+            typeof(TraktYounifyRefreshPost),
+            typeof(TraktYounifyRefreshServicePost)
         });
 #else
         private static readonly Dictionary<string, JsonSerializerContext> s_jsonSerializerContexts = new()
@@ -1423,7 +1425,9 @@ namespace TraktNET
             typeof(IReadOnlyList<TraktYounifyConnection>),
             typeof(TraktYounifyConnectionImages),
             typeof(TraktYounifyConnectPost),
-            typeof(TraktYounifyConnectResponse)
+            typeof(TraktYounifyConnectResponse),
+            typeof(TraktYounifyRefreshPost),
+            typeof(TraktYounifyRefreshServicePost)
         ];
 #endif
     }

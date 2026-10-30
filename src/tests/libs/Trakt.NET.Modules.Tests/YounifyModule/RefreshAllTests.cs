@@ -7,13 +7,25 @@ namespace TraktNET.YounifyModule
     public sealed class RefreshAllTests
     {
         private const string ServiceId = "netflix";
-        private static readonly string RefreshAllUri = $"younify/users/refresh/{ServiceId}/all_data";
+        private static readonly string RefreshAllTrueUri = $"younify/users/refresh/{ServiceId}/true";
+        private static readonly string RefreshAllFalseUri = $"younify/users/refresh/{ServiceId}/false";
 
         [Fact]
         public async Task TestRefreshAll()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAllUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Younify.RefreshAllAsync(ServiceId, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAllTrueUri, HttpStatusCode.Created);
+            TraktResponse response = await client.Younify.RefreshAllAsync(ServiceId, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestRefreshAllWithIncrementalAndPost()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAllFalseUri, HttpStatusCode.Created);
+            var post = new TraktYounifyRefreshPost { SkipSync = true };
+            TraktResponse response = await client.Younify.RefreshAllAsync(ServiceId, false, post, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -22,12 +34,12 @@ namespace TraktNET.YounifyModule
         [Fact]
         public async Task TestRefreshAllThrowsArgumentException()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAllUri, HttpStatusCode.OK);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAllTrueUri, HttpStatusCode.OK);
 
-            Func<Task<TraktResponse>> act = () => client.Younify.RefreshAllAsync(string.Empty, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Younify.RefreshAllAsync(string.Empty, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Younify.RefreshAllAsync("   ", TestContext.Current.CancellationToken);
+            act = () => client.Younify.RefreshAllAsync("   ", cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
 
@@ -59,7 +71,7 @@ namespace TraktNET.YounifyModule
         [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestRefreshAllThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAllUri, statusCode);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAllTrueUri, statusCode);
 
             Func<Task<TraktResponse>> act = () => client.Younify.RefreshAllAsync(ServiceId, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();

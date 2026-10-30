@@ -13,7 +13,23 @@ namespace TraktNET.PostRequests.Younify
         {
             var request = new YounifyRefreshAllPostRequest { ServiceId = ServiceId };
             request.BuildUri();
-            request.RequestUri.ShouldBe(new Uri($"younify/users/refresh/{ServiceId}/all_data", UriKind.Relative));
+            request.RequestUri.ShouldBe(new Uri($"younify/users/refresh/{ServiceId}/true", UriKind.Relative));
+            request.Content.ShouldBeNull();
+
+            request = new YounifyRefreshAllPostRequest { ServiceId = ServiceId, AllData = false };
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"younify/users/refresh/{ServiceId}/false", UriKind.Relative));
+            request.Content.ShouldBeNull();
+
+            request = new YounifyRefreshAllPostRequest
+            {
+                ServiceId = ServiceId,
+                AllData = true,
+                TraktYounifyRefreshPost = new TraktYounifyRefreshPost { SkipSync = true }
+            };
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"younify/users/refresh/{ServiceId}/true", UriKind.Relative));
+            request.Content.ShouldNotBeNull();
         }
 
         [Fact]

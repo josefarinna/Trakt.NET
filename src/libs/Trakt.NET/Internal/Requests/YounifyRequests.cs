@@ -20,14 +20,28 @@ namespace TraktNET
         internal required TraktYounifyConnectPost TraktYounifyConnectPost { get; set; }
     }
 
+    [TraktPostRequest("younify/users/refresh", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class YounifyRefreshServicePostRequest
+    {
+        [TraktRequestPayload]
+        internal required TraktYounifyRefreshServicePost TraktYounifyRefreshServicePost { get; set; }
+    }
+
     [TraktPostRequest("younify/users/refresh/{service_id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class YounifyRefreshPostRequest
     {
+        [TraktRequestPayload]
+        internal TraktYounifyRefreshPost? TraktYounifyRefreshPost { get; set; }
     }
 
-    [TraktPostRequest("younify/users/refresh/{service_id!!}/all_data", OAuthRequirement = TraktOAuthRequirement.Required)]
+    [TraktPostRequest("younify/users/refresh/{service_id!!}", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class YounifyRefreshAllPostRequest
     {
+        [TraktRequestParameter]
+        internal bool? AllData { get; set; } = true;
+
+        [TraktRequestPayload]
+        internal TraktYounifyRefreshPost? TraktYounifyRefreshPost { get; set; }
     }
 
     // -------------------------------------------------------
