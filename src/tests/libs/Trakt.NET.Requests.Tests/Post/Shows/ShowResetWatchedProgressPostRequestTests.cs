@@ -1,4 +1,4 @@
-﻿#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
 using System.Net.Http;
 #endif
 
@@ -19,6 +19,24 @@ namespace TraktNET.PostRequests.Shows
 
             showResetWatchedProgressPostRequest.BuildUri();
             showResetWatchedProgressPostRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            showResetWatchedProgressPostRequest.Content.ShouldBeNull();
+        }
+
+        [Fact]
+        public void TestShowResetWatchedProgressPostRequestHasValidURIPathWithResetAt()
+        {
+            var showResetWatchedProgressPostRequest = new ShowResetWatchedProgressPostRequest
+            {
+                Id = ShowID,
+                TraktShowResetWatchedProgress = new TraktShowResetWatchedProgress
+                {
+                    ResetAt = new DateTime(2024, 9, 23, 19, 8, 15, DateTimeKind.Utc)
+                }
+            };
+
+            showResetWatchedProgressPostRequest.BuildUri();
+            showResetWatchedProgressPostRequest.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));
+            showResetWatchedProgressPostRequest.Content.ShouldNotBeNull();
         }
 
         [Fact]

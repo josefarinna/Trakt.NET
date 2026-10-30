@@ -266,8 +266,8 @@ namespace TraktNET
     [TraktPostRequest("shows/{id!!}/progress/watched/reset", OAuthRequirement = TraktOAuthRequirement.Required)]
     internal sealed partial class ShowResetWatchedProgressPostRequest
     {
-        [TraktRequestQuery("reset_at", UseCacheEfficientDateTime = true)]
-        internal DateTime? ResetAt { get; set; }
+        [TraktRequestPayload]
+        internal TraktShowResetWatchedProgress? TraktShowResetWatchedProgress { get; set; }
 
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }

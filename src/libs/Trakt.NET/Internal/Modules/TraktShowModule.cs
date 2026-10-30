@@ -262,9 +262,16 @@ namespace TraktNET
         {
             var request = new ShowResetWatchedProgressPostRequest
             {
-                Id = showIDOrSlug,
-                ResetAt = resetAt,
+                Id = showIDOrSlug
             };
+
+            if (resetAt.HasValue)
+            {
+                request.TraktShowResetWatchedProgress = new TraktShowResetWatchedProgress
+                {
+                    ResetAt = resetAt.Value
+                };
+            }
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktShowResetWatchedProgress>(_context, request, cancellationToken);
         }
