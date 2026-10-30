@@ -58,6 +58,16 @@ namespace TraktNET
         StreamingRanks = 8192,
 
         /// <summary>Markdown links in content shall be retrieved.</summary>
-        Markdown = 16384
+        Markdown = 16384,
+
+        /// <summary>Media colors information shall be retrieved.</summary>
+        Colors = 32768,
+
+        /// <summary>Streaming IDs information shall be retrieved.</summary>
+        [TraktEnumMember(JsonValue = "streaming_ids", DisplayName = "Streaming IDs")]
+        StreamingIDs = 65536,
+
+        /// <summary>User rating information shall be retrieved.</summary>
+        Rating = 131072
     }
 }

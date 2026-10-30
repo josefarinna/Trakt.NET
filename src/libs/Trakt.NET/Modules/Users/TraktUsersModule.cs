@@ -1144,11 +1144,16 @@ namespace TraktNET
         public Task<TraktResponse> UpdateCoverImageAsync(TraktCoverType coverType, uint coverId, CancellationToken cancellationToken = default)
             => UpdateCoverImageImplAsync(coverType, coverId, cancellationToken);
 
-        /// <summary>Gets recent activity for an user's social graph.</summary>
+        /// <summary>
+        /// Gets the last 7 days of watch activity from a user's social graph (following, followers, or friends).
+        /// <para>Activity from private users is only included when you follow them.</para>
+        /// <para>Pass <see cref="TraktExtendedInfo.Rating" /> (<c>?extended=rating</c>) to include each person's <see cref="TraktUserActivity.UserRating" /> on the activity item.</para>
+        /// </summary>
         /// <param name="usernameOrSlug">The username or slug of the user, for which the activities should be queried, or "me" for the authenticated user.</param>
         /// <param name="activityType">Determines the type of social activity to query. See also <seealso cref="TraktUserSocialActivityType" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the activity items.
+        /// <para>Supports <see cref="TraktExtendedInfo.Full" />, <see cref="TraktExtendedInfo.Images" />, <see cref="TraktExtendedInfo.Colors" />, <see cref="TraktExtendedInfo.StreamingIDs" />, and <see cref="TraktExtendedInfo.Rating" />.</para>
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
         /// <param name="filter">
@@ -1169,6 +1174,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is optional.
+        /// <para><b>Limited Access</b>: Only available to first-party Trakt apps. Third-party apps will receive a <c>403</c> (<see cref="TraktApiForbiddenException" />) response.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getusersactivities">
         /// Trakt API Documentation: Users: Get social activity
         /// </see></para>

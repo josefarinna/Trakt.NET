@@ -23,6 +23,9 @@ namespace TraktNET.Enums
             TraktExtendedInfo.All.ToJson().ShouldBe("all");
             TraktExtendedInfo.StreamingRanks.ToJson().ShouldBe("streaming_ranks");
             TraktExtendedInfo.Markdown.ToJson().ShouldBe("markdown");
+            TraktExtendedInfo.Colors.ToJson().ShouldBe("colors");
+            TraktExtendedInfo.StreamingIDs.ToJson().ShouldBe("streaming_ids");
+            TraktExtendedInfo.Rating.ToJson().ShouldBe("rating");
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.ToJson().ShouldBeNull();
             ((TraktExtendedInfo)99).ToJson().ShouldBeNull();
@@ -47,6 +50,9 @@ namespace TraktNET.Enums
             "all".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.All);
             "streaming_ranks".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.StreamingRanks);
             "markdown".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Markdown);
+            "colors".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Colors);
+            "streaming_ids".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.StreamingIDs);
+            "rating".ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.Rating);
 
             string? nullValue = null;
             nullValue.ToTraktExtendedInfo().ShouldBe(TraktExtendedInfo.None);
@@ -73,9 +79,12 @@ namespace TraktNET.Enums
             TraktExtendedInfo.All.ToURI().ShouldBe("all");
             TraktExtendedInfo.StreamingRanks.ToURI().ShouldBe("streaming_ranks");
             TraktExtendedInfo.Markdown.ToURI().ShouldBe("markdown");
+            TraktExtendedInfo.Colors.ToURI().ShouldBe("colors");
+            TraktExtendedInfo.StreamingIDs.ToURI().ShouldBe("streaming_ids");
+            TraktExtendedInfo.Rating.ToURI().ShouldBe("rating");
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.ToURI().ShouldBe(string.Empty);
-            ((TraktExtendedInfo)32768).ToURI().ShouldBe(string.Empty);
+            ((TraktExtendedInfo)262144).ToURI().ShouldBe(string.Empty);
         }
 
         [Fact]
@@ -97,6 +106,9 @@ namespace TraktNET.Enums
             TraktExtendedInfo.All.DisplayName().ShouldBe("All");
             TraktExtendedInfo.StreamingRanks.DisplayName().ShouldBe("Streaming Ranks");
             TraktExtendedInfo.Markdown.DisplayName().ShouldBe("Markdown");
+            TraktExtendedInfo.Colors.DisplayName().ShouldBe("Colors");
+            TraktExtendedInfo.StreamingIDs.DisplayName().ShouldBe("Streaming IDs");
+            TraktExtendedInfo.Rating.DisplayName().ShouldBe("Rating");
 
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.DisplayName().ShouldBe("Full, VIP");
@@ -112,7 +124,16 @@ namespace TraktNET.Enums
 
             TraktExtendedInfo fullAndMarkdown = TraktExtendedInfo.Full | TraktExtendedInfo.Markdown;
             fullAndMarkdown.DisplayName().ShouldBe("Full, Markdown");
-            ((TraktExtendedInfo)32768).DisplayName().ShouldBe(string.Empty);
+
+            TraktExtendedInfo fullAndColors = TraktExtendedInfo.Full | TraktExtendedInfo.Colors;
+            fullAndColors.DisplayName().ShouldBe("Full, Colors");
+
+            TraktExtendedInfo fullAndStreamingIDs = TraktExtendedInfo.Full | TraktExtendedInfo.StreamingIDs;
+            fullAndStreamingIDs.DisplayName().ShouldBe("Full, Streaming IDs");
+
+            TraktExtendedInfo fullAndRating = TraktExtendedInfo.Full | TraktExtendedInfo.Rating;
+            fullAndRating.DisplayName().ShouldBe("Full, Rating");
+            ((TraktExtendedInfo)262144).DisplayName().ShouldBe(string.Empty);
         }
 
         [Fact]
@@ -152,6 +173,9 @@ namespace TraktNET.Enums
             TraktExtendedInfo.All.AsQuery().ShouldBe("extended=all");
             TraktExtendedInfo.StreamingRanks.AsQuery().ShouldBe("extended=streaming_ranks");
             TraktExtendedInfo.Markdown.AsQuery().ShouldBe("extended=markdown");
+            TraktExtendedInfo.Colors.AsQuery().ShouldBe("extended=colors");
+            TraktExtendedInfo.StreamingIDs.AsQuery().ShouldBe("extended=streaming_ids");
+            TraktExtendedInfo.Rating.AsQuery().ShouldBe("extended=rating");
 
             TraktExtendedInfo fullAndVIP = TraktExtendedInfo.Full | TraktExtendedInfo.VIP;
             fullAndVIP.AsQuery().ShouldBe("extended=full,vip");
@@ -170,6 +194,15 @@ namespace TraktNET.Enums
 
             TraktExtendedInfo fullAndMarkdown = TraktExtendedInfo.Full | TraktExtendedInfo.Markdown;
             fullAndMarkdown.AsQuery().ShouldBe("extended=full,markdown");
+
+            TraktExtendedInfo fullAndColors = TraktExtendedInfo.Full | TraktExtendedInfo.Colors;
+            fullAndColors.AsQuery().ShouldBe("extended=full,colors");
+
+            TraktExtendedInfo fullAndStreamingIDs = TraktExtendedInfo.Full | TraktExtendedInfo.StreamingIDs;
+            fullAndStreamingIDs.AsQuery().ShouldBe("extended=full,streaming_ids");
+
+            TraktExtendedInfo fullAndRating = TraktExtendedInfo.Full | TraktExtendedInfo.Rating;
+            fullAndRating.AsQuery().ShouldBe("extended=full,rating");
         }
 
         [Fact]
