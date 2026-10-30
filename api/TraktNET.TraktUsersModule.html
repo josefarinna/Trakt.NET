@@ -2489,7 +2489,9 @@ Trakt API Documentation: Users: Follow
   </span>
   <a id="TraktNET_TraktUsersModule_GetActivitiesAsync_" data-uid="TraktNET.TraktUsersModule.GetActivitiesAsync*"></a>
   <h4 id="TraktNET_TraktUsersModule_GetActivitiesAsync_System_String_TraktNET_TraktUserSocialActivityType_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktUsersModule.GetActivitiesAsync(System.String,TraktNET.TraktUserSocialActivityType,System.Nullable{TraktNET.TraktExtendedInfo},TraktNET.TraktFilter,System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetActivitiesAsync(string, TraktUserSocialActivityType, TraktExtendedInfo?, TraktFilter?, uint?, uint?, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Gets recent activity for an user's social graph.</p>
+  <div class="markdown level1 summary"><p>Gets the last 7 days of watch activity from a user's social graph (following, followers, or friends).</p>
+<p>Activity from private users is only included when you follow them.</p>
+<p>Pass <a class="xref" href="TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Rating">Rating</a> (<code>?extended=rating</code>) to include each person's <a class="xref" href="TraktNET.TraktUserActivity.html#TraktNET_TraktUserActivity_UserRating">UserRating</a> on the activity item.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2522,6 +2524,7 @@ Trakt API Documentation: Users: Follow
         <td><a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>?</td>
         <td><span class="parametername">extendedInfo</span></td>
         <td><p>Specifies how much data should be queried about the activity items.</p>
+<p>Supports <a class="xref" href="TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Full">Full</a>, <a class="xref" href="TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Images">Images</a>, <a class="xref" href="TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Colors">Colors</a>, <a class="xref" href="TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_StreamingIDs">StreamingIDs</a>, and <a class="xref" href="TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Rating">Rating</a>.</p>
 <p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
 </td>
       </tr>
@@ -2574,6 +2577,7 @@ Trakt API Documentation: Users: Follow
   </table>
   <h5 id="TraktNET_TraktUsersModule_GetActivitiesAsync_System_String_TraktNET_TraktUserSocialActivityType_System_Nullable_TraktNET_TraktExtendedInfo__TraktNET_TraktFilter_System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is optional.</p>
+<p><b>Limited Access</b>: Only available to first-party Trakt apps. Third-party apps will receive a <code>403</code> (<a class="xref" href="TraktNET.TraktApiForbiddenException.html">TraktApiForbiddenException</a>) response.</p>
 <p><a href="https://docs.trakt.tv/reference/getusersactivities">
 Trakt API Documentation: Users: Get social activity
 </a></p>

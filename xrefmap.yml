@@ -36319,6 +36319,12 @@ references:
   commentId: F:TraktNET.TraktExtendedInfo.Browsing
   fullName: TraktNET.TraktExtendedInfo.Browsing
   nameWithType: TraktExtendedInfo.Browsing
+- uid: TraktNET.TraktExtendedInfo.Colors
+  name: Colors
+  href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Colors
+  commentId: F:TraktNET.TraktExtendedInfo.Colors
+  fullName: TraktNET.TraktExtendedInfo.Colors
+  nameWithType: TraktExtendedInfo.Colors
 - uid: TraktNET.TraktExtendedInfo.Comments
   name: Comments
   href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Comments
@@ -36385,6 +36391,18 @@ references:
   commentId: F:TraktNET.TraktExtendedInfo.Progress
   fullName: TraktNET.TraktExtendedInfo.Progress
   nameWithType: TraktExtendedInfo.Progress
+- uid: TraktNET.TraktExtendedInfo.Rating
+  name: Rating
+  href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Rating
+  commentId: F:TraktNET.TraktExtendedInfo.Rating
+  fullName: TraktNET.TraktExtendedInfo.Rating
+  nameWithType: TraktExtendedInfo.Rating
+- uid: TraktNET.TraktExtendedInfo.StreamingIDs
+  name: StreamingIDs
+  href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_StreamingIDs
+  commentId: F:TraktNET.TraktExtendedInfo.StreamingIDs
+  fullName: TraktNET.TraktExtendedInfo.StreamingIDs
+  nameWithType: TraktExtendedInfo.StreamingIDs
 - uid: TraktNET.TraktExtendedInfo.StreamingRanks
   name: StreamingRanks
   href: api/TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_StreamingRanks
