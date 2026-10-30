@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>A Trakt watchlist post season, containing the required season number and optional episodes.</summary>
     public record class TraktSyncWatchlistPostShowSeason : TraktSyncRemovePostShowSeason
@@ -11,5 +11,8 @@
         /// </para>
         /// </summary>
         public new List<TraktSyncWatchlistPostShowEpisode>? Episodes { get; set; }
+
+        /// <summary>Gets or sets the season notes.</summary>
+        public string? Notes { get; set; }
     }
 }

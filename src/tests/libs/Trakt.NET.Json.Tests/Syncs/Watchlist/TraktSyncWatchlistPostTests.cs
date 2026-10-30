@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Syncs
+namespace TraktNET.Json.Syncs
 {
     public sealed class TraktSyncWatchlistPostTests
     {
@@ -45,6 +45,42 @@
             syncWatchlistPost.Seasons.Clear();
             syncWatchlistPost.Episodes.Add(new TraktSyncWatchlistPostEpisode());
             act.ShouldNotThrow();
+        }
+
+        [Fact]
+        public void TestTraktSyncWatchlistPostNotesAtEveryLevel()
+        {
+            var post = new TraktSyncWatchlistPost
+            {
+                Movies = [new TraktSyncWatchlistPostMovie { IDs = new TraktMovieIDs { Trakt = 1 }, Notes = "movie" }],
+                Shows =
+                [
+                    new TraktSyncWatchlistPostShow
+                    {
+                        IDs = new TraktShowIDs { Trakt = 2 },
+                        Notes = "show",
+                        Seasons =
+                        [
+                            new TraktSyncWatchlistPostShowSeason
+                            {
+                                Number = 1,
+                                Notes = "season",
+                                Episodes = [new TraktSyncWatchlistPostShowEpisode { Number = 1, Notes = "episode" }]
+                            }
+                        ]
+                    }
+                ],
+                Seasons = [new TraktSyncWatchlistPostSeason { IDs = new TraktSeasonIDs { Trakt = 3 }, Notes = "season" }],
+                Episodes = [new TraktSyncWatchlistPostEpisode { IDs = new TraktEpisodeIDs { Trakt = 4 }, Notes = "episode" }]
+            };
+
+            post.Movies[0].Notes.ShouldBe("movie");
+            post.Shows[0].Notes.ShouldBe("show");
+            post.Shows[0].Seasons![0].Notes.ShouldBe("season");
+            post.Shows[0].Seasons![0].Episodes![0].Notes.ShouldBe("episode");
+            post.Seasons[0].IDs!.Trakt.ShouldBe(3u);
+            post.Seasons[0].Notes.ShouldBe("season");
+            post.Episodes[0].Notes.ShouldBe("episode");
         }
     }
 }
