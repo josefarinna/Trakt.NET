@@ -112,6 +112,30 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
+        public async Task TestGetActivitiesWithExtendedInfoRating()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");
+            const TraktExtendedInfo extendedInfo = TraktExtendedInfo.Full | TraktExtendedInfo.Images | TraktExtendedInfo.Colors | TraktExtendedInfo.StreamingIDs | TraktExtendedInfo.Rating;
+
+            TraktClient client = ModuleTestUtility.GetClient(
+                $"{GetActivitiesUri}?{extendedInfo.AsQuery()}",
+                responseContent, 1, 1, 10, ItemCount);
+
+            TraktPagedResponse<TraktUserActivity> response = await client.Users.GetActivitiesAsync(
+                Username, ActivityType, extendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ItemCount);
+            response.ItemCount.ShouldBe(ItemCount);
+            response.Limit.ShouldBe(10u);
+            response.Page.ShouldBe(1u);
+            response.PageCount.ShouldBe(1u);
+        }
+
+        [Fact]
         public async Task TestGetActivitiesWithPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\activities.json");

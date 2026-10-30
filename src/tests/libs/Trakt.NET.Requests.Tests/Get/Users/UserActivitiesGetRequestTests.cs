@@ -21,6 +21,9 @@ namespace TraktNET.GetRequests.Users
         [InlineData(TraktExtendedInfo.Full, 10, null, $"{URIPath}?extended=full&page=10")]
         [InlineData(TraktExtendedInfo.Full, null, 20, $"{URIPath}?extended=full&limit=20")]
         [InlineData(TraktExtendedInfo.Full, 10, 20, $"{URIPath}?extended=full&page=10&limit=20")]
+        [InlineData(TraktExtendedInfo.Rating, null, null, $"{URIPath}?extended=rating")]
+        [InlineData(TraktExtendedInfo.Rating, 10, 20, $"{URIPath}?extended=rating&page=10&limit=20")]
+        [InlineData(TraktExtendedInfo.Full | TraktExtendedInfo.Images | TraktExtendedInfo.Colors | TraktExtendedInfo.StreamingIDs | TraktExtendedInfo.Rating, null, null, $"{URIPath}?extended=full,images,colors,streaming_ids,rating")]
         public void TestUserActivitiesGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo, int? page, int? limit, string expectedURIPath)
         {
             var request = new UserActivitiesGetRequest
