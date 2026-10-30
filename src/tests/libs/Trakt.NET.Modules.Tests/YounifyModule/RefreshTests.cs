@@ -12,8 +12,19 @@ namespace TraktNET.YounifyModule
         [Fact]
         public async Task TestRefresh()
         {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Younify.RefreshAsync(ServiceId, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshUri, HttpStatusCode.Created);
+            TraktResponse response = await client.Younify.RefreshAsync(ServiceId, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+        }
+
+        [Fact]
+        public async Task TestRefreshWithPost()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshUri, HttpStatusCode.Created);
+            var post = new TraktYounifyRefreshPost { SkipSync = true };
+            TraktResponse response = await client.Younify.RefreshAsync(ServiceId, post, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -24,10 +35,10 @@ namespace TraktNET.YounifyModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshUri, HttpStatusCode.OK);
 
-            Func<Task<TraktResponse>> act = () => client.Younify.RefreshAsync(string.Empty, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Younify.RefreshAsync(string.Empty, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Younify.RefreshAsync("   ", TestContext.Current.CancellationToken);
+            act = () => client.Younify.RefreshAsync("   ", cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
 
