@@ -10490,6 +10490,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktYounifyRefreshPost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktYounifyRefreshPost.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktYounifyRefreshPost",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktYounifyRefreshPost.yml\" sourcestartlinenumber=\"1\">Represents the optional payload to refresh a Younify streaming connection.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktYounifyRefreshServicePost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktYounifyRefreshServicePost.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktYounifyRefreshServicePost",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktYounifyRefreshServicePost.yml\" sourcestartlinenumber=\"1\">Represents the payload to refresh a Younify streaming connection with the service specified in the body.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.UsersJsonSerializerContext.yml",
       "output": {
         ".html": {

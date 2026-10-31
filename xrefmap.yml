@@ -126973,36 +126973,375 @@ references:
   commentId: Overload:TraktNET.TraktYounifyModule.GetConnectionsAsync
   fullName: TraktNET.TraktYounifyModule.GetConnectionsAsync
   nameWithType: TraktYounifyModule.GetConnectionsAsync
-- uid: TraktNET.TraktYounifyModule.RefreshAllAsync(System.String,System.Threading.CancellationToken)
-  name: RefreshAllAsync(string, CancellationToken)
-  href: api/TraktNET.TraktYounifyModule.html#TraktNET_TraktYounifyModule_RefreshAllAsync_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktYounifyModule.RefreshAllAsync(System.String,System.Threading.CancellationToken)
-  name.vb: RefreshAllAsync(String, CancellationToken)
-  fullName: TraktNET.TraktYounifyModule.RefreshAllAsync(string, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktYounifyModule.RefreshAllAsync(String, System.Threading.CancellationToken)
-  nameWithType: TraktYounifyModule.RefreshAllAsync(string, CancellationToken)
-  nameWithType.vb: TraktYounifyModule.RefreshAllAsync(String, CancellationToken)
+- uid: TraktNET.TraktYounifyModule.RefreshAllAsync(System.String,System.Boolean,TraktNET.TraktYounifyRefreshPost,System.Threading.CancellationToken)
+  name: RefreshAllAsync(string, bool, TraktYounifyRefreshPost?, CancellationToken)
+  href: api/TraktNET.TraktYounifyModule.html#TraktNET_TraktYounifyModule_RefreshAllAsync_System_String_System_Boolean_TraktNET_TraktYounifyRefreshPost_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktYounifyModule.RefreshAllAsync(System.String,System.Boolean,TraktNET.TraktYounifyRefreshPost,System.Threading.CancellationToken)
+  name.vb: RefreshAllAsync(String, Boolean, TraktYounifyRefreshPost, CancellationToken)
+  fullName: TraktNET.TraktYounifyModule.RefreshAllAsync(string, bool, TraktNET.TraktYounifyRefreshPost?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktYounifyModule.RefreshAllAsync(String, Boolean, TraktNET.TraktYounifyRefreshPost, System.Threading.CancellationToken)
+  nameWithType: TraktYounifyModule.RefreshAllAsync(string, bool, TraktYounifyRefreshPost?, CancellationToken)
+  nameWithType.vb: TraktYounifyModule.RefreshAllAsync(String, Boolean, TraktYounifyRefreshPost, CancellationToken)
 - uid: TraktNET.TraktYounifyModule.RefreshAllAsync*
   name: RefreshAllAsync
   href: api/TraktNET.TraktYounifyModule.html#TraktNET_TraktYounifyModule_RefreshAllAsync_
   commentId: Overload:TraktNET.TraktYounifyModule.RefreshAllAsync
   fullName: TraktNET.TraktYounifyModule.RefreshAllAsync
   nameWithType: TraktYounifyModule.RefreshAllAsync
-- uid: TraktNET.TraktYounifyModule.RefreshAsync(System.String,System.Threading.CancellationToken)
-  name: RefreshAsync(string, CancellationToken)
-  href: api/TraktNET.TraktYounifyModule.html#TraktNET_TraktYounifyModule_RefreshAsync_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktYounifyModule.RefreshAsync(System.String,System.Threading.CancellationToken)
-  name.vb: RefreshAsync(String, CancellationToken)
-  fullName: TraktNET.TraktYounifyModule.RefreshAsync(string, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktYounifyModule.RefreshAsync(String, System.Threading.CancellationToken)
-  nameWithType: TraktYounifyModule.RefreshAsync(string, CancellationToken)
-  nameWithType.vb: TraktYounifyModule.RefreshAsync(String, CancellationToken)
+- uid: TraktNET.TraktYounifyModule.RefreshAsync(System.String,TraktNET.TraktYounifyRefreshPost,System.Threading.CancellationToken)
+  name: RefreshAsync(string, TraktYounifyRefreshPost?, CancellationToken)
+  href: api/TraktNET.TraktYounifyModule.html#TraktNET_TraktYounifyModule_RefreshAsync_System_String_TraktNET_TraktYounifyRefreshPost_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktYounifyModule.RefreshAsync(System.String,TraktNET.TraktYounifyRefreshPost,System.Threading.CancellationToken)
+  name.vb: RefreshAsync(String, TraktYounifyRefreshPost, CancellationToken)
+  fullName: TraktNET.TraktYounifyModule.RefreshAsync(string, TraktNET.TraktYounifyRefreshPost?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktYounifyModule.RefreshAsync(String, TraktNET.TraktYounifyRefreshPost, System.Threading.CancellationToken)
+  nameWithType: TraktYounifyModule.RefreshAsync(string, TraktYounifyRefreshPost?, CancellationToken)
+  nameWithType.vb: TraktYounifyModule.RefreshAsync(String, TraktYounifyRefreshPost, CancellationToken)
 - uid: TraktNET.TraktYounifyModule.RefreshAsync*
   name: RefreshAsync
   href: api/TraktNET.TraktYounifyModule.html#TraktNET_TraktYounifyModule_RefreshAsync_
   commentId: Overload:TraktNET.TraktYounifyModule.RefreshAsync
   fullName: TraktNET.TraktYounifyModule.RefreshAsync
   nameWithType: TraktYounifyModule.RefreshAsync
+- uid: TraktNET.TraktYounifyModule.RefreshServiceAsync(TraktNET.TraktYounifyRefreshServicePost,System.Threading.CancellationToken)
+  name: RefreshServiceAsync(TraktYounifyRefreshServicePost, CancellationToken)
+  href: api/TraktNET.TraktYounifyModule.html#TraktNET_TraktYounifyModule_RefreshServiceAsync_TraktNET_TraktYounifyRefreshServicePost_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktYounifyModule.RefreshServiceAsync(TraktNET.TraktYounifyRefreshServicePost,System.Threading.CancellationToken)
+  fullName: TraktNET.TraktYounifyModule.RefreshServiceAsync(TraktNET.TraktYounifyRefreshServicePost, System.Threading.CancellationToken)
+  nameWithType: TraktYounifyModule.RefreshServiceAsync(TraktYounifyRefreshServicePost, CancellationToken)
+- uid: TraktNET.TraktYounifyModule.RefreshServiceAsync*
+  name: RefreshServiceAsync
+  href: api/TraktNET.TraktYounifyModule.html#TraktNET_TraktYounifyModule_RefreshServiceAsync_
+  commentId: Overload:TraktNET.TraktYounifyModule.RefreshServiceAsync
+  fullName: TraktNET.TraktYounifyModule.RefreshServiceAsync
+  nameWithType: TraktYounifyModule.RefreshServiceAsync
+- uid: TraktNET.TraktYounifyRefreshPost
+  name: TraktYounifyRefreshPost
+  href: api/TraktNET.TraktYounifyRefreshPost.html
+  commentId: T:TraktNET.TraktYounifyRefreshPost
+  fullName: TraktNET.TraktYounifyRefreshPost
+  nameWithType: TraktYounifyRefreshPost
+- uid: TraktNET.TraktYounifyRefreshPost.#ctor
+  name: TraktYounifyRefreshPost()
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost__ctor
+  commentId: M:TraktNET.TraktYounifyRefreshPost.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktYounifyRefreshPost.TraktYounifyRefreshPost()
+  fullName.vb: TraktNET.TraktYounifyRefreshPost.New()
+  nameWithType: TraktYounifyRefreshPost.TraktYounifyRefreshPost()
+  nameWithType.vb: TraktYounifyRefreshPost.New()
+- uid: TraktNET.TraktYounifyRefreshPost.#ctor(TraktNET.TraktYounifyRefreshPost)
+  name: TraktYounifyRefreshPost(TraktYounifyRefreshPost)
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost__ctor_TraktNET_TraktYounifyRefreshPost_
+  commentId: M:TraktNET.TraktYounifyRefreshPost.#ctor(TraktNET.TraktYounifyRefreshPost)
+  name.vb: New(TraktYounifyRefreshPost)
+  fullName: TraktNET.TraktYounifyRefreshPost.TraktYounifyRefreshPost(TraktNET.TraktYounifyRefreshPost)
+  fullName.vb: TraktNET.TraktYounifyRefreshPost.New(TraktNET.TraktYounifyRefreshPost)
+  nameWithType: TraktYounifyRefreshPost.TraktYounifyRefreshPost(TraktYounifyRefreshPost)
+  nameWithType.vb: TraktYounifyRefreshPost.New(TraktYounifyRefreshPost)
+- uid: TraktNET.TraktYounifyRefreshPost.#ctor*
+  name: TraktYounifyRefreshPost
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost__ctor_
+  commentId: Overload:TraktNET.TraktYounifyRefreshPost.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktYounifyRefreshPost.TraktYounifyRefreshPost
+  fullName.vb: TraktNET.TraktYounifyRefreshPost.New
+  nameWithType: TraktYounifyRefreshPost.TraktYounifyRefreshPost
+  nameWithType.vb: TraktYounifyRefreshPost.New
+- uid: TraktNET.TraktYounifyRefreshPost.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_EqualityContract
+  commentId: P:TraktNET.TraktYounifyRefreshPost.EqualityContract
+  fullName: TraktNET.TraktYounifyRefreshPost.EqualityContract
+  nameWithType: TraktYounifyRefreshPost.EqualityContract
+- uid: TraktNET.TraktYounifyRefreshPost.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_EqualityContract_
+  commentId: Overload:TraktNET.TraktYounifyRefreshPost.EqualityContract
+  fullName: TraktNET.TraktYounifyRefreshPost.EqualityContract
+  nameWithType: TraktYounifyRefreshPost.EqualityContract
+- uid: TraktNET.TraktYounifyRefreshPost.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_Equals_System_Object_
+  commentId: M:TraktNET.TraktYounifyRefreshPost.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktYounifyRefreshPost.Equals(object?)
+  fullName.vb: TraktNET.TraktYounifyRefreshPost.Equals(Object)
+  nameWithType: TraktYounifyRefreshPost.Equals(object?)
+  nameWithType.vb: TraktYounifyRefreshPost.Equals(Object)
+- uid: TraktNET.TraktYounifyRefreshPost.Equals(TraktNET.TraktYounifyRefreshPost)
+  name: Equals(TraktYounifyRefreshPost?)
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_Equals_TraktNET_TraktYounifyRefreshPost_
+  commentId: M:TraktNET.TraktYounifyRefreshPost.Equals(TraktNET.TraktYounifyRefreshPost)
+  name.vb: Equals(TraktYounifyRefreshPost)
+  fullName: TraktNET.TraktYounifyRefreshPost.Equals(TraktNET.TraktYounifyRefreshPost?)
+  fullName.vb: TraktNET.TraktYounifyRefreshPost.Equals(TraktNET.TraktYounifyRefreshPost)
+  nameWithType: TraktYounifyRefreshPost.Equals(TraktYounifyRefreshPost?)
+  nameWithType.vb: TraktYounifyRefreshPost.Equals(TraktYounifyRefreshPost)
+- uid: TraktNET.TraktYounifyRefreshPost.Equals*
+  name: Equals
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_Equals_
+  commentId: Overload:TraktNET.TraktYounifyRefreshPost.Equals
+  fullName: TraktNET.TraktYounifyRefreshPost.Equals
+  nameWithType: TraktYounifyRefreshPost.Equals
+- uid: TraktNET.TraktYounifyRefreshPost.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_GetHashCode
+  commentId: M:TraktNET.TraktYounifyRefreshPost.GetHashCode
+  fullName: TraktNET.TraktYounifyRefreshPost.GetHashCode()
+  nameWithType: TraktYounifyRefreshPost.GetHashCode()
+- uid: TraktNET.TraktYounifyRefreshPost.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_GetHashCode_
+  commentId: Overload:TraktNET.TraktYounifyRefreshPost.GetHashCode
+  fullName: TraktNET.TraktYounifyRefreshPost.GetHashCode
+  nameWithType: TraktYounifyRefreshPost.GetHashCode
+- uid: TraktNET.TraktYounifyRefreshPost.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktYounifyRefreshPost.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktYounifyRefreshPost.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktYounifyRefreshPost.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktYounifyRefreshPost.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_PrintMembers_
+  commentId: Overload:TraktNET.TraktYounifyRefreshPost.PrintMembers
+  fullName: TraktNET.TraktYounifyRefreshPost.PrintMembers
+  nameWithType: TraktYounifyRefreshPost.PrintMembers
+- uid: TraktNET.TraktYounifyRefreshPost.SkipSync
+  name: SkipSync
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_SkipSync
+  commentId: P:TraktNET.TraktYounifyRefreshPost.SkipSync
+  fullName: TraktNET.TraktYounifyRefreshPost.SkipSync
+  nameWithType: TraktYounifyRefreshPost.SkipSync
+- uid: TraktNET.TraktYounifyRefreshPost.SkipSync*
+  name: SkipSync
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_SkipSync_
+  commentId: Overload:TraktNET.TraktYounifyRefreshPost.SkipSync
+  fullName: TraktNET.TraktYounifyRefreshPost.SkipSync
+  nameWithType: TraktYounifyRefreshPost.SkipSync
+- uid: TraktNET.TraktYounifyRefreshPost.ToString
+  name: ToString()
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_ToString
+  commentId: M:TraktNET.TraktYounifyRefreshPost.ToString
+  fullName: TraktNET.TraktYounifyRefreshPost.ToString()
+  nameWithType: TraktYounifyRefreshPost.ToString()
+- uid: TraktNET.TraktYounifyRefreshPost.ToString*
+  name: ToString
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_ToString_
+  commentId: Overload:TraktNET.TraktYounifyRefreshPost.ToString
+  fullName: TraktNET.TraktYounifyRefreshPost.ToString
+  nameWithType: TraktYounifyRefreshPost.ToString
+- uid: TraktNET.TraktYounifyRefreshPost.op_Equality(TraktNET.TraktYounifyRefreshPost,TraktNET.TraktYounifyRefreshPost)
+  name: operator ==(TraktYounifyRefreshPost?, TraktYounifyRefreshPost?)
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_op_Equality_TraktNET_TraktYounifyRefreshPost_TraktNET_TraktYounifyRefreshPost_
+  commentId: M:TraktNET.TraktYounifyRefreshPost.op_Equality(TraktNET.TraktYounifyRefreshPost,TraktNET.TraktYounifyRefreshPost)
+  name.vb: =(TraktYounifyRefreshPost, TraktYounifyRefreshPost)
+  fullName: TraktNET.TraktYounifyRefreshPost.operator ==(TraktNET.TraktYounifyRefreshPost?, TraktNET.TraktYounifyRefreshPost?)
+  fullName.vb: TraktNET.TraktYounifyRefreshPost.=(TraktNET.TraktYounifyRefreshPost, TraktNET.TraktYounifyRefreshPost)
+  nameWithType: TraktYounifyRefreshPost.operator ==(TraktYounifyRefreshPost?, TraktYounifyRefreshPost?)
+  nameWithType.vb: TraktYounifyRefreshPost.=(TraktYounifyRefreshPost, TraktYounifyRefreshPost)
+- uid: TraktNET.TraktYounifyRefreshPost.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_op_Equality_
+  commentId: Overload:TraktNET.TraktYounifyRefreshPost.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktYounifyRefreshPost.operator ==
+  fullName.vb: TraktNET.TraktYounifyRefreshPost.=
+  nameWithType: TraktYounifyRefreshPost.operator ==
+  nameWithType.vb: TraktYounifyRefreshPost.=
+- uid: TraktNET.TraktYounifyRefreshPost.op_Inequality(TraktNET.TraktYounifyRefreshPost,TraktNET.TraktYounifyRefreshPost)
+  name: operator !=(TraktYounifyRefreshPost?, TraktYounifyRefreshPost?)
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_op_Inequality_TraktNET_TraktYounifyRefreshPost_TraktNET_TraktYounifyRefreshPost_
+  commentId: M:TraktNET.TraktYounifyRefreshPost.op_Inequality(TraktNET.TraktYounifyRefreshPost,TraktNET.TraktYounifyRefreshPost)
+  name.vb: <>(TraktYounifyRefreshPost, TraktYounifyRefreshPost)
+  fullName: TraktNET.TraktYounifyRefreshPost.operator !=(TraktNET.TraktYounifyRefreshPost?, TraktNET.TraktYounifyRefreshPost?)
+  fullName.vb: TraktNET.TraktYounifyRefreshPost.<>(TraktNET.TraktYounifyRefreshPost, TraktNET.TraktYounifyRefreshPost)
+  nameWithType: TraktYounifyRefreshPost.operator !=(TraktYounifyRefreshPost?, TraktYounifyRefreshPost?)
+  nameWithType.vb: TraktYounifyRefreshPost.<>(TraktYounifyRefreshPost, TraktYounifyRefreshPost)
+- uid: TraktNET.TraktYounifyRefreshPost.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktYounifyRefreshPost.html#TraktNET_TraktYounifyRefreshPost_op_Inequality_
+  commentId: Overload:TraktNET.TraktYounifyRefreshPost.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktYounifyRefreshPost.operator !=
+  fullName.vb: TraktNET.TraktYounifyRefreshPost.<>
+  nameWithType: TraktYounifyRefreshPost.operator !=
+  nameWithType.vb: TraktYounifyRefreshPost.<>
+- uid: TraktNET.TraktYounifyRefreshServicePost
+  name: TraktYounifyRefreshServicePost
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html
+  commentId: T:TraktNET.TraktYounifyRefreshServicePost
+  fullName: TraktNET.TraktYounifyRefreshServicePost
+  nameWithType: TraktYounifyRefreshServicePost
+- uid: TraktNET.TraktYounifyRefreshServicePost.#ctor
+  name: TraktYounifyRefreshServicePost()
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost__ctor
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktYounifyRefreshServicePost.TraktYounifyRefreshServicePost()
+  fullName.vb: TraktNET.TraktYounifyRefreshServicePost.New()
+  nameWithType: TraktYounifyRefreshServicePost.TraktYounifyRefreshServicePost()
+  nameWithType.vb: TraktYounifyRefreshServicePost.New()
+- uid: TraktNET.TraktYounifyRefreshServicePost.#ctor(TraktNET.TraktYounifyRefreshServicePost)
+  name: TraktYounifyRefreshServicePost(TraktYounifyRefreshServicePost)
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost__ctor_TraktNET_TraktYounifyRefreshServicePost_
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.#ctor(TraktNET.TraktYounifyRefreshServicePost)
+  name.vb: New(TraktYounifyRefreshServicePost)
+  fullName: TraktNET.TraktYounifyRefreshServicePost.TraktYounifyRefreshServicePost(TraktNET.TraktYounifyRefreshServicePost)
+  fullName.vb: TraktNET.TraktYounifyRefreshServicePost.New(TraktNET.TraktYounifyRefreshServicePost)
+  nameWithType: TraktYounifyRefreshServicePost.TraktYounifyRefreshServicePost(TraktYounifyRefreshServicePost)
+  nameWithType.vb: TraktYounifyRefreshServicePost.New(TraktYounifyRefreshServicePost)
+- uid: TraktNET.TraktYounifyRefreshServicePost.#ctor*
+  name: TraktYounifyRefreshServicePost
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost__ctor_
+  commentId: Overload:TraktNET.TraktYounifyRefreshServicePost.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktYounifyRefreshServicePost.TraktYounifyRefreshServicePost
+  fullName.vb: TraktNET.TraktYounifyRefreshServicePost.New
+  nameWithType: TraktYounifyRefreshServicePost.TraktYounifyRefreshServicePost
+  nameWithType.vb: TraktYounifyRefreshServicePost.New
+- uid: TraktNET.TraktYounifyRefreshServicePost.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_EqualityContract
+  commentId: P:TraktNET.TraktYounifyRefreshServicePost.EqualityContract
+  fullName: TraktNET.TraktYounifyRefreshServicePost.EqualityContract
+  nameWithType: TraktYounifyRefreshServicePost.EqualityContract
+- uid: TraktNET.TraktYounifyRefreshServicePost.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_EqualityContract_
+  commentId: Overload:TraktNET.TraktYounifyRefreshServicePost.EqualityContract
+  fullName: TraktNET.TraktYounifyRefreshServicePost.EqualityContract
+  nameWithType: TraktYounifyRefreshServicePost.EqualityContract
+- uid: TraktNET.TraktYounifyRefreshServicePost.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_Equals_System_Object_
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktYounifyRefreshServicePost.Equals(object?)
+  fullName.vb: TraktNET.TraktYounifyRefreshServicePost.Equals(Object)
+  nameWithType: TraktYounifyRefreshServicePost.Equals(object?)
+  nameWithType.vb: TraktYounifyRefreshServicePost.Equals(Object)
+- uid: TraktNET.TraktYounifyRefreshServicePost.Equals(TraktNET.TraktYounifyRefreshPost)
+  name: Equals(TraktYounifyRefreshPost?)
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_Equals_TraktNET_TraktYounifyRefreshPost_
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.Equals(TraktNET.TraktYounifyRefreshPost)
+  name.vb: Equals(TraktYounifyRefreshPost)
+  fullName: TraktNET.TraktYounifyRefreshServicePost.Equals(TraktNET.TraktYounifyRefreshPost?)
+  fullName.vb: TraktNET.TraktYounifyRefreshServicePost.Equals(TraktNET.TraktYounifyRefreshPost)
+  nameWithType: TraktYounifyRefreshServicePost.Equals(TraktYounifyRefreshPost?)
+  nameWithType.vb: TraktYounifyRefreshServicePost.Equals(TraktYounifyRefreshPost)
+- uid: TraktNET.TraktYounifyRefreshServicePost.Equals(TraktNET.TraktYounifyRefreshServicePost)
+  name: Equals(TraktYounifyRefreshServicePost?)
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_Equals_TraktNET_TraktYounifyRefreshServicePost_
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.Equals(TraktNET.TraktYounifyRefreshServicePost)
+  name.vb: Equals(TraktYounifyRefreshServicePost)
+  fullName: TraktNET.TraktYounifyRefreshServicePost.Equals(TraktNET.TraktYounifyRefreshServicePost?)
+  fullName.vb: TraktNET.TraktYounifyRefreshServicePost.Equals(TraktNET.TraktYounifyRefreshServicePost)
+  nameWithType: TraktYounifyRefreshServicePost.Equals(TraktYounifyRefreshServicePost?)
+  nameWithType.vb: TraktYounifyRefreshServicePost.Equals(TraktYounifyRefreshServicePost)
+- uid: TraktNET.TraktYounifyRefreshServicePost.Equals*
+  name: Equals
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_Equals_
+  commentId: Overload:TraktNET.TraktYounifyRefreshServicePost.Equals
+  fullName: TraktNET.TraktYounifyRefreshServicePost.Equals
+  nameWithType: TraktYounifyRefreshServicePost.Equals
+- uid: TraktNET.TraktYounifyRefreshServicePost.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_GetHashCode
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.GetHashCode
+  fullName: TraktNET.TraktYounifyRefreshServicePost.GetHashCode()
+  nameWithType: TraktYounifyRefreshServicePost.GetHashCode()
+- uid: TraktNET.TraktYounifyRefreshServicePost.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_GetHashCode_
+  commentId: Overload:TraktNET.TraktYounifyRefreshServicePost.GetHashCode
+  fullName: TraktNET.TraktYounifyRefreshServicePost.GetHashCode
+  nameWithType: TraktYounifyRefreshServicePost.GetHashCode
+- uid: TraktNET.TraktYounifyRefreshServicePost.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktYounifyRefreshServicePost.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktYounifyRefreshServicePost.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktYounifyRefreshServicePost.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_PrintMembers_
+  commentId: Overload:TraktNET.TraktYounifyRefreshServicePost.PrintMembers
+  fullName: TraktNET.TraktYounifyRefreshServicePost.PrintMembers
+  nameWithType: TraktYounifyRefreshServicePost.PrintMembers
+- uid: TraktNET.TraktYounifyRefreshServicePost.ServiceId
+  name: ServiceId
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_ServiceId
+  commentId: P:TraktNET.TraktYounifyRefreshServicePost.ServiceId
+  fullName: TraktNET.TraktYounifyRefreshServicePost.ServiceId
+  nameWithType: TraktYounifyRefreshServicePost.ServiceId
+- uid: TraktNET.TraktYounifyRefreshServicePost.ServiceId*
+  name: ServiceId
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_ServiceId_
+  commentId: Overload:TraktNET.TraktYounifyRefreshServicePost.ServiceId
+  fullName: TraktNET.TraktYounifyRefreshServicePost.ServiceId
+  nameWithType: TraktYounifyRefreshServicePost.ServiceId
+- uid: TraktNET.TraktYounifyRefreshServicePost.ToString
+  name: ToString()
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_ToString
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.ToString
+  fullName: TraktNET.TraktYounifyRefreshServicePost.ToString()
+  nameWithType: TraktYounifyRefreshServicePost.ToString()
+- uid: TraktNET.TraktYounifyRefreshServicePost.ToString*
+  name: ToString
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_ToString_
+  commentId: Overload:TraktNET.TraktYounifyRefreshServicePost.ToString
+  fullName: TraktNET.TraktYounifyRefreshServicePost.ToString
+  nameWithType: TraktYounifyRefreshServicePost.ToString
+- uid: TraktNET.TraktYounifyRefreshServicePost.Validate
+  name: Validate()
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_Validate
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.Validate
+  fullName: TraktNET.TraktYounifyRefreshServicePost.Validate()
+  nameWithType: TraktYounifyRefreshServicePost.Validate()
+- uid: TraktNET.TraktYounifyRefreshServicePost.Validate*
+  name: Validate
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_Validate_
+  commentId: Overload:TraktNET.TraktYounifyRefreshServicePost.Validate
+  fullName: TraktNET.TraktYounifyRefreshServicePost.Validate
+  nameWithType: TraktYounifyRefreshServicePost.Validate
+- uid: TraktNET.TraktYounifyRefreshServicePost.op_Equality(TraktNET.TraktYounifyRefreshServicePost,TraktNET.TraktYounifyRefreshServicePost)
+  name: operator ==(TraktYounifyRefreshServicePost?, TraktYounifyRefreshServicePost?)
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_op_Equality_TraktNET_TraktYounifyRefreshServicePost_TraktNET_TraktYounifyRefreshServicePost_
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.op_Equality(TraktNET.TraktYounifyRefreshServicePost,TraktNET.TraktYounifyRefreshServicePost)
+  name.vb: =(TraktYounifyRefreshServicePost, TraktYounifyRefreshServicePost)
+  fullName: TraktNET.TraktYounifyRefreshServicePost.operator ==(TraktNET.TraktYounifyRefreshServicePost?, TraktNET.TraktYounifyRefreshServicePost?)
+  fullName.vb: TraktNET.TraktYounifyRefreshServicePost.=(TraktNET.TraktYounifyRefreshServicePost, TraktNET.TraktYounifyRefreshServicePost)
+  nameWithType: TraktYounifyRefreshServicePost.operator ==(TraktYounifyRefreshServicePost?, TraktYounifyRefreshServicePost?)
+  nameWithType.vb: TraktYounifyRefreshServicePost.=(TraktYounifyRefreshServicePost, TraktYounifyRefreshServicePost)
+- uid: TraktNET.TraktYounifyRefreshServicePost.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_op_Equality_
+  commentId: Overload:TraktNET.TraktYounifyRefreshServicePost.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktYounifyRefreshServicePost.operator ==
+  fullName.vb: TraktNET.TraktYounifyRefreshServicePost.=
+  nameWithType: TraktYounifyRefreshServicePost.operator ==
+  nameWithType.vb: TraktYounifyRefreshServicePost.=
+- uid: TraktNET.TraktYounifyRefreshServicePost.op_Inequality(TraktNET.TraktYounifyRefreshServicePost,TraktNET.TraktYounifyRefreshServicePost)
+  name: operator !=(TraktYounifyRefreshServicePost?, TraktYounifyRefreshServicePost?)
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_op_Inequality_TraktNET_TraktYounifyRefreshServicePost_TraktNET_TraktYounifyRefreshServicePost_
+  commentId: M:TraktNET.TraktYounifyRefreshServicePost.op_Inequality(TraktNET.TraktYounifyRefreshServicePost,TraktNET.TraktYounifyRefreshServicePost)
+  name.vb: <>(TraktYounifyRefreshServicePost, TraktYounifyRefreshServicePost)
+  fullName: TraktNET.TraktYounifyRefreshServicePost.operator !=(TraktNET.TraktYounifyRefreshServicePost?, TraktNET.TraktYounifyRefreshServicePost?)
+  fullName.vb: TraktNET.TraktYounifyRefreshServicePost.<>(TraktNET.TraktYounifyRefreshServicePost, TraktNET.TraktYounifyRefreshServicePost)
+  nameWithType: TraktYounifyRefreshServicePost.operator !=(TraktYounifyRefreshServicePost?, TraktYounifyRefreshServicePost?)
+  nameWithType.vb: TraktYounifyRefreshServicePost.<>(TraktYounifyRefreshServicePost, TraktYounifyRefreshServicePost)
+- uid: TraktNET.TraktYounifyRefreshServicePost.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktYounifyRefreshServicePost.html#TraktNET_TraktYounifyRefreshServicePost_op_Inequality_
+  commentId: Overload:TraktNET.TraktYounifyRefreshServicePost.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktYounifyRefreshServicePost.operator !=
+  fullName.vb: TraktNET.TraktYounifyRefreshServicePost.<>
+  nameWithType: TraktYounifyRefreshServicePost.operator !=
+  nameWithType.vb: TraktYounifyRefreshServicePost.<>
 - uid: TraktNET.UsersJsonSerializerContext
   name: UsersJsonSerializerContext
   href: api/TraktNET.UsersJsonSerializerContext.html
@@ -132880,3 +133219,27 @@ references:
   commentId: Overload:TraktNET.YounifyJsonSerializerContext.TraktYounifyConnectionImages
   fullName: TraktNET.YounifyJsonSerializerContext.TraktYounifyConnectionImages
   nameWithType: YounifyJsonSerializerContext.TraktYounifyConnectionImages
+- uid: TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshPost
+  name: TraktYounifyRefreshPost
+  href: api/TraktNET.YounifyJsonSerializerContext.html#TraktNET_YounifyJsonSerializerContext_TraktYounifyRefreshPost
+  commentId: P:TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshPost
+  fullName: TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshPost
+  nameWithType: YounifyJsonSerializerContext.TraktYounifyRefreshPost
+- uid: TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshPost*
+  name: TraktYounifyRefreshPost
+  href: api/TraktNET.YounifyJsonSerializerContext.html#TraktNET_YounifyJsonSerializerContext_TraktYounifyRefreshPost_
+  commentId: Overload:TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshPost
+  fullName: TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshPost
+  nameWithType: YounifyJsonSerializerContext.TraktYounifyRefreshPost
+- uid: TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshServicePost
+  name: TraktYounifyRefreshServicePost
+  href: api/TraktNET.YounifyJsonSerializerContext.html#TraktNET_YounifyJsonSerializerContext_TraktYounifyRefreshServicePost
+  commentId: P:TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshServicePost
+  fullName: TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshServicePost
+  nameWithType: YounifyJsonSerializerContext.TraktYounifyRefreshServicePost
+- uid: TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshServicePost*
+  name: TraktYounifyRefreshServicePost
+  href: api/TraktNET.YounifyJsonSerializerContext.html#TraktNET_YounifyJsonSerializerContext_TraktYounifyRefreshServicePost_
+  commentId: Overload:TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshServicePost
+  fullName: TraktNET.YounifyJsonSerializerContext.TraktYounifyRefreshServicePost
+  nameWithType: YounifyJsonSerializerContext.TraktYounifyRefreshServicePost
