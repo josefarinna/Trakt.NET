@@ -4232,6 +4232,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktPKCE.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktPKCE.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktPKCE",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktPKCE.yml\" sourcestartlinenumber=\"1\">Helper for Proof Key for Code Exchange (PKCE) according to RFC 7636.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktPKCEChallenge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktPKCEChallenge.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktPKCEChallenge",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktPKCEChallenge.yml\" sourcestartlinenumber=\"1\">Represents a generated PKCE challenge pair containing the code verifier, code challenge, and code challenge method.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktPagedResponse-1.yml",
       "output": {
         ".html": {

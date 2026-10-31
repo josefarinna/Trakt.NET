@@ -200,6 +200,7 @@ public string? ClientId { get; set; }</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;client_secret&quot;)]
+[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 public string? ClientSecret { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>

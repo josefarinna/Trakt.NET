@@ -20764,15 +20764,15 @@ references:
   commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrl
   fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrl
   nameWithType: TraktAuthModule.CreateAuthorizationUrl
-- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlCore(System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name: CreateAuthorizationUrlCore(string, string, string?, bool?, bool?)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlCore_System_String_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
-  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlCore(System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name.vb: CreateAuthorizationUrlCore(String, String, String, Boolean?, Boolean?)
-  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlCore(string, string, string?, bool?, bool?)
-  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlCore(String, String, String, Boolean?, Boolean?)
-  nameWithType: TraktAuthModule.CreateAuthorizationUrlCore(string, string, string?, bool?, bool?)
-  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlCore(String, String, String, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlCore(System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.String)
+  name: CreateAuthorizationUrlCore(string, string, string?, bool?, bool?, string?, string?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlCore_System_String_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_System_String_
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlCore(System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.String)
+  name.vb: CreateAuthorizationUrlCore(String, String, String, Boolean?, Boolean?, String, String)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlCore(string, string, string?, bool?, bool?, string?, string?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlCore(String, String, String, Boolean?, Boolean?, String, String)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlCore(string, string, string?, bool?, bool?, string?, string?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlCore(String, String, String, Boolean?, Boolean?, String, String)
 - uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlCore*
   name: CreateAuthorizationUrlCore
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlCore_
@@ -20812,21 +20812,87 @@ references:
   commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultState
   fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultState
   nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultState
-- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name: CreateAuthorizationUrlWithDefaultStateCore(string, string, bool?, bool?)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateCore_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
-  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name.vb: CreateAuthorizationUrlWithDefaultStateCore(String, String, Boolean?, Boolean?)
-  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(string, string, bool?, bool?)
-  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(String, String, Boolean?, Boolean?)
-  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(string, string, bool?, bool?)
-  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(String, String, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, string, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, String, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, string, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, String, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, string, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, String, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, string, string, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, String, String, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, string, string, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, String, String, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, string, string, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, String, String, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE*
+  name: CreateAuthorizationUrlWithDefaultStateAndPKCE
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_
+  commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.String)
+  name: CreateAuthorizationUrlWithDefaultStateCore(string, string, bool?, bool?, string?, string?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateCore_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_System_String_
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.String)
+  name.vb: CreateAuthorizationUrlWithDefaultStateCore(String, String, Boolean?, Boolean?, String, String)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(string, string, bool?, bool?, string?, string?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(String, String, Boolean?, Boolean?, String, String)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(string, string, bool?, bool?, string?, string?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(String, String, Boolean?, Boolean?, String, String)
 - uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore*
   name: CreateAuthorizationUrlWithDefaultStateCore
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateCore_
   commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore
   fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore
   nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, string, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, String, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, string, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, String, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, string, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, String, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, string, string, string?, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_String_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, String, String, String, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, string, string, string?, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, String, String, String, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, string, string, string?, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, String, String, String, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE*
+  name: CreateAuthorizationUrlWithPKCE
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_
+  commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPKCE
 - uid: TraktNET.TraktAuthModule.GenerateDeviceAsync(System.String,System.Threading.CancellationToken)
   name: GenerateDeviceAsync(string, CancellationToken)
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GenerateDeviceAsync_System_String_System_Threading_CancellationToken_
@@ -20896,6 +20962,48 @@ references:
   commentId: Overload:TraktNET.TraktAuthModule.GetAuthorizationAsync
   fullName: TraktNET.TraktAuthModule.GetAuthorizationAsync
   nameWithType: TraktAuthModule.GetAuthorizationAsync
+- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  name: GetAuthorizationWithPKCEAsync(string, string, string, string?, string, CancellationToken)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  name.vb: GetAuthorizationWithPKCEAsync(String, String, String, String, String, CancellationToken)
+  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, string?, string, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, String, String, System.Threading.CancellationToken)
+  nameWithType: TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, string?, string, CancellationToken)
+  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, String, String, CancellationToken)
+- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  name: GetAuthorizationWithPKCEAsync(string, string, string, string, CancellationToken)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  name.vb: GetAuthorizationWithPKCEAsync(String, String, String, String, CancellationToken)
+  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, string, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, String, System.Threading.CancellationToken)
+  nameWithType: TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, string, CancellationToken)
+  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, String, CancellationToken)
+- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name: GetAuthorizationWithPKCEAsync(string, string, string, CancellationToken)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name.vb: GetAuthorizationWithPKCEAsync(String, String, String, CancellationToken)
+  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, System.Threading.CancellationToken)
+  nameWithType: TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, CancellationToken)
+  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, CancellationToken)
+- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.Threading.CancellationToken)
+  name: GetAuthorizationWithPKCEAsync(string, string, CancellationToken)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.Threading.CancellationToken)
+  name.vb: GetAuthorizationWithPKCEAsync(String, String, CancellationToken)
+  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, System.Threading.CancellationToken)
+  nameWithType: TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, CancellationToken)
+  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, CancellationToken)
+- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync*
+  name: GetAuthorizationWithPKCEAsync
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_
+  commentId: Overload:TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync
+  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync
+  nameWithType: TraktAuthModule.GetAuthorizationWithPKCEAsync
 - uid: TraktNET.TraktAuthModule.PollForAuthorizationAsync(System.Threading.CancellationToken)
   name: PollForAuthorizationAsync(CancellationToken)
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_PollForAuthorizationAsync_System_Threading_CancellationToken_
@@ -20903,13 +21011,13 @@ references:
   fullName: TraktNET.TraktAuthModule.PollForAuthorizationAsync(System.Threading.CancellationToken)
   nameWithType: TraktAuthModule.PollForAuthorizationAsync(CancellationToken)
 - uid: TraktNET.TraktAuthModule.PollForAuthorizationAsync(TraktNET.TraktDevice,System.String,System.String,System.Threading.CancellationToken)
-  name: PollForAuthorizationAsync(TraktDevice, string, string, CancellationToken)
+  name: PollForAuthorizationAsync(TraktDevice, string, string?, CancellationToken)
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_PollForAuthorizationAsync_TraktNET_TraktDevice_System_String_System_String_System_Threading_CancellationToken_
   commentId: M:TraktNET.TraktAuthModule.PollForAuthorizationAsync(TraktNET.TraktDevice,System.String,System.String,System.Threading.CancellationToken)
   name.vb: PollForAuthorizationAsync(TraktDevice, String, String, CancellationToken)
-  fullName: TraktNET.TraktAuthModule.PollForAuthorizationAsync(TraktNET.TraktDevice, string, string, System.Threading.CancellationToken)
+  fullName: TraktNET.TraktAuthModule.PollForAuthorizationAsync(TraktNET.TraktDevice, string, string?, System.Threading.CancellationToken)
   fullName.vb: TraktNET.TraktAuthModule.PollForAuthorizationAsync(TraktNET.TraktDevice, String, String, System.Threading.CancellationToken)
-  nameWithType: TraktAuthModule.PollForAuthorizationAsync(TraktDevice, string, string, CancellationToken)
+  nameWithType: TraktAuthModule.PollForAuthorizationAsync(TraktDevice, string, string?, CancellationToken)
   nameWithType.vb: TraktAuthModule.PollForAuthorizationAsync(TraktDevice, String, String, CancellationToken)
 - uid: TraktNET.TraktAuthModule.PollForAuthorizationAsync(TraktNET.TraktDevice,System.String,System.Threading.CancellationToken)
   name: PollForAuthorizationAsync(TraktDevice, string, CancellationToken)
@@ -20945,22 +21053,22 @@ references:
   fullName: TraktNET.TraktAuthModule.RedirectUri
   nameWithType: TraktAuthModule.RedirectUri
 - uid: TraktNET.TraktAuthModule.RefreshAuthorizationAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
-  name: RefreshAuthorizationAsync(string, string, string, string, CancellationToken)
+  name: RefreshAuthorizationAsync(string, string, string?, string, CancellationToken)
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RefreshAuthorizationAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
   commentId: M:TraktNET.TraktAuthModule.RefreshAuthorizationAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
   name.vb: RefreshAuthorizationAsync(String, String, String, String, CancellationToken)
-  fullName: TraktNET.TraktAuthModule.RefreshAuthorizationAsync(string, string, string, string, System.Threading.CancellationToken)
+  fullName: TraktNET.TraktAuthModule.RefreshAuthorizationAsync(string, string, string?, string, System.Threading.CancellationToken)
   fullName.vb: TraktNET.TraktAuthModule.RefreshAuthorizationAsync(String, String, String, String, System.Threading.CancellationToken)
-  nameWithType: TraktAuthModule.RefreshAuthorizationAsync(string, string, string, string, CancellationToken)
+  nameWithType: TraktAuthModule.RefreshAuthorizationAsync(string, string, string?, string, CancellationToken)
   nameWithType.vb: TraktAuthModule.RefreshAuthorizationAsync(String, String, String, String, CancellationToken)
 - uid: TraktNET.TraktAuthModule.RefreshAuthorizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
-  name: RefreshAuthorizationAsync(string, string, string, CancellationToken)
+  name: RefreshAuthorizationAsync(string, string, string?, CancellationToken)
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RefreshAuthorizationAsync_System_String_System_String_System_String_System_Threading_CancellationToken_
   commentId: M:TraktNET.TraktAuthModule.RefreshAuthorizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
   name.vb: RefreshAuthorizationAsync(String, String, String, CancellationToken)
-  fullName: TraktNET.TraktAuthModule.RefreshAuthorizationAsync(string, string, string, System.Threading.CancellationToken)
+  fullName: TraktNET.TraktAuthModule.RefreshAuthorizationAsync(string, string, string?, System.Threading.CancellationToken)
   fullName.vb: TraktNET.TraktAuthModule.RefreshAuthorizationAsync(String, String, String, System.Threading.CancellationToken)
-  nameWithType: TraktAuthModule.RefreshAuthorizationAsync(string, string, string, CancellationToken)
+  nameWithType: TraktAuthModule.RefreshAuthorizationAsync(string, string, string?, CancellationToken)
   nameWithType.vb: TraktAuthModule.RefreshAuthorizationAsync(String, String, String, CancellationToken)
 - uid: TraktNET.TraktAuthModule.RefreshAuthorizationAsync(System.String,System.String,System.Threading.CancellationToken)
   name: RefreshAuthorizationAsync(string, string, CancellationToken)
@@ -20993,13 +21101,13 @@ references:
   fullName: TraktNET.TraktAuthModule.RefreshAuthorizationAsync
   nameWithType: TraktAuthModule.RefreshAuthorizationAsync
 - uid: TraktNET.TraktAuthModule.RevokeAuthorizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
-  name: RevokeAuthorizationAsync(string, string, string, CancellationToken)
+  name: RevokeAuthorizationAsync(string, string, string?, CancellationToken)
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RevokeAuthorizationAsync_System_String_System_String_System_String_System_Threading_CancellationToken_
   commentId: M:TraktNET.TraktAuthModule.RevokeAuthorizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
   name.vb: RevokeAuthorizationAsync(String, String, String, CancellationToken)
-  fullName: TraktNET.TraktAuthModule.RevokeAuthorizationAsync(string, string, string, System.Threading.CancellationToken)
+  fullName: TraktNET.TraktAuthModule.RevokeAuthorizationAsync(string, string, string?, System.Threading.CancellationToken)
   fullName.vb: TraktNET.TraktAuthModule.RevokeAuthorizationAsync(String, String, String, System.Threading.CancellationToken)
-  nameWithType: TraktAuthModule.RevokeAuthorizationAsync(string, string, string, CancellationToken)
+  nameWithType: TraktAuthModule.RevokeAuthorizationAsync(string, string, string?, CancellationToken)
   nameWithType.vb: TraktAuthModule.RevokeAuthorizationAsync(String, String, String, CancellationToken)
 - uid: TraktNET.TraktAuthModule.RevokeAuthorizationAsync(System.String,System.String,System.Threading.CancellationToken)
   name: RevokeAuthorizationAsync(string, string, CancellationToken)
@@ -21652,6 +21760,18 @@ references:
   commentId: Overload:TraktNET.TraktAuthorizationPost.Code
   fullName: TraktNET.TraktAuthorizationPost.Code
   nameWithType: TraktAuthorizationPost.Code
+- uid: TraktNET.TraktAuthorizationPost.CodeVerifier
+  name: CodeVerifier
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_CodeVerifier
+  commentId: P:TraktNET.TraktAuthorizationPost.CodeVerifier
+  fullName: TraktNET.TraktAuthorizationPost.CodeVerifier
+  nameWithType: TraktAuthorizationPost.CodeVerifier
+- uid: TraktNET.TraktAuthorizationPost.CodeVerifier*
+  name: CodeVerifier
+  href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_CodeVerifier_
+  commentId: Overload:TraktNET.TraktAuthorizationPost.CodeVerifier
+  fullName: TraktNET.TraktAuthorizationPost.CodeVerifier
+  nameWithType: TraktAuthorizationPost.CodeVerifier
 - uid: TraktNET.TraktAuthorizationPost.EqualityContract
   name: EqualityContract
   href: api/TraktNET.TraktAuthorizationPost.html#TraktNET_TraktAuthorizationPost_EqualityContract
@@ -25319,13 +25439,13 @@ references:
   fullName: TraktNET.TraktClient
   nameWithType: TraktClient
 - uid: TraktNET.TraktClient.#ctor(System.String,System.String,System.String)
-  name: TraktClient(string, string, string?)
+  name: TraktClient(string, string?, string?)
   href: api/TraktNET.TraktClient.html#TraktNET_TraktClient__ctor_System_String_System_String_System_String_
   commentId: M:TraktNET.TraktClient.#ctor(System.String,System.String,System.String)
   name.vb: New(String, String, String)
-  fullName: TraktNET.TraktClient.TraktClient(string, string, string?)
+  fullName: TraktNET.TraktClient.TraktClient(string, string?, string?)
   fullName.vb: TraktNET.TraktClient.New(String, String, String)
-  nameWithType: TraktClient.TraktClient(string, string, string?)
+  nameWithType: TraktClient.TraktClient(string, string?, string?)
   nameWithType.vb: TraktClient.New(String, String, String)
 - uid: TraktNET.TraktClient.#ctor*
   name: TraktClient
@@ -25432,6 +25552,18 @@ references:
   commentId: Overload:TraktNET.TraktClient.ClientSecret
   fullName: TraktNET.TraktClient.ClientSecret
   nameWithType: TraktClient.ClientSecret
+- uid: TraktNET.TraktClient.CodeVerifier
+  name: CodeVerifier
+  href: api/TraktNET.TraktClient.html#TraktNET_TraktClient_CodeVerifier
+  commentId: P:TraktNET.TraktClient.CodeVerifier
+  fullName: TraktNET.TraktClient.CodeVerifier
+  nameWithType: TraktClient.CodeVerifier
+- uid: TraktNET.TraktClient.CodeVerifier*
+  name: CodeVerifier
+  href: api/TraktNET.TraktClient.html#TraktNET_TraktClient_CodeVerifier_
+  commentId: Overload:TraktNET.TraktClient.CodeVerifier
+  fullName: TraktNET.TraktClient.CodeVerifier
+  nameWithType: TraktClient.CodeVerifier
 - uid: TraktNET.TraktClient.Comments
   name: Comments
   href: api/TraktNET.TraktClient.html#TraktNET_TraktClient_Comments
@@ -25457,13 +25589,13 @@ references:
   fullName: TraktNET.TraktClient.Countries
   nameWithType: TraktClient.Countries
 - uid: TraktNET.TraktClient.Create(System.String,System.String,System.String)
-  name: Create(string, string, string?)
+  name: Create(string, string?, string?)
   href: api/TraktNET.TraktClient.html#TraktNET_TraktClient_Create_System_String_System_String_System_String_
   commentId: M:TraktNET.TraktClient.Create(System.String,System.String,System.String)
   name.vb: Create(String, String, String)
-  fullName: TraktNET.TraktClient.Create(string, string, string?)
+  fullName: TraktNET.TraktClient.Create(string, string?, string?)
   fullName.vb: TraktNET.TraktClient.Create(String, String, String)
-  nameWithType: TraktClient.Create(string, string, string?)
+  nameWithType: TraktClient.Create(string, string?, string?)
   nameWithType.vb: TraktClient.Create(String, String, String)
 - uid: TraktNET.TraktClient.Create*
   name: Create
@@ -25472,13 +25604,13 @@ references:
   fullName: TraktNET.TraktClient.Create
   nameWithType: TraktClient.Create
 - uid: TraktNET.TraktClient.CreateForSandbox(System.String,System.String,System.String)
-  name: CreateForSandbox(string, string, string?)
+  name: CreateForSandbox(string, string?, string?)
   href: api/TraktNET.TraktClient.html#TraktNET_TraktClient_CreateForSandbox_System_String_System_String_System_String_
   commentId: M:TraktNET.TraktClient.CreateForSandbox(System.String,System.String,System.String)
   name.vb: CreateForSandbox(String, String, String)
-  fullName: TraktNET.TraktClient.CreateForSandbox(string, string, string?)
+  fullName: TraktNET.TraktClient.CreateForSandbox(string, string?, string?)
   fullName.vb: TraktNET.TraktClient.CreateForSandbox(String, String, String)
-  nameWithType: TraktClient.CreateForSandbox(string, string, string?)
+  nameWithType: TraktClient.CreateForSandbox(string, string?, string?)
   nameWithType.vb: TraktClient.CreateForSandbox(String, String, String)
 - uid: TraktNET.TraktClient.CreateForSandbox*
   name: CreateForSandbox
@@ -30761,13 +30893,13 @@ references:
   fullName: TraktNET.TraktContext
   nameWithType: TraktContext
 - uid: TraktNET.TraktContext.#ctor(System.String,System.String,System.String)
-  name: TraktContext(string, string, string?)
+  name: TraktContext(string, string?, string?)
   href: api/TraktNET.TraktContext.html#TraktNET_TraktContext__ctor_System_String_System_String_System_String_
   commentId: M:TraktNET.TraktContext.#ctor(System.String,System.String,System.String)
   name.vb: New(String, String, String)
-  fullName: TraktNET.TraktContext.TraktContext(string, string, string?)
+  fullName: TraktNET.TraktContext.TraktContext(string, string?, string?)
   fullName.vb: TraktNET.TraktContext.New(String, String, String)
-  nameWithType: TraktContext.TraktContext(string, string, string?)
+  nameWithType: TraktContext.TraktContext(string, string?, string?)
   nameWithType.vb: TraktContext.New(String, String, String)
 - uid: TraktNET.TraktContext.#ctor*
   name: TraktContext
@@ -30850,6 +30982,18 @@ references:
   commentId: Overload:TraktNET.TraktContext.Checkins
   fullName: TraktNET.TraktContext.Checkins
   nameWithType: TraktContext.Checkins
+- uid: TraktNET.TraktContext.CodeVerifier
+  name: CodeVerifier
+  href: api/TraktNET.TraktContext.html#TraktNET_TraktContext_CodeVerifier
+  commentId: P:TraktNET.TraktContext.CodeVerifier
+  fullName: TraktNET.TraktContext.CodeVerifier
+  nameWithType: TraktContext.CodeVerifier
+- uid: TraktNET.TraktContext.CodeVerifier*
+  name: CodeVerifier
+  href: api/TraktNET.TraktContext.html#TraktNET_TraktContext_CodeVerifier_
+  commentId: Overload:TraktNET.TraktContext.CodeVerifier
+  fullName: TraktNET.TraktContext.CodeVerifier
+  nameWithType: TraktContext.CodeVerifier
 - uid: TraktNET.TraktContext.Comments
   name: Comments
   href: api/TraktNET.TraktContext.html#TraktNET_TraktContext_Comments
@@ -30875,13 +31019,13 @@ references:
   fullName: TraktNET.TraktContext.Countries
   nameWithType: TraktContext.Countries
 - uid: TraktNET.TraktContext.Create(System.String,System.String,System.String)
-  name: Create(string, string, string?)
+  name: Create(string, string?, string?)
   href: api/TraktNET.TraktContext.html#TraktNET_TraktContext_Create_System_String_System_String_System_String_
   commentId: M:TraktNET.TraktContext.Create(System.String,System.String,System.String)
   name.vb: Create(String, String, String)
-  fullName: TraktNET.TraktContext.Create(string, string, string?)
+  fullName: TraktNET.TraktContext.Create(string, string?, string?)
   fullName.vb: TraktNET.TraktContext.Create(String, String, String)
-  nameWithType: TraktContext.Create(string, string, string?)
+  nameWithType: TraktContext.Create(string, string?, string?)
   nameWithType.vb: TraktContext.Create(String, String, String)
 - uid: TraktNET.TraktContext.Create*
   name: Create
@@ -30890,13 +31034,13 @@ references:
   fullName: TraktNET.TraktContext.Create
   nameWithType: TraktContext.Create
 - uid: TraktNET.TraktContext.CreateForSandbox(System.String,System.String,System.String)
-  name: CreateForSandbox(string, string, string?)
+  name: CreateForSandbox(string, string?, string?)
   href: api/TraktNET.TraktContext.html#TraktNET_TraktContext_CreateForSandbox_System_String_System_String_System_String_
   commentId: M:TraktNET.TraktContext.CreateForSandbox(System.String,System.String,System.String)
   name.vb: CreateForSandbox(String, String, String)
-  fullName: TraktNET.TraktContext.CreateForSandbox(string, string, string?)
+  fullName: TraktNET.TraktContext.CreateForSandbox(string, string?, string?)
   fullName.vb: TraktNET.TraktContext.CreateForSandbox(String, String, String)
-  nameWithType: TraktContext.CreateForSandbox(string, string, string?)
+  nameWithType: TraktContext.CreateForSandbox(string, string?, string?)
   nameWithType.vb: TraktContext.CreateForSandbox(String, String, String)
 - uid: TraktNET.TraktContext.CreateForSandbox*
   name: CreateForSandbox
@@ -32306,13 +32450,13 @@ references:
   fullName: TraktNET.TraktDefaultContext
   nameWithType: TraktDefaultContext
 - uid: TraktNET.TraktDefaultContext.#ctor(System.String,System.String,System.String)
-  name: TraktDefaultContext(string, string, string?)
+  name: TraktDefaultContext(string, string?, string?)
   href: api/TraktNET.TraktDefaultContext.html#TraktNET_TraktDefaultContext__ctor_System_String_System_String_System_String_
   commentId: M:TraktNET.TraktDefaultContext.#ctor(System.String,System.String,System.String)
   name.vb: New(String, String, String)
-  fullName: TraktNET.TraktDefaultContext.TraktDefaultContext(string, string, string?)
+  fullName: TraktNET.TraktDefaultContext.TraktDefaultContext(string, string?, string?)
   fullName.vb: TraktNET.TraktDefaultContext.New(String, String, String)
-  nameWithType: TraktDefaultContext.TraktDefaultContext(string, string, string?)
+  nameWithType: TraktDefaultContext.TraktDefaultContext(string, string?, string?)
   nameWithType.vb: TraktDefaultContext.New(String, String, String)
 - uid: TraktNET.TraktDefaultContext.#ctor*
   name: TraktDefaultContext
@@ -51940,6 +52084,222 @@ references:
   commentId: Overload:TraktNET.TraktNotesObjectTypeJsonConverter.Write
   fullName: TraktNET.TraktNotesObjectTypeJsonConverter.Write
   nameWithType: TraktNotesObjectTypeJsonConverter.Write
+- uid: TraktNET.TraktPKCE
+  name: TraktPKCE
+  href: api/TraktNET.TraktPKCE.html
+  commentId: T:TraktNET.TraktPKCE
+  fullName: TraktNET.TraktPKCE
+  nameWithType: TraktPKCE
+- uid: TraktNET.TraktPKCE.CalculateCodeChallenge(System.String)
+  name: CalculateCodeChallenge(string)
+  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_CalculateCodeChallenge_System_String_
+  commentId: M:TraktNET.TraktPKCE.CalculateCodeChallenge(System.String)
+  name.vb: CalculateCodeChallenge(String)
+  fullName: TraktNET.TraktPKCE.CalculateCodeChallenge(string)
+  fullName.vb: TraktNET.TraktPKCE.CalculateCodeChallenge(String)
+  nameWithType: TraktPKCE.CalculateCodeChallenge(string)
+  nameWithType.vb: TraktPKCE.CalculateCodeChallenge(String)
+- uid: TraktNET.TraktPKCE.CalculateCodeChallenge*
+  name: CalculateCodeChallenge
+  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_CalculateCodeChallenge_
+  commentId: Overload:TraktNET.TraktPKCE.CalculateCodeChallenge
+  fullName: TraktNET.TraktPKCE.CalculateCodeChallenge
+  nameWithType: TraktPKCE.CalculateCodeChallenge
+- uid: TraktNET.TraktPKCE.Create(System.Int32)
+  name: Create(int)
+  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_Create_System_Int32_
+  commentId: M:TraktNET.TraktPKCE.Create(System.Int32)
+  name.vb: Create(Integer)
+  fullName: TraktNET.TraktPKCE.Create(int)
+  fullName.vb: TraktNET.TraktPKCE.Create(Integer)
+  nameWithType: TraktPKCE.Create(int)
+  nameWithType.vb: TraktPKCE.Create(Integer)
+- uid: TraktNET.TraktPKCE.Create*
+  name: Create
+  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_Create_
+  commentId: Overload:TraktNET.TraktPKCE.Create
+  fullName: TraktNET.TraktPKCE.Create
+  nameWithType: TraktPKCE.Create
+- uid: TraktNET.TraktPKCE.GenerateCodeVerifier(System.Int32)
+  name: GenerateCodeVerifier(int)
+  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_GenerateCodeVerifier_System_Int32_
+  commentId: M:TraktNET.TraktPKCE.GenerateCodeVerifier(System.Int32)
+  name.vb: GenerateCodeVerifier(Integer)
+  fullName: TraktNET.TraktPKCE.GenerateCodeVerifier(int)
+  fullName.vb: TraktNET.TraktPKCE.GenerateCodeVerifier(Integer)
+  nameWithType: TraktPKCE.GenerateCodeVerifier(int)
+  nameWithType.vb: TraktPKCE.GenerateCodeVerifier(Integer)
+- uid: TraktNET.TraktPKCE.GenerateCodeVerifier*
+  name: GenerateCodeVerifier
+  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_GenerateCodeVerifier_
+  commentId: Overload:TraktNET.TraktPKCE.GenerateCodeVerifier
+  fullName: TraktNET.TraktPKCE.GenerateCodeVerifier
+  nameWithType: TraktPKCE.GenerateCodeVerifier
+- uid: TraktNET.TraktPKCE.S256
+  name: S256
+  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_S256
+  commentId: F:TraktNET.TraktPKCE.S256
+  fullName: TraktNET.TraktPKCE.S256
+  nameWithType: TraktPKCE.S256
+- uid: TraktNET.TraktPKCEChallenge
+  name: TraktPKCEChallenge
+  href: api/TraktNET.TraktPKCEChallenge.html
+  commentId: T:TraktNET.TraktPKCEChallenge
+  fullName: TraktNET.TraktPKCEChallenge
+  nameWithType: TraktPKCEChallenge
+- uid: TraktNET.TraktPKCEChallenge.#ctor(System.String,System.String,System.String)
+  name: TraktPKCEChallenge(string, string, string)
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge__ctor_System_String_System_String_System_String_
+  commentId: M:TraktNET.TraktPKCEChallenge.#ctor(System.String,System.String,System.String)
+  name.vb: New(String, String, String)
+  fullName: TraktNET.TraktPKCEChallenge.TraktPKCEChallenge(string, string, string)
+  fullName.vb: TraktNET.TraktPKCEChallenge.New(String, String, String)
+  nameWithType: TraktPKCEChallenge.TraktPKCEChallenge(string, string, string)
+  nameWithType.vb: TraktPKCEChallenge.New(String, String, String)
+- uid: TraktNET.TraktPKCEChallenge.#ctor*
+  name: TraktPKCEChallenge
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge__ctor_
+  commentId: Overload:TraktNET.TraktPKCEChallenge.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktPKCEChallenge.TraktPKCEChallenge
+  fullName.vb: TraktNET.TraktPKCEChallenge.New
+  nameWithType: TraktPKCEChallenge.TraktPKCEChallenge
+  nameWithType.vb: TraktPKCEChallenge.New
+- uid: TraktNET.TraktPKCEChallenge.CodeChallenge
+  name: CodeChallenge
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeChallenge
+  commentId: P:TraktNET.TraktPKCEChallenge.CodeChallenge
+  fullName: TraktNET.TraktPKCEChallenge.CodeChallenge
+  nameWithType: TraktPKCEChallenge.CodeChallenge
+- uid: TraktNET.TraktPKCEChallenge.CodeChallenge*
+  name: CodeChallenge
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeChallenge_
+  commentId: Overload:TraktNET.TraktPKCEChallenge.CodeChallenge
+  fullName: TraktNET.TraktPKCEChallenge.CodeChallenge
+  nameWithType: TraktPKCEChallenge.CodeChallenge
+- uid: TraktNET.TraktPKCEChallenge.CodeChallengeMethod
+  name: CodeChallengeMethod
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeChallengeMethod
+  commentId: P:TraktNET.TraktPKCEChallenge.CodeChallengeMethod
+  fullName: TraktNET.TraktPKCEChallenge.CodeChallengeMethod
+  nameWithType: TraktPKCEChallenge.CodeChallengeMethod
+- uid: TraktNET.TraktPKCEChallenge.CodeChallengeMethod*
+  name: CodeChallengeMethod
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeChallengeMethod_
+  commentId: Overload:TraktNET.TraktPKCEChallenge.CodeChallengeMethod
+  fullName: TraktNET.TraktPKCEChallenge.CodeChallengeMethod
+  nameWithType: TraktPKCEChallenge.CodeChallengeMethod
+- uid: TraktNET.TraktPKCEChallenge.CodeVerifier
+  name: CodeVerifier
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeVerifier
+  commentId: P:TraktNET.TraktPKCEChallenge.CodeVerifier
+  fullName: TraktNET.TraktPKCEChallenge.CodeVerifier
+  nameWithType: TraktPKCEChallenge.CodeVerifier
+- uid: TraktNET.TraktPKCEChallenge.CodeVerifier*
+  name: CodeVerifier
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeVerifier_
+  commentId: Overload:TraktNET.TraktPKCEChallenge.CodeVerifier
+  fullName: TraktNET.TraktPKCEChallenge.CodeVerifier
+  nameWithType: TraktPKCEChallenge.CodeVerifier
+- uid: TraktNET.TraktPKCEChallenge.Deconstruct(System.String@,System.String@,System.String@)
+  name: Deconstruct(out string, out string, out string)
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_Deconstruct_System_String__System_String__System_String__
+  commentId: M:TraktNET.TraktPKCEChallenge.Deconstruct(System.String@,System.String@,System.String@)
+  name.vb: Deconstruct(String, String, String)
+  fullName: TraktNET.TraktPKCEChallenge.Deconstruct(out string, out string, out string)
+  fullName.vb: TraktNET.TraktPKCEChallenge.Deconstruct(String, String, String)
+  nameWithType: TraktPKCEChallenge.Deconstruct(out string, out string, out string)
+  nameWithType.vb: TraktPKCEChallenge.Deconstruct(String, String, String)
+- uid: TraktNET.TraktPKCEChallenge.Deconstruct*
+  name: Deconstruct
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_Deconstruct_
+  commentId: Overload:TraktNET.TraktPKCEChallenge.Deconstruct
+  fullName: TraktNET.TraktPKCEChallenge.Deconstruct
+  nameWithType: TraktPKCEChallenge.Deconstruct
+- uid: TraktNET.TraktPKCEChallenge.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_Equals_System_Object_
+  commentId: M:TraktNET.TraktPKCEChallenge.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktPKCEChallenge.Equals(object?)
+  fullName.vb: TraktNET.TraktPKCEChallenge.Equals(Object)
+  nameWithType: TraktPKCEChallenge.Equals(object?)
+  nameWithType.vb: TraktPKCEChallenge.Equals(Object)
+- uid: TraktNET.TraktPKCEChallenge.Equals(TraktNET.TraktPKCEChallenge)
+  name: Equals(TraktPKCEChallenge?)
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_Equals_TraktNET_TraktPKCEChallenge_
+  commentId: M:TraktNET.TraktPKCEChallenge.Equals(TraktNET.TraktPKCEChallenge)
+  name.vb: Equals(TraktPKCEChallenge)
+  fullName: TraktNET.TraktPKCEChallenge.Equals(TraktNET.TraktPKCEChallenge?)
+  fullName.vb: TraktNET.TraktPKCEChallenge.Equals(TraktNET.TraktPKCEChallenge)
+  nameWithType: TraktPKCEChallenge.Equals(TraktPKCEChallenge?)
+  nameWithType.vb: TraktPKCEChallenge.Equals(TraktPKCEChallenge)
+- uid: TraktNET.TraktPKCEChallenge.Equals*
+  name: Equals
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_Equals_
+  commentId: Overload:TraktNET.TraktPKCEChallenge.Equals
+  fullName: TraktNET.TraktPKCEChallenge.Equals
+  nameWithType: TraktPKCEChallenge.Equals
+- uid: TraktNET.TraktPKCEChallenge.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_GetHashCode
+  commentId: M:TraktNET.TraktPKCEChallenge.GetHashCode
+  fullName: TraktNET.TraktPKCEChallenge.GetHashCode()
+  nameWithType: TraktPKCEChallenge.GetHashCode()
+- uid: TraktNET.TraktPKCEChallenge.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_GetHashCode_
+  commentId: Overload:TraktNET.TraktPKCEChallenge.GetHashCode
+  fullName: TraktNET.TraktPKCEChallenge.GetHashCode
+  nameWithType: TraktPKCEChallenge.GetHashCode
+- uid: TraktNET.TraktPKCEChallenge.ToString
+  name: ToString()
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_ToString
+  commentId: M:TraktNET.TraktPKCEChallenge.ToString
+  fullName: TraktNET.TraktPKCEChallenge.ToString()
+  nameWithType: TraktPKCEChallenge.ToString()
+- uid: TraktNET.TraktPKCEChallenge.ToString*
+  name: ToString
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_ToString_
+  commentId: Overload:TraktNET.TraktPKCEChallenge.ToString
+  fullName: TraktNET.TraktPKCEChallenge.ToString
+  nameWithType: TraktPKCEChallenge.ToString
+- uid: TraktNET.TraktPKCEChallenge.op_Equality(TraktNET.TraktPKCEChallenge,TraktNET.TraktPKCEChallenge)
+  name: operator ==(TraktPKCEChallenge?, TraktPKCEChallenge?)
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_op_Equality_TraktNET_TraktPKCEChallenge_TraktNET_TraktPKCEChallenge_
+  commentId: M:TraktNET.TraktPKCEChallenge.op_Equality(TraktNET.TraktPKCEChallenge,TraktNET.TraktPKCEChallenge)
+  name.vb: =(TraktPKCEChallenge, TraktPKCEChallenge)
+  fullName: TraktNET.TraktPKCEChallenge.operator ==(TraktNET.TraktPKCEChallenge?, TraktNET.TraktPKCEChallenge?)
+  fullName.vb: TraktNET.TraktPKCEChallenge.=(TraktNET.TraktPKCEChallenge, TraktNET.TraktPKCEChallenge)
+  nameWithType: TraktPKCEChallenge.operator ==(TraktPKCEChallenge?, TraktPKCEChallenge?)
+  nameWithType.vb: TraktPKCEChallenge.=(TraktPKCEChallenge, TraktPKCEChallenge)
+- uid: TraktNET.TraktPKCEChallenge.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_op_Equality_
+  commentId: Overload:TraktNET.TraktPKCEChallenge.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktPKCEChallenge.operator ==
+  fullName.vb: TraktNET.TraktPKCEChallenge.=
+  nameWithType: TraktPKCEChallenge.operator ==
+  nameWithType.vb: TraktPKCEChallenge.=
+- uid: TraktNET.TraktPKCEChallenge.op_Inequality(TraktNET.TraktPKCEChallenge,TraktNET.TraktPKCEChallenge)
+  name: operator !=(TraktPKCEChallenge?, TraktPKCEChallenge?)
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_op_Inequality_TraktNET_TraktPKCEChallenge_TraktNET_TraktPKCEChallenge_
+  commentId: M:TraktNET.TraktPKCEChallenge.op_Inequality(TraktNET.TraktPKCEChallenge,TraktNET.TraktPKCEChallenge)
+  name.vb: <>(TraktPKCEChallenge, TraktPKCEChallenge)
+  fullName: TraktNET.TraktPKCEChallenge.operator !=(TraktNET.TraktPKCEChallenge?, TraktNET.TraktPKCEChallenge?)
+  fullName.vb: TraktNET.TraktPKCEChallenge.<>(TraktNET.TraktPKCEChallenge, TraktNET.TraktPKCEChallenge)
+  nameWithType: TraktPKCEChallenge.operator !=(TraktPKCEChallenge?, TraktPKCEChallenge?)
+  nameWithType.vb: TraktPKCEChallenge.<>(TraktPKCEChallenge, TraktPKCEChallenge)
+- uid: TraktNET.TraktPKCEChallenge.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_op_Inequality_
+  commentId: Overload:TraktNET.TraktPKCEChallenge.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktPKCEChallenge.operator !=
+  fullName.vb: TraktNET.TraktPKCEChallenge.<>
+  nameWithType: TraktPKCEChallenge.operator !=
+  nameWithType.vb: TraktPKCEChallenge.<>
 - uid: TraktNET.TraktPagedResponse`1
   name: TraktPagedResponse<TResponseContentType>
   href: api/TraktNET.TraktPagedResponse-1.html

@@ -461,12 +461,12 @@ Trakt API Documentation: OAuth: Authorize
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktAuthModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktAuthModule_CreateAuthorizationUrlCore_" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlCore*"></a>
-  <h4 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlCore_System_String_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlCore(System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">CreateAuthorizationUrlCore(string, string, string?, bool?, bool?)</h4>
+  <h4 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlCore_System_String_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_System_String_" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlCore(System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.String)">CreateAuthorizationUrlCore(string, string, string?, bool?, bool?, string?, string?)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string CreateAuthorizationUrlCore(string clientId, string redirectUri, string? state = null, bool? showSignupPage = null, bool? forceLoginPrompt = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public string CreateAuthorizationUrlCore(string clientId, string redirectUri, string? state = null, bool? showSignupPage = null, bool? forceLoginPrompt = null, string? codeChallenge = null, string? codeChallengeMethod = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -501,6 +501,16 @@ Trakt API Documentation: OAuth: Authorize
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
         <td><span class="parametername">forceLoginPrompt</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">codeChallenge</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">codeChallengeMethod</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -717,15 +727,296 @@ Trakt API Documentation: OAuth: Authorize
 </div>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE*"></a>
+  <h4 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, bool?, bool?)</h4>
+  <div class="markdown level1 summary"><p>Creates a new OAuth authorization URL with PKCE. Uses the current <span class="xref">TraktNET.TraktContext.ClientID</span>, <a class="xref" href="TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RedirectUri">RedirectUri</a>
+and <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_AntiForgeryToken">AntiForgeryToken</a> as state variable to build the authorization URL.
+Stores <a class="xref" href="TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeVerifier">CodeVerifier</a> in <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_CodeVerifier">CodeVerifier</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge pkce, bool? showSignupPage = null, bool? forceLoginPrompt = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPKCEChallenge.html">TraktPKCEChallenge</a></td>
+        <td><span class="parametername">pkce</span></td>
+        <td><p>The PKCE challenge pair, e.g. created with <a class="xref" href="TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_Create_System_Int32_">Create(int)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">showSignupPage</span></td>
+        <td><p>Prefer the account sign up page to be the default.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">forceLoginPrompt</span></td>
+        <td><p>Force the user to sign in and authorize your app.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The created authorization URL.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getoauthauthorize">
+Trakt API Documentation: OAuth: Authorize
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">pkce</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown if the current client id or redirect URI is invalid, or if the PKCE challenge is invalid.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE*"></a>
+  <h4 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, string, bool?, bool?)</h4>
+  <div class="markdown level1 summary"><p>Creates a new OAuth authorization URL with PKCE. Uses the current <a class="xref" href="TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RedirectUri">RedirectUri</a>
+and <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_AntiForgeryToken">AntiForgeryToken</a> as state variable to build the authorization URL.
+Stores <a class="xref" href="TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeVerifier">CodeVerifier</a> in <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_CodeVerifier">CodeVerifier</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge pkce, string clientId, bool? showSignupPage = null, bool? forceLoginPrompt = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPKCEChallenge.html">TraktPKCEChallenge</a></td>
+        <td><span class="parametername">pkce</span></td>
+        <td><p>The PKCE challenge pair, e.g. created with <a class="xref" href="TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_Create_System_Int32_">Create(int)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>The Trakt Client ID, which will be used to build the authorization URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">showSignupPage</span></td>
+        <td><p>Prefer the account sign up page to be the default.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">forceLoginPrompt</span></td>
+        <td><p>Force the user to sign in and authorize your app.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The created authorization URL.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getoauthauthorize">
+Trakt API Documentation: OAuth: Authorize
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">pkce</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown if the given client id or current redirect URI is invalid, or if the PKCE challenge is invalid.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE*"></a>
+  <h4 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, string, string, bool?, bool?)</h4>
+  <div class="markdown level1 summary"><p>Creates a new OAuth authorization URL with PKCE. Uses the <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_AntiForgeryToken">AntiForgeryToken</a> as state variable to build the authorization URL.
+Stores <a class="xref" href="TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeVerifier">CodeVerifier</a> in <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_CodeVerifier">CodeVerifier</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge pkce, string clientId, string redirectUri, bool? showSignupPage = null, bool? forceLoginPrompt = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPKCEChallenge.html">TraktPKCEChallenge</a></td>
+        <td><span class="parametername">pkce</span></td>
+        <td><p>The PKCE challenge pair, e.g. created with <a class="xref" href="TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_Create_System_Int32_">Create(int)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>The Trakt Client ID, which will be used to build the authorization URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">redirectUri</span></td>
+        <td><p>The redirect URI, which will be used to build the authorization URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">showSignupPage</span></td>
+        <td><p>Prefer the account sign up page to be the default.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">forceLoginPrompt</span></td>
+        <td><p>Force the user to sign in and authorize your app.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The created authorization URL.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getoauthauthorize">
+Trakt API Documentation: OAuth: Authorize
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">pkce</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown if the given client id or redirect URI is invalid, or if the PKCE challenge is invalid.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Modules/TraktAuthModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateCore_" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore*"></a>
-  <h4 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateCore_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">CreateAuthorizationUrlWithDefaultStateCore(string, string, bool?, bool?)</h4>
+  <h4 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateCore_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_System_String_" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.String)">CreateAuthorizationUrlWithDefaultStateCore(string, string, bool?, bool?, string?, string?)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string CreateAuthorizationUrlWithDefaultStateCore(string clientId, string redirectUri, bool? showSignupPage = null, bool? forceLoginPrompt = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public string CreateAuthorizationUrlWithDefaultStateCore(string clientId, string redirectUri, bool? showSignupPage = null, bool? forceLoginPrompt = null, string? codeChallenge = null, string? codeChallengeMethod = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -757,6 +1048,16 @@ Trakt API Documentation: OAuth: Authorize
         <td><span class="parametername">forceLoginPrompt</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">codeChallenge</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">codeChallengeMethod</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -771,6 +1072,293 @@ Trakt API Documentation: OAuth: Authorize
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE*"></a>
+  <h4 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, bool?, bool?)</h4>
+  <div class="markdown level1 summary"><p>Creates a new OAuth authorization URL with PKCE. Uses the current <span class="xref">TraktNET.TraktContext.ClientID</span> and <a class="xref" href="TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RedirectUri">RedirectUri</a> to build the authorization URL.
+Stores <a class="xref" href="TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeVerifier">CodeVerifier</a> in <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_CodeVerifier">CodeVerifier</a>, so that a subsequent call to
+<a class="xref" href="TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationAsync_System_Threading_CancellationToken_">GetAuthorizationAsync(CancellationToken)</a> automatically exchanges the code using PKCE.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge pkce, bool? showSignupPage = null, bool? forceLoginPrompt = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPKCEChallenge.html">TraktPKCEChallenge</a></td>
+        <td><span class="parametername">pkce</span></td>
+        <td><p>The PKCE challenge pair, e.g. created with <a class="xref" href="TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_Create_System_Int32_">Create(int)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">showSignupPage</span></td>
+        <td><p>Prefer the account sign up page to be the default.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">forceLoginPrompt</span></td>
+        <td><p>Force the user to sign in and authorize your app.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The created authorization URL.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getoauthauthorize">
+Trakt API Documentation: OAuth: Authorize
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">pkce</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown if the current client id or redirect URI is invalid, or if the PKCE challenge is invalid.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE*"></a>
+  <h4 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, string, bool?, bool?)</h4>
+  <div class="markdown level1 summary"><p>Creates a new OAuth authorization URL with PKCE. Uses the current <a class="xref" href="TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RedirectUri">RedirectUri</a> to build the authorization URL.
+Stores <a class="xref" href="TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeVerifier">CodeVerifier</a> in <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_CodeVerifier">CodeVerifier</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge pkce, string clientId, bool? showSignupPage = null, bool? forceLoginPrompt = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPKCEChallenge.html">TraktPKCEChallenge</a></td>
+        <td><span class="parametername">pkce</span></td>
+        <td><p>The PKCE challenge pair, e.g. created with <a class="xref" href="TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_Create_System_Int32_">Create(int)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>The Trakt Client ID, which will be used to build the authorization URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">showSignupPage</span></td>
+        <td><p>Prefer the account sign up page to be the default.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">forceLoginPrompt</span></td>
+        <td><p>Force the user to sign in and authorize your app.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The created authorization URL.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getoauthauthorize">
+Trakt API Documentation: OAuth: Authorize
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">pkce</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown if the given client id or current redirect URI is invalid, or if the PKCE challenge is invalid.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE*"></a>
+  <h4 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_String_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, string, string, string?, bool?, bool?)</h4>
+  <div class="markdown level1 summary"><p>Creates a new OAuth authorization URL with PKCE.
+Stores <a class="xref" href="TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeVerifier">CodeVerifier</a> in <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_CodeVerifier">CodeVerifier</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge pkce, string clientId, string redirectUri, string? state = null, bool? showSignupPage = null, bool? forceLoginPrompt = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TraktNET.TraktPKCEChallenge.html">TraktPKCEChallenge</a></td>
+        <td><span class="parametername">pkce</span></td>
+        <td><p>The PKCE challenge pair, e.g. created with <a class="xref" href="TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_Create_System_Int32_">Create(int)</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>The Trakt Client ID, which will be used to build the authorization URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">redirectUri</span></td>
+        <td><p>The redirect URI, which will be used to build the authorization URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>The state variable, which will be used to build the authorization URL. See also <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_AntiForgeryToken">AntiForgeryToken</a>.
+This parameter is optional and will not be used if it's null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">showSignupPage</span></td>
+        <td><p>Prefer the account sign up page to be the default.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">forceLoginPrompt</span></td>
+        <td><p>Force the user to sign in and authorize your app.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The created authorization URL.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_String_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p><a href="https://docs.trakt.tv/reference/getoauthauthorize">
+Trakt API Documentation: OAuth: Authorize
+</a></p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>Thrown if <code class="paramref">pkce</code> is null.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown if the given client id, redirect URI or state is invalid, or if the PKCE challenge is invalid.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1346,6 +1934,7 @@ Thrown if the current redirect URI is null, empty or contains spaces.</p>
   <div class="markdown level1 summary"><p>Exchanges the OAuth authorization code from the user for a new access token. Uses the current
 <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_OAuthAuthorizationCode">OAuthAuthorizationCode</a> for the request, which has to be set before a call to this method.
 Also uses the current <span class="xref">TraktNET.TraktContext.ClientID</span>, <span class="xref">TraktNET.TraktContext.ClientSecret</span> and <a class="xref" href="TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RedirectUri">RedirectUri</a> for the request.
+If <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_CodeVerifier">CodeVerifier</a> is set, the code is exchanged using PKCE (see <a class="xref" href="TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_Threading_CancellationToken_">GetAuthorizationWithPKCEAsync(string, string, CancellationToken)</a>).
 Assigns the returned <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a> instance to <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_Authorization">Authorization</a> if successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1420,6 +2009,292 @@ Trakt API Documentation: OAuth: Get Token
 Thrown if the current client id is null, empty or contains spaces.
 Thrown if the current client secret is null, empty or contains spaces.
 Thrown if the current redirect URI is null, empty or contains spaces.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_" data-uid="TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync*"></a>
+  <h4 id="TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">GetAuthorizationWithPKCEAsync(string, string, string, string?, string, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Exchanges the OAuth authorization code from the user for a new access token using PKCE.
+Assigns the returned <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a> instance to <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_Authorization">Authorization</a> if successful.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktAuthorization&gt;&gt; GetAuthorizationWithPKCEAsync(string code, string codeVerifier, string clientId, string? clientSecret, string redirectUri, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The OAuth authorization code, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">codeVerifier</span></td>
+        <td><p>The PKCE code verifier, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>The Trakt Client ID, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">clientSecret</span></td>
+        <td><p>The Trakt Client Secret, which is optional when using PKCE.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">redirectUri</span></td>
+        <td><p>The redirect URI, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried authorization.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_" data-uid="TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync*"></a>
+  <h4 id="TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">GetAuthorizationWithPKCEAsync(string, string, string, string, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Exchanges the OAuth authorization code from the user for a new access token using PKCE.
+Assigns the returned <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a> instance to <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_Authorization">Authorization</a> if successful.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktAuthorization&gt;&gt; GetAuthorizationWithPKCEAsync(string code, string codeVerifier, string clientId, string redirectUri, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The OAuth authorization code, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">codeVerifier</span></td>
+        <td><p>The PKCE code verifier, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>The Trakt Client ID, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">redirectUri</span></td>
+        <td><p>The redirect URI, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried authorization.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_" data-uid="TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync*"></a>
+  <h4 id="TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">GetAuthorizationWithPKCEAsync(string, string, string, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Exchanges the OAuth authorization code from the user for a new access token using PKCE. Uses the current
+<a class="xref" href="TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RedirectUri">RedirectUri</a> for the request.
+Assigns the returned <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a> instance to <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_Authorization">Authorization</a> if successful.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktAuthorization&gt;&gt; GetAuthorizationWithPKCEAsync(string code, string codeVerifier, string clientId, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The OAuth authorization code, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">codeVerifier</span></td>
+        <td><p>The PKCE code verifier, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">clientId</span></td>
+        <td><p>The Trakt Client ID, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried authorization.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_" data-uid="TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync*"></a>
+  <h4 id="TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.Threading.CancellationToken)">GetAuthorizationWithPKCEAsync(string, string, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Exchanges the OAuth authorization code from the user for a new access token using PKCE. Uses the current
+<span class="xref">TraktNET.TraktContext.ClientID</span> and <a class="xref" href="TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RedirectUri">RedirectUri</a> for the request.
+Assigns the returned <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a> instance to <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_Authorization">Authorization</a> if successful.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktAuthorization&gt;&gt; GetAuthorizationWithPKCEAsync(string code, string codeVerifier, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>The OAuth authorization code, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">codeVerifier</span></td>
+        <td><p>The PKCE code verifier, which will be used for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>Propagates notification that the request should be canceled.</p>
+<p>If provided, the exception <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.operationcanceledexception">OperationCanceledException</a> should be catched.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a>&gt;&gt;</td>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried authorization.</p>
+<p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1506,7 +2381,7 @@ Thrown if the user explicitly denied the user code of the current device.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the current device is null, or already expired unused or invalid or its user code contains spaces.
 Thrown if the current client id is null, empty or contains spaces.
-Thrown if the current client secret is null, empty or contains spaces.</p>
+Thrown if the current client secret is empty or contains spaces (it is optional and may be null).</p>
 </td>
       </tr>
     </tbody>
@@ -1516,13 +2391,13 @@ Thrown if the current client secret is null, empty or contains spaces.</p>
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktAuthModule_PollForAuthorizationAsync_" data-uid="TraktNET.TraktAuthModule.PollForAuthorizationAsync*"></a>
-  <h4 id="TraktNET_TraktAuthModule_PollForAuthorizationAsync_TraktNET_TraktDevice_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.PollForAuthorizationAsync(TraktNET.TraktDevice,System.String,System.String,System.Threading.CancellationToken)">PollForAuthorizationAsync(TraktDevice, string, string, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktAuthModule_PollForAuthorizationAsync_TraktNET_TraktDevice_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.PollForAuthorizationAsync(TraktNET.TraktDevice,System.String,System.String,System.Threading.CancellationToken)">PollForAuthorizationAsync(TraktDevice, string, string?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Polls for a new access token. Assigns the returned <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a> instance to <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_Authorization">Authorization</a> if successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktAuthorization&gt;&gt; PollForAuthorizationAsync(TraktDevice device, string clientId, string clientSecret, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktAuthorization&gt;&gt; PollForAuthorizationAsync(TraktDevice device, string clientId, string? clientSecret, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1549,7 +2424,8 @@ Thrown if the current client secret is null, empty or contains spaces.</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">clientSecret</span></td>
-        <td><p>The Trakt Client Secret, which will be used for the request.</p>
+        <td><p>The Trakt Client Secret. Optional: the device token endpoint only requires the device code and client id.
+If null, it will not be sent.</p>
 </td>
       </tr>
       <tr>
@@ -1610,7 +2486,7 @@ Thrown if the user explicitly denied the user code of the given device.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the given device is null, or already expired unused or invalid or its user code contains spaces.
 Thrown if the given client id is null, empty or contains spaces.
-Thrown if the given client secret is null, empty or contains spaces.</p>
+Thrown if the given client secret is empty or contains spaces (it is optional and may be null).</p>
 </td>
       </tr>
     </tbody>
@@ -1709,7 +2585,7 @@ Thrown if the user explicitly denied the user code of the given device.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the given device is null, or already expired unused or invalid or its user code contains spaces.
 Thrown if the given client id is null, empty or contains spaces.
-Thrown if the current client secret is null, empty or contains spaces.</p>
+Thrown if the current client secret is empty or contains spaces (it is optional and may be null).</p>
 </td>
       </tr>
     </tbody>
@@ -1802,7 +2678,7 @@ Thrown if the user explicitly denied the user code of the given device.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the given device is null, or already expired unused or invalid or its user code contains spaces.
 Thrown if the current client id is null, empty or contains spaces.
-Thrown if the current client secret is null, empty or contains spaces.</p>
+Thrown if the current client secret is empty or contains spaces (it is optional and may be null).</p>
 </td>
       </tr>
     </tbody>
@@ -1812,14 +2688,14 @@ Thrown if the current client secret is null, empty or contains spaces.</p>
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktAuthModule_RefreshAuthorizationAsync_" data-uid="TraktNET.TraktAuthModule.RefreshAuthorizationAsync*"></a>
-  <h4 id="TraktNET_TraktAuthModule_RefreshAuthorizationAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.RefreshAuthorizationAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">RefreshAuthorizationAsync(string, string, string, string, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktAuthModule_RefreshAuthorizationAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.RefreshAuthorizationAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">RefreshAuthorizationAsync(string, string, string?, string, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Exchanges the current refresh token for a new access token, without re-authenticating the associated user.
 Assigns the returned <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a> instance to <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_Authorization">Authorization</a> if successful.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktAuthorization&gt;&gt; RefreshAuthorizationAsync(string refreshToken, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktAuthorization&gt;&gt; RefreshAuthorizationAsync(string refreshToken, string clientId, string? clientSecret, string redirectUri, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1903,7 +2779,7 @@ empty or contains spaces.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="TraktNET.TraktApiAuthenticationException.html">TraktApiAuthenticationException</a></td>
+        <td><a class="xref" href="TraktNET.TraktApiAuthenticationOAuthException.html">TraktApiAuthenticationOAuthException</a></td>
         <td><p>Thrown if the given refresh token is invalid.</p>
 </td>
       </tr>
@@ -1916,7 +2792,7 @@ empty or contains spaces.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the given refresh token is null, empty or contains spaces.
 Thrown if the given client id is null, empty or contains spaces.
-Thrown if the given client secret is null, empty or contains spaces.
+Thrown if the given client secret is empty or contains spaces.
 Thrown if the given redirect URI is null, empty or contains spaces.</p>
 </td>
       </tr>
@@ -1927,7 +2803,7 @@ Thrown if the given redirect URI is null, empty or contains spaces.</p>
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktAuthModule_RefreshAuthorizationAsync_" data-uid="TraktNET.TraktAuthModule.RefreshAuthorizationAsync*"></a>
-  <h4 id="TraktNET_TraktAuthModule_RefreshAuthorizationAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.RefreshAuthorizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">RefreshAuthorizationAsync(string, string, string, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktAuthModule_RefreshAuthorizationAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.RefreshAuthorizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">RefreshAuthorizationAsync(string, string, string?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Exchanges the current refresh token for a new access token, without re-authenticating the associated user.
 Uses the current <a class="xref" href="TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_RedirectUri">RedirectUri</a> for the request.
 Assigns the returned <a class="xref" href="TraktNET.TraktAuthorization.html">TraktAuthorization</a> instance to <a class="xref" href="TraktNET.TraktContext.html#TraktNET_TraktContext_Authorization">Authorization</a> if successful.</p>
@@ -1935,7 +2811,7 @@ Assigns the returned <a class="xref" href="TraktNET.TraktAuthorization.html">Tra
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktAuthorization&gt;&gt; RefreshAuthorizationAsync(string refreshToken, string clientId, string clientSecret, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktAuthorization&gt;&gt; RefreshAuthorizationAsync(string refreshToken, string clientId, string? clientSecret, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2013,7 +2889,7 @@ empty or contains spaces.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="TraktNET.TraktApiAuthenticationException.html">TraktApiAuthenticationException</a></td>
+        <td><a class="xref" href="TraktNET.TraktApiAuthenticationOAuthException.html">TraktApiAuthenticationOAuthException</a></td>
         <td><p>Thrown if the given refresh token is invalid.</p>
 </td>
       </tr>
@@ -2026,7 +2902,7 @@ empty or contains spaces.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the given refresh token is null, empty or contains spaces.
 Thrown if the given client id is null, empty or contains spaces.
-Thrown if the given client secret is null, empty or contains spaces.
+Thrown if the given client secret is empty or contains spaces.
 Thrown if the current redirect URI is null, empty or contains spaces.</p>
 </td>
       </tr>
@@ -2117,7 +2993,7 @@ empty or contains spaces.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="TraktNET.TraktApiAuthenticationException.html">TraktApiAuthenticationException</a></td>
+        <td><a class="xref" href="TraktNET.TraktApiAuthenticationOAuthException.html">TraktApiAuthenticationOAuthException</a></td>
         <td><p>Thrown if the given refresh token is invalid.</p>
 </td>
       </tr>
@@ -2130,7 +3006,7 @@ empty or contains spaces.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the given refresh token is null, empty or contains spaces.
 Thrown if the given client id is null, empty or contains spaces.
-Thrown if the current client secret is null, empty or contains spaces.
+Thrown if the current client secret is empty or contains spaces.
 Thrown if the current redirect URI is null, empty or contains spaces.</p>
 </td>
       </tr>
@@ -2215,7 +3091,7 @@ empty or contains spaces.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="TraktNET.TraktApiAuthenticationException.html">TraktApiAuthenticationException</a></td>
+        <td><a class="xref" href="TraktNET.TraktApiAuthenticationOAuthException.html">TraktApiAuthenticationOAuthException</a></td>
         <td><p>Thrown if the given refresh token is invalid.</p>
 </td>
       </tr>
@@ -2228,7 +3104,7 @@ empty or contains spaces.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the given refresh token is null, empty or contains spaces.
 Thrown if the current client id is null, empty or contains spaces.
-Thrown if the current client secret is null, empty or contains spaces.
+Thrown if the current client secret is empty or contains spaces.
 Thrown if the current redirect URI is null, empty or contains spaces.</p>
 </td>
       </tr>
@@ -2308,7 +3184,7 @@ empty or contains spaces.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="TraktNET.TraktApiAuthenticationException.html">TraktApiAuthenticationException</a></td>
+        <td><a class="xref" href="TraktNET.TraktApiAuthenticationOAuthException.html">TraktApiAuthenticationOAuthException</a></td>
         <td><p>Thrown if the current refresh token is invalid.</p>
 </td>
       </tr>
@@ -2321,7 +3197,7 @@ empty or contains spaces.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the current refresh token is null, empty or contains spaces.
 Thrown if the current client id is null, empty or contains spaces.
-Thrown if the current client secret is null, empty or contains spaces.
+Thrown if the current client secret is empty or contains spaces.
 Thrown if the current redirect URI is null, empty or contains spaces.</p>
 </td>
       </tr>
@@ -2332,14 +3208,14 @@ Thrown if the current redirect URI is null, empty or contains spaces.</p>
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/TraktAuthModule.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktAuthModule_RevokeAuthorizationAsync_" data-uid="TraktNET.TraktAuthModule.RevokeAuthorizationAsync*"></a>
-  <h4 id="TraktNET_TraktAuthModule_RevokeAuthorizationAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.RevokeAuthorizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">RevokeAuthorizationAsync(string, string, string, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktAuthModule_RevokeAuthorizationAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="TraktNET.TraktAuthModule.RevokeAuthorizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">RevokeAuthorizationAsync(string, string, string?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Revokes the current access token. If successful, the current access token will be invalid
 and the user has to be re-authenticated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RevokeAuthorizationAsync(string accessToken, string clientId, string clientSecret, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&gt; RevokeAuthorizationAsync(string accessToken, string clientId, string? clientSecret, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2429,7 +3305,7 @@ empty or contains spaces.</p>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td><p>Thrown if the given access token is null, empty or contains spaces.
 Thrown if the given client id is null, empty or contains spaces.
-Thrown if the given client secret is null, empty or contains spaces.</p>
+Thrown if the given client secret is empty or contains spaces.</p>
 </td>
       </tr>
     </tbody>

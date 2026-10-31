@@ -200,6 +200,7 @@ public string? ClientId { get; set; }</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;client_secret&quot;)]
+[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 public string? ClientSecret { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -230,6 +231,36 @@ public string? ClientSecret { get; set; }</code></pre>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;code&quot;)]
 public string? Code { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Json/Authentication/TraktAuthorizationPost.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktAuthorizationPost_CodeVerifier_" data-uid="TraktNET.TraktAuthorizationPost.CodeVerifier*"></a>
+  <h4 id="TraktNET_TraktAuthorizationPost_CodeVerifier" data-uid="TraktNET.TraktAuthorizationPost.CodeVerifier">CodeVerifier</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the PKCE code verifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;code_verifier&quot;)]
+[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+public string? CodeVerifier { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">

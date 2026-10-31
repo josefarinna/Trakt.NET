@@ -194,12 +194,13 @@ public string? ClientId { get; set; }</code></pre>
   </span>
   <a id="TraktNET_TraktAuthorizationPollPost_ClientSecret_" data-uid="TraktNET.TraktAuthorizationPollPost.ClientSecret*"></a>
   <h4 id="TraktNET_TraktAuthorizationPollPost_ClientSecret" data-uid="TraktNET.TraktAuthorizationPollPost.ClientSecret">ClientSecret</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the client secret.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the client secret. Optional: the device token endpoint only requires <code>code</code> and <code>client_id</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;client_secret&quot;)]
+[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 public string? ClientSecret { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>

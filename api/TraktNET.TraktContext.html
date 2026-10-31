@@ -127,12 +127,12 @@
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Contexts/TraktContext.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktContext__ctor_" data-uid="TraktNET.TraktContext.#ctor*"></a>
-  <h4 id="TraktNET_TraktContext__ctor_System_String_System_String_System_String_" data-uid="TraktNET.TraktContext.#ctor(System.String,System.String,System.String)">TraktContext(string, string, string?)</h4>
+  <h4 id="TraktNET_TraktContext__ctor_System_String_System_String_System_String_" data-uid="TraktNET.TraktContext.#ctor(System.String,System.String,System.String)">TraktContext(string, string?, string?)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected TraktContext(string clientID, string clientSecret, string? userAgent)</code></pre>
+    <pre><code class="lang-csharp hljs">protected TraktContext(string clientID, string? clientSecret, string? userAgent)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -326,6 +326,33 @@
     <tbody>
       <tr>
         <td><a class="xref" href="TraktNET.TraktCheckinsModule.html">TraktCheckinsModule</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Contexts/TraktContext.cs">View Source</a>
+  </span>
+  <a id="TraktNET_TraktContext_CodeVerifier_" data-uid="TraktNET.TraktContext.CodeVerifier*"></a>
+  <h4 id="TraktNET_TraktContext_CodeVerifier" data-uid="TraktNET.TraktContext.CodeVerifier">CodeVerifier</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? CodeVerifier { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1034,12 +1061,12 @@
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Contexts/TraktContext.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktContext_Create_" data-uid="TraktNET.TraktContext.Create*"></a>
-  <h4 id="TraktNET_TraktContext_Create_System_String_System_String_System_String_" data-uid="TraktNET.TraktContext.Create(System.String,System.String,System.String)">Create(string, string, string?)</h4>
+  <h4 id="TraktNET_TraktContext_Create_System_String_System_String_System_String_" data-uid="TraktNET.TraktContext.Create(System.String,System.String,System.String)">Create(string, string?, string?)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TraktContext Create(string clientID, string clientSecret, string? userAgent = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static TraktContext Create(string clientID, string? clientSecret = null, string? userAgent = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1088,12 +1115,12 @@
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Internal/Contexts/TraktContext.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktContext_CreateForSandbox_" data-uid="TraktNET.TraktContext.CreateForSandbox*"></a>
-  <h4 id="TraktNET_TraktContext_CreateForSandbox_System_String_System_String_System_String_" data-uid="TraktNET.TraktContext.CreateForSandbox(System.String,System.String,System.String)">CreateForSandbox(string, string, string?)</h4>
+  <h4 id="TraktNET_TraktContext_CreateForSandbox_System_String_System_String_System_String_" data-uid="TraktNET.TraktContext.CreateForSandbox(System.String,System.String,System.String)">CreateForSandbox(string, string?, string?)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TraktContext CreateForSandbox(string clientID, string clientSecret, string? userAgent = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static TraktContext CreateForSandbox(string clientID, string? clientSecret = null, string? userAgent = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
