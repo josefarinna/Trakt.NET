@@ -11,14 +11,6 @@
 
         /// <summary>Returns a string representation of the language.</summary>
         /// <returns>The name of the language if it exists; otherwise, an empty string.</returns>
-        public override string ToString()
-        {
-            if (!string.IsNullOrEmpty(Name))
-            {
-                return Name!;
-            }
-
-            return string.Empty;
-        }
+        public override string ToString() => Name ?? string.Empty;
     }
 }

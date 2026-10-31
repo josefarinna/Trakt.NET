@@ -60,22 +60,17 @@ namespace TraktNET
         private static string GetJsonFilepath(string jsonFilename)
             => Path.Combine(GetLocation(), Path.Combine("..\\..\\..\\..\\JsonData", jsonFilename));
 
-        private static string GetLocation()
+        private static string GetLocation() => _location ??= GetExecutingAssemblyDirectory();
+
+        private static string GetExecutingAssemblyDirectory()
         {
-            if (!string.IsNullOrWhiteSpace(_location))
-            {
-                return _location!;
-            }
-
 #if TRAKT_NET_4XX_FRAMEWORK_TARGET
-            string codeBase = Assembly.GetExecutingAssembly().CodeBase;
-            var uri = new Uri(codeBase);
-            _location = Path.GetDirectoryName(uri.LocalPath);
+            string assemblyPath = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
 #else
-            _location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string assemblyPath = Assembly.GetExecutingAssembly().Location;
 #endif
-
-            return _location!;
+            return Path.GetDirectoryName(assemblyPath)
+                ?? throw new InvalidOperationException($"cannot determine the directory of '{assemblyPath}'");
         }
 
         public static async Task<string> BuildEncodedAuthorizeUrl(bool staging, string clientId, string redirectUri, string? state = null,

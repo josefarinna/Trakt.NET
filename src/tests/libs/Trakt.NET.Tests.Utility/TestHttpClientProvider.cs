@@ -16,6 +16,7 @@ namespace TraktNET
         private const string TraktApiHeaderKey = "trakt-api-key";
         private const string TraktApiVersionHeaderKey = "trakt-api-version";
         private const string TraktApiAuthorizationHeaderKey = "Authorization";
+        private const string InvalidRequestUriMessage = "invalid request URI";
 
         private const uint DefaultPage = 1;
         private const uint DefaultPageCount = 1;
@@ -40,7 +41,7 @@ namespace TraktNET
         {
             if (string.IsNullOrWhiteSpace(requestUri))
             {
-                throw new ArgumentException("invalid request URI", nameof(requestUri));
+                throw new ArgumentException(InvalidRequestUriMessage, nameof(requestUri));
             }
 
             if (string.IsNullOrWhiteSpace(responseContent))
@@ -65,7 +66,7 @@ namespace TraktNET
         {
             if (string.IsNullOrWhiteSpace(requestUri))
             {
-                throw new ArgumentException("invalid request URI", nameof(requestUri));
+                throw new ArgumentException(InvalidRequestUriMessage, nameof(requestUri));
             }
 
             if (string.IsNullOrWhiteSpace(responseContent))
@@ -100,7 +101,7 @@ namespace TraktNET
         {
             if (string.IsNullOrWhiteSpace(requestUri))
             {
-                throw new ArgumentException("invalid request URI", nameof(requestUri));
+                throw new ArgumentException(InvalidRequestUriMessage, nameof(requestUri));
             }
 
             _mockHttpMessageHandler.When(_baseUrl + requestUri)
@@ -116,7 +117,7 @@ namespace TraktNET
         {
             if (string.IsNullOrWhiteSpace(requestUri))
             {
-                throw new ArgumentException("invalid request URI", nameof(requestUri));
+                throw new ArgumentException(InvalidRequestUriMessage, nameof(requestUri));
             }
 
             if (string.IsNullOrWhiteSpace(responseContent))
@@ -156,7 +157,7 @@ namespace TraktNET
         {
             if (string.IsNullOrWhiteSpace(requestUri))
             {
-                throw new ArgumentException("invalid request URI", nameof(requestUri));
+                throw new ArgumentException(InvalidRequestUriMessage, nameof(requestUri));
             }
 
             var headers = new Dictionary<string, string>

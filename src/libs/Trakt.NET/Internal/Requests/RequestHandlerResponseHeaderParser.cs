@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Globalization;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace TraktNET
@@ -84,7 +85,7 @@ namespace TraktNET
             {
                 string startDateValue = values.First();
 
-                if (DateTime.TryParse(startDateValue, out DateTime startDate))
+                if (DateTime.TryParse(startDateValue, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime startDate))
                 {
                     headers.StartDate = startDate.ToUniversalTime();
                 }
@@ -94,7 +95,7 @@ namespace TraktNET
             {
                 string endDateValue = values.First();
 
-                if (DateTime.TryParse(endDateValue, out DateTime endDate))
+                if (DateTime.TryParse(endDateValue, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime endDate))
                 {
                     headers.EndDate = endDate.ToUniversalTime();
                 }

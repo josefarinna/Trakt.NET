@@ -53,7 +53,7 @@ namespace TraktNET.SourceGeneration.Requests
         private void Setup(RequestGenerationSpecification requestGenerationSpecification)
         {
             _requestName = requestGenerationSpecification.Name;
-            _requestNamespace = requestGenerationSpecification.Namespace!;
+            _requestNamespace = requestGenerationSpecification.Namespace;
             _httpMethodValue = requestGenerationSpecification.HttpMethodValue;
             _uriPath = requestGenerationSpecification.UriPath;
             _oauthRequirementValue = requestGenerationSpecification.OAuthRequirementValue;
@@ -928,7 +928,7 @@ namespace TraktNET.SourceGeneration.Requests
             }
 
             // Helper to validate generated members (parameters/queries)
-            void ValidateMember(string name, bool isTraktEnum, string traktEnumTypeName, string traktEnumDefaultValue, SpecialType specialType, bool isRequired, bool skipEnumDefaultCheck = false)
+            void ValidateMember(string name, bool isTraktEnum, string traktEnumTypeName, string traktEnumDefaultValue, SpecialType specialType, bool skipEnumDefaultCheck = false)
             {
                 EnsureEmptyLine();
 
@@ -966,7 +966,7 @@ namespace TraktNET.SourceGeneration.Requests
                 // Skip extended info enum default check handled elsewhere
                 bool skipEnumDefault = requestParameter.Name == "TraktExtendedInfo";
 
-                ValidateMember(requestParameter.Name, requestParameter.IsTraktEnum, requestParameter.TraktEnumTypeName, requestParameter.TraktEnumDefaultValue, requestParameter.SpecialType, requestParameter.IsRequired, skipEnumDefault);
+                ValidateMember(requestParameter.Name, requestParameter.IsTraktEnum, requestParameter.TraktEnumTypeName, requestParameter.TraktEnumDefaultValue, requestParameter.SpecialType, skipEnumDefault);
             }
 
             // Validate required request queries (non-nullable properties)
@@ -975,12 +975,12 @@ namespace TraktNET.SourceGeneration.Requests
                 if (!requestQuery.IsRequired)
                     continue;
 
-                ValidateMember(requestQuery.Name, requestQuery.IsTraktEnum, requestQuery.TraktEnumTypeName, requestQuery.TraktEnumDefaultValue, requestQuery.SpecialType, requestQuery.IsRequired);
+                ValidateMember(requestQuery.Name, requestQuery.IsTraktEnum, requestQuery.TraktEnumTypeName, requestQuery.TraktEnumDefaultValue, requestQuery.SpecialType);
             }
 
             if (_requestPayload != null && _requestPayload.IsRequired)
             {
-                ValidateMember(_requestPayload.Name, _requestPayload.IsTraktEnum, _requestPayload.TraktEnumTypeName, _requestPayload.TraktEnumDefaultValue, _requestPayload.SpecialType, _requestPayload.IsRequired);
+                ValidateMember(_requestPayload.Name, _requestPayload.IsTraktEnum, _requestPayload.TraktEnumTypeName, _requestPayload.TraktEnumDefaultValue, _requestPayload.SpecialType);
                 if (_requestPayload.HasValidateMethod)
                 {
                     _sourceWriter.WriteEmptyLine();
@@ -1015,13 +1015,16 @@ namespace TraktNET.SourceGeneration.Requests
         {
             const int StackallocCharThreshold = 128;
 
-            char[]? rentedBuffer = null;
             ReadOnlySpan<char> uriPath = _uriPath.AsSpan();
             int initialBufferLength = (int)(1.2 * uriPath.Length);
 
-            Span<char> destination = initialBufferLength <= StackallocCharThreshold
+            char[]? rentedBuffer = initialBufferLength > StackallocCharThreshold
+                ? ArrayPool<char>.Shared.Rent(initialBufferLength)
+                : null;
+
+            Span<char> destination = rentedBuffer is null
                 ? stackalloc char[StackallocCharThreshold]
-                : (rentedBuffer = ArrayPool<char>.Shared.Rent(initialBufferLength));
+                : rentedBuffer;
 
             UriParserState state = UriParserState.Default;
             int charsWritten = 0;

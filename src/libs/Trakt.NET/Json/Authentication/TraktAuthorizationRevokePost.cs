@@ -24,8 +24,7 @@ namespace TraktNET
             ArgumentValidator.ThrowIfNullOrWhiteSpace(Token, "access token not valid", true);
             ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientId, "client id not valid", true);
 
-            if (ClientSecret != null && (string.IsNullOrWhiteSpace(ClientSecret) || ClientSecret.ContainsSpace()))
-                throw new ArgumentException("client secret not valid", nameof(ClientSecret));
+            ArgumentValidator.ThrowIfProvidedAndInvalid(ClientSecret, "client secret not valid");
         }
     }
 }

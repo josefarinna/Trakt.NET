@@ -1,11 +1,10 @@
-using System.Diagnostics;
-
 namespace TraktNET
 {
     /// <summary>A Trakt paged list response with items of content type <typeparamref name="TResponseContentType" />.</summary>
     /// <typeparam name="TResponseContentType">The content type of the list items.</typeparam>
     public partial class TraktPagedResponse<TResponseContentType> : TraktListResponse<TResponseContentType>, ITraktPagedResponseHeaders
     {
+        private const string MISSING_REQUEST_CONTEXT_MESSAGE = "paged response has no request context to retrieve another page";
 
         /// <summary>The Trakt "X-Pagination-Page-Count" header.</summary>
         public uint? PageCount => TraktHeaders?.PageCount;
@@ -40,17 +39,18 @@ namespace TraktNET
         /// and maximum item count.
         /// </returns>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if this response was not created by a request and therefore cannot retrieve another page.</exception>
         public Task<TraktPagedResponse<TResponseContentType>> GetPreviousPageAsync(CancellationToken cancellationToken = default)
         {
             if (HasPreviousPage)
             {
-                Debug.Assert(Context != null);
-                Debug.Assert(RequestBuilder != null);
+                if (Context is not TraktContext context || RequestBuilder is not Func<uint?, uint?, RequestBase> requestBuilder)
+                    throw new InvalidOperationException(MISSING_REQUEST_CONTEXT_MESSAGE);
 
                 if (Page.HasValue && Page.Value > 1)
                 {
-                    RequestBase request = RequestBuilder!(Page.Value - 1, Limit);
-                    return RequestHandler.ExecutePagedListRequestAsync<TResponseContentType>(Context!, request, RequestBuilder, cancellationToken);
+                    RequestBase request = requestBuilder(Page.Value - 1, Limit);
+                    return RequestHandler.ExecutePagedListRequestAsync<TResponseContentType>(context, request, requestBuilder, cancellationToken);
                 }
             }
 
@@ -74,17 +74,18 @@ namespace TraktNET
         /// and maximum item count.
         /// </returns>
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        /// <exception cref="InvalidOperationException">Thrown if this response was not created by a request and therefore cannot retrieve another page.</exception>
         public Task<TraktPagedResponse<TResponseContentType>> GetNextPageAsync(CancellationToken cancellationToken = default)
         {
             if (HasNextPage)
             {
-                Debug.Assert(Context != null);
-                Debug.Assert(RequestBuilder != null);
+                if (Context is not TraktContext context || RequestBuilder is not Func<uint?, uint?, RequestBase> requestBuilder)
+                    throw new InvalidOperationException(MISSING_REQUEST_CONTEXT_MESSAGE);
 
                 if (Page.HasValue && PageCount.HasValue && Page.Value < PageCount.Value)
                 {
-                    RequestBase request = RequestBuilder!(Page.Value + 1, Limit);
-                    return RequestHandler.ExecutePagedListRequestAsync<TResponseContentType>(Context!, request, RequestBuilder, cancellationToken);
+                    RequestBase request = requestBuilder(Page.Value + 1, Limit);
+                    return RequestHandler.ExecutePagedListRequestAsync<TResponseContentType>(context, request, requestBuilder, cancellationToken);
                 }
             }
 

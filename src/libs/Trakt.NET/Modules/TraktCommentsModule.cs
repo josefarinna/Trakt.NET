@@ -8,6 +8,8 @@ namespace TraktNET
     /// </summary>
     public sealed partial class TraktCommentsModule
     {
+        private const string COMMENT_ID_ZERO_MESSAGE = "commentId must not be 0";
+
         /// <summary>Gets a <see cref="TraktComment" /> or reply with the given id.</summary>
         /// <param name="commentId">The comment's id.</param>
         /// <param name="extendedInfo">
@@ -562,7 +564,7 @@ namespace TraktNET
         public Task<TraktResponse> ReportCommentAsync(uint commentId, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
         {
             if (commentId == 0)
-                throw new ArgumentException("commentId must not be 0", nameof(commentId));
+                throw new ArgumentException(COMMENT_ID_ZERO_MESSAGE, nameof(commentId));
 
             return ReportCommentImplAsync(commentId, reason, message, cancellationToken);
         }
@@ -588,7 +590,7 @@ namespace TraktNET
         public Task<TraktResponse<TraktCommentReactionSummary>> GetCommentReactionSummaryAsync(uint commentId, CancellationToken cancellationToken = default)
         {
             if (commentId == 0)
-                throw new ArgumentException("commentId must not be 0", nameof(commentId));
+                throw new ArgumentException(COMMENT_ID_ZERO_MESSAGE, nameof(commentId));
 
             return GetCommentReactionSummaryImplAsync(commentId, cancellationToken);
         }
@@ -622,7 +624,7 @@ namespace TraktNET
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             if (commentId == 0)
-                throw new ArgumentException("commentId must not be 0", nameof(commentId));
+                throw new ArgumentException(COMMENT_ID_ZERO_MESSAGE, nameof(commentId));
 
             return GetCommentReactionsImplAsync(commentId, extendedInfo, page, limit, cancellationToken);
         }
@@ -647,7 +649,7 @@ namespace TraktNET
         public Task<TraktResponse> AddCommentReactionAsync(uint commentId, TraktReactionType reactionType, CancellationToken cancellationToken = default)
         {
             if (commentId == 0)
-                throw new ArgumentException("commentId must not be 0", nameof(commentId));
+                throw new ArgumentException(COMMENT_ID_ZERO_MESSAGE, nameof(commentId));
 
             if (reactionType == TraktReactionType.Unspecified)
                 throw new ArgumentException("reactionType must not be unspecified", nameof(reactionType));
@@ -675,7 +677,7 @@ namespace TraktNET
         public Task<TraktResponse> RemoveCommentReactionAsync(uint commentId, TraktReactionType reactionType, CancellationToken cancellationToken = default)
         {
             if (commentId == 0)
-                throw new ArgumentException("commentId must not be 0", nameof(commentId));
+                throw new ArgumentException(COMMENT_ID_ZERO_MESSAGE, nameof(commentId));
 
             if (reactionType == TraktReactionType.Unspecified)
                 throw new ArgumentException("reactionType must not be unspecified", nameof(reactionType));

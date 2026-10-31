@@ -7,6 +7,7 @@ namespace TraktNET.SourceGeneration.Enums
     {
         private const string UnspecifiedValue = "Unspecified";
         private const string NoneValue = "None";
+        private const string ValueSwitchExpression = "=> value switch";
 
         private static readonly IReadOnlyList<string> Usings = [
             "System.Text.Json",
@@ -55,7 +56,7 @@ namespace TraktNET.SourceGeneration.Enums
         {
             _enumName = enumGenerationSpecification.Name;
             _enumExtensionsName = _enumName + "Extensions";
-            _enumNamespace = enumGenerationSpecification.Namespace!;
+            _enumNamespace = enumGenerationSpecification.Namespace;
             _hasFlagsAttribute = enumGenerationSpecification.HasFlagsAttribute;
             _queryName = enumGenerationSpecification.QueryName;
             _hasPathSupport = enumGenerationSpecification.HasPathSupport;
@@ -155,7 +156,7 @@ namespace TraktNET.SourceGeneration.Enums
             _sourceWriter.WriteLine($"/// <summary>Returns the URI value for <see cref=\"{_enumName}\" />.</summary>");
             _sourceWriter.WriteLine($"public static string ToURI(this {_enumName} value)");
             _sourceWriter.Indent();
-            _sourceWriter.WriteLine("=> value switch");
+            _sourceWriter.WriteLine(ValueSwitchExpression);
             _sourceWriter.WriteLine('{');
             _sourceWriter.Indent();
 
@@ -190,7 +191,7 @@ namespace TraktNET.SourceGeneration.Enums
             _sourceWriter.WriteLine($"/// <summary>Returns the Json value for <see cref=\"{_enumName}\" />.</summary>");
             _sourceWriter.WriteLine($"public static string? ToJson(this {_enumName} value)");
             _sourceWriter.Indent();
-            _sourceWriter.WriteLine("=> value switch");
+            _sourceWriter.WriteLine(ValueSwitchExpression);
             _sourceWriter.WriteLine('{');
             _sourceWriter.Indent();
 
@@ -225,7 +226,7 @@ namespace TraktNET.SourceGeneration.Enums
             _sourceWriter.WriteLine($"/// <summary>Returns a <see cref=\"{_enumName}\" /> for the given value, if possible.</summary>");
             _sourceWriter.WriteLine($"public static {_enumName} To{_enumName}(this string? value)");
             _sourceWriter.Indent();
-            _sourceWriter.WriteLine("=> value switch");
+            _sourceWriter.WriteLine(ValueSwitchExpression);
             _sourceWriter.WriteLine('{');
             _sourceWriter.Indent();
 
@@ -256,7 +257,7 @@ namespace TraktNET.SourceGeneration.Enums
             else
             {
                 _sourceWriter.Indent();
-                _sourceWriter.WriteLine("=> value switch");
+                _sourceWriter.WriteLine(ValueSwitchExpression);
                 _sourceWriter.WriteLine('{');
                 _sourceWriter.Indent();
 

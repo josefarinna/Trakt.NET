@@ -47,8 +47,7 @@ namespace TraktNET
                 // PKCE flow: any non-null verifier (also empty or whitespace) must be valid, because it will be sent.
                 TraktPKCE.ThrowIfInvalidCodeVerifier(CodeVerifier, nameof(CodeVerifier));
 
-                if (ClientSecret != null && (string.IsNullOrWhiteSpace(ClientSecret) || ClientSecret.ContainsSpace()))
-                    throw new ArgumentException("client secret not valid", nameof(ClientSecret));
+                ArgumentValidator.ThrowIfProvidedAndInvalid(ClientSecret, "client secret not valid");
             }
 
             ArgumentValidator.ThrowIfNullOrWhiteSpace(RedirectUri, "redirect uri not valid", true);
