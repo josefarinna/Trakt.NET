@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Json.Users
+namespace TraktNET.Json.Users
 {
     public sealed class TraktUserPersonalListItemsPostTests
     {
@@ -54,6 +54,43 @@
             userPersonalListItemsPost.Episodes.Clear();
             userPersonalListItemsPost.People.Add(new TraktUserPersonalListItemsPostPerson());
             act.ShouldNotThrow();
+        }
+
+        [Fact]
+        public void TestTraktUserPersonalListItemsPostNotesAtEveryLevel()
+        {
+            var post = new TraktUserPersonalListItemsPost
+            {
+                Movies = [new TraktUserPersonalListItemsPostMovie { IDs = new TraktMovieIDs { Trakt = 1 }, Notes = "movie" }],
+                Shows =
+                [
+                    new TraktUserPersonalListItemsPostShow
+                    {
+                        IDs = new TraktShowIDs { Trakt = 2 },
+                        Notes = "show",
+                        Seasons =
+                        [
+                            new TraktUserPersonalListItemsPostShowSeason
+                            {
+                                Number = 1,
+                                Notes = "season",
+                                Episodes = [new TraktUserPersonalListItemsPostShowEpisode { Number = 1, Notes = "episode" }]
+                            }
+                        ]
+                    }
+                ],
+                Seasons = [new TraktUserPersonalListItemsPostSeason { IDs = new TraktSeasonIDs { Trakt = 3 }, Notes = "season" }],
+                Episodes = [new TraktUserPersonalListItemsPostEpisode { IDs = new TraktEpisodeIDs { Trakt = 4 }, Notes = "episode" }],
+                People = [new TraktUserPersonalListItemsPostPerson { IDs = new TraktPersonIDs { Trakt = 5 }, Notes = "person" }]
+            };
+
+            post.Movies[0].Notes.ShouldBe("movie");
+            post.Shows[0].Notes.ShouldBe("show");
+            post.Shows[0].Seasons![0].Notes.ShouldBe("season");
+            post.Shows[0].Seasons![0].Episodes![0].Notes.ShouldBe("episode");
+            post.Seasons[0].Notes.ShouldBe("season");
+            post.Episodes[0].Notes.ShouldBe("episode");
+            post.People[0].Notes.ShouldBe("person");
         }
     }
 }

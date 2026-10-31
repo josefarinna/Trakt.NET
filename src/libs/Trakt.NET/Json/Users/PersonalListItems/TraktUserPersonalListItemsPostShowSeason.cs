@@ -1,4 +1,4 @@
-﻿namespace TraktNET
+namespace TraktNET
 {
     /// <summary>An user personal list items post season, containing the required season number and optional episodes.</summary>
     public record class TraktUserPersonalListItemsPostShowSeason : TraktUserRemovePostShowSeason
@@ -11,5 +11,8 @@
         /// </para>
         /// </summary>
         public new List<TraktUserPersonalListItemsPostShowEpisode>? Episodes { get; set; }
+
+        /// <summary>Gets or sets the season notes.</summary>
+        public string? Notes { get; set; }
     }
 }
