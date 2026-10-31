@@ -18,6 +18,12 @@ namespace TraktNET
         [TraktRequestQuery("state")]
         public string? State { get; set; }
 
+        [TraktRequestQuery("code_challenge")]
+        public string? CodeChallenge { get; set; }
+
+        [TraktRequestQuery("code_challenge_method")]
+        public string? CodeChallengeMethod { get; set; }
+
         [TraktRequestParameter]
         public bool? Signup { get; set; }
 

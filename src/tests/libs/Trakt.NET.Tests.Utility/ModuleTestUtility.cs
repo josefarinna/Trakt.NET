@@ -45,7 +45,7 @@ namespace TraktNET
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
             client.Authorization = TestConstants.MockAuthorization;
 
-            string baseUrl = requestUri == "oauth/authorize" ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
+            string baseUrl = requestUri.StartsWith("oauth/", StringComparison.OrdinalIgnoreCase) ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
 
             var httpClientProvider = new TestHttpClientProvider(baseUrl);
             client.HttpClientProvider = httpClientProvider;
@@ -58,7 +58,7 @@ namespace TraktNET
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
             client.Authorization = TestConstants.MockAuthorization;
 
-            string baseUrl = requestUri == "oauth/authorize" ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
+            string baseUrl = requestUri.StartsWith("oauth/", StringComparison.OrdinalIgnoreCase) ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
 
             var httpClientProvider = new TestHttpClientProvider(baseUrl);
             httpClientProvider.SetupOAuthMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount, noOauthHeaders);
@@ -71,7 +71,7 @@ namespace TraktNET
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
             client.Authorization = TestConstants.MockAuthorization;
 
-            string baseUrl = requestUri == "oauth/authorize" ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
+            string baseUrl = requestUri.StartsWith("oauth/", StringComparison.OrdinalIgnoreCase) ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
 
             var httpClientProvider = new TestHttpClientProvider(baseUrl);
             httpClientProvider.SetupOAuthMockResponse(requestUri, statusCode, noOauthHeaders);
@@ -82,7 +82,7 @@ namespace TraktNET
         public static void SetOAuthClient(TraktClient client, string requestUri, string responseContent, uint? page = null, uint? pageCount = null,
             uint? limit = null, uint? itemCount = null, bool noOauthHeaders = false)
         {
-            string baseUrl = requestUri == "oauth/authorize" ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
+            string baseUrl = requestUri.StartsWith("oauth/", StringComparison.OrdinalIgnoreCase) ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
 
             var httpClientProvider = new TestHttpClientProvider(baseUrl);
             httpClientProvider.SetupOAuthMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount, noOauthHeaders);
@@ -95,7 +95,7 @@ namespace TraktNET
             var client = TraktClient.CreateForSandbox(TestConstants.ClientID, TestConstants.ClientSecret);
             client.Authorization = TestConstants.MockAuthorization;
 
-            string baseUrl = requestUri == "oauth/authorize" ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
+            string baseUrl = requestUri.StartsWith("oauth/", StringComparison.OrdinalIgnoreCase) ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
 
             var httpClientProvider = new TestHttpClientProvider(baseUrl);
             httpClientProvider.SetupOAuthMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount);
@@ -108,7 +108,7 @@ namespace TraktNET
             var client = TraktClient.CreateForSandbox(TestConstants.ClientID, TestConstants.ClientSecret);
             client.Authorization = TestConstants.MockAuthorization;
 
-            string baseUrl = requestUri == "oauth/authorize" ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
+            string baseUrl = requestUri.StartsWith("oauth/", StringComparison.OrdinalIgnoreCase) ? Constants.API.BaseAuthorizationURL : Constants.API.BaseURL;
 
             var httpClientProvider = new TestHttpClientProvider(baseUrl);
             httpClientProvider.SetupOAuthMockResponse(requestUri, statusCode);

@@ -1,4 +1,4 @@
-﻿namespace TraktNET.AuthModule
+namespace TraktNET.AuthModule
 {
     public sealed class CreateAuthorizationUrlWithDefaultStateTests
     {

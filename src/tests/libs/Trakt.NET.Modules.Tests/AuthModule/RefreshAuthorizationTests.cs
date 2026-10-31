@@ -63,9 +63,9 @@ namespace TraktNET.AuthModule
         }
 
         [Theory]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
+        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthenticationOAuthException))]
+        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiAuthenticationOAuthException))]
+        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiAuthenticationOAuthException))]
         [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
         [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
         [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]

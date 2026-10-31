@@ -79,7 +79,8 @@ namespace TraktNET
         }
 
         public static async Task<string> BuildEncodedAuthorizeUrl(bool staging, string clientId, string redirectUri, string? state = null,
-                                                                   bool? showSignupPage = null, bool? forceLoginPrompt = null)
+                                                                   bool? showSignupPage = null, bool? forceLoginPrompt = null,
+                                                                   string? codeChallenge = null, string? codeChallengeMethod = null)
         {
             string baseUrl = staging ? Constants.API.StagingBaseAuthorizationURL : Constants.API.BaseAuthorizationURL;
 
@@ -98,6 +99,12 @@ namespace TraktNET
 
             if (forceLoginPrompt.HasValue && forceLoginPrompt.Value)
                 uriParams.Add("prompt", "login");
+
+            if (!string.IsNullOrEmpty(codeChallenge))
+            {
+                uriParams.Add("code_challenge", codeChallenge!);
+                uriParams.Add("code_challenge_method", !string.IsNullOrEmpty(codeChallengeMethod) ? codeChallengeMethod! : "S256");
+            }
 
             var encodedUriContent = new FormUrlEncodedContent(uriParams);
             string encodedUri = await encodedUriContent.ReadAsStringAsync();

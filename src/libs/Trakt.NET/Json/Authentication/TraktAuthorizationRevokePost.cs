@@ -15,6 +15,7 @@ namespace TraktNET
 
         /// <summary>Gets or sets the client secret.</summary>
         [JsonPropertyName("client_secret")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? ClientSecret { get; set; }
 
         /// <summary>Validates the post data.</summary>
@@ -22,8 +23,9 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNullOrWhiteSpace(Token, "access token not valid", true);
             ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientId, "client id not valid", true);
-            ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientSecret, "client secret not valid", true);
+
+            if (ClientSecret != null && (string.IsNullOrWhiteSpace(ClientSecret) || ClientSecret.ContainsSpace()))
+                throw new ArgumentException("client secret not valid", nameof(ClientSecret));
         }
     }
 }
-

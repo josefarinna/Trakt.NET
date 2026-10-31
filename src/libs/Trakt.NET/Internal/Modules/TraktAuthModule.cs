@@ -6,17 +6,20 @@ namespace TraktNET
     /// </summary>
     public sealed partial class TraktAuthModule(TraktContext context) : BaseModule(context)
     {
-        public string CreateAuthorizationUrlCore(string clientId, string redirectUri, string? state = null, bool? showSignupPage = null, bool? forceLoginPrompt = null)
-            => RequestHandler.CreateAuthorizationUrl(_context, clientId, redirectUri, state, showSignupPage, forceLoginPrompt);
+        public string CreateAuthorizationUrlCore(string clientId, string redirectUri, string? state = null,
+            bool? showSignupPage = null, bool? forceLoginPrompt = null, string? codeChallenge = null, string? codeChallengeMethod = null)
+            => RequestHandler.CreateAuthorizationUrl(_context, clientId, redirectUri, state, showSignupPage, forceLoginPrompt, codeChallenge, codeChallengeMethod);
 
-        public string CreateAuthorizationUrlWithDefaultStateCore(string clientId, string redirectUri, bool? showSignupPage = null, bool? forceLoginPrompt = null)
-            => RequestHandler.CreateAuthorizationUrl(_context, clientId, redirectUri, _context.AntiForgeryToken, showSignupPage, forceLoginPrompt);
+        public string CreateAuthorizationUrlWithDefaultStateCore(string clientId, string redirectUri,
+            bool? showSignupPage = null, bool? forceLoginPrompt = null, string? codeChallenge = null, string? codeChallengeMethod = null)
+            => RequestHandler.CreateAuthorizationUrl(_context, clientId, redirectUri, _context.AntiForgeryToken, showSignupPage, forceLoginPrompt, codeChallenge, codeChallengeMethod);
 
-        private Task<TraktResponse<TraktAuthorization>> GetAuthorizationImplAsync(string code, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktAuthorization>> GetAuthorizationImplAsync(string code, string? codeVerifier, string clientId, string? clientSecret, string redirectUri, CancellationToken cancellationToken = default)
         {
             var traktAuthorizationPost = new TraktAuthorizationPost
             {
                 Code = code,
+                CodeVerifier = codeVerifier,
                 ClientId = clientId,
                 ClientSecret = clientSecret,
                 RedirectUri = redirectUri
@@ -24,13 +27,14 @@ namespace TraktNET
 
             var request = new AuthorizationRequest
             {
-                TraktAuthorizationPost = traktAuthorizationPost
+                TraktAuthorizationPost = traktAuthorizationPost,
+                Flags = new RequestFlags { IsAuthorizationRequest = true, IsAuthorizationTokenRequest = true }
             };
 
             return RequestHandler.GetAuthorizationAsync(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationImplAsync(string refreshToken, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationImplAsync(string refreshToken, string clientId, string? clientSecret, string redirectUri, CancellationToken cancellationToken = default)
         {
             var traktAuthorizationRefreshPost = new TraktAuthorizationRefreshPost
             {
@@ -42,13 +46,14 @@ namespace TraktNET
 
             var request = new AuthorizationRefreshRequest
             {
-                TraktAuthorizationRefreshPost = traktAuthorizationRefreshPost
+                TraktAuthorizationRefreshPost = traktAuthorizationRefreshPost,
+                Flags = new RequestFlags { IsAuthorizationRequest = true, IsAuthorizationTokenRequest = true }
             };
 
             return RequestHandler.RefreshAuthorizationAsync(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse> RevokeAuthorizationImplAsync(string accessToken, string clientId, string clientSecret, CancellationToken cancellationToken = default)
+        private Task<TraktResponse> RevokeAuthorizationImplAsync(string accessToken, string clientId, string? clientSecret, CancellationToken cancellationToken = default)
         {
             var traktAuthorizationRevokePost = new TraktAuthorizationRevokePost
             {
@@ -60,7 +65,7 @@ namespace TraktNET
             var request = new AuthorizationRevokeRequest
             {
                 TraktAuthorizationRevokePost = traktAuthorizationRevokePost,
-                Flags = new RequestFlags { IsAuthorizationRevokeRequest = true }
+                Flags = new RequestFlags { IsAuthorizationRequest = true, IsAuthorizationRevokeRequest = true }
             };
 
             return RequestHandler.RevokeAuthorizationAsync(_context, request, cancellationToken);
@@ -76,13 +81,13 @@ namespace TraktNET
             var request = new DeviceRequest
             {
                 TraktDevicePost = traktDevicePost,
-                Flags = new RequestFlags { IsDeviceRequest = true }
+                Flags = new RequestFlags { IsAuthorizationRequest = true, IsDeviceRequest = true }
             };
 
             return RequestHandler.GetDeviceAsync(_context, request, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktAuthorization>> PollForAuthorizationImplAsync(TraktDevice device, string clientId, string clientSecret, CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktAuthorization>> PollForAuthorizationImplAsync(TraktDevice device, string clientId, string? clientSecret, CancellationToken cancellationToken = default)
         {
             var traktAuthorizationPollPost = new TraktAuthorizationPollPost
             {
@@ -93,11 +98,11 @@ namespace TraktNET
 
             var request = new AuthorizationPollRequest
             {
-                TraktAuthorizationPollPost = traktAuthorizationPollPost
+                TraktAuthorizationPollPost = traktAuthorizationPollPost,
+                Flags = new RequestFlags { IsAuthorizationRequest = true }
             };
 
             return RequestHandler.PollForAuthorizationAsync(_context, request, device, cancellationToken);
         }
     }
 }
-

@@ -5,10 +5,11 @@ namespace TraktNET
     internal static partial class RequestHandler
     {
         internal static string CreateAuthorizationUrl(TraktContext context, string clientId, string redirectUri,
-            string? state = null, bool? showSignupPage = null, bool? forceLoginPrompt = null)
+            string? state = null, bool? showSignupPage = null, bool? forceLoginPrompt = null,
+            string? codeChallenge = null, string? codeChallengeMethod = null)
         {
-            ValidateAuthorizationUrlArguments(clientId, redirectUri, state);
-            return BuildAuthorizationUrl(context, clientId, redirectUri, state, showSignupPage, forceLoginPrompt);
+            ValidateAuthorizationUrlArguments(clientId, redirectUri, state, codeChallenge, codeChallengeMethod);
+            return BuildAuthorizationUrl(context, clientId, redirectUri, state, showSignupPage, forceLoginPrompt, codeChallenge, codeChallengeMethod);
         }
 
         internal static async Task<TraktResponse<TraktDevice>> GetDeviceAsync(TraktContext context, DeviceRequest request,
@@ -20,9 +21,18 @@ namespace TraktNET
             return response;
         }
 
-        internal static Task<TraktResponse<TraktAuthorization>> GetAuthorizationAsync(TraktContext context,
+        internal static async Task<TraktResponse<TraktAuthorization>> GetAuthorizationAsync(TraktContext context,
             AuthorizationRequest request, CancellationToken cancellationToken = default)
-            => ExecuteSingleItemRequestAsync<TraktAuthorization>(context, request, cancellationToken);
+        {
+            TraktResponse<TraktAuthorization> response = await ExecuteSingleItemRequestAsync<TraktAuthorization>(context, request, cancellationToken).ConfigureAwait(false);
+            context.Authorization = response.Content;
+
+            // The PKCE code verifier is single-use, so it must not be reused for later exchanges.
+            if (request.TraktAuthorizationPost.CodeVerifier != null)
+                context.CodeVerifier = null;
+
+            return response;
+        }
 
         internal static async Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(TraktContext context,
             AuthorizationRefreshRequest request, CancellationToken cancellationToken = default)
@@ -58,7 +68,8 @@ namespace TraktNET
 
                 var requestMessageBuilder = new AuthorizationPollRequest
                 {
-                    TraktAuthorizationPollPost = request.TraktAuthorizationPollPost
+                    TraktAuthorizationPollPost = request.TraktAuthorizationPollPost,
+                    Flags = request.Flags
                 };
 
                 using RequestResponse response = await ExecutePollingRequestAsync(context, requestMessageBuilder, cancellationToken).ConfigureAwait(false);
@@ -97,7 +108,7 @@ namespace TraktNET
             request.BuildUri();
             AddRequestMessageHeaders(context, request);
 
-            HttpClient httpClient = context.GetHttpClient();
+            HttpClient httpClient = context.GetHttpClient(request.Flags.IsAuthorizationRequest);
 
             HttpResponseMessage responseMessage = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead,
                     cancellationToken).ConfigureAwait(false);
@@ -132,7 +143,7 @@ namespace TraktNET
         }
 
         private static string CreateEncodedAuthorizationUriParameters(string clientId, string redirectUri, string? state = null,
-            bool? showSignupPage = null, bool? forceLoginPrompt = null)
+            bool? showSignupPage = null, bool? forceLoginPrompt = null, string? codeChallenge = null, string? codeChallengeMethod = null)
         {
             var uriParams = new Dictionary<string, string>
             {
@@ -150,6 +161,12 @@ namespace TraktNET
             if (forceLoginPrompt.HasValue && forceLoginPrompt.Value)
                 uriParams.Add("prompt", "login");
 
+            if (!string.IsNullOrEmpty(codeChallenge))
+            {
+                uriParams.Add("code_challenge", codeChallenge!);
+                uriParams.Add("code_challenge_method", !string.IsNullOrEmpty(codeChallengeMethod) ? codeChallengeMethod! : "S256");
+            }
+
             var encodedUriContent = new FormUrlEncodedContent(uriParams!);
             string encodedUri = encodedUriContent.ReadAsStringAsync().Result;
 
@@ -160,9 +177,9 @@ namespace TraktNET
         }
 
         private static string BuildAuthorizationUrl(TraktContext context, string clientId, string redirectUri, string? state = null,
-            bool? showSignupPage = null, bool? forceLoginPrompt = null)
+            bool? showSignupPage = null, bool? forceLoginPrompt = null, string? codeChallenge = null, string? codeChallengeMethod = null)
         {
-            string encodedUriParams = CreateEncodedAuthorizationUriParameters(clientId, redirectUri, state, showSignupPage, forceLoginPrompt);
+            string encodedUriParams = CreateEncodedAuthorizationUriParameters(clientId, redirectUri, state, showSignupPage, forceLoginPrompt, codeChallenge, codeChallengeMethod);
             return $"{context.BaseAuthorizationUri}oauth/authorize{encodedUriParams}";
         }
 
@@ -175,12 +192,22 @@ namespace TraktNET
                 throw new ArgumentException("redirect uri not valid", nameof(redirectUri));
         }
 
-        private static void ValidateAuthorizationUrlArguments(string clientId, string redirectUri, string? state)
+        private static void ValidateAuthorizationUrlArguments(string clientId, string redirectUri, string? state,
+            string? codeChallenge = null, string? codeChallengeMethod = null)
         {
             ValidateAuthorizationUrlArguments(clientId, redirectUri);
 
             if (state != null && (state.Length == 0 || state.ContainsSpace()))
                 throw new ArgumentException("state not valid", nameof(state));
+
+            if (codeChallenge != null && (codeChallenge.Length == 0 || codeChallenge.ContainsSpace()))
+                throw new ArgumentException("code challenge not valid", nameof(codeChallenge));
+
+            if (codeChallengeMethod != null && (codeChallengeMethod.Length == 0 || codeChallengeMethod.ContainsSpace()))
+                throw new ArgumentException("code challenge method not valid", nameof(codeChallengeMethod));
+
+            if (codeChallenge == null && codeChallengeMethod != null)
+                throw new ArgumentException("code challenge method cannot be set without code challenge", nameof(codeChallengeMethod));
         }
     }
 }

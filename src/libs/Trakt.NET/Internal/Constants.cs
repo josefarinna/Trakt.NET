@@ -11,9 +11,9 @@ namespace TraktNET
 
             internal const string StagingBaseURL = "https://api-staging.trakt.tv/";
 
-            internal const string BaseAuthorizationURL = "https://trakt.tv/";
+            internal const string BaseAuthorizationURL = "https://auth.trakt.tv/";
 
-            internal const string StagingBaseAuthorizationURL = "https://staging.trakt.tv/";
+            internal const string StagingBaseAuthorizationURL = "https://auth-staging.trakt.tv/";
 
             internal const int Version = 2;
 

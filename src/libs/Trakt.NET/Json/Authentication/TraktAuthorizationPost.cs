@@ -9,12 +9,18 @@ namespace TraktNET
         [JsonPropertyName("code")]
         public string? Code { get; set; }
 
+        /// <summary>Gets or sets the PKCE code verifier.</summary>
+        [JsonPropertyName("code_verifier")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? CodeVerifier { get; set; }
+
         /// <summary>Gets or sets the client ID.</summary>
         [JsonPropertyName("client_id")]
         public string? ClientId { get; set; }
 
         /// <summary>Gets or sets the client secret.</summary>
         [JsonPropertyName("client_secret")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? ClientSecret { get; set; }
 
         /// <summary>Gets or sets the redirect URI.</summary>
@@ -30,9 +36,22 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNullOrWhiteSpace(Code, "code not valid", true);
             ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientId, "client id not valid", true);
-            ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientSecret, "client secret not valid", true);
+
+            if (CodeVerifier is null)
+            {
+                // Classic flow: the client secret is required.
+                ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientSecret, "client secret not valid", true);
+            }
+            else
+            {
+                // PKCE flow: any non-null verifier (also empty or whitespace) must be valid, because it will be sent.
+                TraktPKCE.ThrowIfInvalidCodeVerifier(CodeVerifier, nameof(CodeVerifier));
+
+                if (ClientSecret != null && (string.IsNullOrWhiteSpace(ClientSecret) || ClientSecret.ContainsSpace()))
+                    throw new ArgumentException("client secret not valid", nameof(ClientSecret));
+            }
+
             ArgumentValidator.ThrowIfNullOrWhiteSpace(RedirectUri, "redirect uri not valid", true);
         }
     }
 }
-
