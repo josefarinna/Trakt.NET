@@ -59,12 +59,12 @@ namespace TraktNET.NotesModule
 #if TRAKT_NET_4XX_FRAMEWORK_TARGET
         [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
         [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)426, typeof(TraktApiVIPValidationException))]
+        [InlineData((HttpStatusCode)426, typeof(TraktApiVipValidationException))]
         [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
 #else
         [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
         [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
         [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
 #endif
         [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]

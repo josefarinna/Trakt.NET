@@ -18,7 +18,7 @@ namespace TraktNET
                 Constants.StatusCodes.AccountLimitExceeded => new TraktApiAccountLimitException(parameters, innerException),
                 Constants.StatusCodes.ValidationError => new TraktApiValidationException(parameters, innerException),
                 Constants.StatusCodes.LockedUserAccount => new TraktApiLockedUserAccountException(parameters, innerException),
-                Constants.StatusCodes.VIPValidationError => new TraktApiVIPValidationException(parameters, innerException),
+                Constants.StatusCodes.VIPValidationError => new TraktApiVipValidationException(parameters, innerException),
                 Constants.StatusCodes.RateLimitExceeded => new TraktApiRateLimitException(parameters, innerException),
                 Constants.StatusCodes.ServerError => new TraktApiServerException(parameters, innerException),
                 Constants.StatusCodes.ServiceUnavailableBadGateway => new TraktApiBadGatewayException(parameters, innerException),

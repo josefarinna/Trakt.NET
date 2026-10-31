@@ -50,9 +50,9 @@ namespace TraktNET
         [JsonPropertyName("vip_veteran_tier")]
         public uint? VIPVeteranTier { get; set; }
 
-        /// <summary>The VIP veteran title for the user. See also <seealso cref="TraktVIPVeteranTitle" />.</summary>
+        /// <summary>The VIP veteran title for the user. See also <seealso cref="TraktVipVeteranTitle" />.</summary>
         [JsonPropertyName("vip_veteran_title")]
-        public TraktVIPVeteranTitle? VIPVeteranTitle { get; set; }
+        public TraktVipVeteranTitle? VIPVeteranTitle { get; set; }
 
         /// <summary>The UTC datetime when the user's VIP grace period ends.</summary>
         [JsonPropertyName("vip_grace_ends_at")]

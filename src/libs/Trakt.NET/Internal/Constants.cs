@@ -5,7 +5,7 @@ namespace TraktNET
 {
     internal static class Constants
     {
-        internal static class API
+        internal static class Api
         {
             internal const string BaseURL = "https://api.trakt.tv/";
 
@@ -178,7 +178,7 @@ namespace TraktNET
                     new TraktUserSocialActivityTypeJsonConverter(),
                     new TraktUserSyncItemKindJsonConverter(),
                     new TraktUserSyncTypeJsonConverter(),
-                    new TraktVIPVeteranTitleJsonConverter(),
+                    new TraktVipVeteranTitleJsonConverter(),
                     new TraktVideoTypeJsonConverter()
                 }
             };

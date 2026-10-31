@@ -56,7 +56,7 @@ namespace TraktNET.Json.Users
                 VIPVeteranSince = TestUtility.ParseUTCDateTime("2020-03-01T00:00:00.000Z"),
                 VIPVeteranYears = 5U,
                 VIPVeteranTier = 5U,
-                VIPVeteranTitle = TraktVIPVeteranTitle.Veteran,
+                VIPVeteranTitle = TraktVipVeteranTitle.Veteran,
                 VIPGraceEndsAt = TestUtility.ParseUTCDateTime("2025-04-01T00:00:00.000Z"),
                 Email = "henrik@example.com"
             };
@@ -119,7 +119,7 @@ namespace TraktNET.Json.Users
             collectionUser.VIPVeteranSince = veteranSince;
             collectionUser.VIPVeteranYears = 5U;
             collectionUser.VIPVeteranTier = 5U;
-            collectionUser.VIPVeteranTitle = TraktVIPVeteranTitle.Veteran;
+            collectionUser.VIPVeteranTitle = TraktVipVeteranTitle.Veteran;
             collectionUser.VIPGraceEndsAt = graceEndsAt;
             collectionUser.Email = "henrik@example.com";
 
@@ -143,7 +143,7 @@ namespace TraktNET.Json.Users
             collectionUser.VIPVeteranSince.ShouldBe(veteranSince);
             collectionUser.VIPVeteranYears.ShouldBe(5U);
             collectionUser.VIPVeteranTier.ShouldBe(5U);
-            collectionUser.VIPVeteranTitle.ShouldBe(TraktVIPVeteranTitle.Veteran);
+            collectionUser.VIPVeteranTitle.ShouldBe(TraktVipVeteranTitle.Veteran);
             collectionUser.VIPGraceEndsAt.ShouldBe(graceEndsAt);
             collectionUser.Email.ShouldBe("henrik@example.com");
         }
@@ -206,7 +206,7 @@ namespace TraktNET.Json.Users
             collectionUser.VIPVeteranSince.ShouldBe(TestUtility.ParseUTCDateTime("2020-03-01T00:00:00.000Z"));
             collectionUser.VIPVeteranYears.ShouldBe(5U);
             collectionUser.VIPVeteranTier.ShouldBe(5U);
-            collectionUser.VIPVeteranTitle.ShouldBe(TraktVIPVeteranTitle.Veteran);
+            collectionUser.VIPVeteranTitle.ShouldBe(TraktVipVeteranTitle.Veteran);
             collectionUser.VIPGraceEndsAt.ShouldBe(TestUtility.ParseUTCDateTime("2025-04-01T00:00:00.000Z"));
             collectionUser.Email.ShouldBe("henrik@example.com");
         }
@@ -266,7 +266,7 @@ namespace TraktNET.Json.Users
             collectionUser.VIPYears.ShouldBe(6U);
             collectionUser.VIPVeteranYears.ShouldBe(5U);
             collectionUser.VIPVeteranTier.ShouldBe(5U);
-            collectionUser.VIPVeteranTitle.ShouldBe(TraktVIPVeteranTitle.Veteran);
+            collectionUser.VIPVeteranTitle.ShouldBe(TraktVipVeteranTitle.Veteran);
             collectionUser.Email.ShouldBe("henrik@example.com");
 
             // --------------------------------------------------------------------------------------------
@@ -287,7 +287,7 @@ namespace TraktNET.Json.Users
             collectionUser.VIPYears.ShouldBe(14U);
             collectionUser.VIPVeteranYears.ShouldBe(10U);
             collectionUser.VIPVeteranTier.ShouldBe(10U);
-            collectionUser.VIPVeteranTitle.ShouldBe(TraktVIPVeteranTitle.Legend);
+            collectionUser.VIPVeteranTitle.ShouldBe(TraktVipVeteranTitle.Legend);
             collectionUser.Email.ShouldBe("sean@example.com");
         }
     }

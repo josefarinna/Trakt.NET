@@ -9,13 +9,13 @@ namespace TraktNET
         // OAuth requests are sent to the authorization host, all others to the API host.
         private static string GetBaseUrl(string requestUri)
             => requestUri.StartsWith(OAuthRequestUriPrefix, StringComparison.OrdinalIgnoreCase)
-                ? Constants.API.BaseAuthorizationURL
-                : Constants.API.BaseURL;
+                ? Constants.Api.BaseAuthorizationURL
+                : Constants.Api.BaseURL;
 
         public static TraktClient GetClient(string requestUri, string responseContent)
         {
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
-            var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
+            var httpClientProvider = new TestHttpClientProvider(Constants.Api.BaseURL);
             httpClientProvider.SetupMockResponse(requestUri, responseContent);
             client.HttpClientProvider = httpClientProvider;
             return client;
@@ -25,7 +25,7 @@ namespace TraktNET
             uint? limit, uint? itemCount)
         {
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
-            var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
+            var httpClientProvider = new TestHttpClientProvider(Constants.Api.BaseURL);
             httpClientProvider.SetupMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount);
             client.HttpClientProvider = httpClientProvider;
             return client;
@@ -34,7 +34,7 @@ namespace TraktNET
         public static TraktClient GetClient(string requestUri, HttpStatusCode statusCode)
         {
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
-            var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
+            var httpClientProvider = new TestHttpClientProvider(Constants.Api.BaseURL);
             httpClientProvider.SetupMockResponse(requestUri, statusCode);
             client.HttpClientProvider = httpClientProvider;
             return client;
@@ -43,7 +43,7 @@ namespace TraktNET
         public static void SetClient(TraktClient client, string requestUri, string responseContent, uint? page, uint? pageCount,
             uint? limit, uint? itemCount)
         {
-            var httpClientProvider = new TestHttpClientProvider(Constants.API.BaseURL);
+            var httpClientProvider = new TestHttpClientProvider(Constants.Api.BaseURL);
             httpClientProvider.SetupMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount);
             client.HttpClientProvider = httpClientProvider;
         }

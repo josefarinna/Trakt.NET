@@ -120,7 +120,7 @@ namespace TraktNET
         {
             const string AuthenticationScheme = "Bearer";
 
-            request.Headers.Add(Constants.Request.Headers.APIVersionHeaderKey, $"{Constants.API.Version}");
+            request.Headers.Add(Constants.Request.Headers.APIVersionHeaderKey, $"{Constants.Api.Version}");
             request.Headers.Add(Constants.Request.Headers.APIClientIDHeaderKey, context.ClientID);
 
             if (!string.IsNullOrWhiteSpace(context.UserAgent))
@@ -162,17 +162,29 @@ namespace TraktNET
 
         internal required TraktResponseHeaders TraktHeaders { get; init; }
 
-        public virtual void Dispose() => ResponseMessage.Dispose();
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+                ResponseMessage.Dispose();
+        }
     }
 
     internal record class ContentRequestResponse : RequestResponse
     {
         internal required Stream ResponseContentStream { get; init; }
 
-        public override void Dispose()
+        protected override void Dispose(bool disposing)
         {
-            base.Dispose();
-            ResponseContentStream?.Dispose();
+            if (disposing)
+                ResponseContentStream.Dispose();
+
+            base.Dispose(disposing);
         }
     }
 }

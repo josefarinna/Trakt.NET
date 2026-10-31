@@ -266,7 +266,7 @@ namespace TraktNET.SyncModule
         [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
         [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
 #endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVIPValidationException))]
+        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
         [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
         [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
         [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
