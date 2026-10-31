@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "8d7d50b2-5c3e-4766-a2ff-6c2935bb8059",
-    "name": "Trakt API Requests v2.0.0",
+    "name": "Trakt API Requests v2.1.0",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "769210"
   },
@@ -13802,406 +13802,6 @@
           ]
         },
         {
-          "name": "Lists",
-          "item": [
-            {
-              "name": "Get lists containing this person (Trakt ID)",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Content-Ty",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-version",
-                    "value": "{{API_VERSION}}",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-key",
-                    "value": "{{CLIENT_ID}}",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{API_URL}}/people/{{TRAKT_PERSON_ID}}/lists",
-                  "host": [
-                    "{{API_URL}}"
-                  ],
-                  "path": [
-                    "people",
-                    "{{TRAKT_PERSON_ID}}",
-                    "lists"
-                  ],
-                  "query": [
-                    {
-                      "key": "extended",
-                      "value": "full,vip",
-                      "description": "Complete info for an item.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "page",
-                      "value": "1",
-                      "description": "Number of page of results to be returned. Default: 1",
-                      "disabled": true
-                    },
-                    {
-                      "key": "limit",
-                      "value": "10",
-                      "description": "Number of results to return per page. Default: 10",
-                      "disabled": true
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Get lists containing this person (Trakt ID) (type, sort)",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Content-Ty",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-version",
-                    "value": "{{API_VERSION}}",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-key",
-                    "value": "{{CLIENT_ID}}",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{API_URL}}/people/{{TRAKT_PERSON_ID}}/lists/:type/:sort",
-                  "host": [
-                    "{{API_URL}}"
-                  ],
-                  "path": [
-                    "people",
-                    "{{TRAKT_PERSON_ID}}",
-                    "lists",
-                    ":type",
-                    ":sort"
-                  ],
-                  "query": [
-                    {
-                      "key": "extended",
-                      "value": "full,vip",
-                      "description": "Complete info for an item.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "page",
-                      "value": "1",
-                      "description": "Number of page of results to be returned. Default: 1",
-                      "disabled": true
-                    },
-                    {
-                      "key": "limit",
-                      "value": "10",
-                      "description": "Number of results to return per page. Default: 10",
-                      "disabled": true
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "type",
-                      "value": "all",
-                      "description": "Possible values:  all , personal , official ."
-                    },
-                    {
-                      "key": "sort",
-                      "value": "popular",
-                      "description": "Possible values:  popular , likes , comments , items , added , updated ."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Get lists containing this person (Trakt Slug)",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Content-Ty",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-version",
-                    "value": "{{API_VERSION}}",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-key",
-                    "value": "{{CLIENT_ID}}",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{API_URL}}/people/{{TRAKT_PERSON_SLUG}}/lists",
-                  "host": [
-                    "{{API_URL}}"
-                  ],
-                  "path": [
-                    "people",
-                    "{{TRAKT_PERSON_SLUG}}",
-                    "lists"
-                  ],
-                  "query": [
-                    {
-                      "key": "extended",
-                      "value": "full,vip",
-                      "description": "Complete info for an item.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "page",
-                      "value": "1",
-                      "description": "Number of page of results to be returned. Default: 1",
-                      "disabled": true
-                    },
-                    {
-                      "key": "limit",
-                      "value": "10",
-                      "description": "Number of results to return per page. Default: 10",
-                      "disabled": true
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Get lists containing this person (Trakt Slug) (type, sort)",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Content-Ty",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-version",
-                    "value": "{{API_VERSION}}",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-key",
-                    "value": "{{CLIENT_ID}}",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{API_URL}}/people/{{TRAKT_PERSON_SLUG}}/lists/:type/:sort",
-                  "host": [
-                    "{{API_URL}}"
-                  ],
-                  "path": [
-                    "people",
-                    "{{TRAKT_PERSON_SLUG}}",
-                    "lists",
-                    ":type",
-                    ":sort"
-                  ],
-                  "query": [
-                    {
-                      "key": "extended",
-                      "value": "full,vip",
-                      "description": "Complete info for an item.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "page",
-                      "value": "1",
-                      "description": "Number of page of results to be returned. Default: 1",
-                      "disabled": true
-                    },
-                    {
-                      "key": "limit",
-                      "value": "10",
-                      "description": "Number of results to return per page. Default: 10",
-                      "disabled": true
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "type",
-                      "value": "all",
-                      "description": "Possible values:  all , personal , official ."
-                    },
-                    {
-                      "key": "sort",
-                      "value": "popular",
-                      "description": "Possible values:  popular , likes , comments , items , added , updated ."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Get lists containing this person (IMDB ID)",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Content-Ty",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-version",
-                    "value": "{{API_VERSION}}",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-key",
-                    "value": "{{CLIENT_ID}}",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{API_URL}}/people/{{IMDB_PERSON_ID}}/lists",
-                  "host": [
-                    "{{API_URL}}"
-                  ],
-                  "path": [
-                    "people",
-                    "{{IMDB_PERSON_ID}}",
-                    "lists"
-                  ],
-                  "query": [
-                    {
-                      "key": "extended",
-                      "value": "full,vip",
-                      "description": "Complete info for an item.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "page",
-                      "value": "1",
-                      "description": "Number of page of results to be returned. Default: 1",
-                      "disabled": true
-                    },
-                    {
-                      "key": "limit",
-                      "value": "10",
-                      "description": "Number of results to return per page. Default: 10",
-                      "disabled": true
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Get lists containing this person (IMDB ID) (type, sort)",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Content-Ty",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-version",
-                    "value": "{{API_VERSION}}",
-                    "type": "text"
-                  },
-                  {
-                    "key": "trakt-api-key",
-                    "value": "{{CLIENT_ID}}",
-                    "type": "text"
-                  }
-                ],
-                "url": {
-                  "raw": "{{API_URL}}/people/{{IMDB_PERSON_ID}}/lists/:type/:sort",
-                  "host": [
-                    "{{API_URL}}"
-                  ],
-                  "path": [
-                    "people",
-                    "{{IMDB_PERSON_ID}}",
-                    "lists",
-                    ":type",
-                    ":sort"
-                  ],
-                  "query": [
-                    {
-                      "key": "extended",
-                      "value": "full,vip",
-                      "description": "Complete info for an item.",
-                      "disabled": true
-                    },
-                    {
-                      "key": "page",
-                      "value": "1",
-                      "description": "Number of page of results to be returned. Default: 1",
-                      "disabled": true
-                    },
-                    {
-                      "key": "limit",
-                      "value": "10",
-                      "description": "Number of results to return per page. Default: 10",
-                      "disabled": true
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "type",
-                      "value": "all",
-                      "description": "Possible values:  all , personal , official ."
-                    },
-                    {
-                      "key": "sort",
-                      "value": "popular",
-                      "description": "Possible values:  popular , likes , comments , items , added , updated ."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "auth": {
-            "type": "noauth"
-          },
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ]
-        },
-        {
           "name": "Report a person",
           "request": {
             "method": "POST",
@@ -27810,7 +27410,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      },\r\n      \"notes\": \"One of Chritian Bale's most iconic roles.\"\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      },\r\n      \"notes\": \"I AM THE DANGER!\"\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"title\": \"Mad Men\",\r\n      \"year\": 2007,\r\n      \"ids\": {\r\n        \"trakt\": 4,\r\n        \"slug\": \"mad-men\",\r\n        \"tvdb\": 80337,\r\n        \"imdb\": \"tt0804503\",\r\n        \"tmdb\": 1104\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1,\r\n          \"episodes\": [\r\n            {\r\n              \"number\": 1\r\n            },\r\n            {\r\n              \"number\": 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 140912,\r\n        \"tvdb\": 703353,\r\n        \"tmdb\": 81266\r\n      }\r\n    }\r\n  ],\r\n  \"episodes\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1061,\r\n        \"tvdb\": 1555111,\r\n        \"imdb\": \"tt007404\",\r\n        \"tmdb\": 422183\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\n  \"movies\": [\n    {\n      \"title\": \"Batman Begins\",\n      \"year\": 2005,\n      \"ids\": {\n        \"trakt\": 1,\n        \"slug\": \"batman-begins-2005\",\n        \"imdb\": \"tt0372784\",\n        \"tmdb\": 272\n      },\n      \"notes\": \"One of Christian Bale's most iconic roles.\"\n    },\n    {\n      \"ids\": {\n        \"imdb\": \"tt0000111\"\n      }\n    }\n  ],\n  \"shows\": [\n    {\n      \"title\": \"Breaking Bad\",\n      \"year\": 2008,\n      \"ids\": {\n        \"trakt\": 1,\n        \"slug\": \"breaking-bad\",\n        \"tvdb\": 81189,\n        \"imdb\": \"tt0903747\",\n        \"tmdb\": 1396\n      },\n      \"notes\": \"I AM THE DANGER!\"\n    },\n    {\n      \"title\": \"The Walking Dead\",\n      \"year\": 2010,\n      \"ids\": {\n        \"trakt\": 2,\n        \"slug\": \"the-walking-dead\",\n        \"tvdb\": 153021,\n        \"imdb\": \"tt1520211\",\n        \"tmdb\": 1402\n      },\n      \"seasons\": [\n        {\n          \"number\": 3,\n          \"notes\": \"Season 3 is peak Walking Dead.\"\n        }\n      ]\n    },\n    {\n      \"title\": \"Mad Men\",\n      \"year\": 2007,\n      \"ids\": {\n        \"trakt\": 4,\n        \"slug\": \"mad-men\",\n        \"tvdb\": 80337,\n        \"imdb\": \"tt0804503\",\n        \"tmdb\": 1104\n      },\n      \"seasons\": [\n        {\n          \"number\": 1,\n          \"episodes\": [\n            {\n              \"number\": 1,\n              \"notes\": \"Classic pilot episode.\"\n            },\n            {\n              \"number\": 2\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"seasons\": [\n    {\n      \"ids\": {\n        \"trakt\": 140912,\n        \"tvdb\": 703353,\n        \"tmdb\": 81266\n      },\n      \"notes\": \"Top-level season note example.\"\n    }\n  ],\n  \"episodes\": [\n    {\n      \"ids\": {\n        \"trakt\": 1061,\n        \"tvdb\": 1555111,\n        \"imdb\": \"tt007404\",\n        \"tmdb\": 422183\n      }\n    }\n  ]\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/watchlist",
@@ -31813,7 +31413,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1\r\n      },\r\n      \"notes\": \"Amazing movie!\"\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1\r\n      }\r\n    },\r\n    {\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1\r\n        }\r\n      ],\r\n      \"ids\": {\r\n        \"trakt\": 1\r\n      },\r\n      \"notes\": \"Best season of this show, don't bother watching the rest.\"\r\n    },\r\n    {\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1,\r\n          \"episodes\": [\r\n            {\r\n              \"number\": 1\r\n            },\r\n            {\r\n              \"number\": 2\r\n            }\r\n          ]\r\n        }\r\n      ],\r\n      \"ids\": {\r\n        \"trakt\": 1\r\n      }\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 140912,\r\n        \"tvdb\": 703353,\r\n        \"tmdb\": 81266\r\n      }\r\n    }\r\n  ],\r\n  \"episodes\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1061,\r\n        \"tvdb\": 1555111,\r\n        \"imdb\": \"tt007404\",\r\n        \"tmdb\": 422183\r\n      }\r\n    }\r\n  ],\r\n  \"people\": [\r\n    {\r\n      \"name\": \"Jeff Bridges\",\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"jeff-bridges\",\r\n        \"imdb\": \"nm0000313\",\r\n        \"tmdb\": 1229\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\n  \"movies\": [\n    {\n      \"ids\": {\n        \"trakt\": 1\n      },\n      \"notes\": \"Amazing movie!\"\n    },\n    {\n      \"ids\": {\n        \"imdb\": \"tt0000111\"\n      }\n    }\n  ],\n  \"shows\": [\n    {\n      \"ids\": {\n        \"trakt\": 1\n      }\n    },\n    {\n      \"ids\": {\n        \"trakt\": 2\n      },\n      \"seasons\": [\n        {\n          \"number\": 1,\n          \"notes\": \"Best season of this show.\"\n        }\n      ]\n    },\n    {\n      \"ids\": {\n        \"trakt\": 4\n      },\n      \"seasons\": [\n        {\n          \"number\": 1,\n          \"notes\": \"Golden era.\",\n          \"episodes\": [\n            {\n              \"number\": 1,\n              \"notes\": \"Pilot episode.\"\n            },\n            {\n              \"number\": 2\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"seasons\": [\n    {\n      \"ids\": {\n        \"trakt\": 140912,\n        \"tvdb\": 703353,\n        \"tmdb\": 81266\n      },\n      \"notes\": \"Season level note.\"\n    }\n  ],\n  \"episodes\": [\n    {\n      \"ids\": {\n        \"trakt\": 1061,\n        \"tvdb\": 1555111,\n        \"imdb\": \"tt007404\",\n        \"tmdb\": 422183\n      }\n    }\n  ],\n  \"people\": [\n    {\n      \"name\": \"Jeff Bridges\",\n      \"ids\": {\n        \"trakt\": 2,\n        \"slug\": \"jeff-bridges\",\n        \"imdb\": \"nm0000313\",\n        \"tmdb\": 1229\n      }\n    }\n  ]\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/users/:id/lists/:list_id/items",
@@ -36491,6 +36091,68 @@
               }
             }
           ]
+        },
+        {
+          "name": "Smart List Templates",
+          "item": [
+            {
+              "name": "Get smart list templates",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "type": "text",
+                    "value": "{{API_VERSION}}"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "type": "text",
+                    "value": "{{CLIENT_ID}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/lists/templates",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "lists",
+                    "templates"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "auth": {
+            "type": "noauth"
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -36586,6 +36248,11 @@
                 "method": "POST",
                 "header": [
                   {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
                     "key": "trakt-api-version",
                     "value": "{{API_VERSION}}",
                     "type": "text"
@@ -36605,6 +36272,15 @@
                     "younify",
                     "connect"
                   ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service\": \"netflix\",\n  \"return_url\": \"https://trakt.tv/younify\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
                 }
               },
               "response": [],
@@ -36625,6 +36301,11 @@
                 "method": "POST",
                 "header": [
                   {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
                     "key": "trakt-api-version",
                     "value": "{{API_VERSION}}",
                     "type": "text"
@@ -36636,14 +36317,86 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{API_URL}}/younify/refresh",
+                  "raw": "{{API_URL}}/younify/users/refresh/:service_id",
                   "host": [
                     "{{API_URL}}"
                   ],
                   "path": [
                     "younify",
+                    "users",
+                    "refresh",
+                    ":service_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "netflix",
+                      "description": "The streaming service ID. Example: netflix"
+                    }
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"skip_sync\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": [],
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Refresh a streaming service (service in body)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/younify/users/refresh",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "younify",
+                    "users",
                     "refresh"
                   ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"service\": \"netflix\",\n  \"skip_sync\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
                 }
               },
               "response": [],
@@ -36664,6 +36417,11 @@
                 "method": "POST",
                 "header": [
                   {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
                     "key": "trakt-api-version",
                     "value": "{{API_VERSION}}",
                     "type": "text"
@@ -36675,15 +36433,39 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{API_URL}}/younify/refresh/all",
+                  "raw": "{{API_URL}}/younify/users/refresh/:service_id?all_data=true",
                   "host": [
                     "{{API_URL}}"
                   ],
                   "path": [
                     "younify",
+                    "users",
                     "refresh",
-                    "all"
+                    ":service_id"
+                  ],
+                  "query": [
+                    {
+                      "key": "all_data",
+                      "value": "true",
+                      "description": "true forces a full re-sync of all data, false forces an incremental re-sync."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "netflix",
+                      "description": "The streaming service ID. Example: netflix"
+                    }
                   ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"skip_sync\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
                 }
               },
               "response": [],
@@ -36715,13 +36497,22 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{API_URL}}/younify/disconnect",
+                  "raw": "{{API_URL}}/younify/users/services/:service_id",
                   "host": [
                     "{{API_URL}}"
                   ],
                   "path": [
                     "younify",
-                    "disconnect"
+                    "users",
+                    "services",
+                    ":service_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "netflix",
+                      "description": "The streaming service ID. Example: netflix"
+                    }
                   ]
                 }
               },
