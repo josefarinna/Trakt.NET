@@ -20,16 +20,19 @@ namespace TraktNET
         {
             ArgumentValidator.ThrowIfNull(name);
 
-            char[]? rentedBuffer = null;
             ReadOnlySpan<char> chars = name.AsSpan();
 
             // While we can't predict the expansion factor of the resultant string,
             // start with a buffer that is at least 20% larger than the input.
             int initialBufferLength = (int)(1.2 * chars.Length);
 
-            Span<char> destination = initialBufferLength <= StackallocCharThreshold
+            char[]? rentedBuffer = initialBufferLength > StackallocCharThreshold
+                ? ArrayPool<char>.Shared.Rent(initialBufferLength)
+                : null;
+
+            Span<char> destination = rentedBuffer is null
                 ? stackalloc char[StackallocCharThreshold]
-                : (rentedBuffer = ArrayPool<char>.Shared.Rent(initialBufferLength));
+                : rentedBuffer;
 
             SeparatorState state = SeparatorState.NotStarted;
             int charsWritten = 0;
@@ -58,7 +61,7 @@ namespace TraktNET
                                 WriteChar(separator, ref destination);
                                 break;
                             }
-                            case SeparatorState.UppercaseLetter:
+                            default: // SeparatorState.UppercaseLetter
                             {
                                 // We are reading through a sequence of two or more uppercase letters.
                                 // Uppercase letters are grouped together with the exception of the

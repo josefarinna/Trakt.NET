@@ -54,7 +54,7 @@ namespace TraktNET.SourceGeneration.Enums
             return new EnumGenerationSpecification
             {
                 Name = _enumDeclarationSymbol!.Name,
-                Namespace = _enumDeclarationSymbol!.ContainingNamespace.ToDisplayString(),
+                Namespace = _enumDeclarationSymbol.ContainingNamespace.ToDisplayString(),
                 HasFlagsAttribute = _hasFlagsAttribute,
                 QueryName = _queryName,
                 HasPathSupport = _hasPathSupport,
@@ -67,8 +67,8 @@ namespace TraktNET.SourceGeneration.Enums
         private void GetEnumSymbolAndLocation(EnumDeclarationSyntax enumDeclaration, SemanticModel semanticModel, CancellationToken cancellationToken)
         {
             _enumDeclarationSymbol = (INamedTypeSymbol?)semanticModel.GetDeclaredSymbol(enumDeclaration, cancellationToken);
-            Debug.Assert(_enumDeclarationSymbol != null);
 
+            // A null symbol results in a null location, which is asserted below.
             if (_enumDeclarationSymbol?.Locations.Length > 0)
             {
                 _enumDeclarationLocation = _enumDeclarationSymbol.Locations[0];
@@ -220,7 +220,7 @@ namespace TraktNET.SourceGeneration.Enums
                             else
                             {
                                 hasAnyCustomValueSet = true;
-                                displayName = displayNameValue!;
+                                displayName = displayNameValue;
                             }
                         }
 

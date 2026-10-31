@@ -39,7 +39,7 @@ namespace TraktNET.SourceGeneration.Requests
         protected abstract IncrementalValuesProvider<RequestGenerationSpecificationTuple> CombineAndSelectRequestsWithAttribute(
             IncrementalGeneratorInitializationContext context);
 
-        private RequestGenerationSpecificationTuple ParseClassDeclaration(RequestClassDeclarationSyntaxTuple classDeclarationInput, CancellationToken cancellationToken)
+        private static RequestGenerationSpecificationTuple ParseClassDeclaration(RequestClassDeclarationSyntaxTuple classDeclarationInput, CancellationToken cancellationToken)
         {
             var parser = new TraktRequestParser(classDeclarationInput.KnownRequestSymbols);
 
@@ -51,7 +51,7 @@ namespace TraktNET.SourceGeneration.Requests
             return (requestGenerationSpecification, diagnostics);
         }
 
-        private void ReportDiagnosticsAndEmitSource(SourceProductionContext sourceProductionContext, RequestGenerationSpecificationTuple input)
+        private static void ReportDiagnosticsAndEmitSource(SourceProductionContext sourceProductionContext, RequestGenerationSpecificationTuple input)
         {
             foreach (DiagnosticInfo diagnosticInfo in input.Diagnostics)
             {

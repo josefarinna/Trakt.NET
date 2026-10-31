@@ -38,7 +38,7 @@ namespace TraktNET.SourceGeneration.Enums
                 .Select(ParseEnumDeclaration)
                 .WithTrackingName(EnumConstants.TrackingNames.FilteredEnums);
 
-        private EnumGenerationSpecificationTuple ParseEnumDeclaration(EnumDeclarationSyntaxTuple enumDeclarationInput, CancellationToken cancellationToken)
+        private static EnumGenerationSpecificationTuple ParseEnumDeclaration(EnumDeclarationSyntaxTuple enumDeclarationInput, CancellationToken cancellationToken)
         {
             TraktEnumDeclarationParser parser = new(enumDeclarationInput.KnownEnumSymbols);
 
@@ -49,7 +49,7 @@ namespace TraktNET.SourceGeneration.Enums
             return (enumGenerationSpecification, diagnostics);
         }
 
-        private void ReportDiagnosticsAndEmitSource(SourceProductionContext sourceProductionContext, EnumGenerationSpecificationTuple input)
+        private static void ReportDiagnosticsAndEmitSource(SourceProductionContext sourceProductionContext, EnumGenerationSpecificationTuple input)
         {
             foreach (DiagnosticInfo diagnosticInfo in input.Diagnostics)
             {

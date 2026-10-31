@@ -287,8 +287,8 @@ namespace TraktNET
         /// Thrown if the current redirect URI is null, empty or contains spaces.
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> GetAuthorizationAsync(CancellationToken cancellationToken = default)
-            => !string.IsNullOrEmpty(_context.CodeVerifier)
-                ? GetAuthorizationWithPKCEAsync(_context.OAuthAuthorizationCode!, _context.CodeVerifier!, cancellationToken)
+            => _context.CodeVerifier is string codeVerifier && codeVerifier.Length > 0
+                ? GetAuthorizationWithPKCEAsync(_context.OAuthAuthorizationCode!, codeVerifier, cancellationToken)
                 : GetAuthorizationAsync(_context.OAuthAuthorizationCode!, cancellationToken);
 
         /// <summary>

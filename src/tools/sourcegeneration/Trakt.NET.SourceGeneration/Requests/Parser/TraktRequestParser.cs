@@ -78,7 +78,7 @@ namespace TraktNET.SourceGeneration.Requests
 
                 if (attributeClass!.Locations.Length > 0)
                 {
-                    attributeLocation = attributeClass!.Locations[0];
+                    attributeLocation = attributeClass.Locations[0];
                 }
 
                 bool isTraktRequestAttribute =
@@ -155,7 +155,7 @@ namespace TraktNET.SourceGeneration.Requests
 
                 if (attributeClass!.Locations.Length > 0)
                 {
-                    attributeLocation = attributeClass!.Locations[0];
+                    attributeLocation = attributeClass.Locations[0];
                 }
 
                 if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestParameterAttributeType))
@@ -373,7 +373,7 @@ namespace TraktNET.SourceGeneration.Requests
             => new()
             {
                 Name = _requestClassDeclarationSymbol!.Name,
-                Namespace = _requestClassDeclarationSymbol!.ContainingNamespace.ToDisplayString(),
+                Namespace = _requestClassDeclarationSymbol.ContainingNamespace.ToDisplayString(),
                 HttpMethodValue = _httpMethodValue,
                 UriPath = _uriPath,
                 OAuthRequirementValue = _requestOAuthRequirementValue,
@@ -400,8 +400,8 @@ namespace TraktNET.SourceGeneration.Requests
         private void GetClassSymbolAndLocation(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, CancellationToken cancellationToken)
         {
             _requestClassDeclarationSymbol = semanticModel.GetDeclaredSymbol(classDeclaration, cancellationToken);
-            Debug.Assert(_requestClassDeclarationSymbol != null);
 
+            // A null symbol results in a null location, which is asserted below.
             if (_requestClassDeclarationSymbol?.Locations.Length > 0)
             {
                 _requestClassDeclarationLocation = _requestClassDeclarationSymbol.Locations[0];
@@ -464,7 +464,7 @@ namespace TraktNET.SourceGeneration.Requests
                 {
                     // If not defined, use first value ("NotRequired") as default.
                     _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
-                    IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues.First();
+                    IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues[0];
                     _requestOAuthRequirementValue = enumField.Name;
                 }
             }
