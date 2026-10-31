@@ -4,10 +4,10 @@ using System.Net.Http;
 
 namespace TraktNET.Exceptions
 {
-    public class TraktApiVIPValidationExceptionTests
+    public class TraktApiVipValidationExceptionTests
     {
         [Fact]
-        public async Task TestTraktApiVIPValidationExceptionCreate()
+        public async Task TestTraktApiVipValidationExceptionCreate()
         {
             ExceptionParameters parameters = await ExceptionsTestUtility.CreateMockExceptionParametersAsync(
                 Constants.StatusCodes.VIPValidationError, HttpMethod.Get);
@@ -27,7 +27,7 @@ namespace TraktNET.Exceptions
             exception.ContentHeaders.ShouldNotBeNull();
             exception.Message.ShouldBe("Trakt API request failed. VIP Only - user must upgrade to VIP");
 
-            var vipValidationException = exception as TraktApiVIPValidationException;
+            var vipValidationException = exception as TraktApiVipValidationException;
 
             vipValidationException.ShouldNotBeNull();
             vipValidationException!.UpgradeURL.ShouldBe("upgrade/url");

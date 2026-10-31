@@ -85,7 +85,7 @@ namespace TraktNET.Json.Users
             user!.VIPVeteranSince.ShouldBe(TestUtility.ParseUTCDateTime("2020-03-01T00:00:00.000Z"));
             user!.VIPVeteranYears.ShouldBe(5U);
             user!.VIPVeteranTier.ShouldBe(5U);
-            user!.VIPVeteranTitle.ShouldBe(TraktVIPVeteranTitle.Veteran);
+            user!.VIPVeteranTitle.ShouldBe(TraktVipVeteranTitle.Veteran);
             user!.VIPGraceEndsAt.ShouldBe(TestUtility.ParseUTCDateTime("2025-04-01T00:00:00.000Z"));
             user!.Email.ShouldBeNull();
         }

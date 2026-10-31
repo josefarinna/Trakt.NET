@@ -159,9 +159,9 @@ namespace TraktNET
             set => User?.VIPVeteranTier = value;
         }
 
-        /// <summary>Gets or sets the VIP veteran title for the user. See also <seealso cref="TraktVIPVeteranTitle" />.</summary>
+        /// <summary>Gets or sets the VIP veteran title for the user. See also <seealso cref="TraktVipVeteranTitle" />.</summary>
         [JsonIgnore]
-        public TraktVIPVeteranTitle? VIPVeteranTitle
+        public TraktVipVeteranTitle? VIPVeteranTitle
         {
             get => User?.VIPVeteranTitle;
             set => User?.VIPVeteranTitle = value;

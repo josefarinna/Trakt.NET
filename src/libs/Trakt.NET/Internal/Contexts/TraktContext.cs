@@ -33,7 +33,7 @@ namespace TraktNET
             }
         }
 
-        internal string RedirectUri { get; set; } = Constants.API.RedirectUri;
+        internal string RedirectUri { get; set; } = Constants.Api.RedirectUri;
 
         public string? OAuthAuthorizationCode { get; set; }
 
@@ -154,8 +154,8 @@ namespace TraktNET
             ID = Guid.NewGuid().ToString();
             ClientID = clientID;
             ClientSecret = clientSecret;
-            BaseUri = new Uri(Constants.API.BaseURL);
-            BaseAuthorizationUri = new Uri(Constants.API.BaseAuthorizationURL);
+            BaseUri = new Uri(Constants.Api.BaseURL);
+            BaseAuthorizationUri = new Uri(Constants.Api.BaseAuthorizationURL);
             HttpClientProvider = new DefaultHttpClientProvider();
             UserAgent = !string.IsNullOrWhiteSpace(userAgent) ? userAgent! : Constants.Request.UserAgent;
 

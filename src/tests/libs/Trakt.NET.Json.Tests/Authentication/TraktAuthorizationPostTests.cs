@@ -93,7 +93,7 @@ namespace TraktNET.Json.Authentication
         }
 
         [Fact]
-        public void TestTraktAuthorizationPostValidateWithPKCE()
+        public void TestTraktAuthorizationPostValidateWithPkce()
         {
             var post = new TraktAuthorizationPost
             {

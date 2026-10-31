@@ -2,7 +2,7 @@ namespace TraktNET
 {
     /// <summary>Determines the VIP veteran title of a user.</summary>
     [TraktEnum]
-    public enum TraktVIPVeteranTitle
+    public enum TraktVipVeteranTitle
     {
         /// <summary>An invalid VIP veteran title.</summary>
         Unspecified,

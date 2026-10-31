@@ -1,6 +1,6 @@
 namespace TraktNET.AuthModule
 {
-    public sealed class CreateAuthorizationUrlWithPKCETests
+    public sealed class CreateAuthorizationUrlWithPkceTests
     {
         private const string CustomClientID = "custom_client_id";
         private const string CustomRedirectUri = "https://example.com/redirect";
@@ -11,130 +11,130 @@ namespace TraktNET.AuthModule
         private const string CodeVerifier = "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk";
         private const string CodeChallenge = "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM";
 
-        private static readonly TraktPKCEChallenge s_pkce = new(CodeVerifier, CodeChallenge);
+        private static readonly TraktPkceChallenge s_pkce = new(CodeVerifier, CodeChallenge);
 
         [Fact]
         public void TestRfc7636CodeChallengeVector()
-            => TraktPKCE.CalculateCodeChallenge(CodeVerifier).ShouldBe(CodeChallenge);
+            => TraktPkce.CalculateCodeChallenge(CodeVerifier).ShouldBe(CodeChallenge);
 
         [Fact]
-        public async Task TestCreateAuthorizationUrlWithPKCE()
+        public async Task TestCreateAuthorizationUrlWithPkce()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, TestConstants.ClientID, TestConstants.RedirectURI,
-                null, null, null, CodeChallenge, TraktPKCE.S256);
+                null, null, null, CodeChallenge, TraktPkce.S256);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrlWithPKCE(s_pkce);
+            string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(s_pkce);
             createdUrl.ShouldBe(encodedUrl);
             client.CodeVerifier.ShouldBe(CodeVerifier);
         }
 
         [Fact]
-        public async Task TestCreateAuthorizationUrlWithPKCEWithSignupAndForceLogin()
+        public async Task TestCreateAuthorizationUrlWithPkceWithSignupAndForceLogin()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, TestConstants.ClientID, TestConstants.RedirectURI,
-                null, true, true, CodeChallenge, TraktPKCE.S256);
+                null, true, true, CodeChallenge, TraktPkce.S256);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrlWithPKCE(s_pkce, true, true);
+            string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, true, true);
             createdUrl.ShouldBe(encodedUrl);
         }
 
         [Fact]
-        public async Task TestCreateAuthorizationUrlWithPKCEInSandbox()
+        public async Task TestCreateAuthorizationUrlWithPkceInSandbox()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClientForSandbox(RequestUri, "{}", null, null, null, null);
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(true, TestConstants.ClientID, TestConstants.RedirectURI,
-                null, null, null, CodeChallenge, TraktPKCE.S256);
+                null, null, null, CodeChallenge, TraktPkce.S256);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrlWithPKCE(s_pkce);
+            string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(s_pkce);
             createdUrl.ShouldBe(encodedUrl);
         }
 
         [Fact]
-        public async Task TestCreateAuthorizationUrlWithPKCEWithClientId()
+        public async Task TestCreateAuthorizationUrlWithPkceWithClientId()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, TestConstants.RedirectURI,
-                null, null, null, CodeChallenge, TraktPKCE.S256);
+                null, null, null, CodeChallenge, TraktPkce.S256);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrlWithPKCE(s_pkce, CustomClientID);
+            string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, CustomClientID);
             createdUrl.ShouldBe(encodedUrl);
         }
 
         [Fact]
-        public async Task TestCreateAuthorizationUrlWithPKCEWithAllParameters()
+        public async Task TestCreateAuthorizationUrlWithPkceWithAllParameters()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, CustomRedirectUri,
-                CustomState, true, true, CodeChallenge, TraktPKCE.S256);
+                CustomState, true, true, CodeChallenge, TraktPkce.S256);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrlWithPKCE(s_pkce, CustomClientID, CustomRedirectUri, CustomState, true, true);
+            string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, CustomClientID, CustomRedirectUri, CustomState, true, true);
             createdUrl.ShouldBe(encodedUrl);
             client.CodeVerifier.ShouldBe(CodeVerifier);
         }
 
         [Fact]
-        public async Task TestCreateAuthorizationUrlWithDefaultStateAndPKCE()
+        public async Task TestCreateAuthorizationUrlWithDefaultStateAndPkce()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, TestConstants.ClientID, TestConstants.RedirectURI,
-                client.AntiForgeryToken, null, null, CodeChallenge, TraktPKCE.S256);
+                client.AntiForgeryToken, null, null, CodeChallenge, TraktPkce.S256);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrlWithDefaultStateAndPKCE(s_pkce);
+            string createdUrl = client.Auth.CreateAuthorizationUrlWithDefaultStateAndPkce(s_pkce);
             createdUrl.ShouldBe(encodedUrl);
             client.CodeVerifier.ShouldBe(CodeVerifier);
         }
 
         [Fact]
-        public async Task TestCreateAuthorizationUrlWithDefaultStateAndPKCEWithClientId()
+        public async Task TestCreateAuthorizationUrlWithDefaultStateAndPkceWithClientId()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, TestConstants.RedirectURI,
-                client.AntiForgeryToken, null, null, CodeChallenge, TraktPKCE.S256);
+                client.AntiForgeryToken, null, null, CodeChallenge, TraktPkce.S256);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrlWithDefaultStateAndPKCE(s_pkce, CustomClientID);
+            string createdUrl = client.Auth.CreateAuthorizationUrlWithDefaultStateAndPkce(s_pkce, CustomClientID);
             createdUrl.ShouldBe(encodedUrl);
         }
 
         [Fact]
-        public async Task TestCreateAuthorizationUrlWithDefaultStateAndPKCEWithAllParameters()
+        public async Task TestCreateAuthorizationUrlWithDefaultStateAndPkceWithAllParameters()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, CustomRedirectUri,
-                client.AntiForgeryToken, true, true, CodeChallenge, TraktPKCE.S256);
+                client.AntiForgeryToken, true, true, CodeChallenge, TraktPkce.S256);
 
-            string createdUrl = client.Auth.CreateAuthorizationUrlWithDefaultStateAndPKCE(s_pkce, CustomClientID, CustomRedirectUri, true, true);
+            string createdUrl = client.Auth.CreateAuthorizationUrlWithDefaultStateAndPkce(s_pkce, CustomClientID, CustomRedirectUri, true, true);
             createdUrl.ShouldBe(encodedUrl);
         }
 
         [Fact]
-        public void TestCreateAuthorizationUrlWithPKCEArgumentExceptions()
+        public void TestCreateAuthorizationUrlWithPkceArgumentExceptions()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
 
-            Action act = () => client.Auth.CreateAuthorizationUrlWithPKCE(null!);
+            Action act = () => client.Auth.CreateAuthorizationUrlWithPkce(null!);
             act.ShouldThrow<ArgumentNullException>();
 
-            act = () => client.Auth.CreateAuthorizationUrlWithDefaultStateAndPKCE(null!);
+            act = () => client.Auth.CreateAuthorizationUrlWithDefaultStateAndPkce(null!);
             act.ShouldThrow<ArgumentNullException>();
 
-            act = () => client.Auth.CreateAuthorizationUrlWithPKCE(new TraktPKCEChallenge(CodeVerifier, "invalid challenge"));
+            act = () => client.Auth.CreateAuthorizationUrlWithPkce(new TraktPkceChallenge(CodeVerifier, "invalid challenge"));
             act.ShouldThrow<ArgumentException>();
 
-            act = () => client.Auth.CreateAuthorizationUrlWithPKCE(s_pkce, "client id");
+            act = () => client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, "client id");
             act.ShouldThrow<ArgumentException>();
 
-            act = () => client.Auth.CreateAuthorizationUrlWithPKCE(s_pkce, CustomClientID, "redirect uri");
+            act = () => client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, CustomClientID, "redirect uri");
             act.ShouldThrow<ArgumentException>();
         }
 
         [Fact]
-        public void TestCreateAuthorizationUrlWithPKCEDoesNotStoreCodeVerifierOnValidationFailure()
+        public void TestCreateAuthorizationUrlWithPkceDoesNotStoreCodeVerifierOnValidationFailure()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
 
-            Action act = () => client.Auth.CreateAuthorizationUrlWithPKCE(s_pkce, "client id");
+            Action act = () => client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, "client id");
             act.ShouldThrow<ArgumentException>();
 
             client.CodeVerifier.ShouldBeNull();

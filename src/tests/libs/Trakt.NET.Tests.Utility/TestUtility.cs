@@ -77,7 +77,7 @@ namespace TraktNET
                                                                    bool? showSignupPage = null, bool? forceLoginPrompt = null,
                                                                    string? codeChallenge = null, string? codeChallengeMethod = null)
         {
-            string baseUrl = staging ? Constants.API.StagingBaseAuthorizationURL : Constants.API.BaseAuthorizationURL;
+            string baseUrl = staging ? Constants.Api.StagingBaseAuthorizationURL : Constants.Api.BaseAuthorizationURL;
 
             var uriParams = new Dictionary<string, string>
             {

@@ -110,12 +110,12 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestGetAuthorizationWithPKCE()
+        public async Task TestGetAuthorizationWithPkce()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, authorizationJson, null, null, null, null, true);
 
-            TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationWithPKCEAsync(
+            TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationWithPkceAsync(
                 MockAuthCode,
                 "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
                 TestContext.Current.CancellationToken);
@@ -124,12 +124,12 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestGetAuthorizationWithPKCEAllParameters()
+        public async Task TestGetAuthorizationWithPkceAllParameters()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, authorizationJson, null, null, null, null, true);
 
-            TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationWithPKCEAsync(
+            TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationWithPkceAsync(
                 MockAuthCode,
                 "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
                 TestConstants.ClientID,
@@ -155,13 +155,13 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestGetAuthorizationWithPKCEClearsContextCodeVerifier()
+        public async Task TestGetAuthorizationWithPkceClearsContextCodeVerifier()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetAuthorizationUri, authorizationJson, null, null, null, null, true);
             client.CodeVerifier = "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk";
 
-            TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationWithPKCEAsync(
+            TraktResponse<TraktAuthorization> response = await client.Auth.GetAuthorizationWithPkceAsync(
                 MockAuthCode,
                 "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
                 TestContext.Current.CancellationToken);

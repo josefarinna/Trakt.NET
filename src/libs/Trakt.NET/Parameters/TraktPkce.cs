@@ -9,30 +9,30 @@ namespace TraktNET
     /// <param name="CodeVerifier">The cryptographically random code verifier.</param>
     /// <param name="CodeChallenge">The SHA-256 derived code challenge encoded as URL-safe base64 without padding.</param>
     /// <param name="CodeChallengeMethod">The code challenge method (defaults to "S256").</param>
-    public sealed record class TraktPKCEChallenge(string CodeVerifier, string CodeChallenge, string CodeChallengeMethod = TraktPKCE.S256);
+    public sealed record class TraktPkceChallenge(string CodeVerifier, string CodeChallenge, string CodeChallengeMethod = TraktPkce.S256);
 
     /// <summary>
     /// Helper for Proof Key for Code Exchange (PKCE) according to RFC 7636.
     /// </summary>
-    public static class TraktPKCE
+    public static class TraktPkce
     {
         /// <summary>The SHA-256 code challenge method name.</summary>
         public const string S256 = "S256";
 
         /// <summary>
-        /// Creates a new cryptographically random <see cref="TraktPKCEChallenge" /> pair using SHA-256 ("S256").
+        /// Creates a new cryptographically random <see cref="TraktPkceChallenge" /> pair using SHA-256 ("S256").
         /// </summary>
         /// <param name="byteLength">
         /// The number of random bytes to generate for the verifier. Must be between 32 and 96.
         /// Defaults to 32 (producing a 43-character verifier).
         /// </param>
-        /// <returns>A new <see cref="TraktPKCEChallenge" /> containing the verifier, challenge, and method.</returns>
+        /// <returns>A new <see cref="TraktPkceChallenge" /> containing the verifier, challenge, and method.</returns>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="byteLength" /> is less than 32 or greater than 96.</exception>
-        public static TraktPKCEChallenge Create(int byteLength = 32)
+        public static TraktPkceChallenge Create(int byteLength = 32)
         {
             string verifier = GenerateCodeVerifier(byteLength);
             string challenge = CalculateCodeChallenge(verifier);
-            return new TraktPKCEChallenge(verifier, challenge, S256);
+            return new TraktPkceChallenge(verifier, challenge, S256);
         }
 
         /// <summary>

@@ -45,7 +45,7 @@ namespace TraktNET
             else
             {
                 // PKCE flow: any non-null verifier (also empty or whitespace) must be valid, because it will be sent.
-                TraktPKCE.ThrowIfInvalidCodeVerifier(CodeVerifier, nameof(CodeVerifier));
+                TraktPkce.ThrowIfInvalidCodeVerifier(CodeVerifier, nameof(CodeVerifier));
 
                 ArgumentValidator.ThrowIfProvidedAndInvalid(ClientSecret, "client secret not valid");
             }

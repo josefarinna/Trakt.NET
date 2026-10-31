@@ -51,7 +51,7 @@ namespace TraktNET
                 case Constants.StatusCodes.AccountLimitExceeded:
                     throw new TraktApiAccountLimitException(parameters);
                 case Constants.StatusCodes.VIPValidationError:
-                    throw new TraktApiVIPValidationException(parameters);
+                    throw new TraktApiVipValidationException(parameters);
                 case Constants.StatusCodes.RateLimitExceeded:
                     await HandleRateLimitErrorAsync(parameters, cancellationToken).ConfigureAwait(false);
                     break;
