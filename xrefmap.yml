@@ -96775,15 +96775,15 @@ references:
   fullName.vb: TraktNET.TraktSyncWatchlistPostSeason.Equals(Object)
   nameWithType: TraktSyncWatchlistPostSeason.Equals(object?)
   nameWithType.vb: TraktSyncWatchlistPostSeason.Equals(Object)
-- uid: TraktNET.TraktSyncWatchlistPostSeason.Equals(TraktNET.TraktSyncRemovePostShowSeason)
-  name: Equals(TraktSyncRemovePostShowSeason?)
-  href: api/TraktNET.TraktSyncWatchlistPostSeason.html#TraktNET_TraktSyncWatchlistPostSeason_Equals_TraktNET_TraktSyncRemovePostShowSeason_
-  commentId: M:TraktNET.TraktSyncWatchlistPostSeason.Equals(TraktNET.TraktSyncRemovePostShowSeason)
-  name.vb: Equals(TraktSyncRemovePostShowSeason)
-  fullName: TraktNET.TraktSyncWatchlistPostSeason.Equals(TraktNET.TraktSyncRemovePostShowSeason?)
-  fullName.vb: TraktNET.TraktSyncWatchlistPostSeason.Equals(TraktNET.TraktSyncRemovePostShowSeason)
-  nameWithType: TraktSyncWatchlistPostSeason.Equals(TraktSyncRemovePostShowSeason?)
-  nameWithType.vb: TraktSyncWatchlistPostSeason.Equals(TraktSyncRemovePostShowSeason)
+- uid: TraktNET.TraktSyncWatchlistPostSeason.Equals(TraktNET.TraktSyncRemovePostSeason)
+  name: Equals(TraktSyncRemovePostSeason?)
+  href: api/TraktNET.TraktSyncWatchlistPostSeason.html#TraktNET_TraktSyncWatchlistPostSeason_Equals_TraktNET_TraktSyncRemovePostSeason_
+  commentId: M:TraktNET.TraktSyncWatchlistPostSeason.Equals(TraktNET.TraktSyncRemovePostSeason)
+  name.vb: Equals(TraktSyncRemovePostSeason)
+  fullName: TraktNET.TraktSyncWatchlistPostSeason.Equals(TraktNET.TraktSyncRemovePostSeason?)
+  fullName.vb: TraktNET.TraktSyncWatchlistPostSeason.Equals(TraktNET.TraktSyncRemovePostSeason)
+  nameWithType: TraktSyncWatchlistPostSeason.Equals(TraktSyncRemovePostSeason?)
+  nameWithType.vb: TraktSyncWatchlistPostSeason.Equals(TraktSyncRemovePostSeason)
 - uid: TraktNET.TraktSyncWatchlistPostSeason.Equals(TraktNET.TraktSyncWatchlistPostSeason)
   name: Equals(TraktSyncWatchlistPostSeason?)
   href: api/TraktNET.TraktSyncWatchlistPostSeason.html#TraktNET_TraktSyncWatchlistPostSeason_Equals_TraktNET_TraktSyncWatchlistPostSeason_
@@ -97147,6 +97147,18 @@ references:
   commentId: Overload:TraktNET.TraktSyncWatchlistPostShowEpisode.GetHashCode
   fullName: TraktNET.TraktSyncWatchlistPostShowEpisode.GetHashCode
   nameWithType: TraktSyncWatchlistPostShowEpisode.GetHashCode
+- uid: TraktNET.TraktSyncWatchlistPostShowEpisode.Notes
+  name: Notes
+  href: api/TraktNET.TraktSyncWatchlistPostShowEpisode.html#TraktNET_TraktSyncWatchlistPostShowEpisode_Notes
+  commentId: P:TraktNET.TraktSyncWatchlistPostShowEpisode.Notes
+  fullName: TraktNET.TraktSyncWatchlistPostShowEpisode.Notes
+  nameWithType: TraktSyncWatchlistPostShowEpisode.Notes
+- uid: TraktNET.TraktSyncWatchlistPostShowEpisode.Notes*
+  name: Notes
+  href: api/TraktNET.TraktSyncWatchlistPostShowEpisode.html#TraktNET_TraktSyncWatchlistPostShowEpisode_Notes_
+  commentId: Overload:TraktNET.TraktSyncWatchlistPostShowEpisode.Notes
+  fullName: TraktNET.TraktSyncWatchlistPostShowEpisode.Notes
+  nameWithType: TraktSyncWatchlistPostShowEpisode.Notes
 - uid: TraktNET.TraktSyncWatchlistPostShowEpisode.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktSyncWatchlistPostShowEpisode.html#TraktNET_TraktSyncWatchlistPostShowEpisode_PrintMembers_System_Text_StringBuilder_
@@ -97309,6 +97321,18 @@ references:
   commentId: Overload:TraktNET.TraktSyncWatchlistPostShowSeason.GetHashCode
   fullName: TraktNET.TraktSyncWatchlistPostShowSeason.GetHashCode
   nameWithType: TraktSyncWatchlistPostShowSeason.GetHashCode
+- uid: TraktNET.TraktSyncWatchlistPostShowSeason.Notes
+  name: Notes
+  href: api/TraktNET.TraktSyncWatchlistPostShowSeason.html#TraktNET_TraktSyncWatchlistPostShowSeason_Notes
+  commentId: P:TraktNET.TraktSyncWatchlistPostShowSeason.Notes
+  fullName: TraktNET.TraktSyncWatchlistPostShowSeason.Notes
+  nameWithType: TraktSyncWatchlistPostShowSeason.Notes
+- uid: TraktNET.TraktSyncWatchlistPostShowSeason.Notes*
+  name: Notes
+  href: api/TraktNET.TraktSyncWatchlistPostShowSeason.html#TraktNET_TraktSyncWatchlistPostShowSeason_Notes_
+  commentId: Overload:TraktNET.TraktSyncWatchlistPostShowSeason.Notes
+  fullName: TraktNET.TraktSyncWatchlistPostShowSeason.Notes
+  nameWithType: TraktSyncWatchlistPostShowSeason.Notes
 - uid: TraktNET.TraktSyncWatchlistPostShowSeason.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktSyncWatchlistPostShowSeason.html#TraktNET_TraktSyncWatchlistPostShowSeason_PrintMembers_System_Text_StringBuilder_
@@ -111859,6 +111883,18 @@ references:
   commentId: Overload:TraktNET.TraktUserPersonalListItemsPostShowEpisode.GetHashCode
   fullName: TraktNET.TraktUserPersonalListItemsPostShowEpisode.GetHashCode
   nameWithType: TraktUserPersonalListItemsPostShowEpisode.GetHashCode
+- uid: TraktNET.TraktUserPersonalListItemsPostShowEpisode.Notes
+  name: Notes
+  href: api/TraktNET.TraktUserPersonalListItemsPostShowEpisode.html#TraktNET_TraktUserPersonalListItemsPostShowEpisode_Notes
+  commentId: P:TraktNET.TraktUserPersonalListItemsPostShowEpisode.Notes
+  fullName: TraktNET.TraktUserPersonalListItemsPostShowEpisode.Notes
+  nameWithType: TraktUserPersonalListItemsPostShowEpisode.Notes
+- uid: TraktNET.TraktUserPersonalListItemsPostShowEpisode.Notes*
+  name: Notes
+  href: api/TraktNET.TraktUserPersonalListItemsPostShowEpisode.html#TraktNET_TraktUserPersonalListItemsPostShowEpisode_Notes_
+  commentId: Overload:TraktNET.TraktUserPersonalListItemsPostShowEpisode.Notes
+  fullName: TraktNET.TraktUserPersonalListItemsPostShowEpisode.Notes
+  nameWithType: TraktUserPersonalListItemsPostShowEpisode.Notes
 - uid: TraktNET.TraktUserPersonalListItemsPostShowEpisode.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktUserPersonalListItemsPostShowEpisode.html#TraktNET_TraktUserPersonalListItemsPostShowEpisode_PrintMembers_System_Text_StringBuilder_
@@ -112021,6 +112057,18 @@ references:
   commentId: Overload:TraktNET.TraktUserPersonalListItemsPostShowSeason.GetHashCode
   fullName: TraktNET.TraktUserPersonalListItemsPostShowSeason.GetHashCode
   nameWithType: TraktUserPersonalListItemsPostShowSeason.GetHashCode
+- uid: TraktNET.TraktUserPersonalListItemsPostShowSeason.Notes
+  name: Notes
+  href: api/TraktNET.TraktUserPersonalListItemsPostShowSeason.html#TraktNET_TraktUserPersonalListItemsPostShowSeason_Notes
+  commentId: P:TraktNET.TraktUserPersonalListItemsPostShowSeason.Notes
+  fullName: TraktNET.TraktUserPersonalListItemsPostShowSeason.Notes
+  nameWithType: TraktUserPersonalListItemsPostShowSeason.Notes
+- uid: TraktNET.TraktUserPersonalListItemsPostShowSeason.Notes*
+  name: Notes
+  href: api/TraktNET.TraktUserPersonalListItemsPostShowSeason.html#TraktNET_TraktUserPersonalListItemsPostShowSeason_Notes_
+  commentId: Overload:TraktNET.TraktUserPersonalListItemsPostShowSeason.Notes
+  fullName: TraktNET.TraktUserPersonalListItemsPostShowSeason.Notes
+  nameWithType: TraktUserPersonalListItemsPostShowSeason.Notes
 - uid: TraktNET.TraktUserPersonalListItemsPostShowSeason.PrintMembers(System.Text.StringBuilder)
   name: PrintMembers(StringBuilder)
   href: api/TraktNET.TraktUserPersonalListItemsPostShowSeason.html#TraktNET_TraktUserPersonalListItemsPostShowSeason_PrintMembers_System_Text_StringBuilder_
