@@ -56,9 +56,9 @@ namespace TraktNET.Json.Authentication
 
             post.ClientId = "clientId";
 
-            // ClientSecret validation
+            // ClientSecret is optional (valid when null for public/PKCE clients)
             post.ClientSecret = null;
-            act.ShouldThrow<ArgumentException>();
+            act.ShouldNotThrow();
 
             post.ClientSecret = string.Empty;
             act.ShouldThrow<ArgumentException>();
@@ -74,4 +74,3 @@ namespace TraktNET.Json.Authentication
         }
     }
 }
-

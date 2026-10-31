@@ -23,8 +23,9 @@ namespace TraktNET
         [JsonPropertyName("client_id")]
         public string? ClientId { get; set; }
 
-        /// <summary>Gets or sets the client secret.</summary>
+        /// <summary>Gets or sets the client secret. Optional: the device token endpoint only requires <c>code</c> and <c>client_id</c>.</summary>
         [JsonPropertyName("client_secret")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? ClientSecret { get; set; }
 
         /// <summary>Validates the post data.</summary>
@@ -41,7 +42,9 @@ namespace TraktNET
 
             ArgumentValidator.ThrowIfNullOrWhiteSpace(Device.DeviceCode, "device code not valid", true);
             ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientId, "client id not valid", true);
-            ArgumentValidator.ThrowIfNullOrWhiteSpace(ClientSecret, "client secret not valid", true);
+
+            if (ClientSecret != null && (string.IsNullOrWhiteSpace(ClientSecret) || ClientSecret.ContainsSpace()))
+                throw new ArgumentException("client secret not valid", nameof(ClientSecret));
         }
     }
 }

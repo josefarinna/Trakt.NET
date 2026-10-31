@@ -136,8 +136,45 @@ namespace TraktNET.Json.Authentication
             act.ShouldThrow<ArgumentException>();
         }
 
+        [Fact]
+        public void TestTraktAuthorizationPollPostValidateSuccessWithoutClientSecret()
+        {
+            var post = new TraktAuthorizationPollPost
+            {
+                Device = new TraktDevice
+                {
+                    DeviceCode = TestConstants.MockDeviceCode,
+                    UserCode = TestConstants.MockUserCode,
+                    VerificationUrl = TestConstants.DeviceVerificationURL,
+                    ExpiresIn = TestConstants.DeviceExpiresIn,
+                    Interval = TestConstants.DeviceInterval
+                },
+                ClientId = TestConstants.ClientID,
+                ClientSecret = null
+            };
+
+            Action act = () => post.Validate();
+            act.ShouldNotThrow();
+        }
+
+        [Fact]
+        public void TestTraktAuthorizationPollPostSerializationOmitsNullClientSecret()
+        {
+            var post = new TraktAuthorizationPollPost
+            {
+                Code = TestConstants.MockDeviceCode,
+                ClientId = TestConstants.ClientID,
+                ClientSecret = null
+            };
+
+            string json = TestUtility.SerializeObject(post);
+
+            json.ShouldContain("\"code\"");
+            json.ShouldContain("\"client_id\"");
+            json.ShouldNotContain("client_secret");
+        }
+
         [Theory]
-        [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
         [InlineData("client secret with spaces")]

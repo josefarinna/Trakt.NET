@@ -27,6 +27,8 @@
 
         internal bool IsAuthorizationRequest { get; set; }
 
+        internal bool IsAuthorizationTokenRequest { get; set; }
+
         internal bool IsAuthorizationRevokeRequest { get; set; }
     }
 }

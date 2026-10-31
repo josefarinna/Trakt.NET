@@ -68,6 +68,18 @@
                           "value": "login",
                           "description": "Force the user to sign in and authorize your app.",
                           "disabled": true
+                        },
+                        {
+                          "key": "code_challenge",
+                          "value": "{{CODE_CHALLENGE}}",
+                          "description": "PKCE code challenge (SHA-256 base64url-encoded string).",
+                          "disabled": true
+                        },
+                        {
+                          "key": "code_challenge_method",
+                          "value": "S256",
+                          "description": "PKCE code challenge method. Supported method is S256.",
+                          "disabled": true
                         }
                       ]
                     }
@@ -117,9 +129,36 @@
                       }
                     },
                     "url": {
-                      "raw": "{{API_URL}}/oauth/token",
+                      "raw": "{{OAUTH_API_URL}}/oauth/token",
                       "host": [
-                        "{{API_URL}}"
+                        "{{OAUTH_API_URL}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "token"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Exchange code for access_token (PKCE)",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"code\": \"{{OAUTH_CODE}}\",\r\n  \"code_verifier\": \"{{CODE_VERIFIER}}\",\r\n  \"client_id\": \"{{CLIENT_ID}}\",\r\n  \"redirect_uri\": \"{{DEFAULT_REDIRECT_URI}}\",\r\n  \"grant_type\": \"authorization_code\"\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{OAUTH_API_URL}}/oauth/token",
+                      "host": [
+                        "{{OAUTH_API_URL}}"
                       ],
                       "path": [
                         "oauth",
@@ -144,9 +183,9 @@
                       }
                     },
                     "url": {
-                      "raw": "{{API_URL}}/oauth/token",
+                      "raw": "{{OAUTH_API_URL}}/oauth/token",
                       "host": [
-                        "{{API_URL}}"
+                        "{{OAUTH_API_URL}}"
                       ],
                       "path": [
                         "oauth",
@@ -199,9 +238,9 @@
                       }
                     },
                     "url": {
-                      "raw": "{{API_URL}}/oauth/revoke",
+                      "raw": "{{OAUTH_API_URL}}/oauth/revoke",
                       "host": [
-                        "{{API_URL}}"
+                        "{{OAUTH_API_URL}}"
                       ],
                       "path": [
                         "oauth",
@@ -259,9 +298,9 @@
                       }
                     },
                     "url": {
-                      "raw": "{{API_URL}}/oauth/device/code",
+                      "raw": "{{OAUTH_API_URL}}/oauth/device/code",
                       "host": [
-                        "{{API_URL}}"
+                        "{{OAUTH_API_URL}}"
                       ],
                       "path": [
                         "oauth",
@@ -315,9 +354,9 @@
                       }
                     },
                     "url": {
-                      "raw": "{{API_URL}}/oauth/device/token",
+                      "raw": "{{OAUTH_API_URL}}/oauth/device/token",
                       "host": [
-                        "{{API_URL}}"
+                        "{{OAUTH_API_URL}}"
                       ],
                       "path": [
                         "oauth",

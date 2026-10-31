@@ -10,6 +10,11 @@ namespace TraktNET
             ExceptionParameters parameters = await ExceptionParameters.CreateAsync(request, responseMessage, traktHeaders,
                                                                                    isInAuthorizationPolling, cancellationToken).ConfigureAwait(false);
 
+            if (parameters.Flags.IsAuthorizationTokenRequest && !parameters.IsInAuthorizationPolling)
+            {
+                HandleAuthorizationTokenError(parameters);
+            }
+
             switch (parameters.StatusCode)
             {
                 case Constants.StatusCodes.NotFound:
@@ -26,12 +31,7 @@ namespace TraktNET
 
                     break;
                 case Constants.StatusCodes.Unauthorized:
-                    if (!parameters.Flags.IsAuthorizationRequest && !parameters.Flags.IsAuthorizationRevokeRequest)
-                    {
-                        throw new TraktApiAuthorizationException(parameters);
-                    }
-
-                    break;
+                    throw new TraktApiAuthorizationException(parameters);
                 case Constants.StatusCodes.Gone:
                     if (parameters.IsInAuthorizationPolling)
                     {
@@ -72,15 +72,29 @@ namespace TraktNET
             }
         }
 
+        /// <summary>
+        /// Maps errors of <c>oauth/token</c> requests (code exchange and refresh) to <see cref="TraktApiAuthenticationOAuthException" />.
+        /// Per RFC 6749, an invalid/expired code, refresh token or PKCE verifier (<c>invalid_grant</c>) is reported as 400,
+        /// invalid client credentials (<c>invalid_client</c>) as 401. Other status codes use the general handling.
+        /// </summary>
+        private static void HandleAuthorizationTokenError(ExceptionParameters parameters)
+        {
+            switch (parameters.StatusCode)
+            {
+                case Constants.StatusCodes.BadRequest:
+                    throw new TraktApiAuthenticationOAuthException("Invalid grant - the code, refresh token or code verifier is invalid, expired or revoked", parameters);
+                case Constants.StatusCodes.Unauthorized:
+                    throw new TraktApiAuthenticationOAuthException("Invalid client - client authentication failed", parameters);
+                case Constants.StatusCodes.NotFound:
+                    throw new TraktApiAuthenticationOAuthException("Resource not found", parameters);
+            }
+        }
+
         private static void HandleNotFoundError(ExceptionParameters parameters)
         {
             if (parameters.Flags.IsDeviceRequest || parameters.IsInAuthorizationPolling)
             {
                 throw new TraktApiAuthenticationDeviceException("Not Found - invalid device code", parameters);
-            }
-            else if (parameters.Flags.IsAuthorizationRequest)
-            {
-                throw new TraktApiAuthenticationOAuthException("Resource not found", parameters);
             }
             else if (parameters.Flags.IsAuthorizationRevokeRequest)
             {

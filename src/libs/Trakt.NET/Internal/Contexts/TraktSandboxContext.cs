@@ -2,7 +2,7 @@
 {
     public sealed class TraktSandboxContext : TraktContext
     {
-        internal TraktSandboxContext(string clientID, string clientSecret, string? userAgent)
+        internal TraktSandboxContext(string clientID, string? clientSecret, string? userAgent)
             : base(clientID, clientSecret, userAgent)
         {
             BaseUri = new Uri(Constants.API.StagingBaseURL);

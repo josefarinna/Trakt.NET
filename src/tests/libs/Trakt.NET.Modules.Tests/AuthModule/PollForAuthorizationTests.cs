@@ -1,5 +1,4 @@
 using System.Net;
-using static Microsoft.ApplicationInsights.MetricDimensionNames.TelemetryContext;
 
 namespace TraktNET.AuthModule
 {
@@ -89,6 +88,38 @@ namespace TraktNET.AuthModule
                 TestConstants.MockDevice,
                 TestConstants.ClientID,
                 TestConstants.ClientSecret,
+                TestContext.Current.CancellationToken);
+
+            ValidateSuccessResponse(response, client);
+        }
+
+        [Fact]
+        public async Task TestPollForAuthorizationWithoutClientSecret()
+        {
+            string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
+            authorizationJson.ShouldNotBeNullOrEmpty();
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
+            client.ClientSecret = null;
+            client.Device = TestConstants.MockDevice;
+
+            TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(TestContext.Current.CancellationToken);
+
+            ValidateSuccessResponse(response, client);
+        }
+
+        [Fact]
+        public async Task TestPollForAuthorizationWithNullClientSecretParameter()
+        {
+            string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
+            authorizationJson.ShouldNotBeNullOrEmpty();
+
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
+
+            TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(
+                TestConstants.MockDevice,
+                TestConstants.ClientID,
+                null,
                 TestContext.Current.CancellationToken);
 
             ValidateSuccessResponse(response, client);

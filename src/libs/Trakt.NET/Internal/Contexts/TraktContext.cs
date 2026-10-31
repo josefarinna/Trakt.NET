@@ -3,7 +3,7 @@ namespace TraktNET
     public abstract class TraktContext
     {
         private string _clientID = string.Empty;
-        private string _clientSecret = string.Empty;
+        private string? _clientSecret;
         private string _userAgent = string.Empty;
 
         internal string ID { get; }
@@ -19,13 +19,16 @@ namespace TraktNET
             }
         }
 
-        internal string ClientSecret
+        internal string? ClientSecret
         {
             get => _clientSecret;
 
             set
             {
-                ArgumentValidator.ThrowIfNullOrWhiteSpace(value, "client secret must not be null or empty or only whitespace", checkSpaces: true);
+                if (value != null)
+                {
+                    ArgumentValidator.ThrowIfNullOrWhiteSpace(value, "client secret must not be empty or only whitespace", checkSpaces: true);
+                }
                 _clientSecret = value;
             }
         }
@@ -33,6 +36,8 @@ namespace TraktNET
         internal string RedirectUri { get; set; } = Constants.API.RedirectUri;
 
         public string? OAuthAuthorizationCode { get; set; }
+
+        public string? CodeVerifier { get; set; }
 
         public TraktAuthorization? Authorization { get; set; }
 
@@ -121,10 +126,10 @@ namespace TraktNET
         /// <summary>Provides access to the Younify module. See <seealso cref="TraktYounifyModule" />.</summary>
         public TraktYounifyModule Younify { get; }
 
-        public static TraktContext Create(string clientID, string clientSecret, string? userAgent = null)
+        public static TraktContext Create(string clientID, string? clientSecret = null, string? userAgent = null)
             => new TraktDefaultContext(clientID, clientSecret, userAgent);
 
-        public static TraktContext CreateForSandbox(string clientID, string clientSecret, string? userAgent = null)
+        public static TraktContext CreateForSandbox(string clientID, string? clientSecret = null, string? userAgent = null)
             => new TraktSandboxContext(clientID, clientSecret, userAgent);
 
         internal Uri BaseUri { get; set; }
@@ -144,7 +149,7 @@ namespace TraktNET
             }
         }
 
-        protected TraktContext(string clientID, string clientSecret, string? userAgent)
+        protected TraktContext(string clientID, string? clientSecret, string? userAgent)
         {
             ID = Guid.NewGuid().ToString();
             ClientID = clientID;

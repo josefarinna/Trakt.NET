@@ -1,4 +1,4 @@
-﻿namespace TraktNET.Contexts
+namespace TraktNET.Contexts
 {
     public class TraktSandboxContextTests
     {
@@ -29,7 +29,7 @@
         {
             var context = new TraktSandboxContext(ClientID, ClientSecret, null);
 
-            context.BaseAuthorizationUri.AbsoluteUri.ShouldBe("https://staging.trakt.tv/");
+            context.BaseAuthorizationUri.AbsoluteUri.ShouldBe("https://auth-staging.trakt.tv/");
         }
 
         [Fact]

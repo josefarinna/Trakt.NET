@@ -119,9 +119,149 @@ namespace TraktNET
             => CreateAuthorizationUrlWithDefaultStateCore(clientId, redirectUri, showSignupPage, forceLoginPrompt);
 
         /// <summary>
+        /// Creates a new OAuth authorization URL with PKCE. Uses the current <see cref="TraktContext.ClientID" /> and <see cref="RedirectUri" /> to build the authorization URL.
+        /// Stores <see cref="TraktPKCEChallenge.CodeVerifier" /> in <see cref="TraktContext.CodeVerifier" />, so that a subsequent call to
+        /// <see cref="GetAuthorizationAsync(CancellationToken)" /> automatically exchanges the code using PKCE.
+        /// </summary>
+        /// <param name="pkce">The PKCE challenge pair, e.g. created with <see cref="TraktPKCE.Create(int)" />.</param>
+        /// <param name="showSignupPage">Prefer the account sign up page to be the default.</param>
+        /// <param name="forceLoginPrompt">Force the user to sign in and authorize your app.</param>
+        /// <returns>The created authorization URL.</returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
+        /// Trakt API Documentation: OAuth: Authorize
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="pkce" /> is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if the current client id or redirect URI is invalid, or if the PKCE challenge is invalid.</exception>
+        public string CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge pkce, bool? showSignupPage = null, bool? forceLoginPrompt = null)
+            => CreateAuthorizationUrlWithPKCE(pkce, _context.ClientID, showSignupPage, forceLoginPrompt);
+
+        /// <summary>
+        /// Creates a new OAuth authorization URL with PKCE. Uses the current <see cref="RedirectUri" /> to build the authorization URL.
+        /// Stores <see cref="TraktPKCEChallenge.CodeVerifier" /> in <see cref="TraktContext.CodeVerifier" />.
+        /// </summary>
+        /// <param name="pkce">The PKCE challenge pair, e.g. created with <see cref="TraktPKCE.Create(int)" />.</param>
+        /// <param name="clientId">The Trakt Client ID, which will be used to build the authorization URL.</param>
+        /// <param name="showSignupPage">Prefer the account sign up page to be the default.</param>
+        /// <param name="forceLoginPrompt">Force the user to sign in and authorize your app.</param>
+        /// <returns>The created authorization URL.</returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
+        /// Trakt API Documentation: OAuth: Authorize
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="pkce" /> is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if the given client id or current redirect URI is invalid, or if the PKCE challenge is invalid.</exception>
+        public string CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge pkce, string clientId, bool? showSignupPage = null, bool? forceLoginPrompt = null)
+            => CreateAuthorizationUrlWithPKCE(pkce, clientId, RedirectUri, null, showSignupPage, forceLoginPrompt);
+
+        /// <summary>
+        /// Creates a new OAuth authorization URL with PKCE.
+        /// Stores <see cref="TraktPKCEChallenge.CodeVerifier" /> in <see cref="TraktContext.CodeVerifier" />.
+        /// </summary>
+        /// <param name="pkce">The PKCE challenge pair, e.g. created with <see cref="TraktPKCE.Create(int)" />.</param>
+        /// <param name="clientId">The Trakt Client ID, which will be used to build the authorization URL.</param>
+        /// <param name="redirectUri">The redirect URI, which will be used to build the authorization URL.</param>
+        /// <param name="state">
+        /// The state variable, which will be used to build the authorization URL. See also <see cref="TraktContext.AntiForgeryToken" />.
+        /// This parameter is optional and will not be used if it's null.
+        /// </param>
+        /// <param name="showSignupPage">Prefer the account sign up page to be the default.</param>
+        /// <param name="forceLoginPrompt">Force the user to sign in and authorize your app.</param>
+        /// <returns>The created authorization URL.</returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
+        /// Trakt API Documentation: OAuth: Authorize
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="pkce" /> is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if the given client id, redirect URI or state is invalid, or if the PKCE challenge is invalid.</exception>
+        public string CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge pkce, string clientId, string redirectUri,
+            string? state = null, bool? showSignupPage = null, bool? forceLoginPrompt = null)
+        {
+            ArgumentValidator.ThrowIfNull(pkce);
+            string url = CreateAuthorizationUrlCore(clientId, redirectUri, state, showSignupPage, forceLoginPrompt, pkce.CodeChallenge, pkce.CodeChallengeMethod);
+            _context.CodeVerifier = pkce.CodeVerifier;
+            return url;
+        }
+
+        /// <summary>
+        /// Creates a new OAuth authorization URL with PKCE. Uses the current <see cref="TraktContext.ClientID" />, <see cref="RedirectUri" />
+        /// and <see cref="TraktContext.AntiForgeryToken" /> as state variable to build the authorization URL.
+        /// Stores <see cref="TraktPKCEChallenge.CodeVerifier" /> in <see cref="TraktContext.CodeVerifier" />.
+        /// </summary>
+        /// <param name="pkce">The PKCE challenge pair, e.g. created with <see cref="TraktPKCE.Create(int)" />.</param>
+        /// <param name="showSignupPage">Prefer the account sign up page to be the default.</param>
+        /// <param name="forceLoginPrompt">Force the user to sign in and authorize your app.</param>
+        /// <returns>The created authorization URL.</returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
+        /// Trakt API Documentation: OAuth: Authorize
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="pkce" /> is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if the current client id or redirect URI is invalid, or if the PKCE challenge is invalid.</exception>
+        public string CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge pkce, bool? showSignupPage = null, bool? forceLoginPrompt = null)
+            => CreateAuthorizationUrlWithDefaultStateAndPKCE(pkce, _context.ClientID, showSignupPage, forceLoginPrompt);
+
+        /// <summary>
+        /// Creates a new OAuth authorization URL with PKCE. Uses the current <see cref="RedirectUri" />
+        /// and <see cref="TraktContext.AntiForgeryToken" /> as state variable to build the authorization URL.
+        /// Stores <see cref="TraktPKCEChallenge.CodeVerifier" /> in <see cref="TraktContext.CodeVerifier" />.
+        /// </summary>
+        /// <param name="pkce">The PKCE challenge pair, e.g. created with <see cref="TraktPKCE.Create(int)" />.</param>
+        /// <param name="clientId">The Trakt Client ID, which will be used to build the authorization URL.</param>
+        /// <param name="showSignupPage">Prefer the account sign up page to be the default.</param>
+        /// <param name="forceLoginPrompt">Force the user to sign in and authorize your app.</param>
+        /// <returns>The created authorization URL.</returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
+        /// Trakt API Documentation: OAuth: Authorize
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="pkce" /> is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if the given client id or current redirect URI is invalid, or if the PKCE challenge is invalid.</exception>
+        public string CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge pkce, string clientId, bool? showSignupPage = null, bool? forceLoginPrompt = null)
+            => CreateAuthorizationUrlWithDefaultStateAndPKCE(pkce, clientId, RedirectUri, showSignupPage, forceLoginPrompt);
+
+        /// <summary>
+        /// Creates a new OAuth authorization URL with PKCE. Uses the <see cref="TraktContext.AntiForgeryToken" /> as state variable to build the authorization URL.
+        /// Stores <see cref="TraktPKCEChallenge.CodeVerifier" /> in <see cref="TraktContext.CodeVerifier" />.
+        /// </summary>
+        /// <param name="pkce">The PKCE challenge pair, e.g. created with <see cref="TraktPKCE.Create(int)" />.</param>
+        /// <param name="clientId">The Trakt Client ID, which will be used to build the authorization URL.</param>
+        /// <param name="redirectUri">The redirect URI, which will be used to build the authorization URL.</param>
+        /// <param name="showSignupPage">Prefer the account sign up page to be the default.</param>
+        /// <param name="forceLoginPrompt">Force the user to sign in and authorize your app.</param>
+        /// <returns>The created authorization URL.</returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getoauthauthorize">
+        /// Trakt API Documentation: OAuth: Authorize
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="pkce" /> is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if the given client id or redirect URI is invalid, or if the PKCE challenge is invalid.</exception>
+        public string CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge pkce, string clientId, string redirectUri,
+            bool? showSignupPage = null, bool? forceLoginPrompt = null)
+        {
+            ArgumentValidator.ThrowIfNull(pkce);
+            string url = CreateAuthorizationUrlWithDefaultStateCore(clientId, redirectUri, showSignupPage, forceLoginPrompt, pkce.CodeChallenge, pkce.CodeChallengeMethod);
+            _context.CodeVerifier = pkce.CodeVerifier;
+            return url;
+        }
+
+        /// <summary>
         /// Exchanges the OAuth authorization code from the user for a new access token. Uses the current
         /// <see cref="TraktContext.OAuthAuthorizationCode" /> for the request, which has to be set before a call to this method.
         /// Also uses the current <see cref="TraktContext.ClientID" />, <see cref="TraktContext.ClientSecret" /> and <see cref="RedirectUri" /> for the request.
+        /// If <see cref="TraktContext.CodeVerifier" /> is set, the code is exchanged using PKCE (see <see cref="GetAuthorizationWithPKCEAsync(string, string, CancellationToken)" />).
         /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" /> if successful.
         /// </summary>
         /// <param name="cancellationToken">
@@ -147,7 +287,9 @@ namespace TraktNET
         /// Thrown if the current redirect URI is null, empty or contains spaces.
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> GetAuthorizationAsync(CancellationToken cancellationToken = default)
-            => GetAuthorizationAsync(_context.OAuthAuthorizationCode!, cancellationToken);
+            => !string.IsNullOrEmpty(_context.CodeVerifier)
+                ? GetAuthorizationWithPKCEAsync(_context.OAuthAuthorizationCode!, _context.CodeVerifier!, cancellationToken)
+                : GetAuthorizationAsync(_context.OAuthAuthorizationCode!, cancellationToken);
 
         /// <summary>
         /// Exchanges the OAuth authorization code from the user for a new access token. Uses the current
@@ -210,7 +352,7 @@ namespace TraktNET
         /// Thrown if the current redirect URI is null, empty or contains spaces.
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> GetAuthorizationAsync(string code, string clientId, CancellationToken cancellationToken = default)
-            => GetAuthorizationAsync(code, clientId, _context.ClientSecret, cancellationToken);
+            => GetAuthorizationImplAsync(code, null, clientId, _context.ClientSecret, RedirectUri, cancellationToken);
 
         /// <summary>
         /// Exchanges the OAuth authorization code from the user for a new access token. Uses the current
@@ -276,7 +418,83 @@ namespace TraktNET
         /// Thrown if the given redirect URI is null, empty or contains spaces.
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> GetAuthorizationAsync(string code, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)
-            => GetAuthorizationImplAsync(code, clientId, clientSecret, redirectUri, cancellationToken);
+            => GetAuthorizationImplAsync(code, null, clientId, clientSecret, redirectUri, cancellationToken);
+
+        /// <summary>
+        /// Exchanges the OAuth authorization code from the user for a new access token using PKCE. Uses the current
+        /// <see cref="TraktContext.ClientID" /> and <see cref="RedirectUri" /> for the request.
+        /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" /> if successful.
+        /// </summary>
+        /// <param name="code">The OAuth authorization code, which will be used for the request.</param>
+        /// <param name="codeVerifier">The PKCE code verifier, which will be used for the request.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
+        /// </returns>
+        public Task<TraktResponse<TraktAuthorization>> GetAuthorizationWithPKCEAsync(string code, string codeVerifier, CancellationToken cancellationToken = default)
+            => GetAuthorizationWithPKCEAsync(code, codeVerifier, _context.ClientID, cancellationToken);
+
+        /// <summary>
+        /// Exchanges the OAuth authorization code from the user for a new access token using PKCE. Uses the current
+        /// <see cref="RedirectUri" /> for the request.
+        /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" /> if successful.
+        /// </summary>
+        /// <param name="code">The OAuth authorization code, which will be used for the request.</param>
+        /// <param name="codeVerifier">The PKCE code verifier, which will be used for the request.</param>
+        /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
+        /// </returns>
+        public Task<TraktResponse<TraktAuthorization>> GetAuthorizationWithPKCEAsync(string code, string codeVerifier, string clientId, CancellationToken cancellationToken = default)
+            => GetAuthorizationWithPKCEAsync(code, codeVerifier, clientId, RedirectUri, cancellationToken);
+
+        /// <summary>
+        /// Exchanges the OAuth authorization code from the user for a new access token using PKCE.
+        /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" /> if successful.
+        /// </summary>
+        /// <param name="code">The OAuth authorization code, which will be used for the request.</param>
+        /// <param name="codeVerifier">The PKCE code verifier, which will be used for the request.</param>
+        /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
+        /// <param name="redirectUri">The redirect URI, which will be used for the request.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
+        /// </returns>
+        public Task<TraktResponse<TraktAuthorization>> GetAuthorizationWithPKCEAsync(string code, string codeVerifier, string clientId, string redirectUri, CancellationToken cancellationToken = default)
+            => GetAuthorizationWithPKCEAsync(code, codeVerifier, clientId, _context.ClientSecret, redirectUri, cancellationToken);
+
+        /// <summary>
+        /// Exchanges the OAuth authorization code from the user for a new access token using PKCE.
+        /// Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" /> if successful.
+        /// </summary>
+        /// <param name="code">The OAuth authorization code, which will be used for the request.</param>
+        /// <param name="codeVerifier">The PKCE code verifier, which will be used for the request.</param>
+        /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
+        /// <param name="clientSecret">The Trakt Client Secret, which is optional when using PKCE.</param>
+        /// <param name="redirectUri">The redirect URI, which will be used for the request.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried authorization.
+        /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktAuthorization" />.</para>
+        /// </returns>
+        public Task<TraktResponse<TraktAuthorization>> GetAuthorizationWithPKCEAsync(string code, string codeVerifier, string clientId, string? clientSecret, string redirectUri, CancellationToken cancellationToken = default)
+            => GetAuthorizationImplAsync(code, codeVerifier, clientId, clientSecret, redirectUri, cancellationToken);
 
         /// <summary>
         /// Generates a new Trakt device and starts the device authentication process. Uses the current <see cref="TraktContext.ClientID" /> for the request.
@@ -349,12 +567,12 @@ namespace TraktNET
         /// Thrown if the current <see cref="TraktClient" /> instance is not authorized and the current refresh token is null,
         /// empty or contains spaces.
         /// </exception>
-        /// <exception cref="TraktApiAuthenticationException">Thrown if the current refresh token is invalid.</exception>
+        /// <exception cref="TraktApiAuthenticationOAuthException">Thrown if the current refresh token is invalid.</exception>
         /// <exception cref="TraktException">Thrown if the request fails.</exception>
         /// <exception cref="ArgumentException">
         /// Thrown if the current refresh token is null, empty or contains spaces.
         /// Thrown if the current client id is null, empty or contains spaces.
-        /// Thrown if the current client secret is null, empty or contains spaces.
+        /// Thrown if the current client secret is empty or contains spaces.
         /// Thrown if the current redirect URI is null, empty or contains spaces.
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(CancellationToken cancellationToken = default)
@@ -384,12 +602,12 @@ namespace TraktNET
         /// Thrown if the current <see cref="TraktClient" /> instance is not authorized and the given refresh token is null,
         /// empty or contains spaces.
         /// </exception>
-        /// <exception cref="TraktApiAuthenticationException">Thrown if the given refresh token is invalid.</exception>
+        /// <exception cref="TraktApiAuthenticationOAuthException">Thrown if the given refresh token is invalid.</exception>
         /// <exception cref="TraktException">Thrown if the request fails.</exception>
         /// <exception cref="ArgumentException">
         /// Thrown if the given refresh token is null, empty or contains spaces.
         /// Thrown if the current client id is null, empty or contains spaces.
-        /// Thrown if the current client secret is null, empty or contains spaces.
+        /// Thrown if the current client secret is empty or contains spaces.
         /// Thrown if the current redirect URI is null, empty or contains spaces.
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(string refreshToken, CancellationToken cancellationToken = default)
@@ -420,12 +638,12 @@ namespace TraktNET
         /// Thrown if the current <see cref="TraktClient" /> instance is not authorized and the given refresh token is null,
         /// empty or contains spaces.
         /// </exception>
-        /// <exception cref="TraktApiAuthenticationException">Thrown if the given refresh token is invalid.</exception>
+        /// <exception cref="TraktApiAuthenticationOAuthException">Thrown if the given refresh token is invalid.</exception>
         /// <exception cref="TraktException">Thrown if the request fails.</exception>
         /// <exception cref="ArgumentException">
         /// Thrown if the given refresh token is null, empty or contains spaces.
         /// Thrown if the given client id is null, empty or contains spaces.
-        /// Thrown if the current client secret is null, empty or contains spaces.
+        /// Thrown if the current client secret is empty or contains spaces.
         /// Thrown if the current redirect URI is null, empty or contains spaces.
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(string refreshToken, string clientId, CancellationToken cancellationToken = default)
@@ -457,15 +675,15 @@ namespace TraktNET
         /// Thrown if the current <see cref="TraktClient" /> instance is not authorized and the given refresh token is null,
         /// empty or contains spaces.
         /// </exception>
-        /// <exception cref="TraktApiAuthenticationException">Thrown if the given refresh token is invalid.</exception>
+        /// <exception cref="TraktApiAuthenticationOAuthException">Thrown if the given refresh token is invalid.</exception>
         /// <exception cref="TraktException">Thrown if the request fails.</exception>
         /// <exception cref="ArgumentException">
         /// Thrown if the given refresh token is null, empty or contains spaces.
         /// Thrown if the given client id is null, empty or contains spaces.
-        /// Thrown if the given client secret is null, empty or contains spaces.
+        /// Thrown if the given client secret is empty or contains spaces.
         /// Thrown if the current redirect URI is null, empty or contains spaces.
         /// </exception>
-        public Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(string refreshToken, string clientId, string clientSecret, CancellationToken cancellationToken = default)
+        public Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(string refreshToken, string clientId, string? clientSecret, CancellationToken cancellationToken = default)
             => RefreshAuthorizationAsync(refreshToken, clientId, clientSecret, _context.RedirectUri, cancellationToken);
 
         /// <summary>
@@ -494,15 +712,15 @@ namespace TraktNET
         /// Thrown if the current <see cref="TraktClient" /> instance is not authorized and the given refresh token is null,
         /// empty or contains spaces.
         /// </exception>
-        /// <exception cref="TraktApiAuthenticationException">Thrown if the given refresh token is invalid.</exception>
+        /// <exception cref="TraktApiAuthenticationOAuthException">Thrown if the given refresh token is invalid.</exception>
         /// <exception cref="TraktException">Thrown if the request fails.</exception>
         /// <exception cref="ArgumentException">
         /// Thrown if the given refresh token is null, empty or contains spaces.
         /// Thrown if the given client id is null, empty or contains spaces.
-        /// Thrown if the given client secret is null, empty or contains spaces.
+        /// Thrown if the given client secret is empty or contains spaces.
         /// Thrown if the given redirect URI is null, empty or contains spaces.
         /// </exception>
-        public Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(string refreshToken, string clientId, string clientSecret, string redirectUri, CancellationToken cancellationToken = default)
+        public Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(string refreshToken, string clientId, string? clientSecret, string redirectUri, CancellationToken cancellationToken = default)
             => RefreshAuthorizationImplAsync(refreshToken, clientId, clientSecret, redirectUri, cancellationToken);
 
         /// <summary>
@@ -630,9 +848,9 @@ namespace TraktNET
         /// <exception cref="ArgumentException">
         /// Thrown if the given access token is null, empty or contains spaces.
         /// Thrown if the given client id is null, empty or contains spaces.
-        /// Thrown if the given client secret is null, empty or contains spaces.
+        /// Thrown if the given client secret is empty or contains spaces.
         /// </exception>
-        public Task<TraktResponse> RevokeAuthorizationAsync(string accessToken, string clientId, string clientSecret, CancellationToken cancellationToken = default)
+        public Task<TraktResponse> RevokeAuthorizationAsync(string accessToken, string clientId, string? clientSecret, CancellationToken cancellationToken = default)
             => RevokeAuthorizationImplAsync(accessToken, clientId, clientSecret, cancellationToken);
 
         /// <summary>
@@ -663,7 +881,7 @@ namespace TraktNET
         /// <exception cref="ArgumentException">
         /// Thrown if the current device is null, or already expired unused or invalid or its user code contains spaces.
         /// Thrown if the current client id is null, empty or contains spaces.
-        /// Thrown if the current client secret is null, empty or contains spaces.
+        /// Thrown if the current client secret is empty or contains spaces (it is optional and may be null).
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> PollForAuthorizationAsync(CancellationToken cancellationToken = default)
             => PollForAuthorizationAsync(_context.Device!, cancellationToken);
@@ -697,7 +915,7 @@ namespace TraktNET
         /// <exception cref="ArgumentException">
         /// Thrown if the given device is null, or already expired unused or invalid or its user code contains spaces.
         /// Thrown if the current client id is null, empty or contains spaces.
-        /// Thrown if the current client secret is null, empty or contains spaces.
+        /// Thrown if the current client secret is empty or contains spaces (it is optional and may be null).
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> PollForAuthorizationAsync(TraktDevice device, CancellationToken cancellationToken = default)
             => PollForAuthorizationAsync(device, _context.ClientID, cancellationToken);
@@ -732,17 +950,20 @@ namespace TraktNET
         /// <exception cref="ArgumentException">
         /// Thrown if the given device is null, or already expired unused or invalid or its user code contains spaces.
         /// Thrown if the given client id is null, empty or contains spaces.
-        /// Thrown if the current client secret is null, empty or contains spaces.
+        /// Thrown if the current client secret is empty or contains spaces (it is optional and may be null).
         /// </exception>
         public Task<TraktResponse<TraktAuthorization>> PollForAuthorizationAsync(TraktDevice device, string clientId, CancellationToken cancellationToken = default)
-            => PollForAuthorizationAsync(device, clientId, _context.ClientSecret, cancellationToken);
+            => PollForAuthorizationImplAsync(device, clientId, _context.ClientSecret, cancellationToken);
 
         /// <summary>
         /// Polls for a new access token. Assigns the returned <see cref="TraktAuthorization" /> instance to <see cref="TraktContext.Authorization" /> if successful.
         /// </summary>
         /// <param name="device">The <see cref="TraktDevice" />, which will be used for the request.</param>
         /// <param name="clientId">The Trakt Client ID, which will be used for the request.</param>
-        /// <param name="clientSecret">The Trakt Client Secret, which will be used for the request.</param>
+        /// <param name="clientSecret">
+        /// The Trakt Client Secret. Optional: the device token endpoint only requires the device code and client id.
+        /// If null, it will not be sent.
+        /// </param>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
@@ -767,9 +988,9 @@ namespace TraktNET
         /// <exception cref="ArgumentException">
         /// Thrown if the given device is null, or already expired unused or invalid or its user code contains spaces.
         /// Thrown if the given client id is null, empty or contains spaces.
-        /// Thrown if the given client secret is null, empty or contains spaces.
+        /// Thrown if the given client secret is empty or contains spaces (it is optional and may be null).
         /// </exception>
-        public Task<TraktResponse<TraktAuthorization>> PollForAuthorizationAsync(TraktDevice device, string clientId, string clientSecret, CancellationToken cancellationToken = default)
+        public Task<TraktResponse<TraktAuthorization>> PollForAuthorizationAsync(TraktDevice device, string clientId, string? clientSecret, CancellationToken cancellationToken = default)
             => PollForAuthorizationImplAsync(device, clientId, clientSecret, cancellationToken);
     }
 }
