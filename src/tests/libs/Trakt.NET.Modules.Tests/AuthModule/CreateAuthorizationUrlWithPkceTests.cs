@@ -22,7 +22,7 @@ namespace TraktNET.AuthModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, TestConstants.ClientID, TestConstants.RedirectURI,
-                null, null, null, CodeChallenge, TraktPkce.S256);
+                null, null, null, CodeChallenge);
 
             string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(s_pkce);
             createdUrl.ShouldBe(encodedUrl);
@@ -34,7 +34,7 @@ namespace TraktNET.AuthModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, TestConstants.ClientID, TestConstants.RedirectURI,
-                null, true, true, CodeChallenge, TraktPkce.S256);
+                null, true, true, CodeChallenge);
 
             string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, true, true);
             createdUrl.ShouldBe(encodedUrl);
@@ -45,7 +45,7 @@ namespace TraktNET.AuthModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClientForSandbox(RequestUri, "{}", null, null, null, null);
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(true, TestConstants.ClientID, TestConstants.RedirectURI,
-                null, null, null, CodeChallenge, TraktPkce.S256);
+                null, null, null, CodeChallenge);
 
             string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(s_pkce);
             createdUrl.ShouldBe(encodedUrl);
@@ -56,7 +56,7 @@ namespace TraktNET.AuthModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, TestConstants.RedirectURI,
-                null, null, null, CodeChallenge, TraktPkce.S256);
+                null, null, null, CodeChallenge);
 
             string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, CustomClientID);
             createdUrl.ShouldBe(encodedUrl);
@@ -67,7 +67,7 @@ namespace TraktNET.AuthModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, CustomRedirectUri,
-                CustomState, true, true, CodeChallenge, TraktPkce.S256);
+                CustomState, true, true, CodeChallenge);
 
             string createdUrl = client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, CustomClientID, CustomRedirectUri, CustomState, true, true);
             createdUrl.ShouldBe(encodedUrl);
@@ -79,7 +79,7 @@ namespace TraktNET.AuthModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, TestConstants.ClientID, TestConstants.RedirectURI,
-                client.AntiForgeryToken, null, null, CodeChallenge, TraktPkce.S256);
+                client.AntiForgeryToken, null, null, CodeChallenge);
 
             string createdUrl = client.Auth.CreateAuthorizationUrlWithDefaultStateAndPkce(s_pkce);
             createdUrl.ShouldBe(encodedUrl);
@@ -91,7 +91,7 @@ namespace TraktNET.AuthModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, TestConstants.RedirectURI,
-                client.AntiForgeryToken, null, null, CodeChallenge, TraktPkce.S256);
+                client.AntiForgeryToken, null, null, CodeChallenge);
 
             string createdUrl = client.Auth.CreateAuthorizationUrlWithDefaultStateAndPkce(s_pkce, CustomClientID);
             createdUrl.ShouldBe(encodedUrl);
@@ -102,7 +102,7 @@ namespace TraktNET.AuthModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, CustomRedirectUri,
-                client.AntiForgeryToken, true, true, CodeChallenge, TraktPkce.S256);
+                client.AntiForgeryToken, true, true, CodeChallenge);
 
             string createdUrl = client.Auth.CreateAuthorizationUrlWithDefaultStateAndPkce(s_pkce, CustomClientID, CustomRedirectUri, true, true);
             createdUrl.ShouldBe(encodedUrl);

@@ -242,187 +242,39 @@ namespace TraktNET.SourceGeneration.Requests
 
         private void WriteGetParametersEntry(RequestParameterGenerationSpecification requestParameter, bool writeDirectlyInBuildMethod = false)
         {
+            UriValueEntry? entry = GetParameterEntry(requestParameter);
+
+            if (entry.HasValue)
+                WriteUriValueEntry(entry.Value, "parameters", "/", writeDirectlyInBuildMethod);
+        }
+
+        private static UriValueEntry? GetParameterEntry(RequestParameterGenerationSpecification requestParameter)
+        {
+            string name = requestParameter.Name;
+            bool isRequired = requestParameter.IsRequired;
+
             if (requestParameter.IsTraktEnum)
             {
-                if (requestParameter.IsRequired)
-                {
-                    if (writeDirectlyInBuildMethod)
-                    {
-                        _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name}.AsPathParameter();");
-                    }
-                    else
-                    {
-                        _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name}.AsPathParameter());");
-                    }
-                }
-                else
-                {
-                    _sourceWriter.WriteLine($"if ({requestParameter.Name}.HasValue && {requestParameter.Name}.Value != {requestParameter.TraktEnumTypeName}.{requestParameter.TraktEnumDefaultValue})");
-                    _sourceWriter.WriteLine('{');
-                    _sourceWriter.Indent();
-
-                    if (writeDirectlyInBuildMethod)
-                    {
-                        _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name}.Value.AsPathParameter();");
-                    }
-                    else
-                    {
-                        _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name}.Value.AsPathParameter());");
-                    }
-
-                    _sourceWriter.DecrementIndent();
-                    _sourceWriter.WriteLine('}');
-                }
+                return isRequired
+                    ? new UriValueEntry(null, $"{name}.AsPathParameter()")
+                    : new UriValueEntry($"{name}.HasValue && {name}.Value != {requestParameter.TraktEnumTypeName}.{requestParameter.TraktEnumDefaultValue}", $"{name}.Value.AsPathParameter()");
             }
-            else
+
+            return requestParameter.SpecialType switch
             {
-                switch (requestParameter.SpecialType)
-                {
-                    case SpecialType.System_String:
-                    {
-                        if (requestParameter.IsRequired)
-                        {
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name};");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name});");
-                            }
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"if (!string.IsNullOrWhiteSpace({requestParameter.Name}))");
-                            _sourceWriter.WriteLine('{');
-                            _sourceWriter.Indent();
-
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {requestParameter.Name}!;");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"parameters.Add({requestParameter.Name}!);");
-                            }
-
-                            _sourceWriter.DecrementIndent();
-                            _sourceWriter.WriteLine('}');
-                        }
-
-                        break;
-                    }
-                    case SpecialType.System_DateTime:
-                    {
-                        if (requestParameter.IsRequired)
-                        {
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {WriteDateTimeValue(requestParameter.Name, requestParameter.UseCacheEfficientDateTime, requestParameter.IsRequired)};");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"parameters.Add({WriteDateTimeValue(requestParameter.Name, requestParameter.UseCacheEfficientDateTime, requestParameter.IsRequired)});");
-                            }
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"if ({requestParameter.Name}.HasValue)");
-                            _sourceWriter.WriteLine('{');
-                            _sourceWriter.Indent();
-
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"/\" + {WriteDateTimeValue(requestParameter.Name, requestParameter.UseCacheEfficientDateTime, requestParameter.IsRequired)};");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"parameters.Add({WriteDateTimeValue(requestParameter.Name, requestParameter.UseCacheEfficientDateTime, requestParameter.IsRequired)});");
-                            }
-
-                            _sourceWriter.DecrementIndent();
-                            _sourceWriter.WriteLine('}');
-                        }
-
-                        break;
-                    }
-                    case SpecialType.System_UInt16:
-                    case SpecialType.System_UInt32:
-                    case SpecialType.System_UInt64:
-                    case SpecialType.System_Int16:
-                    case SpecialType.System_Int32:
-                    case SpecialType.System_Int64:
-                    {
-                        if (requestParameter.IsRequired)
-                        {
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"/{{{requestParameter.Name}}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"parameters.Add($\"{{{requestParameter.Name}}}\");");
-                            }
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"if ({requestParameter.Name}.HasValue && {requestParameter.Name}.Value > 0)");
-                            _sourceWriter.WriteLine('{');
-                            _sourceWriter.Indent();
-
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"/{{{requestParameter.Name}.Value}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"parameters.Add($\"{{{requestParameter.Name}.Value}}\");");
-                            }
-
-                            _sourceWriter.DecrementIndent();
-                            _sourceWriter.WriteLine('}');
-                        }
-
-                        break;
-                    }
-                    case SpecialType.System_Boolean:
-                    {
-                        if (requestParameter.IsRequired)
-                        {
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"/{{{requestParameter.Name}.ToLowerCase()}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"parameters.Add($\"{{{requestParameter.Name}.ToLowerCase()}}\");");
-                            }
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"if ({requestParameter.Name}.HasValue)");
-                            _sourceWriter.WriteLine('{');
-                            _sourceWriter.Indent();
-
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"/{{{requestParameter.Name}.Value.ToLowerCase()}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"parameters.Add($\"{{{requestParameter.Name}.Value.ToLowerCase()}}\");");
-                            }
-
-                            _sourceWriter.DecrementIndent();
-                            _sourceWriter.WriteLine('}');
-                        }
-
-                        break;
-                    }
-                    default:
-                        break;
-                }
-            }
+                SpecialType.System_String => isRequired
+                    ? new UriValueEntry(null, name)
+                    : new UriValueEntry($"!string.IsNullOrWhiteSpace({name})", $"{name}!"),
+                SpecialType.System_DateTime => new UriValueEntry(isRequired ? null : $"{name}.HasValue",
+                    WriteDateTimeValue(name, requestParameter.UseCacheEfficientDateTime, isRequired)),
+                _ when IsIntegerSpecialType(requestParameter.SpecialType) => isRequired
+                    ? new UriValueEntry(null, name, string.Empty)
+                    : new UriValueEntry($"{name}.HasValue && {name}.Value > 0", $"{name}.Value", string.Empty),
+                SpecialType.System_Boolean => isRequired
+                    ? new UriValueEntry(null, $"{name}.ToLowerCase()", string.Empty)
+                    : new UriValueEntry($"{name}.HasValue", $"{name}.Value.ToLowerCase()", string.Empty),
+                _ => null
+            };
         }
 
         private void WriteGetQueriesMethod()
@@ -446,251 +298,97 @@ namespace TraktNET.SourceGeneration.Requests
 
         private void WriteGetQueriesEntry(RequestQueryGenerationSpecification requestQuery, bool writeDirectlyInBuildMethod = false)
         {
+            UriValueEntry? entry = GetQueryEntry(requestQuery);
+
+            if (entry.HasValue)
+                WriteUriValueEntry(entry.Value, "queries", "?", writeDirectlyInBuildMethod);
+        }
+
+        private static UriValueEntry? GetQueryEntry(RequestQueryGenerationSpecification requestQuery)
+        {
+            string name = requestQuery.Name;
+            bool isRequired = requestQuery.IsRequired;
+
             if (requestQuery.IsTraktEnum)
             {
-                if (requestQuery.IsRequired)
-                {
-                    if (writeDirectlyInBuildMethod)
-                    {
-                        if (!string.IsNullOrEmpty(requestQuery.QueryName))
-                        {
-                            _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.ToURI()}}\";");
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + {requestQuery.Name}.AsQuery();");
-                        }
-                    }
-                    else
-                    {
-                        if (!string.IsNullOrEmpty(requestQuery.QueryName))
-                        {
-                            _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.ToURI()}}\");");
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"queries.Add({requestQuery.Name}.AsQuery());");
-                        }
-                    }
-                }
-                else
-                {
-                    _sourceWriter.WriteLine($"if ({requestQuery.Name}.HasValue && {requestQuery.Name}.Value != {requestQuery.TraktEnumTypeName}.{requestQuery.TraktEnumDefaultValue})");
-                    _sourceWriter.WriteLine('{');
-                    _sourceWriter.Indent();
+                string? condition = isRequired ? null : $"{name}.HasValue && {name}.Value != {requestQuery.TraktEnumTypeName}.{requestQuery.TraktEnumDefaultValue}";
+                string value = isRequired ? name : $"{name}.Value";
 
-                    if (writeDirectlyInBuildMethod)
-                    {
-                        if (!string.IsNullOrEmpty(requestQuery.QueryName))
-                        {
-                            _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToURI()}}\";");
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + {requestQuery.Name}.Value.AsQuery();");
-                        }
-                    }
-                    else
-                    {
-                        if (!string.IsNullOrEmpty(requestQuery.QueryName))
-                        {
-                            _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToURI()}}\");");
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"queries.Add({requestQuery.Name}.Value.AsQuery());");
-                        }
-                    }
-
-                    _sourceWriter.DecrementIndent();
-                    _sourceWriter.WriteLine('}');
-                }
+                // Without a query name, the enum provides the complete query, including its name.
+                return string.IsNullOrEmpty(requestQuery.QueryName)
+                    ? new UriValueEntry(condition, $"{value}.AsQuery()")
+                    : new UriValueEntry(condition, $"{value}.ToURI()", $"{requestQuery.QueryName}=");
             }
-            else if (requestQuery.SpecialType != SpecialType.None)
+
+            // Types without special type provide the complete query by their ToString() method.
+            if (requestQuery.SpecialType == SpecialType.None)
+                return new UriValueEntry(isRequired ? null : $"{name} != null", $"{name}.ToString()");
+
+            string queryPrefix = $"{requestQuery.QueryName}=";
+
+            return requestQuery.SpecialType switch
             {
-                switch (requestQuery.SpecialType)
-                {
-                    case SpecialType.System_String:
-                    {
-                        if (requestQuery.IsRequired)
-                        {
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}}}\");");
-                            }
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"if (!string.IsNullOrWhiteSpace({requestQuery.Name}))");
-                            _sourceWriter.WriteLine('{');
-                            _sourceWriter.Indent();
+                SpecialType.System_String => isRequired
+                    ? new UriValueEntry(null, name, queryPrefix)
+                    : new UriValueEntry($"!string.IsNullOrWhiteSpace({name})", $"{name}!", queryPrefix),
+                SpecialType.System_DateTime => new UriValueEntry(isRequired ? null : $"{name}.HasValue",
+                    WriteDateTimeValue(name, requestQuery.UseCacheEfficientDateTime, isRequired), queryPrefix),
+                _ when IsIntegerSpecialType(requestQuery.SpecialType) => isRequired
+                    ? new UriValueEntry(null, name, queryPrefix)
+                    : new UriValueEntry($"{name}.HasValue && {name}.Value > 0", $"{name}.Value", queryPrefix),
+                SpecialType.System_Boolean => isRequired
+                    ? new UriValueEntry(null, $"{name}.ToLowerCase()", queryPrefix)
+                    : new UriValueEntry($"{name}.HasValue", $"{name}.Value.ToLowerCase()", queryPrefix),
+                _ => null
+            };
+        }
 
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}!}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}!}}\");");
-                            }
+        /// <summary>
+        /// Writes code which adds the value of an entry either to the given list or, if <paramref name="writeDirectlyInBuildMethod" /> is set,
+        /// directly to the request URI, prefixed by the given separator.
+        /// The value is only added, if the condition of the entry is met.
+        /// </summary>
+        private void WriteUriValueEntry(UriValueEntry entry, string listName, string separator, bool writeDirectlyInBuildMethod)
+        {
+            string line;
 
-                            _sourceWriter.DecrementIndent();
-                            _sourceWriter.WriteLine('}');
-                        }
-
-                        break;
-                    }
-                    case SpecialType.System_DateTime:
-                    {
-                        if (requestQuery.IsRequired)
-                        {
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{WriteDateTimeValue(requestQuery.Name, requestQuery.UseCacheEfficientDateTime, requestQuery.IsRequired)}}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{WriteDateTimeValue(requestQuery.Name, requestQuery.UseCacheEfficientDateTime, requestQuery.IsRequired)}}}\");");
-                            }
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"if ({requestQuery.Name}.HasValue)");
-                            _sourceWriter.WriteLine('{');
-                            _sourceWriter.Indent();
-
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{WriteDateTimeValue(requestQuery.Name, requestQuery.UseCacheEfficientDateTime, requestQuery.IsRequired)}}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{WriteDateTimeValue(requestQuery.Name, requestQuery.UseCacheEfficientDateTime, requestQuery.IsRequired)}}}\");");
-                            }
-
-                            _sourceWriter.DecrementIndent();
-                            _sourceWriter.WriteLine('}');
-                        }
-
-                        break;
-                    }
-                    case SpecialType.System_UInt16:
-                    case SpecialType.System_UInt32:
-                    case SpecialType.System_UInt64:
-                    case SpecialType.System_Int16:
-                    case SpecialType.System_Int32:
-                    case SpecialType.System_Int64:
-                    {
-                        if (requestQuery.IsRequired)
-                        {
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}}}\");");
-                            }
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"if ({requestQuery.Name}.HasValue && {requestQuery.Name}.Value > 0)");
-                            _sourceWriter.WriteLine('{');
-                            _sourceWriter.Indent();
-
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.Value}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value}}\");");
-                            }
-
-                            _sourceWriter.DecrementIndent();
-                            _sourceWriter.WriteLine('}');
-                        }
-
-                        break;
-                    }
-                    case SpecialType.System_Boolean:
-                    {
-                        if (requestQuery.IsRequired)
-                        {
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.ToLowerCase()}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.ToLowerCase()}}\");");
-                            }
-                        }
-                        else
-                        {
-                            _sourceWriter.WriteLine($"if ({requestQuery.Name}.HasValue)");
-                            _sourceWriter.WriteLine('{');
-                            _sourceWriter.Indent();
-
-                            if (writeDirectlyInBuildMethod)
-                            {
-                                _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + $\"?{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToLowerCase()}}\";");
-                            }
-                            else
-                            {
-                                _sourceWriter.WriteLine($"queries.Add($\"{requestQuery.QueryName}={{{requestQuery.Name}.Value.ToLowerCase()}}\");");
-                            }
-
-                            _sourceWriter.DecrementIndent();
-                            _sourceWriter.WriteLine('}');
-                        }
-
-                        break;
-                    }
-                    default:
-                        break;
-                }
+            if (entry.InterpolationPrefix == null)
+            {
+                line = writeDirectlyInBuildMethod
+                    ? $"{RequestUriName} = {RequestUriName} + \"{separator}\" + {entry.Expression};"
+                    : $"{listName}.Add({entry.Expression});";
             }
             else
             {
-                if (requestQuery.IsRequired)
-                {
-                    if (writeDirectlyInBuildMethod)
-                    {
-                        _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + {requestQuery.Name}.ToString();");
-                    }
-                    else
-                    {
-                        _sourceWriter.WriteLine($"queries.Add({requestQuery.Name}.ToString());");
-                    }
-                }
-                else
-                {
-                    if (writeDirectlyInBuildMethod)
-                    {
-                        _sourceWriter.WriteLine($"if ({requestQuery.Name} != null)");
-                        _sourceWriter.WriteLine('{');
-                        _sourceWriter.Indent();
-                        _sourceWriter.WriteLine($"{RequestUriName} = {RequestUriName} + \"?\" + {requestQuery.Name}.ToString();");
-                        _sourceWriter.DecrementIndent();
-                        _sourceWriter.WriteLine('}');
-                    }
-                    else
-                    {
-                        _sourceWriter.WriteLine($"if ({requestQuery.Name} != null)");
-                        _sourceWriter.WriteLine('{');
-                        _sourceWriter.Indent();
-                        _sourceWriter.WriteLine($"queries.Add({requestQuery.Name}.ToString());");
-                        _sourceWriter.DecrementIndent();
-                        _sourceWriter.WriteLine('}');
-                    }
-                }
+                line = writeDirectlyInBuildMethod
+                    ? $"{RequestUriName} = {RequestUriName} + $\"{separator}{entry.InterpolationPrefix}{{{entry.Expression}}}\";"
+                    : $"{listName}.Add($\"{entry.InterpolationPrefix}{{{entry.Expression}}}\");";
             }
+
+            if (entry.Condition == null)
+            {
+                _sourceWriter.WriteLine(line);
+                return;
+            }
+
+            _sourceWriter.WriteLine($"if ({entry.Condition})");
+            _sourceWriter.WriteLine('{');
+            _sourceWriter.Indent();
+            _sourceWriter.WriteLine(line);
+            _sourceWriter.DecrementIndent();
+            _sourceWriter.WriteLine('}');
         }
+
+        /// <summary>
+        /// A value, which is added to the request URI.
+        /// </summary>
+        /// <param name="Condition">The condition, which must be met to add the value, or <see langword="null" /> to always add the value.</param>
+        /// <param name="Expression">The expression of the value.</param>
+        /// <param name="InterpolationPrefix">
+        /// If not <see langword="null" />, the expression is written into an interpolated string, after this prefix.
+        /// Otherwise the expression is used as-is.
+        /// </param>
+        private readonly record struct UriValueEntry(string? Condition, string Expression, string? InterpolationPrefix = null);
 
         private static string WriteDateTimeValue(string name, bool cacheEfficient, bool isRequired)
         {
