@@ -134,239 +134,258 @@ namespace TraktNET.SourceGeneration.Requests
 
         private bool ParseRequestProperty(IPropertySymbol propertySymbol, ImmutableArray<AttributeData> attributes, CancellationToken cancellationToken)
         {
-            bool isRequired = false;
-            bool isTraktEnum = false;
-            string traktEnumTypeName = string.Empty;
-            string traktEnumDefaultValue = string.Empty;
-            bool hasParameterAttribute = false;
-            bool hasQueryAttribute = false;
-            bool hasPayloadAttribute = false;
-            SpecialType specialType = SpecialType.None;
-            string queryName = string.Empty;
-            bool useCacheEfficientDateTime = false;
+            if (!TryParsePropertyAttributes(attributes, cancellationToken, out PropertyAttributeInfo attributeInfo))
+                return false;
+
+            bool isRequired = propertySymbol.Type.NullableAnnotation != NullableAnnotation.Annotated;
+            PropertyTypeInfo typeInfo = isRequired ? ClassifyPropertyType(propertySymbol.Type) : ClassifyNullablePropertyType(propertySymbol.Type);
+            Location? propertyLocation = GetFirstLocation(propertySymbol);
+
+            switch (attributeInfo.Kind)
+            {
+                case RequestPropertyKind.Parameter:
+                    _requestParameters.Add(new RequestParameterGenerationSpecification
+                    {
+                        Name = propertySymbol.Name,
+                        IsRequired = isRequired,
+                        IsTraktEnum = typeInfo.IsTraktEnum,
+                        TraktEnumTypeName = typeInfo.TraktEnumTypeName,
+                        TraktEnumDefaultValue = typeInfo.TraktEnumDefaultValue,
+                        SpecialType = typeInfo.SpecialType,
+                        UseCacheEfficientDateTime = attributeInfo.UseCacheEfficientDateTime
+                    });
+
+                    return true;
+
+                case RequestPropertyKind.Query:
+                    return TryAddRequestQuery(propertySymbol.Name, isRequired, typeInfo, attributeInfo, propertyLocation);
+
+                case RequestPropertyKind.Payload:
+                    return TrySetRequestPayload(propertySymbol, typeInfo, attributeInfo, propertyLocation);
+
+                default:
+                    return true;
+            }
+        }
+
+        private bool TryAddRequestQuery(string name, bool isRequired, PropertyTypeInfo typeInfo, PropertyAttributeInfo attributeInfo, Location? propertyLocation)
+        {
+            if (!typeInfo.IsTraktEnum && string.IsNullOrEmpty(attributeInfo.QueryName))
+            {
+                // Query Name is only optional if property type is not a Trakt enum
+                ReportDiagnostic(DiagnosticDescriptors.QueryNameIsRequired, propertyLocation);
+                return false;
+            }
+
+            _requestQueries.Add(new RequestQueryGenerationSpecification
+            {
+                Name = name,
+                IsRequired = isRequired,
+                IsTraktEnum = typeInfo.IsTraktEnum,
+                TraktEnumTypeName = typeInfo.TraktEnumTypeName,
+                TraktEnumDefaultValue = typeInfo.TraktEnumDefaultValue,
+                QueryName = attributeInfo.QueryName,
+                SpecialType = typeInfo.SpecialType,
+                UseCacheEfficientDateTime = attributeInfo.UseCacheEfficientDateTime
+            });
+
+            return true;
+        }
+
+        private bool TrySetRequestPayload(IPropertySymbol propertySymbol, PropertyTypeInfo typeInfo, PropertyAttributeInfo attributeInfo, Location? propertyLocation)
+        {
+            if (_requestPayload != null)
+            {
+                ReportDiagnostic(DiagnosticDescriptors.RequestPayloadAlreadyDeclared, propertyLocation);
+                return false;
+            }
+
+            _requestPayload = new RequestPayloadGenerationSpecification
+            {
+                Name = propertySymbol.Name,
+                // A payload is required, if its property is declared with the "required" modifier.
+                IsRequired = propertySymbol.IsRequired,
+                IsTraktEnum = typeInfo.IsTraktEnum,
+                TraktEnumTypeName = typeInfo.TraktEnumTypeName,
+                TraktEnumDefaultValue = typeInfo.TraktEnumDefaultValue,
+                SpecialType = typeInfo.SpecialType,
+                UseCacheEfficientDateTime = attributeInfo.UseCacheEfficientDateTime,
+                HasValidateMethod = HasParameterlessValidateMethod(propertySymbol.Type)
+            };
+
+            return true;
+        }
+
+        /// <summary>Determines whether the type or one of its base types declares a parameterless, non-generic instance Validate method.</summary>
+        private static bool HasParameterlessValidateMethod(ITypeSymbol type)
+        {
+            for (ITypeSymbol? currentType = type; currentType != null; currentType = currentType.BaseType)
+            {
+                if (currentType.GetMembers("Validate").OfType<IMethodSymbol>().Any(m => m.Parameters.Length == 0 && m.Arity == 0 && !m.IsStatic))
+                    return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Determines whether a property is a request parameter, query or payload.
+        /// Returns <see langword="false" /> and reports a diagnostic, if the property has conflicting attributes.
+        /// </summary>
+        private bool TryParsePropertyAttributes(ImmutableArray<AttributeData> attributes, CancellationToken cancellationToken, out PropertyAttributeInfo attributeInfo)
+        {
+            attributeInfo = new PropertyAttributeInfo();
 
             foreach (AttributeData attributeData in attributes)
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                INamedTypeSymbol? attributeClass = attributeData.AttributeClass;
+                RequestPropertyKind attributeKind = GetRequestPropertyKind(attributeData.AttributeClass);
 
-                Location? attributeLocation = null;
+                if (attributeKind == RequestPropertyKind.None)
+                    continue;
 
-                if (attributeClass!.Locations.Length > 0)
+                DiagnosticDescriptor? conflict = GetAttributeConflict(attributeInfo.Kind, attributeKind);
+
+                if (conflict != null)
                 {
-                    attributeLocation = attributeClass.Locations[0];
-                }
-
-                if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestParameterAttributeType))
-                {
-                    if (hasQueryAttribute)
-                    {
-                        ReportDiagnostic(DiagnosticDescriptors.RequestAndQueryBothDeclared, attributeLocation);
-                        return false;
-                    }
-
-                    if (hasPayloadAttribute)
-                    {
-                        ReportDiagnostic(DiagnosticDescriptors.RequestPayloadConflict, attributeLocation);
-                        return false;
-                    }
-
-                    hasParameterAttribute = true;
-
-                    var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
-
-                    if (namedArguments.TryGetValue(RequestConstants.TraktRequestParameterOrQueryUseCacheEfficientDateTimeName, out TypedConstant useCacheEfficientDateTimeConstant)
-                        && useCacheEfficientDateTimeConstant.Value is bool useCacheEfficientDateTimeValue)
-                    {
-                        useCacheEfficientDateTime = useCacheEfficientDateTimeValue;
-                    }
-                }
-                else if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestQueryAttributeType))
-                {
-                    if (hasParameterAttribute)
-                    {
-                        ReportDiagnostic(DiagnosticDescriptors.RequestAndQueryBothDeclared, attributeLocation);
-                        return false;
-                    }
-
-                    if (hasPayloadAttribute)
-                    {
-                        ReportDiagnostic(DiagnosticDescriptors.RequestPayloadConflict, attributeLocation);
-                        return false;
-                    }
-
-                    hasQueryAttribute = true;
-
-                    ImmutableArray<TypedConstant> arguments = attributeData.ConstructorArguments;
-
-                    if (arguments.Length > 0)
-                    {
-                        string? queryNameValue = arguments[0].Value as string;
-
-                        if (!string.IsNullOrWhiteSpace(queryNameValue))
-                        {
-                            queryName = queryNameValue!;
-                        }
-                    }
-
-                    var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
-
-                    if (namedArguments.TryGetValue(RequestConstants.TraktRequestParameterOrQueryUseCacheEfficientDateTimeName, out TypedConstant useCacheEfficientDateTimeConstant)
-                        && useCacheEfficientDateTimeConstant.Value is bool useCacheEfficientDateTimeValue)
-                    {
-                        useCacheEfficientDateTime = useCacheEfficientDateTimeValue;
-                    }
-                }
-                else if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestPayloadAttributeType))
-                {
-                    if (hasParameterAttribute || hasQueryAttribute)
-                    {
-                        ReportDiagnostic(DiagnosticDescriptors.RequestPayloadConflict, attributeLocation);
-                        return false;
-                    }
-
-                    hasPayloadAttribute = true;
-                }
-            }
-
-            string name = propertySymbol.Name;
-            Location? propertyLocation = null;
-
-            if (propertySymbol.Locations.Length > 0)
-            {
-                propertyLocation = propertySymbol.Locations[0];
-            }
-
-            if (propertySymbol.Type.NullableAnnotation == NullableAnnotation.Annotated)
-            {
-                // Property type is a nullable type => optional
-
-                if (propertySymbol.Type is INamedTypeSymbol propertyTypeSymbol)
-                {
-                    if (propertyTypeSymbol.ConstructedFrom.SpecialType == SpecialType.System_String)
-                    {
-                        // string is a special nullable type
-                        // Special types get handled in the RequestSourceEmitter
-                        specialType = propertyTypeSymbol.ConstructedFrom.SpecialType;
-                    }
-                    else if (propertyTypeSymbol.ConstructedFrom.SpecialType == SpecialType.System_Nullable_T && propertyTypeSymbol.TypeArguments.Length > 0)
-                    {
-                        ITypeSymbol underlyingType = propertyTypeSymbol.TypeArguments[0];
-
-                        if (underlyingType.TypeKind == TypeKind.Enum)
-                        {
-                            if (underlyingType.Name.StartsWith("Trakt", StringComparison.InvariantCulture))
-                            {
-                                // Property type as a Trakt enum
-                                isTraktEnum = true;
-                                traktEnumTypeName = underlyingType.Name;
-                                traktEnumDefaultValue = underlyingType.GetMembers()[0].Name;
-                            }
-                        }
-                        else if (underlyingType.SpecialType != SpecialType.None && underlyingType.TypeKind != TypeKind.Error)
-                        {
-                            // Special types get handled in the RequestSourceEmitter
-                            specialType = underlyingType.SpecialType;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                isRequired = true;
-
-                if (propertySymbol.Type.TypeKind == TypeKind.Enum)
-                {
-                    if (propertySymbol.Type.Name.StartsWith("Trakt", StringComparison.InvariantCulture))
-                    {
-                        // Property type as a Trakt enum
-                        isTraktEnum = true;
-                        traktEnumTypeName = propertySymbol.Type.Name;
-                        traktEnumDefaultValue = propertySymbol.Type.GetMembers()[0].Name;
-                    }
-                }
-                else if (propertySymbol.Type.SpecialType != SpecialType.None && propertySymbol.Type.TypeKind != TypeKind.Error)
-                {
-                    // Special types get handled in the RequestSourceEmitter
-                    specialType = propertySymbol.Type.SpecialType;
-                }
-            }
-
-            if (hasParameterAttribute)
-            {
-                _requestParameters.Add(new RequestParameterGenerationSpecification
-                {
-                    Name = name,
-                    IsRequired = isRequired,
-                    IsTraktEnum = isTraktEnum,
-                    TraktEnumTypeName = traktEnumTypeName,
-                    TraktEnumDefaultValue = traktEnumDefaultValue,
-                    SpecialType = specialType,
-                    UseCacheEfficientDateTime = useCacheEfficientDateTime
-                });
-            }
-            else if (hasQueryAttribute)
-            {
-                if (!isTraktEnum && string.IsNullOrEmpty(queryName))
-                {
-                    // Query Name is only optional if property type is not a Trakt enum
-                    ReportDiagnostic(DiagnosticDescriptors.QueryNameIsRequired, propertyLocation);
+                    ReportDiagnostic(conflict, GetFirstLocation(attributeData.AttributeClass!));
                     return false;
                 }
 
-                _requestQueries.Add(new RequestQueryGenerationSpecification
-                {
-                    Name = name,
-                    IsRequired = isRequired,
-                    IsTraktEnum = isTraktEnum,
-                    TraktEnumTypeName = traktEnumTypeName,
-                    TraktEnumDefaultValue = traktEnumDefaultValue,
-                    QueryName = queryName,
-                    SpecialType = specialType,
-                    UseCacheEfficientDateTime = useCacheEfficientDateTime
-                });
-            }
-            else if (hasPayloadAttribute)
-            {
-                isRequired = propertySymbol.IsRequired;
+                attributeInfo.Kind = attributeKind;
 
-                if (_requestPayload != null)
-                {
-                    ReportDiagnostic(DiagnosticDescriptors.RequestPayloadAlreadyDeclared, propertyLocation);
-                    return false;
-                }
+                if (attributeKind == RequestPropertyKind.Query)
+                    attributeInfo.QueryName = GetQueryName(attributeData) ?? attributeInfo.QueryName;
 
-                bool hasValidateMethod = false;
-                ITypeSymbol payloadType = propertySymbol.Type;
-                ITypeSymbol? currentType = payloadType;
-                while (currentType != null)
-                {
-                    IEnumerable<IMethodSymbol> validateMethods = currentType.GetMembers("Validate").OfType<IMethodSymbol>();
-
-                    if (validateMethods.Any(m => m.Parameters.Length == 0 && m.Arity == 0 && !m.IsStatic))
-                    {
-                        hasValidateMethod = true;
-                        break;
-                    }
-
-                    currentType = currentType.BaseType;
-                }
-
-                _requestPayload = new RequestPayloadGenerationSpecification
-                {
-                    Name = name,
-                    IsRequired = isRequired,
-                    IsTraktEnum = isTraktEnum,
-                    TraktEnumTypeName = traktEnumTypeName,
-                    TraktEnumDefaultValue = traktEnumDefaultValue,
-                    SpecialType = specialType,
-                    UseCacheEfficientDateTime = useCacheEfficientDateTime,
-                    HasValidateMethod = hasValidateMethod
-                };
+                if (attributeKind != RequestPropertyKind.Payload)
+                    attributeInfo.UseCacheEfficientDateTime = GetUseCacheEfficientDateTime(attributeData) ?? attributeInfo.UseCacheEfficientDateTime;
             }
 
             return true;
+        }
+
+        private RequestPropertyKind GetRequestPropertyKind(INamedTypeSymbol? attributeClass)
+        {
+            if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestParameterAttributeType))
+                return RequestPropertyKind.Parameter;
+
+            if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestQueryAttributeType))
+                return RequestPropertyKind.Query;
+
+            if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownRequestSymbols.TraktRequestPayloadAttributeType))
+                return RequestPropertyKind.Payload;
+
+            return RequestPropertyKind.None;
+        }
+
+        /// <summary>A property can be either a parameter, a query or a payload. Repeating the same attribute is no conflict.</summary>
+        private static DiagnosticDescriptor? GetAttributeConflict(RequestPropertyKind currentKind, RequestPropertyKind attributeKind)
+        {
+            if (currentKind == RequestPropertyKind.None || currentKind == attributeKind)
+                return null;
+
+            if (currentKind == RequestPropertyKind.Payload || attributeKind == RequestPropertyKind.Payload)
+                return DiagnosticDescriptors.RequestPayloadConflict;
+
+            return DiagnosticDescriptors.RequestAndQueryBothDeclared;
+        }
+
+        private static string? GetQueryName(AttributeData attributeData)
+        {
+            ImmutableArray<TypedConstant> arguments = attributeData.ConstructorArguments;
+            string? queryName = arguments.Length > 0 ? arguments[0].Value as string : null;
+            return string.IsNullOrWhiteSpace(queryName) ? null : queryName;
+        }
+
+        private static bool? GetUseCacheEfficientDateTime(AttributeData attributeData)
+        {
+            var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
+
+            if (namedArguments.TryGetValue(RequestConstants.TraktRequestParameterOrQueryUseCacheEfficientDateTimeName, out TypedConstant constant)
+                && constant.Value is bool useCacheEfficientDateTime)
+            {
+                return useCacheEfficientDateTime;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Classifies the type of an optional property.
+        /// Only <see langword="string" />? and <see cref="Nullable{T}" /> types are supported, other nullable types are not classified.
+        /// </summary>
+        private static PropertyTypeInfo ClassifyNullablePropertyType(ITypeSymbol type)
+        {
+            if (type is not INamedTypeSymbol namedType)
+                return PropertyTypeInfo.Unclassified;
+
+            if (namedType.ConstructedFrom.SpecialType == SpecialType.System_String)
+                return new PropertyTypeInfo { SpecialType = SpecialType.System_String };
+
+            if (namedType.ConstructedFrom.SpecialType == SpecialType.System_Nullable_T && namedType.TypeArguments.Length > 0)
+                return ClassifyPropertyType(namedType.TypeArguments[0]);
+
+            return PropertyTypeInfo.Unclassified;
+        }
+
+        /// <summary>
+        /// Classifies a property type as Trakt enum or special type. Special types get handled in the RequestSourceEmitter.
+        /// Enums that are not Trakt enums are not classified.
+        /// </summary>
+        private static PropertyTypeInfo ClassifyPropertyType(ITypeSymbol type)
+        {
+            if (type.TypeKind == TypeKind.Enum)
+            {
+                return type.Name.StartsWith("Trakt", StringComparison.InvariantCulture)
+                    ? new PropertyTypeInfo { IsTraktEnum = true, TraktEnumTypeName = type.Name, TraktEnumDefaultValue = type.GetMembers()[0].Name }
+                    : PropertyTypeInfo.Unclassified;
+            }
+
+            if (type.SpecialType != SpecialType.None && type.TypeKind != TypeKind.Error)
+                return new PropertyTypeInfo { SpecialType = type.SpecialType };
+
+            return PropertyTypeInfo.Unclassified;
+        }
+
+        private static Location? GetFirstLocation(ISymbol symbol)
+            => symbol.Locations.Length > 0 ? symbol.Locations[0] : null;
+
+        private enum RequestPropertyKind
+        {
+            None,
+            Parameter,
+            Query,
+            Payload
+        }
+
+        private sealed class PropertyAttributeInfo
+        {
+            internal RequestPropertyKind Kind { get; set; }
+
+            internal string QueryName { get; set; } = string.Empty;
+
+            internal bool UseCacheEfficientDateTime { get; set; }
+        }
+
+        private readonly record struct PropertyTypeInfo
+        {
+            internal static PropertyTypeInfo Unclassified => new();
+
+            internal bool IsTraktEnum { get; init; }
+
+            internal string TraktEnumTypeName { get; init; }
+
+            internal string TraktEnumDefaultValue { get; init; }
+
+            internal SpecialType SpecialType { get; init; }
+
+            public PropertyTypeInfo()
+            {
+                TraktEnumTypeName = string.Empty;
+                TraktEnumDefaultValue = string.Empty;
+                SpecialType = SpecialType.None;
+            }
         }
 
         private RequestGenerationSpecification? CreateSpecification()
@@ -443,33 +462,35 @@ namespace TraktNET.SourceGeneration.Requests
             }
 
             if (_knownRequestSymbols.TraktOAuthRequirementEnumType != null)
-            {
-                if (namedArguments.TryGetValue(RequestConstants.TraktRequestPropertyOAuthRequirementName, out TypedConstant oauthRequirementConstant))
-                {
-                    if (SymbolEqualityComparer.Default.Equals(oauthRequirementConstant.Type, _knownRequestSymbols.TraktOAuthRequirementEnumType)
-                        && oauthRequirementConstant.Value is int requirementValue)
-                    {
-                        _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
-
-                        IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues
-                            .FirstOrDefault(x => x.ConstantValue is int enumValue && enumValue == requirementValue);
-
-                        if (enumField != null)
-                        {
-                            _requestOAuthRequirementValue = enumField.Name;
-                        }
-                    }
-                }
-                else
-                {
-                    // If not defined, use first value ("NotRequired") as default.
-                    _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
-                    IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues[0];
-                    _requestOAuthRequirementValue = enumField.Name;
-                }
-            }
+                ParseOAuthRequirement(namedArguments);
 
             return true;
+        }
+
+        private void ParseOAuthRequirement(ImmutableDictionary<string, TypedConstant> namedArguments)
+        {
+            if (!namedArguments.TryGetValue(RequestConstants.TraktRequestPropertyOAuthRequirementName, out TypedConstant oauthRequirementConstant))
+            {
+                // If not defined, use first value ("NotRequired") as default.
+                _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
+                IFieldSymbol? defaultEnumField = _knownRequestSymbols.TraktOAuthRequirementValues[0];
+                _requestOAuthRequirementValue = defaultEnumField.Name;
+                return;
+            }
+
+            if (!SymbolEqualityComparer.Default.Equals(oauthRequirementConstant.Type, _knownRequestSymbols.TraktOAuthRequirementEnumType)
+                || oauthRequirementConstant.Value is not int requirementValue)
+            {
+                return;
+            }
+
+            _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
+
+            IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues
+                .FirstOrDefault(x => x.ConstantValue is int enumValue && enumValue == requirementValue);
+
+            if (enumField != null)
+                _requestOAuthRequirementValue = enumField.Name;
         }
 
         private void GetHttpMethodValue(AttributeData attributeData, CancellationToken cancellationToken)

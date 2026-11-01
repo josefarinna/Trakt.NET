@@ -24,21 +24,18 @@ namespace TraktNET
                 throw new TraktPostValidationException("no favorite items set");
 
             if (Movies != null)
-            {
-                for (int i = 0; i < Movies.Count; i++)
-                {
-                    if (Movies[i].Notes?.Length > 255)
-                        throw new TraktPostValidationException($"Movies[{i}].Notes", "notes cannot be longer than 255 characters");
-                }
-            }
+                ValidateNotes(Movies.ConvertAll(movie => movie.Notes), nameof(Movies));
 
             if (Shows != null)
+                ValidateNotes(Shows.ConvertAll(show => show.Notes), nameof(Shows));
+        }
+
+        private static void ValidateNotes(List<string?> notes, string collectionName)
+        {
+            for (int i = 0; i < notes.Count; i++)
             {
-                for (int i = 0; i < Shows.Count; i++)
-                {
-                    if (Shows[i].Notes?.Length > 255)
-                        throw new TraktPostValidationException($"Shows[{i}].Notes", "notes cannot be longer than 255 characters");
-                }
+                if (notes[i]?.Length > 255)
+                    throw new TraktPostValidationException($"{collectionName}[{i}].Notes", "notes cannot be longer than 255 characters");
             }
         }
     }

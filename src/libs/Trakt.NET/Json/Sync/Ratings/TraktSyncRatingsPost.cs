@@ -32,46 +32,24 @@
 
         public void Validate()
         {
-            bool anyItemPresent = false;
-
-            if (Movies != null && Movies.Count > 0)
-            {
-                anyItemPresent = true;
-                foreach (var movie in Movies)
-                {
-                    movie.Validate();
-                }
-            }
-
-            if (Shows != null && Shows.Count > 0)
-            {
-                anyItemPresent = true;
-                foreach (var show in Shows)
-                {
-                    show.Validate();
-                }
-            }
-
-            if (Seasons != null && Seasons.Count > 0)
-            {
-                anyItemPresent = true;
-                foreach (var season in Seasons)
-                {
-                    season.Validate();
-                }
-            }
-
-            if (Episodes != null && Episodes.Count > 0)
-            {
-                anyItemPresent = true;
-                foreach (var episode in Episodes)
-                {
-                    episode.Validate();
-                }
-            }
+            bool anyItemPresent = ValidateItems(Movies, movie => movie.Validate());
+            anyItemPresent |= ValidateItems(Shows, show => show.Validate());
+            anyItemPresent |= ValidateItems(Seasons, season => season.Validate());
+            anyItemPresent |= ValidateItems(Episodes, episode => episode.Validate());
 
             if (!anyItemPresent)
                 throw new TraktPostValidationException("no ratings items set");
+        }
+
+        private static bool ValidateItems<T>(List<T>? items, Action<T> validate)
+        {
+            if (items == null || items.Count == 0)
+                return false;
+
+            foreach (T item in items)
+                validate(item);
+
+            return true;
         }
     }
 }

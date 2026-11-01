@@ -26,37 +26,43 @@ namespace TraktNET.SourceGeneration.Models
         {
             INamedTypeSymbol? type = Compilation.GetTypeByMetadataName(fullQualifiedName);
             type ??= Compilation.Assembly.GetTypeByMetadataName(fullQualifiedName);
+            return type ?? GetUniqueTypeFromReferencedAssemblies(fullQualifiedName);
+        }
 
-            if (type == null)
+        /// <summary>
+        /// Searches the referenced assemblies for an accessible type with the given name.
+        /// Returns <see langword="null" /> if none or more than one accessible type is found.
+        /// </summary>
+        private INamedTypeSymbol? GetUniqueTypeFromReferencedAssemblies(string fullQualifiedName)
+        {
+            INamedTypeSymbol? type = null;
+
+            foreach (IModuleSymbol module in Compilation.Assembly.Modules)
             {
-                foreach (IModuleSymbol module in Compilation.Assembly.Modules)
+                foreach (IAssemblySymbol referenceAssembly in module.ReferencedAssemblySymbols)
                 {
-                    foreach (IAssemblySymbol referenceAssembly in module.ReferencedAssemblySymbols)
-                    {
-                        INamedTypeSymbol? currentType = referenceAssembly.GetTypeByMetadataName(fullQualifiedName);
+                    INamedTypeSymbol? currentType = referenceAssembly.GetTypeByMetadataName(fullQualifiedName);
 
-                        if (currentType == null)
-                            continue;
+                    if (currentType == null || !IsAccessibleFrom(currentType, referenceAssembly))
+                        continue;
 
-                        switch (GetVisibility(currentType))
-                        {
-                            case SymbolVisibility.Public:
-                            case SymbolVisibility.Internal when referenceAssembly.GivesAccessTo(Compilation.Assembly):
-                                break;
-                            default:
-                                continue;
-                        }
+                    if (type is not null)
+                        return null;
 
-                        if (type is object)
-                            return null;
-
-                        type = currentType;
-                    }
+                    type = currentType;
                 }
             }
 
             return type;
         }
+
+        private bool IsAccessibleFrom(INamedTypeSymbol type, IAssemblySymbol referenceAssembly)
+            => GetVisibility(type) switch
+            {
+                SymbolVisibility.Public => true,
+                SymbolVisibility.Internal => referenceAssembly.GivesAccessTo(Compilation.Assembly),
+                _ => false
+            };
 
         private static SymbolVisibility GetVisibility(ISymbol symbol)
         {

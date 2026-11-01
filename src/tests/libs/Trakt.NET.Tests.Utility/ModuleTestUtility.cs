@@ -88,12 +88,12 @@ namespace TraktNET
         }
 
         public static void SetOAuthClient(TraktClient client, string requestUri, string responseContent, uint? page = null, uint? pageCount = null,
-            uint? limit = null, uint? itemCount = null, bool noOauthHeaders = false)
+            uint? limit = null, uint? itemCount = null)
         {
             string baseUrl = GetBaseUrl(requestUri);
 
             var httpClientProvider = new TestHttpClientProvider(baseUrl);
-            httpClientProvider.SetupOAuthMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount, noOauthHeaders);
+            httpClientProvider.SetupOAuthMockResponse(requestUri, responseContent, page, pageCount, limit, itemCount);
             client.HttpClientProvider = httpClientProvider;
         }
 
