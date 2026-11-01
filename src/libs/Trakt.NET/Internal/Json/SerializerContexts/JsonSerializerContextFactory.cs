@@ -24,7 +24,7 @@ namespace TraktNET
                 }
             }
 
-            throw new NotSupportedException($"Json type {nameof(TJsonObjectType)} has no registered json serializer context.");
+            throw new NotSupportedException($"Json type {jsonObjectType.FullName} has no registered json serializer context.");
         }
 
         private const string AuthenticationContextCacheKey = "authentication";

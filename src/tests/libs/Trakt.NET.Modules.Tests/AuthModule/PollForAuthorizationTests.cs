@@ -1,5 +1,9 @@
 using System.Net;
 
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+using System.Net.Http;
+#endif
+
 namespace TraktNET.AuthModule
 {
     public sealed class PollForAuthorizationTests
@@ -131,6 +135,8 @@ namespace TraktNET.AuthModule
         [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
         [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
         [InlineData(HttpStatusCode.Conflict, typeof(TraktApiAuthenticationDeviceException))]
+        [InlineData(HttpStatusCode.Gone, typeof(TraktApiAuthenticationDeviceException))]
+        [InlineData((HttpStatusCode)418, typeof(TraktApiAuthenticationDeviceException))]
         [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
         [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
         [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
@@ -153,6 +159,38 @@ namespace TraktNET.AuthModule
 
             Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.PollForAuthorizationAsync(TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);
+        }
+
+        [Fact]
+        public async Task TestPollForAuthorizationThrowsDeviceExceptionWhenPollingTimesOut()
+        {
+            TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, HttpStatusCode.BadRequest, true);
+
+            var device = new TraktDevice
+            {
+                DeviceCode = TestConstants.MockDeviceCode,
+                UserCode = TestConstants.MockUserCode,
+                VerificationUrl = TestConstants.DeviceVerificationURL,
+                ExpiresIn = 1,
+                Interval = 1
+            };
+
+            Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.PollForAuthorizationAsync(device, TestContext.Current.CancellationToken);
+            TraktApiAuthenticationDeviceException exception = await act.ShouldThrowAsync<TraktApiAuthenticationDeviceException>();
+            exception.ReasonPhrase.ShouldBe("Device authorization polling timed out.");
+        }
+
+        [Fact]
+        public async Task TestPollForAuthorizationThrowsDeviceExceptionForUnexpectedSuccessStatusCode()
+        {
+            TraktClient client = ModuleTestUtility.GetClient(PollForAuthorizationUri,
+                _ => new HttpResponseMessage(HttpStatusCode.NoContent) { Content = new StringContent(string.Empty) });
+
+            client.Device = TestConstants.MockDevice;
+
+            Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.PollForAuthorizationAsync(TestContext.Current.CancellationToken);
+            TraktApiAuthenticationDeviceException exception = await act.ShouldThrowAsync<TraktApiAuthenticationDeviceException>();
+            exception.StatusCode.ShouldBe(HttpStatusCode.NoContent);
         }
 
         [Fact]

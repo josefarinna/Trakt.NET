@@ -23,6 +23,92 @@ namespace TraktNET.Json.People
             recentlyUpdatedPerson.KnownForDepartment.ShouldBeNull();
             recentlyUpdatedPerson.SocialIds.ShouldBeNull();
             recentlyUpdatedPerson.UpdatedAt.ShouldBeNull();
+            recentlyUpdatedPerson.Images.ShouldBeNull();
+        }
+
+        [Fact]
+        public void TestTraktRecentlyUpdatedPersonSettersWithPerson()
+        {
+            var ids = new TraktPersonIDs { Trakt = 297737U, Slug = "bryan-cranston" };
+            var socialIds = new TraktPersonSocialIDs { Twitter = "BryanCranston" };
+            var images = new TraktPersonImages();
+            DateTime updatedAt = TestUtility.ParseUTCDateTime("2022-11-03T18:58:09.000Z");
+#if NET7_0_OR_GREATER
+            DateOnly birthday = TestUtility.ParseDate("1956-03-07");
+            DateOnly death = TestUtility.ParseDate("2016-04-06");
+#else
+            DateTime birthday = TestUtility.ParseUTCDateTime("1956-03-07T00:00:00Z");
+            DateTime death = TestUtility.ParseUTCDateTime("2016-04-06T00:00:00Z");
+#endif
+
+            var recentlyUpdatedPerson = new TraktRecentlyUpdatedPerson
+            {
+                Person = new TraktPerson(),
+                Name = "Bryan Cranston",
+                IDs = ids,
+                Biography = "Biography",
+                Birthday = birthday,
+                Death = death,
+                Birthplace = "San Fernando Valley, California, USA",
+                Homepage = "http://www.bryancranston.com/",
+                Gender = TraktGender.Male,
+                KnownForDepartment = TraktKnownForDepartment.Acting,
+                SocialIds = socialIds,
+                UpdatedAt = updatedAt,
+                Images = images
+            };
+
+            TraktPerson? person = recentlyUpdatedPerson.Person;
+            person.ShouldNotBeNull();
+            person.Name.ShouldBe("Bryan Cranston");
+            person.IDs.ShouldBeSameAs(ids);
+            person.Biography.ShouldBe("Biography");
+            person.Birthday.ShouldBe(birthday);
+            person.Death.ShouldBe(death);
+            person.Birthplace.ShouldBe("San Fernando Valley, California, USA");
+            person.Homepage.ShouldBe("http://www.bryancranston.com/");
+            person.Gender.ShouldBe(TraktGender.Male);
+            person.KnownForDepartment.ShouldBe(TraktKnownForDepartment.Acting);
+            person.SocialIDs.ShouldBeSameAs(socialIds);
+            person.UpdatedAt.ShouldBe(updatedAt);
+            person.Images.ShouldBeSameAs(images);
+
+            recentlyUpdatedPerson.Age.ShouldBe(60);
+            recentlyUpdatedPerson.Images.ShouldBeSameAs(images);
+        }
+
+        [Fact]
+        public void TestTraktRecentlyUpdatedPersonSettersWithoutPerson()
+        {
+            var recentlyUpdatedPerson = new TraktRecentlyUpdatedPerson
+            {
+                Name = "Bryan Cranston",
+                IDs = new TraktPersonIDs(),
+                Biography = "Biography",
+                Birthday = default,
+                Death = default,
+                Birthplace = "Birthplace",
+                Homepage = "Homepage",
+                Gender = TraktGender.Male,
+                KnownForDepartment = TraktKnownForDepartment.Acting,
+                SocialIds = new TraktPersonSocialIDs(),
+                UpdatedAt = DateTime.UtcNow,
+                Images = new TraktPersonImages()
+            };
+
+            recentlyUpdatedPerson.Person.ShouldBeNull();
+            recentlyUpdatedPerson.Name.ShouldBeNull();
+            recentlyUpdatedPerson.IDs.ShouldBeNull();
+            recentlyUpdatedPerson.Biography.ShouldBeNull();
+            recentlyUpdatedPerson.Birthday.ShouldBeNull();
+            recentlyUpdatedPerson.Death.ShouldBeNull();
+            recentlyUpdatedPerson.Birthplace.ShouldBeNull();
+            recentlyUpdatedPerson.Homepage.ShouldBeNull();
+            recentlyUpdatedPerson.Gender.ShouldBeNull();
+            recentlyUpdatedPerson.KnownForDepartment.ShouldBeNull();
+            recentlyUpdatedPerson.SocialIds.ShouldBeNull();
+            recentlyUpdatedPerson.UpdatedAt.ShouldBeNull();
+            recentlyUpdatedPerson.Images.ShouldBeNull();
         }
 
         [Fact]

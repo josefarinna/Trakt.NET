@@ -18,11 +18,9 @@ namespace TraktNET
             switch (parameters.StatusCode)
             {
                 case Constants.StatusCodes.NotFound:
-                    HandleNotFoundError(parameters);
-                    break;
+                    throw CreateNotFoundException(parameters);
                 case Constants.StatusCodes.Conflict:
-                    await HandleConflictErrorAsync(parameters, cancellationToken).ConfigureAwait(false);
-                    break;
+                    throw await CreateConflictExceptionAsync(parameters, cancellationToken).ConfigureAwait(false);
                 case Constants.StatusCodes.BadRequest:
                     if (!parameters.IsInAuthorizationPolling)
                     {
@@ -53,8 +51,7 @@ namespace TraktNET
                 case Constants.StatusCodes.VIPValidationError:
                     throw new TraktApiVipValidationException(parameters);
                 case Constants.StatusCodes.RateLimitExceeded:
-                    await HandleRateLimitErrorAsync(parameters, cancellationToken).ConfigureAwait(false);
-                    break;
+                    throw await CreateRateLimitExceptionAsync(parameters, cancellationToken).ConfigureAwait(false);
                 case Constants.StatusCodes.Forbidden:
                 case Constants.StatusCodes.MethodNotFound:
                 case Constants.StatusCodes.ServerError:
@@ -90,33 +87,15 @@ namespace TraktNET
             }
         }
 
-        private static void HandleNotFoundError(ExceptionParameters parameters)
+        private static TraktApiException CreateNotFoundException(ExceptionParameters parameters)
         {
             if (parameters.Flags.IsDeviceRequest || parameters.IsInAuthorizationPolling)
-            {
-                throw new TraktApiAuthenticationDeviceException("Not Found - invalid device code", parameters);
-            }
-            else if (parameters.Flags.IsAuthorizationRevokeRequest)
-            {
-                throw new TraktApiAuthenticationException("Resource not found", parameters);
-            }
-            else if (parameters.RequestObjectType != TraktRequestObjectType.None)
-            {
-                HandleNotFoundObjectError(parameters);
-            }
+                return new TraktApiAuthenticationDeviceException("Not Found - invalid device code", parameters);
 
-            string message = "Resource not found";
+            if (parameters.Flags.IsAuthorizationRevokeRequest)
+                return new TraktApiAuthenticationException("Resource not found", parameters);
 
-            if (string.IsNullOrWhiteSpace(parameters.ReasonPhrase))
-            {
-                message = $"Resource not found - Reason Phrase: {parameters.ReasonPhrase}";
-            }
-
-            throw new TraktApiNotFoundException(message, parameters);
-        }
-
-        private static void HandleNotFoundObjectError(ExceptionParameters parameters)
-            => throw parameters.RequestObjectType switch
+            return parameters.RequestObjectType switch
             {
                 TraktRequestObjectType.Movie => new TraktApiMovieNotFoundException(parameters),
                 TraktRequestObjectType.Show => new TraktApiShowNotFoundException(parameters),
@@ -126,64 +105,52 @@ namespace TraktNET
                 TraktRequestObjectType.Comment => new TraktApiCommentNotFoundException(parameters),
                 TraktRequestObjectType.List => new TraktApiListNotFoundException(parameters),
                 TraktRequestObjectType.User => new TraktApiUserNotFoundException(parameters),
-                TraktRequestObjectType.None => new TraktApiObjectNotFoundException(parameters),
-                _ => new TraktApiObjectNotFoundException(parameters),
+                _ => new TraktApiNotFoundException(GetNotFoundMessage(parameters.ReasonPhrase), parameters)
             };
+        }
 
-        private static async Task HandleConflictErrorAsync(ExceptionParameters parameters, CancellationToken cancellationToken = default)
+        private static string GetNotFoundMessage(string reasonPhrase)
+            => string.IsNullOrWhiteSpace(reasonPhrase) ? $"Resource not found - Reason Phrase: {reasonPhrase}" : "Resource not found";
+
+        private static async Task<TraktApiException> CreateConflictExceptionAsync(ExceptionParameters parameters, CancellationToken cancellationToken = default)
         {
             if (parameters.Flags.IsCheckinRequest)
             {
-                if (!string.IsNullOrWhiteSpace(parameters.ResponseContent))
-                {
-                    try
-                    {
-                        using var contentStream = new MemoryStream(Encoding.UTF8.GetBytes(parameters.ResponseContent));
-                        parameters.CheckinErrorResponse = await contentStream.ReadAsJsonAsync<TraktCheckinErrorResponse>(cancellationToken).ConfigureAwait(false);
-                    }
-                    catch
-                    {
-                        // Exception handling while handling an API exception is not considered.
-                        // This might change in the future, but for now just catch any exceptions.
-                        // In this case these might be JsonException or ArgumentNullException.
-                        // In either case the content is not valid.
-                    }
-                }
-
-                throw new TraktApiCheckinException(parameters);
-            }
-            else if (parameters.IsInAuthorizationPolling)
-            {
-                throw new TraktApiAuthenticationDeviceException("Already Used - user already approved this code", parameters);
+                parameters.CheckinErrorResponse = await TryReadJsonAsync<TraktCheckinErrorResponse>(parameters.ResponseContent, cancellationToken).ConfigureAwait(false);
+                return new TraktApiCheckinException(parameters);
             }
 
-            throw new TraktApiConflictException(parameters);
+            if (parameters.IsInAuthorizationPolling)
+                return new TraktApiAuthenticationDeviceException("Already Used - user already approved this code", parameters);
+
+            return new TraktApiConflictException(parameters);
         }
 
-        private static async Task HandleRateLimitErrorAsync(ExceptionParameters parameters, CancellationToken cancellationToken = default)
+        private static async Task<TraktApiException> CreateRateLimitExceptionAsync(ExceptionParameters parameters, CancellationToken cancellationToken = default)
         {
             if (parameters.IsInAuthorizationPolling)
-            {
-                throw new TraktApiAuthenticationDeviceException("Slow Down - your app is polling too quickly", parameters);
-            }
+                return new TraktApiAuthenticationDeviceException("Slow Down - your app is polling too quickly", parameters);
 
-            if (!string.IsNullOrWhiteSpace(parameters.ResponseContent))
-            {
-                try
-                {
-                    using var contentStream = new MemoryStream(Encoding.UTF8.GetBytes(parameters.ResponseContent));
-                    parameters.RateLimitInfo = await contentStream.ReadAsJsonAsync<TraktRateLimitInfo>(cancellationToken).ConfigureAwait(false);
-                }
-                catch
-                {
-                    // Exception handling while handling an API exception is not considered.
-                    // This might change in the future, but for now just catch any exceptions.
-                    // In this case these might be JsonException or ArgumentNullException.
-                    // In either case the content is not valid.
-                }
-            }
+            parameters.RateLimitInfo = await TryReadJsonAsync<TraktRateLimitInfo>(parameters.ResponseContent, cancellationToken).ConfigureAwait(false);
+            return new TraktApiRateLimitException(parameters);
+        }
 
-            throw new TraktApiRateLimitException(parameters);
+        /// <summary>Reads the given JSON content, returning null if it is empty or not valid.</summary>
+        private static async Task<T?> TryReadJsonAsync<T>(string? json, CancellationToken cancellationToken) where T : class
+        {
+            if (string.IsNullOrWhiteSpace(json))
+                return null;
+
+            try
+            {
+                using var contentStream = new MemoryStream(Encoding.UTF8.GetBytes(json));
+                return await contentStream.ReadAsJsonAsync<T>(cancellationToken).ConfigureAwait(false);
+            }
+            catch
+            {
+                // Invalid content (e.g. a JsonException while reading it) is ignored.
+                return null;
+            }
         }
     }
 }

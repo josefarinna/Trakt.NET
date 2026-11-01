@@ -59,9 +59,6 @@ namespace TraktNET
 
             uint totalExpiredSeconds = 0;
 
-            var responseMessage = new HttpResponseMessage();
-            var traktHeaders = new TraktResponseHeaders();
-
             while (totalExpiredSeconds < device.ExpiresInSeconds)
             {
                 cancellationToken.ThrowIfCancellationRequested();
@@ -92,13 +89,14 @@ namespace TraktNET
                     continue;
                 }
 
-                responseMessage = response.ResponseMessage;
-                traktHeaders = response.TraktHeaders;
-
-                break;
+                // Unsuccessful status codes are already handled while executing the request,
+                // so only unexpected successful status codes remain here.
+                throw new TraktApiAuthenticationDeviceException("Device authorization polling failed - unexpected response status code",
+                    await ExceptionParameters.CreateAsync(request, response.ResponseMessage, response.TraktHeaders, true, cancellationToken).ConfigureAwait(false));
             }
 
-            throw new TraktApiAuthenticationDeviceException("Device authorization polling timed out.", await ExceptionParameters.CreateAsync(request, responseMessage, traktHeaders, true, cancellationToken));
+            throw new TraktApiAuthenticationDeviceException("Device authorization polling timed out.",
+                await ExceptionParameters.CreateAsync(request, new HttpResponseMessage(), new TraktResponseHeaders(), true, cancellationToken).ConfigureAwait(false));
         }
 
         private static async Task<RequestResponse> ExecutePollingRequestAsync(TraktContext context, RequestBase request,
@@ -169,9 +167,6 @@ namespace TraktNET
 
             var encodedUriContent = new FormUrlEncodedContent(uriParams!);
             string encodedUri = encodedUriContent.ReadAsStringAsync().Result;
-
-            if (string.IsNullOrEmpty(encodedUri))
-                throw new ArgumentException("authorization uri not valid");
 
             return $"?{encodedUri}";
         }

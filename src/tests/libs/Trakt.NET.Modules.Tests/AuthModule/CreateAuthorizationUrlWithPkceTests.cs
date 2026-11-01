@@ -122,6 +122,15 @@ namespace TraktNET.AuthModule
             act = () => client.Auth.CreateAuthorizationUrlWithPkce(new TraktPkceChallenge(CodeVerifier, "invalid challenge"));
             act.ShouldThrow<ArgumentException>();
 
+            act = () => client.Auth.CreateAuthorizationUrlWithPkce(new TraktPkceChallenge(CodeVerifier, CodeChallenge, ""));
+            act.ShouldThrow<ArgumentException>().ParamName.ShouldBe("codeChallengeMethod");
+
+            act = () => client.Auth.CreateAuthorizationUrlWithPkce(new TraktPkceChallenge(CodeVerifier, CodeChallenge, "invalid method"));
+            act.ShouldThrow<ArgumentException>().ParamName.ShouldBe("codeChallengeMethod");
+
+            act = () => client.Auth.CreateAuthorizationUrlWithPkce(new TraktPkceChallenge(CodeVerifier, null!));
+            act.ShouldThrow<ArgumentException>().ParamName.ShouldBe("codeChallengeMethod");
+
             act = () => client.Auth.CreateAuthorizationUrlWithPkce(s_pkce, "client id");
             act.ShouldThrow<ArgumentException>();
 

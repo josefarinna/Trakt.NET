@@ -113,6 +113,22 @@ namespace TraktNET
                 .Respond(statusCode);
         }
 
+        public void SetupMockResponse(string requestUri, Func<HttpRequestMessage, HttpResponseMessage> responseFactory)
+        {
+            if (string.IsNullOrWhiteSpace(requestUri))
+            {
+                throw new ArgumentException(InvalidRequestUriMessage, nameof(requestUri));
+            }
+
+            _mockHttpMessageHandler.When(_baseUrl + requestUri)
+                .WithHeaders(new Dictionary<string, string>
+                {
+                    { TraktApiHeaderKey, TestConstants.ClientID },
+                    { TraktApiVersionHeaderKey, "2" }
+                })
+                .Respond(responseFactory);
+        }
+
         public void SetupOAuthMockResponse(string requestUri, string responseContent, uint? page, uint? pageCount, uint? limit, uint? itemCount, bool noOauthHeaders = false)
         {
             if (string.IsNullOrWhiteSpace(requestUri))

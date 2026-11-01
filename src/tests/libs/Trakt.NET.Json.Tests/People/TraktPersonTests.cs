@@ -1,4 +1,6 @@
-﻿namespace TraktNET.Json.People
+﻿using System.Globalization;
+
+namespace TraktNET.Json.People
 {
     public sealed class TraktPersonTests
     {
@@ -13,12 +15,45 @@
             person.Biography.ShouldBeNull();
             person.Birthday.ShouldBeNull();
             person.Death.ShouldBeNull();
+            person.Age.ShouldBe(0);
             person.Birthplace.ShouldBeNull();
             person.Homepage.ShouldBeNull();
             person.KnownForDepartment.ShouldBeNull();
             person.Gender.ShouldBeNull();
             person.UpdatedAt.ShouldBeNull();
         }
+
+        [Theory]
+        [InlineData("1956-03-07", "2016-04-06", 60)]
+        [InlineData("1956-03-07", "2016-03-07", 60)]
+        [InlineData("1956-03-07", "2016-03-06", 59)]
+        public void TestTraktPersonAgeWithDeath(string birthday, string death, int expectedAge)
+        {
+            var person = new TraktPerson
+            {
+                Birthday = ParseDate(birthday),
+                Death = ParseDate(death)
+            };
+
+            person.Age.ShouldBe(expectedAge);
+        }
+
+        [Fact]
+        public void TestTraktPersonAgeWithoutDeath()
+        {
+            DateTime today = DateTime.Today;
+            var person = new TraktPerson { Birthday = ParseDate(today.AddYears(-30).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)) };
+            person.Age.ShouldBe(30);
+
+            person.Birthday = ParseDate(today.AddYears(-30).AddDays(1).ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
+            person.Age.ShouldBe(29);
+        }
+
+#if NET7_0_OR_GREATER
+        private static DateOnly ParseDate(string date) => TestUtility.ParseDate(date);
+#else
+        private static DateTime ParseDate(string date) => DateTime.Parse(date, CultureInfo.InvariantCulture);
+#endif
 
         [Fact]
         public async Task TestTraktPersonFromJsonMinimal()

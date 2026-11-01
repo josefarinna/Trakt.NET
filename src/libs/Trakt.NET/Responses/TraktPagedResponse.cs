@@ -41,21 +41,7 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="InvalidOperationException">Thrown if this response was not created by a request and therefore cannot retrieve another page.</exception>
         public Task<TraktPagedResponse<TResponseContentType>> GetPreviousPageAsync(CancellationToken cancellationToken = default)
-        {
-            if (HasPreviousPage)
-            {
-                if (Context is not TraktContext context || RequestBuilder is not Func<uint?, uint?, RequestBase> requestBuilder)
-                    throw new InvalidOperationException(MISSING_REQUEST_CONTEXT_MESSAGE);
-
-                if (Page.HasValue && Page.Value > 1)
-                {
-                    RequestBase request = requestBuilder(Page.Value - 1, Limit);
-                    return RequestHandler.ExecutePagedListRequestAsync<TResponseContentType>(context, request, requestBuilder, cancellationToken);
-                }
-            }
-
-            return Task.FromResult(this);
-        }
+            => HasPreviousPage ? GetPageAsync(Page.GetValueOrDefault() - 1, cancellationToken) : Task.FromResult(this);
 
         /// <summary>
         /// Gets the next retrievable page for this response, if <see cref="HasNextPage" /> is true.
@@ -76,20 +62,15 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="InvalidOperationException">Thrown if this response was not created by a request and therefore cannot retrieve another page.</exception>
         public Task<TraktPagedResponse<TResponseContentType>> GetNextPageAsync(CancellationToken cancellationToken = default)
+            => HasNextPage ? GetPageAsync(Page.GetValueOrDefault() + 1, cancellationToken) : Task.FromResult(this);
+
+        private Task<TraktPagedResponse<TResponseContentType>> GetPageAsync(uint page, CancellationToken cancellationToken)
         {
-            if (HasNextPage)
-            {
-                if (Context is not TraktContext context || RequestBuilder is not Func<uint?, uint?, RequestBase> requestBuilder)
-                    throw new InvalidOperationException(MISSING_REQUEST_CONTEXT_MESSAGE);
+            if (Context is not TraktContext context || RequestBuilder is not Func<uint?, uint?, RequestBase> requestBuilder)
+                throw new InvalidOperationException(MISSING_REQUEST_CONTEXT_MESSAGE);
 
-                if (Page.HasValue && PageCount.HasValue && Page.Value < PageCount.Value)
-                {
-                    RequestBase request = requestBuilder(Page.Value + 1, Limit);
-                    return RequestHandler.ExecutePagedListRequestAsync<TResponseContentType>(context, request, requestBuilder, cancellationToken);
-                }
-            }
-
-            return Task.FromResult(this);
+            RequestBase request = requestBuilder(page, Limit);
+            return RequestHandler.ExecutePagedListRequestAsync<TResponseContentType>(context, request, requestBuilder, cancellationToken);
         }
     }
 }

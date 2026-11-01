@@ -1,5 +1,9 @@
 using System.Net;
 
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+using System.Net.Http;
+#endif
+
 namespace TraktNET
 {
     public static class ModuleTestUtility
@@ -36,6 +40,15 @@ namespace TraktNET
             var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
             var httpClientProvider = new TestHttpClientProvider(Constants.Api.BaseURL);
             httpClientProvider.SetupMockResponse(requestUri, statusCode);
+            client.HttpClientProvider = httpClientProvider;
+            return client;
+        }
+
+        public static TraktClient GetClient(string requestUri, Func<HttpRequestMessage, HttpResponseMessage> responseFactory)
+        {
+            var client = TraktClient.Create(TestConstants.ClientID, TestConstants.ClientSecret);
+            var httpClientProvider = new TestHttpClientProvider(GetBaseUrl(requestUri));
+            httpClientProvider.SetupMockResponse(requestUri, responseFactory);
             client.HttpClientProvider = httpClientProvider;
             return client;
         }

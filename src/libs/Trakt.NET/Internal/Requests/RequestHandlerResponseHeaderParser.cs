@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Net.Http.Headers;
-using System.Text;
 
 namespace TraktNET
 {
@@ -51,26 +50,7 @@ namespace TraktNET
                 ? value.ToUniversalTime()
                 : null;
 
-        private static async Task<TraktRateLimitInfo?> GetRateLimitHeaderValueAsync(HttpResponseHeaders responseHeaders, CancellationToken cancellationToken)
-        {
-            string? rateLimitInfo = GetHeaderValue(responseHeaders, Constants.ResponseHeaders.HEADER_RATE_LIMIT);
-
-            if (string.IsNullOrWhiteSpace(rateLimitInfo))
-                return null;
-
-            try
-            {
-                using var contentStream = new MemoryStream(Encoding.UTF8.GetBytes(rateLimitInfo));
-                return await contentStream.ReadAsJsonAsync<TraktRateLimitInfo>(cancellationToken).ConfigureAwait(false);
-            }
-            catch
-            {
-                // Exception handling is not considered here.
-                // This might change in the future, but for now just catch any exceptions.
-                // In this case these might be JsonException or ArgumentNullException.
-                // In either case the rate limit info is not valid.
-                return null;
-            }
-        }
+        private static Task<TraktRateLimitInfo?> GetRateLimitHeaderValueAsync(HttpResponseHeaders responseHeaders, CancellationToken cancellationToken)
+            => TryReadJsonAsync<TraktRateLimitInfo>(GetHeaderValue(responseHeaders, Constants.ResponseHeaders.HEADER_RATE_LIMIT), cancellationToken);
     }
 }
