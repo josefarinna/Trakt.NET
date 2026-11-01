@@ -178,6 +178,7 @@ namespace TraktNET.AuthModule
             Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.PollForAuthorizationAsync(device, TestContext.Current.CancellationToken);
             TraktApiAuthenticationDeviceException exception = await act.ShouldThrowAsync<TraktApiAuthenticationDeviceException>();
             exception.ReasonPhrase.ShouldBe("Device authorization polling timed out.");
+            exception.StatusCode.ShouldBe(HttpStatusCode.BadRequest);
         }
 
         [Fact]

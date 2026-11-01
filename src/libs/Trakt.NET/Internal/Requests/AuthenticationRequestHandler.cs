@@ -59,7 +59,7 @@ namespace TraktNET
 
             uint totalExpiredSeconds = 0;
 
-            while (totalExpiredSeconds < device.ExpiresInSeconds)
+            while (true)
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
@@ -81,11 +81,18 @@ namespace TraktNET
                         response.ResponseMessage.Headers, response.ResponseMessage.Content.Headers);
                 }
 
+                // A bad request response means, that the authorization is still pending.
                 if (response.ResponseMessage.StatusCode == HttpStatusCode.BadRequest)
                 {
-                    await Task.Delay((int)device.IntervalInMilliseconds, cancellationToken).ConfigureAwait(false);
                     totalExpiredSeconds += device.IntervalInSeconds;
 
+                    if (totalExpiredSeconds >= device.ExpiresInSeconds)
+                    {
+                        throw new TraktApiAuthenticationDeviceException("Device authorization polling timed out.",
+                            await ExceptionParameters.CreateAsync(request, response.ResponseMessage, response.TraktHeaders, true, cancellationToken).ConfigureAwait(false));
+                    }
+
+                    await Task.Delay((int)device.IntervalInMilliseconds, cancellationToken).ConfigureAwait(false);
                     continue;
                 }
 
@@ -94,9 +101,6 @@ namespace TraktNET
                 throw new TraktApiAuthenticationDeviceException("Device authorization polling failed - unexpected response status code",
                     await ExceptionParameters.CreateAsync(request, response.ResponseMessage, response.TraktHeaders, true, cancellationToken).ConfigureAwait(false));
             }
-
-            throw new TraktApiAuthenticationDeviceException("Device authorization polling timed out.",
-                await ExceptionParameters.CreateAsync(request, new HttpResponseMessage(), new TraktResponseHeaders(), true, cancellationToken).ConfigureAwait(false));
         }
 
         private static async Task<RequestResponse> ExecutePollingRequestAsync(TraktContext context, RequestBase request,
