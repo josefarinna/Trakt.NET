@@ -443,33 +443,35 @@ namespace TraktNET.SourceGeneration.Requests
             }
 
             if (_knownRequestSymbols.TraktOAuthRequirementEnumType != null)
-            {
-                if (namedArguments.TryGetValue(RequestConstants.TraktRequestPropertyOAuthRequirementName, out TypedConstant oauthRequirementConstant))
-                {
-                    if (SymbolEqualityComparer.Default.Equals(oauthRequirementConstant.Type, _knownRequestSymbols.TraktOAuthRequirementEnumType)
-                        && oauthRequirementConstant.Value is int requirementValue)
-                    {
-                        _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
-
-                        IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues
-                            .FirstOrDefault(x => x.ConstantValue is int enumValue && enumValue == requirementValue);
-
-                        if (enumField != null)
-                        {
-                            _requestOAuthRequirementValue = enumField.Name;
-                        }
-                    }
-                }
-                else
-                {
-                    // If not defined, use first value ("NotRequired") as default.
-                    _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
-                    IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues[0];
-                    _requestOAuthRequirementValue = enumField.Name;
-                }
-            }
+                ParseOAuthRequirement(namedArguments);
 
             return true;
+        }
+
+        private void ParseOAuthRequirement(ImmutableDictionary<string, TypedConstant> namedArguments)
+        {
+            if (!namedArguments.TryGetValue(RequestConstants.TraktRequestPropertyOAuthRequirementName, out TypedConstant oauthRequirementConstant))
+            {
+                // If not defined, use first value ("NotRequired") as default.
+                _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
+                IFieldSymbol? defaultEnumField = _knownRequestSymbols.TraktOAuthRequirementValues[0];
+                _requestOAuthRequirementValue = defaultEnumField.Name;
+                return;
+            }
+
+            if (!SymbolEqualityComparer.Default.Equals(oauthRequirementConstant.Type, _knownRequestSymbols.TraktOAuthRequirementEnumType)
+                || oauthRequirementConstant.Value is not int requirementValue)
+            {
+                return;
+            }
+
+            _requestHasOAuthRequirementDefined = _knownRequestSymbols.TraktOAuthRequirementValues.Count > 0;
+
+            IFieldSymbol? enumField = _knownRequestSymbols.TraktOAuthRequirementValues
+                .FirstOrDefault(x => x.ConstantValue is int enumValue && enumValue == requirementValue);
+
+            if (enumField != null)
+                _requestOAuthRequirementValue = enumField.Name;
         }
 
         private void GetHttpMethodValue(AttributeData attributeData, CancellationToken cancellationToken)

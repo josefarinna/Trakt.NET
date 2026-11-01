@@ -139,64 +139,8 @@ namespace TraktNET.SourceGeneration.Requests
 
         private void WriteRequestClassContent()
         {
-            bool needsEmptyLine = false;
-
-            if (_uriPlaceHolders.Count > 0)
-            {
-                foreach (PlaceHolder placeHolder in _uriPlaceHolders)
-                {
-                    string modifier = "internal";
-                    string setOrInit = "set";
-
-                    if (placeHolder.IsRequired)
-                    {
-                        modifier += " required";
-                        setOrInit = "init";
-                    }
-
-                    _sourceWriter.WriteLine($"{modifier} {placeHolder.ValueType} {placeHolder.Name} {{ get; {setOrInit}; }}");
-                    _sourceWriter.WriteEmptyLine();
-                }
-            }
-
-            if (_supportsExtendedInfo)
-            {
-                WriteExtendedInfoProperty();
-                needsEmptyLine = true;
-            }
-
-            if (_supportsPagination)
-            {
-                if (needsEmptyLine)
-                {
-                    _sourceWriter.WriteEmptyLine();
-                }
-                else
-                {
-                    needsEmptyLine = true;
-                }
-
-                WritePaginationProperties();
-            }
-
-            if (_hasOAuthRequirementDefined)
-            {
-                if (needsEmptyLine)
-                {
-                    _sourceWriter.WriteEmptyLine();
-                }
-                else
-                {
-                    needsEmptyLine = true;
-                }
-
-                WirteOAuthRequirementProperty();
-            }
-
-            if (needsEmptyLine)
-            {
-                _sourceWriter.WriteEmptyLine();
-            }
+            WriteUriPlaceHolderProperties();
+            WriteOptionalProperties();
 
             WriteRequestConstructor();
             _sourceWriter.WriteEmptyLine();
@@ -215,12 +159,51 @@ namespace TraktNET.SourceGeneration.Requests
                 WriteGetQueriesMethod();
             }
 
-            if (_uriPlaceHolders.Any(x => x.NeedsVerification) || _requestParameters.Any(x => x.IsRequired) || _requestQueries.Any(x => x.IsRequired) || (_requestPayload != null && (_requestPayload.IsRequired || _requestPayload.HasValidateMethod)))
+            if (NeedsValidateMethod())
             {
                 _sourceWriter.WriteEmptyLine();
                 WriteValidateMethod();
             }
         }
+
+        private void WriteUriPlaceHolderProperties()
+        {
+            foreach (PlaceHolder placeHolder in _uriPlaceHolders)
+            {
+                string modifier = placeHolder.IsRequired ? "internal required" : "internal";
+                string setOrInit = placeHolder.IsRequired ? "init" : "set";
+
+                _sourceWriter.WriteLine($"{modifier} {placeHolder.ValueType} {placeHolder.Name} {{ get; {setOrInit}; }}");
+                _sourceWriter.WriteEmptyLine();
+            }
+        }
+
+        /// <summary>Writes the extended info, pagination and OAuth requirement properties, each followed by an empty line.</summary>
+        private void WriteOptionalProperties()
+        {
+            List<Action> propertyWriters = [];
+
+            if (_supportsExtendedInfo)
+                propertyWriters.Add(WriteExtendedInfoProperty);
+
+            if (_supportsPagination)
+                propertyWriters.Add(WritePaginationProperties);
+
+            if (_hasOAuthRequirementDefined)
+                propertyWriters.Add(WirteOAuthRequirementProperty);
+
+            foreach (Action writeProperty in propertyWriters)
+            {
+                writeProperty();
+                _sourceWriter.WriteEmptyLine();
+            }
+        }
+
+        private bool NeedsValidateMethod()
+            => _uriPlaceHolders.Any(x => x.NeedsVerification)
+            || _requestParameters.Any(x => x.IsRequired)
+            || _requestQueries.Any(x => x.IsRequired)
+            || (_requestPayload != null && (_requestPayload.IsRequired || _requestPayload.HasValidateMethod));
 
         private void WriteExtendedInfoProperty()
             => _sourceWriter.WriteLine("internal TraktExtendedInfo? ExtendedInfo { get; set; }");
