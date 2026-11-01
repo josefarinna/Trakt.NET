@@ -110,7 +110,7 @@ namespace TraktNET
         }
 
         private static string GetNotFoundMessage(string reasonPhrase)
-            => string.IsNullOrWhiteSpace(reasonPhrase) ? $"Resource not found - Reason Phrase: {reasonPhrase}" : "Resource not found";
+            => !string.IsNullOrWhiteSpace(reasonPhrase) ? $"Resource not found - Reason Phrase: {reasonPhrase}" : "Resource not found";
 
         private static async Task<TraktApiException> CreateConflictExceptionAsync(ExceptionParameters parameters, CancellationToken cancellationToken = default)
         {

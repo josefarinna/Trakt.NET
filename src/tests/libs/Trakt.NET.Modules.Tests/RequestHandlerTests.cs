@@ -11,6 +11,7 @@ namespace TraktNET
     {
         private const string CheckinUri = "checkin";
         private const string GetFriendsUri = "users/sean/friends";
+        private const string MovieGenresUri = "genres/movies";
         private const string Username = "sean";
         private const string RateLimitHeader = "X-Ratelimit";
         private const string RateLimitJson = """{"name":"UNAUTHED_API_GET_LIMIT","period":300,"limit":1000,"remaining":0,"until":"2026-01-01T12:00:00Z"}""";
@@ -100,6 +101,25 @@ namespace TraktNET
 
             response.IsSuccess.ShouldBeTrue();
             response.RateLimit.ShouldBeNull();
+        }
+
+        [Theory]
+        [InlineData("Not Found", "Resource not found - Reason Phrase: Not Found")]
+        [InlineData("", "Resource not found")]
+        public async Task TestNotFoundExceptionMessage(string reasonPhrase, string expectedMessage)
+        {
+            TraktClient client = ModuleTestUtility.GetClient(MovieGenresUri, _ =>
+            {
+                HttpResponseMessage response = CreateResponse(HttpStatusCode.NotFound, string.Empty);
+                response.ReasonPhrase = reasonPhrase;
+                return response;
+            });
+
+            Func<Task<TraktListResponse<TraktGenre>>> act = () => client.Genres.GetMovieGenresAsync(cancellationToken: TestContext.Current.CancellationToken);
+            TraktApiNotFoundException exception = await act.ShouldThrowAsync<TraktApiNotFoundException>();
+
+            exception.ShouldBeOfType<TraktApiNotFoundException>();
+            exception.ReasonPhrase.ShouldBe(expectedMessage);
         }
 
         [Theory]
