@@ -13,196 +13,15 @@ namespace TraktNET
     {
         internal static JsonSerializerContext GetContext<TJsonObjectType>()
         {
-            if (s_authenticationJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(AuthenticationContextCacheKey));
-                return s_jsonSerializerContexts[AuthenticationContextCacheKey];
-            }
+            Type jsonObjectType = typeof(TJsonObjectType);
 
-            if (s_calendarssJsonTypes.Contains(typeof(TJsonObjectType)))
+            foreach ((IReadOnlySet<Type> jsonTypes, string contextCacheKey) in s_contextLookup)
             {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(CalendarsContextCacheKey));
-                return s_jsonSerializerContexts[CalendarsContextCacheKey];
-            }
-
-            if (s_certificationsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(CertificationsContextCacheKey));
-                return s_jsonSerializerContexts[CertificationsContextCacheKey];
-            }
-
-            if (s_checkinJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(CheckinContextCacheKey));
-                return s_jsonSerializerContexts[CheckinContextCacheKey];
-            }
-
-            if (s_commentsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(CommentsContextCacheKey));
-                return s_jsonSerializerContexts[CommentsContextCacheKey];
-            }
-
-            if (s_countriesJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(CountriesContextCacheKey));
-                return s_jsonSerializerContexts[CountriesContextCacheKey];
-            }
-
-            if (s_episodeJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(EpisodesContextCacheKey));
-                return s_jsonSerializerContexts[EpisodesContextCacheKey];
-            }
-
-            if (s_generalJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(GeneralContextCacheKey));
-                return s_jsonSerializerContexts[GeneralContextCacheKey];
-            }
-
-            if (s_genresJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(GenresContextCacheKey));
-                return s_jsonSerializerContexts[GenresContextCacheKey];
-            }
-
-            if (s_historyJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(HistoryContextCacheKey));
-                return s_jsonSerializerContexts[HistoryContextCacheKey];
-            }
-
-            if (s_languagesJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(LanguagesContextCacheKey));
-                return s_jsonSerializerContexts[LanguagesContextCacheKey];
-            }
-
-            if (s_listsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(ListsContextCacheKey));
-                return s_jsonSerializerContexts[ListsContextCacheKey];
-            }
-
-            if (s_mediaJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(MediaContextCacheKey));
-                return s_jsonSerializerContexts[MediaContextCacheKey];
-            }
-
-            if (s_movieJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(MoviesContextCacheKey));
-                return s_jsonSerializerContexts[MoviesContextCacheKey];
-            }
-
-            if (s_networksJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(NetworksContextCacheKey));
-                return s_jsonSerializerContexts[NetworksContextCacheKey];
-            }
-
-            if (s_notesJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(NotesContextCacheKey));
-                return s_jsonSerializerContexts[NotesContextCacheKey];
-            }
-
-            if (s_peopleJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(PeopleContextCacheKey));
-                return s_jsonSerializerContexts[PeopleContextCacheKey];
-            }
-
-            if (s_ratingsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(RatingsContextCacheKey));
-                return s_jsonSerializerContexts[RatingsContextCacheKey];
-            }
-
-            if (s_recommendationsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(RecommendationsContextCacheKey));
-                return s_jsonSerializerContexts[RecommendationsContextCacheKey];
-            }
-
-            if (s_responsesJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(ResponsesContextCacheKey));
-                return s_jsonSerializerContexts[ResponsesContextCacheKey];
-            }
-
-            if (s_scrobblesJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(ScrobllesContextCacheKey));
-                return s_jsonSerializerContexts[ScrobllesContextCacheKey];
-            }
-
-            if (s_searchsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(SearchsContextCacheKey));
-                return s_jsonSerializerContexts[SearchsContextCacheKey];
-            }
-
-            if (s_seasonsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(SeasonsContextCacheKey));
-                return s_jsonSerializerContexts[SeasonsContextCacheKey];
-            }
-
-            if (s_showsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(ShowsContextCacheKey));
-                return s_jsonSerializerContexts[ShowsContextCacheKey];
-            }
-
-            if (s_smartListsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(SmartListsContextCacheKey));
-                return s_jsonSerializerContexts[SmartListsContextCacheKey];
-            }
-
-            if (s_syncsJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(SyncsContextCacheKey));
-                return s_jsonSerializerContexts[SyncsContextCacheKey];
-            }
-
-            if (s_teamJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(TeamContextCacheKey));
-                return s_jsonSerializerContexts[TeamContextCacheKey];
-            }
-
-            if (s_usersJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(UsersContextCacheKey));
-                return s_jsonSerializerContexts[UsersContextCacheKey];
-            }
-
-            if (s_watchedJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(WatchedContextCacheKey));
-                return s_jsonSerializerContexts[WatchedContextCacheKey];
-            }
-
-            if (s_watchlistJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(WatchlistContextCacheKey));
-                return s_jsonSerializerContexts[WatchlistContextCacheKey];
-            }
-
-            if (s_watchnowJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(WatchnowContextCacheKey));
-                return s_jsonSerializerContexts[WatchnowContextCacheKey];
-            }
-
-            if (s_younifyJsonTypes.Contains(typeof(TJsonObjectType)))
-            {
-                Debug.Assert(s_jsonSerializerContexts.ContainsKey(YounifyContextCacheKey));
-                return s_jsonSerializerContexts[YounifyContextCacheKey];
+                if (jsonTypes.Contains(jsonObjectType))
+                {
+                    Debug.Assert(s_jsonSerializerContexts.ContainsKey(contextCacheKey));
+                    return s_jsonSerializerContexts[contextCacheKey];
+                }
             }
 
             throw new NotSupportedException($"Json type {nameof(TJsonObjectType)} has no registered json serializer context.");
@@ -1430,6 +1249,43 @@ namespace TraktNET
             typeof(TraktYounifyRefreshServicePost)
         ];
 #endif
+
+        // Order matters: a type registered in multiple sets resolves to the first matching context.
+        private static readonly (IReadOnlySet<Type> JsonTypes, string ContextCacheKey)[] s_contextLookup =
+        [
+            (s_authenticationJsonTypes, AuthenticationContextCacheKey),
+            (s_calendarssJsonTypes, CalendarsContextCacheKey),
+            (s_certificationsJsonTypes, CertificationsContextCacheKey),
+            (s_checkinJsonTypes, CheckinContextCacheKey),
+            (s_commentsJsonTypes, CommentsContextCacheKey),
+            (s_countriesJsonTypes, CountriesContextCacheKey),
+            (s_episodeJsonTypes, EpisodesContextCacheKey),
+            (s_generalJsonTypes, GeneralContextCacheKey),
+            (s_genresJsonTypes, GenresContextCacheKey),
+            (s_historyJsonTypes, HistoryContextCacheKey),
+            (s_languagesJsonTypes, LanguagesContextCacheKey),
+            (s_listsJsonTypes, ListsContextCacheKey),
+            (s_mediaJsonTypes, MediaContextCacheKey),
+            (s_movieJsonTypes, MoviesContextCacheKey),
+            (s_networksJsonTypes, NetworksContextCacheKey),
+            (s_notesJsonTypes, NotesContextCacheKey),
+            (s_peopleJsonTypes, PeopleContextCacheKey),
+            (s_ratingsJsonTypes, RatingsContextCacheKey),
+            (s_recommendationsJsonTypes, RecommendationsContextCacheKey),
+            (s_responsesJsonTypes, ResponsesContextCacheKey),
+            (s_scrobblesJsonTypes, ScrobllesContextCacheKey),
+            (s_searchsJsonTypes, SearchsContextCacheKey),
+            (s_seasonsJsonTypes, SeasonsContextCacheKey),
+            (s_showsJsonTypes, ShowsContextCacheKey),
+            (s_smartListsJsonTypes, SmartListsContextCacheKey),
+            (s_syncsJsonTypes, SyncsContextCacheKey),
+            (s_teamJsonTypes, TeamContextCacheKey),
+            (s_usersJsonTypes, UsersContextCacheKey),
+            (s_watchedJsonTypes, WatchedContextCacheKey),
+            (s_watchlistJsonTypes, WatchlistContextCacheKey),
+            (s_watchnowJsonTypes, WatchnowContextCacheKey),
+            (s_younifyJsonTypes, YounifyContextCacheKey)
+        ];
     }
 }
 #endif

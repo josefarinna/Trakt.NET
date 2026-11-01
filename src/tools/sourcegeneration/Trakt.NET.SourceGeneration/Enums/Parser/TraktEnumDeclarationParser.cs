@@ -86,63 +86,64 @@ namespace TraktNET.SourceGeneration.Enums
                 INamedTypeSymbol? attributeClass = attributeData.AttributeClass;
 
                 if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownEnumSymbols.SystemFlagsAttributeType))
-                {
                     _hasFlagsAttribute = true;
-                }
-                else if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownEnumSymbols.TraktEnumAttributeType))
-                {
-                    var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
-
-                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyJsonSeparator, out TypedConstant jsonSeparatorConstant)
-                        && jsonSeparatorConstant.Value is string jsonSeparator)
-                    {
-                        if (string.IsNullOrEmpty(jsonSeparator))
-                        {
-                            ReportDiagnostic(DiagnosticDescriptors.InvalidCustomJsonSeparator);
-                            return false;
-                        }
-                        else
-                        {
-                            _customJsonSeparator = jsonSeparator;
-                        }
-                    }
-
-                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyQueryName, out TypedConstant queryNameConstant)
-                        && queryNameConstant.Value is string queryName)
-                    {
-                        if (string.IsNullOrEmpty(queryName))
-                        {
-                            ReportDiagnostic(DiagnosticDescriptors.InvalidQueryNameValue);
-                            return false;
-                        }
-
-                        _queryName = queryName;
-                    }
-
-                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyHasPathSupport, out TypedConstant hasPathSupportConstant)
-                        && hasPathSupportConstant.Value is bool hasPathSupport)
-                    {
-                        _hasPathSupport = hasPathSupport;
-                    }
-
-                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyHasQuerySupport, out TypedConstant hasQuerySupportConstant)
-                        && hasQuerySupportConstant.Value is bool hasQuerySupport)
-                    {
-                        _hasQuerySupport = hasQuerySupport;
-                    }
-
-                    if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertySupportNumberDeserialization, out TypedConstant supportNumberDeserializationConstant)
-                        && supportNumberDeserializationConstant.Value is bool supportNumberDeserialization)
-                    {
-                        _supportNumberDeserialization = supportNumberDeserialization;
-                    }
-                }
+                else if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownEnumSymbols.TraktEnumAttributeType) && !ParseTraktEnumAttribute(attributeData))
+                    return false;
             }
 
             if (_hasQuerySupport && string.IsNullOrWhiteSpace(_queryName))
             {
                 ReportDiagnostic(DiagnosticDescriptors.InvalidQuerySupportAndQueryNameCombination);
                 return false;
+            }
+
+            return true;
+        }
+
+        private bool ParseTraktEnumAttribute(AttributeData attributeData)
+        {
+            var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
+
+            if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyJsonSeparator, out TypedConstant jsonSeparatorConstant)
+                && jsonSeparatorConstant.Value is string jsonSeparator)
+            {
+                if (string.IsNullOrEmpty(jsonSeparator))
+                {
+                    ReportDiagnostic(DiagnosticDescriptors.InvalidCustomJsonSeparator);
+                    return false;
+                }
+
+                _customJsonSeparator = jsonSeparator;
+            }
+
+            if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyQueryName, out TypedConstant queryNameConstant)
+                && queryNameConstant.Value is string queryName)
+            {
+                if (string.IsNullOrEmpty(queryName))
+                {
+                    ReportDiagnostic(DiagnosticDescriptors.InvalidQueryNameValue);
+                    return false;
+                }
+
+                _queryName = queryName;
+            }
+
+            if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyHasPathSupport, out TypedConstant hasPathSupportConstant)
+                && hasPathSupportConstant.Value is bool hasPathSupport)
+            {
+                _hasPathSupport = hasPathSupport;
+            }
+
+            if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertyHasQuerySupport, out TypedConstant hasQuerySupportConstant)
+                && hasQuerySupportConstant.Value is bool hasQuerySupport)
+            {
+                _hasQuerySupport = hasQuerySupport;
+            }
+
+            if (namedArguments.TryGetValue(EnumConstants.TraktEnumPropertySupportNumberDeserialization, out TypedConstant supportNumberDeserializationConstant)
+                && supportNumberDeserializationConstant.Value is bool supportNumberDeserialization)
+            {
+                _supportNumberDeserialization = supportNumberDeserialization;
             }
 
             return true;
@@ -155,97 +156,96 @@ namespace TraktNET.SourceGeneration.Enums
                 cancellationToken.ThrowIfCancellationRequested();
 
                 if (enumMember is not IFieldSymbol enumField || enumField.ConstantValue == null)
-                {
                     continue;
-                }
 
-                string enumMemberName = enumField.Name;
-                string displayName = enumMemberName.ToDisplayName();
-                string jsonValue = enumMemberName.ToLowercaseNamingConvention(_customJsonSeparator);
-                string uriValue = jsonValue;
-                bool hasTraktEnumMemberAttribute = false;
-                bool hasCustomJsonValue = false;
-                bool hasCustomUriValue = false;
+                if (!TryParseEnumMember(enumField, cancellationToken, out EnumMemberGenerationSpecification? memberSpecification))
+                    return false;
 
-                foreach (AttributeData attributeData in enumField.GetAttributes())
-                {
-                    cancellationToken.ThrowIfCancellationRequested();
-
-                    INamedTypeSymbol? attributeClass = attributeData.AttributeClass;
-
-                    if (SymbolEqualityComparer.Default.Equals(attributeClass, _knownEnumSymbols.TraktEnumMemberAttributeType))
-                    {
-                        hasTraktEnumMemberAttribute = true;
-                        bool hasAnyCustomValueSet = false;
-
-                        var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
-
-                        if (namedArguments.TryGetValue(EnumConstants.TraktEnumMemberPropertyJsonValue, out TypedConstant jsonValueConstant))
-                        {
-                            if (jsonValueConstant.Value is not string constantJsonValue)
-                            {
-                                ReportDiagnostic(DiagnosticDescriptors.InvalidJsonValue);
-                                return false;
-                            }
-                            else
-                            {
-                                hasAnyCustomValueSet = true;
-                                hasCustomJsonValue = true;
-                                jsonValue = constantJsonValue;
-                            }
-                        }
-
-                        if (namedArguments.TryGetValue(EnumConstants.TraktEnumMemberPropertyUriValue, out TypedConstant uriValueConstant))
-                        {
-                            if (uriValueConstant.Value is not string constantUriValue)
-                            {
-                                ReportDiagnostic(DiagnosticDescriptors.InvalidUriValue);
-                                return false;
-                            }
-                            else
-                            {
-                                hasAnyCustomValueSet = true;
-                                hasCustomUriValue = true;
-                                uriValue = constantUriValue;
-                            }
-                        }
-
-                        if (namedArguments.TryGetValue(EnumConstants.TraktEnumMemberPropertyDisplayName, out TypedConstant displayNameConstant))
-                        {
-                            if (displayNameConstant.Value is not string displayNameValue)
-                            {
-                                ReportDiagnostic(DiagnosticDescriptors.InvalidDisplayNameValue);
-                                return false;
-                            }
-                            else
-                            {
-                                hasAnyCustomValueSet = true;
-                                displayName = displayNameValue;
-                            }
-                        }
-
-                        if (!hasAnyCustomValueSet)
-                        {
-                            ReportDiagnostic(DiagnosticDescriptors.NoCustomValuesProvidedForEnumMemberAttribute);
-                        }
-                    }
-                }
-
-                if (hasCustomJsonValue && !hasCustomUriValue)
-                {
-                    uriValue = jsonValue;
-                }
-
-                _enumMembers.Add(new EnumMemberGenerationSpecification
-                {
-                    Name = enumMemberName,
-                    HasTraktEnumMemberAttribute = hasTraktEnumMemberAttribute,
-                    JsonValue = jsonValue,
-                    UriValue = uriValue,
-                    DisplayName = displayName
-                });
+                _enumMembers.Add(memberSpecification!);
             }
 
+            return true;
+        }
+
+        private bool TryParseEnumMember(IFieldSymbol enumField, CancellationToken cancellationToken, out EnumMemberGenerationSpecification? memberSpecification)
+        {
+            memberSpecification = null;
+
+            string enumMemberName = enumField.Name;
+            string displayName = enumMemberName.ToDisplayName();
+            string jsonValue = enumMemberName.ToLowercaseNamingConvention(_customJsonSeparator);
+            string? customUriValue = null;
+            bool hasTraktEnumMemberAttribute = false;
+
+            foreach (AttributeData attributeData in enumField.GetAttributes())
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                if (!SymbolEqualityComparer.Default.Equals(attributeData.AttributeClass, _knownEnumSymbols.TraktEnumMemberAttributeType))
+                    continue;
+
+                hasTraktEnumMemberAttribute = true;
+
+                if (!TryParseEnumMemberAttribute(attributeData, out string? customJsonValue, out string? attributeUriValue, out string? customDisplayName))
+                    return false;
+
+                jsonValue = customJsonValue ?? jsonValue;
+                customUriValue = attributeUriValue ?? customUriValue;
+                displayName = customDisplayName ?? displayName;
+            }
+
+            memberSpecification = new EnumMemberGenerationSpecification
+            {
+                Name = enumMemberName,
+                HasTraktEnumMemberAttribute = hasTraktEnumMemberAttribute,
+                JsonValue = jsonValue,
+                // Without a custom URI value, the URI value is the same as the (possibly custom) JSON value.
+                UriValue = customUriValue ?? jsonValue,
+                DisplayName = displayName
+            };
+
+            return true;
+        }
+
+        private bool TryParseEnumMemberAttribute(AttributeData attributeData, out string? jsonValue, out string? uriValue, out string? displayName)
+        {
+            var namedArguments = attributeData.NamedArguments.ToImmutableDictionary();
+
+            uriValue = null;
+            displayName = null;
+
+            if (!TryGetOptionalStringArgument(namedArguments, EnumConstants.TraktEnumMemberPropertyJsonValue, DiagnosticDescriptors.InvalidJsonValue, out jsonValue)
+                || !TryGetOptionalStringArgument(namedArguments, EnumConstants.TraktEnumMemberPropertyUriValue, DiagnosticDescriptors.InvalidUriValue, out uriValue)
+                || !TryGetOptionalStringArgument(namedArguments, EnumConstants.TraktEnumMemberPropertyDisplayName, DiagnosticDescriptors.InvalidDisplayNameValue, out displayName))
+            {
+                return false;
+            }
+
+            if (jsonValue == null && uriValue == null && displayName == null)
+                ReportDiagnostic(DiagnosticDescriptors.NoCustomValuesProvidedForEnumMemberAttribute);
+
+            return true;
+        }
+
+        /// <summary>
+        /// Gets the string value of an optional named attribute argument.
+        /// Returns <see langword="false" /> and reports the given diagnostic, if the argument is set, but is not a string.
+        /// </summary>
+        private bool TryGetOptionalStringArgument(ImmutableDictionary<string, TypedConstant> namedArguments, string argumentName,
+            DiagnosticDescriptor invalidValueDescriptor, out string? value)
+        {
+            value = null;
+
+            if (!namedArguments.TryGetValue(argumentName, out TypedConstant constant))
+                return true;
+
+            if (constant.Value is not string stringValue)
+            {
+                ReportDiagnostic(invalidValueDescriptor);
+                return false;
+            }
+
+            value = stringValue;
             return true;
         }
 

@@ -48,47 +48,19 @@ namespace TraktNET
         {
             var values = new List<string>();
 
-            if (!string.IsNullOrEmpty(Query))
-            {
-                values.Add($"{QueryName}={Query}");
-            }
+            AddText(values, QueryName, Query);
 
             if (Year.HasValue && !Years.HasValue)
-            {
                 values.Add($"{YearsName}={Year.Value}");
-            }
             else
-            {
                 AddRange(values, Years, YearsName);
-            }
 
-            if (Genres != null && Genres.Length > 0)
-            {
-                values.Add($"{GenresName}={string.Join(",", Genres)}");
-            }
-
-            if (Subgenres != null && Subgenres.Length > 0)
-            {
-                values.Add($"{SubgenresName}={string.Join(",", Subgenres)}");
-            }
-
-            if (Languages != null && Languages.Length > 0)
-            {
-                values.Add($"{LanguagesName}={string.Join(",", Languages)}");
-            }
-
-            if (Countries != null && Countries.Length > 0)
-            {
-                values.Add($"{CountriesName}={string.Join(",", Countries)}");
-            }
-
+            AddJoined(values, GenresName, Genres);
+            AddJoined(values, SubgenresName, Subgenres);
+            AddJoined(values, LanguagesName, Languages);
+            AddJoined(values, CountriesName, Countries);
             AddRange(values, Runtimes, RuntimesName);
-
-            if (StudioIDs != null && StudioIDs.Length > 0)
-            {
-                values.Add($"{StudioIDsName}={string.Join(",", StudioIDs)}");
-            }
-
+            AddJoined(values, StudioIDsName, StudioIDs);
             AddRange(values, Ratings, RatingsName);
             AddRange(values, Votes, VotesName);
             AddRange(values, TMDBRatings, TMDBRatingsName);
@@ -98,134 +70,83 @@ namespace TraktNET
             AddRange(values, RottenTomatoesMeters, RottenTomatoesMetersName);
             AddRange(values, RottenTomatoesUserMeters, RottenTomatoesUserMetersName);
             AddRange(values, Metascores, MetascoresName);
-
-            if (Certifications != null && Certifications.Length > 0)
-            {
-                values.Add($"{CertificationsName}={string.Join(",", Certifications)}");
-            }
-
-            if (NetworkIDs != null && NetworkIDs.Length > 0)
-            {
-                values.Add($"{NetworkIDsName}={string.Join(",", NetworkIDs)}");
-            }
-
-            if (Status != null && Status.Length > 0)
-            {
-                var statusValues = new List<string>();
-
-                foreach (TraktShowStatus status in Status)
-                {
-                    if (status != TraktShowStatus.Unspecified)
-                    {
-                        statusValues.Add(status.ToJson()!);
-                    }
-                }
-
-                values.Add($"{StatusName}={string.Join(",", statusValues)}");
-            }
-
-            if (EpisodeTypes != null && EpisodeTypes.Length > 0)
-            {
-                var episodeTypesValues = new List<string>();
-
-                foreach (TraktEpisodeType episodeType in EpisodeTypes)
-                {
-                    if (episodeType != TraktEpisodeType.Unspecified)
-                    {
-                        episodeTypesValues.Add(episodeType.ToJson()!);
-                    }
-                }
-
-                values.Add($"{EpisodeTypesName}={string.Join(",", episodeTypesValues)}");
-            }
-
-            if (Hide.HasValue && Hide.Value != TraktFilterHide.Unspecified)
-            {
-                string? hideJson = Hide.Value.ToJson();
-
-                if (!string.IsNullOrEmpty(hideJson))
-                {
-                    values.Add($"{HideName}={hideJson}");
-                }
-            }
-
-            if (IgnoreWatched.HasValue)
-            {
-                values.Add($"{IgnoreWatchedName}={IgnoreWatched.Value.ToString().ToLower(CultureInfo.CurrentCulture)}");
-            }
-
-            if (IgnoreCollected.HasValue)
-            {
-                values.Add($"{IgnoreCollectedName}={IgnoreCollected.Value.ToString().ToLower(CultureInfo.CurrentCulture)}");
-            }
-
-            if (IgnoreWatchlisted.HasValue)
-            {
-                values.Add($"{IgnoreWatchlistedName}={IgnoreWatchlisted.Value.ToString().ToLower(CultureInfo.CurrentCulture)}");
-            }
+            AddJoined(values, CertificationsName, Certifications);
+            AddJoined(values, NetworkIDsName, NetworkIDs);
+            AddEnumValues(values, StatusName, Status, TraktShowStatus.Unspecified, status => status.ToJson());
+            AddEnumValues(values, EpisodeTypesName, EpisodeTypes, TraktEpisodeType.Unspecified, episodeType => episodeType.ToJson());
+            AddEnumValue(values, HideName, Hide, TraktFilterHide.Unspecified, hide => hide.ToJson());
+            AddBool(values, IgnoreWatchedName, IgnoreWatched);
+            AddBool(values, IgnoreCollectedName, IgnoreCollected);
+            AddBool(values, IgnoreWatchlistedName, IgnoreWatchlisted);
 
             if (StartDate.HasValue)
-            {
                 values.Add($"{StartDateName}={StartDate.Value.ToTraktSortDateTimeString()}");
-            }
 
             if (EndDate.HasValue)
-            {
                 values.Add($"{EndDateName}={EndDate.Value.ToTraktSortDateTimeString()}");
-            }
 
             AddParentalRange(values, ParentalNudity, ParentalNudityName);
             AddParentalRange(values, ParentalViolence, ParentalViolenceName);
             AddParentalRange(values, ParentalProfanity, ParentalProfanityName);
             AddParentalRange(values, ParentalAlcohol, ParentalAlcoholName);
             AddParentalRange(values, ParentalFrightening, ParentalFrighteningName);
-
-            if (ParentalIncludeUnrated.HasValue)
-            {
-                values.Add($"{ParentalIncludeUnratedName}={ParentalIncludeUnrated.Value.ToString().ToLower(CultureInfo.CurrentCulture)}");
-            }
-
-            if (Studios != null && Studios.Length > 0)
-            {
-                values.Add($"{StudiosName}={string.Join(",", Studios)}");
-            }
-
-            if (People != null && People.Length > 0)
-            {
-                values.Add($"{PeopleName}={string.Join(",", People)}");
-            }
-
-            if (PeopleOperator.HasValue && PeopleOperator.Value != TraktFilterOperator.Unspecified)
-            {
-                string? peopleOperatorJson = PeopleOperator.Value.ToJson();
-
-                if (!string.IsNullOrEmpty(peopleOperatorJson))
-                {
-                    values.Add($"{PeopleOperatorName}={peopleOperatorJson}");
-                }
-            }
-
-            if (PeopleRole.HasValue && PeopleRole.Value != TraktPeopleRole.Unspecified)
-            {
-                string? peopleRoleJson = PeopleRole.Value.ToJson();
-
-                if (!string.IsNullOrEmpty(peopleRoleJson))
-                {
-                    values.Add($"{PeopleRoleName}={peopleRoleJson}");
-                }
-            }
+            AddBool(values, ParentalIncludeUnratedName, ParentalIncludeUnrated);
+            AddJoined(values, StudiosName, Studios);
+            AddJoined(values, PeopleName, People);
+            AddEnumValue(values, PeopleOperatorName, PeopleOperator, TraktFilterOperator.Unspecified, peopleOperator => peopleOperator.ToJson());
+            AddEnumValue(values, PeopleRoleName, PeopleRole, TraktPeopleRole.Unspecified, peopleRole => peopleRole.ToJson());
 
             if (ReleasedWithinDays.HasValue)
-            {
                 values.Add($"{ReleasedWithinDaysName}={ReleasedWithinDays.Value}");
-            }
 
-            if (!string.IsNullOrEmpty(Theme))
-            {
-                values.Add($"{ThemeName}={Theme}");
-            }
+            AddText(values, ThemeName, Theme);
 
             return string.Join("&", values);
+        }
+
+        private static void AddText(List<string> values, string name, string? value)
+        {
+            if (!string.IsNullOrEmpty(value))
+                values.Add($"{name}={value}");
+        }
+
+        private static void AddJoined<T>(List<string> values, string name, T[]? items)
+        {
+            if (items != null && items.Length > 0)
+                values.Add($"{name}={string.Join(",", items)}");
+        }
+
+        private static void AddBool(List<string> values, string name, bool? value)
+        {
+            if (value.HasValue)
+                values.Add($"{name}={value.Value.ToString().ToLower(CultureInfo.CurrentCulture)}");
+        }
+
+        /// <summary>Adds the JSON values of all specified enum items, skipping the given unspecified value.</summary>
+        private static void AddEnumValues<TEnum>(List<string> values, string name, TEnum[]? items, TEnum unspecified, Func<TEnum, string?> toJson)
+            where TEnum : struct, Enum
+        {
+            if (items == null || items.Length == 0)
+                return;
+
+            IEnumerable<string?> jsonValues = items
+                .Where(item => !EqualityComparer<TEnum>.Default.Equals(item, unspecified))
+                .Select(toJson);
+
+            values.Add($"{name}={string.Join(",", jsonValues)}");
+        }
+
+        /// <summary>Adds the JSON value of the specified enum value, if it is set, not unspecified and has a JSON representation.</summary>
+        private static void AddEnumValue<TEnum>(List<string> values, string name, TEnum? value, TEnum unspecified, Func<TEnum, string?> toJson)
+            where TEnum : struct, Enum
+        {
+            if (!value.HasValue || EqualityComparer<TEnum>.Default.Equals(value.Value, unspecified))
+                return;
+
+            string? json = toJson(value.Value);
+
+            if (!string.IsNullOrEmpty(json))
+                values.Add($"{name}={json}");
         }
 
         private static void AddParentalRange(List<string> values, Range<uint>? range, string name)
