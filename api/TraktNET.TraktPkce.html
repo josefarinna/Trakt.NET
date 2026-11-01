@@ -5,11 +5,11 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class TraktVIPVeteranTitleExtensions | Trakt.NET </title>
+      <title>Class TraktPkce | Trakt.NET </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class TraktVIPVeteranTitleExtensions | Trakt.NET ">
+      <meta name="title" content="Class TraktPkce | Trakt.NET ">
     
-    <meta name="description" content="Extension methods for .">
+    <meta name="description" content="Helper for Proof Key for Code Exchange (PKCE) according to RFC 7636.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -76,18 +76,18 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="TraktNET.TraktVIPVeteranTitleExtensions">
+            <article class="content wrap" id="_content" data-uid="TraktNET.TraktPkce">
 
 
 
-  <h1 id="TraktNET_TraktVIPVeteranTitleExtensions" data-uid="TraktNET.TraktVIPVeteranTitleExtensions" class="text-break">Class TraktVIPVeteranTitleExtensions</h1>
-  <div class="markdown level0 summary"><p>Extension methods for <a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a>.</p>
+  <h1 id="TraktNET_TraktPkce" data-uid="TraktNET.TraktPkce" class="text-break">Class TraktPkce</h1>
+  <div class="markdown level0 summary"><p>Helper for Proof Key for Code Exchange (PKCE) according to RFC 7636.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">TraktVIPVeteranTitleExtensions</span></div>
+    <div class="level1"><span class="xref">TraktPkce</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -115,24 +115,53 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="TraktNET.html">TraktNET</a></h6>
   <h6><strong>Assembly</strong>: Trakt.NET.Ex.dll</h6>
-  <h5 id="TraktNET_TraktVIPVeteranTitleExtensions_syntax">Syntax</h5>
+  <h5 id="TraktNET_TraktPkce_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class TraktVIPVeteranTitleExtensions</code></pre>
+    <pre><code class="lang-csharp hljs">public static class TraktPkce</code></pre>
   </div>
+  <h3 id="fields">Fields
+</h3>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Parameters/TraktPkce.cs">View Source</a>
+  </span>
+  <h4 id="TraktNET_TraktPkce_S256" data-uid="TraktNET.TraktPkce.S256">S256</h4>
+  <div class="markdown level1 summary"><p>The SHA-256 code challenge method name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string S256 = &quot;S256&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/Trakt.NET.SourceGeneration/TraktNET.SourceGeneration.Enums.TraktEnumSourceGenerator/TraktVIPVeteranTitle.g.cs">View Source</a>
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Parameters/TraktPkce.cs">View Source</a>
   </span>
-  <a id="TraktNET_TraktVIPVeteranTitleExtensions_DisplayName_" data-uid="TraktNET.TraktVIPVeteranTitleExtensions.DisplayName*"></a>
-  <h4 id="TraktNET_TraktVIPVeteranTitleExtensions_DisplayName_TraktNET_TraktVIPVeteranTitle_" data-uid="TraktNET.TraktVIPVeteranTitleExtensions.DisplayName(TraktNET.TraktVIPVeteranTitle)">DisplayName(TraktVIPVeteranTitle)</h4>
-  <div class="markdown level1 summary"><p>Returns the display name for <a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a>.</p>
+  <a id="TraktNET_TraktPkce_CalculateCodeChallenge_" data-uid="TraktNET.TraktPkce.CalculateCodeChallenge*"></a>
+  <h4 id="TraktNET_TraktPkce_CalculateCodeChallenge_System_String_" data-uid="TraktNET.TraktPkce.CalculateCodeChallenge(System.String)">CalculateCodeChallenge(string)</h4>
+  <div class="markdown level1 summary"><p>Calculates the SHA-256 code challenge for the given <code class="paramref">codeVerifier</code> according to RFC 7636.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string DisplayName(this TraktVIPVeteranTitle value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string CalculateCodeChallenge(string codeVerifier)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -145,9 +174,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">codeVerifier</span></td>
+        <td><p>The code verifier string.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -162,22 +192,40 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td><p>The URL-safe base64-encoded SHA-256 hash without padding.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Thrown if <code class="paramref">codeVerifier</code> is null, empty, outside 43-128 characters,
+or contains characters other than <code>[A-Za-z0-9-._~]</code>.</p>
+</td>
       </tr>
     </tbody>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/Trakt.NET.SourceGeneration/TraktNET.SourceGeneration.Enums.TraktEnumSourceGenerator/TraktVIPVeteranTitle.g.cs">View Source</a>
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Parameters/TraktPkce.cs">View Source</a>
   </span>
-  <a id="TraktNET_TraktVIPVeteranTitleExtensions_ToJson_" data-uid="TraktNET.TraktVIPVeteranTitleExtensions.ToJson*"></a>
-  <h4 id="TraktNET_TraktVIPVeteranTitleExtensions_ToJson_TraktNET_TraktVIPVeteranTitle_" data-uid="TraktNET.TraktVIPVeteranTitleExtensions.ToJson(TraktNET.TraktVIPVeteranTitle)">ToJson(TraktVIPVeteranTitle)</h4>
-  <div class="markdown level1 summary"><p>Returns the Json value for <a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a>.</p>
+  <a id="TraktNET_TraktPkce_Create_" data-uid="TraktNET.TraktPkce.Create*"></a>
+  <h4 id="TraktNET_TraktPkce_Create_System_Int32_" data-uid="TraktNET.TraktPkce.Create(System.Int32)">Create(int)</h4>
+  <div class="markdown level1 summary"><p>Creates a new cryptographically random <a class="xref" href="TraktNET.TraktPkceChallenge.html">TraktPkceChallenge</a> pair using SHA-256 (&quot;S256&quot;).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string? ToJson(this TraktVIPVeteranTitle value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static TraktPkceChallenge Create(int byteLength = 32)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -190,9 +238,11 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">byteLength</span></td>
+        <td><p>The number of random bytes to generate for the verifier. Must be between 32 and 96.
+Defaults to 32 (producing a 43-character verifier).</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -206,23 +256,40 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td><a class="xref" href="TraktNET.TraktPkceChallenge.html">TraktPkceChallenge</a></td>
+        <td><p>A new <a class="xref" href="TraktNET.TraktPkceChallenge.html">TraktPkceChallenge</a> containing the verifier, challenge, and method.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
+        <td><p>Thrown if <code class="paramref">byteLength</code> is less than 32 or greater than 96.</p>
+</td>
       </tr>
     </tbody>
   </table>
 
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/Trakt.NET.SourceGeneration/TraktNET.SourceGeneration.Enums.TraktEnumSourceGenerator/TraktVIPVeteranTitle.g.cs">View Source</a>
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Parameters/TraktPkce.cs">View Source</a>
   </span>
-  <a id="TraktNET_TraktVIPVeteranTitleExtensions_ToTraktVIPVeteranTitle_" data-uid="TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle*"></a>
-  <h4 id="TraktNET_TraktVIPVeteranTitleExtensions_ToTraktVIPVeteranTitle_System_String_" data-uid="TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(System.String)">ToTraktVIPVeteranTitle(string?)</h4>
-  <div class="markdown level1 summary"><p>Returns a <a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a> for the given value, if possible.</p>
+  <a id="TraktNET_TraktPkce_GenerateCodeVerifier_" data-uid="TraktNET.TraktPkce.GenerateCodeVerifier*"></a>
+  <h4 id="TraktNET_TraktPkce_GenerateCodeVerifier_System_Int32_" data-uid="TraktNET.TraktPkce.GenerateCodeVerifier(System.Int32)">GenerateCodeVerifier(int)</h4>
+  <div class="markdown level1 summary"><p>Generates a cryptographically secure random code verifier according to RFC 7636.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TraktVIPVeteranTitle ToTraktVIPVeteranTitle(this string? value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string GenerateCodeVerifier(int byteLength = 32)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -235,9 +302,11 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">byteLength</span></td>
+        <td><p>The number of random bytes to generate. Must be between 32 and 96.
+Defaults to 32, which results in a 43-character string.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -251,8 +320,25 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a></td>
-        <td></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>A URL-safe base64-encoded string without padding.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
+        <td><p>Thrown if <code class="paramref">byteLength</code> is less than 32 or greater than 96.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -265,7 +351,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/Trakt.NET.SourceGeneration/TraktNET.SourceGeneration.Enums.TraktEnumSourceGenerator/TraktVIPVeteranTitle.g.cs" class="contribution-link">View Source</a>
+                    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Parameters/TraktPkce.cs" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

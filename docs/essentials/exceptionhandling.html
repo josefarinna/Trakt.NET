@@ -128,7 +128,7 @@ TraktResponse&lt;TraktShow&gt; show = await client.Shows.GetShowAsync(&quot;unkn
 This exception provides detailed information about the rate limit.</p>
 <h2 id="failed-vip-validation-exception">Failed VIP Validation Exception</h2>
 <p>The Trakt.tv API provides requests which can only be used by VIP users.
-If a non-VIP user tries to use such a request, a <a class="xref" href="../../api/TraktNET.TraktApiVIPValidationException.html"><code>TraktApiVIPValidationException</code></a> is thrown.
+If a non-VIP user tries to use such a request, a <a href="xref:TraktNET.TraktApiVIPValidationException"><code>TraktApiVIPValidationException</code></a> is thrown.
 This exception provides an <code>UpgradeURL</code> where the user can sign up for Trakt.tv VIP.</p>
 <h2 id="user-account-limit-exception">User Account Limit Exception</h2>
 <p>A <a class="xref" href="../../api/TraktNET.TraktApiAccountLimitException.html"><code>TraktApiAccountLimitException</code></a> is thrown when a user has exceeded their account limits, such as list counts, item counts, etc.</p>

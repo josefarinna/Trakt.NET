@@ -1040,20 +1040,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktApiVIPValidationException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TraktNET.TraktApiVIPValidationException.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TraktNET.TraktApiVIPValidationException",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktApiVIPValidationException.yml\" sourcestartlinenumber=\"1\">Exception, that will be thrown, if the authorized user does not have VIP support.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktApiValidationException.yml",
       "output": {
         ".html": {
@@ -1065,6 +1051,20 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktApiValidationException",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktApiValidationException.yml\" sourcestartlinenumber=\"1\">Exception, that will be thrown, if sent data is not valid.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktApiVipValidationException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktApiVipValidationException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktApiVipValidationException",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktApiVipValidationException.yml\" sourcestartlinenumber=\"1\">Exception, that will be thrown, if the authorized user does not have VIP support.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -4232,34 +4232,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktPKCE.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TraktNET.TraktPKCE.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TraktNET.TraktPKCE",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktPKCE.yml\" sourcestartlinenumber=\"1\">Helper for Proof Key for Code Exchange (PKCE) according to RFC 7636.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktPKCEChallenge.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TraktNET.TraktPKCEChallenge.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TraktNET.TraktPKCEChallenge",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktPKCEChallenge.yml\" sourcestartlinenumber=\"1\">Represents a generated PKCE challenge pair containing the code verifier, code challenge, and code challenge method.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktPagedResponse-1.yml",
       "output": {
         ".html": {
@@ -4523,6 +4495,34 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktPersonSocialIDs",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktPersonSocialIDs.yml\" sourcestartlinenumber=\"1\">A collection of social IDs for various web services for a Trakt person.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktPkce.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktPkce.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktPkce",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktPkce.yml\" sourcestartlinenumber=\"1\">Helper for Proof Key for Code Exchange (PKCE) according to RFC 7636.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktPkceChallenge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktPkceChallenge.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktPkceChallenge",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktPkceChallenge.yml\" sourcestartlinenumber=\"1\">Represents a generated PKCE challenge pair containing the code verifier, code challenge, and code challenge method.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -10154,48 +10154,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktVIPVeteranTitle.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TraktNET.TraktVIPVeteranTitle.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TraktNET.TraktVIPVeteranTitle",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktVIPVeteranTitle.yml\" sourcestartlinenumber=\"1\">Determines the VIP veteran title of a user.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktVIPVeteranTitleExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TraktNET.TraktVIPVeteranTitleExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TraktNET.TraktVIPVeteranTitleExtensions",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktVIPVeteranTitleExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktVIPVeteranTitle\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/TraktNET.TraktVIPVeteranTitleJsonConverter.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/TraktNET.TraktVIPVeteranTitleJsonConverter.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "TraktNET.TraktVIPVeteranTitleJsonConverter",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktVIPVeteranTitleJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktVIPVeteranTitle\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktVideo.yml",
       "output": {
         ".html": {
@@ -10249,6 +10207,48 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktVideoTypeJsonConverter",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktVideoTypeJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktVideoType\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktVipVeteranTitle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktVipVeteranTitle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktVipVeteranTitle",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktVipVeteranTitle.yml\" sourcestartlinenumber=\"1\">Determines the VIP veteran title of a user.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktVipVeteranTitleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktVipVeteranTitleExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktVipVeteranTitleExtensions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktVipVeteranTitleExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"TraktNET.TraktVipVeteranTitle\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktVipVeteranTitleJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktVipVeteranTitleJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktVipVeteranTitleJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktVipVeteranTitleJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktVipVeteranTitle\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",

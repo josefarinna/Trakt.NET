@@ -2146,18 +2146,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.NullableTraktSortHow
   fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktSortHow
   nameWithType: CommentsJsonSerializerContext.NullableTraktSortHow
-- uid: TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableTraktVIPVeteranTitle
-  commentId: P:TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
-- uid: TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle*
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableTraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: CommentsJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.CommentsJsonSerializerContext.NullableTraktVipVeteranTitle
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableTraktVipVeteranTitle
+  commentId: P:TraktNET.CommentsJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: CommentsJsonSerializerContext.NullableTraktVipVeteranTitle
+- uid: TraktNET.CommentsJsonSerializerContext.NullableTraktVipVeteranTitle*
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableTraktVipVeteranTitle_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.CommentsJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: CommentsJsonSerializerContext.NullableTraktVipVeteranTitle
 - uid: TraktNET.CommentsJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_NullableUInt32
@@ -2890,18 +2890,18 @@ references:
   commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.CommentsJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: CommentsJsonSerializerContext.TraktUserImagesAvatar
-- uid: TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktVIPVeteranTitle
-  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: CommentsJsonSerializerContext.TraktVIPVeteranTitle
-- uid: TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle*
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.CommentsJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: CommentsJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.CommentsJsonSerializerContext.TraktVipVeteranTitle
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktVipVeteranTitle
+  commentId: P:TraktNET.CommentsJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: CommentsJsonSerializerContext.TraktVipVeteranTitle
+- uid: TraktNET.CommentsJsonSerializerContext.TraktVipVeteranTitle*
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_TraktVipVeteranTitle_
+  commentId: Overload:TraktNET.CommentsJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.CommentsJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: CommentsJsonSerializerContext.TraktVipVeteranTitle
 - uid: TraktNET.CommentsJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.CommentsJsonSerializerContext.html#TraktNET_CommentsJsonSerializerContext_UInt32
@@ -5983,18 +5983,18 @@ references:
   commentId: Overload:TraktNET.ListsJsonSerializerContext.NullableTraktSortHow
   fullName: TraktNET.ListsJsonSerializerContext.NullableTraktSortHow
   nameWithType: ListsJsonSerializerContext.NullableTraktSortHow
-- uid: TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableTraktVIPVeteranTitle
-  commentId: P:TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
-- uid: TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle*
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableTraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: ListsJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.ListsJsonSerializerContext.NullableTraktVipVeteranTitle
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableTraktVipVeteranTitle
+  commentId: P:TraktNET.ListsJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.ListsJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: ListsJsonSerializerContext.NullableTraktVipVeteranTitle
+- uid: TraktNET.ListsJsonSerializerContext.NullableTraktVipVeteranTitle*
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableTraktVipVeteranTitle_
+  commentId: Overload:TraktNET.ListsJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.ListsJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: ListsJsonSerializerContext.NullableTraktVipVeteranTitle
 - uid: TraktNET.ListsJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_NullableUInt32
@@ -6643,18 +6643,18 @@ references:
   commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.ListsJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: ListsJsonSerializerContext.TraktUserImagesAvatar
-- uid: TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktVIPVeteranTitle
-  commentId: P:TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: ListsJsonSerializerContext.TraktVIPVeteranTitle
-- uid: TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle*
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.ListsJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: ListsJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.ListsJsonSerializerContext.TraktVipVeteranTitle
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktVipVeteranTitle
+  commentId: P:TraktNET.ListsJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.ListsJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: ListsJsonSerializerContext.TraktVipVeteranTitle
+- uid: TraktNET.ListsJsonSerializerContext.TraktVipVeteranTitle*
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_TraktVipVeteranTitle_
+  commentId: Overload:TraktNET.ListsJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.ListsJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: ListsJsonSerializerContext.TraktVipVeteranTitle
 - uid: TraktNET.ListsJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.ListsJsonSerializerContext.html#TraktNET_ListsJsonSerializerContext_UInt32
@@ -8527,18 +8527,18 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktSortHow
   fullName: TraktNET.NotesJsonSerializerContext.NullableTraktSortHow
   nameWithType: NotesJsonSerializerContext.NullableTraktSortHow
-- uid: TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktVIPVeteranTitle
-  commentId: P:TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
-- uid: TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle*
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: NotesJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktVipVeteranTitle
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktVipVeteranTitle
+  commentId: P:TraktNET.NotesJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: NotesJsonSerializerContext.NullableTraktVipVeteranTitle
+- uid: TraktNET.NotesJsonSerializerContext.NullableTraktVipVeteranTitle*
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableTraktVipVeteranTitle_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.NotesJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: NotesJsonSerializerContext.NullableTraktVipVeteranTitle
 - uid: TraktNET.NotesJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_NullableUInt32
@@ -9163,18 +9163,18 @@ references:
   commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.NotesJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: NotesJsonSerializerContext.TraktUserImagesAvatar
-- uid: TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktVIPVeteranTitle
-  commentId: P:TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: NotesJsonSerializerContext.TraktVIPVeteranTitle
-- uid: TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle*
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.NotesJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: NotesJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.NotesJsonSerializerContext.TraktVipVeteranTitle
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktVipVeteranTitle
+  commentId: P:TraktNET.NotesJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.NotesJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: NotesJsonSerializerContext.TraktVipVeteranTitle
+- uid: TraktNET.NotesJsonSerializerContext.TraktVipVeteranTitle*
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_TraktVipVeteranTitle_
+  commentId: Overload:TraktNET.NotesJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.NotesJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: NotesJsonSerializerContext.TraktVipVeteranTitle
 - uid: TraktNET.NotesJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.NotesJsonSerializerContext.html#TraktNET_NotesJsonSerializerContext_UInt32
@@ -11191,18 +11191,18 @@ references:
   commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowStatus
   fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktShowStatus
   nameWithType: RecommendationsJsonSerializerContext.NullableTraktShowStatus
-- uid: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableTraktVIPVeteranTitle
-  commentId: P:TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
-- uid: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle*
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableTraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: RecommendationsJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVipVeteranTitle
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableTraktVipVeteranTitle
+  commentId: P:TraktNET.RecommendationsJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: RecommendationsJsonSerializerContext.NullableTraktVipVeteranTitle
+- uid: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVipVeteranTitle*
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableTraktVipVeteranTitle_
+  commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.RecommendationsJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: RecommendationsJsonSerializerContext.NullableTraktVipVeteranTitle
 - uid: TraktNET.RecommendationsJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_NullableUInt32
@@ -11491,18 +11491,18 @@ references:
   commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.RecommendationsJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: RecommendationsJsonSerializerContext.TraktUserImagesAvatar
-- uid: TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_TraktVIPVeteranTitle
-  commentId: P:TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
-- uid: TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle*
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_TraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: RecommendationsJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.RecommendationsJsonSerializerContext.TraktVipVeteranTitle
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_TraktVipVeteranTitle
+  commentId: P:TraktNET.RecommendationsJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.RecommendationsJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: RecommendationsJsonSerializerContext.TraktVipVeteranTitle
+- uid: TraktNET.RecommendationsJsonSerializerContext.TraktVipVeteranTitle*
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_TraktVipVeteranTitle_
+  commentId: Overload:TraktNET.RecommendationsJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.RecommendationsJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: RecommendationsJsonSerializerContext.TraktVipVeteranTitle
 - uid: TraktNET.RecommendationsJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.RecommendationsJsonSerializerContext.html#TraktNET_RecommendationsJsonSerializerContext_UInt32
@@ -12862,18 +12862,18 @@ references:
   commentId: Overload:TraktNET.SearchsJsonSerializerContext.NullableTraktSortHow
   fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktSortHow
   nameWithType: SearchsJsonSerializerContext.NullableTraktSortHow
-- uid: TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableTraktVIPVeteranTitle
-  commentId: P:TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
-- uid: TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle*
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableTraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: SearchsJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.SearchsJsonSerializerContext.NullableTraktVipVeteranTitle
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableTraktVipVeteranTitle
+  commentId: P:TraktNET.SearchsJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: SearchsJsonSerializerContext.NullableTraktVipVeteranTitle
+- uid: TraktNET.SearchsJsonSerializerContext.NullableTraktVipVeteranTitle*
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableTraktVipVeteranTitle_
+  commentId: Overload:TraktNET.SearchsJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.SearchsJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: SearchsJsonSerializerContext.NullableTraktVipVeteranTitle
 - uid: TraktNET.SearchsJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_NullableUInt32
@@ -13438,18 +13438,18 @@ references:
   commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.SearchsJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: SearchsJsonSerializerContext.TraktUserImagesAvatar
-- uid: TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktVIPVeteranTitle
-  commentId: P:TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: SearchsJsonSerializerContext.TraktVIPVeteranTitle
-- uid: TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle*
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.SearchsJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: SearchsJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.SearchsJsonSerializerContext.TraktVipVeteranTitle
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktVipVeteranTitle
+  commentId: P:TraktNET.SearchsJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.SearchsJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: SearchsJsonSerializerContext.TraktVipVeteranTitle
+- uid: TraktNET.SearchsJsonSerializerContext.TraktVipVeteranTitle*
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_TraktVipVeteranTitle_
+  commentId: Overload:TraktNET.SearchsJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.SearchsJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: SearchsJsonSerializerContext.TraktVipVeteranTitle
 - uid: TraktNET.SearchsJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.SearchsJsonSerializerContext.html#TraktNET_SearchsJsonSerializerContext_UInt32
@@ -19243,18 +19243,18 @@ references:
   commentId: Overload:TraktNET.TeamJsonSerializerContext.NullableTraktGender
   fullName: TraktNET.TeamJsonSerializerContext.NullableTraktGender
   nameWithType: TeamJsonSerializerContext.NullableTraktGender
-- uid: TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_NullableTraktVIPVeteranTitle
-  commentId: P:TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
-- uid: TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle*
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_NullableTraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: TeamJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.TeamJsonSerializerContext.NullableTraktVipVeteranTitle
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_NullableTraktVipVeteranTitle
+  commentId: P:TraktNET.TeamJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.TeamJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: TeamJsonSerializerContext.NullableTraktVipVeteranTitle
+- uid: TraktNET.TeamJsonSerializerContext.NullableTraktVipVeteranTitle*
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_NullableTraktVipVeteranTitle_
+  commentId: Overload:TraktNET.TeamJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.TeamJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: TeamJsonSerializerContext.NullableTraktVipVeteranTitle
 - uid: TraktNET.TeamJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_NullableUInt32
@@ -19351,18 +19351,18 @@ references:
   commentId: Overload:TraktNET.TeamJsonSerializerContext.TraktUserImagesAvatar
   fullName: TraktNET.TeamJsonSerializerContext.TraktUserImagesAvatar
   nameWithType: TeamJsonSerializerContext.TraktUserImagesAvatar
-- uid: TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_TraktVIPVeteranTitle
-  commentId: P:TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: TeamJsonSerializerContext.TraktVIPVeteranTitle
-- uid: TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle*
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_TraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.TeamJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: TeamJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.TeamJsonSerializerContext.TraktVipVeteranTitle
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_TraktVipVeteranTitle
+  commentId: P:TraktNET.TeamJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.TeamJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: TeamJsonSerializerContext.TraktVipVeteranTitle
+- uid: TraktNET.TeamJsonSerializerContext.TraktVipVeteranTitle*
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_TraktVipVeteranTitle_
+  commentId: Overload:TraktNET.TeamJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.TeamJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: TeamJsonSerializerContext.TraktVipVeteranTitle
 - uid: TraktNET.TeamJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.TeamJsonSerializerContext.html#TraktNET_TeamJsonSerializerContext_UInt32
@@ -20674,30 +20674,30 @@ references:
   commentId: Overload:TraktNET.TraktApiUserNotFoundException.UserID
   fullName: TraktNET.TraktApiUserNotFoundException.UserID
   nameWithType: TraktApiUserNotFoundException.UserID
-- uid: TraktNET.TraktApiVIPValidationException
-  name: TraktApiVIPValidationException
-  href: api/TraktNET.TraktApiVIPValidationException.html
-  commentId: T:TraktNET.TraktApiVIPValidationException
-  fullName: TraktNET.TraktApiVIPValidationException
-  nameWithType: TraktApiVIPValidationException
-- uid: TraktNET.TraktApiVIPValidationException.UpgradeURL
-  name: UpgradeURL
-  href: api/TraktNET.TraktApiVIPValidationException.html#TraktNET_TraktApiVIPValidationException_UpgradeURL
-  commentId: P:TraktNET.TraktApiVIPValidationException.UpgradeURL
-  fullName: TraktNET.TraktApiVIPValidationException.UpgradeURL
-  nameWithType: TraktApiVIPValidationException.UpgradeURL
-- uid: TraktNET.TraktApiVIPValidationException.UpgradeURL*
-  name: UpgradeURL
-  href: api/TraktNET.TraktApiVIPValidationException.html#TraktNET_TraktApiVIPValidationException_UpgradeURL_
-  commentId: Overload:TraktNET.TraktApiVIPValidationException.UpgradeURL
-  fullName: TraktNET.TraktApiVIPValidationException.UpgradeURL
-  nameWithType: TraktApiVIPValidationException.UpgradeURL
 - uid: TraktNET.TraktApiValidationException
   name: TraktApiValidationException
   href: api/TraktNET.TraktApiValidationException.html
   commentId: T:TraktNET.TraktApiValidationException
   fullName: TraktNET.TraktApiValidationException
   nameWithType: TraktApiValidationException
+- uid: TraktNET.TraktApiVipValidationException
+  name: TraktApiVipValidationException
+  href: api/TraktNET.TraktApiVipValidationException.html
+  commentId: T:TraktNET.TraktApiVipValidationException
+  fullName: TraktNET.TraktApiVipValidationException
+  nameWithType: TraktApiVipValidationException
+- uid: TraktNET.TraktApiVipValidationException.UpgradeURL
+  name: UpgradeURL
+  href: api/TraktNET.TraktApiVipValidationException.html#TraktNET_TraktApiVipValidationException_UpgradeURL
+  commentId: P:TraktNET.TraktApiVipValidationException.UpgradeURL
+  fullName: TraktNET.TraktApiVipValidationException.UpgradeURL
+  nameWithType: TraktApiVipValidationException.UpgradeURL
+- uid: TraktNET.TraktApiVipValidationException.UpgradeURL*
+  name: UpgradeURL
+  href: api/TraktNET.TraktApiVipValidationException.html#TraktNET_TraktApiVipValidationException_UpgradeURL_
+  commentId: Overload:TraktNET.TraktApiVipValidationException.UpgradeURL
+  fullName: TraktNET.TraktApiVipValidationException.UpgradeURL
+  nameWithType: TraktApiVipValidationException.UpgradeURL
 - uid: TraktNET.TraktAuthModule
   name: TraktAuthModule
   href: api/TraktNET.TraktAuthModule.html
@@ -20812,39 +20812,39 @@ references:
   commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultState
   fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultState
   nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultState
-- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, bool?, bool?)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
-  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name.vb: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, Boolean?, Boolean?)
-  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, bool?, bool?)
-  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, Boolean?, Boolean?)
-  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, bool?, bool?)
-  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, Boolean?, Boolean?)
-- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, string, bool?, bool?)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
-  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name.vb: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, String, Boolean?, Boolean?)
-  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, string, bool?, bool?)
-  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, String, Boolean?, Boolean?)
-  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, string, bool?, bool?)
-  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, String, Boolean?, Boolean?)
-- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, string, string, bool?, bool?)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_TraktNET_TraktPKCEChallenge_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
-  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name.vb: CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, String, String, Boolean?, Boolean?)
-  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, string, string, bool?, bool?)
-  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktNET.TraktPKCEChallenge, String, String, Boolean?, Boolean?)
-  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, string, string, bool?, bool?)
-  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE(TraktPKCEChallenge, String, String, Boolean?, Boolean?)
-- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE*
-  name: CreateAuthorizationUrlWithDefaultStateAndPKCE
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPKCE_
-  commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE
-  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE
-  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPKCE
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPkce_TraktNET_TraktPkceChallenge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, string, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPkce_TraktNET_TraktPkceChallenge_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, String, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge, string, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge, String, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, string, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, String, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, string, string, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPkce_TraktNET_TraktPkceChallenge_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, String, String, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge, string, string, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktNET.TraktPkceChallenge, String, String, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, string, string, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce(TraktPkceChallenge, String, String, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce*
+  name: CreateAuthorizationUrlWithDefaultStateAndPkce
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateAndPkce_
+  commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateAndPkce
 - uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore(System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.String)
   name: CreateAuthorizationUrlWithDefaultStateCore(string, string, bool?, bool?, string?, string?)
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithDefaultStateCore_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_System_String_
@@ -20860,39 +20860,39 @@ references:
   commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore
   fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore
   nameWithType: TraktAuthModule.CreateAuthorizationUrlWithDefaultStateCore
-- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, bool?, bool?)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
-  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name.vb: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, Boolean?, Boolean?)
-  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, bool?, bool?)
-  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, Boolean?, Boolean?)
-  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, bool?, bool?)
-  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, Boolean?, Boolean?)
-- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, string, bool?, bool?)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
-  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name.vb: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, String, Boolean?, Boolean?)
-  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, string, bool?, bool?)
-  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, String, Boolean?, Boolean?)
-  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, string, bool?, bool?)
-  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, String, Boolean?, Boolean?)
-- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, string, string, string?, bool?, bool?)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_TraktNET_TraktPKCEChallenge_System_String_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
-  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge,System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
-  name.vb: CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, String, String, String, Boolean?, Boolean?)
-  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, string, string, string?, bool?, bool?)
-  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktNET.TraktPKCEChallenge, String, String, String, Boolean?, Boolean?)
-  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, string, string, string?, bool?, bool?)
-  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithPKCE(TraktPKCEChallenge, String, String, String, Boolean?, Boolean?)
-- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE*
-  name: CreateAuthorizationUrlWithPKCE
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPKCE_
-  commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE
-  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPKCE
-  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPKCE
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithPkce(TraktPkceChallenge, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPkce_TraktNET_TraktPkceChallenge_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithPkce(TraktPkceChallenge, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktPkceChallenge, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktPkceChallenge, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithPkce(TraktPkceChallenge, string, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPkce_TraktNET_TraktPkceChallenge_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithPkce(TraktPkceChallenge, String, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge, string, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge, String, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktPkceChallenge, string, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktPkceChallenge, String, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge,System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name: CreateAuthorizationUrlWithPkce(TraktPkceChallenge, string, string, string?, bool?, bool?)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPkce_TraktNET_TraktPkceChallenge_System_String_System_String_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__
+  commentId: M:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge,System.String,System.String,System.String,System.Nullable{System.Boolean},System.Nullable{System.Boolean})
+  name.vb: CreateAuthorizationUrlWithPkce(TraktPkceChallenge, String, String, String, Boolean?, Boolean?)
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge, string, string, string?, bool?, bool?)
+  fullName.vb: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktNET.TraktPkceChallenge, String, String, String, Boolean?, Boolean?)
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktPkceChallenge, string, string, string?, bool?, bool?)
+  nameWithType.vb: TraktAuthModule.CreateAuthorizationUrlWithPkce(TraktPkceChallenge, String, String, String, Boolean?, Boolean?)
+- uid: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce*
+  name: CreateAuthorizationUrlWithPkce
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_CreateAuthorizationUrlWithPkce_
+  commentId: Overload:TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce
+  fullName: TraktNET.TraktAuthModule.CreateAuthorizationUrlWithPkce
+  nameWithType: TraktAuthModule.CreateAuthorizationUrlWithPkce
 - uid: TraktNET.TraktAuthModule.GenerateDeviceAsync(System.String,System.Threading.CancellationToken)
   name: GenerateDeviceAsync(string, CancellationToken)
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GenerateDeviceAsync_System_String_System_Threading_CancellationToken_
@@ -20962,48 +20962,48 @@ references:
   commentId: Overload:TraktNET.TraktAuthModule.GetAuthorizationAsync
   fullName: TraktNET.TraktAuthModule.GetAuthorizationAsync
   nameWithType: TraktAuthModule.GetAuthorizationAsync
-- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
-  name: GetAuthorizationWithPKCEAsync(string, string, string, string?, string, CancellationToken)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
-  name.vb: GetAuthorizationWithPKCEAsync(String, String, String, String, String, CancellationToken)
-  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, string?, string, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, String, String, System.Threading.CancellationToken)
-  nameWithType: TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, string?, string, CancellationToken)
-  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, String, String, CancellationToken)
-- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
-  name: GetAuthorizationWithPKCEAsync(string, string, string, string, CancellationToken)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
-  name.vb: GetAuthorizationWithPKCEAsync(String, String, String, String, CancellationToken)
-  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, string, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, String, System.Threading.CancellationToken)
-  nameWithType: TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, string, CancellationToken)
-  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, String, CancellationToken)
-- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
-  name: GetAuthorizationWithPKCEAsync(string, string, string, CancellationToken)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
-  name.vb: GetAuthorizationWithPKCEAsync(String, String, String, CancellationToken)
-  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, System.Threading.CancellationToken)
-  nameWithType: TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, string, CancellationToken)
-  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, String, CancellationToken)
-- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.Threading.CancellationToken)
-  name: GetAuthorizationWithPKCEAsync(string, string, CancellationToken)
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_System_String_System_String_System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(System.String,System.String,System.Threading.CancellationToken)
-  name.vb: GetAuthorizationWithPKCEAsync(String, String, CancellationToken)
-  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, System.Threading.CancellationToken)
-  nameWithType: TraktAuthModule.GetAuthorizationWithPKCEAsync(string, string, CancellationToken)
-  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPKCEAsync(String, String, CancellationToken)
-- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync*
-  name: GetAuthorizationWithPKCEAsync
-  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPKCEAsync_
-  commentId: Overload:TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync
-  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPKCEAsync
-  nameWithType: TraktAuthModule.GetAuthorizationWithPKCEAsync
+- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  name: GetAuthorizationWithPkceAsync(string, string, string, string?, string, CancellationToken)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPkceAsync_System_String_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(System.String,System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  name.vb: GetAuthorizationWithPkceAsync(String, String, String, String, String, CancellationToken)
+  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(string, string, string, string?, string, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(String, String, String, String, String, System.Threading.CancellationToken)
+  nameWithType: TraktAuthModule.GetAuthorizationWithPkceAsync(string, string, string, string?, string, CancellationToken)
+  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPkceAsync(String, String, String, String, String, CancellationToken)
+- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  name: GetAuthorizationWithPkceAsync(string, string, string, string, CancellationToken)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPkceAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  name.vb: GetAuthorizationWithPkceAsync(String, String, String, String, CancellationToken)
+  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(string, string, string, string, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(String, String, String, String, System.Threading.CancellationToken)
+  nameWithType: TraktAuthModule.GetAuthorizationWithPkceAsync(string, string, string, string, CancellationToken)
+  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPkceAsync(String, String, String, String, CancellationToken)
+- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name: GetAuthorizationWithPkceAsync(string, string, string, CancellationToken)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPkceAsync_System_String_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  name.vb: GetAuthorizationWithPkceAsync(String, String, String, CancellationToken)
+  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(string, string, string, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(String, String, String, System.Threading.CancellationToken)
+  nameWithType: TraktAuthModule.GetAuthorizationWithPkceAsync(string, string, string, CancellationToken)
+  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPkceAsync(String, String, String, CancellationToken)
+- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(System.String,System.String,System.Threading.CancellationToken)
+  name: GetAuthorizationWithPkceAsync(string, string, CancellationToken)
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPkceAsync_System_String_System_String_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(System.String,System.String,System.Threading.CancellationToken)
+  name.vb: GetAuthorizationWithPkceAsync(String, String, CancellationToken)
+  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(string, string, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync(String, String, System.Threading.CancellationToken)
+  nameWithType: TraktAuthModule.GetAuthorizationWithPkceAsync(string, string, CancellationToken)
+  nameWithType.vb: TraktAuthModule.GetAuthorizationWithPkceAsync(String, String, CancellationToken)
+- uid: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync*
+  name: GetAuthorizationWithPkceAsync
+  href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_GetAuthorizationWithPkceAsync_
+  commentId: Overload:TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync
+  fullName: TraktNET.TraktAuthModule.GetAuthorizationWithPkceAsync
+  nameWithType: TraktAuthModule.GetAuthorizationWithPkceAsync
 - uid: TraktNET.TraktAuthModule.PollForAuthorizationAsync(System.Threading.CancellationToken)
   name: PollForAuthorizationAsync(CancellationToken)
   href: api/TraktNET.TraktAuthModule.html#TraktNET_TraktAuthModule_PollForAuthorizationAsync_System_Threading_CancellationToken_
@@ -52084,222 +52084,6 @@ references:
   commentId: Overload:TraktNET.TraktNotesObjectTypeJsonConverter.Write
   fullName: TraktNET.TraktNotesObjectTypeJsonConverter.Write
   nameWithType: TraktNotesObjectTypeJsonConverter.Write
-- uid: TraktNET.TraktPKCE
-  name: TraktPKCE
-  href: api/TraktNET.TraktPKCE.html
-  commentId: T:TraktNET.TraktPKCE
-  fullName: TraktNET.TraktPKCE
-  nameWithType: TraktPKCE
-- uid: TraktNET.TraktPKCE.CalculateCodeChallenge(System.String)
-  name: CalculateCodeChallenge(string)
-  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_CalculateCodeChallenge_System_String_
-  commentId: M:TraktNET.TraktPKCE.CalculateCodeChallenge(System.String)
-  name.vb: CalculateCodeChallenge(String)
-  fullName: TraktNET.TraktPKCE.CalculateCodeChallenge(string)
-  fullName.vb: TraktNET.TraktPKCE.CalculateCodeChallenge(String)
-  nameWithType: TraktPKCE.CalculateCodeChallenge(string)
-  nameWithType.vb: TraktPKCE.CalculateCodeChallenge(String)
-- uid: TraktNET.TraktPKCE.CalculateCodeChallenge*
-  name: CalculateCodeChallenge
-  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_CalculateCodeChallenge_
-  commentId: Overload:TraktNET.TraktPKCE.CalculateCodeChallenge
-  fullName: TraktNET.TraktPKCE.CalculateCodeChallenge
-  nameWithType: TraktPKCE.CalculateCodeChallenge
-- uid: TraktNET.TraktPKCE.Create(System.Int32)
-  name: Create(int)
-  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_Create_System_Int32_
-  commentId: M:TraktNET.TraktPKCE.Create(System.Int32)
-  name.vb: Create(Integer)
-  fullName: TraktNET.TraktPKCE.Create(int)
-  fullName.vb: TraktNET.TraktPKCE.Create(Integer)
-  nameWithType: TraktPKCE.Create(int)
-  nameWithType.vb: TraktPKCE.Create(Integer)
-- uid: TraktNET.TraktPKCE.Create*
-  name: Create
-  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_Create_
-  commentId: Overload:TraktNET.TraktPKCE.Create
-  fullName: TraktNET.TraktPKCE.Create
-  nameWithType: TraktPKCE.Create
-- uid: TraktNET.TraktPKCE.GenerateCodeVerifier(System.Int32)
-  name: GenerateCodeVerifier(int)
-  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_GenerateCodeVerifier_System_Int32_
-  commentId: M:TraktNET.TraktPKCE.GenerateCodeVerifier(System.Int32)
-  name.vb: GenerateCodeVerifier(Integer)
-  fullName: TraktNET.TraktPKCE.GenerateCodeVerifier(int)
-  fullName.vb: TraktNET.TraktPKCE.GenerateCodeVerifier(Integer)
-  nameWithType: TraktPKCE.GenerateCodeVerifier(int)
-  nameWithType.vb: TraktPKCE.GenerateCodeVerifier(Integer)
-- uid: TraktNET.TraktPKCE.GenerateCodeVerifier*
-  name: GenerateCodeVerifier
-  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_GenerateCodeVerifier_
-  commentId: Overload:TraktNET.TraktPKCE.GenerateCodeVerifier
-  fullName: TraktNET.TraktPKCE.GenerateCodeVerifier
-  nameWithType: TraktPKCE.GenerateCodeVerifier
-- uid: TraktNET.TraktPKCE.S256
-  name: S256
-  href: api/TraktNET.TraktPKCE.html#TraktNET_TraktPKCE_S256
-  commentId: F:TraktNET.TraktPKCE.S256
-  fullName: TraktNET.TraktPKCE.S256
-  nameWithType: TraktPKCE.S256
-- uid: TraktNET.TraktPKCEChallenge
-  name: TraktPKCEChallenge
-  href: api/TraktNET.TraktPKCEChallenge.html
-  commentId: T:TraktNET.TraktPKCEChallenge
-  fullName: TraktNET.TraktPKCEChallenge
-  nameWithType: TraktPKCEChallenge
-- uid: TraktNET.TraktPKCEChallenge.#ctor(System.String,System.String,System.String)
-  name: TraktPKCEChallenge(string, string, string)
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge__ctor_System_String_System_String_System_String_
-  commentId: M:TraktNET.TraktPKCEChallenge.#ctor(System.String,System.String,System.String)
-  name.vb: New(String, String, String)
-  fullName: TraktNET.TraktPKCEChallenge.TraktPKCEChallenge(string, string, string)
-  fullName.vb: TraktNET.TraktPKCEChallenge.New(String, String, String)
-  nameWithType: TraktPKCEChallenge.TraktPKCEChallenge(string, string, string)
-  nameWithType.vb: TraktPKCEChallenge.New(String, String, String)
-- uid: TraktNET.TraktPKCEChallenge.#ctor*
-  name: TraktPKCEChallenge
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge__ctor_
-  commentId: Overload:TraktNET.TraktPKCEChallenge.#ctor
-  name.vb: New
-  fullName: TraktNET.TraktPKCEChallenge.TraktPKCEChallenge
-  fullName.vb: TraktNET.TraktPKCEChallenge.New
-  nameWithType: TraktPKCEChallenge.TraktPKCEChallenge
-  nameWithType.vb: TraktPKCEChallenge.New
-- uid: TraktNET.TraktPKCEChallenge.CodeChallenge
-  name: CodeChallenge
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeChallenge
-  commentId: P:TraktNET.TraktPKCEChallenge.CodeChallenge
-  fullName: TraktNET.TraktPKCEChallenge.CodeChallenge
-  nameWithType: TraktPKCEChallenge.CodeChallenge
-- uid: TraktNET.TraktPKCEChallenge.CodeChallenge*
-  name: CodeChallenge
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeChallenge_
-  commentId: Overload:TraktNET.TraktPKCEChallenge.CodeChallenge
-  fullName: TraktNET.TraktPKCEChallenge.CodeChallenge
-  nameWithType: TraktPKCEChallenge.CodeChallenge
-- uid: TraktNET.TraktPKCEChallenge.CodeChallengeMethod
-  name: CodeChallengeMethod
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeChallengeMethod
-  commentId: P:TraktNET.TraktPKCEChallenge.CodeChallengeMethod
-  fullName: TraktNET.TraktPKCEChallenge.CodeChallengeMethod
-  nameWithType: TraktPKCEChallenge.CodeChallengeMethod
-- uid: TraktNET.TraktPKCEChallenge.CodeChallengeMethod*
-  name: CodeChallengeMethod
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeChallengeMethod_
-  commentId: Overload:TraktNET.TraktPKCEChallenge.CodeChallengeMethod
-  fullName: TraktNET.TraktPKCEChallenge.CodeChallengeMethod
-  nameWithType: TraktPKCEChallenge.CodeChallengeMethod
-- uid: TraktNET.TraktPKCEChallenge.CodeVerifier
-  name: CodeVerifier
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeVerifier
-  commentId: P:TraktNET.TraktPKCEChallenge.CodeVerifier
-  fullName: TraktNET.TraktPKCEChallenge.CodeVerifier
-  nameWithType: TraktPKCEChallenge.CodeVerifier
-- uid: TraktNET.TraktPKCEChallenge.CodeVerifier*
-  name: CodeVerifier
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_CodeVerifier_
-  commentId: Overload:TraktNET.TraktPKCEChallenge.CodeVerifier
-  fullName: TraktNET.TraktPKCEChallenge.CodeVerifier
-  nameWithType: TraktPKCEChallenge.CodeVerifier
-- uid: TraktNET.TraktPKCEChallenge.Deconstruct(System.String@,System.String@,System.String@)
-  name: Deconstruct(out string, out string, out string)
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_Deconstruct_System_String__System_String__System_String__
-  commentId: M:TraktNET.TraktPKCEChallenge.Deconstruct(System.String@,System.String@,System.String@)
-  name.vb: Deconstruct(String, String, String)
-  fullName: TraktNET.TraktPKCEChallenge.Deconstruct(out string, out string, out string)
-  fullName.vb: TraktNET.TraktPKCEChallenge.Deconstruct(String, String, String)
-  nameWithType: TraktPKCEChallenge.Deconstruct(out string, out string, out string)
-  nameWithType.vb: TraktPKCEChallenge.Deconstruct(String, String, String)
-- uid: TraktNET.TraktPKCEChallenge.Deconstruct*
-  name: Deconstruct
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_Deconstruct_
-  commentId: Overload:TraktNET.TraktPKCEChallenge.Deconstruct
-  fullName: TraktNET.TraktPKCEChallenge.Deconstruct
-  nameWithType: TraktPKCEChallenge.Deconstruct
-- uid: TraktNET.TraktPKCEChallenge.Equals(System.Object)
-  name: Equals(object?)
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_Equals_System_Object_
-  commentId: M:TraktNET.TraktPKCEChallenge.Equals(System.Object)
-  name.vb: Equals(Object)
-  fullName: TraktNET.TraktPKCEChallenge.Equals(object?)
-  fullName.vb: TraktNET.TraktPKCEChallenge.Equals(Object)
-  nameWithType: TraktPKCEChallenge.Equals(object?)
-  nameWithType.vb: TraktPKCEChallenge.Equals(Object)
-- uid: TraktNET.TraktPKCEChallenge.Equals(TraktNET.TraktPKCEChallenge)
-  name: Equals(TraktPKCEChallenge?)
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_Equals_TraktNET_TraktPKCEChallenge_
-  commentId: M:TraktNET.TraktPKCEChallenge.Equals(TraktNET.TraktPKCEChallenge)
-  name.vb: Equals(TraktPKCEChallenge)
-  fullName: TraktNET.TraktPKCEChallenge.Equals(TraktNET.TraktPKCEChallenge?)
-  fullName.vb: TraktNET.TraktPKCEChallenge.Equals(TraktNET.TraktPKCEChallenge)
-  nameWithType: TraktPKCEChallenge.Equals(TraktPKCEChallenge?)
-  nameWithType.vb: TraktPKCEChallenge.Equals(TraktPKCEChallenge)
-- uid: TraktNET.TraktPKCEChallenge.Equals*
-  name: Equals
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_Equals_
-  commentId: Overload:TraktNET.TraktPKCEChallenge.Equals
-  fullName: TraktNET.TraktPKCEChallenge.Equals
-  nameWithType: TraktPKCEChallenge.Equals
-- uid: TraktNET.TraktPKCEChallenge.GetHashCode
-  name: GetHashCode()
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_GetHashCode
-  commentId: M:TraktNET.TraktPKCEChallenge.GetHashCode
-  fullName: TraktNET.TraktPKCEChallenge.GetHashCode()
-  nameWithType: TraktPKCEChallenge.GetHashCode()
-- uid: TraktNET.TraktPKCEChallenge.GetHashCode*
-  name: GetHashCode
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_GetHashCode_
-  commentId: Overload:TraktNET.TraktPKCEChallenge.GetHashCode
-  fullName: TraktNET.TraktPKCEChallenge.GetHashCode
-  nameWithType: TraktPKCEChallenge.GetHashCode
-- uid: TraktNET.TraktPKCEChallenge.ToString
-  name: ToString()
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_ToString
-  commentId: M:TraktNET.TraktPKCEChallenge.ToString
-  fullName: TraktNET.TraktPKCEChallenge.ToString()
-  nameWithType: TraktPKCEChallenge.ToString()
-- uid: TraktNET.TraktPKCEChallenge.ToString*
-  name: ToString
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_ToString_
-  commentId: Overload:TraktNET.TraktPKCEChallenge.ToString
-  fullName: TraktNET.TraktPKCEChallenge.ToString
-  nameWithType: TraktPKCEChallenge.ToString
-- uid: TraktNET.TraktPKCEChallenge.op_Equality(TraktNET.TraktPKCEChallenge,TraktNET.TraktPKCEChallenge)
-  name: operator ==(TraktPKCEChallenge?, TraktPKCEChallenge?)
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_op_Equality_TraktNET_TraktPKCEChallenge_TraktNET_TraktPKCEChallenge_
-  commentId: M:TraktNET.TraktPKCEChallenge.op_Equality(TraktNET.TraktPKCEChallenge,TraktNET.TraktPKCEChallenge)
-  name.vb: =(TraktPKCEChallenge, TraktPKCEChallenge)
-  fullName: TraktNET.TraktPKCEChallenge.operator ==(TraktNET.TraktPKCEChallenge?, TraktNET.TraktPKCEChallenge?)
-  fullName.vb: TraktNET.TraktPKCEChallenge.=(TraktNET.TraktPKCEChallenge, TraktNET.TraktPKCEChallenge)
-  nameWithType: TraktPKCEChallenge.operator ==(TraktPKCEChallenge?, TraktPKCEChallenge?)
-  nameWithType.vb: TraktPKCEChallenge.=(TraktPKCEChallenge, TraktPKCEChallenge)
-- uid: TraktNET.TraktPKCEChallenge.op_Equality*
-  name: operator ==
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_op_Equality_
-  commentId: Overload:TraktNET.TraktPKCEChallenge.op_Equality
-  name.vb: =
-  fullName: TraktNET.TraktPKCEChallenge.operator ==
-  fullName.vb: TraktNET.TraktPKCEChallenge.=
-  nameWithType: TraktPKCEChallenge.operator ==
-  nameWithType.vb: TraktPKCEChallenge.=
-- uid: TraktNET.TraktPKCEChallenge.op_Inequality(TraktNET.TraktPKCEChallenge,TraktNET.TraktPKCEChallenge)
-  name: operator !=(TraktPKCEChallenge?, TraktPKCEChallenge?)
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_op_Inequality_TraktNET_TraktPKCEChallenge_TraktNET_TraktPKCEChallenge_
-  commentId: M:TraktNET.TraktPKCEChallenge.op_Inequality(TraktNET.TraktPKCEChallenge,TraktNET.TraktPKCEChallenge)
-  name.vb: <>(TraktPKCEChallenge, TraktPKCEChallenge)
-  fullName: TraktNET.TraktPKCEChallenge.operator !=(TraktNET.TraktPKCEChallenge?, TraktNET.TraktPKCEChallenge?)
-  fullName.vb: TraktNET.TraktPKCEChallenge.<>(TraktNET.TraktPKCEChallenge, TraktNET.TraktPKCEChallenge)
-  nameWithType: TraktPKCEChallenge.operator !=(TraktPKCEChallenge?, TraktPKCEChallenge?)
-  nameWithType.vb: TraktPKCEChallenge.<>(TraktPKCEChallenge, TraktPKCEChallenge)
-- uid: TraktNET.TraktPKCEChallenge.op_Inequality*
-  name: operator !=
-  href: api/TraktNET.TraktPKCEChallenge.html#TraktNET_TraktPKCEChallenge_op_Inequality_
-  commentId: Overload:TraktNET.TraktPKCEChallenge.op_Inequality
-  name.vb: <>
-  fullName: TraktNET.TraktPKCEChallenge.operator !=
-  fullName.vb: TraktNET.TraktPKCEChallenge.<>
-  nameWithType: TraktPKCEChallenge.operator !=
-  nameWithType.vb: TraktPKCEChallenge.<>
 - uid: TraktNET.TraktPagedResponse`1
   name: TraktPagedResponse<TResponseContentType>
   href: api/TraktNET.TraktPagedResponse-1.html
@@ -55628,6 +55412,222 @@ references:
   fullName.vb: TraktNET.TraktPersonSocialIDs.<>
   nameWithType: TraktPersonSocialIDs.operator !=
   nameWithType.vb: TraktPersonSocialIDs.<>
+- uid: TraktNET.TraktPkce
+  name: TraktPkce
+  href: api/TraktNET.TraktPkce.html
+  commentId: T:TraktNET.TraktPkce
+  fullName: TraktNET.TraktPkce
+  nameWithType: TraktPkce
+- uid: TraktNET.TraktPkce.CalculateCodeChallenge(System.String)
+  name: CalculateCodeChallenge(string)
+  href: api/TraktNET.TraktPkce.html#TraktNET_TraktPkce_CalculateCodeChallenge_System_String_
+  commentId: M:TraktNET.TraktPkce.CalculateCodeChallenge(System.String)
+  name.vb: CalculateCodeChallenge(String)
+  fullName: TraktNET.TraktPkce.CalculateCodeChallenge(string)
+  fullName.vb: TraktNET.TraktPkce.CalculateCodeChallenge(String)
+  nameWithType: TraktPkce.CalculateCodeChallenge(string)
+  nameWithType.vb: TraktPkce.CalculateCodeChallenge(String)
+- uid: TraktNET.TraktPkce.CalculateCodeChallenge*
+  name: CalculateCodeChallenge
+  href: api/TraktNET.TraktPkce.html#TraktNET_TraktPkce_CalculateCodeChallenge_
+  commentId: Overload:TraktNET.TraktPkce.CalculateCodeChallenge
+  fullName: TraktNET.TraktPkce.CalculateCodeChallenge
+  nameWithType: TraktPkce.CalculateCodeChallenge
+- uid: TraktNET.TraktPkce.Create(System.Int32)
+  name: Create(int)
+  href: api/TraktNET.TraktPkce.html#TraktNET_TraktPkce_Create_System_Int32_
+  commentId: M:TraktNET.TraktPkce.Create(System.Int32)
+  name.vb: Create(Integer)
+  fullName: TraktNET.TraktPkce.Create(int)
+  fullName.vb: TraktNET.TraktPkce.Create(Integer)
+  nameWithType: TraktPkce.Create(int)
+  nameWithType.vb: TraktPkce.Create(Integer)
+- uid: TraktNET.TraktPkce.Create*
+  name: Create
+  href: api/TraktNET.TraktPkce.html#TraktNET_TraktPkce_Create_
+  commentId: Overload:TraktNET.TraktPkce.Create
+  fullName: TraktNET.TraktPkce.Create
+  nameWithType: TraktPkce.Create
+- uid: TraktNET.TraktPkce.GenerateCodeVerifier(System.Int32)
+  name: GenerateCodeVerifier(int)
+  href: api/TraktNET.TraktPkce.html#TraktNET_TraktPkce_GenerateCodeVerifier_System_Int32_
+  commentId: M:TraktNET.TraktPkce.GenerateCodeVerifier(System.Int32)
+  name.vb: GenerateCodeVerifier(Integer)
+  fullName: TraktNET.TraktPkce.GenerateCodeVerifier(int)
+  fullName.vb: TraktNET.TraktPkce.GenerateCodeVerifier(Integer)
+  nameWithType: TraktPkce.GenerateCodeVerifier(int)
+  nameWithType.vb: TraktPkce.GenerateCodeVerifier(Integer)
+- uid: TraktNET.TraktPkce.GenerateCodeVerifier*
+  name: GenerateCodeVerifier
+  href: api/TraktNET.TraktPkce.html#TraktNET_TraktPkce_GenerateCodeVerifier_
+  commentId: Overload:TraktNET.TraktPkce.GenerateCodeVerifier
+  fullName: TraktNET.TraktPkce.GenerateCodeVerifier
+  nameWithType: TraktPkce.GenerateCodeVerifier
+- uid: TraktNET.TraktPkce.S256
+  name: S256
+  href: api/TraktNET.TraktPkce.html#TraktNET_TraktPkce_S256
+  commentId: F:TraktNET.TraktPkce.S256
+  fullName: TraktNET.TraktPkce.S256
+  nameWithType: TraktPkce.S256
+- uid: TraktNET.TraktPkceChallenge
+  name: TraktPkceChallenge
+  href: api/TraktNET.TraktPkceChallenge.html
+  commentId: T:TraktNET.TraktPkceChallenge
+  fullName: TraktNET.TraktPkceChallenge
+  nameWithType: TraktPkceChallenge
+- uid: TraktNET.TraktPkceChallenge.#ctor(System.String,System.String,System.String)
+  name: TraktPkceChallenge(string, string, string)
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge__ctor_System_String_System_String_System_String_
+  commentId: M:TraktNET.TraktPkceChallenge.#ctor(System.String,System.String,System.String)
+  name.vb: New(String, String, String)
+  fullName: TraktNET.TraktPkceChallenge.TraktPkceChallenge(string, string, string)
+  fullName.vb: TraktNET.TraktPkceChallenge.New(String, String, String)
+  nameWithType: TraktPkceChallenge.TraktPkceChallenge(string, string, string)
+  nameWithType.vb: TraktPkceChallenge.New(String, String, String)
+- uid: TraktNET.TraktPkceChallenge.#ctor*
+  name: TraktPkceChallenge
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge__ctor_
+  commentId: Overload:TraktNET.TraktPkceChallenge.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktPkceChallenge.TraktPkceChallenge
+  fullName.vb: TraktNET.TraktPkceChallenge.New
+  nameWithType: TraktPkceChallenge.TraktPkceChallenge
+  nameWithType.vb: TraktPkceChallenge.New
+- uid: TraktNET.TraktPkceChallenge.CodeChallenge
+  name: CodeChallenge
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_CodeChallenge
+  commentId: P:TraktNET.TraktPkceChallenge.CodeChallenge
+  fullName: TraktNET.TraktPkceChallenge.CodeChallenge
+  nameWithType: TraktPkceChallenge.CodeChallenge
+- uid: TraktNET.TraktPkceChallenge.CodeChallenge*
+  name: CodeChallenge
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_CodeChallenge_
+  commentId: Overload:TraktNET.TraktPkceChallenge.CodeChallenge
+  fullName: TraktNET.TraktPkceChallenge.CodeChallenge
+  nameWithType: TraktPkceChallenge.CodeChallenge
+- uid: TraktNET.TraktPkceChallenge.CodeChallengeMethod
+  name: CodeChallengeMethod
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_CodeChallengeMethod
+  commentId: P:TraktNET.TraktPkceChallenge.CodeChallengeMethod
+  fullName: TraktNET.TraktPkceChallenge.CodeChallengeMethod
+  nameWithType: TraktPkceChallenge.CodeChallengeMethod
+- uid: TraktNET.TraktPkceChallenge.CodeChallengeMethod*
+  name: CodeChallengeMethod
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_CodeChallengeMethod_
+  commentId: Overload:TraktNET.TraktPkceChallenge.CodeChallengeMethod
+  fullName: TraktNET.TraktPkceChallenge.CodeChallengeMethod
+  nameWithType: TraktPkceChallenge.CodeChallengeMethod
+- uid: TraktNET.TraktPkceChallenge.CodeVerifier
+  name: CodeVerifier
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_CodeVerifier
+  commentId: P:TraktNET.TraktPkceChallenge.CodeVerifier
+  fullName: TraktNET.TraktPkceChallenge.CodeVerifier
+  nameWithType: TraktPkceChallenge.CodeVerifier
+- uid: TraktNET.TraktPkceChallenge.CodeVerifier*
+  name: CodeVerifier
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_CodeVerifier_
+  commentId: Overload:TraktNET.TraktPkceChallenge.CodeVerifier
+  fullName: TraktNET.TraktPkceChallenge.CodeVerifier
+  nameWithType: TraktPkceChallenge.CodeVerifier
+- uid: TraktNET.TraktPkceChallenge.Deconstruct(System.String@,System.String@,System.String@)
+  name: Deconstruct(out string, out string, out string)
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_Deconstruct_System_String__System_String__System_String__
+  commentId: M:TraktNET.TraktPkceChallenge.Deconstruct(System.String@,System.String@,System.String@)
+  name.vb: Deconstruct(String, String, String)
+  fullName: TraktNET.TraktPkceChallenge.Deconstruct(out string, out string, out string)
+  fullName.vb: TraktNET.TraktPkceChallenge.Deconstruct(String, String, String)
+  nameWithType: TraktPkceChallenge.Deconstruct(out string, out string, out string)
+  nameWithType.vb: TraktPkceChallenge.Deconstruct(String, String, String)
+- uid: TraktNET.TraktPkceChallenge.Deconstruct*
+  name: Deconstruct
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_Deconstruct_
+  commentId: Overload:TraktNET.TraktPkceChallenge.Deconstruct
+  fullName: TraktNET.TraktPkceChallenge.Deconstruct
+  nameWithType: TraktPkceChallenge.Deconstruct
+- uid: TraktNET.TraktPkceChallenge.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_Equals_System_Object_
+  commentId: M:TraktNET.TraktPkceChallenge.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktPkceChallenge.Equals(object?)
+  fullName.vb: TraktNET.TraktPkceChallenge.Equals(Object)
+  nameWithType: TraktPkceChallenge.Equals(object?)
+  nameWithType.vb: TraktPkceChallenge.Equals(Object)
+- uid: TraktNET.TraktPkceChallenge.Equals(TraktNET.TraktPkceChallenge)
+  name: Equals(TraktPkceChallenge?)
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_Equals_TraktNET_TraktPkceChallenge_
+  commentId: M:TraktNET.TraktPkceChallenge.Equals(TraktNET.TraktPkceChallenge)
+  name.vb: Equals(TraktPkceChallenge)
+  fullName: TraktNET.TraktPkceChallenge.Equals(TraktNET.TraktPkceChallenge?)
+  fullName.vb: TraktNET.TraktPkceChallenge.Equals(TraktNET.TraktPkceChallenge)
+  nameWithType: TraktPkceChallenge.Equals(TraktPkceChallenge?)
+  nameWithType.vb: TraktPkceChallenge.Equals(TraktPkceChallenge)
+- uid: TraktNET.TraktPkceChallenge.Equals*
+  name: Equals
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_Equals_
+  commentId: Overload:TraktNET.TraktPkceChallenge.Equals
+  fullName: TraktNET.TraktPkceChallenge.Equals
+  nameWithType: TraktPkceChallenge.Equals
+- uid: TraktNET.TraktPkceChallenge.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_GetHashCode
+  commentId: M:TraktNET.TraktPkceChallenge.GetHashCode
+  fullName: TraktNET.TraktPkceChallenge.GetHashCode()
+  nameWithType: TraktPkceChallenge.GetHashCode()
+- uid: TraktNET.TraktPkceChallenge.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_GetHashCode_
+  commentId: Overload:TraktNET.TraktPkceChallenge.GetHashCode
+  fullName: TraktNET.TraktPkceChallenge.GetHashCode
+  nameWithType: TraktPkceChallenge.GetHashCode
+- uid: TraktNET.TraktPkceChallenge.ToString
+  name: ToString()
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_ToString
+  commentId: M:TraktNET.TraktPkceChallenge.ToString
+  fullName: TraktNET.TraktPkceChallenge.ToString()
+  nameWithType: TraktPkceChallenge.ToString()
+- uid: TraktNET.TraktPkceChallenge.ToString*
+  name: ToString
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_ToString_
+  commentId: Overload:TraktNET.TraktPkceChallenge.ToString
+  fullName: TraktNET.TraktPkceChallenge.ToString
+  nameWithType: TraktPkceChallenge.ToString
+- uid: TraktNET.TraktPkceChallenge.op_Equality(TraktNET.TraktPkceChallenge,TraktNET.TraktPkceChallenge)
+  name: operator ==(TraktPkceChallenge?, TraktPkceChallenge?)
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_op_Equality_TraktNET_TraktPkceChallenge_TraktNET_TraktPkceChallenge_
+  commentId: M:TraktNET.TraktPkceChallenge.op_Equality(TraktNET.TraktPkceChallenge,TraktNET.TraktPkceChallenge)
+  name.vb: =(TraktPkceChallenge, TraktPkceChallenge)
+  fullName: TraktNET.TraktPkceChallenge.operator ==(TraktNET.TraktPkceChallenge?, TraktNET.TraktPkceChallenge?)
+  fullName.vb: TraktNET.TraktPkceChallenge.=(TraktNET.TraktPkceChallenge, TraktNET.TraktPkceChallenge)
+  nameWithType: TraktPkceChallenge.operator ==(TraktPkceChallenge?, TraktPkceChallenge?)
+  nameWithType.vb: TraktPkceChallenge.=(TraktPkceChallenge, TraktPkceChallenge)
+- uid: TraktNET.TraktPkceChallenge.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_op_Equality_
+  commentId: Overload:TraktNET.TraktPkceChallenge.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktPkceChallenge.operator ==
+  fullName.vb: TraktNET.TraktPkceChallenge.=
+  nameWithType: TraktPkceChallenge.operator ==
+  nameWithType.vb: TraktPkceChallenge.=
+- uid: TraktNET.TraktPkceChallenge.op_Inequality(TraktNET.TraktPkceChallenge,TraktNET.TraktPkceChallenge)
+  name: operator !=(TraktPkceChallenge?, TraktPkceChallenge?)
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_op_Inequality_TraktNET_TraktPkceChallenge_TraktNET_TraktPkceChallenge_
+  commentId: M:TraktNET.TraktPkceChallenge.op_Inequality(TraktNET.TraktPkceChallenge,TraktNET.TraktPkceChallenge)
+  name.vb: <>(TraktPkceChallenge, TraktPkceChallenge)
+  fullName: TraktNET.TraktPkceChallenge.operator !=(TraktNET.TraktPkceChallenge?, TraktNET.TraktPkceChallenge?)
+  fullName.vb: TraktNET.TraktPkceChallenge.<>(TraktNET.TraktPkceChallenge, TraktNET.TraktPkceChallenge)
+  nameWithType: TraktPkceChallenge.operator !=(TraktPkceChallenge?, TraktPkceChallenge?)
+  nameWithType.vb: TraktPkceChallenge.<>(TraktPkceChallenge, TraktPkceChallenge)
+- uid: TraktNET.TraktPkceChallenge.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktPkceChallenge.html#TraktNET_TraktPkceChallenge_op_Inequality_
+  commentId: Overload:TraktNET.TraktPkceChallenge.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktPkceChallenge.operator !=
+  fullName.vb: TraktNET.TraktPkceChallenge.<>
+  nameWithType: TraktPkceChallenge.operator !=
+  nameWithType.vb: TraktPkceChallenge.<>
 - uid: TraktNET.TraktPlexAccount
   name: TraktPlexAccount
   href: api/TraktNET.TraktPlexAccount.html
@@ -123445,138 +123445,6 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.UpdateSmartListAsync
   fullName: TraktNET.TraktUsersModule.UpdateSmartListAsync
   nameWithType: TraktUsersModule.UpdateSmartListAsync
-- uid: TraktNET.TraktVIPVeteranTitle
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.TraktVIPVeteranTitle.html
-  commentId: T:TraktNET.TraktVIPVeteranTitle
-  fullName: TraktNET.TraktVIPVeteranTitle
-  nameWithType: TraktVIPVeteranTitle
-- uid: TraktNET.TraktVIPVeteranTitle.Legend
-  name: Legend
-  href: api/TraktNET.TraktVIPVeteranTitle.html#TraktNET_TraktVIPVeteranTitle_Legend
-  commentId: F:TraktNET.TraktVIPVeteranTitle.Legend
-  fullName: TraktNET.TraktVIPVeteranTitle.Legend
-  nameWithType: TraktVIPVeteranTitle.Legend
-- uid: TraktNET.TraktVIPVeteranTitle.Unspecified
-  name: Unspecified
-  href: api/TraktNET.TraktVIPVeteranTitle.html#TraktNET_TraktVIPVeteranTitle_Unspecified
-  commentId: F:TraktNET.TraktVIPVeteranTitle.Unspecified
-  fullName: TraktNET.TraktVIPVeteranTitle.Unspecified
-  nameWithType: TraktVIPVeteranTitle.Unspecified
-- uid: TraktNET.TraktVIPVeteranTitle.Veteran
-  name: Veteran
-  href: api/TraktNET.TraktVIPVeteranTitle.html#TraktNET_TraktVIPVeteranTitle_Veteran
-  commentId: F:TraktNET.TraktVIPVeteranTitle.Veteran
-  fullName: TraktNET.TraktVIPVeteranTitle.Veteran
-  nameWithType: TraktVIPVeteranTitle.Veteran
-- uid: TraktNET.TraktVIPVeteranTitleExtensions
-  name: TraktVIPVeteranTitleExtensions
-  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html
-  commentId: T:TraktNET.TraktVIPVeteranTitleExtensions
-  fullName: TraktNET.TraktVIPVeteranTitleExtensions
-  nameWithType: TraktVIPVeteranTitleExtensions
-- uid: TraktNET.TraktVIPVeteranTitleExtensions.DisplayName(TraktNET.TraktVIPVeteranTitle)
-  name: DisplayName(TraktVIPVeteranTitle)
-  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_DisplayName_TraktNET_TraktVIPVeteranTitle_
-  commentId: M:TraktNET.TraktVIPVeteranTitleExtensions.DisplayName(TraktNET.TraktVIPVeteranTitle)
-  fullName: TraktNET.TraktVIPVeteranTitleExtensions.DisplayName(TraktNET.TraktVIPVeteranTitle)
-  nameWithType: TraktVIPVeteranTitleExtensions.DisplayName(TraktVIPVeteranTitle)
-- uid: TraktNET.TraktVIPVeteranTitleExtensions.DisplayName*
-  name: DisplayName
-  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_DisplayName_
-  commentId: Overload:TraktNET.TraktVIPVeteranTitleExtensions.DisplayName
-  fullName: TraktNET.TraktVIPVeteranTitleExtensions.DisplayName
-  nameWithType: TraktVIPVeteranTitleExtensions.DisplayName
-- uid: TraktNET.TraktVIPVeteranTitleExtensions.ToJson(TraktNET.TraktVIPVeteranTitle)
-  name: ToJson(TraktVIPVeteranTitle)
-  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_ToJson_TraktNET_TraktVIPVeteranTitle_
-  commentId: M:TraktNET.TraktVIPVeteranTitleExtensions.ToJson(TraktNET.TraktVIPVeteranTitle)
-  fullName: TraktNET.TraktVIPVeteranTitleExtensions.ToJson(TraktNET.TraktVIPVeteranTitle)
-  nameWithType: TraktVIPVeteranTitleExtensions.ToJson(TraktVIPVeteranTitle)
-- uid: TraktNET.TraktVIPVeteranTitleExtensions.ToJson*
-  name: ToJson
-  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_ToJson_
-  commentId: Overload:TraktNET.TraktVIPVeteranTitleExtensions.ToJson
-  fullName: TraktNET.TraktVIPVeteranTitleExtensions.ToJson
-  nameWithType: TraktVIPVeteranTitleExtensions.ToJson
-- uid: TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(System.String)
-  name: ToTraktVIPVeteranTitle(string?)
-  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_ToTraktVIPVeteranTitle_System_String_
-  commentId: M:TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(System.String)
-  name.vb: ToTraktVIPVeteranTitle(String)
-  fullName: TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(string?)
-  fullName.vb: TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(String)
-  nameWithType: TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(string?)
-  nameWithType.vb: TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle(String)
-- uid: TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle*
-  name: ToTraktVIPVeteranTitle
-  href: api/TraktNET.TraktVIPVeteranTitleExtensions.html#TraktNET_TraktVIPVeteranTitleExtensions_ToTraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle
-  fullName: TraktNET.TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle
-  nameWithType: TraktVIPVeteranTitleExtensions.ToTraktVIPVeteranTitle
-- uid: TraktNET.TraktVIPVeteranTitleJsonConverter
-  name: TraktVIPVeteranTitleJsonConverter
-  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html
-  commentId: T:TraktNET.TraktVIPVeteranTitleJsonConverter
-  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter
-  nameWithType: TraktVIPVeteranTitleJsonConverter
-- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.#ctor
-  name: TraktVIPVeteranTitleJsonConverter()
-  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter__ctor
-  commentId: M:TraktNET.TraktVIPVeteranTitleJsonConverter.#ctor
-  name.vb: New()
-  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.TraktVIPVeteranTitleJsonConverter()
-  fullName.vb: TraktNET.TraktVIPVeteranTitleJsonConverter.New()
-  nameWithType: TraktVIPVeteranTitleJsonConverter.TraktVIPVeteranTitleJsonConverter()
-  nameWithType.vb: TraktVIPVeteranTitleJsonConverter.New()
-- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.#ctor*
-  name: TraktVIPVeteranTitleJsonConverter
-  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter__ctor_
-  commentId: Overload:TraktNET.TraktVIPVeteranTitleJsonConverter.#ctor
-  name.vb: New
-  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.TraktVIPVeteranTitleJsonConverter
-  fullName.vb: TraktNET.TraktVIPVeteranTitleJsonConverter.New
-  nameWithType: TraktVIPVeteranTitleJsonConverter.TraktVIPVeteranTitleJsonConverter
-  nameWithType.vb: TraktVIPVeteranTitleJsonConverter.New
-- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert(System.Type)
-  name: CanConvert(Type)
-  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_CanConvert_System_Type_
-  commentId: M:TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert(System.Type)
-  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert(System.Type)
-  nameWithType: TraktVIPVeteranTitleJsonConverter.CanConvert(Type)
-- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert*
-  name: CanConvert
-  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_CanConvert_
-  commentId: Overload:TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert
-  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.CanConvert
-  nameWithType: TraktVIPVeteranTitleJsonConverter.CanConvert
-- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
-  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
-  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
-  commentId: M:TraktNET.TraktVIPVeteranTitleJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
-  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
-  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
-  fullName.vb: TraktNET.TraktVIPVeteranTitleJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
-  nameWithType: TraktVIPVeteranTitleJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
-  nameWithType.vb: TraktVIPVeteranTitleJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
-- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.Read*
-  name: Read
-  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_Read_
-  commentId: Overload:TraktNET.TraktVIPVeteranTitleJsonConverter.Read
-  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.Read
-  nameWithType: TraktVIPVeteranTitleJsonConverter.Read
-- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktVIPVeteranTitle,System.Text.Json.JsonSerializerOptions)
-  name: Write(Utf8JsonWriter, TraktVIPVeteranTitle, JsonSerializerOptions)
-  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktVIPVeteranTitle_System_Text_Json_JsonSerializerOptions_
-  commentId: M:TraktNET.TraktVIPVeteranTitleJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktVIPVeteranTitle,System.Text.Json.JsonSerializerOptions)
-  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktVIPVeteranTitle, System.Text.Json.JsonSerializerOptions)
-  nameWithType: TraktVIPVeteranTitleJsonConverter.Write(Utf8JsonWriter, TraktVIPVeteranTitle, JsonSerializerOptions)
-- uid: TraktNET.TraktVIPVeteranTitleJsonConverter.Write*
-  name: Write
-  href: api/TraktNET.TraktVIPVeteranTitleJsonConverter.html#TraktNET_TraktVIPVeteranTitleJsonConverter_Write_
-  commentId: Overload:TraktNET.TraktVIPVeteranTitleJsonConverter.Write
-  fullName: TraktNET.TraktVIPVeteranTitleJsonConverter.Write
-  nameWithType: TraktVIPVeteranTitleJsonConverter.Write
 - uid: TraktNET.TraktVideo
   name: TraktVideo
   href: api/TraktNET.TraktVideo.html
@@ -124006,6 +123874,138 @@ references:
   commentId: Overload:TraktNET.TraktVideoTypeJsonConverter.Write
   fullName: TraktNET.TraktVideoTypeJsonConverter.Write
   nameWithType: TraktVideoTypeJsonConverter.Write
+- uid: TraktNET.TraktVipVeteranTitle
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.TraktVipVeteranTitle.html
+  commentId: T:TraktNET.TraktVipVeteranTitle
+  fullName: TraktNET.TraktVipVeteranTitle
+  nameWithType: TraktVipVeteranTitle
+- uid: TraktNET.TraktVipVeteranTitle.Legend
+  name: Legend
+  href: api/TraktNET.TraktVipVeteranTitle.html#TraktNET_TraktVipVeteranTitle_Legend
+  commentId: F:TraktNET.TraktVipVeteranTitle.Legend
+  fullName: TraktNET.TraktVipVeteranTitle.Legend
+  nameWithType: TraktVipVeteranTitle.Legend
+- uid: TraktNET.TraktVipVeteranTitle.Unspecified
+  name: Unspecified
+  href: api/TraktNET.TraktVipVeteranTitle.html#TraktNET_TraktVipVeteranTitle_Unspecified
+  commentId: F:TraktNET.TraktVipVeteranTitle.Unspecified
+  fullName: TraktNET.TraktVipVeteranTitle.Unspecified
+  nameWithType: TraktVipVeteranTitle.Unspecified
+- uid: TraktNET.TraktVipVeteranTitle.Veteran
+  name: Veteran
+  href: api/TraktNET.TraktVipVeteranTitle.html#TraktNET_TraktVipVeteranTitle_Veteran
+  commentId: F:TraktNET.TraktVipVeteranTitle.Veteran
+  fullName: TraktNET.TraktVipVeteranTitle.Veteran
+  nameWithType: TraktVipVeteranTitle.Veteran
+- uid: TraktNET.TraktVipVeteranTitleExtensions
+  name: TraktVipVeteranTitleExtensions
+  href: api/TraktNET.TraktVipVeteranTitleExtensions.html
+  commentId: T:TraktNET.TraktVipVeteranTitleExtensions
+  fullName: TraktNET.TraktVipVeteranTitleExtensions
+  nameWithType: TraktVipVeteranTitleExtensions
+- uid: TraktNET.TraktVipVeteranTitleExtensions.DisplayName(TraktNET.TraktVipVeteranTitle)
+  name: DisplayName(TraktVipVeteranTitle)
+  href: api/TraktNET.TraktVipVeteranTitleExtensions.html#TraktNET_TraktVipVeteranTitleExtensions_DisplayName_TraktNET_TraktVipVeteranTitle_
+  commentId: M:TraktNET.TraktVipVeteranTitleExtensions.DisplayName(TraktNET.TraktVipVeteranTitle)
+  fullName: TraktNET.TraktVipVeteranTitleExtensions.DisplayName(TraktNET.TraktVipVeteranTitle)
+  nameWithType: TraktVipVeteranTitleExtensions.DisplayName(TraktVipVeteranTitle)
+- uid: TraktNET.TraktVipVeteranTitleExtensions.DisplayName*
+  name: DisplayName
+  href: api/TraktNET.TraktVipVeteranTitleExtensions.html#TraktNET_TraktVipVeteranTitleExtensions_DisplayName_
+  commentId: Overload:TraktNET.TraktVipVeteranTitleExtensions.DisplayName
+  fullName: TraktNET.TraktVipVeteranTitleExtensions.DisplayName
+  nameWithType: TraktVipVeteranTitleExtensions.DisplayName
+- uid: TraktNET.TraktVipVeteranTitleExtensions.ToJson(TraktNET.TraktVipVeteranTitle)
+  name: ToJson(TraktVipVeteranTitle)
+  href: api/TraktNET.TraktVipVeteranTitleExtensions.html#TraktNET_TraktVipVeteranTitleExtensions_ToJson_TraktNET_TraktVipVeteranTitle_
+  commentId: M:TraktNET.TraktVipVeteranTitleExtensions.ToJson(TraktNET.TraktVipVeteranTitle)
+  fullName: TraktNET.TraktVipVeteranTitleExtensions.ToJson(TraktNET.TraktVipVeteranTitle)
+  nameWithType: TraktVipVeteranTitleExtensions.ToJson(TraktVipVeteranTitle)
+- uid: TraktNET.TraktVipVeteranTitleExtensions.ToJson*
+  name: ToJson
+  href: api/TraktNET.TraktVipVeteranTitleExtensions.html#TraktNET_TraktVipVeteranTitleExtensions_ToJson_
+  commentId: Overload:TraktNET.TraktVipVeteranTitleExtensions.ToJson
+  fullName: TraktNET.TraktVipVeteranTitleExtensions.ToJson
+  nameWithType: TraktVipVeteranTitleExtensions.ToJson
+- uid: TraktNET.TraktVipVeteranTitleExtensions.ToTraktVipVeteranTitle(System.String)
+  name: ToTraktVipVeteranTitle(string?)
+  href: api/TraktNET.TraktVipVeteranTitleExtensions.html#TraktNET_TraktVipVeteranTitleExtensions_ToTraktVipVeteranTitle_System_String_
+  commentId: M:TraktNET.TraktVipVeteranTitleExtensions.ToTraktVipVeteranTitle(System.String)
+  name.vb: ToTraktVipVeteranTitle(String)
+  fullName: TraktNET.TraktVipVeteranTitleExtensions.ToTraktVipVeteranTitle(string?)
+  fullName.vb: TraktNET.TraktVipVeteranTitleExtensions.ToTraktVipVeteranTitle(String)
+  nameWithType: TraktVipVeteranTitleExtensions.ToTraktVipVeteranTitle(string?)
+  nameWithType.vb: TraktVipVeteranTitleExtensions.ToTraktVipVeteranTitle(String)
+- uid: TraktNET.TraktVipVeteranTitleExtensions.ToTraktVipVeteranTitle*
+  name: ToTraktVipVeteranTitle
+  href: api/TraktNET.TraktVipVeteranTitleExtensions.html#TraktNET_TraktVipVeteranTitleExtensions_ToTraktVipVeteranTitle_
+  commentId: Overload:TraktNET.TraktVipVeteranTitleExtensions.ToTraktVipVeteranTitle
+  fullName: TraktNET.TraktVipVeteranTitleExtensions.ToTraktVipVeteranTitle
+  nameWithType: TraktVipVeteranTitleExtensions.ToTraktVipVeteranTitle
+- uid: TraktNET.TraktVipVeteranTitleJsonConverter
+  name: TraktVipVeteranTitleJsonConverter
+  href: api/TraktNET.TraktVipVeteranTitleJsonConverter.html
+  commentId: T:TraktNET.TraktVipVeteranTitleJsonConverter
+  fullName: TraktNET.TraktVipVeteranTitleJsonConverter
+  nameWithType: TraktVipVeteranTitleJsonConverter
+- uid: TraktNET.TraktVipVeteranTitleJsonConverter.#ctor
+  name: TraktVipVeteranTitleJsonConverter()
+  href: api/TraktNET.TraktVipVeteranTitleJsonConverter.html#TraktNET_TraktVipVeteranTitleJsonConverter__ctor
+  commentId: M:TraktNET.TraktVipVeteranTitleJsonConverter.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktVipVeteranTitleJsonConverter.TraktVipVeteranTitleJsonConverter()
+  fullName.vb: TraktNET.TraktVipVeteranTitleJsonConverter.New()
+  nameWithType: TraktVipVeteranTitleJsonConverter.TraktVipVeteranTitleJsonConverter()
+  nameWithType.vb: TraktVipVeteranTitleJsonConverter.New()
+- uid: TraktNET.TraktVipVeteranTitleJsonConverter.#ctor*
+  name: TraktVipVeteranTitleJsonConverter
+  href: api/TraktNET.TraktVipVeteranTitleJsonConverter.html#TraktNET_TraktVipVeteranTitleJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktVipVeteranTitleJsonConverter.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktVipVeteranTitleJsonConverter.TraktVipVeteranTitleJsonConverter
+  fullName.vb: TraktNET.TraktVipVeteranTitleJsonConverter.New
+  nameWithType: TraktVipVeteranTitleJsonConverter.TraktVipVeteranTitleJsonConverter
+  nameWithType.vb: TraktVipVeteranTitleJsonConverter.New
+- uid: TraktNET.TraktVipVeteranTitleJsonConverter.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: api/TraktNET.TraktVipVeteranTitleJsonConverter.html#TraktNET_TraktVipVeteranTitleJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktVipVeteranTitleJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktVipVeteranTitleJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktVipVeteranTitleJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktVipVeteranTitleJsonConverter.CanConvert*
+  name: CanConvert
+  href: api/TraktNET.TraktVipVeteranTitleJsonConverter.html#TraktNET_TraktVipVeteranTitleJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktVipVeteranTitleJsonConverter.CanConvert
+  fullName: TraktNET.TraktVipVeteranTitleJsonConverter.CanConvert
+  nameWithType: TraktVipVeteranTitleJsonConverter.CanConvert
+- uid: TraktNET.TraktVipVeteranTitleJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/TraktNET.TraktVipVeteranTitleJsonConverter.html#TraktNET_TraktVipVeteranTitleJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktVipVeteranTitleJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: TraktNET.TraktVipVeteranTitleJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktVipVeteranTitleJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktVipVeteranTitleJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktVipVeteranTitleJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktVipVeteranTitleJsonConverter.Read*
+  name: Read
+  href: api/TraktNET.TraktVipVeteranTitleJsonConverter.html#TraktNET_TraktVipVeteranTitleJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktVipVeteranTitleJsonConverter.Read
+  fullName: TraktNET.TraktVipVeteranTitleJsonConverter.Read
+  nameWithType: TraktVipVeteranTitleJsonConverter.Read
+- uid: TraktNET.TraktVipVeteranTitleJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktVipVeteranTitle,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktVipVeteranTitle, JsonSerializerOptions)
+  href: api/TraktNET.TraktVipVeteranTitleJsonConverter.html#TraktNET_TraktVipVeteranTitleJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktVipVeteranTitle_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktVipVeteranTitleJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktVipVeteranTitle,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktVipVeteranTitleJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktVipVeteranTitle, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktVipVeteranTitleJsonConverter.Write(Utf8JsonWriter, TraktVipVeteranTitle, JsonSerializerOptions)
+- uid: TraktNET.TraktVipVeteranTitleJsonConverter.Write*
+  name: Write
+  href: api/TraktNET.TraktVipVeteranTitleJsonConverter.html#TraktNET_TraktVipVeteranTitleJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktVipVeteranTitleJsonConverter.Write
+  fullName: TraktNET.TraktVipVeteranTitleJsonConverter.Write
+  nameWithType: TraktVipVeteranTitleJsonConverter.Write
 - uid: TraktNET.TraktWatchedEpisode
   name: TraktWatchedEpisode
   href: api/TraktNET.TraktWatchedEpisode.html
@@ -129151,18 +129151,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.NullableTraktUserSyncType
   fullName: TraktNET.UsersJsonSerializerContext.NullableTraktUserSyncType
   nameWithType: UsersJsonSerializerContext.NullableTraktUserSyncType
-- uid: TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableTraktVIPVeteranTitle
-  commentId: P:TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
-- uid: TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle*
-  name: NullableTraktVIPVeteranTitle
-  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableTraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
-  fullName: TraktNET.UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
-  nameWithType: UsersJsonSerializerContext.NullableTraktVIPVeteranTitle
+- uid: TraktNET.UsersJsonSerializerContext.NullableTraktVipVeteranTitle
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableTraktVipVeteranTitle
+  commentId: P:TraktNET.UsersJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.UsersJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: UsersJsonSerializerContext.NullableTraktVipVeteranTitle
+- uid: TraktNET.UsersJsonSerializerContext.NullableTraktVipVeteranTitle*
+  name: NullableTraktVipVeteranTitle
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableTraktVipVeteranTitle_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.NullableTraktVipVeteranTitle
+  fullName: TraktNET.UsersJsonSerializerContext.NullableTraktVipVeteranTitle
+  nameWithType: UsersJsonSerializerContext.NullableTraktVipVeteranTitle
 - uid: TraktNET.UsersJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_NullableUInt32
@@ -131767,18 +131767,18 @@ references:
   commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktUserYearInReview
   fullName: TraktNET.UsersJsonSerializerContext.TraktUserYearInReview
   nameWithType: UsersJsonSerializerContext.TraktUserYearInReview
-- uid: TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktVIPVeteranTitle
-  commentId: P:TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: UsersJsonSerializerContext.TraktVIPVeteranTitle
-- uid: TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle*
-  name: TraktVIPVeteranTitle
-  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktVIPVeteranTitle_
-  commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle
-  fullName: TraktNET.UsersJsonSerializerContext.TraktVIPVeteranTitle
-  nameWithType: UsersJsonSerializerContext.TraktVIPVeteranTitle
+- uid: TraktNET.UsersJsonSerializerContext.TraktVipVeteranTitle
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktVipVeteranTitle
+  commentId: P:TraktNET.UsersJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.UsersJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: UsersJsonSerializerContext.TraktVipVeteranTitle
+- uid: TraktNET.UsersJsonSerializerContext.TraktVipVeteranTitle*
+  name: TraktVipVeteranTitle
+  href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_TraktVipVeteranTitle_
+  commentId: Overload:TraktNET.UsersJsonSerializerContext.TraktVipVeteranTitle
+  fullName: TraktNET.UsersJsonSerializerContext.TraktVipVeteranTitle
+  nameWithType: UsersJsonSerializerContext.TraktVipVeteranTitle
 - uid: TraktNET.UsersJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.UsersJsonSerializerContext.html#TraktNET_UsersJsonSerializerContext_UInt32

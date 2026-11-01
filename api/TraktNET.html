@@ -258,11 +258,11 @@ For example, if a resource, e.g. a comment, already exists.</p>
       <h4><a class="xref" href="TraktNET.TraktApiUserNotFoundException.html">TraktApiUserNotFoundException</a></h4>
       <section><p>Exception, that will be thrown, if an user was not found.</p>
 </section>
-      <h4><a class="xref" href="TraktNET.TraktApiVIPValidationException.html">TraktApiVIPValidationException</a></h4>
-      <section><p>Exception, that will be thrown, if the authorized user does not have VIP support.</p>
-</section>
       <h4><a class="xref" href="TraktNET.TraktApiValidationException.html">TraktApiValidationException</a></h4>
       <section><p>Exception, that will be thrown, if sent data is not valid.</p>
+</section>
+      <h4><a class="xref" href="TraktNET.TraktApiVipValidationException.html">TraktApiVipValidationException</a></h4>
+      <section><p>Exception, that will be thrown, if the authorized user does not have VIP support.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktAuthModule.html">TraktAuthModule</a></h4>
       <section><p>Provides access to OAuth and device authentication and authorization.</p>
@@ -844,12 +844,6 @@ For example, if a resource, e.g. a comment, already exists.</p>
       <h4><a class="xref" href="TraktNET.TraktNotesObjectTypeJsonConverter.html">TraktNotesObjectTypeJsonConverter</a></h4>
       <section><p>JSON converter for <a class="xref" href="TraktNET.TraktNotesObjectType.html">TraktNotesObjectType</a>.</p>
 </section>
-      <h4><a class="xref" href="TraktNET.TraktPKCE.html">TraktPKCE</a></h4>
-      <section><p>Helper for Proof Key for Code Exchange (PKCE) according to RFC 7636.</p>
-</section>
-      <h4><a class="xref" href="TraktNET.TraktPKCEChallenge.html">TraktPKCEChallenge</a></h4>
-      <section><p>Represents a generated PKCE challenge pair containing the code verifier, code challenge, and code challenge method.</p>
-</section>
       <h4><a class="xref" href="TraktNET.TraktPagedResponse-1.html">TraktPagedResponse&lt;TResponseContentType&gt;</a></h4>
       <section><p>A Trakt paged list response with items of content type <code class="typeparamref">TResponseContentType</code>.</p>
 </section>
@@ -904,6 +898,12 @@ For example, if a resource, e.g. a comment, already exists.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktPersonSocialIDs.html">TraktPersonSocialIDs</a></h4>
       <section><p>A collection of social IDs for various web services for a Trakt person.</p>
+</section>
+      <h4><a class="xref" href="TraktNET.TraktPkce.html">TraktPkce</a></h4>
+      <section><p>Helper for Proof Key for Code Exchange (PKCE) according to RFC 7636.</p>
+</section>
+      <h4><a class="xref" href="TraktNET.TraktPkceChallenge.html">TraktPkceChallenge</a></h4>
+      <section><p>Represents a generated PKCE challenge pair containing the code verifier, code challenge, and code challenge method.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktPlexAccount.html">TraktPlexAccount</a></h4>
       <section><p>Represents a Plex account.</p>
@@ -2091,12 +2091,6 @@ which should be removed from an user's personal list.</p>
       <section><p>Provides access to data retrieving methods specific to users.</p>
 <p>This module contains all methods of the "Trakt API Documentation - Users" section.</p>
 </section>
-      <h4><a class="xref" href="TraktNET.TraktVIPVeteranTitleExtensions.html">TraktVIPVeteranTitleExtensions</a></h4>
-      <section><p>Extension methods for <a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a>.</p>
-</section>
-      <h4><a class="xref" href="TraktNET.TraktVIPVeteranTitleJsonConverter.html">TraktVIPVeteranTitleJsonConverter</a></h4>
-      <section><p>JSON converter for <a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a>.</p>
-</section>
       <h4><a class="xref" href="TraktNET.TraktVideo.html">TraktVideo</a></h4>
       <section><p>A Trakt video item.</p>
 </section>
@@ -2105,6 +2099,12 @@ which should be removed from an user's personal list.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktVideoTypeJsonConverter.html">TraktVideoTypeJsonConverter</a></h4>
       <section><p>JSON converter for <a class="xref" href="TraktNET.TraktVideoType.html">TraktVideoType</a>.</p>
+</section>
+      <h4><a class="xref" href="TraktNET.TraktVipVeteranTitleExtensions.html">TraktVipVeteranTitleExtensions</a></h4>
+      <section><p>Extension methods for <a class="xref" href="TraktNET.TraktVipVeteranTitle.html">TraktVipVeteranTitle</a>.</p>
+</section>
+      <h4><a class="xref" href="TraktNET.TraktVipVeteranTitleJsonConverter.html">TraktVipVeteranTitleJsonConverter</a></h4>
+      <section><p>JSON converter for <a class="xref" href="TraktNET.TraktVipVeteranTitle.html">TraktVipVeteranTitle</a>.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktWatchedEpisode.html">TraktWatchedEpisode</a></h4>
       <section><p>Contains information about a watched Trakt episode.</p>
@@ -2387,11 +2387,11 @@ Enums
       <h4><a class="xref" href="TraktNET.TraktUserSyncType.html">TraktUserSyncType</a></h4>
       <section><p>Determines the type of data sync app filter.</p>
 </section>
-      <h4><a class="xref" href="TraktNET.TraktVIPVeteranTitle.html">TraktVIPVeteranTitle</a></h4>
-      <section><p>Determines the VIP veteran title of a user.</p>
-</section>
       <h4><a class="xref" href="TraktNET.TraktVideoType.html">TraktVideoType</a></h4>
       <section><p>Determines the type of an video item.</p>
+</section>
+      <h4><a class="xref" href="TraktNET.TraktVipVeteranTitle.html">TraktVipVeteranTitle</a></h4>
+      <section><p>Determines the VIP veteran title of a user.</p>
 </section>
 
 
