@@ -10,6 +10,6 @@
         public uint? MinutesWatched { get; set; }
 
         /// <summary>Gets or sets the number of minutes remaining to complete the season based on aired episodes.</summary>
-        public uint? MinutesLeft { get; set; }
+        public int? MinutesLeft { get; set; }
     }
 }

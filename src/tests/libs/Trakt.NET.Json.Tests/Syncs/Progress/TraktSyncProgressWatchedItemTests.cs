@@ -69,7 +69,7 @@ namespace TraktNET.Json.Syncs
             item.Progress.Stats.ShouldNotBeNull();
             item.Progress.Stats.PlayCount.ShouldBe(62U);
             item.Progress.Stats.MinutesWatched.ShouldBe(2980U);
-            item.Progress.Stats.MinutesLeft.ShouldBe(0U);
+            item.Progress.Stats.MinutesLeft.ShouldBe(0);
         }
     }
 }

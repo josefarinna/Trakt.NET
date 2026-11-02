@@ -28,7 +28,7 @@
             watchedProgress.Stats.ShouldNotBeNull();
             watchedProgress.Stats.PlayCount.ShouldBe(10U);
             watchedProgress.Stats.MinutesWatched.ShouldBe(567U);
-            watchedProgress.Stats.MinutesLeft.ShouldBe(0U);
+            watchedProgress.Stats.MinutesLeft.ShouldBe(0);
 
             watchedProgress.Episodes.ShouldNotBeNull();
 
