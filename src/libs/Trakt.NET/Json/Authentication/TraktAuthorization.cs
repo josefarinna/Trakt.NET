@@ -39,7 +39,7 @@ namespace TraktNET
         /// <summary>
         /// Returns, whether this authorization information is expired.
         /// <para>
-        /// Returns false, if <see cref="IsValid" /> returns false, or, if the authorization information is expired.
+        /// Returns true, if <see cref="IsValid" /> returns false, or, if the authorization information is expired.
         /// </para>
         /// </summary>
         [JsonIgnore]
