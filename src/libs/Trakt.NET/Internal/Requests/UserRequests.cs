@@ -208,10 +208,10 @@ namespace TraktNET
         [TraktRequestParameter]
         internal uint? ItemID { get; set; }
 
-        [TraktRequestQuery("start_at", UseCacheEfficientDateTime = true)]
+        [TraktRequestQuery("start_at")]
         internal DateTime? StartAt { get; set; }
 
-        [TraktRequestQuery("end_at", UseCacheEfficientDateTime = true)]
+        [TraktRequestQuery("end_at")]
         internal DateTime? EndAt { get; set; }
 
         [TraktRequestQuery("filter")]

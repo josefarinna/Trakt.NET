@@ -75,6 +75,22 @@ namespace TraktNET.GetRequests.Users
         }
 
         [Fact]
+        public void TestUserWatchedHistoryGetRequestHasValidURIPathWithStartAtAndEndAt()
+        {
+            var startAt = new DateTime(2024, 1, 1, 10, 30, 15, 250, DateTimeKind.Utc);
+            var endAt = new DateTime(2024, 2, 1, 14, 59, 59, 500, DateTimeKind.Utc);
+            var request = new UserWatchedHistoryGetRequest
+            {
+                Id = "123",
+                StartAt = startAt,
+                EndAt = endAt
+            };
+
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri($"{URIPath}?start_at=2024-01-01T10:30:15.250Z&end_at=2024-02-01T14:59:59.500Z", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestUserWatchedHistoryGetRequestHasValidOAuthRequirement()
         {
             var userWatchedHistoryGetRequest = new UserWatchedHistoryGetRequest { Id = default! };
