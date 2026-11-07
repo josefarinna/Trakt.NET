@@ -1,5 +1,9 @@
 using System.Net;
 
+#if TRAKT_NET_4XX_FRAMEWORK_TARGET
+using System.Net.Http;
+#endif
+
 namespace TraktNET.AuthModule
 {
     public sealed class GetAuthorizationTests
@@ -244,6 +248,20 @@ namespace TraktNET.AuthModule
             (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);
         }
 
+        [Fact]
+        public async Task TestGetAuthorizationDisposesResponseMessageOnError()
+        {
+            var content = new TrackingStringContent("error");
+            TraktClient client = ModuleTestUtility.GetClient(GetAuthorizationUri,
+                _ => new HttpResponseMessage(HttpStatusCode.BadRequest) { Content = content });
+            client.OAuthAuthorizationCode = MockAuthCode;
+
+            Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.GetAuthorizationAsync(TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktApiAuthenticationOAuthException>();
+
+            content.IsDisposed.ShouldBeTrue();
+        }
+
         private static void ValidateResponse(TraktResponse<TraktAuthorization> response, TraktClient client)
         {
             response.ShouldNotBeNull();
@@ -260,6 +278,19 @@ namespace TraktNET.AuthModule
 
             client.Authorization.ShouldNotBeNull();
             client.Authorization.AccessToken.ShouldBe(responseAuth.AccessToken);
+        }
+
+        private sealed class TrackingStringContent(string content) : StringContent(content)
+        {
+            public bool IsDisposed { get; private set; }
+
+            protected override void Dispose(bool disposing)
+            {
+                if (disposing)
+                    IsDisposed = true;
+
+                base.Dispose(disposing);
+            }
         }
     }
 }
