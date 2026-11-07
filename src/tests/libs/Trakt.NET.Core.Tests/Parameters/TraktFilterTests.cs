@@ -604,6 +604,14 @@ namespace TraktNET.Paramters
 
             filter = new TraktFilter
             {
+                Status = [TraktShowStatus.Unspecified]
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
+
+            filter = new TraktFilter
+            {
                 Status = []
             };
 
@@ -627,6 +635,14 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("episode_types=season_premiere");
+
+            filter = new TraktFilter
+            {
+                EpisodeTypes = [TraktEpisodeType.Unspecified]
+            };
+
+            filter.ToString().ShouldNotBeNull();
+            filter.ToString()!.ShouldBeEmpty();
 
             filter = new TraktFilter
             {

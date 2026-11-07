@@ -129,9 +129,14 @@ namespace TraktNET
             if (items == null || items.Length == 0)
                 return;
 
-            IEnumerable<string?> jsonValues = items
+            string?[] jsonValues = items
                 .Where(item => !EqualityComparer<TEnum>.Default.Equals(item, unspecified))
-                .Select(toJson);
+                .Select(toJson)
+                .Where(json => !string.IsNullOrEmpty(json))
+                .ToArray();
+
+            if (jsonValues.Length == 0)
+                return;
 
             values.Add($"{name}={string.Join(",", jsonValues)}");
         }
