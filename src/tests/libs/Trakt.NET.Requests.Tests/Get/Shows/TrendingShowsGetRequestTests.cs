@@ -65,7 +65,7 @@ namespace TraktNET.GetRequests.Shows
             };
 
             trendingShowsGetRequest.BuildUri();
-            trendingShowsGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game of thrones", UriKind.Relative));
+            trendingShowsGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game%20of%20thrones", UriKind.Relative));
         }
     }
 }

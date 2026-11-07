@@ -74,7 +74,7 @@ namespace TraktNET.GetRequests.Calendar
             };
 
             calendarAllShowsGetRequest.BuildUri();
-            calendarAllShowsGetRequest.RequestUri.ShouldBe(new Uri(URIPath + "/" + StartDateURIValue + "/7?query=game of thrones", UriKind.Relative));
+            calendarAllShowsGetRequest.RequestUri.ShouldBe(new Uri(URIPath + "/" + StartDateURIValue + "/7?query=game%20of%20thrones", UriKind.Relative));
         }
     }
 }

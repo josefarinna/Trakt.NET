@@ -72,7 +72,7 @@ namespace SourceGeneraterTestNamespace
 
             if (!string.IsNullOrWhiteSpace(Language))
             {
-                queries.Add($"language={Language!}");
+                queries.Add($"language={Uri.EscapeDataString(Language!)}");
             }
 
             if (ExtendedInfo.HasValue && ExtendedInfo.Value != TraktExtendedInfo.None)

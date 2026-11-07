@@ -38,7 +38,7 @@ namespace SourceGeneraterTestNamespace
                 queries.Add(ListType.Value.AsQuery());
             }
 
-            queries.Add($"country={Country}");
+            queries.Add($"country={Uri.EscapeDataString(Country)}");
 
             if (StartDate.HasValue)
             {

@@ -69,6 +69,13 @@ namespace TraktNET.Paramters
 
             filter = new TraktFilter
             {
+                Query = "Law & Order #1 + 2"
+            };
+
+            filter.ToString().ShouldBe("query=Law%20%26%20Order%20%231%20%2B%202");
+
+            filter = new TraktFilter
+            {
                 Query = string.Empty
             };
 
@@ -736,6 +743,13 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("theme=halloween");
+
+            filter = new TraktFilter
+            {
+                Theme = "sci-fi & fantasy #1 + 2"
+            };
+
+            filter.ToString().ShouldBe("theme=sci-fi%20%26%20fantasy%20%231%20%2B%202");
 
             filter = new TraktFilter
             {

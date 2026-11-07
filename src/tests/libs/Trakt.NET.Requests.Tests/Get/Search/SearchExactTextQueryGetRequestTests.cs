@@ -35,6 +35,19 @@ namespace TraktNET.GetRequests.Search
         }
 
         [Fact]
+        public void TestSearchExactTextQueryGetRequestEscapesSpecialCharactersInQuery()
+        {
+            var request = new SearchExactTextQueryGetRequest
+            {
+                Type = TraktSearchResultType.Show,
+                Query = "Law & Order #1 + 2"
+            };
+
+            request.BuildUri();
+            request.RequestUri.ShouldBe(new Uri("search/show/exact?query=Law%20%26%20Order%20%231%20%2B%202", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestSearchExactTextQueryGetRequestHasValidOAuthRequirement()
         {
             var request = new SearchExactTextQueryGetRequest { Type = TraktSearchResultType.Movie, Query = default! };

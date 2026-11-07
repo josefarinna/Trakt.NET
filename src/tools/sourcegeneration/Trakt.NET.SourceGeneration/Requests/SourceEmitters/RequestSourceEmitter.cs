@@ -329,8 +329,8 @@ namespace TraktNET.SourceGeneration.Requests
             return requestQuery.SpecialType switch
             {
                 SpecialType.System_String => isRequired
-                    ? new UriValueEntry(null, name, queryPrefix)
-                    : new UriValueEntry($"!string.IsNullOrWhiteSpace({name})", $"{name}!", queryPrefix),
+                    ? new UriValueEntry(null, $"Uri.EscapeDataString({name})", queryPrefix)
+                    : new UriValueEntry($"!string.IsNullOrWhiteSpace({name})", $"Uri.EscapeDataString({name}!)", queryPrefix),
                 SpecialType.System_DateTime => new UriValueEntry(isRequired ? null : $"{name}.HasValue",
                     WriteDateTimeValue(name, requestQuery.UseCacheEfficientDateTime, isRequired), queryPrefix),
                 _ when IsIntegerSpecialType(requestQuery.SpecialType) => isRequired

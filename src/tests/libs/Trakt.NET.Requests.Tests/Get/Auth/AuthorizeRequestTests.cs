@@ -17,7 +17,7 @@ namespace TraktNET.GetRequests.Auth
             };
 
             authorizeRequest.BuildUri();
-            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize?response_type=code&client_id=client_id_123&redirect_uri=https://example.com/callback", UriKind.Relative));
+            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize?response_type=code&client_id=client_id_123&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback", UriKind.Relative));
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace TraktNET.GetRequests.Auth
             };
 
             authorizeRequest.BuildUri();
-            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize?response_type=code&client_id=client_id_123&redirect_uri=https://example.com/callback&state=state123", UriKind.Relative));
+            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize?response_type=code&client_id=client_id_123&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&state=state123", UriKind.Relative));
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace TraktNET.GetRequests.Auth
             };
 
             authorizeRequest.BuildUri();
-            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize/true?response_type=code&client_id=client_id_123&redirect_uri=https://example.com/callback", UriKind.Relative));
+            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize/true?response_type=code&client_id=client_id_123&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback", UriKind.Relative));
         }
 
         [Fact]
@@ -62,7 +62,7 @@ namespace TraktNET.GetRequests.Auth
             };
 
             authorizeRequest.BuildUri();
-            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize/login?response_type=code&client_id=client_id_123&redirect_uri=https://example.com/callback", UriKind.Relative));
+            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize/login?response_type=code&client_id=client_id_123&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback", UriKind.Relative));
         }
 
         [Fact]
@@ -79,7 +79,7 @@ namespace TraktNET.GetRequests.Auth
             };
 
             authorizeRequest.BuildUri();
-            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize/true/login?response_type=code&client_id=client_id_123&redirect_uri=https://example.com/callback&state=state123", UriKind.Relative));
+            authorizeRequest.RequestUri.ShouldBe(new Uri("oauth/authorize/true/login?response_type=code&client_id=client_id_123&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&state=state123", UriKind.Relative));
         }
 
         [Fact]
