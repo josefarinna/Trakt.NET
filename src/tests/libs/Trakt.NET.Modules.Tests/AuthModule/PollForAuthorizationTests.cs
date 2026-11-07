@@ -244,6 +244,20 @@ namespace TraktNET.AuthModule
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
 
+        [Fact]
+        public async Task TestPollForAuthorizationDisposesResponseMessageOnError()
+        {
+            var content = new TrackingStringContent("error");
+            TraktClient client = ModuleTestUtility.GetClient(PollForAuthorizationUri,
+                _ => new HttpResponseMessage(HttpStatusCode.NotFound) { Content = content });
+            client.Device = TestConstants.MockDevice;
+
+            Func<Task<TraktResponse<TraktAuthorization>>> act = () => client.Auth.PollForAuthorizationAsync(TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktApiAuthenticationDeviceException>();
+
+            content.IsDisposed.ShouldBeTrue();
+        }
+
         private static void ValidateSuccessResponse(TraktResponse<TraktAuthorization> response, TraktClient client)
         {
             response.ShouldNotBeNull();
@@ -264,6 +278,19 @@ namespace TraktNET.AuthModule
             client.Authorization.ShouldBeSameAs(auth);
             client.Authorization.AccessToken.ShouldBe(auth.AccessToken);
             client.Authorization.RefreshToken.ShouldBe(auth.RefreshToken);
+        }
+
+        private sealed class TrackingStringContent(string content) : StringContent(content)
+        {
+            public bool IsDisposed { get; private set; }
+
+            protected override void Dispose(bool disposing)
+            {
+                if (disposing)
+                    IsDisposed = true;
+
+                base.Dispose(disposing);
+            }
         }
     }
 }

@@ -81,39 +81,47 @@ namespace TraktNET
             HttpResponseMessage responseMessage = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead,
                 cancellationToken).ConfigureAwait(false);
 
-            TraktResponseHeaders traktHeaders = await ParseTraktResponseHeadersAsync(responseMessage.Headers, cancellationToken).ConfigureAwait(false);
-
-            if (!responseMessage.IsSuccessStatusCode)
+            try
             {
-                await HandleErrorAsync(request, responseMessage, traktHeaders, false, cancellationToken).ConfigureAwait(false);
-            }
+                TraktResponseHeaders traktHeaders = await ParseTraktResponseHeadersAsync(responseMessage.Headers, cancellationToken).ConfigureAwait(false);
 
-            if (withContent)
-            {
-                Stream responseContentStream = Stream.Null;
-
-                if (responseMessage.StatusCode != HttpStatusCode.NoContent && responseMessage.Content != null)
+                if (!responseMessage.IsSuccessStatusCode)
                 {
-#if NET5_0_OR_GREATER
-                    responseContentStream = await GetResponseContentStreamAsync(responseMessage, cancellationToken).ConfigureAwait(false);
-#else
-                    responseContentStream = await GetResponseContentStreamAsync(responseMessage).ConfigureAwait(false);
-#endif
+                    await HandleErrorAsync(request, responseMessage, traktHeaders, false, cancellationToken).ConfigureAwait(false);
                 }
 
-                return new ContentRequestResponse
+                if (withContent)
+                {
+                    Stream responseContentStream = Stream.Null;
+
+                    if (responseMessage.StatusCode != HttpStatusCode.NoContent && responseMessage.Content != null)
+                    {
+#if NET5_0_OR_GREATER
+                        responseContentStream = await GetResponseContentStreamAsync(responseMessage, cancellationToken).ConfigureAwait(false);
+#else
+                        responseContentStream = await GetResponseContentStreamAsync(responseMessage).ConfigureAwait(false);
+#endif
+                    }
+
+                    return new ContentRequestResponse
+                    {
+                        ResponseMessage = responseMessage,
+                        ResponseContentStream = responseContentStream,
+                        TraktHeaders = traktHeaders
+                    };
+                }
+
+                return new RequestResponse
                 {
                     ResponseMessage = responseMessage,
-                    ResponseContentStream = responseContentStream,
                     TraktHeaders = traktHeaders
                 };
             }
-
-            return new RequestResponse
+            catch
             {
-                ResponseMessage = responseMessage,
-                TraktHeaders = traktHeaders
-            };
+                responseMessage.Dispose();
+                throw;
+            }
         }
 
         private static void AddRequestMessageHeaders(TraktContext context, RequestBase request)
