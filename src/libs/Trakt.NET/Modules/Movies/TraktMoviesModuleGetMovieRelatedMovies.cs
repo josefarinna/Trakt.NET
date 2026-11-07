@@ -8,6 +8,10 @@ namespace TraktNET
         /// Specifies how much data should be queried about the related movies.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
         /// </param>
+        /// <param name="personalized">
+        /// When true, VIP and director accounts get the related movies re-ordered toward their taste.
+        /// Ignored for other accounts or when false.
+        /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
         /// <param name="cancellationToken">
@@ -29,14 +33,18 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         public Task<TraktPagedResponse<TraktMovie>> GetMovieRelatedMoviesAsync(string traktMovieIDOrSlug, TraktExtendedInfo? extendedInfo = null,
-            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetMovieRelatedMoviesImplAsync(traktMovieIDOrSlug, extendedInfo, page, limit, cancellationToken);
+            bool? personalized = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetMovieRelatedMoviesImplAsync(traktMovieIDOrSlug, extendedInfo, personalized, page, limit, cancellationToken);
 
         /// <summary>Gets related movies for a <see cref="TraktMovie" /> with the specified Trakt-ID.</summary>
         /// <param name="traktMovieID">The movie's Trakt-ID.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the related movies.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="personalized">
+        /// When true, VIP and director accounts get the related movies re-ordered toward their taste.
+        /// Ignored for other accounts or when false.
         /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
@@ -59,14 +67,18 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown if the validation (e.g. invalid id) of the request fails.</exception>
         public Task<TraktPagedResponse<TraktMovie>> GetMovieRelatedMoviesAsync(uint traktMovieID, TraktExtendedInfo? extendedInfo = null,
-            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
-            => GetMovieRelatedMoviesImplAsync(traktMovieID.ToInvariantCultureString(), extendedInfo, page, limit, cancellationToken);
+            bool? personalized = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetMovieRelatedMoviesImplAsync(traktMovieID.ToInvariantCultureString(), extendedInfo, personalized, page, limit, cancellationToken);
 
         /// <summary>Gets related movies for a <see cref="TraktMovie" /> with the specified <see cref="TraktMovieIDs" />.</summary>
         /// <param name="movieIDs">The movie's IDs. See also <seealso cref="TraktMovieIDs" />.</param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the related movies.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="personalized">
+        /// When true, VIP and director accounts get the related movies re-ordered toward their taste.
+        /// Ignored for other accounts or when false.
         /// </param>
         /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
         /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
@@ -91,7 +103,7 @@ namespace TraktNET
         /// <exception cref="ArgumentException">Throw if the given <paramref name="movieIDs" /> has not set any IDs.</exception>
         /// <exception cref="ArgumentNullException">Thrown if the given <paramref name="movieIDs" /> is null.</exception>
         public Task<TraktPagedResponse<TraktMovie>> GetMovieRelatedMoviesAsync(TraktMovieIDs movieIDs, TraktExtendedInfo? extendedInfo = null,
-            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            bool? personalized = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(movieIDs);
 
@@ -100,7 +112,7 @@ namespace TraktNET
                 throw new ArgumentException($"{nameof(movieIDs)} has not any IDs set", nameof(movieIDs));
             }
 
-            return GetMovieRelatedMoviesImplAsync(movieIDs.BestID, extendedInfo, page, limit, cancellationToken);
+            return GetMovieRelatedMoviesImplAsync(movieIDs.BestID, extendedInfo, personalized, page, limit, cancellationToken);
         }
     }
 }

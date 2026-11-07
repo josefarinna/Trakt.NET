@@ -10,24 +10,28 @@ namespace TraktNET.MoviesModule
         private static readonly string GetMovieRelatedMoviesUri = $"{GetMovieRelatedMoviesUriPrefix}/{TestConstants.Movies.TraktMovieID}/{GetMovieRelatedMoviesUriSuffix}";
 
         [Theory]
-        [InlineData(null, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full", "Movies\\movierelatedmovies.json")]
-        [InlineData(null, 4U, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4", "Movies\\movierelatedmovies.json")]
-        [InlineData(null, null, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(null, 4U, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, 4U, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, null, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, 4U, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, 4U, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full&page=4", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, null, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full&limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, 4U, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
-        public async Task TestGetMovieRelatedMoviesWithID(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
+        [InlineData(null, null, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, true, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?personalized=true", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, false, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?personalized=false", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, 4U, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, null, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, 4U, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, 4U, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, null, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, 4U, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, 4U, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full&page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, null, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, 4U, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, true, null, null, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?personalized=true&extended=full", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, true, 4U, 20U, $"{GetMovieRelatedMoviesUriPrefix}/293990/{GetMovieRelatedMoviesUriSuffix}?personalized=true&extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        public async Task TestGetMovieRelatedMoviesWithID(TraktExtendedInfo? extendedInfo, bool? personalized, uint? page, uint? limit, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.TraktMovieID, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.TraktMovieID, extendedInfo, personalized, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -58,24 +62,28 @@ namespace TraktNET.MoviesModule
         }
 
         [Theory]
-        [InlineData(null, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full", "Movies\\movierelatedmovies.json")]
-        [InlineData(null, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
-        [InlineData(null, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(null, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
-        public async Task TestGetMovieRelatedMoviesWithSlug(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
+        [InlineData(null, null, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, true, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?personalized=true", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, false, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?personalized=false", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, true, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?personalized=true&extended=full", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, true, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?personalized=true&extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        public async Task TestGetMovieRelatedMoviesWithSlug(TraktExtendedInfo? extendedInfo, bool? personalized, uint? page, uint? limit, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieSlug, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieSlug, extendedInfo, personalized, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
@@ -106,24 +114,28 @@ namespace TraktNET.MoviesModule
         }
 
         [Theory]
-        [InlineData(null, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full", "Movies\\movierelatedmovies.json")]
-        [InlineData(null, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
-        [InlineData(null, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(null, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.None, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&limit=20", "Movies\\movierelatedmovies.json")]
-        [InlineData(TraktExtendedInfo.Full, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
-        public async Task TestGetMovieRelatedMoviesWithIDs(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
+        [InlineData(null, null, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, null, null, GetMovieRelatedMoviesUriWithSlug, "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, true, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?personalized=true", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, false, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?personalized=false", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(null, null, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.None, null, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, 4U, null, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, null, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, null, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, true, null, null, $"{GetMovieRelatedMoviesUriWithSlug}?personalized=true&extended=full", "Movies\\movierelatedmovies.json")]
+        [InlineData(TraktExtendedInfo.Full, true, 4U, 20U, $"{GetMovieRelatedMoviesUriWithSlug}?personalized=true&extended=full&page=4&limit=20", "Movies\\movierelatedmovies.json")]
+        public async Task TestGetMovieRelatedMoviesWithIDs(TraktExtendedInfo? extendedInfo, bool? personalized, uint? page, uint? limit, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, 2);
 
-            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIDs, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktMovie> response = await client.Movies.GetMovieRelatedMoviesAsync(TestConstants.Movies.MovieIDs, extendedInfo, personalized, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBe(true);
