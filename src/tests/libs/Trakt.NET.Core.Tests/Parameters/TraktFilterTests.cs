@@ -110,6 +110,13 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("years=2020-2024");
+
+            filter = new TraktFilter
+            {
+                Years = new Range<uint>(0, 2024)
+            };
+
+            filter.ToString()!.ShouldBeEmpty();
         }
 
         [Fact]
@@ -204,6 +211,20 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("runtimes=70-90");
+
+            filter = new TraktFilter
+            {
+                Runtimes = new Range<uint>(0, 30)
+            };
+
+            filter.ToString().ShouldBe("runtimes=0-30");
+
+            filter = new TraktFilter
+            {
+                Runtimes = new Range<uint>(30, 0)
+            };
+
+            filter.ToString().ShouldBe("runtimes=0-30");
         }
 
         [Fact]
@@ -241,6 +262,20 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("ratings=70-90");
+
+            filter = new TraktFilter
+            {
+                Ratings = new Range<uint>(0, 70)
+            };
+
+            filter.ToString().ShouldBe("ratings=0-70");
+
+            filter = new TraktFilter
+            {
+                Ratings = new Range<uint>(70, 0)
+            };
+
+            filter.ToString().ShouldBe("ratings=0-70");
         }
 
         [Fact]
@@ -259,6 +294,20 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("votes=2000-5000");
+
+            filter = new TraktFilter
+            {
+                Votes = new Range<uint>(0, 1000)
+            };
+
+            filter.ToString().ShouldBe("votes=0-1000");
+
+            filter = new TraktFilter
+            {
+                Votes = new Range<uint>(1000, 0)
+            };
+
+            filter.ToString().ShouldBe("votes=0-1000");
         }
 
         [Fact]
@@ -277,6 +326,27 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("tmdb_ratings=5.5-10");
+
+            filter = new TraktFilter
+            {
+                TMDBRatings = new Range<float>(0.0f, 7.5f)
+            };
+
+            filter.ToString().ShouldBe("tmdb_ratings=0-7.5");
+
+            filter = new TraktFilter
+            {
+                TMDBRatings = new Range<float>(7.5f, 0.0f)
+            };
+
+            filter.ToString().ShouldBe("tmdb_ratings=0-7.5");
+
+            filter = new TraktFilter
+            {
+                TMDBRatings = new Range<float>(-1.0f, 7.5f)
+            };
+
+            filter.ToString()!.ShouldBeEmpty();
         }
 
         [Fact]
@@ -295,6 +365,20 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("tmdb_votes=2000-5000");
+
+            filter = new TraktFilter
+            {
+                TMDBVotes = new Range<uint>(0, 1000)
+            };
+
+            filter.ToString().ShouldBe("tmdb_votes=0-1000");
+
+            filter = new TraktFilter
+            {
+                TMDBVotes = new Range<uint>(1000, 0)
+            };
+
+            filter.ToString().ShouldBe("tmdb_votes=0-1000");
         }
 
         [Fact]
@@ -313,6 +397,27 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("imdb_ratings=5.5-10");
+
+            filter = new TraktFilter
+            {
+                IMDBRatings = new Range<float>(0.0f, 7.5f)
+            };
+
+            filter.ToString().ShouldBe("imdb_ratings=0-7.5");
+
+            filter = new TraktFilter
+            {
+                IMDBRatings = new Range<float>(7.5f, 0.0f)
+            };
+
+            filter.ToString().ShouldBe("imdb_ratings=0-7.5");
+
+            filter = new TraktFilter
+            {
+                IMDBRatings = new Range<float>(-1.0f, 7.5f)
+            };
+
+            filter.ToString()!.ShouldBeEmpty();
         }
 
         [Fact]
@@ -331,6 +436,20 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("imdb_votes=2000-5000");
+
+            filter = new TraktFilter
+            {
+                IMDBVotes = new Range<uint>(0, 1000)
+            };
+
+            filter.ToString().ShouldBe("imdb_votes=0-1000");
+
+            filter = new TraktFilter
+            {
+                IMDBVotes = new Range<uint>(1000, 0)
+            };
+
+            filter.ToString().ShouldBe("imdb_votes=0-1000");
         }
 
         [Fact]
@@ -349,6 +468,20 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("rt_meters=70-90");
+
+            filter = new TraktFilter
+            {
+                RottenTomatoesMeters = new Range<uint>(0, 70)
+            };
+
+            filter.ToString().ShouldBe("rt_meters=0-70");
+
+            filter = new TraktFilter
+            {
+                RottenTomatoesMeters = new Range<uint>(70, 0)
+            };
+
+            filter.ToString().ShouldBe("rt_meters=0-70");
         }
 
         [Fact]
@@ -367,6 +500,20 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("rt_user_meters=70-90");
+
+            filter = new TraktFilter
+            {
+                RottenTomatoesUserMeters = new Range<uint>(0, 70)
+            };
+
+            filter.ToString().ShouldBe("rt_user_meters=0-70");
+
+            filter = new TraktFilter
+            {
+                RottenTomatoesUserMeters = new Range<uint>(70, 0)
+            };
+
+            filter.ToString().ShouldBe("rt_user_meters=0-70");
         }
 
         [Fact]
@@ -385,6 +532,27 @@ namespace TraktNET.Paramters
             };
 
             filter.ToString().ShouldBe("metascores=5.5-10");
+
+            filter = new TraktFilter
+            {
+                Metascores = new Range<float>(0.0f, 70.0f)
+            };
+
+            filter.ToString().ShouldBe("metascores=0-70");
+
+            filter = new TraktFilter
+            {
+                Metascores = new Range<float>(70.0f, 0.0f)
+            };
+
+            filter.ToString().ShouldBe("metascores=0-70");
+
+            filter = new TraktFilter
+            {
+                Metascores = new Range<float>(-1.0f, 70.0f)
+            };
+
+            filter.ToString()!.ShouldBeEmpty();
         }
 
         [Fact]
