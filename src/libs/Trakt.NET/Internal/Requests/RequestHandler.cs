@@ -141,9 +141,9 @@ namespace TraktNET
                 return;
             }
 
-            if (context.Authorization is TraktAuthorization authorization)
+            if (context.Authorization is { IsValid: true } authorization)
             {
-                request.Headers.Authorization = new AuthenticationHeaderValue(AuthenticationScheme, authorization.AccessToken ?? string.Empty);
+                request.Headers.Authorization = new AuthenticationHeaderValue(AuthenticationScheme, authorization.AccessToken);
             }
         }
 

@@ -53,6 +53,13 @@ namespace TraktNET
             return client;
         }
 
+        public static void SetClient(TraktClient client, string requestUri, Func<HttpRequestMessage, HttpResponseMessage> responseFactory)
+        {
+            var httpClientProvider = new TestHttpClientProvider(GetBaseUrl(requestUri));
+            httpClientProvider.SetupMockResponse(requestUri, responseFactory);
+            client.HttpClientProvider = httpClientProvider;
+        }
+
         public static void SetClient(TraktClient client, string requestUri, string responseContent, uint? page, uint? pageCount,
             uint? limit, uint? itemCount)
         {
