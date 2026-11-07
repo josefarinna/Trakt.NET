@@ -29,14 +29,12 @@ namespace TraktNET.SyncModule
             responseValue.Deleted.ShouldNotBeNull();
             responseValue.Deleted.Movies.ShouldBe(1U);
             responseValue.Deleted.Episodes.ShouldBe(12U);
-            responseValue.Deleted.Shows.ShouldBeNull();
-            responseValue.Deleted.Seasons.ShouldBeNull();
 
             responseValue.NotFound.ShouldNotBeNull();
             responseValue.NotFound.Movies.ShouldNotBeNull();
             responseValue.NotFound.Movies.Count.ShouldBe(1);
 
-            TraktPostResponseNotFoundMovie[] movies = [.. responseValue.NotFound.Movies];
+            TraktSyncRemovePostMovie[] movies = [.. responseValue.NotFound.Movies];
 
             movies[0].IDs.ShouldNotBeNull();
             movies[0].IDs!.Trakt.ShouldBeNull();

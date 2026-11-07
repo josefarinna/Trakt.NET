@@ -1,0 +1,57 @@
+{
+    "movies": [
+        {
+            "collected_at": "released",
+            "title": "Tron: Legacy",
+            "year": 2010,
+            "ids": {
+                "imdb": "tt0000111"
+            },
+            "media_type": "bluray",
+            "resolution": "uhd_4k",
+            "hdr": "dolby_vision",
+            "audio": "dolby_digital_plus_atmos",
+            "audio_channels": "7.1",
+            "3d": true
+        }
+    ],
+    "shows": [
+        {
+            "collected_at": "unknown",
+            "title": "Game of Thrones",
+            "year": 2011,
+            "ids": {
+                "imdb": "tt0000222"
+            },
+            "seasons": [
+                {
+                    "number": 1,
+                    "collected_at": "now",
+                    "episodes": [
+                        {
+                            "number": 1,
+                            "collected_at": "2014-09-01T09:10:11.000Z"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "seasons": [
+        {
+            "collected_at": "released",
+            "ids": {
+                "trakt": 10
+            }
+        }
+    ],
+    "episodes": [
+        {
+            "collected_at": "now",
+            "ids": {
+                "trakt": 20
+            }
+        }
+    ]
+}
+
