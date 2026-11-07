@@ -35347,6 +35347,103 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Avatar",
+          "item": [
+            {
+              "name": "Update avatar",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/users/avatar",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    "avatar"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{ACCESS_TOKEN}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"user\": {\r\n    \"avatar\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...\"\r\n  }\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Remove avatar",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/users/avatar",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    "avatar"
+                  ]
+                },
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{ACCESS_TOKEN}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
         }
       ],
       "auth": {

@@ -598,4 +598,9 @@ namespace TraktNET
     internal sealed partial class UserSyncUndoDeleteRequest
     {
     }
+
+    [TraktDeleteRequest("users/avatar", OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class UserAvatarDeleteRequest
+    {
+    }
 }

@@ -1120,6 +1120,26 @@ namespace TraktNET
         public Task<TraktResponse> UpdateAvatarAsync(string avatar, CancellationToken cancellationToken = default)
             => UpdateAvatarImplAsync(avatar, cancellationToken);
 
+        /// <summary>Removes the authenticated user's avatar, reverting the profile to the default avatar.</summary>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>A <see cref="TraktResponse" />.</returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para>
+        /// <b>Limited Access:</b> This endpoint is currently available only to first-party Trakt applications.
+        /// Third-party applications receive a 401 response even with a valid OAuth token.
+        /// </para>
+        /// <para><see href="https://docs.trakt.tv/reference/deleteusersavatar">
+        /// Trakt API Documentation: Users: Remove avatar
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
+        public Task<TraktResponse> RemoveAvatarAsync(CancellationToken cancellationToken = default)
+            => RemoveAvatarImplAsync(cancellationToken);
+
         /// <summary>Updates the authenticated user's cover image.</summary>
         /// <param name="coverType">The type of the cover image. See also <seealso cref="TraktCoverType" />.</param>
         /// <param name="coverId">The Trakt ID of the movie, show, or episode.</param>

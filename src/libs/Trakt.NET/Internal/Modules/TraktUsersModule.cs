@@ -1004,6 +1004,12 @@ namespace TraktNET
             return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
         }
 
+        private Task<TraktResponse> RemoveAvatarImplAsync(CancellationToken cancellationToken = default)
+        {
+            var request = new UserAvatarDeleteRequest();
+            return RequestHandler.ExecuteNoContentRequestAsync(_context, request, cancellationToken);
+        }
+
         private Task<TraktResponse> UpdateCoverImageImplAsync(TraktCoverType coverType, uint coverId, CancellationToken cancellationToken = default)
         {
             var coverPost = new TraktUserCoverPost
