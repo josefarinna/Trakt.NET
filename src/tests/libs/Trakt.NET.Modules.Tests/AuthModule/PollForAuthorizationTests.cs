@@ -17,6 +17,7 @@ namespace TraktNET.AuthModule
             authorizationJson.ShouldNotBeNullOrEmpty();
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
+            client.Authorization = null;
             client.Device = TestConstants.MockDevice;
 
             TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(TestContext.Current.CancellationToken);
@@ -28,6 +29,7 @@ namespace TraktNET.AuthModule
         public async Task TestPollForAuthorizationWithPolling()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri);
+            client.Authorization = null;
             client.Device = TestConstants.MockDevice;
 
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
@@ -56,6 +58,7 @@ namespace TraktNET.AuthModule
             authorizationJson.ShouldNotBeNullOrEmpty();
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
+            client.Authorization = null;
 
             TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(
                 TestConstants.MockDevice,
@@ -71,6 +74,7 @@ namespace TraktNET.AuthModule
             authorizationJson.ShouldNotBeNullOrEmpty();
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
+            client.Authorization = null;
 
             TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(
                 TestConstants.MockDevice,
@@ -87,6 +91,7 @@ namespace TraktNET.AuthModule
             authorizationJson.ShouldNotBeNullOrEmpty();
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
+            client.Authorization = null;
 
             TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(
                 TestConstants.MockDevice,
@@ -104,6 +109,7 @@ namespace TraktNET.AuthModule
             authorizationJson.ShouldNotBeNullOrEmpty();
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
+            client.Authorization = null;
             client.ClientSecret = null;
             client.Device = TestConstants.MockDevice;
 
@@ -119,6 +125,7 @@ namespace TraktNET.AuthModule
             authorizationJson.ShouldNotBeNullOrEmpty();
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(PollForAuthorizationUri, authorizationJson, null, null, null, null, true);
+            client.Authorization = null;
 
             TraktResponse<TraktAuthorization> response = await client.Auth.PollForAuthorizationAsync(
                 TestConstants.MockDevice,
@@ -254,6 +261,7 @@ namespace TraktNET.AuthModule
             auth.CreatedAtDateTime.ShouldBe(DateTime.UtcNow, TimeSpan.FromSeconds(15));
 
             client.Authorization.ShouldNotBeNull();
+            client.Authorization.ShouldBeSameAs(auth);
             client.Authorization.AccessToken.ShouldBe(auth.AccessToken);
             client.Authorization.RefreshToken.ShouldBe(auth.RefreshToken);
         }

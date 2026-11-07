@@ -75,6 +75,7 @@ namespace TraktNET
                 {
                     var contentResponse = (ContentRequestResponse)response;
                     TraktAuthorization? auth = await contentResponse.ResponseContentStream.ReadAsJsonAsync<TraktAuthorization>(cancellationToken).ConfigureAwait(false);
+                    context.Authorization = auth;
 
                     return TraktResponse<TraktAuthorization>.Create(
                         response.ResponseMessage.StatusCode, auth, response.TraktHeaders,
