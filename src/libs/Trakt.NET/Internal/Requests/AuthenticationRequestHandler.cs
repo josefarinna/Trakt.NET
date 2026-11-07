@@ -37,7 +37,7 @@ namespace TraktNET
         internal static async Task<TraktResponse<TraktAuthorization>> RefreshAuthorizationAsync(TraktContext context,
             AuthorizationRefreshRequest request, CancellationToken cancellationToken = default)
         {
-            TraktResponse<TraktAuthorization> response = await ExecuteSingleItemRequestAsync<TraktAuthorization>(context, request, cancellationToken);
+            TraktResponse<TraktAuthorization> response = await ExecuteSingleItemRequestAsync<TraktAuthorization>(context, request, cancellationToken).ConfigureAwait(false);
             context.Authorization = response.Content;
 
             return response;
@@ -178,8 +178,8 @@ namespace TraktNET
                 uriParams.Add("code_challenge_method", !string.IsNullOrEmpty(codeChallengeMethod) ? codeChallengeMethod! : "S256");
             }
 
-            var encodedUriContent = new FormUrlEncodedContent(uriParams!);
-            string encodedUri = encodedUriContent.ReadAsStringAsync().Result;
+            IEnumerable<string> encodedParams = uriParams.Select(kvp => $"{Uri.EscapeDataString(kvp.Key)}={Uri.EscapeDataString(kvp.Value)}");
+            string encodedUri = string.Join("&", encodedParams);
 
             return $"?{encodedUri}";
         }
