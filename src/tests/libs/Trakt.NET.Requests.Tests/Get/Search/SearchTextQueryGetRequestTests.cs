@@ -60,6 +60,19 @@ namespace TraktNET.GetRequests.Search
         }
 
         [Fact]
+        public void TestSearchTextQueryGetRequestEscapesSpecialCharactersInQuery()
+        {
+            var searchTextQueryGetRequest = new SearchTextQueryGetRequest
+            {
+                Type = TraktSearchResultType.Show,
+                Query = "Law & Order #1 + 2"
+            };
+
+            searchTextQueryGetRequest.BuildUri();
+            searchTextQueryGetRequest.RequestUri.ShouldBe(new Uri("search/show?query=Law%20%26%20Order%20%231%20%2B%202", UriKind.Relative));
+        }
+
+        [Fact]
         public void TestSearchTextQueryGetRequestHasValidOAuthRequirement()
         {
             var searchTextQueryGetRequest = new SearchTextQueryGetRequest { Query = default! };

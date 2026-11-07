@@ -15,9 +15,9 @@ namespace TraktNET.GetRequests.Shows
         [InlineData(null, 10, null, null, $"{URIPath}?page=10")]
         [InlineData(null, null, 20, null, $"{URIPath}?limit=20")]
         [InlineData(null, 10, 20, null, $"{URIPath}?page=10&limit=20")]
-        [InlineData(null, null, null, "game of thrones", $"{URIPath}?query=game of thrones")]
+        [InlineData(null, null, null, "game of thrones", $"{URIPath}?query=game%20of%20thrones")]
         [InlineData(TraktExtendedInfo.Full, 10, 20, null, $"{URIPath}?extended=full&page=10&limit=20")]
-        [InlineData(TraktExtendedInfo.Full, 10, 20, "game of thrones", $"{URIPath}?query=game of thrones&extended=full&page=10&limit=20")]
+        [InlineData(TraktExtendedInfo.Full, 10, 20, "game of thrones", $"{URIPath}?query=game%20of%20thrones&extended=full&page=10&limit=20")]
         public void TestHotShowsGetRequestHasValidURIPath(TraktExtendedInfo? extendedInfo,
             int? page, int? limit, string? query, string expectedURIPath)
         {

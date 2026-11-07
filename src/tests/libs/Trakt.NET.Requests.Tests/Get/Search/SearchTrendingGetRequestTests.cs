@@ -16,6 +16,7 @@ namespace TraktNET.GetRequests.Search
         [InlineData("123", TraktExtendedInfo.None, 10, 20, "search/recent_by_id/global/movies?query=123&page=10&limit=20")]
         [InlineData(null, TraktExtendedInfo.Full, null, null, "search/recent_by_id/global/movies?extended=full")]
         [InlineData("123", TraktExtendedInfo.Full, 10, 20, "search/recent_by_id/global/movies?query=123&extended=full&page=10&limit=20")]
+        [InlineData("Law & Order #1 + 2", null, null, null, "search/recent_by_id/global/movies?query=Law%20%26%20Order%20%231%20%2B%202")]
         public void TestSearchTrendingGetRequestHasValidURIPath(string? query, TraktExtendedInfo? extendedInfo, int? page, int? limit, string expectedURIPath)
         {
             var request = new SearchTrendingGetRequest

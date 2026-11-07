@@ -19,7 +19,7 @@ namespace SourceGeneraterTestNamespace
         {
             string requestUri = $"shows";
 
-            requestUri = requestUri + $"?country={Country}";
+            requestUri = requestUri + $"?country={Uri.EscapeDataString(Country)}";
 
             RequestUri = new Uri(requestUri, UriKind.Relative);
         }

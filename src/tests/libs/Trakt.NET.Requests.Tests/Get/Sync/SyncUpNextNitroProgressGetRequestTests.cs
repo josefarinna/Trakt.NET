@@ -17,9 +17,9 @@ namespace TraktNET.GetRequests.Sync
         [InlineData(null, TraktSortHow.Ascending, null, null, null, null, null, $"{URIPath}?sort_how=asc")]
         [InlineData(null, null, TraktUpNextIntent.Start, null, null, null, null, $"{URIPath}?intent=start")]
         [InlineData(null, null, null, "any", null, null, null, $"{URIPath}?watchnow=any")]
-        [InlineData(null, null, null, null, "game of thrones", null, null, $"{URIPath}?query=game of thrones")]
+        [InlineData(null, null, null, null, "game of thrones", null, null, $"{URIPath}?query=game%20of%20thrones")]
         [InlineData(TraktSortBy.Title, TraktSortHow.Ascending, TraktUpNextIntent.Continue, "favorites", null, 1, 10, $"{URIPath}?sort_by=title&sort_how=asc&intent=continue&watchnow=favorites&page=1&limit=10")]
-        [InlineData(TraktSortBy.Title, TraktSortHow.Ascending, TraktUpNextIntent.Continue, "favorites", "game of thrones", 1, 10, $"{URIPath}?sort_by=title&sort_how=asc&intent=continue&watchnow=favorites&query=game of thrones&page=1&limit=10")]
+        [InlineData(TraktSortBy.Title, TraktSortHow.Ascending, TraktUpNextIntent.Continue, "favorites", "game of thrones", 1, 10, $"{URIPath}?sort_by=title&sort_how=asc&intent=continue&watchnow=favorites&query=game%20of%20thrones&page=1&limit=10")]
         public void TestSyncUpNextNitroProgressGetRequestHasValidURIPath(TraktSortBy? sortBy, TraktSortHow? sortHow, TraktUpNextIntent? intent, string? watchNow, string? query, int? page, int? limit, string expectedURIPath)
         {
             var syncUpNextNitroProgressGetRequest = new SyncUpNextNitroProgressGetRequest

@@ -62,7 +62,7 @@ namespace TraktNET.GetRequests.SmartLists
             };
 
             request.BuildUri();
-            request.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game of thrones", UriKind.Relative));
+            request.RequestUri.ShouldBe(new Uri($"{URIPath}?query=game%20of%20thrones", UriKind.Relative));
         }
 
         [Fact]

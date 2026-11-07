@@ -107,7 +107,7 @@ namespace TraktNET
         private static void AddText(List<string> values, string name, string? value)
         {
             if (!string.IsNullOrEmpty(value))
-                values.Add($"{name}={value}");
+                values.Add($"{name}={Uri.EscapeDataString(value)}");
         }
 
         private static void AddJoined<T>(List<string> values, string name, T[]? items)

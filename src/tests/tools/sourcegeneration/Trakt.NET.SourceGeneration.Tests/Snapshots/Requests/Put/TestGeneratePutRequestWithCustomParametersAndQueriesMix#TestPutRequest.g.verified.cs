@@ -66,7 +66,7 @@ namespace SourceGeneraterTestNamespace
 
             if (!string.IsNullOrWhiteSpace(Language))
             {
-                queries.Add($"language={Language!}");
+                queries.Add($"language={Uri.EscapeDataString(Language!)}");
             }
 
             return queries;
