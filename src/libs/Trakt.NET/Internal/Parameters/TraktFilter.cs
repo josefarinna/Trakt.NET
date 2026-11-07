@@ -53,7 +53,7 @@ namespace TraktNET
             if (Year.HasValue && !Years.HasValue)
                 values.Add($"{YearsName}={Year.Value}");
             else
-                AddRange(values, Years, YearsName);
+                AddYearsRange(values, Years);
 
             AddJoined(values, GenresName, Genres);
             AddJoined(values, SubgenresName, Subgenres);
@@ -85,11 +85,11 @@ namespace TraktNET
             if (EndDate.HasValue)
                 values.Add($"{EndDateName}={EndDate.Value.ToTraktSortDateTimeString()}");
 
-            AddParentalRange(values, ParentalNudity, ParentalNudityName);
-            AddParentalRange(values, ParentalViolence, ParentalViolenceName);
-            AddParentalRange(values, ParentalProfanity, ParentalProfanityName);
-            AddParentalRange(values, ParentalAlcohol, ParentalAlcoholName);
-            AddParentalRange(values, ParentalFrightening, ParentalFrighteningName);
+            AddRange(values, ParentalNudity, ParentalNudityName);
+            AddRange(values, ParentalViolence, ParentalViolenceName);
+            AddRange(values, ParentalProfanity, ParentalProfanityName);
+            AddRange(values, ParentalAlcohol, ParentalAlcoholName);
+            AddRange(values, ParentalFrightening, ParentalFrighteningName);
             AddBool(values, ParentalIncludeUnratedName, ParentalIncludeUnrated);
             AddJoined(values, StudiosName, Studios);
             AddJoined(values, PeopleName, People);
@@ -149,7 +149,15 @@ namespace TraktNET
                 values.Add($"{name}={json}");
         }
 
-        private static void AddParentalRange(List<string> values, Range<uint>? range, string name)
+        private static void AddYearsRange(List<string> values, Range<uint>? range)
+        {
+            if (range.HasValue && range.Value.From > 0 && range.Value.To > 0)
+            {
+                AddRange(values, range, YearsName);
+            }
+        }
+
+        private static void AddRange(List<string> values, Range<uint>? range, string name)
         {
             if (range.HasValue)
             {
@@ -167,27 +175,9 @@ namespace TraktNET
             }
         }
 
-        private static void AddRange(List<string> values, Range<uint>? range, string name)
-        {
-            if (range.HasValue && range.Value.From > 0 && range.Value.To > 0)
-            {
-                uint firstValue = range.Value.From;
-                uint secondValue = range.Value.To;
-
-                if (firstValue <= secondValue)
-                {
-                    values.Add($"{name}={firstValue}-{secondValue}");
-                }
-                else
-                {
-                    values.Add($"{name}={secondValue}-{firstValue}");
-                }
-            }
-        }
-
         private static void AddRange(List<string> values, Range<float>? range, string name)
         {
-            if (range.HasValue && range.Value.From > 0 && range.Value.To > 0)
+            if (range.HasValue && range.Value.From >= 0 && range.Value.To >= 0)
             {
                 float firstValue = range.Value.From;
                 float secondValue = range.Value.To;
