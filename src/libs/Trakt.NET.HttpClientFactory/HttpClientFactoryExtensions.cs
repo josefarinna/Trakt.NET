@@ -48,6 +48,10 @@ namespace TraktNET
         /// <para />
         /// An optional boolean value with the key "TraktNET:Sandbox" can be set in the configuration root to specify whether
         /// the sandbox environment should be used or not. This defaults to false.
+        /// <para />
+        /// Each resolved <see cref="TraktClient" /> instance is independent and starts without an authorization, so setting
+        /// <see cref="TraktClient.Authorization" /> on one instance doesn't affect the others. To share the authorization,
+        /// keep and reuse a single instance.
         /// </remarks>
         public static IHttpClientBuilder AddTraktClient(this IServiceCollection services, IConfiguration configuration)
         {
@@ -95,10 +99,15 @@ namespace TraktNET
         /// <param name="clientSecret">The value for the <see cref="TraktClient.ClientSecret" />.</param>
         /// <param name="userAgent">The value for the <see cref="TraktClient.UserAgent" />.</param>
         /// <returns>A <see cref="IHttpClientBuilder" /> instance.</returns>
+        /// <remarks>
+        /// Each resolved <see cref="TraktClient" /> instance is independent and starts without an authorization, so setting
+        /// <see cref="TraktClient.Authorization" /> on one instance doesn't affect the others. To share the authorization,
+        /// keep and reuse a single instance.
+        /// </remarks>
         public static IHttpClientBuilder AddTraktClient(this IServiceCollection services, string clientID, string clientSecret, string? userAgent = null)
         {
             var context = TraktContext.Create(clientID, clientSecret, userAgent);
-            return services.AddTraktHttpClient(context).AddTypedClient(context);
+            return services.AddTraktHttpClient(context).AddTypedClient(() => TraktContext.Create(clientID, clientSecret, userAgent));
         }
 
         /// <summary>
@@ -131,24 +140,38 @@ namespace TraktNET
         /// <param name="clientID">The value for the <see cref="TraktClient.ClientID" />.</param>
         /// <param name="clientSecret">The value for the <see cref="TraktClient.ClientSecret" />.</param>
         /// <returns>A <see cref="IHttpClientBuilder" /> instance.</returns>
+        /// <remarks>
+        /// Each resolved <see cref="TraktClient" /> instance is independent and starts without an authorization, so setting
+        /// <see cref="TraktClient.Authorization" /> on one instance doesn't affect the others. To share the authorization,
+        /// keep and reuse a single instance.
+        /// </remarks>
         public static IHttpClientBuilder AddTraktSandboxClient(this IServiceCollection services, string clientID, string clientSecret)
         {
             var context = TraktContext.CreateForSandbox(clientID, clientSecret, null);
-            return services.AddTraktHttpClient(context).AddTypedClient(context);
+            return services.AddTraktHttpClient(context).AddTypedClient(() => TraktContext.CreateForSandbox(clientID, clientSecret, null));
         }
 
         private static IHttpClientBuilder AddTraktHttpClient(this IServiceCollection services, TraktContext context)
         {
-            services.AddHttpClient($"{context.ID}_auth").ConfigureHttpClient(httpClient => httpClient.BaseAddress = context.BaseAuthorizationUri);
-            return services.AddHttpClient(context.ID).ConfigureHttpClient(httpClient => httpClient.BaseAddress = context.BaseUri);
+            Uri baseAuthorizationUri = context.BaseAuthorizationUri;
+            Uri baseUri = context.BaseUri;
+
+            services.AddHttpClient($"{context.ID}_auth")
+                .ConfigureHttpClient(httpClient => HttpClientProvider.ConfigureHttpClient(httpClient, baseAuthorizationUri));
+
+            return services.AddHttpClient(context.ID)
+                .ConfigureHttpClient(httpClient => HttpClientProvider.ConfigureHttpClient(httpClient, baseUri));
         }
 
-        private static IHttpClientBuilder AddTypedClient(this IHttpClientBuilder httpClientBuilder, TraktContext context)
+        private static IHttpClientBuilder AddTypedClient(this IHttpClientBuilder httpClientBuilder, Func<TraktContext> contextFactory)
         {
+            string httpClientName = httpClientBuilder.Name;
+
             httpClientBuilder.Services.AddTransient(serviceProvider =>
             {
                 IHttpClientFactory httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
-                context.HttpClientProvider = new HttpClientFactoryProvider(httpClientFactory);
+                TraktContext context = contextFactory();
+                context.HttpClientProvider = new HttpClientFactoryProvider(httpClientFactory, httpClientName);
                 return new TraktClient(context);
             });
 

@@ -10,19 +10,21 @@ namespace TraktNET
     {
         internal abstract HttpClient GetHttpClient(TraktContext context, bool baseAuthRequest);
 
-        protected static HttpClient CreateHttpClient(HttpMessageHandler handler, TraktContext context, bool baseAuthRequest)
+        internal static void ConfigureHttpClient(HttpClient httpClient, Uri baseAddress)
         {
-            var httpClient = new HttpClient(handler, disposeHandler: false)
-            {
-                BaseAddress = !baseAuthRequest ? context.BaseUri : context.BaseAuthorizationUri
-            };
+            httpClient.BaseAddress = baseAddress;
 
 #if NETSTANDARD2_0
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(Constants.MediaTypeNames.ApplicationJson));
 #else
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MediaTypeNames.Application.Json));
 #endif
+        }
 
+        protected static HttpClient CreateHttpClient(HttpMessageHandler handler, TraktContext context, bool baseAuthRequest)
+        {
+            var httpClient = new HttpClient(handler, disposeHandler: false);
+            ConfigureHttpClient(httpClient, !baseAuthRequest ? context.BaseUri : context.BaseAuthorizationUri);
             return httpClient;
         }
     }
