@@ -17242,6 +17242,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.NullableTraktAvailableOn
   fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktAvailableOn
   nameWithType: SyncsJsonSerializerContext.NullableTraktAvailableOn
+- uid: TraktNET.SyncsJsonSerializerContext.NullableTraktCollectedAt
+  name: NullableTraktCollectedAt
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktCollectedAt
+  commentId: P:TraktNET.SyncsJsonSerializerContext.NullableTraktCollectedAt
+  fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktCollectedAt
+  nameWithType: SyncsJsonSerializerContext.NullableTraktCollectedAt
+- uid: TraktNET.SyncsJsonSerializerContext.NullableTraktCollectedAt*
+  name: NullableTraktCollectedAt
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktCollectedAt_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.NullableTraktCollectedAt
+  fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktCollectedAt
+  nameWithType: SyncsJsonSerializerContext.NullableTraktCollectedAt
 - uid: TraktNET.SyncsJsonSerializerContext.NullableTraktDayOfWeek
   name: NullableTraktDayOfWeek
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktDayOfWeek
@@ -17482,6 +17494,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktAvailableOn
   fullName: TraktNET.SyncsJsonSerializerContext.TraktAvailableOn
   nameWithType: SyncsJsonSerializerContext.TraktAvailableOn
+- uid: TraktNET.SyncsJsonSerializerContext.TraktCollectedAt
+  name: TraktCollectedAt
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktCollectedAt
+  commentId: P:TraktNET.SyncsJsonSerializerContext.TraktCollectedAt
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktCollectedAt
+  nameWithType: SyncsJsonSerializerContext.TraktCollectedAt
+- uid: TraktNET.SyncsJsonSerializerContext.TraktCollectedAt*
+  name: TraktCollectedAt
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktCollectedAt_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktCollectedAt
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktCollectedAt
+  nameWithType: SyncsJsonSerializerContext.TraktCollectedAt
 - uid: TraktNET.SyncsJsonSerializerContext.TraktColors
   name: TraktColors
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktColors
@@ -18142,6 +18166,30 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponse
   fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponse
   nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionPostResponse
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup
+  name: TraktSyncCollectionPostResponseGroup
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionPostResponseGroup
+  commentId: P:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup
+  nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup*
+  name: TraktSyncCollectionPostResponseGroup
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionPostResponseGroup_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup
+  nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup
+  name: TraktSyncCollectionPostResponseNotFoundGroup
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionPostResponseNotFoundGroup
+  commentId: P:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup
+  nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup*
+  name: TraktSyncCollectionPostResponseNotFoundGroup
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionPostResponseNotFoundGroup_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup
+  nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup
 - uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostSeason
   name: TraktSyncCollectionPostSeason
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionPostSeason
@@ -18214,6 +18262,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponse
   fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponse
   nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponse
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup
+  name: TraktSyncCollectionRemovePostResponseNotFoundGroup
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionRemovePostResponseNotFoundGroup
+  commentId: P:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup
+  nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup
+- uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup*
+  name: TraktSyncCollectionRemovePostResponseNotFoundGroup
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionRemovePostResponseNotFoundGroup_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup
+  nameWithType: SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup
 - uid: TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionShow
   name: TraktSyncCollectionShow
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionShow
@@ -25906,6 +25966,310 @@ references:
   commentId: Overload:TraktNET.TraktClient.Younify
   fullName: TraktNET.TraktClient.Younify
   nameWithType: TraktClient.Younify
+- uid: TraktNET.TraktCollectedAt
+  name: TraktCollectedAt
+  href: api/TraktNET.TraktCollectedAt.html
+  commentId: T:TraktNET.TraktCollectedAt
+  fullName: TraktNET.TraktCollectedAt
+  nameWithType: TraktCollectedAt
+- uid: TraktNET.TraktCollectedAt.#ctor(System.DateTime)
+  name: TraktCollectedAt(DateTime)
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt__ctor_System_DateTime_
+  commentId: M:TraktNET.TraktCollectedAt.#ctor(System.DateTime)
+  name.vb: New(Date)
+  fullName: TraktNET.TraktCollectedAt.TraktCollectedAt(System.DateTime)
+  fullName.vb: TraktNET.TraktCollectedAt.New(Date)
+  nameWithType: TraktCollectedAt.TraktCollectedAt(DateTime)
+  nameWithType.vb: TraktCollectedAt.New(Date)
+- uid: TraktNET.TraktCollectedAt.#ctor*
+  name: TraktCollectedAt
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt__ctor_
+  commentId: Overload:TraktNET.TraktCollectedAt.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktCollectedAt.TraktCollectedAt
+  fullName.vb: TraktNET.TraktCollectedAt.New
+  nameWithType: TraktCollectedAt.TraktCollectedAt
+  nameWithType.vb: TraktCollectedAt.New
+- uid: TraktNET.TraktCollectedAt.DateTime
+  name: DateTime
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_DateTime
+  commentId: P:TraktNET.TraktCollectedAt.DateTime
+  fullName: TraktNET.TraktCollectedAt.DateTime
+  nameWithType: TraktCollectedAt.DateTime
+- uid: TraktNET.TraktCollectedAt.DateTime*
+  name: DateTime
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_DateTime_
+  commentId: Overload:TraktNET.TraktCollectedAt.DateTime
+  fullName: TraktNET.TraktCollectedAt.DateTime
+  nameWithType: TraktCollectedAt.DateTime
+- uid: TraktNET.TraktCollectedAt.Equals(System.Object)
+  name: Equals(object)
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Equals_System_Object_
+  commentId: M:TraktNET.TraktCollectedAt.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktCollectedAt.Equals(object)
+  fullName.vb: TraktNET.TraktCollectedAt.Equals(Object)
+  nameWithType: TraktCollectedAt.Equals(object)
+  nameWithType.vb: TraktCollectedAt.Equals(Object)
+- uid: TraktNET.TraktCollectedAt.Equals(TraktNET.TraktCollectedAt)
+  name: Equals(TraktCollectedAt)
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Equals_TraktNET_TraktCollectedAt_
+  commentId: M:TraktNET.TraktCollectedAt.Equals(TraktNET.TraktCollectedAt)
+  fullName: TraktNET.TraktCollectedAt.Equals(TraktNET.TraktCollectedAt)
+  nameWithType: TraktCollectedAt.Equals(TraktCollectedAt)
+- uid: TraktNET.TraktCollectedAt.Equals*
+  name: Equals
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Equals_
+  commentId: Overload:TraktNET.TraktCollectedAt.Equals
+  fullName: TraktNET.TraktCollectedAt.Equals
+  nameWithType: TraktCollectedAt.Equals
+- uid: TraktNET.TraktCollectedAt.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_GetHashCode
+  commentId: M:TraktNET.TraktCollectedAt.GetHashCode
+  fullName: TraktNET.TraktCollectedAt.GetHashCode()
+  nameWithType: TraktCollectedAt.GetHashCode()
+- uid: TraktNET.TraktCollectedAt.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_GetHashCode_
+  commentId: Overload:TraktNET.TraktCollectedAt.GetHashCode
+  fullName: TraktNET.TraktCollectedAt.GetHashCode
+  nameWithType: TraktCollectedAt.GetHashCode
+- uid: TraktNET.TraktCollectedAt.HasDateTime
+  name: HasDateTime
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_HasDateTime
+  commentId: P:TraktNET.TraktCollectedAt.HasDateTime
+  fullName: TraktNET.TraktCollectedAt.HasDateTime
+  nameWithType: TraktCollectedAt.HasDateTime
+- uid: TraktNET.TraktCollectedAt.HasDateTime*
+  name: HasDateTime
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_HasDateTime_
+  commentId: Overload:TraktNET.TraktCollectedAt.HasDateTime
+  fullName: TraktNET.TraktCollectedAt.HasDateTime
+  nameWithType: TraktCollectedAt.HasDateTime
+- uid: TraktNET.TraktCollectedAt.IsNow
+  name: IsNow
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_IsNow
+  commentId: P:TraktNET.TraktCollectedAt.IsNow
+  fullName: TraktNET.TraktCollectedAt.IsNow
+  nameWithType: TraktCollectedAt.IsNow
+- uid: TraktNET.TraktCollectedAt.IsNow*
+  name: IsNow
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_IsNow_
+  commentId: Overload:TraktNET.TraktCollectedAt.IsNow
+  fullName: TraktNET.TraktCollectedAt.IsNow
+  nameWithType: TraktCollectedAt.IsNow
+- uid: TraktNET.TraktCollectedAt.IsReleased
+  name: IsReleased
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_IsReleased
+  commentId: P:TraktNET.TraktCollectedAt.IsReleased
+  fullName: TraktNET.TraktCollectedAt.IsReleased
+  nameWithType: TraktCollectedAt.IsReleased
+- uid: TraktNET.TraktCollectedAt.IsReleased*
+  name: IsReleased
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_IsReleased_
+  commentId: Overload:TraktNET.TraktCollectedAt.IsReleased
+  fullName: TraktNET.TraktCollectedAt.IsReleased
+  nameWithType: TraktCollectedAt.IsReleased
+- uid: TraktNET.TraktCollectedAt.IsUnknown
+  name: IsUnknown
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_IsUnknown
+  commentId: P:TraktNET.TraktCollectedAt.IsUnknown
+  fullName: TraktNET.TraktCollectedAt.IsUnknown
+  nameWithType: TraktCollectedAt.IsUnknown
+- uid: TraktNET.TraktCollectedAt.IsUnknown*
+  name: IsUnknown
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_IsUnknown_
+  commentId: Overload:TraktNET.TraktCollectedAt.IsUnknown
+  fullName: TraktNET.TraktCollectedAt.IsUnknown
+  nameWithType: TraktCollectedAt.IsUnknown
+- uid: TraktNET.TraktCollectedAt.Now
+  name: Now
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Now
+  commentId: P:TraktNET.TraktCollectedAt.Now
+  fullName: TraktNET.TraktCollectedAt.Now
+  nameWithType: TraktCollectedAt.Now
+- uid: TraktNET.TraktCollectedAt.Now*
+  name: Now
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Now_
+  commentId: Overload:TraktNET.TraktCollectedAt.Now
+  fullName: TraktNET.TraktCollectedAt.Now
+  nameWithType: TraktCollectedAt.Now
+- uid: TraktNET.TraktCollectedAt.Released
+  name: Released
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Released
+  commentId: P:TraktNET.TraktCollectedAt.Released
+  fullName: TraktNET.TraktCollectedAt.Released
+  nameWithType: TraktCollectedAt.Released
+- uid: TraktNET.TraktCollectedAt.Released*
+  name: Released
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Released_
+  commentId: Overload:TraktNET.TraktCollectedAt.Released
+  fullName: TraktNET.TraktCollectedAt.Released
+  nameWithType: TraktCollectedAt.Released
+- uid: TraktNET.TraktCollectedAt.ToString
+  name: ToString()
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_ToString
+  commentId: M:TraktNET.TraktCollectedAt.ToString
+  fullName: TraktNET.TraktCollectedAt.ToString()
+  nameWithType: TraktCollectedAt.ToString()
+- uid: TraktNET.TraktCollectedAt.ToString*
+  name: ToString
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_ToString_
+  commentId: Overload:TraktNET.TraktCollectedAt.ToString
+  fullName: TraktNET.TraktCollectedAt.ToString
+  nameWithType: TraktCollectedAt.ToString
+- uid: TraktNET.TraktCollectedAt.Unknown
+  name: Unknown
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Unknown
+  commentId: P:TraktNET.TraktCollectedAt.Unknown
+  fullName: TraktNET.TraktCollectedAt.Unknown
+  nameWithType: TraktCollectedAt.Unknown
+- uid: TraktNET.TraktCollectedAt.Unknown*
+  name: Unknown
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Unknown_
+  commentId: Overload:TraktNET.TraktCollectedAt.Unknown
+  fullName: TraktNET.TraktCollectedAt.Unknown
+  nameWithType: TraktCollectedAt.Unknown
+- uid: TraktNET.TraktCollectedAt.Value
+  name: Value
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Value
+  commentId: P:TraktNET.TraktCollectedAt.Value
+  fullName: TraktNET.TraktCollectedAt.Value
+  nameWithType: TraktCollectedAt.Value
+- uid: TraktNET.TraktCollectedAt.Value*
+  name: Value
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Value_
+  commentId: Overload:TraktNET.TraktCollectedAt.Value
+  fullName: TraktNET.TraktCollectedAt.Value
+  nameWithType: TraktCollectedAt.Value
+- uid: TraktNET.TraktCollectedAt.op_Equality(TraktNET.TraktCollectedAt,TraktNET.TraktCollectedAt)
+  name: operator ==(TraktCollectedAt, TraktCollectedAt)
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_op_Equality_TraktNET_TraktCollectedAt_TraktNET_TraktCollectedAt_
+  commentId: M:TraktNET.TraktCollectedAt.op_Equality(TraktNET.TraktCollectedAt,TraktNET.TraktCollectedAt)
+  name.vb: =(TraktCollectedAt, TraktCollectedAt)
+  fullName: TraktNET.TraktCollectedAt.operator ==(TraktNET.TraktCollectedAt, TraktNET.TraktCollectedAt)
+  fullName.vb: TraktNET.TraktCollectedAt.=(TraktNET.TraktCollectedAt, TraktNET.TraktCollectedAt)
+  nameWithType: TraktCollectedAt.operator ==(TraktCollectedAt, TraktCollectedAt)
+  nameWithType.vb: TraktCollectedAt.=(TraktCollectedAt, TraktCollectedAt)
+- uid: TraktNET.TraktCollectedAt.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_op_Equality_
+  commentId: Overload:TraktNET.TraktCollectedAt.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktCollectedAt.operator ==
+  fullName.vb: TraktNET.TraktCollectedAt.=
+  nameWithType: TraktCollectedAt.operator ==
+  nameWithType.vb: TraktCollectedAt.=
+- uid: TraktNET.TraktCollectedAt.op_Implicit(System.DateTime)~TraktNET.TraktCollectedAt
+  name: implicit operator TraktCollectedAt(DateTime)
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_op_Implicit_System_DateTime__TraktNET_TraktCollectedAt
+  commentId: M:TraktNET.TraktCollectedAt.op_Implicit(System.DateTime)~TraktNET.TraktCollectedAt
+  name.vb: CType(Date)
+  fullName: TraktNET.TraktCollectedAt.implicit operator TraktNET.TraktCollectedAt(System.DateTime)
+  fullName.vb: TraktNET.TraktCollectedAt.CType(Date)
+  nameWithType: TraktCollectedAt.implicit operator TraktCollectedAt(DateTime)
+  nameWithType.vb: TraktCollectedAt.CType(Date)
+- uid: TraktNET.TraktCollectedAt.op_Implicit(TraktNET.TraktCollectedAt)~System.Nullable{System.DateTime}
+  name: implicit operator DateTime?(TraktCollectedAt)
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_op_Implicit_TraktNET_TraktCollectedAt__System_Nullable_System_DateTime_
+  commentId: M:TraktNET.TraktCollectedAt.op_Implicit(TraktNET.TraktCollectedAt)~System.Nullable{System.DateTime}
+  name.vb: CType(TraktCollectedAt)
+  fullName: TraktNET.TraktCollectedAt.implicit operator System.DateTime?(TraktNET.TraktCollectedAt)
+  fullName.vb: TraktNET.TraktCollectedAt.CType(TraktNET.TraktCollectedAt)
+  nameWithType: TraktCollectedAt.implicit operator DateTime?(TraktCollectedAt)
+  nameWithType.vb: TraktCollectedAt.CType(TraktCollectedAt)
+- uid: TraktNET.TraktCollectedAt.op_Implicit*
+  name: implicit operator
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_op_Implicit_
+  commentId: Overload:TraktNET.TraktCollectedAt.op_Implicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: TraktNET.TraktCollectedAt.implicit operator
+  fullName.vb: TraktNET.TraktCollectedAt.CType
+  nameWithType: TraktCollectedAt.implicit operator
+  nameWithType.vb: TraktCollectedAt.CType
+- uid: TraktNET.TraktCollectedAt.op_Inequality(TraktNET.TraktCollectedAt,TraktNET.TraktCollectedAt)
+  name: operator !=(TraktCollectedAt, TraktCollectedAt)
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_op_Inequality_TraktNET_TraktCollectedAt_TraktNET_TraktCollectedAt_
+  commentId: M:TraktNET.TraktCollectedAt.op_Inequality(TraktNET.TraktCollectedAt,TraktNET.TraktCollectedAt)
+  name.vb: <>(TraktCollectedAt, TraktCollectedAt)
+  fullName: TraktNET.TraktCollectedAt.operator !=(TraktNET.TraktCollectedAt, TraktNET.TraktCollectedAt)
+  fullName.vb: TraktNET.TraktCollectedAt.<>(TraktNET.TraktCollectedAt, TraktNET.TraktCollectedAt)
+  nameWithType: TraktCollectedAt.operator !=(TraktCollectedAt, TraktCollectedAt)
+  nameWithType.vb: TraktCollectedAt.<>(TraktCollectedAt, TraktCollectedAt)
+- uid: TraktNET.TraktCollectedAt.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_op_Inequality_
+  commentId: Overload:TraktNET.TraktCollectedAt.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktCollectedAt.operator !=
+  fullName.vb: TraktNET.TraktCollectedAt.<>
+  nameWithType: TraktCollectedAt.operator !=
+  nameWithType.vb: TraktCollectedAt.<>
+- uid: TraktNET.TraktCollectedAtJsonConverter
+  name: TraktCollectedAtJsonConverter
+  href: api/TraktNET.TraktCollectedAtJsonConverter.html
+  commentId: T:TraktNET.TraktCollectedAtJsonConverter
+  fullName: TraktNET.TraktCollectedAtJsonConverter
+  nameWithType: TraktCollectedAtJsonConverter
+- uid: TraktNET.TraktCollectedAtJsonConverter.#ctor
+  name: TraktCollectedAtJsonConverter()
+  href: api/TraktNET.TraktCollectedAtJsonConverter.html#TraktNET_TraktCollectedAtJsonConverter__ctor
+  commentId: M:TraktNET.TraktCollectedAtJsonConverter.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktCollectedAtJsonConverter.TraktCollectedAtJsonConverter()
+  fullName.vb: TraktNET.TraktCollectedAtJsonConverter.New()
+  nameWithType: TraktCollectedAtJsonConverter.TraktCollectedAtJsonConverter()
+  nameWithType.vb: TraktCollectedAtJsonConverter.New()
+- uid: TraktNET.TraktCollectedAtJsonConverter.#ctor*
+  name: TraktCollectedAtJsonConverter
+  href: api/TraktNET.TraktCollectedAtJsonConverter.html#TraktNET_TraktCollectedAtJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktCollectedAtJsonConverter.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktCollectedAtJsonConverter.TraktCollectedAtJsonConverter
+  fullName.vb: TraktNET.TraktCollectedAtJsonConverter.New
+  nameWithType: TraktCollectedAtJsonConverter.TraktCollectedAtJsonConverter
+  nameWithType.vb: TraktCollectedAtJsonConverter.New
+- uid: TraktNET.TraktCollectedAtJsonConverter.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: api/TraktNET.TraktCollectedAtJsonConverter.html#TraktNET_TraktCollectedAtJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktCollectedAtJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktCollectedAtJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktCollectedAtJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktCollectedAtJsonConverter.CanConvert*
+  name: CanConvert
+  href: api/TraktNET.TraktCollectedAtJsonConverter.html#TraktNET_TraktCollectedAtJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktCollectedAtJsonConverter.CanConvert
+  fullName: TraktNET.TraktCollectedAtJsonConverter.CanConvert
+  nameWithType: TraktCollectedAtJsonConverter.CanConvert
+- uid: TraktNET.TraktCollectedAtJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/TraktNET.TraktCollectedAtJsonConverter.html#TraktNET_TraktCollectedAtJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktCollectedAtJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: TraktNET.TraktCollectedAtJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktCollectedAtJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktCollectedAtJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktCollectedAtJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktCollectedAtJsonConverter.Read*
+  name: Read
+  href: api/TraktNET.TraktCollectedAtJsonConverter.html#TraktNET_TraktCollectedAtJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktCollectedAtJsonConverter.Read
+  fullName: TraktNET.TraktCollectedAtJsonConverter.Read
+  nameWithType: TraktCollectedAtJsonConverter.Read
+- uid: TraktNET.TraktCollectedAtJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktCollectedAt,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktCollectedAt, JsonSerializerOptions)
+  href: api/TraktNET.TraktCollectedAtJsonConverter.html#TraktNET_TraktCollectedAtJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktCollectedAt_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktCollectedAtJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktCollectedAt,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktCollectedAtJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktCollectedAt, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktCollectedAtJsonConverter.Write(Utf8JsonWriter, TraktCollectedAt, JsonSerializerOptions)
+- uid: TraktNET.TraktCollectedAtJsonConverter.Write*
+  name: Write
+  href: api/TraktNET.TraktCollectedAtJsonConverter.html#TraktNET_TraktCollectedAtJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktCollectedAtJsonConverter.Write
+  fullName: TraktNET.TraktCollectedAtJsonConverter.Write
+  nameWithType: TraktCollectedAtJsonConverter.Write
 - uid: TraktNET.TraktCollectionMovie
   name: TraktCollectionMovie
   href: api/TraktNET.TraktCollectionMovie.html
@@ -43483,6 +43847,12 @@ references:
   commentId: F:TraktNET.TraktMediaAudio.DolbyDigitalPlus
   fullName: TraktNET.TraktMediaAudio.DolbyDigitalPlus
   nameWithType: TraktMediaAudio.DolbyDigitalPlus
+- uid: TraktNET.TraktMediaAudio.DolbyDigitalPlusAtmos
+  name: DolbyDigitalPlusAtmos
+  href: api/TraktNET.TraktMediaAudio.html#TraktNET_TraktMediaAudio_DolbyDigitalPlusAtmos
+  commentId: F:TraktNET.TraktMediaAudio.DolbyDigitalPlusAtmos
+  fullName: TraktNET.TraktMediaAudio.DolbyDigitalPlusAtmos
+  nameWithType: TraktMediaAudio.DolbyDigitalPlusAtmos
 - uid: TraktNET.TraktMediaAudio.DolbyPrologic
   name: DolbyPrologic
   href: api/TraktNET.TraktMediaAudio.html#TraktNET_TraktMediaAudio_DolbyPrologic
@@ -43495,12 +43865,24 @@ references:
   commentId: F:TraktNET.TraktMediaAudio.DolbyTrueHD
   fullName: TraktNET.TraktMediaAudio.DolbyTrueHD
   nameWithType: TraktMediaAudio.DolbyTrueHD
+- uid: TraktNET.TraktMediaAudio.FLAC
+  name: FLAC
+  href: api/TraktNET.TraktMediaAudio.html#TraktNET_TraktMediaAudio_FLAC
+  commentId: F:TraktNET.TraktMediaAudio.FLAC
+  fullName: TraktNET.TraktMediaAudio.FLAC
+  nameWithType: TraktMediaAudio.FLAC
 - uid: TraktNET.TraktMediaAudio.LPCM
   name: LPCM
   href: api/TraktNET.TraktMediaAudio.html#TraktNET_TraktMediaAudio_LPCM
   commentId: F:TraktNET.TraktMediaAudio.LPCM
   fullName: TraktNET.TraktMediaAudio.LPCM
   nameWithType: TraktMediaAudio.LPCM
+- uid: TraktNET.TraktMediaAudio.MP2
+  name: MP2
+  href: api/TraktNET.TraktMediaAudio.html#TraktNET_TraktMediaAudio_MP2
+  commentId: F:TraktNET.TraktMediaAudio.MP2
+  fullName: TraktNET.TraktMediaAudio.MP2
+  nameWithType: TraktMediaAudio.MP2
 - uid: TraktNET.TraktMediaAudio.MP3
   name: MP3
   href: api/TraktNET.TraktMediaAudio.html#TraktNET_TraktMediaAudio_MP3
@@ -43513,6 +43895,12 @@ references:
   commentId: F:TraktNET.TraktMediaAudio.OGG
   fullName: TraktNET.TraktMediaAudio.OGG
   nameWithType: TraktMediaAudio.OGG
+- uid: TraktNET.TraktMediaAudio.OGGOpus
+  name: OGGOpus
+  href: api/TraktNET.TraktMediaAudio.html#TraktNET_TraktMediaAudio_OGGOpus
+  commentId: F:TraktNET.TraktMediaAudio.OGGOpus
+  fullName: TraktNET.TraktMediaAudio.OGGOpus
+  nameWithType: TraktMediaAudio.OGGOpus
 - uid: TraktNET.TraktMediaAudio.Unspecified
   name: Unspecified
   href: api/TraktNET.TraktMediaAudio.html#TraktNET_TraktMediaAudio_Unspecified
@@ -83896,6 +84284,360 @@ references:
   fullName.vb: TraktNET.TraktSyncCollectionPostResponse.<>
   nameWithType: TraktSyncCollectionPostResponse.operator !=
   nameWithType.vb: TraktSyncCollectionPostResponse.<>
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup
+  name: TraktSyncCollectionPostResponseGroup
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html
+  commentId: T:TraktNET.TraktSyncCollectionPostResponseGroup
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup
+  nameWithType: TraktSyncCollectionPostResponseGroup
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.#ctor
+  name: TraktSyncCollectionPostResponseGroup()
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup__ctor
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseGroup.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.TraktSyncCollectionPostResponseGroup()
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseGroup.New()
+  nameWithType: TraktSyncCollectionPostResponseGroup.TraktSyncCollectionPostResponseGroup()
+  nameWithType.vb: TraktSyncCollectionPostResponseGroup.New()
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.#ctor(TraktNET.TraktSyncCollectionPostResponseGroup)
+  name: TraktSyncCollectionPostResponseGroup(TraktSyncCollectionPostResponseGroup)
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup__ctor_TraktNET_TraktSyncCollectionPostResponseGroup_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseGroup.#ctor(TraktNET.TraktSyncCollectionPostResponseGroup)
+  name.vb: New(TraktSyncCollectionPostResponseGroup)
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.TraktSyncCollectionPostResponseGroup(TraktNET.TraktSyncCollectionPostResponseGroup)
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseGroup.New(TraktNET.TraktSyncCollectionPostResponseGroup)
+  nameWithType: TraktSyncCollectionPostResponseGroup.TraktSyncCollectionPostResponseGroup(TraktSyncCollectionPostResponseGroup)
+  nameWithType.vb: TraktSyncCollectionPostResponseGroup.New(TraktSyncCollectionPostResponseGroup)
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.#ctor*
+  name: TraktSyncCollectionPostResponseGroup
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup__ctor_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseGroup.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.TraktSyncCollectionPostResponseGroup
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseGroup.New
+  nameWithType: TraktSyncCollectionPostResponseGroup.TraktSyncCollectionPostResponseGroup
+  nameWithType.vb: TraktSyncCollectionPostResponseGroup.New
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.Episodes
+  name: Episodes
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_Episodes
+  commentId: P:TraktNET.TraktSyncCollectionPostResponseGroup.Episodes
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.Episodes
+  nameWithType: TraktSyncCollectionPostResponseGroup.Episodes
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.Episodes*
+  name: Episodes
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_Episodes_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseGroup.Episodes
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.Episodes
+  nameWithType: TraktSyncCollectionPostResponseGroup.Episodes
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_EqualityContract
+  commentId: P:TraktNET.TraktSyncCollectionPostResponseGroup.EqualityContract
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.EqualityContract
+  nameWithType: TraktSyncCollectionPostResponseGroup.EqualityContract
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_EqualityContract_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseGroup.EqualityContract
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.EqualityContract
+  nameWithType: TraktSyncCollectionPostResponseGroup.EqualityContract
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_Equals_System_Object_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseGroup.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.Equals(object?)
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseGroup.Equals(Object)
+  nameWithType: TraktSyncCollectionPostResponseGroup.Equals(object?)
+  nameWithType.vb: TraktSyncCollectionPostResponseGroup.Equals(Object)
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.Equals(TraktNET.TraktSyncCollectionPostResponseGroup)
+  name: Equals(TraktSyncCollectionPostResponseGroup?)
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_Equals_TraktNET_TraktSyncCollectionPostResponseGroup_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseGroup.Equals(TraktNET.TraktSyncCollectionPostResponseGroup)
+  name.vb: Equals(TraktSyncCollectionPostResponseGroup)
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.Equals(TraktNET.TraktSyncCollectionPostResponseGroup?)
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseGroup.Equals(TraktNET.TraktSyncCollectionPostResponseGroup)
+  nameWithType: TraktSyncCollectionPostResponseGroup.Equals(TraktSyncCollectionPostResponseGroup?)
+  nameWithType.vb: TraktSyncCollectionPostResponseGroup.Equals(TraktSyncCollectionPostResponseGroup)
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.Equals*
+  name: Equals
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_Equals_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseGroup.Equals
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.Equals
+  nameWithType: TraktSyncCollectionPostResponseGroup.Equals
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_GetHashCode
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseGroup.GetHashCode
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.GetHashCode()
+  nameWithType: TraktSyncCollectionPostResponseGroup.GetHashCode()
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_GetHashCode_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseGroup.GetHashCode
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.GetHashCode
+  nameWithType: TraktSyncCollectionPostResponseGroup.GetHashCode
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.Movies
+  name: Movies
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_Movies
+  commentId: P:TraktNET.TraktSyncCollectionPostResponseGroup.Movies
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.Movies
+  nameWithType: TraktSyncCollectionPostResponseGroup.Movies
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.Movies*
+  name: Movies
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_Movies_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseGroup.Movies
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.Movies
+  nameWithType: TraktSyncCollectionPostResponseGroup.Movies
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseGroup.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktSyncCollectionPostResponseGroup.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_PrintMembers_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseGroup.PrintMembers
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.PrintMembers
+  nameWithType: TraktSyncCollectionPostResponseGroup.PrintMembers
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.ToString
+  name: ToString()
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_ToString
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseGroup.ToString
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.ToString()
+  nameWithType: TraktSyncCollectionPostResponseGroup.ToString()
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.ToString*
+  name: ToString
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_ToString_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseGroup.ToString
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.ToString
+  nameWithType: TraktSyncCollectionPostResponseGroup.ToString
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.op_Equality(TraktNET.TraktSyncCollectionPostResponseGroup,TraktNET.TraktSyncCollectionPostResponseGroup)
+  name: operator ==(TraktSyncCollectionPostResponseGroup?, TraktSyncCollectionPostResponseGroup?)
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_op_Equality_TraktNET_TraktSyncCollectionPostResponseGroup_TraktNET_TraktSyncCollectionPostResponseGroup_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseGroup.op_Equality(TraktNET.TraktSyncCollectionPostResponseGroup,TraktNET.TraktSyncCollectionPostResponseGroup)
+  name.vb: =(TraktSyncCollectionPostResponseGroup, TraktSyncCollectionPostResponseGroup)
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.operator ==(TraktNET.TraktSyncCollectionPostResponseGroup?, TraktNET.TraktSyncCollectionPostResponseGroup?)
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseGroup.=(TraktNET.TraktSyncCollectionPostResponseGroup, TraktNET.TraktSyncCollectionPostResponseGroup)
+  nameWithType: TraktSyncCollectionPostResponseGroup.operator ==(TraktSyncCollectionPostResponseGroup?, TraktSyncCollectionPostResponseGroup?)
+  nameWithType.vb: TraktSyncCollectionPostResponseGroup.=(TraktSyncCollectionPostResponseGroup, TraktSyncCollectionPostResponseGroup)
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_op_Equality_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseGroup.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.operator ==
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseGroup.=
+  nameWithType: TraktSyncCollectionPostResponseGroup.operator ==
+  nameWithType.vb: TraktSyncCollectionPostResponseGroup.=
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.op_Inequality(TraktNET.TraktSyncCollectionPostResponseGroup,TraktNET.TraktSyncCollectionPostResponseGroup)
+  name: operator !=(TraktSyncCollectionPostResponseGroup?, TraktSyncCollectionPostResponseGroup?)
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_op_Inequality_TraktNET_TraktSyncCollectionPostResponseGroup_TraktNET_TraktSyncCollectionPostResponseGroup_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseGroup.op_Inequality(TraktNET.TraktSyncCollectionPostResponseGroup,TraktNET.TraktSyncCollectionPostResponseGroup)
+  name.vb: <>(TraktSyncCollectionPostResponseGroup, TraktSyncCollectionPostResponseGroup)
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.operator !=(TraktNET.TraktSyncCollectionPostResponseGroup?, TraktNET.TraktSyncCollectionPostResponseGroup?)
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseGroup.<>(TraktNET.TraktSyncCollectionPostResponseGroup, TraktNET.TraktSyncCollectionPostResponseGroup)
+  nameWithType: TraktSyncCollectionPostResponseGroup.operator !=(TraktSyncCollectionPostResponseGroup?, TraktSyncCollectionPostResponseGroup?)
+  nameWithType.vb: TraktSyncCollectionPostResponseGroup.<>(TraktSyncCollectionPostResponseGroup, TraktSyncCollectionPostResponseGroup)
+- uid: TraktNET.TraktSyncCollectionPostResponseGroup.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktSyncCollectionPostResponseGroup.html#TraktNET_TraktSyncCollectionPostResponseGroup_op_Inequality_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseGroup.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktSyncCollectionPostResponseGroup.operator !=
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseGroup.<>
+  nameWithType: TraktSyncCollectionPostResponseGroup.operator !=
+  nameWithType.vb: TraktSyncCollectionPostResponseGroup.<>
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup
+  name: TraktSyncCollectionPostResponseNotFoundGroup
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html
+  commentId: T:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.#ctor
+  name: TraktSyncCollectionPostResponseNotFoundGroup()
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup__ctor
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.TraktSyncCollectionPostResponseNotFoundGroup()
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.New()
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.TraktSyncCollectionPostResponseNotFoundGroup()
+  nameWithType.vb: TraktSyncCollectionPostResponseNotFoundGroup.New()
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.#ctor(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  name: TraktSyncCollectionPostResponseNotFoundGroup(TraktSyncCollectionPostResponseNotFoundGroup)
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup__ctor_TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.#ctor(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  name.vb: New(TraktSyncCollectionPostResponseNotFoundGroup)
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.TraktSyncCollectionPostResponseNotFoundGroup(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.New(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.TraktSyncCollectionPostResponseNotFoundGroup(TraktSyncCollectionPostResponseNotFoundGroup)
+  nameWithType.vb: TraktSyncCollectionPostResponseNotFoundGroup.New(TraktSyncCollectionPostResponseNotFoundGroup)
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.#ctor*
+  name: TraktSyncCollectionPostResponseNotFoundGroup
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup__ctor_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.TraktSyncCollectionPostResponseNotFoundGroup
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.New
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.TraktSyncCollectionPostResponseNotFoundGroup
+  nameWithType.vb: TraktSyncCollectionPostResponseNotFoundGroup.New
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Episodes
+  name: Episodes
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Episodes
+  commentId: P:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Episodes
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Episodes
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Episodes
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Episodes*
+  name: Episodes
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Episodes_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Episodes
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Episodes
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Episodes
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_EqualityContract
+  commentId: P:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.EqualityContract
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.EqualityContract
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.EqualityContract
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_EqualityContract_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.EqualityContract
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.EqualityContract
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.EqualityContract
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Equals_System_Object_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals(object?)
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals(Object)
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Equals(object?)
+  nameWithType.vb: TraktSyncCollectionPostResponseNotFoundGroup.Equals(Object)
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  name: Equals(TraktSyncCollectionPostResponseNotFoundGroup?)
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Equals_TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  name.vb: Equals(TraktSyncCollectionPostResponseNotFoundGroup)
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup?)
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Equals(TraktSyncCollectionPostResponseNotFoundGroup?)
+  nameWithType.vb: TraktSyncCollectionPostResponseNotFoundGroup.Equals(TraktSyncCollectionPostResponseNotFoundGroup)
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals*
+  name: Equals
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Equals_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Equals
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Equals
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_GetHashCode
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.GetHashCode
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.GetHashCode()
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.GetHashCode()
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_GetHashCode_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.GetHashCode
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.GetHashCode
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.GetHashCode
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Movies
+  name: Movies
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Movies
+  commentId: P:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Movies
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Movies
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Movies
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Movies*
+  name: Movies
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Movies_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Movies
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Movies
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Movies
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_PrintMembers_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.PrintMembers
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.PrintMembers
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.PrintMembers
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Seasons
+  name: Seasons
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Seasons
+  commentId: P:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Seasons
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Seasons
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Seasons
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Seasons*
+  name: Seasons
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Seasons_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Seasons
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Seasons
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Seasons
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Shows
+  name: Shows
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Shows
+  commentId: P:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Shows
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Shows
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Shows
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Shows*
+  name: Shows
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_Shows_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Shows
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.Shows
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.Shows
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.ToString
+  name: ToString()
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_ToString
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.ToString
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.ToString()
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.ToString()
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.ToString*
+  name: ToString
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_ToString_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.ToString
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.ToString
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.ToString
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.op_Equality(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup,TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  name: operator ==(TraktSyncCollectionPostResponseNotFoundGroup?, TraktSyncCollectionPostResponseNotFoundGroup?)
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_op_Equality_TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.op_Equality(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup,TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  name.vb: =(TraktSyncCollectionPostResponseNotFoundGroup, TraktSyncCollectionPostResponseNotFoundGroup)
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.operator ==(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup?, TraktNET.TraktSyncCollectionPostResponseNotFoundGroup?)
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.=(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup, TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.operator ==(TraktSyncCollectionPostResponseNotFoundGroup?, TraktSyncCollectionPostResponseNotFoundGroup?)
+  nameWithType.vb: TraktSyncCollectionPostResponseNotFoundGroup.=(TraktSyncCollectionPostResponseNotFoundGroup, TraktSyncCollectionPostResponseNotFoundGroup)
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_op_Equality_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.operator ==
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.=
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.operator ==
+  nameWithType.vb: TraktSyncCollectionPostResponseNotFoundGroup.=
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.op_Inequality(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup,TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  name: operator !=(TraktSyncCollectionPostResponseNotFoundGroup?, TraktSyncCollectionPostResponseNotFoundGroup?)
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_op_Inequality_TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_
+  commentId: M:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.op_Inequality(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup,TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  name.vb: <>(TraktSyncCollectionPostResponseNotFoundGroup, TraktSyncCollectionPostResponseNotFoundGroup)
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.operator !=(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup?, TraktNET.TraktSyncCollectionPostResponseNotFoundGroup?)
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.<>(TraktNET.TraktSyncCollectionPostResponseNotFoundGroup, TraktNET.TraktSyncCollectionPostResponseNotFoundGroup)
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.operator !=(TraktSyncCollectionPostResponseNotFoundGroup?, TraktSyncCollectionPostResponseNotFoundGroup?)
+  nameWithType.vb: TraktSyncCollectionPostResponseNotFoundGroup.<>(TraktSyncCollectionPostResponseNotFoundGroup, TraktSyncCollectionPostResponseNotFoundGroup)
+- uid: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionPostResponseNotFoundGroup_op_Inequality_
+  commentId: Overload:TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.operator !=
+  fullName.vb: TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.<>
+  nameWithType: TraktSyncCollectionPostResponseNotFoundGroup.operator !=
+  nameWithType.vb: TraktSyncCollectionPostResponseNotFoundGroup.<>
 - uid: TraktNET.TraktSyncCollectionPostSeason
   name: TraktSyncCollectionPostSeason
   href: api/TraktNET.TraktSyncCollectionPostSeason.html
@@ -85006,6 +85748,195 @@ references:
   fullName.vb: TraktNET.TraktSyncCollectionRemovePostResponse.<>
   nameWithType: TraktSyncCollectionRemovePostResponse.operator !=
   nameWithType.vb: TraktSyncCollectionRemovePostResponse.<>
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup
+  name: TraktSyncCollectionRemovePostResponseNotFoundGroup
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html
+  commentId: T:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.#ctor
+  name: TraktSyncCollectionRemovePostResponseNotFoundGroup()
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup__ctor
+  commentId: M:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.TraktSyncCollectionRemovePostResponseNotFoundGroup()
+  fullName.vb: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.New()
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.TraktSyncCollectionRemovePostResponseNotFoundGroup()
+  nameWithType.vb: TraktSyncCollectionRemovePostResponseNotFoundGroup.New()
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.#ctor(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  name: TraktSyncCollectionRemovePostResponseNotFoundGroup(TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup__ctor_TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_
+  commentId: M:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.#ctor(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  name.vb: New(TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.TraktSyncCollectionRemovePostResponseNotFoundGroup(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  fullName.vb: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.New(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.TraktSyncCollectionRemovePostResponseNotFoundGroup(TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  nameWithType.vb: TraktSyncCollectionRemovePostResponseNotFoundGroup.New(TraktSyncCollectionRemovePostResponseNotFoundGroup)
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.#ctor*
+  name: TraktSyncCollectionRemovePostResponseNotFoundGroup
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup__ctor_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.TraktSyncCollectionRemovePostResponseNotFoundGroup
+  fullName.vb: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.New
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.TraktSyncCollectionRemovePostResponseNotFoundGroup
+  nameWithType.vb: TraktSyncCollectionRemovePostResponseNotFoundGroup.New
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Episodes
+  name: Episodes
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Episodes
+  commentId: P:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Episodes
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Episodes
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Episodes
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Episodes*
+  name: Episodes
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Episodes_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Episodes
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Episodes
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Episodes
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.EqualityContract
+  name: EqualityContract
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_EqualityContract
+  commentId: P:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.EqualityContract
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.EqualityContract
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.EqualityContract
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.EqualityContract*
+  name: EqualityContract
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_EqualityContract_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.EqualityContract
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.EqualityContract
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.EqualityContract
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(System.Object)
+  name: Equals(object?)
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Equals_System_Object_
+  commentId: M:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(object?)
+  fullName.vb: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(Object)
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(object?)
+  nameWithType.vb: TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(Object)
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  name: Equals(TraktSyncCollectionRemovePostResponseNotFoundGroup?)
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Equals_TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_
+  commentId: M:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  name.vb: Equals(TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup?)
+  fullName.vb: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(TraktSyncCollectionRemovePostResponseNotFoundGroup?)
+  nameWithType.vb: TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals(TraktSyncCollectionRemovePostResponseNotFoundGroup)
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals*
+  name: Equals
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Equals_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Equals
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_GetHashCode
+  commentId: M:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.GetHashCode
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.GetHashCode()
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.GetHashCode()
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_GetHashCode_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.GetHashCode
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.GetHashCode
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.GetHashCode
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Movies
+  name: Movies
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Movies
+  commentId: P:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Movies
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Movies
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Movies
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Movies*
+  name: Movies
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Movies_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Movies
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Movies
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Movies
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.PrintMembers(System.Text.StringBuilder)
+  name: PrintMembers(StringBuilder)
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_PrintMembers_System_Text_StringBuilder_
+  commentId: M:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.PrintMembers(System.Text.StringBuilder)
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.PrintMembers(System.Text.StringBuilder)
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.PrintMembers(StringBuilder)
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.PrintMembers*
+  name: PrintMembers
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_PrintMembers_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.PrintMembers
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.PrintMembers
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.PrintMembers
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Seasons
+  name: Seasons
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Seasons
+  commentId: P:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Seasons
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Seasons
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Seasons
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Seasons*
+  name: Seasons
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Seasons_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Seasons
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Seasons
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Seasons
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Shows
+  name: Shows
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Shows
+  commentId: P:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Shows
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Shows
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Shows
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Shows*
+  name: Shows
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_Shows_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Shows
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.Shows
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.Shows
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.ToString
+  name: ToString()
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_ToString
+  commentId: M:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.ToString
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.ToString()
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.ToString()
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.ToString*
+  name: ToString
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_ToString_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.ToString
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.ToString
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.ToString
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.op_Equality(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup,TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  name: operator ==(TraktSyncCollectionRemovePostResponseNotFoundGroup?, TraktSyncCollectionRemovePostResponseNotFoundGroup?)
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_op_Equality_TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_
+  commentId: M:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.op_Equality(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup,TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  name.vb: =(TraktSyncCollectionRemovePostResponseNotFoundGroup, TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.operator ==(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup?, TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup?)
+  fullName.vb: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.=(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup, TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.operator ==(TraktSyncCollectionRemovePostResponseNotFoundGroup?, TraktSyncCollectionRemovePostResponseNotFoundGroup?)
+  nameWithType.vb: TraktSyncCollectionRemovePostResponseNotFoundGroup.=(TraktSyncCollectionRemovePostResponseNotFoundGroup, TraktSyncCollectionRemovePostResponseNotFoundGroup)
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_op_Equality_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.operator ==
+  fullName.vb: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.=
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.operator ==
+  nameWithType.vb: TraktSyncCollectionRemovePostResponseNotFoundGroup.=
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.op_Inequality(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup,TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  name: operator !=(TraktSyncCollectionRemovePostResponseNotFoundGroup?, TraktSyncCollectionRemovePostResponseNotFoundGroup?)
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_op_Inequality_TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_
+  commentId: M:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.op_Inequality(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup,TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  name.vb: <>(TraktSyncCollectionRemovePostResponseNotFoundGroup, TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.operator !=(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup?, TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup?)
+  fullName.vb: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.<>(TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup, TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup)
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.operator !=(TraktSyncCollectionRemovePostResponseNotFoundGroup?, TraktSyncCollectionRemovePostResponseNotFoundGroup?)
+  nameWithType.vb: TraktSyncCollectionRemovePostResponseNotFoundGroup.<>(TraktSyncCollectionRemovePostResponseNotFoundGroup, TraktSyncCollectionRemovePostResponseNotFoundGroup)
+- uid: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html#TraktNET_TraktSyncCollectionRemovePostResponseNotFoundGroup_op_Inequality_
+  commentId: Overload:TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.operator !=
+  fullName.vb: TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.<>
+  nameWithType: TraktSyncCollectionRemovePostResponseNotFoundGroup.operator !=
+  nameWithType.vb: TraktSyncCollectionRemovePostResponseNotFoundGroup.<>
 - uid: TraktNET.TraktSyncCollectionShow
   name: TraktSyncCollectionShow
   href: api/TraktNET.TraktSyncCollectionShow.html

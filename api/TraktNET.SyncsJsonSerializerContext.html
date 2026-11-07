@@ -146,16 +146,20 @@
 [JsonSerializable(typeof(IReadOnlyList&lt;TraktSyncCollectionAvailableOn&gt;))]
 [JsonSerializable(typeof(Dictionary&lt;string, string&gt;))]
 [JsonSerializable(typeof(Dictionary&lt;string, Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt;&gt;))]
+[JsonSerializable(typeof(TraktCollectedAt))]
 [JsonSerializable(typeof(TraktSyncCollectionPost))]
 [JsonSerializable(typeof(TraktSyncCollectionPostEpisode))]
 [JsonSerializable(typeof(TraktSyncCollectionPostMovie))]
 [JsonSerializable(typeof(TraktSyncCollectionPostResponse))]
+[JsonSerializable(typeof(TraktSyncCollectionPostResponseGroup))]
+[JsonSerializable(typeof(TraktSyncCollectionPostResponseNotFoundGroup))]
 [JsonSerializable(typeof(TraktSyncCollectionPostSeason))]
 [JsonSerializable(typeof(TraktSyncCollectionPostShow))]
 [JsonSerializable(typeof(TraktSyncCollectionPostShowEpisode))]
 [JsonSerializable(typeof(TraktSyncCollectionPostShowSeason))]
 [JsonSerializable(typeof(TraktSyncCollectionRemovePost))]
 [JsonSerializable(typeof(TraktSyncCollectionRemovePostResponse))]
+[JsonSerializable(typeof(TraktSyncCollectionRemovePostResponseNotFoundGroup))]
 [JsonSerializable(typeof(TraktSyncCollectionShow))]
 [JsonSerializable(typeof(IReadOnlyList&lt;TraktSyncCollectionShow&gt;))]
 [JsonSerializable(typeof(TraktSyncCollectionShowEpisode))]
@@ -2311,6 +2315,34 @@ public sealed class SyncsJsonSerializerContext : JsonSerializerContext, IJsonTyp
   </table>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SyncsJsonSerializerContext.NullableTraktCollectedAt.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SyncsJsonSerializerContext_NullableTraktCollectedAt_" data-uid="TraktNET.SyncsJsonSerializerContext.NullableTraktCollectedAt*"></a>
+  <h4 id="TraktNET_SyncsJsonSerializerContext_NullableTraktCollectedAt" data-uid="TraktNET.SyncsJsonSerializerContext.NullableTraktCollectedAt">NullableTraktCollectedAt</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktCollectedAt?&gt; NullableTraktCollectedAt { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktCollectedAt.html">TraktCollectedAt</a>?&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SyncsJsonSerializerContext.NullableTraktDayOfWeek.g.cs">View Source</a>
   </span>
   <a id="TraktNET_SyncsJsonSerializerContext_NullableTraktDayOfWeek_" data-uid="TraktNET.SyncsJsonSerializerContext.NullableTraktDayOfWeek*"></a>
@@ -2865,6 +2897,34 @@ public sealed class SyncsJsonSerializerContext : JsonSerializerContext, IJsonTyp
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktAvailableOn.html">TraktAvailableOn</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SyncsJsonSerializerContext.TraktCollectedAt.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SyncsJsonSerializerContext_TraktCollectedAt_" data-uid="TraktNET.SyncsJsonSerializerContext.TraktCollectedAt*"></a>
+  <h4 id="TraktNET_SyncsJsonSerializerContext_TraktCollectedAt" data-uid="TraktNET.SyncsJsonSerializerContext.TraktCollectedAt">TraktCollectedAt</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktCollectedAt&gt; TraktCollectedAt { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktCollectedAt.html">TraktCollectedAt</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -4411,6 +4471,62 @@ public sealed class SyncsJsonSerializerContext : JsonSerializerContext, IJsonTyp
   </table>
 
   <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionPostResponseGroup_" data-uid="TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup*"></a>
+  <h4 id="TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionPostResponseGroup" data-uid="TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseGroup">TraktSyncCollectionPostResponseGroup</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktSyncCollectionPostResponseGroup&gt; TraktSyncCollectionPostResponseGroup { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktSyncCollectionPostResponseGroup.html">TraktSyncCollectionPostResponseGroup</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionPostResponseNotFoundGroup_" data-uid="TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup*"></a>
+  <h4 id="TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionPostResponseNotFoundGroup" data-uid="TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostResponseNotFoundGroup">TraktSyncCollectionPostResponseNotFoundGroup</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktSyncCollectionPostResponseNotFoundGroup&gt; TraktSyncCollectionPostResponseNotFoundGroup { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html">TraktSyncCollectionPostResponseNotFoundGroup</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SyncsJsonSerializerContext.TraktSyncCollectionPostSeason.g.cs">View Source</a>
   </span>
   <a id="TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionPostSeason_" data-uid="TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionPostSeason*"></a>
@@ -4573,6 +4689,34 @@ public sealed class SyncsJsonSerializerContext : JsonSerializerContext, IJsonTyp
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktSyncCollectionRemovePostResponse.html">TraktSyncCollectionRemovePostResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/obj/Release/net9.0/System.Text.Json.SourceGeneration/System.Text.Json.SourceGeneration.JsonSourceGenerator/SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup.g.cs">View Source</a>
+  </span>
+  <a id="TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionRemovePostResponseNotFoundGroup_" data-uid="TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup*"></a>
+  <h4 id="TraktNET_SyncsJsonSerializerContext_TraktSyncCollectionRemovePostResponseNotFoundGroup" data-uid="TraktNET.SyncsJsonSerializerContext.TraktSyncCollectionRemovePostResponseNotFoundGroup">TraktSyncCollectionRemovePostResponseNotFoundGroup</h4>
+  <div class="markdown level1 summary"><p>Defines the source generated JSON serialization contract metadata for a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JsonTypeInfo&lt;TraktSyncCollectionRemovePostResponseNotFoundGroup&gt; TraktSyncCollectionRemovePostResponseNotFoundGroup { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.serialization.metadata.jsontypeinfo-1">JsonTypeInfo</a>&lt;<a class="xref" href="TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html">TraktSyncCollectionRemovePostResponseNotFoundGroup</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

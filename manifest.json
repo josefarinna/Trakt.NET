@@ -1488,6 +1488,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktCollectedAt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktCollectedAt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktCollectedAt",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCollectedAt.yml\" sourcestartlinenumber=\"1\">Represents when a collection item was collected: a specific UTC <xref href=\"System.DateTime\" data-throw-if-not-resolved=\"false\"></xref>,\n<xref href=\"TraktNET.TraktCollectedAt.Released\" data-throw-if-not-resolved=\"false\"></xref> (<code>&quot;released&quot;</code>), <xref href=\"TraktNET.TraktCollectedAt.Unknown\" data-throw-if-not-resolved=\"false\"></xref> (<code>&quot;unknown&quot;</code>), or <xref href=\"TraktNET.TraktCollectedAt.Now\" data-throw-if-not-resolved=\"false\"></xref> (<code>&quot;now&quot;</code>).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktCollectedAtJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktCollectedAtJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktCollectedAtJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktCollectedAtJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktCollectedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktCollectionMovie.yml",
       "output": {
         ".html": {
@@ -7028,7 +7056,35 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncCollectionPostResponse",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionPostResponse.yml\" sourcestartlinenumber=\"1\">Represents the response for a collection post. See also <xref href=\"TraktNET.TraktSyncCollectionPost\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p>Contains the number of added, updated, existing and not found movies, shows, seasons and episodes.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionPostResponse.yml\" sourcestartlinenumber=\"1\">Represents the response for a collection post. See also <xref href=\"TraktNET.TraktSyncCollectionPost\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p>Contains the number of added, updated and existing movies and episodes, as well as not found movies, shows, seasons and episodes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSyncCollectionPostResponseGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSyncCollectionPostResponseGroup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSyncCollectionPostResponseGroup",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionPostResponseGroup.yml\" sourcestartlinenumber=\"1\">A collection containing the number of movies and episodes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSyncCollectionPostResponseNotFoundGroup",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.yml\" sourcestartlinenumber=\"1\">A collection containing the movies, shows, seasons and episodes, which were not found.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -7112,7 +7168,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncCollectionRemovePostResponse",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionRemovePostResponse.yml\" sourcestartlinenumber=\"1\">Represents the response for a collection remove post. See also <xref href=\"TraktNET.TraktSyncCollectionPost\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p>Contains the number of deleted and not found movies, shows, seasons and episodes.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionRemovePostResponse.yml\" sourcestartlinenumber=\"1\">Represents the response for a collection remove post. See also <xref href=\"TraktNET.TraktSyncCollectionRemovePost\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n<p>Contains the number of deleted movies and episodes, as well as not found movies, shows, seasons and episodes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.yml\" sourcestartlinenumber=\"1\">A collection containing the movies, shows, seasons and episodes, which were not found.</p>\n"
     },
     {
       "type": "ManagedReference",

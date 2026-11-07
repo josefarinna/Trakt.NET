@@ -348,6 +348,9 @@ For example, if a resource, e.g. a comment, already exists.</p>
       <section><p>Provides access to all functionality of this library.</p>
 <p>Provides the only access to all of the library's modules.</p>
 </section>
+      <h4><a class="xref" href="TraktNET.TraktCollectedAtJsonConverter.html">TraktCollectedAtJsonConverter</a></h4>
+      <section><p>JSON converter for <a class="xref" href="TraktNET.TraktCollectedAt.html">TraktCollectedAt</a>.</p>
+</section>
       <h4><a class="xref" href="TraktNET.TraktCollectionMovie.html">TraktCollectionMovie</a></h4>
       <section></section>
       <h4><a class="xref" href="TraktNET.TraktCollectionShow.html">TraktCollectionShow</a></h4>
@@ -1399,7 +1402,13 @@ optional metadata and an optional datetime, when the movie was collected.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncCollectionPostResponse.html">TraktSyncCollectionPostResponse</a></h4>
       <section><p>Represents the response for a collection post. See also <a class="xref" href="TraktNET.TraktSyncCollectionPost.html">TraktSyncCollectionPost</a>.</p>
-<p>Contains the number of added, updated, existing and not found movies, shows, seasons and episodes.</p>
+<p>Contains the number of added, updated and existing movies and episodes, as well as not found movies, shows, seasons and episodes.</p>
+</section>
+      <h4><a class="xref" href="TraktNET.TraktSyncCollectionPostResponseGroup.html">TraktSyncCollectionPostResponseGroup</a></h4>
+      <section><p>A collection containing the number of movies and episodes.</p>
+</section>
+      <h4><a class="xref" href="TraktNET.TraktSyncCollectionPostResponseNotFoundGroup.html">TraktSyncCollectionPostResponseNotFoundGroup</a></h4>
+      <section><p>A collection containing the movies, shows, seasons and episodes, which were not found.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncCollectionPostSeason.html">TraktSyncCollectionPostSeason</a></h4>
       <section><p>A Trakt collection post season, containing the required season ids,
@@ -1421,8 +1430,11 @@ optional metadata and an optional datetime, when the show was collected.</p>
 which should be removed from the user's collection.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncCollectionRemovePostResponse.html">TraktSyncCollectionRemovePostResponse</a></h4>
-      <section><p>Represents the response for a collection remove post. See also <a class="xref" href="TraktNET.TraktSyncCollectionPost.html">TraktSyncCollectionPost</a>.</p>
-<p>Contains the number of deleted and not found movies, shows, seasons and episodes.</p>
+      <section><p>Represents the response for a collection remove post. See also <a class="xref" href="TraktNET.TraktSyncCollectionRemovePost.html">TraktSyncCollectionRemovePost</a>.</p>
+<p>Contains the number of deleted movies and episodes, as well as not found movies, shows, seasons and episodes.</p>
+</section>
+      <h4><a class="xref" href="TraktNET.TraktSyncCollectionRemovePostResponseNotFoundGroup.html">TraktSyncCollectionRemovePostResponseNotFoundGroup</a></h4>
+      <section><p>A collection containing the movies, shows, seasons and episodes, which were not found.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncCollectionShow.html">TraktSyncCollectionShow</a></h4>
       <section></section>
@@ -2186,6 +2198,10 @@ Structs
 </h3>
       <h4><a class="xref" href="TraktNET.Range-1.html">Range&lt;T&gt;</a></h4>
       <section></section>
+      <h4><a class="xref" href="TraktNET.TraktCollectedAt.html">TraktCollectedAt</a></h4>
+      <section><p>Represents when a collection item was collected: a specific UTC <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>,
+<a class="xref" href="TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Released">Released</a> (<code>&quot;released&quot;</code>), <a class="xref" href="TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Unknown">Unknown</a> (<code>&quot;unknown&quot;</code>), or <a class="xref" href="TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Now">Now</a> (<code>&quot;now&quot;</code>).</p>
+</section>
     <h3 id="interfaces">
 Interfaces
 </h3>
