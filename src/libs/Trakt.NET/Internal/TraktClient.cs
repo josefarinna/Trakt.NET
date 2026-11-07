@@ -4,6 +4,8 @@
     {
         private readonly TraktContext _context;
 
+        internal TraktContext Context => _context;
+
         internal HttpClientProvider HttpClientProvider
         {
             get => _context.HttpClientProvider;

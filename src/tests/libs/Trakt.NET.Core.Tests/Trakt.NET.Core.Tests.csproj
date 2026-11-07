@@ -1,1 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup Condition="!$(DefineConstants.Contains(TRAKT_NET_4XX_FRAMEWORK_TARGET))">
+    <ProjectReference Include="..\..\..\libs\Trakt.NET.HttpClientFactory\Trakt.NET.Ex.HttpClientFactory.csproj" />
+  </ItemGroup>
+
+</Project>
