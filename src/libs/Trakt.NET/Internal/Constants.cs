@@ -118,6 +118,7 @@ namespace TraktNET
 #if NET6_0_OR_GREATER
                     new TimeOnlyJsonConverter(),
 #endif
+                    new TraktCollectedAtJsonConverter(),
                     new TraktAccessScopeJsonConverter(),
                     new TraktAccessTokenGrantTypeJsonConverter(),
                     new TraktAccessTokenTypeJsonConverter(),

@@ -8,8 +8,8 @@ namespace TraktNET
     /// </summary>
     public record class TraktSyncCollectionPostEpisode : TraktMetadata
     {
-        /// <summary>Gets or sets the optional UTC datetime, when the Trakt episode was collected.</summary>
-        public DateTime? CollectedAt { get; set; }
+        /// <summary>Gets or sets the optional UTC datetime or special option (<c>"released"</c>, <c>"unknown"</c>, <c>"now"</c>) when the Trakt episode was collected.</summary>
+        public TraktCollectedAt? CollectedAt { get; set; }
 
         /// <summary>Gets or sets the required episode ids. See also <seealso cref="TraktEpisodeIDs" />.</summary>
         [JsonPropertyName("ids")]

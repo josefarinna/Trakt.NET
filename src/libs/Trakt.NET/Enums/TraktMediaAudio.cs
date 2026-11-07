@@ -14,14 +14,25 @@
         [TraktEnumMember(JsonValue = "mp3", DisplayName = "MP3")]
         MP3,
 
+        /// <summary>The collection item has MP2 audio.</summary>
+        [TraktEnumMember(JsonValue = "mp2", DisplayName = "MP2")]
+        MP2,
+
         /// <summary>The collection item has AAC audio.</summary>
         AAC,
 
         /// <summary>The collection item has OGG audio.</summary>
         OGG,
 
+        /// <summary>The collection item has OGG Opus audio.</summary>
+        [TraktEnumMember(JsonValue = "ogg_opus", DisplayName = "OGG Opus")]
+        OGGOpus,
+
         /// <summary>The collection item has WMA audio.</summary>
         WMA,
+
+        /// <summary>The collection item has FLAC audio.</summary>
+        FLAC,
 
         /// <summary>The collection item has DTS audio.</summary>
         DTS,
@@ -42,6 +53,9 @@
 
         /// <summary>The collection item has Dolby Digital Plus audio.</summary>
         DolbyDigitalPlus,
+
+        /// <summary>The collection item has Dolby Digital Plus Atmos audio.</summary>
+        DolbyDigitalPlusAtmos,
 
         /// <summary>The collection item has Dolby True HD audio.</summary>
         [TraktEnumMember(JsonValue = "dolby_truehd", DisplayName = "Dolby True HD")]
