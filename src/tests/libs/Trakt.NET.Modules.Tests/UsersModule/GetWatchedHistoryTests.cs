@@ -15,8 +15,8 @@ namespace TraktNET.UsersModule
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
         private static readonly DateTime StartAt = DateTime.UtcNow.AddMonths(-1);
         private static readonly DateTime EndAt = DateTime.UtcNow;
-        private readonly string HistoryStartAt = StartAt.ToUniversalTime().ToString("yyyy-MM-ddTHH:00:00Z", CultureInfo.InvariantCulture);
-        private readonly string HistoryEndAt = EndAt.ToUniversalTime().ToString("yyyy-MM-ddTHH:00:00Z", CultureInfo.InvariantCulture);
+        private readonly string HistoryStartAt = StartAt.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture);
+        private readonly string HistoryEndAt = EndAt.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture);
 
         [Fact]
         public async Task TestGetWatchedHistory()
