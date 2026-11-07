@@ -50107,33 +50107,33 @@ references:
   commentId: Overload:TraktNET.TraktMoviesModule.GetMovieRatingsAsync
   fullName: TraktNET.TraktMoviesModule.GetMovieRatingsAsync
   nameWithType: TraktMoviesModule.GetMovieRatingsAsync
-- uid: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetMovieRelatedMoviesAsync(string, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetMovieRelatedMoviesAsync(String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(string, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktMoviesModule.GetMovieRelatedMoviesAsync(string, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktMoviesModule.GetMovieRelatedMoviesAsync(String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetMovieRelatedMoviesAsync(uint, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetMovieRelatedMoviesAsync(UInteger, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(uint, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(UInteger, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktMoviesModule.GetMovieRelatedMoviesAsync(uint, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktMoviesModule.GetMovieRelatedMoviesAsync(UInteger, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetMovieRelatedMoviesAsync(TraktMovieIDs, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetMovieRelatedMoviesAsync(TraktMovieIDs, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktNET.TraktMovieIDs, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktNET.TraktMovieIDs, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktMovieIDs, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktMovieIDs, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetMovieRelatedMoviesAsync(string, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetMovieRelatedMoviesAsync(String, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(string, TraktNET.TraktExtendedInfo?, bool?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(String, TraktNET.TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetMovieRelatedMoviesAsync(string, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.GetMovieRelatedMoviesAsync(String, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetMovieRelatedMoviesAsync(uint, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetMovieRelatedMoviesAsync(UInteger, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(uint, TraktNET.TraktExtendedInfo?, bool?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(UInteger, TraktNET.TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetMovieRelatedMoviesAsync(uint, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.GetMovieRelatedMoviesAsync(UInteger, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetMovieRelatedMoviesAsync(TraktMovieIDs, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetMovieRelatedMoviesAsync(TraktMovieIDs, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktNET.TraktMovieIDs, TraktNET.TraktExtendedInfo?, bool?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktNET.TraktMovieIDs, TraktNET.TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktMovieIDs, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktMovieIDs, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync*
   name: GetMovieRelatedMoviesAsync
   href: api/TraktNET.TraktMoviesModule.html#TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_
@@ -76798,33 +76798,33 @@ references:
   commentId: Overload:TraktNET.TraktShowsModule.GetShowRatingsAsync
   fullName: TraktNET.TraktShowsModule.GetShowRatingsAsync
   nameWithType: TraktShowsModule.GetShowRatingsAsync
-- uid: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetShowRelatedShowsAsync(string, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRelatedShowsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetShowRelatedShowsAsync(String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(string, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(String, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowRelatedShowsAsync(string, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowRelatedShowsAsync(String, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetShowRelatedShowsAsync(uint, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRelatedShowsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetShowRelatedShowsAsync(UInteger, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(uint, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(UInteger, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowRelatedShowsAsync(uint, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowRelatedShowsAsync(UInteger, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-- uid: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name: GetShowRelatedShowsAsync(TraktShowIDs, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRelatedShowsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
-  name.vb: GetShowRelatedShowsAsync(TraktShowIDs, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
-  fullName: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(TraktNET.TraktShowIDs, TraktNET.TraktExtendedInfo?, uint?, uint?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(TraktNET.TraktShowIDs, TraktNET.TraktExtendedInfo?, UInteger?, UInteger?, System.Threading.CancellationToken)
-  nameWithType: TraktShowsModule.GetShowRelatedShowsAsync(TraktShowIDs, TraktExtendedInfo?, uint?, uint?, CancellationToken)
-  nameWithType.vb: TraktShowsModule.GetShowRelatedShowsAsync(TraktShowIDs, TraktExtendedInfo?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetShowRelatedShowsAsync(string, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRelatedShowsAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetShowRelatedShowsAsync(String, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(string, TraktNET.TraktExtendedInfo?, bool?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(String, TraktNET.TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowRelatedShowsAsync(string, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowRelatedShowsAsync(String, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetShowRelatedShowsAsync(uint, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRelatedShowsAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetShowRelatedShowsAsync(UInteger, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(uint, TraktNET.TraktExtendedInfo?, bool?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(UInteger, TraktNET.TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowRelatedShowsAsync(uint, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowRelatedShowsAsync(UInteger, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
+- uid: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name: GetShowRelatedShowsAsync(TraktShowIDs, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRelatedShowsAsync_TraktNET_TraktShowIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(TraktNET.TraktShowIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)
+  name.vb: GetShowRelatedShowsAsync(TraktShowIDs, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
+  fullName: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(TraktNET.TraktShowIDs, TraktNET.TraktExtendedInfo?, bool?, uint?, uint?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync(TraktNET.TraktShowIDs, TraktNET.TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, System.Threading.CancellationToken)
+  nameWithType: TraktShowsModule.GetShowRelatedShowsAsync(TraktShowIDs, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)
+  nameWithType.vb: TraktShowsModule.GetShowRelatedShowsAsync(TraktShowIDs, TraktExtendedInfo?, Boolean?, UInteger?, UInteger?, CancellationToken)
 - uid: TraktNET.TraktShowsModule.GetShowRelatedShowsAsync*
   name: GetShowRelatedShowsAsync
   href: api/TraktNET.TraktShowsModule.html#TraktNET_TraktShowsModule_GetShowRelatedShowsAsync_

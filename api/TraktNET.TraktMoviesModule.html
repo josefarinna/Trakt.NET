@@ -2941,13 +2941,13 @@ Trakt API Documentation: Movies: Ratings - Get movie ratings
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModuleGetMovieRelatedMovies.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_" data-uid="TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync*"></a>
-  <h4 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetMovieRelatedMoviesAsync(string, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetMovieRelatedMoviesAsync(string, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets related movies for a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified Trakt-ID or -Slug.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktMovie&gt;&gt; GetMovieRelatedMoviesAsync(string traktMovieIDOrSlug, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktMovie&gt;&gt; GetMovieRelatedMoviesAsync(string traktMovieIDOrSlug, TraktExtendedInfo? extendedInfo = null, bool? personalized = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2973,6 +2973,13 @@ Trakt API Documentation: Movies: Ratings - Get movie ratings
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">personalized</span></td>
+        <td><p>When true, VIP and director accounts get the related movies re-ordered toward their taste.
+Ignored for other accounts or when false.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
         <td><span class="parametername">page</span></td>
         <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
@@ -3012,7 +3019,7 @@ Trakt API Documentation: Movies: Ratings - Get movie ratings
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getmoviesrelated">
 Trakt API Documentation: Movies: Related - Get related movies
@@ -3044,13 +3051,13 @@ Trakt API Documentation: Movies: Related - Get related movies
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModuleGetMovieRelatedMovies.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_" data-uid="TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync*"></a>
-  <h4 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetMovieRelatedMoviesAsync(uint, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetMovieRelatedMoviesAsync(uint, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets related movies for a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified Trakt-ID.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktMovie&gt;&gt; GetMovieRelatedMoviesAsync(uint traktMovieID, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktMovie&gt;&gt; GetMovieRelatedMoviesAsync(uint traktMovieID, TraktExtendedInfo? extendedInfo = null, bool? personalized = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3076,6 +3083,13 @@ Trakt API Documentation: Movies: Related - Get related movies
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">personalized</span></td>
+        <td><p>When true, VIP and director accounts get the related movies re-ordered toward their taste.
+Ignored for other accounts or when false.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a>?</td>
         <td><span class="parametername">page</span></td>
         <td><p>Specifies the page which should be queried. Defaults to the first page.</p>
@@ -3115,7 +3129,7 @@ Trakt API Documentation: Movies: Related - Get related movies
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getmoviesrelated">
 Trakt API Documentation: Movies: Related - Get related movies
@@ -3147,13 +3161,13 @@ Trakt API Documentation: Movies: Related - Get related movies
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/Movies/TraktMoviesModuleGetMovieRelatedMovies.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_" data-uid="TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync*"></a>
-  <h4 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetMovieRelatedMoviesAsync(TraktMovieIDs, TraktExtendedInfo?, uint?, uint?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken_" data-uid="TraktNET.TraktMoviesModule.GetMovieRelatedMoviesAsync(TraktNET.TraktMovieIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Nullable{System.Boolean},System.Nullable{System.UInt32},System.Nullable{System.UInt32},System.Threading.CancellationToken)">GetMovieRelatedMoviesAsync(TraktMovieIDs, TraktExtendedInfo?, bool?, uint?, uint?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets related movies for a <a class="xref" href="TraktNET.TraktMovie.html">TraktMovie</a> with the specified <a class="xref" href="TraktNET.TraktMovieIDs.html">TraktMovieIDs</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktMovie&gt;&gt; GetMovieRelatedMoviesAsync(TraktMovieIDs movieIDs, TraktExtendedInfo? extendedInfo = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktPagedResponse&lt;TraktMovie&gt;&gt; GetMovieRelatedMoviesAsync(TraktMovieIDs movieIDs, TraktExtendedInfo? extendedInfo = null, bool? personalized = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -3176,6 +3190,13 @@ Trakt API Documentation: Movies: Related - Get related movies
         <td><span class="parametername">extendedInfo</span></td>
         <td><p>Specifies how much data should be queried about the related movies.</p>
 <p>See also <a class="xref" href="TraktNET.TraktExtendedInfo.html">TraktExtendedInfo</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">personalized</span></td>
+        <td><p>When true, VIP and director accounts get the related movies re-ordered toward their taste.
+Ignored for other accounts or when false.</p>
 </td>
       </tr>
       <tr>
@@ -3218,7 +3239,7 @@ Trakt API Documentation: Movies: Related - Get related movies
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktMoviesModule_GetMovieRelatedMoviesAsync_TraktNET_TraktMovieIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Nullable_System_Boolean__System_Nullable_System_UInt32__System_Nullable_System_UInt32__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
 <p><a href="https://docs.trakt.tv/reference/getmoviesrelated">
 Trakt API Documentation: Movies: Related - Get related movies
