@@ -107,12 +107,13 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktMovie>> GetMovieRelatedMoviesImplAsync(string movieIDOrSlug, TraktExtendedInfo? extendedInfo = null,
-            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            bool? personalized = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new MovieRelatedMoviesGetRequest
             {
                 Id = movieIDOrSlug,
                 ExtendedInfo = extendedInfo,
+                Personalized = personalized,
                 Page = page,
                 Limit = limit
             };
@@ -122,6 +123,7 @@ namespace TraktNET
                 {
                     Id = movieIDOrSlug,
                     ExtendedInfo = extendedInfo,
+                    Personalized = personalized,
                     Page = page,
                     Limit = limit
                 },

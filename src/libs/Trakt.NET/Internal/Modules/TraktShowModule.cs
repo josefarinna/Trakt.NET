@@ -107,12 +107,13 @@ namespace TraktNET
         }
 
         private Task<TraktPagedResponse<TraktShow>> GetShowRelatedShowsImplAsync(string showIDOrSlug, TraktExtendedInfo? extendedInfo = null,
-            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            bool? personalized = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {
             var request = new ShowRelatedShowsGetRequest
             {
                 Id = showIDOrSlug,
                 ExtendedInfo = extendedInfo,
+                Personalized = personalized,
                 Page = page,
                 Limit = limit
             };
@@ -123,6 +124,7 @@ namespace TraktNET
                     {
                         Id = showIDOrSlug,
                         ExtendedInfo = extendedInfo,
+                        Personalized = personalized,
                         Page = page,
                         Limit = limit
                     },

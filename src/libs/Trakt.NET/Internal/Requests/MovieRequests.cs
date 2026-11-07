@@ -56,6 +56,9 @@ namespace TraktNET
     [TraktGetRequest("movies/{id!!}/related", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class MovieRelatedMoviesGetRequest
     {
+        [TraktRequestQuery("personalized")]
+        internal bool? Personalized { get; set; }
+
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
