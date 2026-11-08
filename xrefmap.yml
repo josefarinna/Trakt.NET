@@ -123929,6 +123929,18 @@ references:
   commentId: Overload:TraktNET.TraktUsersModule.LikeListAsync
   fullName: TraktNET.TraktUsersModule.LikeListAsync
   nameWithType: TraktUsersModule.LikeListAsync
+- uid: TraktNET.TraktUsersModule.RemoveAvatarAsync(System.Threading.CancellationToken)
+  name: RemoveAvatarAsync(CancellationToken)
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_RemoveAvatarAsync_System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktUsersModule.RemoveAvatarAsync(System.Threading.CancellationToken)
+  fullName: TraktNET.TraktUsersModule.RemoveAvatarAsync(System.Threading.CancellationToken)
+  nameWithType: TraktUsersModule.RemoveAvatarAsync(CancellationToken)
+- uid: TraktNET.TraktUsersModule.RemoveAvatarAsync*
+  name: RemoveAvatarAsync
+  href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_RemoveAvatarAsync_
+  commentId: Overload:TraktNET.TraktUsersModule.RemoveAvatarAsync
+  fullName: TraktNET.TraktUsersModule.RemoveAvatarAsync
+  nameWithType: TraktUsersModule.RemoveAvatarAsync
 - uid: TraktNET.TraktUsersModule.RemoveHiddenItemsAsync(TraktNET.TraktUserHiddenItemsRemovePost,TraktNET.TraktHiddenItemsSection,System.Threading.CancellationToken)
   name: RemoveHiddenItemsAsync(TraktUserHiddenItemsRemovePost, TraktHiddenItemsSection, CancellationToken)
   href: api/TraktNET.TraktUsersModule.html#TraktNET_TraktUsersModule_RemoveHiddenItemsAsync_TraktNET_TraktUserHiddenItemsRemovePost_TraktNET_TraktHiddenItemsSection_System_Threading_CancellationToken_
