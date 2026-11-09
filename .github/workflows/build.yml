@@ -82,8 +82,13 @@ jobs:
             ${{ env.DOTNET_VERSION_CURRENT_STABLE }}
             ${{ env.DOTNET_9_VERSION_STABLE }}
             ${{ env.DOTNET_8_VERSION_STABLE }}
-            ${{ env.DOTNET_7_VERSION_STABLE }}
-            ${{ env.DOTNET_6_VERSION_STABLE }}
+
+      - name: Cache NuGet packages
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('src/Directory.Packages.props', 'src/**/*.csproj') }}
+          restore-keys: ${{ runner.os }}-nuget-
 
       - name: Restore dependencies
         run: dotnet restore
@@ -113,18 +118,20 @@ jobs:
         uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7
         with:
           files: ${{ inputs.working_directory }}/coverage.cobertura.xml
+          disable_search: true
+          plugins: noop
 
       - name: Create NuGet packages
-        if: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
+        if: ${{ github.event_name != 'pull_request' && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
         shell: pwsh
         run: |
           $projectNames = "${{ inputs.project_names }}" -split ";"
           foreach ($project in $projectNames) {
-            dotnet pack "$project" --configuration "${{ inputs.build_configuration }}" --no-build --no-restore
+            dotnet pack "$project" --configuration "${{ inputs.build_configuration }}" --no-build --no-restore -o "${{ inputs.artifacts_root_directory }}"
           }
 
       - name: Copy binaries to artifacts directory
-        if: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
+        if: ${{ github.event_name != 'pull_request' && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
         shell: pwsh
         run: |
           $binariesRootDirectories = "${{ inputs.binaries_root_directories }}" -split ";"
@@ -140,11 +147,8 @@ jobs:
           foreach ($rootDirectory in $binariesRootDirectories) {
             $binariesRootDirectory = "$rootDirectory/${{ inputs.build_configuration }}"
             if (Test-Path $binariesRootDirectory) {
+              $filePatterns = "Trakt.NET.*.dll|Trakt.NET.*.xml|Trakt.NET.*.pdb|Trakt.NET.*.deps.json"
               if ($hasArtifactsSubDirectories) {
-                $filePatterns = "Trakt.NET.*.nupkg|Trakt.NET.*.snupkg"
-                $nupkgFiles = Get-ChildItem -Path $binariesRootDirectory -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.Fullname -match $filePatterns }
-                if ($nupkgFiles) { $nupkgFiles | Copy-Item -Destination $artifactsRootDirectory }
-                $filePatterns = "Trakt.NET.*.dll|Trakt.NET.*.xml|Trakt.NET.*.pdb|Trakt.NET.*.deps.json"
                 foreach ($directory in $artifactsSubDirectories) {
                   $subDir = "$binariesRootDirectory/$directory"
                   if (Test-Path $subDir) {
@@ -153,7 +157,6 @@ jobs:
                   }
                 }
               } else {
-                $filePatterns = "Trakt.NET.*.dll|Trakt.NET.*.xml|Trakt.NET.*.pdb|Trakt.NET.*.deps.json|Trakt.NET.*.nupkg|Trakt.NET.*.snupkg"
                 $allFiles = Get-ChildItem -Path $binariesRootDirectory -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.Fullname -match $filePatterns }
                 if ($allFiles) { $allFiles | Copy-Item -Destination $artifactsRootDirectory }
               }
@@ -161,7 +164,7 @@ jobs:
           }
 
       - name: Upload artifacts
-        if: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
+        if: ${{ github.event_name != 'pull_request' && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: ${{ inputs.artifacts_archive_name }}-${{ github.run_number }}-${{ github.sha }}
@@ -169,12 +172,11 @@ jobs:
           path: '${{ inputs.artifacts_root_directory }}/'
 
       - name: Push NuGet packages to Github Package Registry
-        if: ${{ inputs.push_nuget_package && !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
+        if: ${{ inputs.push_nuget_package && github.event_name != 'pull_request' && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: pwsh
-        run: dotnet nuget push '**/Trakt.NET*.nupkg' --api-key $env:GITHUB_TOKEN --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --skip-duplicate
-        working-directory: ${{ inputs.working_directory }}
+        run: dotnet nuget push "${{ inputs.artifacts_root_directory }}/Trakt.NET*.nupkg" --api-key $env:GITHUB_TOKEN --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --skip-duplicate
 
       - name: NuGet Login (Trusted Publishing via OIDC)
         id: login
@@ -186,4 +188,4 @@ jobs:
       - name: Push packages to NuGet
         if: ${{ inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
         shell: pwsh
-        run: dotnet nuget push '**/Trakt.NET*.nupkg' --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push "${{ inputs.artifacts_root_directory }}/Trakt.NET*.nupkg" --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
