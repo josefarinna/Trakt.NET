@@ -27,6 +27,38 @@ namespace TraktNET.GetRequests.People
             personSummaryGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
         }
 
+        [Theory]
+        [InlineData(null, URIPath)]
+        [InlineData("", URIPath)]
+        [InlineData(" ", URIPath)]
+        [InlineData("pt", $"{URIPath}?language=pt")]
+        [InlineData("pt-br", $"{URIPath}?language=pt-br")]
+        public void TestPersonSummaryGetRequestHasValidURIPathWithLanguage(string? language, string expectedURIPath)
+        {
+            var personSummaryGetRequest = new PersonSummaryGetRequest
+            {
+                Id = "123",
+                Language = language
+            };
+
+            personSummaryGetRequest.BuildUri();
+            personSummaryGetRequest.RequestUri.ShouldBe(new Uri(expectedURIPath, UriKind.Relative));
+        }
+
+        [Fact]
+        public void TestPersonSummaryGetRequestHasValidURIPathWithExtendedInfoAndLanguage()
+        {
+            var personSummaryGetRequest = new PersonSummaryGetRequest
+            {
+                Id = "123",
+                ExtendedInfo = TraktExtendedInfo.Full,
+                Language = "de"
+            };
+
+            personSummaryGetRequest.BuildUri();
+            personSummaryGetRequest.RequestUri.ShouldBe(new Uri($"{URIPath}?language=de&extended=full", UriKind.Relative));
+        }
+
         [Fact]
         public void TestPersonSummaryGetRequestHasValidOAuthRequirement()
         {

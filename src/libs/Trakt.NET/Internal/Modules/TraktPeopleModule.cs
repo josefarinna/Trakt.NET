@@ -46,13 +46,15 @@ namespace TraktNET
                 }, cancellationToken);
         }
 
-        private Task<TraktResponse<TraktPerson>> GetPersonImplAsync(string personIdOrSlug, TraktExtendedInfo? extendedInfo = null,
-                                                                              CancellationToken cancellationToken = default)
+        private Task<TraktResponse<TraktPerson>> GetPersonImplAsync(string personIdOrSlug, string? language = null,
+                                                                    TraktExtendedInfo? extendedInfo = null,
+                                                                    CancellationToken cancellationToken = default)
         {
             var request = new PersonSummaryGetRequest
             {
                 Id = personIdOrSlug,
-                ExtendedInfo = extendedInfo
+                Language = language,
+                ExtendedInfo = extendedInfo,
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktPerson>(_context, request, cancellationToken);

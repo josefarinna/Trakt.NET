@@ -13386,6 +13386,12 @@
                   ],
                   "query": [
                     {
+                      "key": "language",
+                      "value": "",
+                      "description": "Language code to pick the Wikipedia page in, like pt or pt-br. Falls back to the base language, then English.",
+                      "disabled": true
+                    },
+                    {
                       "key": "extended",
                       "value": "full",
                       "description": "Complete info for an item.",
@@ -13428,6 +13434,12 @@
                   ],
                   "query": [
                     {
+                      "key": "language",
+                      "value": "",
+                      "description": "Language code to pick the Wikipedia page in, like pt or pt-br. Falls back to the base language, then English.",
+                      "disabled": true
+                    },
+                    {
                       "key": "extended",
                       "value": "full",
                       "description": "Complete info for an item.",
@@ -13469,6 +13481,12 @@
                     "{{IMDB_PERSON_ID}}"
                   ],
                   "query": [
+                    {
+                      "key": "language",
+                      "value": "",
+                      "description": "Language code to pick the Wikipedia page in, like pt or pt-br. Falls back to the base language, then English.",
+                      "disabled": true
+                    },
                     {
                       "key": "extended",
                       "value": "full",
