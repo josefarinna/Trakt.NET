@@ -202,7 +202,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktEpisodeCheckinResponse.html">TraktEpisodeCheckinResponse</a>&gt;&gt;</td>
-        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried episode.</p>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the checked in episode.</p>
 <p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktEpisodeCheckinResponse.html">TraktEpisodeCheckinResponse</a>.</p>
 </td>
       </tr>
@@ -289,7 +289,7 @@ Trakt API Documentation: Checkin: Checkin into an item
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse</a>&lt;<a class="xref" href="TraktNET.TraktMovieCheckinResponse.html">TraktMovieCheckinResponse</a>&gt;&gt;</td>
-        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the queried movie.</p>
+        <td><p>A response of type <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> containing the checked in movie.</p>
 <p>See also <a class="xref" href="TraktNET.TraktResponse-1.html">TraktResponse&lt;TResponseContentType&gt;</a> and <a class="xref" href="TraktNET.TraktMovieCheckinResponse.html">TraktMovieCheckinResponse</a>.</p>
 </td>
       </tr>
@@ -370,13 +370,14 @@ Trakt API Documentation: Checkin: Checkin into an item
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>&gt;</td>
-        <td><p><returns>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</returns></p>
+        <td><p>A <a class="xref" href="TraktNET.TraktResponse.html">TraktResponse</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="TraktNET_TraktCheckinsModule_DeleteAnyActiveCheckinsAsync_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is required.</p>
+<p>The elapsed progress is saved as paused playback, so the next checkin of the same item resumes from it.</p>
 <p><a href="https://docs.trakt.tv/reference/deletecheckindelete">
 Trakt API Documentation: Checkin: Delete any active checkins
 </a></p>
