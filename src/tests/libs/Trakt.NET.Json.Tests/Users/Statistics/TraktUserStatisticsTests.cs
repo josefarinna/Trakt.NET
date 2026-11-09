@@ -85,5 +85,43 @@ namespace TraktNET.Json.Users
             userStatistics.TotalMinutes.ShouldBe(618949U);
             userStatistics.TotalPlays.ShouldBe(12473U);
         }
+
+        [Fact]
+        public async Task TestTraktUserStatisticsFromJsonWithNullishFields()
+        {
+            TraktUserStatistics? userStatistics = await TestUtility.DeserializeJsonAsync<TraktUserStatistics>("Users\\userstatistics_nullish.json");
+
+            userStatistics.ShouldNotBeNull();
+            userStatistics.Movies.ShouldNotBeNull();
+            userStatistics.Shows.ShouldNotBeNull();
+            userStatistics.Seasons.ShouldNotBeNull();
+            userStatistics.Episodes.ShouldNotBeNull();
+            userStatistics.Network.ShouldNotBeNull();
+            userStatistics.Ratings.ShouldNotBeNull();
+
+            userStatistics.Progress.ShouldBeNull();
+            userStatistics.Lists.ShouldBeNull();
+            userStatistics.TotalMinutes.ShouldBeNull();
+            userStatistics.TotalPlays.ShouldBeNull();
+        }
+
+        [Fact]
+        public async Task TestTraktUserStatisticsFromJsonWithOmittedFields()
+        {
+            TraktUserStatistics? userStatistics = await TestUtility.DeserializeJsonAsync<TraktUserStatistics>("Users\\userstatistics_omitted.json");
+
+            userStatistics.ShouldNotBeNull();
+            userStatistics.Movies.ShouldNotBeNull();
+            userStatistics.Shows.ShouldNotBeNull();
+            userStatistics.Seasons.ShouldNotBeNull();
+            userStatistics.Episodes.ShouldNotBeNull();
+            userStatistics.Network.ShouldNotBeNull();
+            userStatistics.Ratings.ShouldNotBeNull();
+
+            userStatistics.Progress.ShouldBeNull();
+            userStatistics.Lists.ShouldBeNull();
+            userStatistics.TotalMinutes.ShouldBeNull();
+            userStatistics.TotalPlays.ShouldBeNull();
+        }
     }
 }

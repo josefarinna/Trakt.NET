@@ -30,6 +30,7 @@ namespace TraktNET
     [JsonSerializable(typeof(Dictionary<string, string>))]
     [JsonSerializable(typeof(Dictionary<string, Dictionary<string, Dictionary<string, string>>>))]
     [JsonSerializable(typeof(TraktCollectedAt))]
+    [JsonSerializable(typeof(TraktWatchedAt))]
     [JsonSerializable(typeof(TraktSyncCollectionPost))]
     [JsonSerializable(typeof(TraktSyncCollectionPostEpisode))]
     [JsonSerializable(typeof(TraktSyncCollectionPostMovie))]

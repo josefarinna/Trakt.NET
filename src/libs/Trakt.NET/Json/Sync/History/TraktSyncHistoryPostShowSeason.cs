@@ -2,12 +2,15 @@
 {
     /// <summary>
     /// A Trakt history post season, containing the required season number and optional episodes
-    /// and an optional datetime, when the season was watched.
+    /// and an optional datetime or action date keyword, when the season was watched.
     /// </summary>
     public record class TraktSyncHistoryPostShowSeason : TraktSyncRemovePostShowSeason
     {
-        /// <summary>Gets or sets the optional UTC datetime, when the Trakt season was watched.</summary>
-        public DateTime? WatchedAt { get; set; }
+        /// <summary>
+        /// Gets or sets the optional datetime or action date keyword, when the Trakt season was watched.
+        /// See also <seealso cref="TraktWatchedAt" />.
+        /// </summary>
+        public TraktWatchedAt? WatchedAt { get; set; }
 
         /// <summary>
         /// An optional list of <see cref="TraktSyncHistoryPostShowEpisode" />s.
