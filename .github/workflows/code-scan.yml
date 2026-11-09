@@ -14,29 +14,34 @@ jobs:
       contents: read
       security-events: write
 
-    strategy:
-      fail-fast: false
-      matrix:
-        language: ['csharp']
-        configuration: [Release]
-
     steps:
     - name: Checkout
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       with:
         fetch-depth: 0
 
+    - name: Setup environment variables
+      uses: cardinalby/export-env-action@4f48c4676cf6ed6f46e30899ee987ce695da7c80 # v2
+      with:
+        envFile: './.github/constants.env'
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION_CURRENT_STABLE }}
+
     - name: Initialize CodeQL
       uses: github/codeql-action/init@1fc58d04a4d4374f921bdac573c3811c240f9c26 # v4.39.2
       with:
         languages: 'csharp'
+        build-mode: manual
 
     - name: Restore dependencies
       run: dotnet restore
       working-directory: 'src'
 
     - name: Build solution
-      run: dotnet build  --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore
       working-directory: 'src'
 
     - name: Perform CodeQL Analysis

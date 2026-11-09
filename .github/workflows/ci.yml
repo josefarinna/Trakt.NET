@@ -2,8 +2,6 @@ name: 'CI'
 
 on:
   workflow_dispatch:
-  release:
-    types: [published,prereleased]
   push:
     tags: 'v**'
     branches:
@@ -24,27 +22,39 @@ on:
       - 'src/**'
       - 'docs/**'
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   init:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Initialize environment variables
         id: find-environment
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+          REF_NAME: ${{ github.ref_name }}
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          if [[ "${{ github.event_name }}" != "pull_request" ]]; then
-            branch_name=${{ github.ref_name }}
+          if [[ "${EVENT_NAME}" != "pull_request" ]]; then
+            branch_name="${REF_NAME}"
           else
-            branch_name=${{ github.base_ref }}
+            branch_name="${BASE_REF}"
           fi
           target_br_name=${branch_name//\//-}
           echo "Running on branch: ${branch_name}"
           echo "Target branch is: ${target_br_name}"
-          if [[ "${branch_name}" == *"main"* || "${{ github.ref }}" == "refs/tags/v"* ]]; then
-            environment=Production
-          elif [[ "${branch_name}" == *"develop"* ]]; then
+          if [[ "${EVENT_NAME}" == "pull_request" ]]; then
             environment=Development
-          elif [[ "${branch_name}" == *"release"* ]]; then
+          elif [[ "${REF}" == refs/tags/v* || "${branch_name}" == "main" ]]; then
+            environment=Production
+          elif [[ "${branch_name}" == release-* ]]; then
             environment=Release-Previews
           else
             environment=Development
@@ -81,7 +91,7 @@ jobs:
       project_names: 'src/libs/Trakt.NET/Trakt.NET.Ex.csproj;src/libs/Trakt.NET.HttpClientFactory/Trakt.NET.Ex.HttpClientFactory.csproj'
       build_configuration: Release
       binaries_root_directories: 'src/libs/Trakt.NET/bin;src/libs/Trakt.NET.HttpClientFactory/bin'
-      artifacts_root_directory: 'artifacts-v2.0.0'
+      artifacts_root_directory: 'artifacts'
       artifacts_sub_directories: 'netstandard2.0,netstandard2.1,net5.0,net6.0,net7.0,net8.0,net9.0,net10.0'
       artifacts_archive_name: 'Trakt.NET-CI-Build-${{ needs.init.outputs.target_branch_name }}'
       upload_codecov: true
@@ -89,10 +99,12 @@ jobs:
 
   docs:
     needs: [init, stable]
+    permissions:
+      contents: write
     uses: ./.github/workflows/documentation.yml
     secrets: inherit
     with:
-      should_run: ${{ !contains(github.ref, 'pull') && !contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
+      should_run: ${{ github.event_name != 'pull_request' &&!contains(github.ref, 'epic') && github.actor != 'dependabot[bot]' }}
       environment_name: ${{ needs.init.outputs.environment_name }}
       project_name: 'src/libs/Trakt.NET/Trakt.NET.Ex.csproj'
       build_configuration: Release

@@ -10,6 +10,9 @@ on:
       - '.github/**'
       - 'src/**'
 
+permissions:
+  contents: read
+
 jobs:
   sonarcloud:
     name: SonarCloud
@@ -32,23 +35,10 @@ jobs:
             ${{ env.DOTNET_VERSION_CURRENT_STABLE }}
             ${{ env.DOTNET_9_VERSION_STABLE }}
             ${{ env.DOTNET_8_VERSION_STABLE }}
-            ${{ env.DOTNET_7_VERSION_STABLE }}
-            ${{ env.DOTNET_6_VERSION_STABLE }}
-
-      - name: Cache SonarCloud scanner
-        id: cache-sonar-scanner
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: .\.sonar\scanner
-          key: ${{ runner.os }}-sonar-scanner
-          restore-keys: ${{ runner.os }}-sonar-scanner
 
       - name: Install SonarCloud scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: pwsh
-        run: |
-          New-Item -Path .\.sonar\scanner -ItemType Directory -Force
-          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+        run: dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
       - name: Install dotnet-coverage
         shell: pwsh

@@ -2,6 +2,9 @@ name: Delete old packages
 
 on: workflow_dispatch
 
+permissions:
+  packages: write
+
 jobs:
   delete-packages:
     runs-on: ubuntu-latest
