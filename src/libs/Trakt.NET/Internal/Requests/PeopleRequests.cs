@@ -37,6 +37,9 @@ namespace TraktNET
     [TraktGetRequest("people/{id!!}", SupportsExtendedInfo = true)]
     internal sealed partial class PersonSummaryGetRequest
     {
+        [TraktRequestQuery("language")]
+        internal string? Language { get; set; }
+
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Person;
     }
 

@@ -4,6 +4,9 @@ namespace TraktNET
     {
         /// <summary>Gets a <see cref="TraktPerson" /> with the given Trakt-Id or -Slug.</summary>
         /// <param name="personIdOrSlug">The person's Trakt-Id or -Slug. See also <seealso cref="TraktPersonIDs" />.</param>
+        /// <param name="language">
+        /// An optional language code (e.g. "pt", "pt-br") to pick the Wikipedia page language.
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the person.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -18,18 +21,22 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>With extended <see cref="TraktExtendedInfo.Full" />, <see cref="TraktPerson.SocialIDs" /> includes Twitter, Facebook, Instagram, TikTok, YouTube, Wikidata and Wikipedia.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getpeoplesummary">
         /// Trakt API Documentation: People: Summary
         /// </see></para>
         /// </remarks>
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
-        public Task<TraktResponse<TraktPerson>> GetPersonAsync(string personIdOrSlug, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
-            => GetPersonImplAsync(personIdOrSlug, extendedInfo, cancellationToken);
+        public Task<TraktResponse<TraktPerson>> GetPersonAsync(string personIdOrSlug, string? language = null,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            => GetPersonImplAsync(personIdOrSlug, language, extendedInfo, cancellationToken);
 
         /// <summary>Gets a <see cref="TraktPerson" /> with the given Trakt-Id or -Slug.</summary>
         /// <param name="traktPersonId">The person's Trakt-Id. See also <seealso cref="TraktPersonIDs" />.</param>
+        /// <param name="language">
+        /// An optional language code (e.g. "pt", "pt-br") to pick the Wikipedia page language.
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the person.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -44,6 +51,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>With extended <see cref="TraktExtendedInfo.Full" />, <see cref="TraktPerson.SocialIDs" /> includes Twitter, Facebook, Instagram, TikTok, YouTube, Wikidata and Wikipedia.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getpeoplesummary">
         /// Trakt API Documentation: People: Summary
         /// </see></para>
@@ -51,17 +59,20 @@ namespace TraktNET
         /// <exception cref="TraktApiException">Thrown, if the request fails.</exception>
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="traktPersonId"/> is 0.</exception>
-        public Task<TraktResponse<TraktPerson>> GetPersonAsync(uint traktPersonId, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+        public Task<TraktResponse<TraktPerson>> GetPersonAsync(uint traktPersonId, string? language = null,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             if (traktPersonId == 0)
                 throw new ArgumentException("person id must not be 0", nameof(traktPersonId));
 
-            return GetPersonImplAsync(traktPersonId.ToInvariantCultureString(), extendedInfo, cancellationToken);
+            return GetPersonImplAsync(traktPersonId.ToInvariantCultureString(), language, extendedInfo, cancellationToken);
         }
 
         /// <summary>Gets a <see cref="TraktPerson" /> with the given Trakt-Id or -Slug.</summary>
         /// <param name="personIds">The person's ids. See also <seealso cref="TraktPersonIDs" />.</param>
+        /// <param name="language">
+        /// An optional language code (e.g. "pt", "pt-br") to pick the Wikipedia page language.
+        /// </param>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the person.
         /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
@@ -76,6 +87,7 @@ namespace TraktNET
         /// </returns>
         /// <remarks>
         /// OAuth authorization is not required.
+        /// <para>With extended <see cref="TraktExtendedInfo.Full" />, <see cref="TraktPerson.SocialIDs" /> includes Twitter, Facebook, Instagram, TikTok, YouTube, Wikidata and Wikipedia.</para>
         /// <para><see href="https://docs.trakt.tv/reference/getpeoplesummary">
         /// Trakt API Documentation: People: Summary
         /// </see></para>
@@ -84,15 +96,15 @@ namespace TraktNET
         /// <exception cref="TraktRequestValidationException">Thrown, if validation of request data fails.</exception>
         /// <exception cref="ArgumentNullException">Thrown, if the given <paramref name="personIds"/> is null.</exception>
         /// <exception cref="ArgumentException">Thrown, if the given <paramref name="personIds"/> has not any ids set.</exception>
-        public Task<TraktResponse<TraktPerson>> GetPersonAsync(TraktPersonIDs personIds, TraktExtendedInfo? extendedInfo = null,
-            CancellationToken cancellationToken = default)
+        public Task<TraktResponse<TraktPerson>> GetPersonAsync(TraktPersonIDs personIds, string? language = null,
+            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             ArgumentValidator.ThrowIfNull(personIds);
 
             if (!personIds.HasAnyID)
                 throw new ArgumentException($"{nameof(personIds)} has not any ids set", nameof(personIds));
 
-            return GetPersonImplAsync(personIds.BestID, extendedInfo, cancellationToken);
+            return GetPersonImplAsync(personIds.BestID, language, extendedInfo, cancellationToken);
         }
     }
 }

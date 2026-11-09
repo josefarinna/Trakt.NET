@@ -109,7 +109,7 @@ namespace TraktNET.PeopleModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\person_full.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetPersonUri}?extended=full", responseContent);
-            TraktResponse<TraktPerson> response = await client.People.GetPersonAsync(PersonID, TraktExtendedInfo.Full, TestContext.Current.CancellationToken);
+            TraktResponse<TraktPerson> response = await client.People.GetPersonAsync(PersonID, extendedInfo: TraktExtendedInfo.Full, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -148,7 +148,7 @@ namespace TraktNET.PeopleModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\person_full.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetPersonUri}?extended=full,markdown", responseContent);
-            TraktResponse<TraktPerson> response = await client.People.GetPersonAsync(PersonID, TraktExtendedInfo.Full | TraktExtendedInfo.Markdown, TestContext.Current.CancellationToken);
+            TraktResponse<TraktPerson> response = await client.People.GetPersonAsync(PersonID, extendedInfo: TraktExtendedInfo.Full | TraktExtendedInfo.Markdown, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -164,6 +164,34 @@ namespace TraktNET.PeopleModule
             responseValue.IDs.IMDB.ShouldBe("nm0186505");
             responseValue.IDs.TMDB.ShouldBe(17419U);
             responseValue.Biography.ShouldBe("Bryan Lee Cranston (born March 7, 1956) is an American actor, director, and producer who is mainly known for portraying Walter White in the AMC crime drama series Breaking Bad (2008–2013) and Hal in the Fox sitcom Malcolm in the Middle (2000–2006).");
+        }
+
+        [Fact]
+        public async Task TestGetPersonWithLanguage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\person_minimal.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonUri}?language=pt", responseContent);
+            TraktResponse<TraktPerson> response = await client.People.GetPersonAsync(PersonID, language: "pt", cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetPersonWithExtendedInfoAndLanguage()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("People\\person_full.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"{GetPersonUri}?language=pt-br&extended=full", responseContent);
+            TraktResponse<TraktPerson> response = await client.People.GetPersonAsync(PersonID, "pt-br", TraktExtendedInfo.Full, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
         }
 
         [Theory]
