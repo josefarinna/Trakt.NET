@@ -8502,6 +8502,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserAllTimeYearInReview.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserAllTimeYearInReview.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserAllTimeYearInReview",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserAllTimeYearInReview.yml\" sourcestartlinenumber=\"1\">Represents a user's all-time Year in Review data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktUserAvatarPost.yml",
       "output": {
         ".html": {
@@ -9608,6 +9622,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewAllTimeGlobalTop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewAllTimeGlobalTop.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewAllTimeGlobalTop",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewAllTimeGlobalTop.yml\" sourcestartlinenumber=\"1\">Represents globally most played titles on Trakt in an all-time review.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewAllTimeListProgress.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewAllTimeListProgress.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewAllTimeListProgress",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewAllTimeListProgress.yml\" sourcestartlinenumber=\"1\">Represents progress through curated top lists for shows and movies.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewAllTimeReleaseYears.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewAllTimeReleaseYears.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewAllTimeReleaseYears",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewAllTimeReleaseYears.yml\" sourcestartlinenumber=\"1\">Represents watched titles per release year and decade for shows and movies.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktUserReviewCategoryStats.yml",
       "output": {
         ".html": {
@@ -9619,6 +9675,20 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktUserReviewCategoryStats",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewCategoryStats.yml\" sourcestartlinenumber=\"1\">Represents category statistics for a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewCompany.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewCompany.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewCompany",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewCompany.yml\" sourcestartlinenumber=\"1\">Represents a network or production company in a review period.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -9664,6 +9734,104 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewDecadeCount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewDecadeCount.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewDecadeCount",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewDecadeCount.yml\" sourcestartlinenumber=\"1\">Represents watched titles per decade in an all-time review.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewDistributions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewDistributions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewDistributions",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewDistributions.yml\" sourcestartlinenumber=\"1\">Represents review play count distributions per time slot.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewGenreCount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewGenreCount.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewGenreCount",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewGenreCount.yml\" sourcestartlinenumber=\"1\">Represents genre counts for a media type in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewGenreItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewGenreItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewGenreItem",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewGenreItem.yml\" sourcestartlinenumber=\"1\">Represents a genre and its watched title count in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewGenres.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewGenres.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewGenres",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewGenres.yml\" sourcestartlinenumber=\"1\">Represents genre counts for shows and movies in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewGlobalTopMovie.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewGlobalTopMovie.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewGlobalTopMovie",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewGlobalTopMovie.yml\" sourcestartlinenumber=\"1\">Represents a globally most played movie on Trakt in an all-time review.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewGlobalTopShow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewGlobalTopShow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewGlobalTopShow",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewGlobalTopShow.yml\" sourcestartlinenumber=\"1\">Represents a globally most played show on Trakt in an all-time review.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktUserReviewImages.yml",
       "output": {
         ".html": {
@@ -9678,6 +9846,62 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewListProgress.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewListProgress.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewListProgress",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewListProgress.yml\" sourcestartlinenumber=\"1\">Represents progress through a curated top list in an all-time review.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewMostWatched.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewMostWatched.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewMostWatched",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewMostWatched.yml\" sourcestartlinenumber=\"1\">Represents the most watched titles in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewMostWatchedMovie.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewMostWatchedMovie.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewMostWatchedMovie",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewMostWatchedMovie.yml\" sourcestartlinenumber=\"1\">Represents a most watched movie in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewMostWatchedShow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewMostWatchedShow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewMostWatchedShow",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewMostWatchedShow.yml\" sourcestartlinenumber=\"1\">Represents a most watched show in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktUserReviewMovieTrend.yml",
       "output": {
         ".html": {
@@ -9689,6 +9913,34 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktUserReviewMovieTrend",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewMovieTrend.yml\" sourcestartlinenumber=\"1\">Represents a movie trend entry for a month in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewRatingCount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewRatingCount.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewRatingCount",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewRatingCount.yml\" sourcestartlinenumber=\"1\">Represents rating counts for a specific star rating (1 to 10) in an all-time review.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewReleaseYears.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewReleaseYears.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewReleaseYears",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewReleaseYears.yml\" sourcestartlinenumber=\"1\">Represents watched titles per release year and decade for a media type.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -9804,6 +10056,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewTopRated.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewTopRated.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewTopRated",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewTopRated.yml\" sourcestartlinenumber=\"1\">Represents the top rated titles in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewTopRatedMovie.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewTopRatedMovie.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewTopRatedMovie",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewTopRatedMovie.yml\" sourcestartlinenumber=\"1\">Represents a top rated movie in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewTopRatedShow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewTopRatedShow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewTopRatedShow",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewTopRatedShow.yml\" sourcestartlinenumber=\"1\">Represents a top rated show in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/TraktNET.TraktUserReviewTrends.yml",
       "output": {
         ".html": {
@@ -9829,6 +10123,34 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktUserReviewWatchedItem",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewWatchedItem.yml\" sourcestartlinenumber=\"1\">Represents a watched movie or episode in a review period.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewYearCount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewYearCount.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewYearCount",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewYearCount.yml\" sourcestartlinenumber=\"1\">Represents watched titles per release year in an all-time review.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktUserReviewYearlyPlayCount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktUserReviewYearlyPlayCount.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktUserReviewYearlyPlayCount",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktUserReviewYearlyPlayCount.yml\" sourcestartlinenumber=\"1\">Represents play counts for a specific year in an all-time review.</p>\n"
     },
     {
       "type": "ManagedReference",
