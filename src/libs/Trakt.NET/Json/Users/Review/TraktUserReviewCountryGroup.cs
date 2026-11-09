@@ -10,6 +10,6 @@ namespace TraktNET
         /// Gets or sets the list of country breakdown entries.
         /// <para>See also <seealso cref="TraktUserReviewCountry" />.</para>
         /// </summary>
-        public IReadOnlyList<TraktUserReviewCountry>? Countries { get; set; }
+        public List<TraktUserReviewCountry>? Countries { get; set; }
     }
 }

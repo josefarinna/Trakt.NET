@@ -10,6 +10,6 @@ namespace TraktNET
         /// Gets or sets the list of streaming services.
         /// <para>See also <seealso cref="TraktUserReviewStreamingService" />.</para>
         /// </summary>
-        public IReadOnlyList<TraktUserReviewStreamingService>? Services { get; set; }
+        public List<TraktUserReviewStreamingService>? Services { get; set; }
     }
 }

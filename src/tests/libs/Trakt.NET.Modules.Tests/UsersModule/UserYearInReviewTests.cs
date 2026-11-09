@@ -6,6 +6,8 @@ namespace TraktNET.UsersModule
     {
         private const string Username = "sean";
         private const uint Year = 2024;
+        private const string Slurm = "vip_token";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
         private const string URIPath = "users/sean/yir/2024";
 
         [Fact]
@@ -15,6 +17,48 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetClient(URIPath, responseContent);
 
             TraktResponse<TraktUserYearInReview> response = await client.Users.GetYearInReviewAsync(Username, Year, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetYearInReviewWithSlurm()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\year_in_review.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{URIPath}?slurm={Slurm}", responseContent);
+
+            TraktResponse<TraktUserYearInReview> response = await client.Users.GetYearInReviewAsync(Username, Year, Slurm, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetYearInReviewWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\year_in_review.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{URIPath}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktUserYearInReview> response = await client.Users.GetYearInReviewAsync(Username, Year, extendedInfo: ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetYearInReviewWithSlurmAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\year_in_review.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{URIPath}?slurm={Slurm}&extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktUserYearInReview> response = await client.Users.GetYearInReviewAsync(Username, Year, Slurm, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -97,6 +141,9 @@ namespace TraktNET.UsersModule
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.Users.GetYearInReviewAsync("  ", Year, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.Users.GetYearInReviewAsync(Username, 0, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }

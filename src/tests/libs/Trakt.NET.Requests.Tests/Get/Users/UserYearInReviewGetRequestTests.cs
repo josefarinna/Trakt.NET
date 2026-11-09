@@ -8,13 +8,17 @@ namespace TraktNET.GetRequests.Users
     {
         [Theory]
         [InlineData("sean", 2024U, "users/sean/yir/2024")]
-        [InlineData("sean", 2024U, "users/sean/yir/2024?extended=full", TraktExtendedInfo.Full)]
-        public void TestUserYearInReviewGetRequestHasValidURIPath(string username, uint year, string expectedURIPath, TraktExtendedInfo? extendedInfo = null)
+        [InlineData("sean", 2024U, "users/sean/yir/2024?extended=full", null, TraktExtendedInfo.Full)]
+        [InlineData("sean", 2024U, "users/sean/yir/2024?slurm=vip_token", "vip_token")]
+        [InlineData("sean", 2024U, "users/sean/yir/2024?slurm=vip_token&extended=full", "vip_token", TraktExtendedInfo.Full)]
+        public void TestUserYearInReviewGetRequestHasValidURIPath(string username, uint year, string expectedURIPath,
+            string? slurm = null, TraktExtendedInfo? extendedInfo = null)
         {
             var request = new UserYearInReviewGetRequest
             {
                 Id = username,
                 Year = year,
+                Slurm = slurm,
                 ExtendedInfo = extendedInfo
             };
 

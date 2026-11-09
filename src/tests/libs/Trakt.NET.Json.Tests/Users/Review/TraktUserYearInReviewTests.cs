@@ -14,6 +14,11 @@ namespace TraktNET.Json.Users
             yearInReview.Countries.ShouldBeNull();
             yearInReview.Trends.ShouldBeNull();
             yearInReview.Thanks.ShouldBeNull();
+            yearInReview.MostWatched.ShouldBeNull();
+            yearInReview.Genres.ShouldBeNull();
+            yearInReview.Networks.ShouldBeNull();
+            yearInReview.ProductionCompanies.ShouldBeNull();
+            yearInReview.TopRated.ShouldBeNull();
         }
 
         [Fact]
@@ -50,6 +55,16 @@ namespace TraktNET.Json.Users
             yearInReview.Stats.Shows.Minutes.Total.ShouldBe(75000U);
             yearInReview.Stats.Shows.PlayCounts.ShouldNotBeNull();
             yearInReview.Stats.Shows.PlayCounts.Total.ShouldBe(1500U);
+            yearInReview.Stats.Shows.ItemsCount.ShouldBe(50U);
+            yearInReview.Stats.Shows.Distributions.ShouldNotBeNull();
+            yearInReview.Stats.Shows.Distributions.Weekly.ShouldNotBeNull();
+            yearInReview.Stats.Shows.Distributions.Weekly.ShouldBe([1U, 2U, 3U]);
+            yearInReview.Stats.Shows.Distributions.Monthly.ShouldNotBeNull();
+            yearInReview.Stats.Shows.Distributions.Monthly.ShouldBe([10U, 20U]);
+            yearInReview.Stats.Shows.Distributions.Days.ShouldNotBeNull();
+            yearInReview.Stats.Shows.Distributions.Days.ShouldBe([5U, 6U]);
+            yearInReview.Stats.Shows.Distributions.Hourly.ShouldNotBeNull();
+            yearInReview.Stats.Shows.Distributions.Hourly.ShouldBe([0U, 1U]);
 
             // Stats - Movies
             yearInReview.Stats.Movies.ShouldNotBeNull();
@@ -57,6 +72,16 @@ namespace TraktNET.Json.Users
             yearInReview.Stats.Movies.Minutes.Total.ShouldBe(50000U);
             yearInReview.Stats.Movies.PlayCounts.ShouldNotBeNull();
             yearInReview.Stats.Movies.PlayCounts.Total.ShouldBe(1000U);
+            yearInReview.Stats.Movies.ItemsCount.ShouldBe(30U);
+            yearInReview.Stats.Movies.Distributions.ShouldNotBeNull();
+            yearInReview.Stats.Movies.Distributions.Weekly.ShouldNotBeNull();
+            yearInReview.Stats.Movies.Distributions.Weekly.ShouldBe([4U, 5U, 6U]);
+            yearInReview.Stats.Movies.Distributions.Monthly.ShouldNotBeNull();
+            yearInReview.Stats.Movies.Distributions.Monthly.ShouldBe([15U, 25U]);
+            yearInReview.Stats.Movies.Distributions.Days.ShouldNotBeNull();
+            yearInReview.Stats.Movies.Distributions.Days.ShouldBe([7U, 8U]);
+            yearInReview.Stats.Movies.Distributions.Hourly.ShouldNotBeNull();
+            yearInReview.Stats.Movies.Distributions.Hourly.ShouldBe([2U, 3U]);
 
             // Images
             yearInReview.Images.ShouldNotBeNull();
@@ -129,6 +154,88 @@ namespace TraktNET.Json.Users
             yearInReview.Thanks.Movies.Count.ShouldBe(1);
             yearInReview.Thanks.Movies[0].Movie.ShouldNotBeNull();
             yearInReview.Thanks.Movies[0].Movie!.Title.ShouldBe("The Dark Knight");
+
+            // MostWatched
+            yearInReview.MostWatched.ShouldNotBeNull();
+            yearInReview.MostWatched.Shows.ShouldNotBeNull();
+            yearInReview.MostWatched.Shows.Count.ShouldBe(1);
+            yearInReview.MostWatched.Shows[0].Plays.ShouldBe(20U);
+            yearInReview.MostWatched.Shows[0].Minutes.ShouldBe(900U);
+            yearInReview.MostWatched.Shows[0].Show.ShouldNotBeNull();
+            yearInReview.MostWatched.Shows[0].Show!.Title.ShouldBe("Breaking Bad");
+
+            yearInReview.MostWatched.Movies.ShouldNotBeNull();
+            yearInReview.MostWatched.Movies.Count.ShouldBe(1);
+            yearInReview.MostWatched.Movies[0].Plays.ShouldBe(5U);
+            yearInReview.MostWatched.Movies[0].Minutes.ShouldBe(740U);
+            yearInReview.MostWatched.Movies[0].Movie.ShouldNotBeNull();
+            yearInReview.MostWatched.Movies[0].Movie!.Title.ShouldBe("The Dark Knight");
+
+            // Genres
+            yearInReview.Genres.ShouldNotBeNull();
+            yearInReview.Genres.Shows.ShouldNotBeNull();
+            yearInReview.Genres.Shows.ItemCount.ShouldBe(10U);
+            yearInReview.Genres.Shows.Genres.ShouldNotBeNull();
+            yearInReview.Genres.Shows.Genres.Count.ShouldBe(1);
+            yearInReview.Genres.Shows.Genres[0].Slug.ShouldBe("drama");
+            yearInReview.Genres.Shows.Genres[0].Name.ShouldBe("Drama");
+            yearInReview.Genres.Shows.Genres[0].Count.ShouldBe(6U);
+
+            yearInReview.Genres.Movies.ShouldNotBeNull();
+            yearInReview.Genres.Movies.ItemCount.ShouldBe(8U);
+            yearInReview.Genres.Movies.Genres.ShouldNotBeNull();
+            yearInReview.Genres.Movies.Genres.Count.ShouldBe(1);
+            yearInReview.Genres.Movies.Genres[0].Slug.ShouldBe("action");
+            yearInReview.Genres.Movies.Genres[0].Name.ShouldBe("Action");
+            yearInReview.Genres.Movies.Genres[0].Count.ShouldBe(5U);
+
+            // Networks
+            yearInReview.Networks.ShouldNotBeNull();
+            yearInReview.Networks.Count.ShouldBe(1);
+            yearInReview.Networks[0].ID.ShouldBe(1U);
+            yearInReview.Networks[0].Name.ShouldBe("AMC");
+            yearInReview.Networks[0].Count.ShouldBe(12U);
+            yearInReview.Networks[0].ImageUrl.ShouldBe("https://walter.trakt.tv/images/amc.png");
+            yearInReview.Networks[0].Color.ShouldBe("#fc0303");
+
+            // ProductionCompanies
+            yearInReview.ProductionCompanies.ShouldNotBeNull();
+            yearInReview.ProductionCompanies.Count.ShouldBe(1);
+            yearInReview.ProductionCompanies[0].ID.ShouldBe(2U);
+            yearInReview.ProductionCompanies[0].Name.ShouldBe("Warner Bros. Pictures");
+            yearInReview.ProductionCompanies[0].Count.ShouldBe(8U);
+            yearInReview.ProductionCompanies[0].ImageUrl.ShouldBe("https://walter.trakt.tv/images/wb.png");
+            yearInReview.ProductionCompanies[0].Color.ShouldBe("#0000ff");
+
+            // TopRated
+            yearInReview.TopRated.ShouldNotBeNull();
+            yearInReview.TopRated.Shows.ShouldNotBeNull();
+            yearInReview.TopRated.Shows.Count.ShouldBe(1);
+            yearInReview.TopRated.Shows[0].Rating.ShouldBe(10U);
+            yearInReview.TopRated.Shows[0].Show.ShouldNotBeNull();
+            yearInReview.TopRated.Shows[0].Show!.Title.ShouldBe("Breaking Bad");
+
+            yearInReview.TopRated.Movies.ShouldNotBeNull();
+            yearInReview.TopRated.Movies.Count.ShouldBe(1);
+            yearInReview.TopRated.Movies[0].Rating.ShouldBe(9U);
+            yearInReview.TopRated.Movies[0].Movie.ShouldNotBeNull();
+            yearInReview.TopRated.Movies[0].Movie!.Title.ShouldBe("The Dark Knight");
+        }
+
+        [Fact]
+        public async Task TestTraktUserYearInReviewToJson()
+        {
+            TraktUserYearInReview? yearInReview = await TestUtility.DeserializeJsonAsync<TraktUserYearInReview>("Users\\year_in_review.json");
+            yearInReview.ShouldNotBeNull();
+
+            string json = TestUtility.SerializeObject(yearInReview);
+            json.ShouldNotBeNullOrEmpty();
+            json.ShouldContain("\"stats\"");
+            json.ShouldContain("\"most_watched\"");
+            json.ShouldContain("\"genres\"");
+            json.ShouldContain("\"networks\"");
+            json.ShouldContain("\"production_companies\"");
+            json.ShouldContain("\"top_rated\"");
         }
     }
 }

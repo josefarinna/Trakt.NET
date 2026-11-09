@@ -7,6 +7,8 @@ namespace TraktNET.UsersModule
         private const string Username = "sean";
         private const uint Year = 2024;
         private const uint Month = 10;
+        private const string Slurm = "vip_token";
+        private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
         private const string URIPath = "users/sean/mir/2024/10";
 
         [Fact]
@@ -16,6 +18,48 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetClient(URIPath, responseContent);
 
             TraktResponse<TraktUserMonthInReview> response = await client.Users.GetMonthInReviewAsync(Username, Year, Month, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetMonthInReviewWithSlurm()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\month_in_review.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{URIPath}?slurm={Slurm}", responseContent);
+
+            TraktResponse<TraktUserMonthInReview> response = await client.Users.GetMonthInReviewAsync(Username, Year, Month, Slurm, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetMonthInReviewWithExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\month_in_review.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{URIPath}?extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktUserMonthInReview> response = await client.Users.GetMonthInReviewAsync(Username, Year, Month, extendedInfo: ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetMonthInReviewWithSlurmAndExtendedInfo()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\month_in_review.json");
+            TraktClient client = ModuleTestUtility.GetClient($"{URIPath}?slurm={Slurm}&extended={ExtendedInfo.ToURI()}", responseContent);
+
+            TraktResponse<TraktUserMonthInReview> response = await client.Users.GetMonthInReviewAsync(Username, Year, Month, Slurm, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -98,6 +142,12 @@ namespace TraktNET.UsersModule
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
             act = () => client.Users.GetMonthInReviewAsync("  ", Year, Month, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.Users.GetMonthInReviewAsync(Username, 0, Month, cancellationToken: TestContext.Current.CancellationToken);
+            await act.ShouldThrowAsync<TraktRequestValidationException>();
+
+            act = () => client.Users.GetMonthInReviewAsync(Username, Year, 0, cancellationToken: TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }
