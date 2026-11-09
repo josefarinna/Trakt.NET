@@ -44,5 +44,35 @@ namespace TraktNET
         /// <para>See also <seealso cref="TraktUserReviewThanks" />.</para>
         /// </summary>
         public TraktUserReviewThanks? Thanks { get; set; }
+
+        /// <summary>
+        /// Gets or sets the most watched titles in the review period.
+        /// <para>See also <seealso cref="TraktUserReviewMostWatched" />.</para>
+        /// </summary>
+        public TraktUserReviewMostWatched? MostWatched { get; set; }
+
+        /// <summary>
+        /// Gets or sets genre counts for shows and movies.
+        /// <para>See also <seealso cref="TraktUserReviewGenres" />.</para>
+        /// </summary>
+        public TraktUserReviewGenres? Genres { get; set; }
+
+        /// <summary>
+        /// Gets or sets the top networks for shows.
+        /// <para>See also <seealso cref="TraktUserReviewCompany" />.</para>
+        /// </summary>
+        public List<TraktUserReviewCompany>? Networks { get; set; }
+
+        /// <summary>
+        /// Gets or sets the top production companies for movies.
+        /// <para>See also <seealso cref="TraktUserReviewCompany" />.</para>
+        /// </summary>
+        public List<TraktUserReviewCompany>? ProductionCompanies { get; set; }
+
+        /// <summary>
+        /// Gets or sets top rated titles in the review period.
+        /// <para>See also <seealso cref="TraktUserReviewTopRated" />.</para>
+        /// </summary>
+        public TraktUserReviewTopRated? TopRated { get; set; }
     }
 }

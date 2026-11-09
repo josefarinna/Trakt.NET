@@ -1,0 +1,491 @@
+﻿{
+  "stats": {
+    "all": {
+      "minutes": {
+        "total": 125000,
+        "yearly": 125000,
+        "monthly": 10416,
+        "weekly": 2403,
+        "daily": 342
+      },
+      "play_counts": {
+        "total": 2500,
+        "yearly": 2500,
+        "monthly": 208,
+        "weekly": 48,
+        "daily": 6
+      },
+      "collected_counts": {
+        "total": 500,
+        "yearly": 500,
+        "monthly": 41,
+        "weekly": 9,
+        "daily": 1
+      },
+      "ratings_counts": {
+        "total": 350,
+        "yearly": 350,
+        "monthly": 29,
+        "weekly": 6,
+        "daily": 1
+      },
+      "comments_counts": {
+        "total": 75,
+        "yearly": 75,
+        "monthly": 6,
+        "weekly": 1,
+        "daily": 0
+      },
+      "lists_counts": {
+        "total": 10,
+        "yearly": 10,
+        "monthly": 1,
+        "weekly": 0,
+        "daily": 0
+      }
+    },
+    "shows": {
+      "minutes": {
+        "total": 75000,
+        "yearly": 75000,
+        "monthly": 6250,
+        "weekly": 1442,
+        "daily": 205
+      },
+      "play_counts": {
+        "total": 1500,
+        "yearly": 1500,
+        "monthly": 125,
+        "weekly": 28,
+        "daily": 4
+      },
+      "collected_counts": {
+        "total": 300,
+        "yearly": 300,
+        "monthly": 25,
+        "weekly": 5,
+        "daily": 1
+      },
+      "ratings_counts": {
+        "total": 200,
+        "yearly": 200,
+        "monthly": 16,
+        "weekly": 3,
+        "daily": 0
+      },
+      "comments_counts": {
+        "total": 50,
+        "yearly": 50,
+        "monthly": 4,
+        "weekly": 1,
+        "daily": 0
+      },
+      "items_count": 50,
+      "distributions": {
+        "weekly": [1, 2, 3],
+        "monthly": [10, 20],
+        "days": [5, 6],
+        "hourly": [0, 1],
+        "yearly": [
+          {
+            "year": 2024,
+            "count": 100
+          }
+        ]
+      },
+      "ratings_distribution": [
+        {
+          "rating": 10,
+          "count": 25
+        }
+      ]
+    },
+    "movies": {
+      "minutes": {
+        "total": 50000,
+        "yearly": 50000,
+        "monthly": 4166,
+        "weekly": 961,
+        "daily": 137
+      },
+      "play_counts": {
+        "total": 1000,
+        "yearly": 1000,
+        "monthly": 83,
+        "weekly": 20,
+        "daily": 2
+      },
+      "collected_counts": {
+        "total": 200,
+        "yearly": 200,
+        "monthly": 16,
+        "weekly": 4,
+        "daily": 0
+      },
+      "ratings_counts": {
+        "total": 150,
+        "yearly": 150,
+        "monthly": 13,
+        "weekly": 3,
+        "daily": 1
+      },
+      "comments_counts": {
+        "total": 25,
+        "yearly": 25,
+        "monthly": 2,
+        "weekly": 0,
+        "daily": 0
+      },
+      "items_count": 30,
+      "distributions": {
+        "weekly": [4, 5, 6],
+        "monthly": [15, 25],
+        "days": [7, 8],
+        "hourly": [2, 3],
+        "yearly": [
+          {
+            "year": 2024,
+            "count": 80
+          }
+        ]
+      },
+      "ratings_distribution": [
+        {
+          "rating": 9,
+          "count": 15
+        }
+      ]
+    }
+  },
+  "images": {
+    "cover": "https://walter.trakt.tv/images/cover.jpg",
+    "story": null
+  },
+  "first_watched": {
+    "watched_at": "2024-01-01T20:00:00.000Z",
+    "type": "movie",
+    "movie": {
+      "title": "Inception",
+      "year": 2010,
+      "ids": {
+        "trakt": 1,
+        "slug": "inception-2010",
+        "imdb": "tt1375666",
+        "tmdb": 27205
+      }
+    }
+  },
+  "last_watched": {
+    "watched_at": "2024-12-31T23:00:00.000Z",
+    "type": "episode",
+    "episode": {
+      "season": 5,
+      "number": 16,
+      "title": "Felina",
+      "ids": {
+        "trakt": 73463,
+        "tvdb": 4627260,
+        "imdb": "tt2301451",
+        "tmdb": 62161
+      }
+    },
+    "show": {
+      "title": "Breaking Bad",
+      "year": 2008,
+      "ids": {
+        "trakt": 1388,
+        "slug": "breaking-bad",
+        "tvdb": 81189,
+        "imdb": "tt0903747",
+        "tmdb": 1396
+      }
+    }
+  },
+  "countries": {
+    "shows": {
+      "country_count": 1,
+      "countries": [
+        {
+          "country": "United States",
+          "count": 1
+        }
+      ]
+    },
+    "movies": {
+      "country_count": 1,
+      "countries": [
+        {
+          "country": "United States",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "trends": {
+    "shows": [
+      {
+        "month": 1,
+        "month_name": "January",
+        "watchers": 25000,
+        "watched": true,
+        "show": {
+          "title": "Game of Thrones",
+          "year": 2011,
+          "ids": {
+            "trakt": 1390,
+            "slug": "game-of-thrones",
+            "tvdb": 121361,
+            "imdb": "tt0944947",
+            "tmdb": 1399
+          }
+        }
+      }
+    ],
+    "movies": [
+      {
+        "month": 1,
+        "month_name": "January",
+        "watchers": 15000,
+        "watched": false,
+        "movie": {
+          "title": "Inception",
+          "year": 2010,
+          "ids": {
+            "trakt": 1,
+            "slug": "inception-2010",
+            "imdb": "tt1375666",
+            "tmdb": 27205
+          }
+        }
+      }
+    ]
+  },
+  "thanks": {
+    "shows": [
+      {
+        "show": {
+          "title": "Breaking Bad",
+          "year": 2008,
+          "ids": {
+            "trakt": 1388,
+            "slug": "breaking-bad",
+            "tvdb": 81189,
+            "imdb": "tt0903747",
+            "tmdb": 1396
+          }
+        }
+      }
+    ],
+    "movies": [
+      {
+        "movie": {
+          "title": "The Dark Knight",
+          "year": 2008,
+          "ids": {
+            "trakt": 4,
+            "slug": "the-dark-knight-2008",
+            "imdb": "tt0468569",
+            "tmdb": 155
+          }
+        }
+      }
+    ]
+  },
+  "most_watched": {
+    "shows": [
+      {
+        "plays": 20,
+        "minutes": 900,
+        "show": {
+          "title": "Breaking Bad",
+          "year": 2008,
+          "ids": {
+            "trakt": 1388,
+            "slug": "breaking-bad",
+            "tvdb": 81189,
+            "imdb": "tt0903747",
+            "tmdb": 1396
+          }
+        }
+      }
+    ],
+    "movies": [
+      {
+        "plays": 5,
+        "minutes": 740,
+        "movie": {
+          "title": "The Dark Knight",
+          "year": 2008,
+          "ids": {
+            "trakt": 4,
+            "slug": "the-dark-knight-2008",
+            "imdb": "tt0468569",
+            "tmdb": 155
+          }
+        }
+      }
+    ]
+  },
+  "genres": {
+    "shows": {
+      "item_count": 10,
+      "genres": [
+        {
+          "slug": "drama",
+          "name": "Drama",
+          "count": 6
+        }
+      ]
+    },
+    "movies": {
+      "item_count": 8,
+      "genres": [
+        {
+          "slug": "action",
+          "name": "Action",
+          "count": 5
+        }
+      ]
+    }
+  },
+  "networks": [
+    {
+      "id": 1,
+      "name": "AMC",
+      "count": 12,
+      "image_url": "https://walter.trakt.tv/images/amc.png",
+      "color": "#fc0303"
+    }
+  ],
+  "production_companies": [
+    {
+      "id": 2,
+      "name": "Warner Bros. Pictures",
+      "count": 8,
+      "image_url": "https://walter.trakt.tv/images/wb.png",
+      "color": "#0000ff"
+    }
+  ],
+  "top_rated": {
+    "shows": [
+      {
+        "rating": 10,
+        "show": {
+          "title": "Breaking Bad",
+          "year": 2008,
+          "ids": {
+            "trakt": 1388,
+            "slug": "breaking-bad",
+            "tvdb": 81189,
+            "imdb": "tt0903747",
+            "tmdb": 1396
+          }
+        }
+      }
+    ],
+    "movies": [
+      {
+        "rating": 9,
+        "movie": {
+          "title": "The Dark Knight",
+          "year": 2008,
+          "ids": {
+            "trakt": 4,
+            "slug": "the-dark-knight-2008",
+            "imdb": "tt0468569",
+            "tmdb": 155
+          }
+        }
+      }
+    ]
+  },
+  "release_years": {
+    "shows": {
+      "years": [
+        {
+          "year": 2008,
+          "count": 1
+        }
+      ],
+      "decades": [
+        {
+          "decade": 2000,
+          "count": 1
+        }
+      ]
+    },
+    "movies": {
+      "years": [
+        {
+          "year": 2010,
+          "count": 1
+        }
+      ],
+      "decades": [
+        {
+          "decade": 2010,
+          "count": 1
+        }
+      ]
+    }
+  },
+  "list_progress": {
+    "shows": [
+      {
+        "id": 100,
+        "site": "IMDb",
+        "title": "Top 250 TV",
+        "logo": "https://walter.trakt.tv/images/imdb.png",
+        "total": 250,
+        "watched": 50,
+        "percentage": 20
+      }
+    ],
+    "movies": [
+      {
+        "id": 101,
+        "site": "IMDb",
+        "title": "Top 250 Movies",
+        "logo": "https://walter.trakt.tv/images/imdb.png",
+        "total": 250,
+        "watched": 125,
+        "percentage": 50
+      }
+    ]
+  },
+  "global_top": {
+    "shows": [
+      {
+        "watchers": 500000,
+        "watched": true,
+        "show": {
+          "title": "Breaking Bad",
+          "year": 2008,
+          "ids": {
+            "trakt": 1388,
+            "slug": "breaking-bad",
+            "tvdb": 81189,
+            "imdb": "tt0903747",
+            "tmdb": 1396
+          }
+        }
+      }
+    ],
+    "movies": [
+      {
+        "watchers": 400000,
+        "watched": false,
+        "movie": {
+          "title": "The Dark Knight",
+          "year": 2008,
+          "ids": {
+            "trakt": 4,
+            "slug": "the-dark-knight-2008",
+            "imdb": "tt0468569",
+            "tmdb": 155
+          }
+        }
+      }
+    ]
+  }
+}

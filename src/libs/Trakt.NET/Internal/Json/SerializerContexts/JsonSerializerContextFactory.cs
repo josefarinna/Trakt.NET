@@ -633,6 +633,7 @@ namespace TraktNET
             typeof(TraktUserSync),
             typeof(TraktUserSyncItem),
             typeof(TraktUserYearInReview),
+            typeof(TraktUserAllTimeYearInReview),
             typeof(TraktUserMonthInReview),
             typeof(Dictionary<string, List<string>>),
             typeof(Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>)
@@ -1217,6 +1218,7 @@ namespace TraktNET
             typeof(TraktUserSync),
             typeof(TraktUserSyncItem),
             typeof(TraktUserYearInReview),
+            typeof(TraktUserAllTimeYearInReview),
             typeof(TraktUserMonthInReview),
             typeof(Dictionary<string, List<string>>),
             typeof(Dictionary<string, Dictionary<string, Dictionary<string, List<string>>>>)

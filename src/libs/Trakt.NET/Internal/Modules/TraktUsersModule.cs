@@ -1214,13 +1214,14 @@ namespace TraktNET
         }
 
         private Task<TraktResponse<TraktUserMonthInReview>> GetMonthInReviewImplAsync(string usernameOrSlug, uint year, uint month,
-            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            string? slurm = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             var request = new UserMonthInReviewGetRequest
             {
                 Id = usernameOrSlug,
                 Year = year,
                 Month = month,
+                Slurm = slurm,
                 ExtendedInfo = extendedInfo
             };
 
@@ -1228,16 +1229,45 @@ namespace TraktNET
         }
 
         private Task<TraktResponse<TraktUserYearInReview>> GetYearInReviewImplAsync(string usernameOrSlug, uint year,
-            TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+            string? slurm = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
         {
             var request = new UserYearInReviewGetRequest
             {
                 Id = usernameOrSlug,
                 Year = year,
+                Slurm = slurm,
                 ExtendedInfo = extendedInfo
             };
 
             return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserYearInReview>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<TraktUserYearInReview>> GetYearInReviewRangeImplAsync(string usernameOrSlug, uint year, uint yearEnd,
+            string? slurm = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+        {
+            var request = new UserYearInReviewRangeGetRequest
+            {
+                Id = usernameOrSlug,
+                Year = year,
+                YearEnd = yearEnd,
+                Slurm = slurm,
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserYearInReview>(_context, request, cancellationToken);
+        }
+
+        private Task<TraktResponse<TraktUserAllTimeYearInReview>> GetAllTimeYearInReviewImplAsync(string usernameOrSlug,
+            string? slurm = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)
+        {
+            var request = new UserYearInReviewAllGetRequest
+            {
+                Id = usernameOrSlug,
+                Slurm = slurm,
+                ExtendedInfo = extendedInfo
+            };
+
+            return RequestHandler.ExecuteSingleItemRequestAsync<TraktUserAllTimeYearInReview>(_context, request, cancellationToken);
         }
 
         private Task<TraktPagedResponse<TraktCommentReaction>> GetCommentReactionsImplAsync(uint? page = null, uint? limit = null,

@@ -1,4 +1,4 @@
-{
+﻿{
   "info": {
     "_postman_id": "8d7d50b2-5c3e-4766-a2ff-6c2935bb8059",
     "name": "Trakt API Requests v2.1.0",
@@ -35140,16 +35140,30 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{API_URL}}/users/id/month-in-review/2026/7",
+                  "raw": "{{API_URL}}/users/id/mir/2026/7",
                   "host": [
                     "{{API_URL}}"
                   ],
                   "path": [
                     "users",
                     "id",
-                    "month-in-review",
+                    "mir",
                     "2026",
                     "7"
+                  ],
+                  "query": [
+                    {
+                      "key": "slurm",
+                      "value": "",
+                      "description": "A user's VIP feed token. Stands in for the viewer when the request has no Authorization header.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "extended",
+                      "value": "full",
+                      "description": "Complete info for an item.",
+                      "disabled": true
+                    }
                   ]
                 }
               },
@@ -35175,15 +35189,126 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{API_URL}}/users/id/year-in-review/2025",
+                  "raw": "{{API_URL}}/users/id/yir/2025",
                   "host": [
                     "{{API_URL}}"
                   ],
                   "path": [
                     "users",
                     "id",
-                    "year-in-review",
+                    "yir",
                     "2025"
+                  ],
+                  "query": [
+                    {
+                      "key": "slurm",
+                      "value": "",
+                      "description": "A user's VIP feed token. Stands in for the viewer when the request has no Authorization header.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "extended",
+                      "value": "full",
+                      "description": "Complete info for an item.",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "auth": {
+                "type": "noauth"
+              }
+            },
+            {
+              "name": "Get year in review for a range of years",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/users/id/yir/2020/2025",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    "id",
+                    "yir",
+                    "2020",
+                    "2025"
+                  ],
+                  "query": [
+                    {
+                      "key": "slurm",
+                      "value": "",
+                      "description": "A user's VIP feed token. Stands in for the viewer when the request has no Authorization header.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "extended",
+                      "value": "full",
+                      "description": "Complete info for an item.",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": [],
+              "auth": {
+                "type": "noauth"
+              }
+            },
+            {
+              "name": "Get all-time year in review",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/users/id/yir/all",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "users",
+                    "id",
+                    "yir",
+                    "all"
+                  ],
+                  "query": [
+                    {
+                      "key": "slurm",
+                      "value": "",
+                      "description": "A user's VIP feed token. Stands in for the viewer when the request has no Authorization header.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "extended",
+                      "value": "full",
+                      "description": "Complete info for an item.",
+                      "disabled": true
+                    }
                   ]
                 }
               },

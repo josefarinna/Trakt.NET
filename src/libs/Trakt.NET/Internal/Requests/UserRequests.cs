@@ -349,12 +349,32 @@ namespace TraktNET
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserMonthInReviewGetRequest
     {
+        [TraktRequestQuery("slurm")]
+        internal string? Slurm { get; set; }
     }
 
     [TraktGetRequest("users/{id!!}/yir/{year:uint!!}", SupportsExtendedInfo = true,
         OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
     internal sealed partial class UserYearInReviewGetRequest
     {
+        [TraktRequestQuery("slurm")]
+        internal string? Slurm { get; set; }
+    }
+
+    [TraktGetRequest("users/{id!!}/yir/{year:uint!!}/{year_end:uint!!}", SupportsExtendedInfo = true,
+        OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    internal sealed partial class UserYearInReviewRangeGetRequest
+    {
+        [TraktRequestQuery("slurm")]
+        internal string? Slurm { get; set; }
+    }
+
+    [TraktGetRequest("users/{id!!}/yir/all", SupportsExtendedInfo = true,
+        OAuthRequirement = TraktOAuthRequirement.OptionalButMightBeRequired)]
+    internal sealed partial class UserYearInReviewAllGetRequest
+    {
+        [TraktRequestQuery("slurm")]
+        internal string? Slurm { get; set; }
     }
 
     [TraktGetRequest("users/reactions/comments", SupportsPagination = true, OAuthRequirement = TraktOAuthRequirement.Required)]
