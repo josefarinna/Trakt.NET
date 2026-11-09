@@ -119,6 +119,7 @@ namespace TraktNET
                     new TimeOnlyJsonConverter(),
 #endif
                     new TraktCollectedAtJsonConverter(),
+                    new TraktWatchedAtJsonConverter(),
                     new TraktAccessScopeJsonConverter(),
                     new TraktAccessTokenGrantTypeJsonConverter(),
                     new TraktAccessTokenTypeJsonConverter(),

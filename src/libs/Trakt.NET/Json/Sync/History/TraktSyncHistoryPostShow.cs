@@ -4,13 +4,16 @@ namespace TraktNET
 {
     /// <summary>
     /// A Trakt history post show, containing the required show ids
-    /// and an optional datetime, when the show was watched.
+    /// and an optional datetime or action date keyword, when the show was watched.
     /// <para>Can also contain optional seasons.</para>
     /// </summary>
     public record class TraktSyncHistoryPostShow : TraktSyncRemovePostShow
     {
-        /// <summary>Gets or sets the optional UTC datetime, when the Trakt show was watched.</summary>
-        public DateTime? WatchedAt { get; set; }
+        /// <summary>
+        /// Gets or sets the optional datetime or action date keyword, when the Trakt show was watched.
+        /// See also <seealso cref="TraktWatchedAt" />.
+        /// </summary>
+        public TraktWatchedAt? WatchedAt { get; set; }
 
         /// <summary>
         /// An optional list of <see cref="TraktSyncHistoryPostShowSeason" />s.
