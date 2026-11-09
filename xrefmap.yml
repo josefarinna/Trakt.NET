@@ -17434,6 +17434,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.NullableTraktSyncType
   fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktSyncType
   nameWithType: SyncsJsonSerializerContext.NullableTraktSyncType
+- uid: TraktNET.SyncsJsonSerializerContext.NullableTraktWatchedAt
+  name: NullableTraktWatchedAt
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktWatchedAt
+  commentId: P:TraktNET.SyncsJsonSerializerContext.NullableTraktWatchedAt
+  fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktWatchedAt
+  nameWithType: SyncsJsonSerializerContext.NullableTraktWatchedAt
+- uid: TraktNET.SyncsJsonSerializerContext.NullableTraktWatchedAt*
+  name: NullableTraktWatchedAt
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableTraktWatchedAt_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.NullableTraktWatchedAt
+  fullName: TraktNET.SyncsJsonSerializerContext.NullableTraktWatchedAt
+  nameWithType: SyncsJsonSerializerContext.NullableTraktWatchedAt
 - uid: TraktNET.SyncsJsonSerializerContext.NullableUInt32
   name: NullableUInt32
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_NullableUInt32
@@ -19138,6 +19150,18 @@ references:
   commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktUserIDs
   fullName: TraktNET.SyncsJsonSerializerContext.TraktUserIDs
   nameWithType: SyncsJsonSerializerContext.TraktUserIDs
+- uid: TraktNET.SyncsJsonSerializerContext.TraktWatchedAt
+  name: TraktWatchedAt
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktWatchedAt
+  commentId: P:TraktNET.SyncsJsonSerializerContext.TraktWatchedAt
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktWatchedAt
+  nameWithType: SyncsJsonSerializerContext.TraktWatchedAt
+- uid: TraktNET.SyncsJsonSerializerContext.TraktWatchedAt*
+  name: TraktWatchedAt
+  href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_TraktWatchedAt_
+  commentId: Overload:TraktNET.SyncsJsonSerializerContext.TraktWatchedAt
+  fullName: TraktNET.SyncsJsonSerializerContext.TraktWatchedAt
+  nameWithType: SyncsJsonSerializerContext.TraktWatchedAt
 - uid: TraktNET.SyncsJsonSerializerContext.UInt32
   name: UInt32
   href: api/TraktNET.SyncsJsonSerializerContext.html#TraktNET_SyncsJsonSerializerContext_UInt32
@@ -124949,6 +124973,310 @@ references:
   commentId: Overload:TraktNET.TraktVipVeteranTitleJsonConverter.Write
   fullName: TraktNET.TraktVipVeteranTitleJsonConverter.Write
   nameWithType: TraktVipVeteranTitleJsonConverter.Write
+- uid: TraktNET.TraktWatchedAt
+  name: TraktWatchedAt
+  href: api/TraktNET.TraktWatchedAt.html
+  commentId: T:TraktNET.TraktWatchedAt
+  fullName: TraktNET.TraktWatchedAt
+  nameWithType: TraktWatchedAt
+- uid: TraktNET.TraktWatchedAt.#ctor(System.DateTime)
+  name: TraktWatchedAt(DateTime)
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt__ctor_System_DateTime_
+  commentId: M:TraktNET.TraktWatchedAt.#ctor(System.DateTime)
+  name.vb: New(Date)
+  fullName: TraktNET.TraktWatchedAt.TraktWatchedAt(System.DateTime)
+  fullName.vb: TraktNET.TraktWatchedAt.New(Date)
+  nameWithType: TraktWatchedAt.TraktWatchedAt(DateTime)
+  nameWithType.vb: TraktWatchedAt.New(Date)
+- uid: TraktNET.TraktWatchedAt.#ctor*
+  name: TraktWatchedAt
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt__ctor_
+  commentId: Overload:TraktNET.TraktWatchedAt.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktWatchedAt.TraktWatchedAt
+  fullName.vb: TraktNET.TraktWatchedAt.New
+  nameWithType: TraktWatchedAt.TraktWatchedAt
+  nameWithType.vb: TraktWatchedAt.New
+- uid: TraktNET.TraktWatchedAt.DateTime
+  name: DateTime
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_DateTime
+  commentId: P:TraktNET.TraktWatchedAt.DateTime
+  fullName: TraktNET.TraktWatchedAt.DateTime
+  nameWithType: TraktWatchedAt.DateTime
+- uid: TraktNET.TraktWatchedAt.DateTime*
+  name: DateTime
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_DateTime_
+  commentId: Overload:TraktNET.TraktWatchedAt.DateTime
+  fullName: TraktNET.TraktWatchedAt.DateTime
+  nameWithType: TraktWatchedAt.DateTime
+- uid: TraktNET.TraktWatchedAt.Equals(System.Object)
+  name: Equals(object)
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Equals_System_Object_
+  commentId: M:TraktNET.TraktWatchedAt.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: TraktNET.TraktWatchedAt.Equals(object)
+  fullName.vb: TraktNET.TraktWatchedAt.Equals(Object)
+  nameWithType: TraktWatchedAt.Equals(object)
+  nameWithType.vb: TraktWatchedAt.Equals(Object)
+- uid: TraktNET.TraktWatchedAt.Equals(TraktNET.TraktWatchedAt)
+  name: Equals(TraktWatchedAt)
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Equals_TraktNET_TraktWatchedAt_
+  commentId: M:TraktNET.TraktWatchedAt.Equals(TraktNET.TraktWatchedAt)
+  fullName: TraktNET.TraktWatchedAt.Equals(TraktNET.TraktWatchedAt)
+  nameWithType: TraktWatchedAt.Equals(TraktWatchedAt)
+- uid: TraktNET.TraktWatchedAt.Equals*
+  name: Equals
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Equals_
+  commentId: Overload:TraktNET.TraktWatchedAt.Equals
+  fullName: TraktNET.TraktWatchedAt.Equals
+  nameWithType: TraktWatchedAt.Equals
+- uid: TraktNET.TraktWatchedAt.GetHashCode
+  name: GetHashCode()
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_GetHashCode
+  commentId: M:TraktNET.TraktWatchedAt.GetHashCode
+  fullName: TraktNET.TraktWatchedAt.GetHashCode()
+  nameWithType: TraktWatchedAt.GetHashCode()
+- uid: TraktNET.TraktWatchedAt.GetHashCode*
+  name: GetHashCode
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_GetHashCode_
+  commentId: Overload:TraktNET.TraktWatchedAt.GetHashCode
+  fullName: TraktNET.TraktWatchedAt.GetHashCode
+  nameWithType: TraktWatchedAt.GetHashCode
+- uid: TraktNET.TraktWatchedAt.HasDateTime
+  name: HasDateTime
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_HasDateTime
+  commentId: P:TraktNET.TraktWatchedAt.HasDateTime
+  fullName: TraktNET.TraktWatchedAt.HasDateTime
+  nameWithType: TraktWatchedAt.HasDateTime
+- uid: TraktNET.TraktWatchedAt.HasDateTime*
+  name: HasDateTime
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_HasDateTime_
+  commentId: Overload:TraktNET.TraktWatchedAt.HasDateTime
+  fullName: TraktNET.TraktWatchedAt.HasDateTime
+  nameWithType: TraktWatchedAt.HasDateTime
+- uid: TraktNET.TraktWatchedAt.IsNow
+  name: IsNow
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_IsNow
+  commentId: P:TraktNET.TraktWatchedAt.IsNow
+  fullName: TraktNET.TraktWatchedAt.IsNow
+  nameWithType: TraktWatchedAt.IsNow
+- uid: TraktNET.TraktWatchedAt.IsNow*
+  name: IsNow
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_IsNow_
+  commentId: Overload:TraktNET.TraktWatchedAt.IsNow
+  fullName: TraktNET.TraktWatchedAt.IsNow
+  nameWithType: TraktWatchedAt.IsNow
+- uid: TraktNET.TraktWatchedAt.IsReleased
+  name: IsReleased
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_IsReleased
+  commentId: P:TraktNET.TraktWatchedAt.IsReleased
+  fullName: TraktNET.TraktWatchedAt.IsReleased
+  nameWithType: TraktWatchedAt.IsReleased
+- uid: TraktNET.TraktWatchedAt.IsReleased*
+  name: IsReleased
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_IsReleased_
+  commentId: Overload:TraktNET.TraktWatchedAt.IsReleased
+  fullName: TraktNET.TraktWatchedAt.IsReleased
+  nameWithType: TraktWatchedAt.IsReleased
+- uid: TraktNET.TraktWatchedAt.IsUnknown
+  name: IsUnknown
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_IsUnknown
+  commentId: P:TraktNET.TraktWatchedAt.IsUnknown
+  fullName: TraktNET.TraktWatchedAt.IsUnknown
+  nameWithType: TraktWatchedAt.IsUnknown
+- uid: TraktNET.TraktWatchedAt.IsUnknown*
+  name: IsUnknown
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_IsUnknown_
+  commentId: Overload:TraktNET.TraktWatchedAt.IsUnknown
+  fullName: TraktNET.TraktWatchedAt.IsUnknown
+  nameWithType: TraktWatchedAt.IsUnknown
+- uid: TraktNET.TraktWatchedAt.Now
+  name: Now
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Now
+  commentId: P:TraktNET.TraktWatchedAt.Now
+  fullName: TraktNET.TraktWatchedAt.Now
+  nameWithType: TraktWatchedAt.Now
+- uid: TraktNET.TraktWatchedAt.Now*
+  name: Now
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Now_
+  commentId: Overload:TraktNET.TraktWatchedAt.Now
+  fullName: TraktNET.TraktWatchedAt.Now
+  nameWithType: TraktWatchedAt.Now
+- uid: TraktNET.TraktWatchedAt.Released
+  name: Released
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Released
+  commentId: P:TraktNET.TraktWatchedAt.Released
+  fullName: TraktNET.TraktWatchedAt.Released
+  nameWithType: TraktWatchedAt.Released
+- uid: TraktNET.TraktWatchedAt.Released*
+  name: Released
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Released_
+  commentId: Overload:TraktNET.TraktWatchedAt.Released
+  fullName: TraktNET.TraktWatchedAt.Released
+  nameWithType: TraktWatchedAt.Released
+- uid: TraktNET.TraktWatchedAt.ToString
+  name: ToString()
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_ToString
+  commentId: M:TraktNET.TraktWatchedAt.ToString
+  fullName: TraktNET.TraktWatchedAt.ToString()
+  nameWithType: TraktWatchedAt.ToString()
+- uid: TraktNET.TraktWatchedAt.ToString*
+  name: ToString
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_ToString_
+  commentId: Overload:TraktNET.TraktWatchedAt.ToString
+  fullName: TraktNET.TraktWatchedAt.ToString
+  nameWithType: TraktWatchedAt.ToString
+- uid: TraktNET.TraktWatchedAt.Unknown
+  name: Unknown
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Unknown
+  commentId: P:TraktNET.TraktWatchedAt.Unknown
+  fullName: TraktNET.TraktWatchedAt.Unknown
+  nameWithType: TraktWatchedAt.Unknown
+- uid: TraktNET.TraktWatchedAt.Unknown*
+  name: Unknown
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Unknown_
+  commentId: Overload:TraktNET.TraktWatchedAt.Unknown
+  fullName: TraktNET.TraktWatchedAt.Unknown
+  nameWithType: TraktWatchedAt.Unknown
+- uid: TraktNET.TraktWatchedAt.Value
+  name: Value
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Value
+  commentId: P:TraktNET.TraktWatchedAt.Value
+  fullName: TraktNET.TraktWatchedAt.Value
+  nameWithType: TraktWatchedAt.Value
+- uid: TraktNET.TraktWatchedAt.Value*
+  name: Value
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Value_
+  commentId: Overload:TraktNET.TraktWatchedAt.Value
+  fullName: TraktNET.TraktWatchedAt.Value
+  nameWithType: TraktWatchedAt.Value
+- uid: TraktNET.TraktWatchedAt.op_Equality(TraktNET.TraktWatchedAt,TraktNET.TraktWatchedAt)
+  name: operator ==(TraktWatchedAt, TraktWatchedAt)
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_op_Equality_TraktNET_TraktWatchedAt_TraktNET_TraktWatchedAt_
+  commentId: M:TraktNET.TraktWatchedAt.op_Equality(TraktNET.TraktWatchedAt,TraktNET.TraktWatchedAt)
+  name.vb: =(TraktWatchedAt, TraktWatchedAt)
+  fullName: TraktNET.TraktWatchedAt.operator ==(TraktNET.TraktWatchedAt, TraktNET.TraktWatchedAt)
+  fullName.vb: TraktNET.TraktWatchedAt.=(TraktNET.TraktWatchedAt, TraktNET.TraktWatchedAt)
+  nameWithType: TraktWatchedAt.operator ==(TraktWatchedAt, TraktWatchedAt)
+  nameWithType.vb: TraktWatchedAt.=(TraktWatchedAt, TraktWatchedAt)
+- uid: TraktNET.TraktWatchedAt.op_Equality*
+  name: operator ==
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_op_Equality_
+  commentId: Overload:TraktNET.TraktWatchedAt.op_Equality
+  name.vb: =
+  fullName: TraktNET.TraktWatchedAt.operator ==
+  fullName.vb: TraktNET.TraktWatchedAt.=
+  nameWithType: TraktWatchedAt.operator ==
+  nameWithType.vb: TraktWatchedAt.=
+- uid: TraktNET.TraktWatchedAt.op_Implicit(System.DateTime)~TraktNET.TraktWatchedAt
+  name: implicit operator TraktWatchedAt(DateTime)
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_op_Implicit_System_DateTime__TraktNET_TraktWatchedAt
+  commentId: M:TraktNET.TraktWatchedAt.op_Implicit(System.DateTime)~TraktNET.TraktWatchedAt
+  name.vb: CType(Date)
+  fullName: TraktNET.TraktWatchedAt.implicit operator TraktNET.TraktWatchedAt(System.DateTime)
+  fullName.vb: TraktNET.TraktWatchedAt.CType(Date)
+  nameWithType: TraktWatchedAt.implicit operator TraktWatchedAt(DateTime)
+  nameWithType.vb: TraktWatchedAt.CType(Date)
+- uid: TraktNET.TraktWatchedAt.op_Implicit(TraktNET.TraktWatchedAt)~System.Nullable{System.DateTime}
+  name: implicit operator DateTime?(TraktWatchedAt)
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_op_Implicit_TraktNET_TraktWatchedAt__System_Nullable_System_DateTime_
+  commentId: M:TraktNET.TraktWatchedAt.op_Implicit(TraktNET.TraktWatchedAt)~System.Nullable{System.DateTime}
+  name.vb: CType(TraktWatchedAt)
+  fullName: TraktNET.TraktWatchedAt.implicit operator System.DateTime?(TraktNET.TraktWatchedAt)
+  fullName.vb: TraktNET.TraktWatchedAt.CType(TraktNET.TraktWatchedAt)
+  nameWithType: TraktWatchedAt.implicit operator DateTime?(TraktWatchedAt)
+  nameWithType.vb: TraktWatchedAt.CType(TraktWatchedAt)
+- uid: TraktNET.TraktWatchedAt.op_Implicit*
+  name: implicit operator
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_op_Implicit_
+  commentId: Overload:TraktNET.TraktWatchedAt.op_Implicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: TraktNET.TraktWatchedAt.implicit operator
+  fullName.vb: TraktNET.TraktWatchedAt.CType
+  nameWithType: TraktWatchedAt.implicit operator
+  nameWithType.vb: TraktWatchedAt.CType
+- uid: TraktNET.TraktWatchedAt.op_Inequality(TraktNET.TraktWatchedAt,TraktNET.TraktWatchedAt)
+  name: operator !=(TraktWatchedAt, TraktWatchedAt)
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_op_Inequality_TraktNET_TraktWatchedAt_TraktNET_TraktWatchedAt_
+  commentId: M:TraktNET.TraktWatchedAt.op_Inequality(TraktNET.TraktWatchedAt,TraktNET.TraktWatchedAt)
+  name.vb: <>(TraktWatchedAt, TraktWatchedAt)
+  fullName: TraktNET.TraktWatchedAt.operator !=(TraktNET.TraktWatchedAt, TraktNET.TraktWatchedAt)
+  fullName.vb: TraktNET.TraktWatchedAt.<>(TraktNET.TraktWatchedAt, TraktNET.TraktWatchedAt)
+  nameWithType: TraktWatchedAt.operator !=(TraktWatchedAt, TraktWatchedAt)
+  nameWithType.vb: TraktWatchedAt.<>(TraktWatchedAt, TraktWatchedAt)
+- uid: TraktNET.TraktWatchedAt.op_Inequality*
+  name: operator !=
+  href: api/TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_op_Inequality_
+  commentId: Overload:TraktNET.TraktWatchedAt.op_Inequality
+  name.vb: <>
+  fullName: TraktNET.TraktWatchedAt.operator !=
+  fullName.vb: TraktNET.TraktWatchedAt.<>
+  nameWithType: TraktWatchedAt.operator !=
+  nameWithType.vb: TraktWatchedAt.<>
+- uid: TraktNET.TraktWatchedAtJsonConverter
+  name: TraktWatchedAtJsonConverter
+  href: api/TraktNET.TraktWatchedAtJsonConverter.html
+  commentId: T:TraktNET.TraktWatchedAtJsonConverter
+  fullName: TraktNET.TraktWatchedAtJsonConverter
+  nameWithType: TraktWatchedAtJsonConverter
+- uid: TraktNET.TraktWatchedAtJsonConverter.#ctor
+  name: TraktWatchedAtJsonConverter()
+  href: api/TraktNET.TraktWatchedAtJsonConverter.html#TraktNET_TraktWatchedAtJsonConverter__ctor
+  commentId: M:TraktNET.TraktWatchedAtJsonConverter.#ctor
+  name.vb: New()
+  fullName: TraktNET.TraktWatchedAtJsonConverter.TraktWatchedAtJsonConverter()
+  fullName.vb: TraktNET.TraktWatchedAtJsonConverter.New()
+  nameWithType: TraktWatchedAtJsonConverter.TraktWatchedAtJsonConverter()
+  nameWithType.vb: TraktWatchedAtJsonConverter.New()
+- uid: TraktNET.TraktWatchedAtJsonConverter.#ctor*
+  name: TraktWatchedAtJsonConverter
+  href: api/TraktNET.TraktWatchedAtJsonConverter.html#TraktNET_TraktWatchedAtJsonConverter__ctor_
+  commentId: Overload:TraktNET.TraktWatchedAtJsonConverter.#ctor
+  name.vb: New
+  fullName: TraktNET.TraktWatchedAtJsonConverter.TraktWatchedAtJsonConverter
+  fullName.vb: TraktNET.TraktWatchedAtJsonConverter.New
+  nameWithType: TraktWatchedAtJsonConverter.TraktWatchedAtJsonConverter
+  nameWithType.vb: TraktWatchedAtJsonConverter.New
+- uid: TraktNET.TraktWatchedAtJsonConverter.CanConvert(System.Type)
+  name: CanConvert(Type)
+  href: api/TraktNET.TraktWatchedAtJsonConverter.html#TraktNET_TraktWatchedAtJsonConverter_CanConvert_System_Type_
+  commentId: M:TraktNET.TraktWatchedAtJsonConverter.CanConvert(System.Type)
+  fullName: TraktNET.TraktWatchedAtJsonConverter.CanConvert(System.Type)
+  nameWithType: TraktWatchedAtJsonConverter.CanConvert(Type)
+- uid: TraktNET.TraktWatchedAtJsonConverter.CanConvert*
+  name: CanConvert
+  href: api/TraktNET.TraktWatchedAtJsonConverter.html#TraktNET_TraktWatchedAtJsonConverter_CanConvert_
+  commentId: Overload:TraktNET.TraktWatchedAtJsonConverter.CanConvert
+  fullName: TraktNET.TraktWatchedAtJsonConverter.CanConvert
+  nameWithType: TraktWatchedAtJsonConverter.CanConvert
+- uid: TraktNET.TraktWatchedAtJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name: Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  href: api/TraktNET.TraktWatchedAtJsonConverter.html#TraktNET_TraktWatchedAtJsonConverter_Read_System_Text_Json_Utf8JsonReader__System_Type_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktWatchedAtJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)
+  name.vb: Read(Utf8JsonReader, Type, JsonSerializerOptions)
+  fullName: TraktNET.TraktWatchedAtJsonConverter.Read(ref System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  fullName.vb: TraktNET.TraktWatchedAtJsonConverter.Read(System.Text.Json.Utf8JsonReader, System.Type, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktWatchedAtJsonConverter.Read(ref Utf8JsonReader, Type, JsonSerializerOptions)
+  nameWithType.vb: TraktWatchedAtJsonConverter.Read(Utf8JsonReader, Type, JsonSerializerOptions)
+- uid: TraktNET.TraktWatchedAtJsonConverter.Read*
+  name: Read
+  href: api/TraktNET.TraktWatchedAtJsonConverter.html#TraktNET_TraktWatchedAtJsonConverter_Read_
+  commentId: Overload:TraktNET.TraktWatchedAtJsonConverter.Read
+  fullName: TraktNET.TraktWatchedAtJsonConverter.Read
+  nameWithType: TraktWatchedAtJsonConverter.Read
+- uid: TraktNET.TraktWatchedAtJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktWatchedAt,System.Text.Json.JsonSerializerOptions)
+  name: Write(Utf8JsonWriter, TraktWatchedAt, JsonSerializerOptions)
+  href: api/TraktNET.TraktWatchedAtJsonConverter.html#TraktNET_TraktWatchedAtJsonConverter_Write_System_Text_Json_Utf8JsonWriter_TraktNET_TraktWatchedAt_System_Text_Json_JsonSerializerOptions_
+  commentId: M:TraktNET.TraktWatchedAtJsonConverter.Write(System.Text.Json.Utf8JsonWriter,TraktNET.TraktWatchedAt,System.Text.Json.JsonSerializerOptions)
+  fullName: TraktNET.TraktWatchedAtJsonConverter.Write(System.Text.Json.Utf8JsonWriter, TraktNET.TraktWatchedAt, System.Text.Json.JsonSerializerOptions)
+  nameWithType: TraktWatchedAtJsonConverter.Write(Utf8JsonWriter, TraktWatchedAt, JsonSerializerOptions)
+- uid: TraktNET.TraktWatchedAtJsonConverter.Write*
+  name: Write
+  href: api/TraktNET.TraktWatchedAtJsonConverter.html#TraktNET_TraktWatchedAtJsonConverter_Write_
+  commentId: Overload:TraktNET.TraktWatchedAtJsonConverter.Write
+  fullName: TraktNET.TraktWatchedAtJsonConverter.Write
+  nameWithType: TraktWatchedAtJsonConverter.Write
 - uid: TraktNET.TraktWatchedEpisode
   name: TraktWatchedEpisode
   href: api/TraktNET.TraktWatchedEpisode.html

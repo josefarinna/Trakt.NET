@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class TraktSyncHistoryPostSeason | Trakt.NET ">
     
-    <meta name="description" content="A Trakt history post season, containing the required season ids and an optional datetime, when the season was watched.">
+    <meta name="description" content="A Trakt history post season, containing the required season ids and an optional datetime or action date keyword, when the season was watched.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -82,7 +82,7 @@
 
   <h1 id="TraktNET_TraktSyncHistoryPostSeason" data-uid="TraktNET.TraktSyncHistoryPostSeason" class="text-break">Class TraktSyncHistoryPostSeason</h1>
   <div class="markdown level0 summary"><p>A Trakt history post season, containing the required season ids
-and an optional datetime, when the season was watched.</p>
+and an optional datetime or action date keyword, when the season was watched.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -203,12 +203,13 @@ and an optional datetime, when the season was watched.</p>
   </span>
   <a id="TraktNET_TraktSyncHistoryPostSeason_WatchedAt_" data-uid="TraktNET.TraktSyncHistoryPostSeason.WatchedAt*"></a>
   <h4 id="TraktNET_TraktSyncHistoryPostSeason_WatchedAt" data-uid="TraktNET.TraktSyncHistoryPostSeason.WatchedAt">WatchedAt</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the optional UTC datetime, when the Trakt season was watched.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the optional datetime or action date keyword, when the Trakt season was watched.
+See also <a class="xref" href="TraktNET.TraktWatchedAt.html">TraktWatchedAt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? WatchedAt { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public TraktWatchedAt? WatchedAt { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -220,7 +221,7 @@ and an optional datetime, when the season was watched.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><a class="xref" href="TraktNET.TraktWatchedAt.html">TraktWatchedAt</a>?</td>
         <td></td>
       </tr>
     </tbody>

@@ -7406,7 +7406,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncHistoryPostEpisode",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostEpisode.yml\" sourcestartlinenumber=\"1\">A Trakt history post episode, containing the required episode ids\nand an optional datetime, when the episode was watched.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostEpisode.yml\" sourcestartlinenumber=\"1\">A Trakt history post episode, containing the required episode ids\nand an optional datetime or action date keyword, when the episode was watched.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -7420,7 +7420,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncHistoryPostMovie",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostMovie.yml\" sourcestartlinenumber=\"1\">A Trakt history post movie, containing the required movie ids\nand an optional datetime, when the movie was watched.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostMovie.yml\" sourcestartlinenumber=\"1\">A Trakt history post movie, containing the required movie ids\nand an optional datetime or action date keyword, when the movie was watched.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -7448,7 +7448,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncHistoryPostSeason",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostSeason.yml\" sourcestartlinenumber=\"1\">A Trakt history post season, containing the required season ids\nand an optional datetime, when the season was watched.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostSeason.yml\" sourcestartlinenumber=\"1\">A Trakt history post season, containing the required season ids\nand an optional datetime or action date keyword, when the season was watched.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -7462,7 +7462,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncHistoryPostShow",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostShow.yml\" sourcestartlinenumber=\"1\">A Trakt history post show, containing the required show ids\nand an optional datetime, when the show was watched.</p>\n<p>Can also contain optional seasons.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostShow.yml\" sourcestartlinenumber=\"1\">A Trakt history post show, containing the required show ids\nand an optional datetime or action date keyword, when the show was watched.</p>\n<p>Can also contain optional seasons.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -7476,7 +7476,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncHistoryPostShowEpisode",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostShowEpisode.yml\" sourcestartlinenumber=\"1\">A Trakt history post episode, containing the required episode number\nand an optional datetime, when the episode was watched.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostShowEpisode.yml\" sourcestartlinenumber=\"1\">A Trakt history post episode, containing the required episode number\nand an optional datetime or action date keyword, when the episode was watched.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -7490,7 +7490,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "TraktNET.TraktSyncHistoryPostShowSeason",
-      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostShowSeason.yml\" sourcestartlinenumber=\"1\">A Trakt history post season, containing the required season number and optional episodes\nand an optional datetime, when the season was watched.</p>\n"
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktSyncHistoryPostShowSeason.yml\" sourcestartlinenumber=\"1\">A Trakt history post season, containing the required season number and optional episodes\nand an optional datetime or action date keyword, when the season was watched.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -10319,6 +10319,34 @@
       "IsMRef": true,
       "Title": "TraktNET.TraktVipVeteranTitleJsonConverter",
       "Summary": "<p sourcefile=\"api/TraktNET.TraktVipVeteranTitleJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktVipVeteranTitle\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktWatchedAt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktWatchedAt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktWatchedAt",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktWatchedAt.yml\" sourcestartlinenumber=\"1\">Represents when an item was watched: a specific UTC <xref href=\"System.DateTime\" data-throw-if-not-resolved=\"false\"></xref>,\n<xref href=\"TraktNET.TraktWatchedAt.Released\" data-throw-if-not-resolved=\"false\"></xref> (<code>&quot;released&quot;</code>), <xref href=\"TraktNET.TraktWatchedAt.Unknown\" data-throw-if-not-resolved=\"false\"></xref> (<code>&quot;unknown&quot;</code>), or <xref href=\"TraktNET.TraktWatchedAt.Now\" data-throw-if-not-resolved=\"false\"></xref> (<code>&quot;now&quot;</code>).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/TraktNET.TraktWatchedAtJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/TraktNET.TraktWatchedAtJsonConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "TraktNET.TraktWatchedAtJsonConverter",
+      "Summary": "<p sourcefile=\"api/TraktNET.TraktWatchedAtJsonConverter.yml\" sourcestartlinenumber=\"1\">JSON converter for <xref href=\"TraktNET.TraktWatchedAt\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",

@@ -1483,11 +1483,11 @@ which should be added to the user's history.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncHistoryPostEpisode.html">TraktSyncHistoryPostEpisode</a></h4>
       <section><p>A Trakt history post episode, containing the required episode ids
-and an optional datetime, when the episode was watched.</p>
+and an optional datetime or action date keyword, when the episode was watched.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncHistoryPostMovie.html">TraktSyncHistoryPostMovie</a></h4>
       <section><p>A Trakt history post movie, containing the required movie ids
-and an optional datetime, when the movie was watched.</p>
+and an optional datetime or action date keyword, when the movie was watched.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncHistoryPostResponse.html">TraktSyncHistoryPostResponse</a></h4>
       <section><p>Represents the response for a history post. See also <a class="xref" href="TraktNET.TraktSyncHistoryPost.html">TraktSyncHistoryPost</a>.</p>
@@ -1495,20 +1495,20 @@ and an optional datetime, when the movie was watched.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncHistoryPostSeason.html">TraktSyncHistoryPostSeason</a></h4>
       <section><p>A Trakt history post season, containing the required season ids
-and an optional datetime, when the season was watched.</p>
+and an optional datetime or action date keyword, when the season was watched.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncHistoryPostShow.html">TraktSyncHistoryPostShow</a></h4>
       <section><p>A Trakt history post show, containing the required show ids
-and an optional datetime, when the show was watched.</p>
+and an optional datetime or action date keyword, when the show was watched.</p>
 <p>Can also contain optional seasons.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncHistoryPostShowEpisode.html">TraktSyncHistoryPostShowEpisode</a></h4>
       <section><p>A Trakt history post episode, containing the required episode number
-and an optional datetime, when the episode was watched.</p>
+and an optional datetime or action date keyword, when the episode was watched.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncHistoryPostShowSeason.html">TraktSyncHistoryPostShowSeason</a></h4>
       <section><p>A Trakt history post season, containing the required season number and optional episodes
-and an optional datetime, when the season was watched.</p>
+and an optional datetime or action date keyword, when the season was watched.</p>
 </section>
       <h4><a class="xref" href="TraktNET.TraktSyncHistoryRemovePost.html">TraktSyncHistoryRemovePost</a></h4>
       <section><p>A Trakt history remove post, containing all movies, shows, seasons, episodes and / or history ids,
@@ -2118,6 +2118,9 @@ which should be removed from an user's personal list.</p>
       <h4><a class="xref" href="TraktNET.TraktVipVeteranTitleJsonConverter.html">TraktVipVeteranTitleJsonConverter</a></h4>
       <section><p>JSON converter for <a class="xref" href="TraktNET.TraktVipVeteranTitle.html">TraktVipVeteranTitle</a>.</p>
 </section>
+      <h4><a class="xref" href="TraktNET.TraktWatchedAtJsonConverter.html">TraktWatchedAtJsonConverter</a></h4>
+      <section><p>JSON converter for <a class="xref" href="TraktNET.TraktWatchedAt.html">TraktWatchedAt</a>.</p>
+</section>
       <h4><a class="xref" href="TraktNET.TraktWatchedEpisode.html">TraktWatchedEpisode</a></h4>
       <section><p>Contains information about a watched Trakt episode.</p>
 </section>
@@ -2201,6 +2204,10 @@ Structs
       <h4><a class="xref" href="TraktNET.TraktCollectedAt.html">TraktCollectedAt</a></h4>
       <section><p>Represents when a collection item was collected: a specific UTC <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>,
 <a class="xref" href="TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Released">Released</a> (<code>&quot;released&quot;</code>), <a class="xref" href="TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Unknown">Unknown</a> (<code>&quot;unknown&quot;</code>), or <a class="xref" href="TraktNET.TraktCollectedAt.html#TraktNET_TraktCollectedAt_Now">Now</a> (<code>&quot;now&quot;</code>).</p>
+</section>
+      <h4><a class="xref" href="TraktNET.TraktWatchedAt.html">TraktWatchedAt</a></h4>
+      <section><p>Represents when an item was watched: a specific UTC <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>,
+<a class="xref" href="TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Released">Released</a> (<code>&quot;released&quot;</code>), <a class="xref" href="TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Unknown">Unknown</a> (<code>&quot;unknown&quot;</code>), or <a class="xref" href="TraktNET.TraktWatchedAt.html#TraktNET_TraktWatchedAt_Now">Now</a> (<code>&quot;now&quot;</code>).</p>
 </section>
     <h3 id="interfaces">
 Interfaces

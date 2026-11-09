@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class TraktSyncHistoryPostShow | Trakt.NET ">
     
-    <meta name="description" content="A Trakt history post show, containing the required show ids and an optional datetime, when the show was watched. Can also contain optional seasons.">
+    <meta name="description" content="A Trakt history post show, containing the required show ids and an optional datetime or action date keyword, when the show was watched. Can also contain optional seasons.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -82,7 +82,7 @@
 
   <h1 id="TraktNET_TraktSyncHistoryPostShow" data-uid="TraktNET.TraktSyncHistoryPostShow" class="text-break">Class TraktSyncHistoryPostShow</h1>
   <div class="markdown level0 summary"><p>A Trakt history post show, containing the required show ids
-and an optional datetime, when the show was watched.</p>
+and an optional datetime or action date keyword, when the show was watched.</p>
 <p>Can also contain optional seasons.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
@@ -239,12 +239,13 @@ Otherwise, only the specified seasons and / or episodes will be added to the his
   </span>
   <a id="TraktNET_TraktSyncHistoryPostShow_WatchedAt_" data-uid="TraktNET.TraktSyncHistoryPostShow.WatchedAt*"></a>
   <h4 id="TraktNET_TraktSyncHistoryPostShow_WatchedAt" data-uid="TraktNET.TraktSyncHistoryPostShow.WatchedAt">WatchedAt</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the optional UTC datetime, when the Trakt show was watched.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the optional datetime or action date keyword, when the Trakt show was watched.
+See also <a class="xref" href="TraktNET.TraktWatchedAt.html">TraktWatchedAt</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime? WatchedAt { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public TraktWatchedAt? WatchedAt { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -256,7 +257,7 @@ Otherwise, only the specified seasons and / or episodes will be added to the his
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a>?</td>
+        <td><a class="xref" href="TraktNET.TraktWatchedAt.html">TraktWatchedAt</a>?</td>
         <td></td>
       </tr>
     </tbody>
