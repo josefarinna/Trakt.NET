@@ -1,10 +1,13 @@
+using System.Text.Json.Serialization;
+
 namespace TraktNET
 {
     /// <summary>A Trakt smart list template.</summary>
     public record class TraktSmartListTemplate
     {
         /// <summary>The smart list template ID (kebab slug).</summary>
-        public string? Id { get; set; }
+        [JsonPropertyName("id")]
+        public string? ID { get; set; }
 
         /// <summary>
         /// The source of the smart list template.

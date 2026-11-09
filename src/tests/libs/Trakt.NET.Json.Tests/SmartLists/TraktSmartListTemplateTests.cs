@@ -7,7 +7,7 @@ namespace TraktNET.Json.SmartLists
         {
             var template = new TraktSmartListTemplate();
 
-            template.Id.ShouldBeNull();
+            template.ID.ShouldBeNull();
             template.Source.ShouldBeNull();
             template.MediaType.ShouldBeNull();
             template.Filters.ShouldBeNull();
@@ -22,7 +22,7 @@ namespace TraktNET.Json.SmartLists
             TraktSmartListTemplate? template = await TestUtility.DeserializeJsonAsync<TraktSmartListTemplate>("SmartLists\\smartlist_template.json");
 
             template.ShouldNotBeNull();
-            template.Id.ShouldBe("hidden-gems");
+            template.ID.ShouldBe("hidden-gems");
             template.Source.ShouldBe(TraktSmartListSource.Discover);
             template.MediaType.ShouldBe(TraktSmartListMediaType.Movies);
             template.Personal.ShouldBe(false);
@@ -71,7 +71,7 @@ namespace TraktNET.Json.SmartLists
 
             TraktSmartListTemplate template1 = templates[0];
             template1.ShouldNotBeNull();
-            template1.Id.ShouldBe("hidden-gems");
+            template1.ID.ShouldBe("hidden-gems");
             template1.Source.ShouldBe(TraktSmartListSource.Discover);
             template1.MediaType.ShouldBe(TraktSmartListMediaType.Movies);
             template1.Personal.ShouldBe(false);
@@ -81,7 +81,7 @@ namespace TraktNET.Json.SmartLists
 
             TraktSmartListTemplate template2 = templates[1];
             template2.ShouldNotBeNull();
-            template2.Id.ShouldBe("just-landed-services");
+            template2.ID.ShouldBe("just-landed-services");
             template2.Source.ShouldBe(TraktSmartListSource.Discover);
             template2.MediaType.ShouldBe(TraktSmartListMediaType.Movies);
             template2.Personal.ShouldBe(true);
@@ -104,7 +104,7 @@ namespace TraktNET.Json.SmartLists
         {
             var template = new TraktSmartListTemplate
             {
-                Id = "hidden-gems",
+                ID = "hidden-gems",
                 Source = TraktSmartListSource.Discover,
                 MediaType = TraktSmartListMediaType.Movies,
                 Personal = false,

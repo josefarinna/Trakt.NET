@@ -1,10 +1,13 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <summary>Contains information about a Trakt playback progress, including the corresponding movie or episode.</summary>
     public record class TraktSyncPlaybackProgressItem
     {
-        /// <summary>Gets or sets the id of this progress item.</summary>
-        public uint Id { get; set; }
+        /// <summary>Gets or sets the ID of this progress item.</summary>
+        [JsonPropertyName("id")]
+        public uint ID { get; set; }
 
         /// <summary>
         /// Gets or sets a value between 0 and 100 representing the watched progress percentage

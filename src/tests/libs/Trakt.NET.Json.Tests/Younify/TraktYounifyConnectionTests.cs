@@ -10,7 +10,7 @@ namespace TraktNET.Json.Younify
         {
             var connection = new TraktYounifyConnection();
 
-            connection.Id.ShouldBeNull();
+            connection.ID.ShouldBeNull();
             connection.Name.ShouldBeNull();
             connection.Vip.ShouldBeNull();
             connection.Color.ShouldBeNull();
@@ -32,7 +32,7 @@ namespace TraktNET.Json.Younify
             connections.Count.ShouldBe(1);
 
             TraktYounifyConnection connection = connections[0];
-            connection.Id.ShouldBe("netflix");
+            connection.ID.ShouldBe("netflix");
             connection.Name.ShouldBe("Netflix");
             connection.Vip.ShouldBe(false);
             connection.Color.ShouldBe("#e50914");

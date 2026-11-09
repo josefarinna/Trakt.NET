@@ -7,7 +7,7 @@ namespace TraktNET.Json.Watchnow
         {
             var watchnowWebos = new TraktWatchnowWebos();
 
-            watchnowWebos.Id.ShouldBeNull();
+            watchnowWebos.ID.ShouldBeNull();
             watchnowWebos.Params.ShouldBeNull();
         }
 
@@ -17,7 +17,7 @@ namespace TraktNET.Json.Watchnow
             TraktWatchnowWebos? watchnowWebos = await TestUtility.DeserializeJsonAsync<TraktWatchnowWebos>("Watchnow\\watchnowwebos.json");
 
             watchnowWebos.ShouldNotBeNull();
-            watchnowWebos.Id.ShouldBe("com.netflix.webos");
+            watchnowWebos.ID.ShouldBe("com.netflix.webos");
             watchnowWebos.Params.ShouldNotBeNull();
             watchnowWebos.Params.ContentTarget.ShouldBe("netflix://watch/12345");
         }

@@ -7,7 +7,7 @@
         {
             var userFollowRequest = new TraktUserFollowRequest();
 
-            userFollowRequest.Id.ShouldBe(0U);
+            userFollowRequest.ID.ShouldBe(0U);
             userFollowRequest.RequestedAt.ShouldBeNull();
             userFollowRequest.User.ShouldBeNull();
         }
@@ -18,7 +18,7 @@
             TraktUserFollowRequest? userFollowRequest = await TestUtility.DeserializeJsonAsync<TraktUserFollowRequest>("Users\\userfollowrequest.json");
 
             userFollowRequest.ShouldNotBeNull();
-            userFollowRequest.Id.ShouldBe(12345U);
+            userFollowRequest.ID.ShouldBe(12345U);
             userFollowRequest.RequestedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
 
             userFollowRequest.User.ShouldNotBeNull();

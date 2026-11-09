@@ -1,10 +1,13 @@
+using System.Text.Json.Serialization;
+
 namespace TraktNET
 {
     /// <summary>Represents a Younify streaming service connection.</summary>
     public record class TraktYounifyConnection
     {
-        /// <summary>Gets or sets the streaming service id (e.g. "netflix").</summary>
-        public string? Id { get; set; }
+        /// <summary>Gets or sets the streaming service ID (e.g. "netflix").</summary>
+        [JsonPropertyName("id")]
+        public string? ID { get; set; }
 
         /// <summary>Gets or sets the display name of the streaming service.</summary>
         public string? Name { get; set; }

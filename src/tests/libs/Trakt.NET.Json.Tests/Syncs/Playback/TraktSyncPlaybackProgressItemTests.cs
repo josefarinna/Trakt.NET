@@ -7,7 +7,7 @@
         {
             var playbackProgressItem = new TraktSyncPlaybackProgressItem();
 
-            playbackProgressItem.Id.ShouldBe(0U);
+            playbackProgressItem.ID.ShouldBe(0U);
             playbackProgressItem.Progress.ShouldBeNull();
             playbackProgressItem.PausedAt.ShouldBeNull();
             playbackProgressItem.Type.ShouldBeNull();
@@ -22,7 +22,7 @@
             TraktSyncPlaybackProgressItem? playbackProgressItem = await TestUtility.DeserializeJsonAsync<TraktSyncPlaybackProgressItem>("Syncs\\Playback\\syncplaybackmovie_minimal.json");
 
             playbackProgressItem.ShouldNotBeNull();
-            playbackProgressItem.Id.ShouldBe(37U);
+            playbackProgressItem.ID.ShouldBe(37U);
             playbackProgressItem.Progress.ShouldBe(65.5f);
             playbackProgressItem.PausedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-01-25T22:01:32.000Z"));
             playbackProgressItem.Type.ShouldBe(TraktSyncType.Movie);
@@ -57,7 +57,7 @@
             TraktSyncPlaybackProgressItem? playbackProgressItem = await TestUtility.DeserializeJsonAsync<TraktSyncPlaybackProgressItem>("Syncs\\Playback\\syncplaybackepisode_minimal.json");
 
             playbackProgressItem.ShouldNotBeNull();
-            playbackProgressItem.Id.ShouldBe(37U);
+            playbackProgressItem.ID.ShouldBe(37U);
             playbackProgressItem.Progress.ShouldBe(65.5f);
             playbackProgressItem.PausedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-01-25T22:01:32.000Z"));
             playbackProgressItem.Type.ShouldBe(TraktSyncType.Episode);
@@ -114,7 +114,7 @@
             TraktSyncPlaybackProgressItem? playbackProgressItem = await TestUtility.DeserializeJsonAsync<TraktSyncPlaybackProgressItem>("Syncs\\Playback\\syncplaybackmovie.json");
 
             playbackProgressItem.ShouldNotBeNull();
-            playbackProgressItem.Id.ShouldBe(37U);
+            playbackProgressItem.ID.ShouldBe(37U);
             playbackProgressItem.Progress.ShouldBe(65.5f);
             playbackProgressItem.PausedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-01-25T22:01:32.000Z"));
             playbackProgressItem.Type.ShouldBe(TraktSyncType.Movie);
@@ -157,7 +157,7 @@
             TraktSyncPlaybackProgressItem? playbackProgressItem = await TestUtility.DeserializeJsonAsync<TraktSyncPlaybackProgressItem>("Syncs\\Playback\\syncplaybackepisode.json");
 
             playbackProgressItem.ShouldNotBeNull();
-            playbackProgressItem.Id.ShouldBe(37U);
+            playbackProgressItem.ID.ShouldBe(37U);
             playbackProgressItem.Progress.ShouldBe(65.5f);
             playbackProgressItem.PausedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-01-25T22:01:32.000Z"));
             playbackProgressItem.Type.ShouldBe(TraktSyncType.Episode);

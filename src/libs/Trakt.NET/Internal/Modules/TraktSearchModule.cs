@@ -70,7 +70,7 @@ namespace TraktNET
                 TraktSearchRecentPost = new TraktSearchRecentPost
                 {
                     Query = searchQuery,
-                    Id = itemId,
+                    ID = itemId,
                     Type = type
                 }
             };

@@ -24,7 +24,7 @@ namespace TraktNET.YounifyModule
             response.Content.Count.ShouldBe(1);
             
             TraktYounifyConnection connection = response.Content[0];
-            connection.Id.ShouldBe("netflix");
+            connection.ID.ShouldBe("netflix");
             connection.Name.ShouldBe("Netflix");
             connection.Vip.ShouldBe(false);
             connection.Color.ShouldBe("#e50914");

@@ -8,7 +8,7 @@ namespace TraktNET.Json.Search
             var searchResult = new TraktTrendingSearchResult();
 
             searchResult.Count.ShouldBeNull();
-            searchResult.Id.ShouldBeNull();
+            searchResult.ID.ShouldBeNull();
             searchResult.Type.ShouldBeNull();
             searchResult.Movie.ShouldBeNull();
             searchResult.Show.ShouldBeNull();
@@ -24,7 +24,7 @@ namespace TraktNET.Json.Search
             results.Count.ShouldBe(2);
 
             TraktTrendingSearchResult firstResult = results[0];
-            firstResult.Id.ShouldBe(1U);
+            firstResult.ID.ShouldBe(1U);
             firstResult.Count.ShouldBe(120U);
             firstResult.Type.ShouldBe(TraktSearchResultType.Movie);
             firstResult.Movie.ShouldNotBeNull();
@@ -37,7 +37,7 @@ namespace TraktNET.Json.Search
             firstResult.Movie.IDs.TMDB.ShouldBe(272U);
 
             TraktTrendingSearchResult secondResult = results[1];
-            secondResult.Id.ShouldBe(2U);
+            secondResult.ID.ShouldBe(2U);
             secondResult.Count.ShouldBe(95U);
             secondResult.Type.ShouldBe(TraktSearchResultType.Show);
             secondResult.Show.ShouldNotBeNull();

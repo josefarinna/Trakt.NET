@@ -38,7 +38,7 @@ namespace TraktNET.Json.Watchnow
             watchnowOffer.LinkAndroid.ShouldBe("netflix-android://watch");
 
             watchnowOffer.LinkWebos.ShouldNotBeNull();
-            watchnowOffer.LinkWebos.Id.ShouldBe("com.netflix.webos");
+            watchnowOffer.LinkWebos.ID.ShouldBe("com.netflix.webos");
             watchnowOffer.LinkWebos.Params.ShouldNotBeNull();
             watchnowOffer.LinkWebos.Params!.ContentTarget.ShouldBe("netflix://watch/12345");
         }
@@ -64,7 +64,7 @@ namespace TraktNET.Json.Watchnow
             watchnowOffer.LinkDirect.ShouldBe("https://netflix.com/direct");
             watchnowOffer.LinkAndroid.ShouldBe("netflix-android://watch");
             watchnowOffer.LinkWebos.ShouldNotBeNull();
-            watchnowOffer.LinkWebos.Id.ShouldBe("com.netflix.webos");
+            watchnowOffer.LinkWebos.ID.ShouldBe("com.netflix.webos");
             watchnowOffer.LinkWebos.Params.ShouldNotBeNull();
             watchnowOffer.LinkWebos.Params!.ContentTarget.ShouldBe("netflix://watch/12345");
 

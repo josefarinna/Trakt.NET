@@ -25,7 +25,7 @@ namespace TraktNET.SmartListsModule
 
             TraktSmartListTemplate template1 = response.Content[0];
             template1.ShouldNotBeNull();
-            template1.Id.ShouldBe("hidden-gems");
+            template1.ID.ShouldBe("hidden-gems");
             template1.Source.ShouldBe(TraktSmartListSource.Discover);
             template1.MediaType.ShouldBe(TraktSmartListMediaType.Movies);
             template1.Personal.ShouldBe(false);
@@ -35,7 +35,7 @@ namespace TraktNET.SmartListsModule
 
             TraktSmartListTemplate template2 = response.Content[1];
             template2.ShouldNotBeNull();
-            template2.Id.ShouldBe("just-landed-services");
+            template2.ID.ShouldBe("just-landed-services");
             template2.Source.ShouldBe(TraktSmartListSource.Discover);
             template2.MediaType.ShouldBe(TraktSmartListMediaType.Movies);
             template2.Personal.ShouldBe(true);

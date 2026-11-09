@@ -34,7 +34,7 @@ namespace TraktNET.UsersModule
 
             TraktUserActivity item = response.Content[0];
             item.ShouldNotBeNull();
-            item.Id.ShouldBe(123456UL);
+            item.ID.ShouldBe(123456UL);
             item.Action.ShouldBe("scrobble");
             item.Type.ShouldBe(TraktSyncItemType.Episode);
             item.User.ShouldNotBeNull();

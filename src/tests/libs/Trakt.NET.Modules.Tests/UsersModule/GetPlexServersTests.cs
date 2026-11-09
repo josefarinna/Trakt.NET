@@ -20,7 +20,7 @@ namespace TraktNET.UsersModule
             response.Content.ShouldNotBeNull();
             response.Content.Servers.ShouldNotBeNull();
             response.Content.Servers.Count.ShouldBe(1);
-            response.Content.Servers[0].Id.ShouldBe("server1");
+            response.Content.Servers[0].ID.ShouldBe("server1");
             response.Content.Servers[0].Name.ShouldBe("My Server");
             response.Content.Servers[0].Owned.ShouldBeTrue();
             response.Content.Servers[0].Url.ShouldBe("http://127.0.0.1:32400");

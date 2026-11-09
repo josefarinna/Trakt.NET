@@ -92,7 +92,7 @@ namespace TraktNET.Json.Users
             response.ShouldNotBeNull();
             response.Servers.ShouldNotBeNull();
             response.Servers.Count.ShouldBe(1);
-            response.Servers[0].Id.ShouldBe("server1");
+            response.Servers[0].ID.ShouldBe("server1");
             response.Servers[0].Name.ShouldBe("My Server");
             response.Servers[0].ConnectionCount.ShouldBe(1);
             response.Servers[0].ConnectionTimeout.ShouldBe(5);
@@ -111,12 +111,12 @@ namespace TraktNET.Json.Users
             response.ShouldNotBeNull();
             response.Accounts.ShouldNotBeNull();
             response.Accounts.Count.ShouldBe(1);
-            response.Accounts[0].Id.ShouldBe(1);
+            response.Accounts[0].ID.ShouldBe(1);
             response.Accounts[0].Name.ShouldBe("account1");
 
             response.Libraries.ShouldNotBeNull();
             response.Libraries.Count.ShouldBe(1);
-            response.Libraries[0].Id.ShouldBe(10);
+            response.Libraries[0].ID.ShouldBe(10);
             response.Libraries[0].Uuid.ShouldBe("uuid10");
             response.Libraries[0].Type.ShouldBe("movie");
             response.Libraries[0].Title.ShouldBe("Movies");

@@ -1,10 +1,13 @@
+using System.Text.Json.Serialization;
+
 namespace TraktNET
 {
     /// <summary>Represents a user data sync.</summary>
     public record class TraktUserSync
     {
         /// <summary>Gets or sets the sync ID.</summary>
-        public ulong Id { get; set; }
+        [JsonPropertyName("id")]
+        public ulong ID { get; set; }
 
         /// <summary>Gets or sets the UTC datetime when the sync ran.</summary>
         public DateTime? CreatedAt { get; set; }
