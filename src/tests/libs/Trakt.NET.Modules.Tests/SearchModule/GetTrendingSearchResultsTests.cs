@@ -30,7 +30,7 @@ namespace TraktNET.SearchModule
             
             var firstResult = response.Content[0];
             firstResult.ShouldNotBeNull();
-            firstResult.Id.ShouldBe(1U);
+            firstResult.ID.ShouldBe(1U);
             firstResult.Count.ShouldBe(120U);
             firstResult.Type.ShouldBe(TraktSearchResultType.Movie);
             firstResult.Movie.ShouldNotBeNull();

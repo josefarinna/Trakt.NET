@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -16,7 +17,8 @@ namespace TraktNET
     public record class TraktPlexAccount
     {
         /// <summary>Gets or sets the account ID.</summary>
-        public int Id { get; set; }
+        [JsonPropertyName("id")]
+        public int ID { get; set; }
 
         /// <summary>Gets or sets the account name.</summary>
         public string? Name { get; set; }
@@ -26,7 +28,8 @@ namespace TraktNET
     public record class TraktPlexLibraryInfo
     {
         /// <summary>Gets or sets the library ID.</summary>
-        public int Id { get; set; }
+        [JsonPropertyName("id")]
+        public int ID { get; set; }
 
         /// <summary>Gets or sets the library UUID.</summary>
         public string? Uuid { get; set; }

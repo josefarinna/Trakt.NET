@@ -1,4 +1,6 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <summary>Represents a Trakt user list item.</summary>
     public class TraktListItem
@@ -6,8 +8,9 @@
         /// <summary>Gets or sets the ranking number of the list item.</summary>
         public uint? Rank { get; set; }
 
-        /// <summary>Gets or sets the id of the list item.</summary>
-        public uint? Id { get; set; }
+        /// <summary>Gets or sets the ID of the list item.</summary>
+        [JsonPropertyName("id")]
+        public uint? ID { get; set; }
 
         /// <summary>Gets or sets the UTC datetime, when the list item was added to a list.</summary>
         public DateTime? ListedAt { get; set; }

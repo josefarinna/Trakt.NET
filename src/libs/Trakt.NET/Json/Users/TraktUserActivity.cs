@@ -1,10 +1,13 @@
+using System.Text.Json.Serialization;
+
 namespace TraktNET
 {
     /// <summary>Contains information about a user's social activity item.</summary>
     public record class TraktUserActivity
     {
         /// <summary>Gets or sets the activity ID.</summary>
-        public ulong? Id { get; set; }
+        [JsonPropertyName("id")]
+        public ulong? ID { get; set; }
 
         /// <summary>Gets or sets the UTC datetime, when the activity occurred.</summary>
         public DateTime? ActivityAt { get; set; }

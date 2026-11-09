@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace TraktNET
 {
     /// <summary>A Trakt trending search result.</summary>
@@ -7,7 +9,8 @@ namespace TraktNET
         public uint? Count { get; set; }
 
         /// <summary>Gets or sets the Trakt ID of the item.</summary>
-        public uint? Id { get; set; }
+        [JsonPropertyName("id")]
+        public uint? ID { get; set; }
 
         /// <summary>Gets or sets the result type. See also <seealso cref="TraktSearchResultType" />.</summary>
         public TraktSearchResultType? Type { get; set; }

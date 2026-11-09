@@ -7,7 +7,7 @@
         {
             var watchlistItem = new TraktWatchlistItem();
 
-            watchlistItem.Id.ShouldBeNull();
+            watchlistItem.ID.ShouldBeNull();
             watchlistItem.Rank.ShouldBeNull();
             watchlistItem.ListedAt.ShouldBeNull();
             watchlistItem.Notes.ShouldBeNull();
@@ -24,7 +24,7 @@
             TraktWatchlistItem? watchlistItem = await TestUtility.DeserializeJsonAsync<TraktWatchlistItem>("Watchlist\\watchlistitemmovie_minimal.json");
 
             watchlistItem.ShouldNotBeNull();
-            watchlistItem.Id.ShouldBe(101U);
+            watchlistItem.ID.ShouldBe(101U);
             watchlistItem.Rank.ShouldBe(1);
             watchlistItem.ListedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
             watchlistItem.Notes.ShouldBe("list item notes");
@@ -61,7 +61,7 @@
             TraktWatchlistItem? watchlistItem = await TestUtility.DeserializeJsonAsync<TraktWatchlistItem>("Watchlist\\watchlistitemshow_minimal.json");
 
             watchlistItem.ShouldNotBeNull();
-            watchlistItem.Id.ShouldBe(101U);
+            watchlistItem.ID.ShouldBe(101U);
             watchlistItem.Rank.ShouldBe(1);
             watchlistItem.ListedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
             watchlistItem.Notes.ShouldBe("list item notes");
@@ -103,7 +103,7 @@
             TraktWatchlistItem? watchlistItem = await TestUtility.DeserializeJsonAsync<TraktWatchlistItem>("Watchlist\\watchlistitemseason_minimal.json");
 
             watchlistItem.ShouldNotBeNull();
-            watchlistItem.Id.ShouldBe(101U);
+            watchlistItem.ID.ShouldBe(101U);
             watchlistItem.Rank.ShouldBe(1);
             watchlistItem.ListedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
             watchlistItem.Notes.ShouldBe("list item notes");
@@ -132,7 +132,7 @@
             TraktWatchlistItem? watchlistItem = await TestUtility.DeserializeJsonAsync<TraktWatchlistItem>("Watchlist\\watchlistitemepisode_minimal.json");
 
             watchlistItem.ShouldNotBeNull();
-            watchlistItem.Id.ShouldBe(101U);
+            watchlistItem.ID.ShouldBe(101U);
             watchlistItem.Rank.ShouldBe(1);
             watchlistItem.ListedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
             watchlistItem.Notes.ShouldBe("list item notes");
@@ -191,7 +191,7 @@
             TraktWatchlistItem? watchlistItem = await TestUtility.DeserializeJsonAsync<TraktWatchlistItem>("Watchlist\\watchlistitemmovie.json");
 
             watchlistItem.ShouldNotBeNull();
-            watchlistItem.Id.ShouldBe(101U);
+            watchlistItem.ID.ShouldBe(101U);
             watchlistItem.Rank.ShouldBe(1);
             watchlistItem.ListedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
             watchlistItem.Notes.ShouldBe("list item notes");
@@ -236,7 +236,7 @@
             TraktWatchlistItem? watchlistItem = await TestUtility.DeserializeJsonAsync<TraktWatchlistItem>("Watchlist\\watchlistitemshow.json");
 
             watchlistItem.ShouldNotBeNull();
-            watchlistItem.Id.ShouldBe(101U);
+            watchlistItem.ID.ShouldBe(101U);
             watchlistItem.Rank.ShouldBe(1);
             watchlistItem.ListedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
             watchlistItem.Notes.ShouldBe("list item notes");
@@ -289,7 +289,7 @@
             TraktWatchlistItem? watchlistItem = await TestUtility.DeserializeJsonAsync<TraktWatchlistItem>("Watchlist\\watchlistitemseason.json");
 
             watchlistItem.ShouldNotBeNull();
-            watchlistItem.Id.ShouldBe(101U);
+            watchlistItem.ID.ShouldBe(101U);
             watchlistItem.Rank.ShouldBe(1);
             watchlistItem.ListedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
             watchlistItem.Notes.ShouldBe("list item notes");
@@ -360,7 +360,7 @@
             TraktWatchlistItem? watchlistItem = await TestUtility.DeserializeJsonAsync<TraktWatchlistItem>("Watchlist\\watchlistitemepisode.json");
 
             watchlistItem.ShouldNotBeNull();
-            watchlistItem.Id.ShouldBe(101U);
+            watchlistItem.ID.ShouldBe(101U);
             watchlistItem.Rank.ShouldBe(1);
             watchlistItem.ListedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
             watchlistItem.Notes.ShouldBe("list item notes");

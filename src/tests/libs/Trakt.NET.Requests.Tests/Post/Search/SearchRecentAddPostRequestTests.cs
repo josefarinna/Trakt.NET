@@ -16,7 +16,7 @@ namespace TraktNET.PostRequests.Search
                 TraktSearchRecentPost = new TraktSearchRecentPost
                 {
                     Query = "batman",
-                    Id = 99U,
+                    ID = 99U,
                     Type = TraktSearchRecentType.Movie
                 }
             };
@@ -58,7 +58,7 @@ namespace TraktNET.PostRequests.Search
                 TraktSearchRecentPost = new TraktSearchRecentPost
                 {
                     Query = null,
-                    Id = 99U,
+                    ID = 99U,
                     Type = TraktSearchRecentType.Movie
                 }
             };
@@ -70,7 +70,7 @@ namespace TraktNET.PostRequests.Search
                 TraktSearchRecentPost = new TraktSearchRecentPost
                 {
                     Query = string.Empty,
-                    Id = 99U,
+                    ID = 99U,
                     Type = TraktSearchRecentType.Movie
                 }
             };
@@ -82,7 +82,7 @@ namespace TraktNET.PostRequests.Search
                 TraktSearchRecentPost = new TraktSearchRecentPost
                 {
                     Query = "  ",
-                    Id = 99U,
+                    ID = 99U,
                     Type = TraktSearchRecentType.Movie
                 }
             };
@@ -94,7 +94,7 @@ namespace TraktNET.PostRequests.Search
                 TraktSearchRecentPost = new TraktSearchRecentPost
                 {
                     Query = "batman",
-                    Id = 0U,
+                    ID = 0U,
                     Type = TraktSearchRecentType.Movie
                 }
             };
@@ -106,7 +106,7 @@ namespace TraktNET.PostRequests.Search
                 TraktSearchRecentPost = new TraktSearchRecentPost
                 {
                     Query = "batman",
-                    Id = 99U,
+                    ID = 99U,
                     Type = TraktSearchRecentType.Unspecified
                 }
             };

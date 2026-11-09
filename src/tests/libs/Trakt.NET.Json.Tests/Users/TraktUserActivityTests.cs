@@ -7,7 +7,7 @@ namespace TraktNET.Json.Users
         {
             var userActivity = new TraktUserActivity();
 
-            userActivity.Id.ShouldBeNull();
+            userActivity.ID.ShouldBeNull();
             userActivity.ActivityAt.ShouldBeNull();
             userActivity.Action.ShouldBeNull();
             userActivity.Type.ShouldBeNull();
@@ -31,7 +31,7 @@ namespace TraktNET.Json.Users
 
             TraktUserActivity userActivity = activities[0];
             userActivity.ShouldNotBeNull();
-            userActivity.Id.ShouldBe(123456UL);
+            userActivity.ID.ShouldBe(123456UL);
             userActivity.ActivityAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-11-20T12:00:00.000Z"));
             userActivity.Action.ShouldBe("scrobble");
             userActivity.Type.ShouldBe(TraktSyncItemType.Episode);

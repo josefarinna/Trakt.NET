@@ -7,7 +7,7 @@ namespace TraktNET.Json.Users
         {
             var sync = new TraktUserSync();
 
-            sync.Id.ShouldBe(0UL);
+            sync.ID.ShouldBe(0UL);
             sync.CreatedAt.ShouldBeNull();
             sync.Kind.ShouldBeNull();
             sync.Source.ShouldBeNull();
@@ -25,7 +25,7 @@ namespace TraktNET.Json.Users
             TraktUserSync? sync = await TestUtility.DeserializeJsonAsync<TraktUserSync>("Users\\sync_details.json");
 
             sync.ShouldNotBeNull();
-            sync.Id.ShouldBe(12345UL);
+            sync.ID.ShouldBe(12345UL);
             sync.CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-11-20T12:00:00.000Z"));
             sync.Kind.ShouldBe(TraktUserSyncType.Plex);
             sync.Source.ShouldBe("plex");

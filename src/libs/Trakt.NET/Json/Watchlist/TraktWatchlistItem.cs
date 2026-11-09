@@ -1,10 +1,13 @@
-﻿namespace TraktNET
+﻿using System.Text.Json.Serialization;
+
+namespace TraktNET
 {
     /// <summary>A Trakt watchlist item, containing a movie, show, season and / or episode and information about it.</summary>
     public record class TraktWatchlistItem
     {
-        /// <summary>Gets or sets the id of the watchlist item.</summary>
-        public ulong? Id { get; set; }
+        /// <summary>Gets or sets the ID of the watchlist item.</summary>
+        [JsonPropertyName("id")]
+        public ulong? ID { get; set; }
 
         /// <summary>Gets or sets the ranking number of the watchlist item.</summary>
         public int? Rank { get; set; }

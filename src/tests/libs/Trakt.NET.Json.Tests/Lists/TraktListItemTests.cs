@@ -8,7 +8,7 @@
             TraktListItem? item = await TestUtility.DeserializeJsonAsync<TraktListItem>("Lists\\listtypemovie_minimal.json");
 
             item.ShouldNotBeNull();
-            item.Id.ShouldBe(101U);
+            item.ID.ShouldBe(101U);
             item.Rank.ShouldBe(1U);
             item.ListedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
             item.Notes.ShouldBe("list item notes");
@@ -60,7 +60,7 @@
             TraktListItem? item = await TestUtility.DeserializeJsonAsync<TraktListItem>("Lists\\listtypeshow_minimal.json");
 
             item.ShouldNotBeNull();
-            item.Id.ShouldBe(101U);
+            item.ID.ShouldBe(101U);
             item.Type.ShouldBe(TraktListItemType.Show);
 
             item.Show.ShouldNotBeNull();
@@ -104,7 +104,7 @@
             TraktListItem? item = await TestUtility.DeserializeJsonAsync<TraktListItem>("Lists\\listtypeseason_minimal.json");
 
             item.ShouldNotBeNull();
-            item.Id.ShouldBe(101U);
+            item.ID.ShouldBe(101U);
             item.Type.ShouldBe(TraktListItemType.Season);
 
             item.Season.ShouldNotBeNull();
@@ -143,7 +143,7 @@
             TraktListItem? item = await TestUtility.DeserializeJsonAsync<TraktListItem>("Lists\\listtypeepisode_minimal.json");
 
             item.ShouldNotBeNull();
-            item.Id.ShouldBe(101U);
+            item.ID.ShouldBe(101U);
             item.Type.ShouldBe(TraktListItemType.Episode);
 
             item.Episode.ShouldNotBeNull();
@@ -187,7 +187,7 @@
             TraktListItem? item = await TestUtility.DeserializeJsonAsync<TraktListItem>("Lists\\listtypeperson_minimal.json");
 
             item.ShouldNotBeNull();
-            item.Id.ShouldBe(101U);
+            item.ID.ShouldBe(101U);
             item.Type.ShouldBe(TraktListItemType.Person);
 
             item.Person.ShouldNotBeNull();

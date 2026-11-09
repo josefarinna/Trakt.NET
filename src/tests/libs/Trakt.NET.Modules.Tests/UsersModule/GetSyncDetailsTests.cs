@@ -21,7 +21,7 @@ namespace TraktNET.UsersModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content.Id.ShouldBe(SyncId);
+            response.Content.ID.ShouldBe(SyncId);
             response.Content.Kind.ShouldBe(TraktUserSyncType.Plex);
         }
 

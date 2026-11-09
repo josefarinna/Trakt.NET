@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace TraktNET
 {
@@ -6,7 +7,8 @@ namespace TraktNET
     public record class TraktPlexServer
     {
         /// <summary>Gets or sets the Plex server machine identifier.</summary>
-        public string? Id { get; set; }
+        [JsonPropertyName("id")]
+        public string? ID { get; set; }
 
         /// <summary>Gets or sets the Plex server name.</summary>
         public string? Name { get; set; }

@@ -28,7 +28,7 @@ namespace TraktNET.UsersModule
 
             TraktUserSync item = response.Content[0];
             item.ShouldNotBeNull();
-            item.Id.ShouldBe(12345UL);
+            item.ID.ShouldBe(12345UL);
             item.Kind.ShouldBe(TraktUserSyncType.Plex);
             item.Source.ShouldBe("plex");
         }
