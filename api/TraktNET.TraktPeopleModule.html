@@ -158,13 +158,13 @@
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPerson.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktPeopleModule_GetPersonAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync*"></a>
-  <h4 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonAsync(string, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync(System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonAsync(string, string?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the given Trakt-Id or -Slug.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPerson&gt;&gt; GetPersonAsync(string personIdOrSlug, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPerson&gt;&gt; GetPersonAsync(string personIdOrSlug, string? language = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -180,6 +180,12 @@
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">personIdOrSlug</span></td>
         <td><p>The person's Trakt-Id or -Slug. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">language</span></td>
+        <td><p>An optional language code (e.g. &quot;pt&quot;, &quot;pt-br&quot;) to pick the Wikipedia page language.</p>
 </td>
       </tr>
       <tr>
@@ -215,8 +221,9 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p>With extended <a class="xref" href="TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Full">Full</a>, <a class="xref" href="TraktNET.TraktPerson.html#TraktNET_TraktPerson_SocialIDs">SocialIDs</a> includes Twitter, Facebook, Instagram, TikTok, YouTube, Wikidata and Wikipedia.</p>
 <p><a href="https://docs.trakt.tv/reference/getpeoplesummary">
 Trakt API Documentation: People: Summary
 </a></p>
@@ -247,13 +254,13 @@ Trakt API Documentation: People: Summary
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPerson.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktPeopleModule_GetPersonAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync*"></a>
-  <h4 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonAsync(uint, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_UInt32_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync(System.UInt32,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonAsync(uint, string?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the given Trakt-Id or -Slug.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPerson&gt;&gt; GetPersonAsync(uint traktPersonId, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPerson&gt;&gt; GetPersonAsync(uint traktPersonId, string? language = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -269,6 +276,12 @@ Trakt API Documentation: People: Summary
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
         <td><span class="parametername">traktPersonId</span></td>
         <td><p>The person's Trakt-Id. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">language</span></td>
+        <td><p>An optional language code (e.g. &quot;pt&quot;, &quot;pt-br&quot;) to pick the Wikipedia page language.</p>
 </td>
       </tr>
       <tr>
@@ -304,8 +317,9 @@ Trakt API Documentation: People: Summary
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonAsync_System_UInt32_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p>With extended <a class="xref" href="TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Full">Full</a>, <a class="xref" href="TraktNET.TraktPerson.html#TraktNET_TraktPerson_SocialIDs">SocialIDs</a> includes Twitter, Facebook, Instagram, TikTok, YouTube, Wikidata and Wikipedia.</p>
 <p><a href="https://docs.trakt.tv/reference/getpeoplesummary">
 Trakt API Documentation: People: Summary
 </a></p>
@@ -341,13 +355,13 @@ Trakt API Documentation: People: Summary
     <a href="https://github.com/josefarinna/Trakt.NET/blob/develop/src/libs/Trakt.NET/Modules/People/TraktPeopleModuleGetPerson.cs">View Source</a>
   </span>
   <a id="TraktNET_TraktPeopleModule_GetPersonAsync_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync*"></a>
-  <h4 id="TraktNET_TraktPeopleModule_GetPersonAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync(TraktNET.TraktPersonIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonAsync(TraktPersonIDs, TraktExtendedInfo?, CancellationToken)</h4>
+  <h4 id="TraktNET_TraktPeopleModule_GetPersonAsync_TraktNET_TraktPersonIDs_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_" data-uid="TraktNET.TraktPeopleModule.GetPersonAsync(TraktNET.TraktPersonIDs,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)">GetPersonAsync(TraktPersonIDs, string?, TraktExtendedInfo?, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets a <a class="xref" href="TraktNET.TraktPerson.html">TraktPerson</a> with the given Trakt-Id or -Slug.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPerson&gt;&gt; GetPersonAsync(TraktPersonIDs personIds, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TraktResponse&lt;TraktPerson&gt;&gt; GetPersonAsync(TraktPersonIDs personIds, string? language = null, TraktExtendedInfo? extendedInfo = null, CancellationToken cancellationToken = default)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -363,6 +377,12 @@ Trakt API Documentation: People: Summary
         <td><a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a></td>
         <td><span class="parametername">personIds</span></td>
         <td><p>The person's ids. See also <a class="xref" href="TraktNET.TraktPersonIDs.html">TraktPersonIDs</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">language</span></td>
+        <td><p>An optional language code (e.g. &quot;pt&quot;, &quot;pt-br&quot;) to pick the Wikipedia page language.</p>
 </td>
       </tr>
       <tr>
@@ -398,8 +418,9 @@ Trakt API Documentation: People: Summary
       </tr>
     </tbody>
   </table>
-  <h5 id="TraktNET_TraktPeopleModule_GetPersonAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="TraktNET_TraktPeopleModule_GetPersonAsync_TraktNET_TraktPersonIDs_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>OAuth authorization is not required.</p>
+<p>With extended <a class="xref" href="TraktNET.TraktExtendedInfo.html#TraktNET_TraktExtendedInfo_Full">Full</a>, <a class="xref" href="TraktNET.TraktPerson.html#TraktNET_TraktPerson_SocialIDs">SocialIDs</a> includes Twitter, Facebook, Instagram, TikTok, YouTube, Wikidata and Wikipedia.</p>
 <p><a href="https://docs.trakt.tv/reference/getpeoplesummary">
 Trakt API Documentation: People: Summary
 </a></p>

@@ -52662,30 +52662,33 @@ references:
   fullName.vb: TraktNET.TraktPeopleModule.New
   nameWithType: TraktPeopleModule.TraktPeopleModule
   nameWithType.vb: TraktPeopleModule.New
-- uid: TraktNET.TraktPeopleModule.GetPersonAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetPersonAsync(string, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonAsync_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktPeopleModule.GetPersonAsync(System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetPersonAsync(String, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktPeopleModule.GetPersonAsync(string, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktPeopleModule.GetPersonAsync(String, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktPeopleModule.GetPersonAsync(string, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktPeopleModule.GetPersonAsync(String, TraktExtendedInfo?, CancellationToken)
-- uid: TraktNET.TraktPeopleModule.GetPersonAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetPersonAsync(uint, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonAsync_System_UInt32_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktPeopleModule.GetPersonAsync(System.UInt32,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name.vb: GetPersonAsync(UInteger, TraktExtendedInfo?, CancellationToken)
-  fullName: TraktNET.TraktPeopleModule.GetPersonAsync(uint, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  fullName.vb: TraktNET.TraktPeopleModule.GetPersonAsync(UInteger, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktPeopleModule.GetPersonAsync(uint, TraktExtendedInfo?, CancellationToken)
-  nameWithType.vb: TraktPeopleModule.GetPersonAsync(UInteger, TraktExtendedInfo?, CancellationToken)
-- uid: TraktNET.TraktPeopleModule.GetPersonAsync(TraktNET.TraktPersonIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  name: GetPersonAsync(TraktPersonIDs, TraktExtendedInfo?, CancellationToken)
-  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonAsync_TraktNET_TraktPersonIDs_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
-  commentId: M:TraktNET.TraktPeopleModule.GetPersonAsync(TraktNET.TraktPersonIDs,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
-  fullName: TraktNET.TraktPeopleModule.GetPersonAsync(TraktNET.TraktPersonIDs, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
-  nameWithType: TraktPeopleModule.GetPersonAsync(TraktPersonIDs, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktPeopleModule.GetPersonAsync(System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetPersonAsync(string, string?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonAsync_System_String_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktPeopleModule.GetPersonAsync(System.String,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetPersonAsync(String, String, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktPeopleModule.GetPersonAsync(string, string?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktPeopleModule.GetPersonAsync(String, String, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktPeopleModule.GetPersonAsync(string, string?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktPeopleModule.GetPersonAsync(String, String, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktPeopleModule.GetPersonAsync(System.UInt32,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetPersonAsync(uint, string?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonAsync_System_UInt32_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktPeopleModule.GetPersonAsync(System.UInt32,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetPersonAsync(UInteger, String, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktPeopleModule.GetPersonAsync(uint, string?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktPeopleModule.GetPersonAsync(UInteger, String, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktPeopleModule.GetPersonAsync(uint, string?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktPeopleModule.GetPersonAsync(UInteger, String, TraktExtendedInfo?, CancellationToken)
+- uid: TraktNET.TraktPeopleModule.GetPersonAsync(TraktNET.TraktPersonIDs,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name: GetPersonAsync(TraktPersonIDs, string?, TraktExtendedInfo?, CancellationToken)
+  href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonAsync_TraktNET_TraktPersonIDs_System_String_System_Nullable_TraktNET_TraktExtendedInfo__System_Threading_CancellationToken_
+  commentId: M:TraktNET.TraktPeopleModule.GetPersonAsync(TraktNET.TraktPersonIDs,System.String,System.Nullable{TraktNET.TraktExtendedInfo},System.Threading.CancellationToken)
+  name.vb: GetPersonAsync(TraktPersonIDs, String, TraktExtendedInfo?, CancellationToken)
+  fullName: TraktNET.TraktPeopleModule.GetPersonAsync(TraktNET.TraktPersonIDs, string?, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  fullName.vb: TraktNET.TraktPeopleModule.GetPersonAsync(TraktNET.TraktPersonIDs, String, TraktNET.TraktExtendedInfo?, System.Threading.CancellationToken)
+  nameWithType: TraktPeopleModule.GetPersonAsync(TraktPersonIDs, string?, TraktExtendedInfo?, CancellationToken)
+  nameWithType.vb: TraktPeopleModule.GetPersonAsync(TraktPersonIDs, String, TraktExtendedInfo?, CancellationToken)
 - uid: TraktNET.TraktPeopleModule.GetPersonAsync*
   name: GetPersonAsync
   href: api/TraktNET.TraktPeopleModule.html#TraktNET_TraktPeopleModule_GetPersonAsync_
@@ -55752,6 +55755,18 @@ references:
   commentId: Overload:TraktNET.TraktPersonSocialIDs.PrintMembers
   fullName: TraktNET.TraktPersonSocialIDs.PrintMembers
   nameWithType: TraktPersonSocialIDs.PrintMembers
+- uid: TraktNET.TraktPersonSocialIDs.TikTok
+  name: TikTok
+  href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_TikTok
+  commentId: P:TraktNET.TraktPersonSocialIDs.TikTok
+  fullName: TraktNET.TraktPersonSocialIDs.TikTok
+  nameWithType: TraktPersonSocialIDs.TikTok
+- uid: TraktNET.TraktPersonSocialIDs.TikTok*
+  name: TikTok
+  href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_TikTok_
+  commentId: Overload:TraktNET.TraktPersonSocialIDs.TikTok
+  fullName: TraktNET.TraktPersonSocialIDs.TikTok
+  nameWithType: TraktPersonSocialIDs.TikTok
 - uid: TraktNET.TraktPersonSocialIDs.ToString
   name: ToString()
   href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_ToString
@@ -55776,6 +55791,18 @@ references:
   commentId: Overload:TraktNET.TraktPersonSocialIDs.Twitter
   fullName: TraktNET.TraktPersonSocialIDs.Twitter
   nameWithType: TraktPersonSocialIDs.Twitter
+- uid: TraktNET.TraktPersonSocialIDs.Wikidata
+  name: Wikidata
+  href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_Wikidata
+  commentId: P:TraktNET.TraktPersonSocialIDs.Wikidata
+  fullName: TraktNET.TraktPersonSocialIDs.Wikidata
+  nameWithType: TraktPersonSocialIDs.Wikidata
+- uid: TraktNET.TraktPersonSocialIDs.Wikidata*
+  name: Wikidata
+  href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_Wikidata_
+  commentId: Overload:TraktNET.TraktPersonSocialIDs.Wikidata
+  fullName: TraktNET.TraktPersonSocialIDs.Wikidata
+  nameWithType: TraktPersonSocialIDs.Wikidata
 - uid: TraktNET.TraktPersonSocialIDs.Wikipedia
   name: Wikipedia
   href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_Wikipedia
@@ -55788,6 +55815,30 @@ references:
   commentId: Overload:TraktNET.TraktPersonSocialIDs.Wikipedia
   fullName: TraktNET.TraktPersonSocialIDs.Wikipedia
   nameWithType: TraktPersonSocialIDs.Wikipedia
+- uid: TraktNET.TraktPersonSocialIDs.WikipediaLanguage
+  name: WikipediaLanguage
+  href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_WikipediaLanguage
+  commentId: P:TraktNET.TraktPersonSocialIDs.WikipediaLanguage
+  fullName: TraktNET.TraktPersonSocialIDs.WikipediaLanguage
+  nameWithType: TraktPersonSocialIDs.WikipediaLanguage
+- uid: TraktNET.TraktPersonSocialIDs.WikipediaLanguage*
+  name: WikipediaLanguage
+  href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_WikipediaLanguage_
+  commentId: Overload:TraktNET.TraktPersonSocialIDs.WikipediaLanguage
+  fullName: TraktNET.TraktPersonSocialIDs.WikipediaLanguage
+  nameWithType: TraktPersonSocialIDs.WikipediaLanguage
+- uid: TraktNET.TraktPersonSocialIDs.YouTube
+  name: YouTube
+  href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_YouTube
+  commentId: P:TraktNET.TraktPersonSocialIDs.YouTube
+  fullName: TraktNET.TraktPersonSocialIDs.YouTube
+  nameWithType: TraktPersonSocialIDs.YouTube
+- uid: TraktNET.TraktPersonSocialIDs.YouTube*
+  name: YouTube
+  href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_YouTube_
+  commentId: Overload:TraktNET.TraktPersonSocialIDs.YouTube
+  fullName: TraktNET.TraktPersonSocialIDs.YouTube
+  nameWithType: TraktPersonSocialIDs.YouTube
 - uid: TraktNET.TraktPersonSocialIDs.op_Equality(TraktNET.TraktPersonSocialIDs,TraktNET.TraktPersonSocialIDs)
   name: operator ==(TraktPersonSocialIDs?, TraktPersonSocialIDs?)
   href: api/TraktNET.TraktPersonSocialIDs.html#TraktNET_TraktPersonSocialIDs_op_Equality_TraktNET_TraktPersonSocialIDs_TraktNET_TraktPersonSocialIDs_
