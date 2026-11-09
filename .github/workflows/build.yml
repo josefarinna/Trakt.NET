@@ -176,7 +176,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: pwsh
-        run: dotnet nuget push "${{ inputs.artifacts_root_directory }}/Trakt.NET*.nupkg" --api-key $env:GITHUB_TOKEN --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --skip-duplicate
+        run: dotnet nuget push "Trakt.NET*.nupkg" --api-key $env:GITHUB_TOKEN --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --skip-duplicate
+        working-directory: ${{ inputs.artifacts_root_directory }}
 
       - name: NuGet Login (Trusted Publishing via OIDC)
         id: login
@@ -188,4 +189,5 @@ jobs:
       - name: Push packages to NuGet
         if: ${{ inputs.push_nuget_package && startsWith(github.ref, 'refs/tags/v') }}
         shell: pwsh
-        run: dotnet nuget push "${{ inputs.artifacts_root_directory }}/Trakt.NET*.nupkg" --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push "Trakt.NET*.nupkg" --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        working-directory: ${{ inputs.artifacts_root_directory }}
