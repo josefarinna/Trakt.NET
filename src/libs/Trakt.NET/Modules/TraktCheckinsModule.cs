@@ -15,7 +15,7 @@ namespace TraktNET
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
-        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried movie.
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the checked in movie.
         /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktMovieCheckinResponse" />.</para>
         /// </returns>
         /// <remarks>
@@ -39,7 +39,7 @@ namespace TraktNET
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
         /// <returns>
-        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the queried episode.
+        /// A response of type <see cref="TraktResponse{TResponseContentType}" /> containing the checked in episode.
         /// <para>See also <seealso cref="TraktResponse{TResponseContentType}" /> and <seealso cref="TraktEpisodeCheckinResponse" />.</para>
         /// </returns>
         /// <remarks>
@@ -61,11 +61,10 @@ namespace TraktNET
         /// Propagates notification that the request should be canceled.
         /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
         /// </param>
-        /// <returns>
         /// <returns>A <see cref="TraktResponse" />.</returns>
-        /// </returns>
         /// <remarks>
         /// OAuth authorization is required.
+        /// <para>The elapsed progress is saved as paused playback, so the next checkin of the same item resumes from it.</para>
         /// <para><see href="https://docs.trakt.tv/reference/deletecheckindelete">
         /// Trakt API Documentation: Checkin: Delete any active checkins
         /// </see></para>
