@@ -17,7 +17,7 @@ For getting a specific page, pass `page` and `limit` arguments.
 Here are the complete codes.
 
 Trending Shows default page:
-[Trakt.NET/docs/codesnippets/examples/modules/shows/TrendingShowsExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.2.0/docs/codesnippets/examples/modules/shows/TrendingShowsExample.cs)
+[Trakt.NET/docs/codesnippets/examples/modules/shows/TrendingShowsExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.3.0/docs/codesnippets/examples/modules/shows/TrendingShowsExample.cs)
 
 Trending Shows paged:
-[Trakt.NET/docs/codesnippets/examples/modules/shows/TrendingShowsPagedExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.2.0/docs/codesnippets/examples/modules/shows/TrendingShowsPagedExample.cs)
+[Trakt.NET/docs/codesnippets/examples/modules/shows/TrendingShowsPagedExample.cs](https://github.com/josefarinna/Trakt.NET/tree/v2.3.0/docs/codesnippets/examples/modules/shows/TrendingShowsPagedExample.cs)
