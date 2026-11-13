@@ -382,6 +382,74 @@ namespace TraktNET
                 cancellationToken);
         }
 
+        /// <summary>Gets anticipated show recommendations.</summary>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the shows.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried anticipated show recommendations.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktAnticipatedShowRecommendation" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://developer.trakt.tv">
+        /// Trakt API Documentation: Shows - Get anticipated show recommendations
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktAnticipatedShowRecommendation>> GetAnticipatedRecommendationsAsync(TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new AnticipatedShowRecommendationsGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktAnticipatedShowRecommendation>(_context, request, (page, limit)
+                => new AnticipatedShowRecommendationsGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                },
+                cancellationToken);
+        }
+
+        /// <summary>Gets anticipated show recommendations.</summary>
+        /// <param name="extendedInfo">
+        /// Specifies how much data should be queried about the shows.
+        /// <para>See also <seealso cref="TraktExtendedInfo" />.</para>
+        /// </param>
+        /// <param name="page">Specifies the page which should be queried. Defaults to the first page.</param>
+        /// <param name="limit">Specifies the number of items which should be queried per page. Defaults to 10.</param>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A paged response of type <see cref="TraktPagedResponse{TResponseContentType}" /> containing the queried anticipated show recommendations.
+        /// <para>See also <seealso cref="TraktPagedResponse{TResponseContentType}" /> and <seealso cref="TraktAnticipatedShowRecommendation" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is required.
+        /// <para><see href="https://developer.trakt.tv">
+        /// Trakt API Documentation: Shows - Get anticipated show recommendations
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        public Task<TraktPagedResponse<TraktAnticipatedShowRecommendation>> GetAnticipatedShowRecommendationsAsync(TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+            => GetAnticipatedRecommendationsAsync(extendedInfo, page, limit, cancellationToken);
+
         /// <summary>Gets recently updated shows.</summary>
         /// <param name="extendedInfo">
         /// Specifies how much data should be queried about the shows.

@@ -162,6 +162,12 @@ namespace TraktNET
         public TraktFilter? Filter { get; set; }
     }
 
+    [TraktGetRequest("shows/recommendations/anticipated", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class AnticipatedShowRecommendationsGetRequest
+    {
+    }
+
     [TraktGetRequest("shows/collected", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class MostCollectedShowsGetRequest
     {

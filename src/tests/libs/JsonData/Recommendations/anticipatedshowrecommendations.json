@@ -1,0 +1,26 @@
+[
+  {
+    "show": {
+      "title": "Euphoria",
+      "year": 2027,
+      "ids": {
+        "trakt": 2,
+        "slug": "euphoria-2019"
+      }
+    },
+    "score": 0.4,
+    "released": null
+  },
+  {
+    "show": {
+      "title": "Stranger Things",
+      "year": 2025,
+      "ids": {
+        "trakt": 3,
+        "slug": "stranger-things"
+      }
+    },
+    "score": 0.91,
+    "released": "2025-11-06"
+  }
+]

@@ -300,6 +300,9 @@ namespace TraktNET
 
         private static readonly FrozenSet<Type> s_recommendationsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
+            typeof(TraktAnticipatedMediaRecommendation),
+            typeof(TraktAnticipatedMovieRecommendation),
+            typeof(TraktAnticipatedShowRecommendation),
             typeof(TraktFavoritedBy),
             typeof(TraktRecommendedMovie),
             typeof(TraktRecommendedShow)
@@ -895,6 +898,9 @@ namespace TraktNET
         ];
 
         private static readonly HashSet<Type> s_recommendationsJsonTypes = [
+            typeof(TraktAnticipatedMediaRecommendation),
+            typeof(TraktAnticipatedMovieRecommendation),
+            typeof(TraktAnticipatedShowRecommendation),
             typeof(TraktFavoritedBy),
             typeof(TraktRecommendedMovie),
             typeof(TraktRecommendedShow)
