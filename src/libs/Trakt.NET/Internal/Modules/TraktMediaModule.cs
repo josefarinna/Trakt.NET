@@ -50,6 +50,26 @@ namespace TraktNET
                 cancellationToken);
         }
 
+        private Task<TraktPagedResponse<TraktAnticipatedMediaRecommendation>> GetAnticipatedRecommendationsImplAsync(TraktExtendedInfo? extendedInfo = null,
+            uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
+        {
+            var request = new AnticipatedMediaRecommendationsGetRequest
+            {
+                ExtendedInfo = extendedInfo,
+                Page = page,
+                Limit = limit
+            };
+
+            return RequestHandler.ExecutePagedListRequestAsync<TraktAnticipatedMediaRecommendation>(_context, request, (page, limit)
+                => new AnticipatedMediaRecommendationsGetRequest
+                {
+                    ExtendedInfo = extendedInfo,
+                    Page = page,
+                    Limit = limit
+                },
+                cancellationToken);
+        }
+
         private Task<TraktPagedResponse<TraktPopularMedia>> GetPopularMediaImplAsync(TraktExtendedInfo? extendedInfo = null,
             TraktFilter? filter = null, uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {

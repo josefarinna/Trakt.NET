@@ -1,0 +1,26 @@
+[
+  {
+    "movie": {
+      "title": "Dune: Part Three",
+      "year": 2026,
+      "ids": {
+        "trakt": 1,
+        "slug": "dune-part-three-2026"
+      }
+    },
+    "score": 0.9,
+    "released": "2027-03-12"
+  },
+  {
+    "show": {
+      "title": "Euphoria",
+      "year": 2027,
+      "ids": {
+        "trakt": 2,
+        "slug": "euphoria-2019"
+      }
+    },
+    "score": 0.5,
+    "released": null
+  }
+]

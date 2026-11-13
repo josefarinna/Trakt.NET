@@ -122,6 +122,12 @@ namespace TraktNET
         public TraktFilter? Filter { get; set; }
     }
 
+    [TraktGetRequest("movies/recommendations/anticipated", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class AnticipatedMovieRecommendationsGetRequest
+    {
+    }
+
     [TraktGetRequest("movies/collected", SupportsExtendedInfo = true, SupportsPagination = true)]
     internal sealed partial class MostCollectedMoviesGetRequest
     {
