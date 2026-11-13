@@ -16,6 +16,12 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
     }
 
+    [TraktGetRequest("shows/{id!!}/awards")]
+    internal sealed partial class ShowAwardsGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Show;
+    }
+
     [TraktGetRequest("shows/{id!!}/certifications")]
     internal sealed partial class ShowCertificationsGetRequest
     {

@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "oscars",
+    "name": "Academy Awards (Oscars)",
+    "edition": 97,
+    "year": 2025,
+    "nominations_at": "2025-01-23",
+    "held_at": "2025-03-02"
+  },
+  {
+    "slug": "golden-globes",
+    "name": "Golden Globes",
+    "edition": 82,
+    "year": 2025,
+    "nominations_at": "2024-12-09",
+    "held_at": "2025-01-05"
+  }
+]

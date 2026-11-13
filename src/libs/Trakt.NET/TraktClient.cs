@@ -68,6 +68,9 @@ namespace TraktNET
         /// <summary>Provides access to the authentication module. See <seealso cref="TraktAuthModule" />.</summary>
         public TraktAuthModule Auth => _context.Auth;
 
+        /// <summary>Provides access to the awards module. See <seealso cref="TraktAwardsModule" />.</summary>
+        public TraktAwardsModule Awards => _context.Awards;
+
         /// <summary>Provides access to the calendar module. See <seealso cref="TraktCalendarModule" />.</summary>
         public TraktCalendarModule Calendar => _context.Calendar;
 
