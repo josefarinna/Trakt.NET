@@ -13024,6 +13024,71 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Get anticipated media recommendations",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{ACCESS_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-version",
+                "value": "{{API_VERSION}}",
+                "type": "text"
+              },
+              {
+                "key": "trakt-api-key",
+                "value": "{{CLIENT_ID}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{API_URL}}/media/recommendations/anticipated",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "media",
+                "recommendations",
+                "anticipated"
+              ],
+              "query": [
+                {
+                  "key": "extended",
+                  "value": "full",
+                  "description": "Complete info for an item.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Number of page of results to be returned. Default: 1",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Number of results to return per page. Default: 10",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -13991,6 +14056,71 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Get anticipated movie recommendations",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{ACCESS_TOKEN}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/movies/recommendations/anticipated",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "movies",
+                    "recommendations",
+                    "anticipated"
+                  ],
+                  "query": [
+                    {
+                      "key": "extended",
+                      "value": "full",
+                      "description": "Complete info for an item.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "Number of page of results to be returned. Default: 1",
+                      "disabled": true
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10",
+                      "description": "Number of results to return per page. Default: 10",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
             }
           ]
         },
@@ -14200,6 +14330,71 @@
                       "key": "limit",
                       "value": "10",
                       "description": "By default, 10 results are returned. You can send a limit to get up to 100 results per page.",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get anticipated show recommendations",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{ACCESS_TOKEN}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/shows/recommendations/anticipated",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "shows",
+                    "recommendations",
+                    "anticipated"
+                  ],
+                  "query": [
+                    {
+                      "key": "extended",
+                      "value": "full",
+                      "description": "Complete info for an item.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "Number of page of results to be returned. Default: 1",
+                      "disabled": true
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10",
+                      "description": "Number of results to return per page. Default: 10",
                       "disabled": true
                     }
                   ]

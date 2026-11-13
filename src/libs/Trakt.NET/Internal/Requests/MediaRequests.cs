@@ -24,4 +24,10 @@ namespace TraktNET
         [TraktRequestQuery("filter")]
         public TraktFilter? Filter { get; set; }
     }
+
+    [TraktGetRequest("media/recommendations/anticipated", SupportsExtendedInfo = true, SupportsPagination = true,
+        OAuthRequirement = TraktOAuthRequirement.Required)]
+    internal sealed partial class AnticipatedMediaRecommendationsGetRequest
+    {
+    }
 }

@@ -5,6 +5,12 @@ using System.Text.Json.Serialization;
 namespace TraktNET
 {
     [ExcludeFromCodeCoverage]
+    [JsonSerializable(typeof(TraktAnticipatedMediaRecommendation))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktAnticipatedMediaRecommendation>))]
+    [JsonSerializable(typeof(TraktAnticipatedMovieRecommendation))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktAnticipatedMovieRecommendation>))]
+    [JsonSerializable(typeof(TraktAnticipatedShowRecommendation))]
+    [JsonSerializable(typeof(IReadOnlyList<TraktAnticipatedShowRecommendation>))]
     [JsonSerializable(typeof(TraktFavoritedBy))]
     [JsonSerializable(typeof(IReadOnlyList<TraktFavoritedBy>))]
     [JsonSerializable(typeof(TraktRecommendedMovie))]
