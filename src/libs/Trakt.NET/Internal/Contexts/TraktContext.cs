@@ -51,6 +51,9 @@ namespace TraktNET
         /// <summary>Provides access to the authentication module. See <seealso cref="TraktAuthModule" />.</summary>
         public TraktAuthModule Auth { get; }
 
+        /// <summary>Provides access to the awards module. See <seealso cref="TraktAwardsModule" />.</summary>
+        public TraktAwardsModule Awards { get; }
+
         /// <summary>Provides access to the calendar module. See <seealso cref="TraktCalendarModule" />.</summary>
         public TraktCalendarModule Calendar { get; }
 
@@ -160,6 +163,7 @@ namespace TraktNET
             UserAgent = !string.IsNullOrWhiteSpace(userAgent) ? userAgent! : Constants.Request.UserAgent;
 
             Auth = new TraktAuthModule(this);
+            Awards = new TraktAwardsModule(this);
             Calendar = new TraktCalendarModule(this);
             Certifications = new TraktCertificationsModule(this);
             Checkins = new TraktCheckinsModule(this);

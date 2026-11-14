@@ -143,7 +143,14 @@ namespace TraktNET
 
         /// <summary>IMDb votes range [min, max]. Max 2 items.</summary>
         public uint[]? ImdbVotes { get; set; }
+
+        /// <summary>Award slugs.</summary>
+        public string[]? Awards { get; set; }
+
+        /// <summary>Award year range [min, max]. Max 2 items.</summary>
+        public uint[]? AwardYears { get; set; }
+
+        /// <summary>Gets or sets whether only awarded items should be included.</summary>
+        public bool? AwardWon { get; set; }
     }
 }
-
-

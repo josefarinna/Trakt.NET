@@ -16,6 +16,12 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
     }
 
+    [TraktGetRequest("movies/{id!!}/awards")]
+    internal sealed partial class MovieAwardsGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Movie;
+    }
+
     [TraktGetRequest("movies/{id!!}/comments", SupportsExtendedInfo = true, SupportsPagination = true,
         OAuthRequirement = TraktOAuthRequirement.Optional)]
     internal sealed partial class MovieCommentsGetRequest

@@ -140,6 +140,16 @@ namespace TraktNET
             return RequestHandler.ExecuteListRequestAsync<TraktStudio>(_context, request, cancellationToken);
         }
 
+        private Task<TraktListResponse<TraktTitleAward>> GetMovieAwardsImplAsync(string movieIDOrSlug, CancellationToken cancellationToken = default)
+        {
+            var request = new MovieAwardsGetRequest
+            {
+                Id = movieIDOrSlug
+            };
+
+            return RequestHandler.ExecuteListRequestAsync<TraktTitleAward>(_context, request, cancellationToken);
+        }
+
         private Task<TraktListResponse<TraktUser>> GetMovieWatchingUsersImplAsync(string movieIDOrSlug, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {

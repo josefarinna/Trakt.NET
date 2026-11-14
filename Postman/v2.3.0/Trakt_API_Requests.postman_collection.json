@@ -27,7 +27,7 @@
                       }
                     ],
                     "url": {
-                      "raw": "{{OAUTH_API_URL}}/oauth/authorize?response_type=code&client_id={{CLIENT_ID}}&redirect_uri={{DEFAULT_REDIRECT_URI_ENCODED}}",
+                      "raw": "{{OAUTH_API_URL}}/oauth/authorize?response_type=code\u0026client_id={{CLIENT_ID}}\u0026redirect_uri={{DEFAULT_REDIRECT_URI_ENCODED}}",
                       "host": [
                         "{{OAUTH_API_URL}}"
                       ],
@@ -121,7 +121,7 @@
                     "header": [],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n  \"code\": \"{{OAUTH_CODE}}\",\r\n  \"client_id\": \"{{CLIENT_ID}}\",\r\n  \"client_secret\": \"{{CLIENT_SECRET}}\",\r\n  \"redirect_uri\": \"{{DEFAULT_REDIRECT_URI}}\",\r\n  \"grant_type\": \"authorization_code\"\r\n}",
+                      "raw": "{\r\n  \u0022code\u0022: \u0022{{OAUTH_CODE}}\u0022,\r\n  \u0022client_id\u0022: \u0022{{CLIENT_ID}}\u0022,\r\n  \u0022client_secret\u0022: \u0022{{CLIENT_SECRET}}\u0022,\r\n  \u0022redirect_uri\u0022: \u0022{{DEFAULT_REDIRECT_URI}}\u0022,\r\n  \u0022grant_type\u0022: \u0022authorization_code\u0022\r\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -148,7 +148,7 @@
                     "header": [],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n  \"code\": \"{{OAUTH_CODE}}\",\r\n  \"code_verifier\": \"{{CODE_VERIFIER}}\",\r\n  \"client_id\": \"{{CLIENT_ID}}\",\r\n  \"redirect_uri\": \"{{DEFAULT_REDIRECT_URI}}\",\r\n  \"grant_type\": \"authorization_code\"\r\n}",
+                      "raw": "{\r\n  \u0022code\u0022: \u0022{{OAUTH_CODE}}\u0022,\r\n  \u0022code_verifier\u0022: \u0022{{CODE_VERIFIER}}\u0022,\r\n  \u0022client_id\u0022: \u0022{{CLIENT_ID}}\u0022,\r\n  \u0022redirect_uri\u0022: \u0022{{DEFAULT_REDIRECT_URI}}\u0022,\r\n  \u0022grant_type\u0022: \u0022authorization_code\u0022\r\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -175,7 +175,7 @@
                     "header": [],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n  \"refresh_token\": \"{{REFRESH_TOKEN}}\",\r\n  \"client_id\": \"{{CLIENT_ID}}\",\r\n  \"client_secret\": \"{{CLIENT_SECRET}}\",\r\n  \"redirect_uri\": \"{{DEFAULT_REDIRECT_URI}}\",\r\n  \"grant_type\": \"refresh_token\"\r\n}",
+                      "raw": "{\r\n  \u0022refresh_token\u0022: \u0022{{REFRESH_TOKEN}}\u0022,\r\n  \u0022client_id\u0022: \u0022{{CLIENT_ID}}\u0022,\r\n  \u0022client_secret\u0022: \u0022{{CLIENT_SECRET}}\u0022,\r\n  \u0022redirect_uri\u0022: \u0022{{DEFAULT_REDIRECT_URI}}\u0022,\r\n  \u0022grant_type\u0022: \u0022refresh_token\u0022\r\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -230,7 +230,7 @@
                     "header": [],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n  \"token\": \"{{ACCESS_TOKEN}}\",\r\n  \"client_id\": \"{{CLIENT_ID}}\",\r\n  \"client_secret\": \"{{CLIENT_SECRET}}\"\r\n}",
+                      "raw": "{\r\n  \u0022token\u0022: \u0022{{ACCESS_TOKEN}}\u0022,\r\n  \u0022client_id\u0022: \u0022{{CLIENT_ID}}\u0022,\r\n  \u0022client_secret\u0022: \u0022{{CLIENT_SECRET}}\u0022\r\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -290,7 +290,7 @@
                     "header": [],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n  \"client_id\": \"{{CLIENT_ID}}\"\r\n}",
+                      "raw": "{\r\n  \u0022client_id\u0022: \u0022{{CLIENT_ID}}\u0022\r\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -346,7 +346,7 @@
                     "header": [],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n  \"code\": \"{{DEVICE_CODE}}\",\r\n  \"client_id\": \"{{CLIENT_ID}}\",\r\n  \"client_secret\": \"{{CLIENT_SECRET}}\"\r\n}",
+                      "raw": "{\r\n  \u0022code\u0022: \u0022{{DEVICE_CODE}}\u0022,\r\n  \u0022client_id\u0022: \u0022{{CLIENT_ID}}\u0022,\r\n  \u0022client_secret\u0022: \u0022{{CLIENT_SECRET}}\u0022\r\n}",
                       "options": {
                         "raw": {
                           "language": "json"
@@ -439,6 +439,50 @@
               ""
             ]
           }
+        }
+      ]
+    },
+    {
+      "name": "Awards",
+      "item": [
+        {
+          "name": "Ceremonies",
+          "item": [
+            {
+              "name": "Get upcoming ceremonies",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/awards/ceremonies",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "awards",
+                    "ceremonies"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
         }
       ]
     },
@@ -4220,7 +4264,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movie\": {\r\n    \"title\": \"Guardians of the Galaxy\",\r\n    \"year\": 2014,\r\n    \"ids\": {\r\n      \"trakt\": 28,\r\n      \"slug\": \"guardians-of-the-galaxy-2014\",\r\n      \"imdb\": \"tt2015381\",\r\n      \"tmdb\": 118340\r\n    }\r\n  },\r\n  \"sharing\": {\r\n    \"twitter\": true,\r\n    \"tumblr\": false\r\n  },\r\n  \"message\": \"Guardians of the Galaxy FTW!\",\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022movie\u0022: {\r\n    \u0022title\u0022: \u0022Guardians of the Galaxy\u0022,\r\n    \u0022year\u0022: 2014,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 28,\r\n      \u0022slug\u0022: \u0022guardians-of-the-galaxy-2014\u0022,\r\n      \u0022imdb\u0022: \u0022tt2015381\u0022,\r\n      \u0022tmdb\u0022: 118340\r\n    }\r\n  },\r\n  \u0022sharing\u0022: {\r\n    \u0022twitter\u0022: true,\r\n    \u0022tumblr\u0022: false\r\n  },\r\n  \u0022message\u0022: \u0022Guardians of the Galaxy FTW!\u0022,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -4267,7 +4311,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"episode\": {\r\n    \"ids\": {\r\n      \"trakt\": 16\r\n    }\r\n  },\r\n  \"sharing\": {\r\n    \"twitter\": true,\r\n    \"tumblr\": false\r\n  },\r\n  \"message\": \"I'm the one who knocks!\",\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022episode\u0022: {\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 16\r\n    }\r\n  },\r\n  \u0022sharing\u0022: {\r\n    \u0022twitter\u0022: true,\r\n    \u0022tumblr\u0022: false\r\n  },\r\n  \u0022message\u0022: \u0022I\u0027m the one who knocks!\u0022,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -4314,7 +4358,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"show\": {\r\n    \"title\": \"Breaking Bad\",\r\n    \"year\": 2008,\r\n    \"ids\": {\r\n      \"trakt\": 1,\r\n      \"tvdb\": 81189\r\n    }\r\n  },\r\n  \"episode\": {\r\n    \"season\": 1,\r\n    \"number\": 1\r\n  },\r\n  \"sharing\": {\r\n    \"twitter\": true,\r\n    \"tumblr\": false\r\n  },\r\n  \"message\": \"I'm the one who knocks!\",\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022show\u0022: {\r\n    \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n    \u0022year\u0022: 2008,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 1,\r\n      \u0022tvdb\u0022: 81189\r\n    }\r\n  },\r\n  \u0022episode\u0022: {\r\n    \u0022season\u0022: 1,\r\n    \u0022number\u0022: 1\r\n  },\r\n  \u0022sharing\u0022: {\r\n    \u0022twitter\u0022: true,\r\n    \u0022tumblr\u0022: false\r\n  },\r\n  \u0022message\u0022: \u0022I\u0027m the one who knocks!\u0022,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -4361,7 +4405,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"show\": {\r\n    \"title\": \"One Piece\",\r\n    \"year\": 1999,\r\n    \"ids\": {\r\n      \"trakt\": 37696\r\n    }\r\n  },\r\n  \"episode\": {\r\n    \"number_abs\": 164\r\n  },\r\n  \"sharing\": {\r\n    \"twitter\": true,\r\n    \"tumblr\": false\r\n  },\r\n  \"message\": \"I'm the one who lights the fire!\",\r\n  \"app_version\": \"2.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022show\u0022: {\r\n    \u0022title\u0022: \u0022One Piece\u0022,\r\n    \u0022year\u0022: 1999,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 37696\r\n    }\r\n  },\r\n  \u0022episode\u0022: {\r\n    \u0022number_abs\u0022: 164\r\n  },\r\n  \u0022sharing\u0022: {\r\n    \u0022twitter\u0022: true,\r\n    \u0022tumblr\u0022: false\r\n  },\r\n  \u0022message\u0022: \u0022I\u0027m the one who lights the fire!\u0022,\r\n  \u0022app_version\u0022: \u00222.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -4631,7 +4675,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movie\": {\r\n    \"title\": \"Guardians of the Galaxy\",\r\n    \"year\": 2014,\r\n    \"ids\": {\r\n      \"trakt\": 28,\r\n      \"slug\": \"guardians-of-the-galaxy-2014\",\r\n      \"imdb\": \"tt2015381\",\r\n      \"tmdb\": 118340\r\n    }\r\n  },\r\n  \"comment\": \"Oh, I wasn't really listening.\",\r\n  \"spoiler\": false,\r\n  \"sharing\": {\r\n    \"twitter\": true,\r\n    \"tumblr\": false,\r\n    \"medium\": true\r\n  }\r\n}",
+                  "raw": "{\r\n  \u0022movie\u0022: {\r\n    \u0022title\u0022: \u0022Guardians of the Galaxy\u0022,\r\n    \u0022year\u0022: 2014,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 28,\r\n      \u0022slug\u0022: \u0022guardians-of-the-galaxy-2014\u0022,\r\n      \u0022imdb\u0022: \u0022tt2015381\u0022,\r\n      \u0022tmdb\u0022: 118340\r\n    }\r\n  },\r\n  \u0022comment\u0022: \u0022Oh, I wasn\u0027t really listening.\u0022,\r\n  \u0022spoiler\u0022: false,\r\n  \u0022sharing\u0022: {\r\n    \u0022twitter\u0022: true,\r\n    \u0022tumblr\u0022: false,\r\n    \u0022medium\u0022: true\r\n  }\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -4678,7 +4722,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"show\": {\r\n    \"title\": \"Breaking Bad\",\r\n    \"ids\": {\r\n      \"trakt\": 1,\r\n      \"slug\": \"breaking-bad\"\r\n    }\r\n  },\r\n  \"comment\": \"Welcome to Pollos Hermanos.\",\r\n  \"spoiler\": false\r\n}",
+                  "raw": "{\r\n  \u0022show\u0022: {\r\n    \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 1,\r\n      \u0022slug\u0022: \u0022breaking-bad\u0022\r\n    }\r\n  },\r\n  \u0022comment\u0022: \u0022Welcome to Pollos Hermanos.\u0022,\r\n  \u0022spoiler\u0022: false\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -4725,7 +4769,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"season\": {\r\n    \"ids\": {\r\n      \"trakt\": 16\r\n    }\r\n  },\r\n  \"comment\": \"Hello Gus.\",\r\n  \"spoiler\": false\r\n}",
+                  "raw": "{\r\n  \u0022season\u0022: {\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 16\r\n    }\r\n  },\r\n  \u0022comment\u0022: \u0022Hello Gus.\u0022,\r\n  \u0022spoiler\u0022: false\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -4772,7 +4816,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"episode\": {\r\n    \"ids\": {\r\n      \"trakt\": 16\r\n    }\r\n  },\r\n  \"comment\": \"I am the danger!\",\r\n  \"spoiler\": false\r\n}",
+                  "raw": "{\r\n  \u0022episode\u0022: {\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 16\r\n    }\r\n  },\r\n  \u0022comment\u0022: \u0022I am the danger!\u0022,\r\n  \u0022spoiler\u0022: false\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -4819,7 +4863,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"list\": {\r\n    \"ids\": {\r\n      \"trakt\": 16\r\n    }\r\n  },\r\n  \"comment\": \"I want candy.\",\r\n  \"spoiler\": false\r\n}",
+                  "raw": "{\r\n  \u0022list\u0022: {\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 16\r\n    }\r\n  },\r\n  \u0022comment\u0022: \u0022I want candy.\u0022,\r\n  \u0022spoiler\u0022: false\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -4936,7 +4980,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"comment\": \"Agreed, this show is awesome. AMC in general has awesome shows and I can't wait to see what they come up with next.\",\r\n  \"spoiler\": false\r\n}",
+                  "raw": "{\r\n  \u0022comment\u0022: \u0022Agreed, this show is awesome. AMC in general has awesome shows and I can\u0027t wait to see what they come up with next.\u0022,\r\n  \u0022spoiler\u0022: false\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -5111,7 +5155,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"comment\": \"Couldn't agree more with your review!\",\r\n  \"spoiler\": false\r\n}",
+                  "raw": "{\r\n  \u0022comment\u0022: \u0022Couldn\u0027t agree more with your review!\u0022,\r\n  \u0022spoiler\u0022: false\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -6019,7 +6063,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"reaction\": \"like\"\r\n}",
+                  "raw": "{\r\n  \u0022reaction\u0022: \u0022like\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -6125,7 +6169,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "raw": "{\r\n  \u0022reason\u0022: \u0022spam\u0022,\r\n  \u0022message\u0022: \u0022This content is inappropriate or spam.\u0022\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -7955,7 +7999,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "raw": "{\r\n  \u0022reason\u0022: \u0022spam\u0022,\r\n  \u0022message\u0022: \u0022This content is inappropriate or spam.\u0022\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -10461,6 +10505,81 @@
           ]
         },
         {
+          "name": "Awards",
+          "item": [
+            {
+              "name": "Get movie awards (Trakt ID)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/movies/{{TRAKT_MOVIE_ID}}/awards",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "movies",
+                    "{{TRAKT_MOVIE_ID}}",
+                    "awards"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get movie awards (Trakt Slug)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/movies/{{TRAKT_MOVIE_SLUG}}/awards",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "movies",
+                    "{{TRAKT_MOVIE_SLUG}}",
+                    "awards"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
           "name": "Releases",
           "item": [
             {
@@ -12900,7 +13019,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "raw": "{\r\n  \u0022reason\u0022: \u0022spam\u0022,\r\n  \u0022message\u0022: \u0022This content is inappropriate or spam.\u0022\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -13903,6 +14022,81 @@
           ]
         },
         {
+          "name": "Awards",
+          "item": [
+            {
+              "name": "Get person awards (Trakt ID)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/people/{{TRAKT_PERSON_ID}}/awards",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "people",
+                    "{{TRAKT_PERSON_ID}}",
+                    "awards"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get person awards (Trakt Slug)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/people/{{TRAKT_PERSON_SLUG}}/awards",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "people",
+                    "{{TRAKT_PERSON_SLUG}}",
+                    "awards"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
           "name": "Report a person",
           "request": {
             "method": "POST",
@@ -13946,7 +14140,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "raw": "{\r\n  \u0022reason\u0022: \u0022spam\u0022,\r\n  \u0022message\u0022: \u0022This content is inappropriate or spam.\u0022\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -14603,7 +14797,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movie\": {\r\n    \"title\": \"Guardians of the Galaxy\",\r\n    \"year\": 2014,\r\n    \"ids\": {\r\n      \"trakt\": 28,\r\n      \"slug\": \"guardians-of-the-galaxy-2014\",\r\n      \"imdb\": \"tt2015381\",\r\n      \"tmdb\": 118340\r\n    }\r\n  },\r\n  \"progress\": 1.25,\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022movie\u0022: {\r\n    \u0022title\u0022: \u0022Guardians of the Galaxy\u0022,\r\n    \u0022year\u0022: 2014,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 28,\r\n      \u0022slug\u0022: \u0022guardians-of-the-galaxy-2014\u0022,\r\n      \u0022imdb\u0022: \u0022tt2015381\u0022,\r\n      \u0022tmdb\u0022: 118340\r\n    }\r\n  },\r\n  \u0022progress\u0022: 1.25,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -14651,7 +14845,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"episode\": {\r\n    \"ids\": {\r\n      \"trakt\": 16\r\n    }\r\n  },\r\n  \"progress\": 10,\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022episode\u0022: {\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 16\r\n    }\r\n  },\r\n  \u0022progress\u0022: 10,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -14699,7 +14893,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"show\": {\r\n    \"title\": \"Breaking Bad\",\r\n    \"year\": 2008,\r\n    \"ids\": {\r\n      \"trakt\": 1,\r\n      \"tvdb\": 81189\r\n    }\r\n  },\r\n  \"episode\": {\r\n    \"season\": 1,\r\n    \"number\": 1\r\n  },\r\n  \"progress\": 10,\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022show\u0022: {\r\n    \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n    \u0022year\u0022: 2008,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 1,\r\n      \u0022tvdb\u0022: 81189\r\n    }\r\n  },\r\n  \u0022episode\u0022: {\r\n    \u0022season\u0022: 1,\r\n    \u0022number\u0022: 1\r\n  },\r\n  \u0022progress\u0022: 10,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -14747,7 +14941,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"show\": {\r\n    \"title\": \"One Piece\",\r\n    \"year\": 1999,\r\n    \"ids\": {\r\n      \"trakt\": 37696\r\n    }\r\n  },\r\n  \"episode\": {\r\n    \"number_abs\": 164\r\n  },\r\n  \"sharing\": {\r\n    \"twitter\": true,\r\n    \"mastodon\": true,\r\n    \"tumblr\": false\r\n  },\r\n  \"progress\": 10,\r\n  \"app_version\": \"2.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022show\u0022: {\r\n    \u0022title\u0022: \u0022One Piece\u0022,\r\n    \u0022year\u0022: 1999,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 37696\r\n    }\r\n  },\r\n  \u0022episode\u0022: {\r\n    \u0022number_abs\u0022: 164\r\n  },\r\n  \u0022sharing\u0022: {\r\n    \u0022twitter\u0022: true,\r\n    \u0022mastodon\u0022: true,\r\n    \u0022tumblr\u0022: false\r\n  },\r\n  \u0022progress\u0022: 10,\r\n  \u0022app_version\u0022: \u00222.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -14800,7 +14994,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movie\": {\r\n    \"title\": \"Guardians of the Galaxy\",\r\n    \"year\": 2014,\r\n    \"ids\": {\r\n      \"trakt\": 28,\r\n      \"slug\": \"guardians-of-the-galaxy-2014\",\r\n      \"imdb\": \"tt2015381\",\r\n      \"tmdb\": 118340\r\n    }\r\n  },\r\n  \"progress\": 75,\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022movie\u0022: {\r\n    \u0022title\u0022: \u0022Guardians of the Galaxy\u0022,\r\n    \u0022year\u0022: 2014,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 28,\r\n      \u0022slug\u0022: \u0022guardians-of-the-galaxy-2014\u0022,\r\n      \u0022imdb\u0022: \u0022tt2015381\u0022,\r\n      \u0022tmdb\u0022: 118340\r\n    }\r\n  },\r\n  \u0022progress\u0022: 75,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -14848,7 +15042,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"episode\": {\r\n    \"ids\": {\r\n      \"trakt\": 16\r\n    }\r\n  },\r\n  \"progress\": 75,\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022episode\u0022: {\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 16\r\n    }\r\n  },\r\n  \u0022progress\u0022: 75,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -14896,7 +15090,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"show\": {\r\n    \"title\": \"Breaking Bad\",\r\n    \"year\": 2008,\r\n    \"ids\": {\r\n      \"trakt\": 1,\r\n      \"tvdb\": 81189\r\n    }\r\n  },\r\n  \"episode\": {\r\n    \"season\": 1,\r\n    \"number\": 1\r\n  },\r\n  \"progress\": 75,\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022show\u0022: {\r\n    \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n    \u0022year\u0022: 2008,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 1,\r\n      \u0022tvdb\u0022: 81189\r\n    }\r\n  },\r\n  \u0022episode\u0022: {\r\n    \u0022season\u0022: 1,\r\n    \u0022number\u0022: 1\r\n  },\r\n  \u0022progress\u0022: 75,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -14944,7 +15138,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"show\": {\r\n    \"title\": \"One Piece\",\r\n    \"year\": 1999,\r\n    \"ids\": {\r\n      \"trakt\": 37696\r\n    }\r\n  },\r\n  \"episode\": {\r\n    \"number_abs\": 164\r\n  },\r\n  \"sharing\": {\r\n    \"twitter\": true,\r\n    \"mastodon\": true,\r\n    \"tumblr\": false\r\n  },\r\n  \"progress\": 75,\r\n  \"app_version\": \"2.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022show\u0022: {\r\n    \u0022title\u0022: \u0022One Piece\u0022,\r\n    \u0022year\u0022: 1999,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 37696\r\n    }\r\n  },\r\n  \u0022episode\u0022: {\r\n    \u0022number_abs\u0022: 164\r\n  },\r\n  \u0022sharing\u0022: {\r\n    \u0022twitter\u0022: true,\r\n    \u0022mastodon\u0022: true,\r\n    \u0022tumblr\u0022: false\r\n  },\r\n  \u0022progress\u0022: 75,\r\n  \u0022app_version\u0022: \u00222.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -14997,7 +15191,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movie\": {\r\n    \"title\": \"Guardians of the Galaxy\",\r\n    \"year\": 2014,\r\n    \"ids\": {\r\n      \"trakt\": 28,\r\n      \"slug\": \"guardians-of-the-galaxy-2014\",\r\n      \"imdb\": \"tt2015381\",\r\n      \"tmdb\": 118340\r\n    }\r\n  },\r\n  \"progress\": 95,\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022movie\u0022: {\r\n    \u0022title\u0022: \u0022Guardians of the Galaxy\u0022,\r\n    \u0022year\u0022: 2014,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 28,\r\n      \u0022slug\u0022: \u0022guardians-of-the-galaxy-2014\u0022,\r\n      \u0022imdb\u0022: \u0022tt2015381\u0022,\r\n      \u0022tmdb\u0022: 118340\r\n    }\r\n  },\r\n  \u0022progress\u0022: 95,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -15045,7 +15239,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"episode\": {\r\n    \"ids\": {\r\n      \"trakt\": 16\r\n    }\r\n  },\r\n  \"progress\": 95,\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022episode\u0022: {\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 16\r\n    }\r\n  },\r\n  \u0022progress\u0022: 95,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -15093,7 +15287,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"show\": {\r\n    \"title\": \"Breaking Bad\",\r\n    \"year\": 2008,\r\n    \"ids\": {\r\n      \"trakt\": 1,\r\n      \"tvdb\": 81189\r\n    }\r\n  },\r\n  \"episode\": {\r\n    \"season\": 1,\r\n    \"number\": 1\r\n  },\r\n  \"progress\": 95,\r\n  \"app_version\": \"1.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022show\u0022: {\r\n    \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n    \u0022year\u0022: 2008,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 1,\r\n      \u0022tvdb\u0022: 81189\r\n    }\r\n  },\r\n  \u0022episode\u0022: {\r\n    \u0022season\u0022: 1,\r\n    \u0022number\u0022: 1\r\n  },\r\n  \u0022progress\u0022: 95,\r\n  \u0022app_version\u0022: \u00221.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -15141,7 +15335,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"show\": {\r\n    \"title\": \"One Piece\",\r\n    \"year\": 1999,\r\n    \"ids\": {\r\n      \"trakt\": 37696\r\n    }\r\n  },\r\n  \"episode\": {\r\n    \"number_abs\": 164\r\n  },\r\n  \"sharing\": {\r\n    \"twitter\": true,\r\n    \"mastodon\": true,\r\n    \"tumblr\": false\r\n  },\r\n  \"progress\": 95,\r\n  \"app_version\": \"2.0\",\r\n  \"app_date\": \"2023-05-13\"\r\n}",
+                  "raw": "{\r\n  \u0022show\u0022: {\r\n    \u0022title\u0022: \u0022One Piece\u0022,\r\n    \u0022year\u0022: 1999,\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 37696\r\n    }\r\n  },\r\n  \u0022episode\u0022: {\r\n    \u0022number_abs\u0022: 164\r\n  },\r\n  \u0022sharing\u0022: {\r\n    \u0022twitter\u0022: true,\r\n    \u0022mastodon\u0022: true,\r\n    \u0022tumblr\u0022: false\r\n  },\r\n  \u0022progress\u0022: 95,\r\n  \u0022app_version\u0022: \u00222.0\u0022,\r\n  \u0022app_date\u0022: \u00222023-05-13\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -17882,6 +18076,81 @@
                   ""
                 ]
               }
+            }
+          ]
+        },
+        {
+          "name": "Awards",
+          "item": [
+            {
+              "name": "Get show awards (Trakt ID)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/shows/{{TRAKT_SHOW_ID}}/awards",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "shows",
+                    "{{TRAKT_SHOW_ID}}",
+                    "awards"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get show awards (Trakt Slug)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/shows/{{TRAKT_SHOW_SLUG}}/awards",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "shows",
+                    "{{TRAKT_SHOW_SLUG}}",
+                    "awards"
+                  ]
+                }
+              },
+              "response": []
             }
           ]
         },
@@ -21309,7 +21578,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "raw": "{\r\n  \u0022reason\u0022: \u0022spam\u0022,\r\n  \u0022message\u0022: \u0022This content is inappropriate or spam.\u0022\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -21365,7 +21634,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "raw": "{\r\n  \u0022reason\u0022: \u0022spam\u0022,\r\n  \u0022message\u0022: \u0022This content is inappropriate or spam.\u0022\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -21423,7 +21692,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "raw": "{\r\n  \u0022reason\u0022: \u0022spam\u0022,\r\n  \u0022message\u0022: \u0022This content is inappropriate or spam.\u0022\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -21505,7 +21774,7 @@
                     {
                       "key": "translations",
                       "value": "en",
-                      "description": "Included translated episode titles and overviews in the response. Example \"all\" or \"en\"",
+                      "description": "Included translated episode titles and overviews in the response. Example \u0022all\u0022 or \u0022en\u0022",
                       "disabled": true
                     }
                   ]
@@ -21669,7 +21938,7 @@
                     {
                       "key": "translations",
                       "value": "en",
-                      "description": "Include episode translations Example: es. Or \"all\".",
+                      "description": "Include episode translations Example: es. Or \u0022all\u0022.",
                       "disabled": true
                     }
                   ],
@@ -21726,7 +21995,7 @@
                     {
                       "key": "translations",
                       "value": "en",
-                      "description": "Include episode translations Example: es. Or \"all\".",
+                      "description": "Include episode translations Example: es. Or \u0022all\u0022.",
                       "disabled": true
                     }
                   ],
@@ -21783,7 +22052,7 @@
                     {
                       "key": "translations",
                       "value": "en",
-                      "description": "Include episode translations Example: es. Or \"all\".",
+                      "description": "Include episode translations Example: es. Or \u0022all\u0022.",
                       "disabled": true
                     }
                   ],
@@ -23720,7 +23989,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "raw": "{\r\n  \u0022reason\u0022: \u0022spam\u0022,\r\n  \u0022message\u0022: \u0022This content is inappropriate or spam.\u0022\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -26090,7 +26359,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "raw": "{\r\n  \u0022reason\u0022: \u0022spam\u0022,\r\n  \u0022message\u0022: \u0022This content is inappropriate or spam.\u0022\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -26534,7 +26803,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"collected_at\": \"2014-09-01T09:10:11.000Z\",\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      },\r\n      \"media_type\": \"digital\",\r\n      \"resolution\": \"uhd_4k\",\r\n      \"hdr\": \"dolby_vision\",\r\n      \"audio\": \"dts_ma\",\r\n      \"audio_channels\": \"5.1\"\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      }\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"title\": \"Mad Men\",\r\n      \"year\": 2007,\r\n      \"ids\": {\r\n        \"trakt\": 4,\r\n        \"slug\": \"mad-men\",\r\n        \"tvdb\": 80337,\r\n        \"imdb\": \"tt0804503\",\r\n        \"tmdb\": 1104\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1,\r\n          \"episodes\": [\r\n            {\r\n              \"number\": 1,\r\n              \"media_type\": \"bluray\",\r\n              \"resolution\": \"hd_1080p\",\r\n              \"audio\": \"dolby_digital_plus\",\r\n              \"audio_channels\": \"5.1\"\r\n            },\r\n            {\r\n              \"number\": 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 140912,\r\n        \"tvdb\": 703353,\r\n        \"tmdb\": 81266\r\n      }\r\n    }\r\n  ],\r\n  \"episodes\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1061,\r\n        \"tvdb\": 1555111,\r\n        \"imdb\": \"tt007404\",\r\n        \"tmdb\": 422183\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022collected_at\u0022: \u00222014-09-01T09:10:11.000Z\u0022,\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      },\r\n      \u0022media_type\u0022: \u0022digital\u0022,\r\n      \u0022resolution\u0022: \u0022uhd_4k\u0022,\r\n      \u0022hdr\u0022: \u0022dolby_vision\u0022,\r\n      \u0022audio\u0022: \u0022dts_ma\u0022,\r\n      \u0022audio_channels\u0022: \u00225.1\u0022\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      }\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\r\n      \u0022year\u0022: 2010,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\r\n        \u0022tvdb\u0022: 153021,\r\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\r\n        \u0022tmdb\u0022: 1402\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022Mad Men\u0022,\r\n      \u0022year\u0022: 2007,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 4,\r\n        \u0022slug\u0022: \u0022mad-men\u0022,\r\n        \u0022tvdb\u0022: 80337,\r\n        \u0022imdb\u0022: \u0022tt0804503\u0022,\r\n        \u0022tmdb\u0022: 1104\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 1,\r\n          \u0022episodes\u0022: [\r\n            {\r\n              \u0022number\u0022: 1,\r\n              \u0022media_type\u0022: \u0022bluray\u0022,\r\n              \u0022resolution\u0022: \u0022hd_1080p\u0022,\r\n              \u0022audio\u0022: \u0022dolby_digital_plus\u0022,\r\n              \u0022audio_channels\u0022: \u00225.1\u0022\r\n            },\r\n            {\r\n              \u0022number\u0022: 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \u0022seasons\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 140912,\r\n        \u0022tvdb\u0022: 703353,\r\n        \u0022tmdb\u0022: 81266\r\n      }\r\n    }\r\n  ],\r\n  \u0022episodes\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1061,\r\n        \u0022tvdb\u0022: 1555111,\r\n        \u0022imdb\u0022: \u0022tt007404\u0022,\r\n        \u0022tmdb\u0022: 422183\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/collection",
@@ -26587,7 +26856,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      }\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      }\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"title\": \"Mad Men\",\r\n      \"year\": 2007,\r\n      \"ids\": {\r\n        \"trakt\": 4,\r\n        \"slug\": \"mad-men\",\r\n        \"tvdb\": 80337,\r\n        \"imdb\": \"tt0804503\",\r\n        \"tmdb\": 1104\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1,\r\n          \"episodes\": [\r\n            {\r\n              \"number\": 1\r\n            },\r\n            {\r\n              \"number\": 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 140912,\r\n        \"tvdb\": 703353,\r\n        \"tmdb\": 81266\r\n      }\r\n    }\r\n  ],\r\n  \"episodes\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1061,\r\n        \"tvdb\": 1555111,\r\n        \"imdb\": \"tt007404\",\r\n        \"tmdb\": 422183\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      }\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      }\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\r\n      \u0022year\u0022: 2010,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\r\n        \u0022tvdb\u0022: 153021,\r\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\r\n        \u0022tmdb\u0022: 1402\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022Mad Men\u0022,\r\n      \u0022year\u0022: 2007,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 4,\r\n        \u0022slug\u0022: \u0022mad-men\u0022,\r\n        \u0022tvdb\u0022: 80337,\r\n        \u0022imdb\u0022: \u0022tt0804503\u0022,\r\n        \u0022tmdb\u0022: 1104\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 1,\r\n          \u0022episodes\u0022: [\r\n            {\r\n              \u0022number\u0022: 1\r\n            },\r\n            {\r\n              \u0022number\u0022: 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \u0022seasons\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 140912,\r\n        \u0022tvdb\u0022: 703353,\r\n        \u0022tmdb\u0022: 81266\r\n      }\r\n    }\r\n  ],\r\n  \u0022episodes\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1061,\r\n        \u0022tvdb\u0022: 1555111,\r\n        \u0022imdb\u0022: \u0022tt007404\u0022,\r\n        \u0022tmdb\u0022: 422183\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/collection/remove",
@@ -27007,7 +27276,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"watched_at\": \"2014-09-01T09:10:11.000Z\",\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      }\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      }\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"watched_at\": \"2014-09-01T09:10:11.000Z\",\r\n          \"number\": 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"title\": \"Mad Men\",\r\n      \"year\": 2007,\r\n      \"ids\": {\r\n        \"trakt\": 4,\r\n        \"slug\": \"mad-men\",\r\n        \"tvdb\": 80337,\r\n        \"imdb\": \"tt0804503\",\r\n        \"tmdb\": 1104\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1,\r\n          \"episodes\": [\r\n            {\r\n              \"watched_at\": \"2014-09-01T09:10:11.000Z\",\r\n              \"number\": 1\r\n            },\r\n            {\r\n              \"number\": 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"watched_at\": \"2019-01-02T09:10:11.000Z\",\r\n      \"ids\": {\r\n        \"trakt\": 140912,\r\n        \"tvdb\": 703353,\r\n        \"tmdb\": 81266\r\n      }\r\n    }\r\n  ],\r\n  \"episodes\": [\r\n    {\r\n      \"watched_at\": \"2014-09-01T09:10:11.000Z\",\r\n      \"ids\": {\r\n        \"trakt\": 1061,\r\n        \"tvdb\": 1555111,\r\n        \"imdb\": \"tt007404\",\r\n        \"tmdb\": 422183\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022watched_at\u0022: \u00222014-09-01T09:10:11.000Z\u0022,\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      }\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      }\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\r\n      \u0022year\u0022: 2010,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\r\n        \u0022tvdb\u0022: 153021,\r\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\r\n        \u0022tmdb\u0022: 1402\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022watched_at\u0022: \u00222014-09-01T09:10:11.000Z\u0022,\r\n          \u0022number\u0022: 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022Mad Men\u0022,\r\n      \u0022year\u0022: 2007,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 4,\r\n        \u0022slug\u0022: \u0022mad-men\u0022,\r\n        \u0022tvdb\u0022: 80337,\r\n        \u0022imdb\u0022: \u0022tt0804503\u0022,\r\n        \u0022tmdb\u0022: 1104\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 1,\r\n          \u0022episodes\u0022: [\r\n            {\r\n              \u0022watched_at\u0022: \u00222014-09-01T09:10:11.000Z\u0022,\r\n              \u0022number\u0022: 1\r\n            },\r\n            {\r\n              \u0022number\u0022: 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \u0022seasons\u0022: [\r\n    {\r\n      \u0022watched_at\u0022: \u00222019-01-02T09:10:11.000Z\u0022,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 140912,\r\n        \u0022tvdb\u0022: 703353,\r\n        \u0022tmdb\u0022: 81266\r\n      }\r\n    }\r\n  ],\r\n  \u0022episodes\u0022: [\r\n    {\r\n      \u0022watched_at\u0022: \u00222014-09-01T09:10:11.000Z\u0022,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1061,\r\n        \u0022tvdb\u0022: 1555111,\r\n        \u0022imdb\u0022: \u0022tt007404\u0022,\r\n        \u0022tmdb\u0022: 422183\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/history",
@@ -27060,7 +27329,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      }\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      }\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"title\": \"Mad Men\",\r\n      \"year\": 2007,\r\n      \"ids\": {\r\n        \"trakt\": 4,\r\n        \"slug\": \"mad-men\",\r\n        \"tvdb\": 80337,\r\n        \"imdb\": \"tt0804503\",\r\n        \"tmdb\": 1104\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1,\r\n          \"episodes\": [\r\n            {\r\n              \"number\": 1\r\n            },\r\n            {\r\n              \"number\": 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 140912,\r\n        \"tvdb\": 703353,\r\n        \"tmdb\": 81266\r\n      }\r\n    }\r\n  ],\r\n  \"episodes\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1061,\r\n        \"tvdb\": 1555111,\r\n        \"imdb\": \"tt007404\",\r\n        \"tmdb\": 422183\r\n      }\r\n    }\r\n  ],\r\n  \"ids\": [\r\n    4,\r\n    8,\r\n    15,\r\n    16,\r\n    23,\r\n    42\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      }\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      }\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\r\n      \u0022year\u0022: 2010,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\r\n        \u0022tvdb\u0022: 153021,\r\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\r\n        \u0022tmdb\u0022: 1402\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022Mad Men\u0022,\r\n      \u0022year\u0022: 2007,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 4,\r\n        \u0022slug\u0022: \u0022mad-men\u0022,\r\n        \u0022tvdb\u0022: 80337,\r\n        \u0022imdb\u0022: \u0022tt0804503\u0022,\r\n        \u0022tmdb\u0022: 1104\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 1,\r\n          \u0022episodes\u0022: [\r\n            {\r\n              \u0022number\u0022: 1\r\n            },\r\n            {\r\n              \u0022number\u0022: 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \u0022seasons\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 140912,\r\n        \u0022tvdb\u0022: 703353,\r\n        \u0022tmdb\u0022: 81266\r\n      }\r\n    }\r\n  ],\r\n  \u0022episodes\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1061,\r\n        \u0022tvdb\u0022: 1555111,\r\n        \u0022imdb\u0022: \u0022tt007404\u0022,\r\n        \u0022tmdb\u0022: 422183\r\n      }\r\n    }\r\n  ],\r\n  \u0022ids\u0022: [\r\n    4,\r\n    8,\r\n    15,\r\n    16,\r\n    23,\r\n    42\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/history/remove",
@@ -27333,7 +27602,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"rated_at\": \"2014-09-01T09:10:11.000Z\",\r\n      \"rating\": 5,\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      }\r\n    },\r\n    {\r\n      \"rating\": 10,\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"rating\": 10,\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      }\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"rating\": 9,\r\n          \"number\": 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"title\": \"Mad Men\",\r\n      \"year\": 2007,\r\n      \"ids\": {\r\n        \"trakt\": 4,\r\n        \"slug\": \"mad-men\",\r\n        \"tvdb\": 80337,\r\n        \"imdb\": \"tt0804503\",\r\n        \"tmdb\": 1104\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1,\r\n          \"episodes\": [\r\n            {\r\n              \"rating\": 8,\r\n              \"number\": 1\r\n            },\r\n            {\r\n              \"rating\": 8,\r\n              \"number\": 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"rating\": 10,\r\n      \"ids\": {\r\n        \"trakt\": 140912,\r\n        \"tvdb\": 703353,\r\n        \"tmdb\": 81266\r\n      }\r\n    }\r\n  ],\r\n  \"episodes\": [\r\n    {\r\n      \"rating\": 7,\r\n      \"ids\": {\r\n        \"trakt\": 1061,\r\n        \"tvdb\": 1555111,\r\n        \"imdb\": \"tt007404\",\r\n        \"tmdb\": 422183\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022rated_at\u0022: \u00222014-09-01T09:10:11.000Z\u0022,\r\n      \u0022rating\u0022: 5,\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      }\r\n    },\r\n    {\r\n      \u0022rating\u0022: 10,\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022rating\u0022: 10,\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      }\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\r\n      \u0022year\u0022: 2010,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\r\n        \u0022tvdb\u0022: 153021,\r\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\r\n        \u0022tmdb\u0022: 1402\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022rating\u0022: 9,\r\n          \u0022number\u0022: 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022Mad Men\u0022,\r\n      \u0022year\u0022: 2007,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 4,\r\n        \u0022slug\u0022: \u0022mad-men\u0022,\r\n        \u0022tvdb\u0022: 80337,\r\n        \u0022imdb\u0022: \u0022tt0804503\u0022,\r\n        \u0022tmdb\u0022: 1104\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 1,\r\n          \u0022episodes\u0022: [\r\n            {\r\n              \u0022rating\u0022: 8,\r\n              \u0022number\u0022: 1\r\n            },\r\n            {\r\n              \u0022rating\u0022: 8,\r\n              \u0022number\u0022: 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \u0022seasons\u0022: [\r\n    {\r\n      \u0022rating\u0022: 10,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 140912,\r\n        \u0022tvdb\u0022: 703353,\r\n        \u0022tmdb\u0022: 81266\r\n      }\r\n    }\r\n  ],\r\n  \u0022episodes\u0022: [\r\n    {\r\n      \u0022rating\u0022: 7,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1061,\r\n        \u0022tvdb\u0022: 1555111,\r\n        \u0022imdb\u0022: \u0022tt007404\u0022,\r\n        \u0022tmdb\u0022: 422183\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/ratings",
@@ -27386,7 +27655,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      }\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      }\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"title\": \"Mad Men\",\r\n      \"year\": 2007,\r\n      \"ids\": {\r\n        \"trakt\": 4,\r\n        \"slug\": \"mad-men\",\r\n        \"tvdb\": 80337,\r\n        \"imdb\": \"tt0804503\",\r\n        \"tmdb\": 1104\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1,\r\n          \"episodes\": [\r\n            {\r\n              \"number\": 1\r\n            },\r\n            {\r\n              \"number\": 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 140912,\r\n        \"tvdb\": 703353,\r\n        \"tmdb\": 81266\r\n      }\r\n    }\r\n  ],\r\n  \"episodes\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1061,\r\n        \"tvdb\": 1555111,\r\n        \"imdb\": \"tt007404\",\r\n        \"tmdb\": 422183\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      }\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      }\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\r\n      \u0022year\u0022: 2010,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\r\n        \u0022tvdb\u0022: 153021,\r\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\r\n        \u0022tmdb\u0022: 1402\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022Mad Men\u0022,\r\n      \u0022year\u0022: 2007,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 4,\r\n        \u0022slug\u0022: \u0022mad-men\u0022,\r\n        \u0022tvdb\u0022: 80337,\r\n        \u0022imdb\u0022: \u0022tt0804503\u0022,\r\n        \u0022tmdb\u0022: 1104\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 1,\r\n          \u0022episodes\u0022: [\r\n            {\r\n              \u0022number\u0022: 1\r\n            },\r\n            {\r\n              \u0022number\u0022: 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \u0022seasons\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 140912,\r\n        \u0022tvdb\u0022: 703353,\r\n        \u0022tmdb\u0022: 81266\r\n      }\r\n    }\r\n  ],\r\n  \u0022episodes\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1061,\r\n        \u0022tvdb\u0022: 1555111,\r\n        \u0022imdb\u0022: \u0022tt007404\u0022,\r\n        \u0022tmdb\u0022: 422183\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/ratings/remove",
@@ -27659,7 +27928,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"movies\": [\n    {\n      \"title\": \"Batman Begins\",\n      \"year\": 2005,\n      \"ids\": {\n        \"trakt\": 1,\n        \"slug\": \"batman-begins-2005\",\n        \"imdb\": \"tt0372784\",\n        \"tmdb\": 272\n      },\n      \"notes\": \"One of Christian Bale's most iconic roles.\"\n    },\n    {\n      \"ids\": {\n        \"imdb\": \"tt0000111\"\n      }\n    }\n  ],\n  \"shows\": [\n    {\n      \"title\": \"Breaking Bad\",\n      \"year\": 2008,\n      \"ids\": {\n        \"trakt\": 1,\n        \"slug\": \"breaking-bad\",\n        \"tvdb\": 81189,\n        \"imdb\": \"tt0903747\",\n        \"tmdb\": 1396\n      },\n      \"notes\": \"I AM THE DANGER!\"\n    },\n    {\n      \"title\": \"The Walking Dead\",\n      \"year\": 2010,\n      \"ids\": {\n        \"trakt\": 2,\n        \"slug\": \"the-walking-dead\",\n        \"tvdb\": 153021,\n        \"imdb\": \"tt1520211\",\n        \"tmdb\": 1402\n      },\n      \"seasons\": [\n        {\n          \"number\": 3,\n          \"notes\": \"Season 3 is peak Walking Dead.\"\n        }\n      ]\n    },\n    {\n      \"title\": \"Mad Men\",\n      \"year\": 2007,\n      \"ids\": {\n        \"trakt\": 4,\n        \"slug\": \"mad-men\",\n        \"tvdb\": 80337,\n        \"imdb\": \"tt0804503\",\n        \"tmdb\": 1104\n      },\n      \"seasons\": [\n        {\n          \"number\": 1,\n          \"episodes\": [\n            {\n              \"number\": 1,\n              \"notes\": \"Classic pilot episode.\"\n            },\n            {\n              \"number\": 2\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"seasons\": [\n    {\n      \"ids\": {\n        \"trakt\": 140912,\n        \"tvdb\": 703353,\n        \"tmdb\": 81266\n      },\n      \"notes\": \"Top-level season note example.\"\n    }\n  ],\n  \"episodes\": [\n    {\n      \"ids\": {\n        \"trakt\": 1061,\n        \"tvdb\": 1555111,\n        \"imdb\": \"tt007404\",\n        \"tmdb\": 422183\n      }\n    }\n  ]\n}"
+                  "raw": "{\n  \u0022movies\u0022: [\n    {\n      \u0022title\u0022: \u0022Batman Begins\u0022,\n      \u0022year\u0022: 2005,\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 1,\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\n        \u0022tmdb\u0022: 272\n      },\n      \u0022notes\u0022: \u0022One of Christian Bale\u0027s most iconic roles.\u0022\n    },\n    {\n      \u0022ids\u0022: {\n        \u0022imdb\u0022: \u0022tt0000111\u0022\n      }\n    }\n  ],\n  \u0022shows\u0022: [\n    {\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\n      \u0022year\u0022: 2008,\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 1,\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\n        \u0022tvdb\u0022: 81189,\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\n        \u0022tmdb\u0022: 1396\n      },\n      \u0022notes\u0022: \u0022I AM THE DANGER!\u0022\n    },\n    {\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\n      \u0022year\u0022: 2010,\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 2,\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\n        \u0022tvdb\u0022: 153021,\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\n        \u0022tmdb\u0022: 1402\n      },\n      \u0022seasons\u0022: [\n        {\n          \u0022number\u0022: 3,\n          \u0022notes\u0022: \u0022Season 3 is peak Walking Dead.\u0022\n        }\n      ]\n    },\n    {\n      \u0022title\u0022: \u0022Mad Men\u0022,\n      \u0022year\u0022: 2007,\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 4,\n        \u0022slug\u0022: \u0022mad-men\u0022,\n        \u0022tvdb\u0022: 80337,\n        \u0022imdb\u0022: \u0022tt0804503\u0022,\n        \u0022tmdb\u0022: 1104\n      },\n      \u0022seasons\u0022: [\n        {\n          \u0022number\u0022: 1,\n          \u0022episodes\u0022: [\n            {\n              \u0022number\u0022: 1,\n              \u0022notes\u0022: \u0022Classic pilot episode.\u0022\n            },\n            {\n              \u0022number\u0022: 2\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \u0022seasons\u0022: [\n    {\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 140912,\n        \u0022tvdb\u0022: 703353,\n        \u0022tmdb\u0022: 81266\n      },\n      \u0022notes\u0022: \u0022Top-level season note example.\u0022\n    }\n  ],\n  \u0022episodes\u0022: [\n    {\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 1061,\n        \u0022tvdb\u0022: 1555111,\n        \u0022imdb\u0022: \u0022tt007404\u0022,\n        \u0022tmdb\u0022: 422183\n      }\n    }\n  ]\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/watchlist",
@@ -27712,7 +27981,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      }\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      }\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"title\": \"Mad Men\",\r\n      \"year\": 2007,\r\n      \"ids\": {\r\n        \"trakt\": 4,\r\n        \"slug\": \"mad-men\",\r\n        \"tvdb\": 80337,\r\n        \"imdb\": \"tt0804503\",\r\n        \"tmdb\": 1104\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1,\r\n          \"episodes\": [\r\n            {\r\n              \"number\": 1\r\n            },\r\n            {\r\n              \"number\": 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 140912,\r\n        \"tvdb\": 703353,\r\n        \"tmdb\": 81266\r\n      }\r\n    }\r\n  ],\r\n  \"episodes\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1061,\r\n        \"tvdb\": 1555111,\r\n        \"imdb\": \"tt007404\",\r\n        \"tmdb\": 422183\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      }\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      }\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\r\n      \u0022year\u0022: 2010,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\r\n        \u0022tvdb\u0022: 153021,\r\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\r\n        \u0022tmdb\u0022: 1402\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 3\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022Mad Men\u0022,\r\n      \u0022year\u0022: 2007,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 4,\r\n        \u0022slug\u0022: \u0022mad-men\u0022,\r\n        \u0022tvdb\u0022: 80337,\r\n        \u0022imdb\u0022: \u0022tt0804503\u0022,\r\n        \u0022tmdb\u0022: 1104\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 1,\r\n          \u0022episodes\u0022: [\r\n            {\r\n              \u0022number\u0022: 1\r\n            },\r\n            {\r\n              \u0022number\u0022: 2\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \u0022seasons\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 140912,\r\n        \u0022tvdb\u0022: 703353,\r\n        \u0022tmdb\u0022: 81266\r\n      }\r\n    }\r\n  ],\r\n  \u0022episodes\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1061,\r\n        \u0022tvdb\u0022: 1555111,\r\n        \u0022imdb\u0022: \u0022tt007404\u0022,\r\n        \u0022tmdb\u0022: 422183\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/watchlist/remove",
@@ -27766,7 +28035,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"rank\": [\r\n    923,\r\n    324,\r\n    98768,\r\n    456456,\r\n    345,\r\n    12,\r\n    990\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022rank\u0022: [\r\n    923,\r\n    324,\r\n    98768,\r\n    456456,\r\n    345,\r\n    12,\r\n    990\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/watchlist/reorder",
@@ -27820,7 +28089,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"notes\": \"This is a great movie!\"\r\n}"
+                  "raw": "{\r\n  \u0022notes\u0022: \u0022This is a great movie!\u0022\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/watchlist/:list_item_id",
@@ -28100,7 +28369,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      },\r\n      \"notes\": \"One of Chritian Bale's most iconic roles.\"\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      },\r\n      \"notes\": \"I AM THE DANGER!\"\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      },\r\n      \u0022notes\u0022: \u0022One of Chritian Bale\u0027s most iconic roles.\u0022\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      },\r\n      \u0022notes\u0022: \u0022I AM THE DANGER!\u0022\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\r\n      \u0022year\u0022: 2010,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\r\n        \u0022tvdb\u0022: 153021,\r\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\r\n        \u0022tmdb\u0022: 1402\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/recommendations",
@@ -28153,7 +28422,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      }\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      }\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/recommendations/remove",
@@ -28207,7 +28476,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"rank\": [\r\n    923,\r\n    324,\r\n    98768,\r\n    456456,\r\n    345,\r\n    12,\r\n    990\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022rank\u0022: [\r\n    923,\r\n    324,\r\n    98768,\r\n    456456,\r\n    345,\r\n    12,\r\n    990\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/recommendations/reorder",
@@ -28261,7 +28530,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"notes\": \"This is a great movie!\"\r\n}"
+                  "raw": "{\r\n  \u0022notes\u0022: \u0022This is a great movie!\u0022\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/sync/recommendations/:list_item_id",
@@ -28361,7 +28630,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 28\r\n      }\r\n    }\r\n  ]\r\n}",
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 28\r\n      }\r\n    }\r\n  ]\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -28415,7 +28684,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 28\r\n      }\r\n    }\r\n  ]\r\n}",
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 28\r\n      }\r\n    }\r\n  ]\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -29294,7 +29563,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      }\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      }\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 3\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1337\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      }\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      }\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\r\n      \u0022year\u0022: 2010,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\r\n        \u0022tvdb\u0022: 153021,\r\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\r\n        \u0022tmdb\u0022: 1402\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 3\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \u0022seasons\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1337\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/users/hidden/:section",
@@ -29355,7 +29624,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"title\": \"Batman Begins\",\r\n      \"year\": 2005,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"batman-begins-2005\",\r\n        \"imdb\": \"tt0372784\",\r\n        \"tmdb\": 272\r\n      }\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"title\": \"Breaking Bad\",\r\n      \"year\": 2008,\r\n      \"ids\": {\r\n        \"trakt\": 1,\r\n        \"slug\": \"breaking-bad\",\r\n        \"tvdb\": 81189,\r\n        \"imdb\": \"tt0903747\",\r\n        \"tmdb\": 1396\r\n      }\r\n    },\r\n    {\r\n      \"title\": \"The Walking Dead\",\r\n      \"year\": 2010,\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"the-walking-dead\",\r\n        \"tvdb\": 153021,\r\n        \"imdb\": \"tt1520211\",\r\n        \"tmdb\": 1402\r\n      },\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 3\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1337\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Batman Begins\u0022,\r\n      \u0022year\u0022: 2005,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022batman-begins-2005\u0022,\r\n        \u0022imdb\u0022: \u0022tt0372784\u0022,\r\n        \u0022tmdb\u0022: 272\r\n      }\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022title\u0022: \u0022Breaking Bad\u0022,\r\n      \u0022year\u0022: 2008,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1,\r\n        \u0022slug\u0022: \u0022breaking-bad\u0022,\r\n        \u0022tvdb\u0022: 81189,\r\n        \u0022imdb\u0022: \u0022tt0903747\u0022,\r\n        \u0022tmdb\u0022: 1396\r\n      }\r\n    },\r\n    {\r\n      \u0022title\u0022: \u0022The Walking Dead\u0022,\r\n      \u0022year\u0022: 2010,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022the-walking-dead\u0022,\r\n        \u0022tvdb\u0022: 153021,\r\n        \u0022imdb\u0022: \u0022tt1520211\u0022,\r\n        \u0022tmdb\u0022: 1402\r\n      },\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 3\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \u0022seasons\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1337\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/users/hidden/:section/remove",
@@ -30410,7 +30679,7 @@
           "name": "Lists",
           "item": [
             {
-              "name": "Get a user's personal lists (with OAuth)",
+              "name": "Get a user\u0027s personal lists (with OAuth)",
               "request": {
                 "auth": {
                   "type": "bearer",
@@ -30494,7 +30763,7 @@
               "response": []
             },
             {
-              "name": "Get a user's personal lists (without OAuth)",
+              "name": "Get a user\u0027s personal lists (without OAuth)",
               "request": {
                 "auth": {
                   "type": "noauth"
@@ -30603,7 +30872,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"name\": \"Star Wars in machete order\",\r\n  \"description\": \"Next time you want to introduce someone to Star Wars for the first time, watch the films with them in this order: IV, V, II, III, VI.\",\r\n  \"privacy\": \"public\",\r\n  \"display_numbers\": true,\r\n  \"allow_comments\": true,\r\n  \"sort_by\": \"rank\",\r\n  \"sort_how\": \"asc\"\r\n}"
+                  "raw": "{\r\n  \u0022name\u0022: \u0022Star Wars in machete order\u0022,\r\n  \u0022description\u0022: \u0022Next time you want to introduce someone to Star Wars for the first time, watch the films with them in this order: IV, V, II, III, VI.\u0022,\r\n  \u0022privacy\u0022: \u0022public\u0022,\r\n  \u0022display_numbers\u0022: true,\r\n  \u0022allow_comments\u0022: true,\r\n  \u0022sort_by\u0022: \u0022rank\u0022,\r\n  \u0022sort_how\u0022: \u0022asc\u0022\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/users/:id/lists",
@@ -30632,7 +30901,7 @@
           "name": "Reorder Lists",
           "item": [
             {
-              "name": "Reorder a user's lists",
+              "name": "Reorder a user\u0027s lists",
               "request": {
                 "auth": {
                   "type": "bearer",
@@ -30664,7 +30933,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"rank\": [\r\n    823,\r\n    224,\r\n    88768,\r\n    356456,\r\n    245,\r\n    2,\r\n    890\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022rank\u0022: [\r\n    823,\r\n    224,\r\n    88768,\r\n    356456,\r\n    245,\r\n    2,\r\n    890\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/users/:id/lists/reorder",
@@ -30939,7 +31208,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"name\": \"Star Wars in NEW machete order\",\r\n  \"privacy\": \"private\",\r\n  \"display_numbers\": false,\r\n  \"sort_by\": \"rank\",\r\n  \"sort_how\": \"asc\"\r\n}"
+                  "raw": "{\r\n  \u0022name\u0022: \u0022Star Wars in NEW machete order\u0022,\r\n  \u0022privacy\u0022: \u0022private\u0022,\r\n  \u0022display_numbers\u0022: false,\r\n  \u0022sort_by\u0022: \u0022rank\u0022,\r\n  \u0022sort_how\u0022: \u0022asc\u0022\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/users/:id/lists/:list_id",
@@ -30969,7 +31238,7 @@
               "response": []
             },
             {
-              "name": "Delete a user's personal list",
+              "name": "Delete a user\u0027s personal list",
               "request": {
                 "auth": {
                   "type": "bearer",
@@ -31662,7 +31931,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"movies\": [\n    {\n      \"ids\": {\n        \"trakt\": 1\n      },\n      \"notes\": \"Amazing movie!\"\n    },\n    {\n      \"ids\": {\n        \"imdb\": \"tt0000111\"\n      }\n    }\n  ],\n  \"shows\": [\n    {\n      \"ids\": {\n        \"trakt\": 1\n      }\n    },\n    {\n      \"ids\": {\n        \"trakt\": 2\n      },\n      \"seasons\": [\n        {\n          \"number\": 1,\n          \"notes\": \"Best season of this show.\"\n        }\n      ]\n    },\n    {\n      \"ids\": {\n        \"trakt\": 4\n      },\n      \"seasons\": [\n        {\n          \"number\": 1,\n          \"notes\": \"Golden era.\",\n          \"episodes\": [\n            {\n              \"number\": 1,\n              \"notes\": \"Pilot episode.\"\n            },\n            {\n              \"number\": 2\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"seasons\": [\n    {\n      \"ids\": {\n        \"trakt\": 140912,\n        \"tvdb\": 703353,\n        \"tmdb\": 81266\n      },\n      \"notes\": \"Season level note.\"\n    }\n  ],\n  \"episodes\": [\n    {\n      \"ids\": {\n        \"trakt\": 1061,\n        \"tvdb\": 1555111,\n        \"imdb\": \"tt007404\",\n        \"tmdb\": 422183\n      }\n    }\n  ],\n  \"people\": [\n    {\n      \"name\": \"Jeff Bridges\",\n      \"ids\": {\n        \"trakt\": 2,\n        \"slug\": \"jeff-bridges\",\n        \"imdb\": \"nm0000313\",\n        \"tmdb\": 1229\n      }\n    }\n  ]\n}"
+                  "raw": "{\n  \u0022movies\u0022: [\n    {\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 1\n      },\n      \u0022notes\u0022: \u0022Amazing movie!\u0022\n    },\n    {\n      \u0022ids\u0022: {\n        \u0022imdb\u0022: \u0022tt0000111\u0022\n      }\n    }\n  ],\n  \u0022shows\u0022: [\n    {\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 1\n      }\n    },\n    {\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 2\n      },\n      \u0022seasons\u0022: [\n        {\n          \u0022number\u0022: 1,\n          \u0022notes\u0022: \u0022Best season of this show.\u0022\n        }\n      ]\n    },\n    {\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 4\n      },\n      \u0022seasons\u0022: [\n        {\n          \u0022number\u0022: 1,\n          \u0022notes\u0022: \u0022Golden era.\u0022,\n          \u0022episodes\u0022: [\n            {\n              \u0022number\u0022: 1,\n              \u0022notes\u0022: \u0022Pilot episode.\u0022\n            },\n            {\n              \u0022number\u0022: 2\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \u0022seasons\u0022: [\n    {\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 140912,\n        \u0022tvdb\u0022: 703353,\n        \u0022tmdb\u0022: 81266\n      },\n      \u0022notes\u0022: \u0022Season level note.\u0022\n    }\n  ],\n  \u0022episodes\u0022: [\n    {\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 1061,\n        \u0022tvdb\u0022: 1555111,\n        \u0022imdb\u0022: \u0022tt007404\u0022,\n        \u0022tmdb\u0022: 422183\n      }\n    }\n  ],\n  \u0022people\u0022: [\n    {\n      \u0022name\u0022: \u0022Jeff Bridges\u0022,\n      \u0022ids\u0022: {\n        \u0022trakt\u0022: 2,\n        \u0022slug\u0022: \u0022jeff-bridges\u0022,\n        \u0022imdb\u0022: \u0022nm0000313\u0022,\n        \u0022tmdb\u0022: 1229\n      }\n    }\n  ]\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/users/:id/lists/:list_id/items",
@@ -31730,7 +31999,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"movies\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1\r\n      }\r\n    },\r\n    {\r\n      \"ids\": {\r\n        \"imdb\": \"tt0000111\"\r\n      }\r\n    }\r\n  ],\r\n  \"shows\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1\r\n      }\r\n    },\r\n    {\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1\r\n        }\r\n      ],\r\n      \"ids\": {\r\n        \"trakt\": 1\r\n      }\r\n    },\r\n    {\r\n      \"seasons\": [\r\n        {\r\n          \"number\": 1,\r\n          \"episodes\": [\r\n            {\r\n              \"number\": 1\r\n            },\r\n            {\r\n              \"number\": 2\r\n            }\r\n          ]\r\n        }\r\n      ],\r\n      \"ids\": {\r\n        \"trakt\": 1\r\n      }\r\n    }\r\n  ],\r\n  \"seasons\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 140912,\r\n        \"tvdb\": 703353,\r\n        \"tmdb\": 81266\r\n      }\r\n    }\r\n  ],\r\n  \"episodes\": [\r\n    {\r\n      \"ids\": {\r\n        \"trakt\": 1061,\r\n        \"tvdb\": 1555111,\r\n        \"imdb\": \"tt007404\",\r\n        \"tmdb\": 422183\r\n      }\r\n    }\r\n  ],\r\n  \"people\": [\r\n    {\r\n      \"name\": \"Jeff Bridges\",\r\n      \"ids\": {\r\n        \"trakt\": 2,\r\n        \"slug\": \"jeff-bridges\",\r\n        \"imdb\": \"nm0000313\",\r\n        \"tmdb\": 1229\r\n      }\r\n    }\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022movies\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1\r\n      }\r\n    },\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022imdb\u0022: \u0022tt0000111\u0022\r\n      }\r\n    }\r\n  ],\r\n  \u0022shows\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1\r\n      }\r\n    },\r\n    {\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 1\r\n        }\r\n      ],\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1\r\n      }\r\n    },\r\n    {\r\n      \u0022seasons\u0022: [\r\n        {\r\n          \u0022number\u0022: 1,\r\n          \u0022episodes\u0022: [\r\n            {\r\n              \u0022number\u0022: 1\r\n            },\r\n            {\r\n              \u0022number\u0022: 2\r\n            }\r\n          ]\r\n        }\r\n      ],\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1\r\n      }\r\n    }\r\n  ],\r\n  \u0022seasons\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 140912,\r\n        \u0022tvdb\u0022: 703353,\r\n        \u0022tmdb\u0022: 81266\r\n      }\r\n    }\r\n  ],\r\n  \u0022episodes\u0022: [\r\n    {\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 1061,\r\n        \u0022tvdb\u0022: 1555111,\r\n        \u0022imdb\u0022: \u0022tt007404\u0022,\r\n        \u0022tmdb\u0022: 422183\r\n      }\r\n    }\r\n  ],\r\n  \u0022people\u0022: [\r\n    {\r\n      \u0022name\u0022: \u0022Jeff Bridges\u0022,\r\n      \u0022ids\u0022: {\r\n        \u0022trakt\u0022: 2,\r\n        \u0022slug\u0022: \u0022jeff-bridges\u0022,\r\n        \u0022imdb\u0022: \u0022nm0000313\u0022,\r\n        \u0022tmdb\u0022: 1229\r\n      }\r\n    }\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/users/:id/lists/:list_id/items/remove",
@@ -31799,7 +32068,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"rank\": [\r\n    923,\r\n    324,\r\n    98768,\r\n    456456,\r\n    345,\r\n    12,\r\n    990\r\n  ]\r\n}"
+                  "raw": "{\r\n  \u0022rank\u0022: [\r\n    923,\r\n    324,\r\n    98768,\r\n    456456,\r\n    345,\r\n    12,\r\n    990\r\n  ]\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/users/:id/lists/:list_id/items/reorder",
@@ -31868,7 +32137,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"notes\": \"This is a great movie!\"\r\n}"
+                  "raw": "{\r\n  \u0022notes\u0022: \u0022This is a great movie!\u0022\r\n}"
                 },
                 "url": {
                   "raw": "{{API_URL}}/users/:id/lists/:list_id/items/:list_item_id",
@@ -34863,7 +35132,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"toggles\": {\r\n    \"history\": true\r\n  }\r\n}",
+                  "raw": "{\r\n  \u0022toggles\u0022: {\r\n    \u0022history\u0022: true\r\n  }\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -35368,7 +35637,7 @@
                     {
                       "key": "slurm",
                       "value": "",
-                      "description": "A user's VIP feed token. Stands in for the viewer when the request has no Authorization header.",
+                      "description": "A user\u0027s VIP feed token. Stands in for the viewer when the request has no Authorization header.",
                       "disabled": true
                     },
                     {
@@ -35416,7 +35685,7 @@
                     {
                       "key": "slurm",
                       "value": "",
-                      "description": "A user's VIP feed token. Stands in for the viewer when the request has no Authorization header.",
+                      "description": "A user\u0027s VIP feed token. Stands in for the viewer when the request has no Authorization header.",
                       "disabled": true
                     },
                     {
@@ -35465,7 +35734,7 @@
                     {
                       "key": "slurm",
                       "value": "",
-                      "description": "A user's VIP feed token. Stands in for the viewer when the request has no Authorization header.",
+                      "description": "A user\u0027s VIP feed token. Stands in for the viewer when the request has no Authorization header.",
                       "disabled": true
                     },
                     {
@@ -35513,7 +35782,7 @@
                     {
                       "key": "slurm",
                       "value": "",
-                      "description": "A user's VIP feed token. Stands in for the viewer when the request has no Authorization header.",
+                      "description": "A user\u0027s VIP feed token. Stands in for the viewer when the request has no Authorization header.",
                       "disabled": true
                     },
                     {
@@ -35676,7 +35945,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"reason\": \"spam\",\r\n  \"message\": \"This content is inappropriate or spam.\"\r\n}",
+              "raw": "{\r\n  \u0022reason\u0022: \u0022spam\u0022,\r\n  \u0022message\u0022: \u0022This content is inappropriate or spam.\u0022\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -35732,7 +36001,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"user\": {\r\n    \"avatar\": \"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...\"\r\n  }\r\n}",
+                  "raw": "{\r\n  \u0022user\u0022: {\r\n    \u0022avatar\u0022: \u0022data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ...\u0022\r\n  }\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -35846,7 +36115,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"note\": \"Great movie!\",\r\n  \"privacy\": \"public\",\r\n  \"movie\": {\r\n    \"ids\": {\r\n      \"trakt\": 28\r\n    }\r\n  }\r\n}",
+                  "raw": "{\r\n  \u0022note\u0022: \u0022Great movie!\u0022,\r\n  \u0022privacy\u0022: \u0022public\u0022,\r\n  \u0022movie\u0022: {\r\n    \u0022ids\u0022: {\r\n      \u0022trakt\u0022: 28\r\n    }\r\n  }\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -35941,7 +36210,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"note\": \"Updated note content.\",\r\n  \"privacy\": \"public\"\r\n}",
+                  "raw": "{\r\n  \u0022note\u0022: \u0022Updated note content.\u0022,\r\n  \u0022privacy\u0022: \u0022public\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -36285,7 +36554,7 @@
           "name": "User Smart Lists",
           "item": [
             {
-              "name": "Get a user's smart lists",
+              "name": "Get a user\u0027s smart lists",
               "request": {
                 "method": "GET",
                 "header": [
@@ -36356,7 +36625,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"name\": \"My Smart List\",\r\n  \"source\": \"trending\",\r\n  \"media_type\": \"movies\",\r\n  \"privacy\": \"private\"\r\n}",
+                  "raw": "{\r\n  \u0022name\u0022: \u0022My Smart List\u0022,\r\n  \u0022source\u0022: \u0022trending\u0022,\r\n  \u0022media_type\u0022: \u0022movies\u0022,\r\n  \u0022privacy\u0022: \u0022private\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -36455,7 +36724,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"name\": \"Updated Smart List Name\"\r\n}",
+                  "raw": "{\r\n  \u0022name\u0022: \u0022Updated Smart List Name\u0022\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -36481,7 +36750,7 @@
           "name": "Delete Smart List",
           "item": [
             {
-              "name": "Delete a user's smart list",
+              "name": "Delete a user\u0027s smart list",
               "request": {
                 "method": "DELETE",
                 "header": [
@@ -36746,7 +37015,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"service\": \"netflix\",\n  \"return_url\": \"https://trakt.tv/younify\"\n}",
+                  "raw": "{\n  \u0022service\u0022: \u0022netflix\u0022,\n  \u0022return_url\u0022: \u0022https://trakt.tv/younify\u0022\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -36808,7 +37077,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"skip_sync\": false\n}",
+                  "raw": "{\n  \u0022skip_sync\u0022: false\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -36862,7 +37131,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"service\": \"netflix\",\n  \"skip_sync\": false\n}",
+                  "raw": "{\n  \u0022service\u0022: \u0022netflix\u0022,\n  \u0022skip_sync\u0022: false\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -36931,7 +37200,7 @@
                 },
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"skip_sync\": false\n}",
+                  "raw": "{\n  \u0022skip_sync\u0022: false\n}",
                   "options": {
                     "raw": {
                       "language": "json"

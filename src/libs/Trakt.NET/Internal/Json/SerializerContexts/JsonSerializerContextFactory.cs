@@ -27,6 +27,7 @@ namespace TraktNET
             throw new NotSupportedException($"Json type {jsonObjectType.FullName} has no registered json serializer context.");
         }
 
+        private const string AwardsContextCacheKey = "awards";
         private const string AuthenticationContextCacheKey = "authentication";
         private const string CalendarsContextCacheKey = "calendars";
         private const string CertificationsContextCacheKey = "certifications";
@@ -68,6 +69,7 @@ namespace TraktNET
 #if NET8_0_OR_GREATER
         private static readonly FrozenDictionary<string, JsonSerializerContext> s_jsonSerializerContexts = FrozenDictionary.ToFrozenDictionary(new[]
         {
+            new KeyValuePair<string, JsonSerializerContext>(AwardsContextCacheKey, new AwardsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(AuthenticationContextCacheKey, new AuthenticationJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(CalendarsContextCacheKey, new CalendarsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(CertificationsContextCacheKey, new CertificationsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
@@ -101,6 +103,15 @@ namespace TraktNET
             new KeyValuePair<string, JsonSerializerContext>(WatchnowContextCacheKey, new WatchnowJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions))),
             new KeyValuePair<string, JsonSerializerContext>(YounifyContextCacheKey, new YounifyJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)))
         }, StringComparer.OrdinalIgnoreCase);
+
+        private static readonly FrozenSet<Type> s_awardsJsonTypes = FrozenSet.ToFrozenSet(new[]
+        {
+            typeof(TraktAward),
+            typeof(TraktAwardCeremony),
+            typeof(TraktPersonAward),
+            typeof(TraktTitleAward),
+            typeof(TraktUpcomingCeremony)
+        });
 
         private static readonly FrozenSet<Type> s_authenticationJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
@@ -685,6 +696,7 @@ namespace TraktNET
 #else
         private static readonly Dictionary<string, JsonSerializerContext> s_jsonSerializerContexts = new()
         {
+            { AwardsContextCacheKey, new AwardsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { AuthenticationContextCacheKey, new AuthenticationJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { CalendarsContextCacheKey, new CalendarsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { CertificationsContextCacheKey, new CertificationsJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
@@ -718,6 +730,14 @@ namespace TraktNET
             { WatchnowContextCacheKey, new WatchnowJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) },
             { YounifyContextCacheKey, new YounifyJsonSerializerContext(new JsonSerializerOptions(Constants.Json.JsonOptions)) }
         };
+
+        private static readonly HashSet<Type> s_awardsJsonTypes = [
+            typeof(TraktAward),
+            typeof(TraktAwardCeremony),
+            typeof(TraktPersonAward),
+            typeof(TraktTitleAward),
+            typeof(TraktUpcomingCeremony)
+        ];
 
         private static readonly HashSet<Type> s_authenticationJsonTypes = [
             typeof(TraktAuthorization),
@@ -1271,6 +1291,7 @@ namespace TraktNET
         // Order matters: a type registered in multiple sets resolves to the first matching context.
         private static readonly (IReadOnlySet<Type> JsonTypes, string ContextCacheKey)[] s_contextLookup =
         [
+            (s_awardsJsonTypes, AwardsContextCacheKey),
             (s_authenticationJsonTypes, AuthenticationContextCacheKey),
             (s_calendarssJsonTypes, CalendarsContextCacheKey),
             (s_certificationsJsonTypes, CertificationsContextCacheKey),

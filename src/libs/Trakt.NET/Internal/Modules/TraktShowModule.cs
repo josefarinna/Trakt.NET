@@ -141,6 +141,16 @@ namespace TraktNET
             return RequestHandler.ExecuteListRequestAsync<TraktStudio>(_context, request, cancellationToken);
         }
 
+        private Task<TraktListResponse<TraktTitleAward>> GetShowAwardsImplAsync(string showIDOrSlug, CancellationToken cancellationToken = default)
+        {
+            var request = new ShowAwardsGetRequest
+            {
+                Id = showIDOrSlug
+            };
+
+            return RequestHandler.ExecuteListRequestAsync<TraktTitleAward>(_context, request, cancellationToken);
+        }
+
         private Task<TraktListResponse<TraktUser>> GetShowWatchingUsersImplAsync(string showIDOrSlug, TraktExtendedInfo? extendedInfo = null,
             CancellationToken cancellationToken = default)
         {

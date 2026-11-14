@@ -82,6 +82,16 @@ namespace TraktNET
             cancellationToken);
         }
 
+        private Task<TraktListResponse<TraktPersonAward>> GetPersonAwardsImplAsync(string personIdOrSlug, CancellationToken cancellationToken = default)
+        {
+            var request = new PersonAwardsGetRequest
+            {
+                Id = personIdOrSlug
+            };
+
+            return RequestHandler.ExecuteListRequestAsync<TraktPersonAward>(_context, request, cancellationToken);
+        }
+
         private Task<TraktResponse> ReportPersonImplAsync(string personIdOrSlug, TraktReason reason, string? message = null, CancellationToken cancellationToken = default)
         {
             var content = new TraktReportPost

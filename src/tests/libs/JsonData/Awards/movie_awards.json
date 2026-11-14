@@ -1,0 +1,40 @@
+[
+  {
+    "award": {
+      "slug": "best-motion-picture-of-the-year",
+      "name": "Best Motion Picture of the Year"
+    },
+    "ceremony": {
+      "slug": "oscars",
+      "name": "Academy Awards (Oscars)",
+      "edition": 97,
+      "nominations_at": "2025-01-23",
+      "held_at": "2025-03-02"
+    },
+    "year": 2025,
+    "won": true,
+    "person": {
+      "name": "Christopher Nolan",
+      "ids": {
+        "trakt": 1,
+        "slug": "christopher-nolan"
+      }
+    }
+  },
+  {
+    "award": {
+      "slug": "best-achievement-in-directing",
+      "name": "Best Achievement in Directing"
+    },
+    "ceremony": {
+      "slug": "oscars",
+      "name": "Academy Awards (Oscars)",
+      "edition": 97,
+      "nominations_at": "2025-01-23",
+      "held_at": "2025-03-02"
+    },
+    "year": 2025,
+    "won": false,
+    "person": null
+  }
+]
