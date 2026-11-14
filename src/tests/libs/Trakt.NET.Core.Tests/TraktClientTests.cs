@@ -113,6 +113,7 @@ namespace TraktNET
             var client = new TraktClient(TestConstants.ClientID, TestConstants.ClientSecret);
 
             client.Auth.ShouldNotBeNull();
+            client.Awards.ShouldNotBeNull();
             client.Calendar.ShouldNotBeNull();
             client.Certifications.ShouldNotBeNull();
             client.Checkins.ShouldNotBeNull();
@@ -141,4 +142,3 @@ namespace TraktNET
         }
     }
 }
-

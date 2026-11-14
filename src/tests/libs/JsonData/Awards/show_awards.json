@@ -1,0 +1,46 @@
+[
+  {
+    "award": {
+      "slug": "outstanding-drama-series",
+      "name": "Outstanding Drama Series"
+    },
+    "ceremony": {
+      "slug": "emmys",
+      "name": "Primetime Emmy Awards",
+      "edition": 76,
+      "nominations_at": "2024-07-17",
+      "held_at": "2024-09-15"
+    },
+    "year": 2024,
+    "won": true,
+    "person": {
+      "name": "Jesse Armstrong",
+      "ids": {
+        "trakt": 2,
+        "slug": "jesse-armstrong"
+      }
+    }
+  },
+  {
+    "award": {
+      "slug": "outstanding-lead-actor-in-a-drama-series",
+      "name": "Outstanding Lead Actor in a Drama Series"
+    },
+    "ceremony": {
+      "slug": "emmys",
+      "name": "Primetime Emmy Awards",
+      "edition": 76,
+      "nominations_at": "2024-07-17",
+      "held_at": "2024-09-15"
+    },
+    "year": 2024,
+    "won": true,
+    "person": {
+      "name": "Kieran Culkin",
+      "ids": {
+        "trakt": 3,
+        "slug": "kieran-culkin"
+      }
+    }
+  }
+]

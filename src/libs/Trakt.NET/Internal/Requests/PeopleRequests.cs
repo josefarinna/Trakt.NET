@@ -22,6 +22,12 @@ namespace TraktNET
         internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Person;
     }
 
+    [TraktGetRequest("people/{id!!}/awards")]
+    internal sealed partial class PersonAwardsGetRequest
+    {
+        internal override TraktRequestObjectType RequestObjectType => TraktRequestObjectType.Person;
+    }
+
     [TraktGetRequest("people/{id!!}/movies", SupportsExtendedInfo = true)]
     internal sealed partial class PersonMovieCreditsGetRequest
     {
