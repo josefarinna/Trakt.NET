@@ -6,6 +6,12 @@ namespace TraktNET
     /// </summary>
     public sealed partial class TraktAwardsModule(TraktContext context) : BaseModule(context)
     {
+        private Task<TraktListResponse<TraktAwardCatalogCeremony>> GetAwardCatalogImplAsync(CancellationToken cancellationToken = default)
+        {
+            var request = new AwardsCatalogGetRequest();
+            return RequestHandler.ExecuteListRequestAsync<TraktAwardCatalogCeremony>(_context, request, cancellationToken);
+        }
+
         private Task<TraktListResponse<TraktUpcomingCeremony>> GetCeremoniesImplAsync(CancellationToken cancellationToken = default)
         {
             var request = new AwardsCeremoniesGetRequest();

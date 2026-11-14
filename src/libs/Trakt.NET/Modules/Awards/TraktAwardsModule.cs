@@ -6,6 +6,44 @@ namespace TraktNET
     /// </summary>
     public sealed partial class TraktAwardsModule
     {
+        /// <summary>Gets the award catalog containing all awards grouped by ceremony.</summary>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the award catalog ceremonies.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktAwardCatalogCeremony" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getawardscatalog">
+        /// Trakt API Documentation: Awards: Catalog - Get the award catalog
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        public Task<TraktListResponse<TraktAwardCatalogCeremony>> GetAwardCatalogAsync(CancellationToken cancellationToken = default)
+            => GetAwardCatalogImplAsync(cancellationToken);
+
+        /// <summary>Gets the award catalog containing all awards grouped by ceremony.</summary>
+        /// <param name="cancellationToken">
+        /// Propagates notification that the request should be canceled.
+        /// <para>If provided, the exception <see cref="OperationCanceledException" /> should be catched.</para>
+        /// </param>
+        /// <returns>
+        /// A list response of type <see cref="TraktListResponse{TResponseContentType}" /> containing the award catalog ceremonies.
+        /// <para>See also <seealso cref="TraktListResponse{TResponseContentType}" /> and <seealso cref="TraktAwardCatalogCeremony" />.</para>
+        /// </returns>
+        /// <remarks>
+        /// OAuth authorization is not required.
+        /// <para><see href="https://docs.trakt.tv/reference/getawardscatalog">
+        /// Trakt API Documentation: Awards: Catalog - Get the award catalog
+        /// </see></para>
+        /// </remarks>
+        /// <exception cref="TraktApiException">Thrown if the request fails.</exception>
+        public Task<TraktListResponse<TraktAwardCatalogCeremony>> GetCatalogAsync(CancellationToken cancellationToken = default)
+            => GetAwardCatalogAsync(cancellationToken);
+
         /// <summary>Gets upcoming award ceremonies that are currently open for voting or have scheduled dates.</summary>
         /// <param name="cancellationToken">
         /// Propagates notification that the request should be canceled.

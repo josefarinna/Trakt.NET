@@ -1,0 +1,20 @@
+{
+  "slug": "golden-globes",
+  "name": "Golden Globe Awards",
+  "media_types": [
+    "movie",
+    "show"
+  ],
+  "awards": [
+    {
+      "slug": "golden-globes-best-picture",
+      "name": "Best Picture",
+      "kind": "title"
+    },
+    {
+      "slug": "golden-globes-best-actor-drama",
+      "name": "Best Actor",
+      "kind": "person"
+    }
+  ]
+}

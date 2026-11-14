@@ -446,6 +446,44 @@
       "name": "Awards",
       "item": [
         {
+          "name": "Catalog",
+          "item": [
+            {
+              "name": "Get award catalog",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-version",
+                    "value": "{{API_VERSION}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "trakt-api-key",
+                    "value": "{{CLIENT_ID}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{API_URL}}/awards",
+                  "host": [
+                    "{{API_URL}}"
+                  ],
+                  "path": [
+                    "awards"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
           "name": "Ceremonies",
           "item": [
             {
