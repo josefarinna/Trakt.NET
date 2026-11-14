@@ -158,15 +158,8 @@ namespace TraktNET.ShowsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowAwardsUri, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowAwardsAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktTitleAward>>> act = () => client.Shows.GetShowAwardsAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Theory]
@@ -199,15 +192,8 @@ namespace TraktNET.ShowsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowAwardsUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowAwardsAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktTitleAward>>> act = () => client.Shows.GetShowAwardsAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Theory]
@@ -240,15 +226,8 @@ namespace TraktNET.ShowsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetShowAwardsUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Shows.GetShowAwardsAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktTitleAward>>> act = () => client.Shows.GetShowAwardsAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]

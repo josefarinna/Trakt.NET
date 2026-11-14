@@ -159,15 +159,8 @@ namespace TraktNET.MoviesModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetMovieAwardsUri, statusCode);
 
-            try
-            {
-                await client.Movies.GetMovieAwardsAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktTitleAward>>> act = () => client.Movies.GetMovieAwardsAsync(TestConstants.Movies.TraktMovieID, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Theory]
@@ -200,15 +193,8 @@ namespace TraktNET.MoviesModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetMovieAwardsUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Movies.GetMovieAwardsAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktTitleAward>>> act = () => client.Movies.GetMovieAwardsAsync(TestConstants.Movies.MovieSlug, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Theory]
@@ -241,15 +227,8 @@ namespace TraktNET.MoviesModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetMovieAwardsUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Movies.GetMovieAwardsAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktTitleAward>>> act = () => client.Movies.GetMovieAwardsAsync(TestConstants.Movies.MovieIDs, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]

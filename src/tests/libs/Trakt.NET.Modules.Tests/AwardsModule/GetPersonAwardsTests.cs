@@ -124,15 +124,8 @@ namespace TraktNET.AwardsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonAwardsUri, statusCode);
 
-            try
-            {
-                await client.Awards.GetPersonAwardsAsync(PersonID, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktPersonAward>>> act = () => client.Awards.GetPersonAwardsAsync(PersonID, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Theory]
@@ -165,15 +158,8 @@ namespace TraktNET.AwardsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonAwardsUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Awards.GetPersonAwardsAsync(PersonSlug, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktPersonAward>>> act = () => client.Awards.GetPersonAwardsAsync(PersonSlug, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Theory]
@@ -206,15 +192,8 @@ namespace TraktNET.AwardsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPersonAwardsUriWithSlug, statusCode);
 
-            try
-            {
-                await client.Awards.GetPersonAwardsAsync(PersonIDs, TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktPersonAward>>> act = () => client.Awards.GetPersonAwardsAsync(PersonIDs, TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]

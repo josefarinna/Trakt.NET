@@ -99,15 +99,8 @@ namespace TraktNET.AwardsModule
         {
             TraktClient client = ModuleTestUtility.GetClient(GetCeremoniesUri, statusCode);
 
-            try
-            {
-                await client.Awards.GetCeremoniesAsync(TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktUpcomingCeremony>>> act = () => client.Awards.GetCeremoniesAsync(TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }
 }
