@@ -107,6 +107,8 @@ namespace TraktNET
         private static readonly FrozenSet<Type> s_awardsJsonTypes = FrozenSet.ToFrozenSet(new[]
         {
             typeof(TraktAward),
+            typeof(TraktAwardCatalogAward),
+            typeof(TraktAwardCatalogCeremony),
             typeof(TraktAwardCeremony),
             typeof(TraktPersonAward),
             typeof(TraktTitleAward),
@@ -733,6 +735,8 @@ namespace TraktNET
 
         private static readonly HashSet<Type> s_awardsJsonTypes = [
             typeof(TraktAward),
+            typeof(TraktAwardCatalogAward),
+            typeof(TraktAwardCatalogCeremony),
             typeof(TraktAwardCeremony),
             typeof(TraktPersonAward),
             typeof(TraktTitleAward),
