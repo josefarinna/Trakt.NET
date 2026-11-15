@@ -76,10 +76,11 @@ jobs:
           envFile: './.github/constants.env'  
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6
+        uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
         with:
           dotnet-version: |
             ${{ env.DOTNET_VERSION_CURRENT_STABLE }}
+            ${{ env.DOTNET_10_VERSION_STABLE }}
             ${{ env.DOTNET_9_VERSION_STABLE }}
             ${{ env.DOTNET_8_VERSION_STABLE }}
 
@@ -115,7 +116,7 @@ jobs:
 
       - name: Upload coverage reports to Codecov
         if: ${{ inputs.upload_codecov }}
-        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7
+        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
         with:
           files: ${{ inputs.working_directory }}/coverage.cobertura.xml
           disable_search: true
