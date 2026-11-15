@@ -9,14 +9,16 @@ namespace TraktNET.EpisodesModule
         private const uint EpisodeNr = 1U;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetEpisodeWatchingUsers()
+        [Theory]
+        [InlineData(null, $"shows/{TestConstants.Shows.ShowID}/seasons/1/episodes/1/watching")]
+        [InlineData(ExtendedInfo, $"shows/{TestConstants.Shows.ShowID}/seasons/1/episodes/1/watching?extended=full")]
+        public async Task TestGetEpisodeWatchingUsersWithID(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodewatchingusers.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeWatchingUsersUri, responseContent);
-            
-            TraktListResponse<TraktUser> response = await client.Episodes.GetEpisodeWatchingUsersAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
+
+            TraktListResponse<TraktUser> response = await client.Episodes.GetEpisodeWatchingUsersAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -26,55 +28,13 @@ namespace TraktNET.EpisodesModule
         }
 
         [Fact]
-        public async Task TestGetEpisodeWatchingUsersWithTraktID()
+        public async Task TestGetEpisodeWatchingUsersWithSlug()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodewatchingusers.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeWatchingUsersUri, responseContent);
-
-            TraktListResponse<TraktUser> response = await client.Episodes.GetEpisodeWatchingUsersAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(2);
-        }
-
-        [Fact]
-        public async Task TestGetEpisodeWatchingUsersWithShowIdsTraktID()
-        {
-            var showIds = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.TraktShowID
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodewatchingusers.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(GetEpisodeWatchingUsersUri, responseContent);
-
-            TraktListResponse<TraktUser> response = await client.Episodes.GetEpisodeWatchingUsersAsync(showIds, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(2);
-        }
-
-        [Fact]
-        public async Task TestGetEpisodeWatchingUsersWithShowIdsSlug()
-        {
-            var showIds = new TraktShowIDs
-            {
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodewatchingusers.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/episodes/{EpisodeNr}/watching", responseContent);
 
-            TraktListResponse<TraktUser> response = await client.Episodes.GetEpisodeWatchingUsersAsync(showIds, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktUser> response = await client.Episodes.GetEpisodeWatchingUsersAsync(TestConstants.Shows.ShowSlug, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -84,7 +44,7 @@ namespace TraktNET.EpisodesModule
         }
 
         [Fact]
-        public async Task TestGetEpisodeWatchingUsersWithShowIds()
+        public async Task TestGetEpisodeWatchingUsersWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodewatchingusers.json");
 
@@ -120,58 +80,18 @@ namespace TraktNET.EpisodesModule
             response.Content.Count.ShouldBe(2);
         }
 
-        [Fact]
-        public async Task TestGetEpisodeWatchingUsersWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Episodes\\episodewatchingusers.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetEpisodeWatchingUsersUri}?extended={ExtendedInfo.ToURI()}", responseContent);
-
-            TraktListResponse<TraktUser> response = await client.Episodes.GetEpisodeWatchingUsersAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, ExtendedInfo, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(2);
-        }
-
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiEpisodeNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetEpisodeWatchingUsersThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetEpisodeWatchingUsersWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeWatchingUsersUri, statusCode);
 
-            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Episodes.GetEpisodeWatchingUsersAsync(TestConstants.Shows.ShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktListResponse<TraktUser>>> act = () => client.Episodes.GetEpisodeWatchingUsersAsync(TestConstants.Shows.TraktShowID, SeasonNr, EpisodeNr, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestGetEpisodeWatchingUsersThrowsArgumentExceptions()
+        public async Task TestGetEpisodeWatchingUsersWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetClient(GetEpisodeWatchingUsersUri, HttpStatusCode.OK);
 

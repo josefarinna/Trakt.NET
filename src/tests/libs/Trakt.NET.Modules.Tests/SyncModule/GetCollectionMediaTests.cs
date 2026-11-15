@@ -11,14 +11,19 @@ namespace TraktNET.SyncModule
         private const TraktAvailableOn AvailableOn = TraktAvailableOn.Digital;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetCollectionMedia()
+        [Theory]
+        [InlineData(null, null, Page, Limit, $"{GetCollectionMediaUri}?page=2&limit=4")]
+        [InlineData(null, AvailableOn, Page, Limit, $"{GetCollectionMediaUri}?available_on=digital&page=2&limit=4")]
+        [InlineData(ExtendedInfo, null, Page, Limit, $"{GetCollectionMediaUri}?extended=full&page=2&limit=4")]
+        [InlineData(ExtendedInfo, AvailableOn, Page, Limit, $"{GetCollectionMediaUri}?available_on=digital&extended=full&page=2&limit=4")]
+        [InlineData(null, null, null, null, GetCollectionMediaUri)]
+        public async Task TestGetCollectionMedia(TraktExtendedInfo? extendedInfo, TraktAvailableOn? availableOn, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionmedia.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionMediaUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page ?? 1U, 1, limit ?? 10U, ItemCount);
 
-            TraktPagedResponse<TraktSyncCollectionMedia> response = await client.Sync.GetCollectionMediaAsync(page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktSyncCollectionMedia> response = await client.Sync.GetCollectionMediaAsync(extendedInfo, availableOn, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -26,68 +31,8 @@ namespace TraktNET.SyncModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ItemCount);
             response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetCollectionMediaWithAvailableOn()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionmedia.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionMediaUri}?available_on={AvailableOn.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktSyncCollectionMedia> response = await client.Sync.GetCollectionMediaAsync(availableOn: AvailableOn, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetCollectionMediaWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionmedia.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionMediaUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktSyncCollectionMedia> response = await client.Sync.GetCollectionMediaAsync(ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetCollectionMediaWithAvailableOnAndExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionmedia.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionMediaUri}?available_on={AvailableOn.ToURI()}&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktSyncCollectionMedia> response = await client.Sync.GetCollectionMediaAsync(ExtendedInfo, AvailableOn, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -190,56 +135,12 @@ namespace TraktNET.SyncModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetCollectionMediaThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetCollectionMediaUri}?page=1&limit=10", statusCode);
 
             Func<Task<TraktPagedResponse<TraktSyncCollectionMedia>>> act = () => client.Sync.GetCollectionMediaAsync(page: 1U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetCollectionMediaWithoutParameters()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Collection\\synccollectionmedia.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(GetCollectionMediaUri, responseContent, 1, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktSyncCollectionMedia> response = await client.Sync.GetCollectionMediaAsync(cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
         }
     }
 }

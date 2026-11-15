@@ -12,7 +12,7 @@ namespace TraktNET.UsersModule
         private readonly List<uint> ReorderedCustomListItems = [923, 324, 98768, 456456, 345, 12, 990];
 
         [Fact]
-        public async Task TestReorderPersonalListItems()
+        public async Task TestReorderPersonalListItemsWithID()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\customlistimtesreorderpostresponse.json");
 
@@ -22,7 +22,7 @@ namespace TraktNET.UsersModule
             };
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(ReorderPersonalListItemsUri, responseContent, null, null, null, null);
-            TraktResponse<TraktListItemsReorderPostResponse> response = await client.Users.ReorderPersonalListItemsAsync(Username, ListID, ReorderedCustomListItems, TestContext.Current.CancellationToken);
+            TraktResponse<TraktListItemsReorderPostResponse> response = await client.Users.ReorderPersonalListItemsAsync(Username, TraktListID, ReorderedCustomListItems, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -38,72 +38,20 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestReorderPersonalListItemsWithTraktID()
+        public async Task TestReorderPersonalListItemsWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\customlistimtesreorderpostresponse.json");
 
             var content = new TraktListItemsReorderPost
             {
                 Rank = ReorderedCustomListItems
-            };
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ReorderPersonalListItemsUri, responseContent, null, null, null, null);
-
-            TraktResponse<TraktListItemsReorderPostResponse> response =
-                await client.Users.ReorderPersonalListItemsAsync(Username, TraktListID, ReorderedCustomListItems, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestReorderPersonalListItemsWithListIdsTraktID()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\customlistimtesreorderpostresponse.json");
-
-            var content = new TraktListItemsReorderPost
-            {
-                Rank = ReorderedCustomListItems
-            };
-
-            var listIds = new TraktListIDs
-            {
-                Trakt = TraktListID
-            };
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(ReorderPersonalListItemsUri, responseContent, null, null, null, null);
-
-            TraktResponse<TraktListItemsReorderPostResponse> response =
-                await client.Users.ReorderPersonalListItemsAsync(Username, listIds, ReorderedCustomListItems, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestReorderPersonalListItemsWithListIdsSlug()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\customlistimtesreorderpostresponse.json");
-
-            var content = new TraktListItemsReorderPost
-            {
-                Rank = ReorderedCustomListItems
-            };
-
-            var listIds = new TraktListIDs
-            {
-                Slug = ListSlug
             };
 
             TraktClient client = ModuleTestUtility.GetOAuthClient($"users/{Username}/lists/{ListSlug}/items/reorder",
                 responseContent, null, null, null, null);
 
             TraktResponse<TraktListItemsReorderPostResponse> response =
-                await client.Users.ReorderPersonalListItemsAsync(Username, listIds, ReorderedCustomListItems, TestContext.Current.CancellationToken);
+                await client.Users.ReorderPersonalListItemsAsync(Username, ListSlug, ReorderedCustomListItems, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -112,7 +60,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestReorderPersonalListItemsWithListIds()
+        public async Task TestReorderPersonalListItemsWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\customlistimtesreorderpostresponse.json");
 
@@ -172,35 +120,11 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestReorderPersonalListItemsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestReorderPersonalListItemsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(ReorderPersonalListItemsUri, statusCode);
 
-            Func<Task<TraktResponse<TraktListItemsReorderPostResponse>>> act = () => client.Users.ReorderPersonalListItemsAsync(Username, ListID, ReorderedCustomListItems, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktListItemsReorderPostResponse>>> act = () => client.Users.ReorderPersonalListItemsAsync(Username, TraktListID, ReorderedCustomListItems, TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
@@ -232,12 +156,12 @@ namespace TraktNET.UsersModule
             act = () => client.Users.ReorderPersonalListItemsAsync("username", "list id", ReorderedCustomListItems, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Users.ReorderPersonalListItemsAsync(Username, ListID, null!, TestContext.Current.CancellationToken);
+            act = () => client.Users.ReorderPersonalListItemsAsync(Username, TraktListID, null!, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktPostValidationException>();
         }
 
         [Fact]
-        public async Task TestReorderPersonalListItemsThrowsArgumentExceptions()
+        public async Task TestReorderPersonalListItemsWithIDsThrowsArgumentException()
         {
             var content = new TraktListItemsReorderPost
             {

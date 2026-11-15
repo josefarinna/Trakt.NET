@@ -15,149 +15,39 @@ namespace TraktNET.SyncModule
         private const string EndAtString = "2024-02-01T00:00:00.000Z";
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetWatchedHistory()
+        [Theory]
+        [InlineData(null, null, null, null, null, Page, Limit, null, $"{GetWatchedHistoryUri}?page=2&limit=4")]
+        [InlineData(HistoryItemType, null, null, null, null, Page, Limit, null, $"{GetWatchedHistoryUri}/movies?page=2&limit=4")]
+        [InlineData(TraktSyncItemType.Show, 123U, null, null, null, Page, Limit, null, $"{GetWatchedHistoryUri}/shows/123?page=2&limit=4")]
+        [InlineData(null, null, StartAtString, null, null, Page, Limit, null, $"{GetWatchedHistoryUri}?start_at={StartAtString}&page=2&limit=4")]
+        [InlineData(null, null, null, EndAtString, null, Page, Limit, null, $"{GetWatchedHistoryUri}?end_at={EndAtString}&page=2&limit=4")]
+        [InlineData(null, null, null, null, null, Page, Limit, "batman", $"{GetWatchedHistoryUri}?query=batman&page=2&limit=4")]
+        [InlineData(TraktSyncItemType.Episode, 251U, StartAtString, EndAtString, ExtendedInfo, 2U, 10U, null, $"{GetWatchedHistoryUri}/episodes/251?start_at={StartAtString}&end_at={EndAtString}&extended=full&page=2&limit=10")]
+        public async Task TestGetWatchedHistory(TraktSyncItemType? historyItemType, uint? itemId, string? startAt, string? endAt, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string? query, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedhistory.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedHistoryUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, 10);
 
-            TraktPagedResponse<TraktHistoryItem> response = await client.Sync.GetWatchedHistoryAsync(page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktFilter? filter = query is not null ? new TraktFilter { Query = query } : null;
+
+            TraktPagedResponse<TraktHistoryItem> response = await client.Sync.GetWatchedHistoryAsync(historyItemType, itemId, startAt is not null ? TestUtility.ParseUTCDateTime(startAt) : null, endAt is not null ? TestUtility.ParseUTCDateTime(endAt) : null, filter, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ItemCount);
-            response.Page.ShouldBe(Page);
-            response.Limit.ShouldBe(Limit);
-
+            response.ItemCount.ShouldBe(10U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
+            response.PageCount.ShouldBe(1U);
             var firstItem = response.Content[0];
             firstItem.ID.ShouldBe(1982346U);
             firstItem.Type.ShouldBe(TraktSyncItemType.Movie);
             firstItem.Movie.ShouldNotBeNull();
             firstItem.Movie!.Title.ShouldBe("The Dark Knight");
             firstItem.Action.ShouldBe(TraktHistoryActionType.Scrobble);
-        }
-
-        [Fact]
-        public async Task TestGetWatchedHistoryWithHistoryItemType()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedhistory.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedHistoryUri}/{HistoryItemType.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
-
-            TraktPagedResponse<TraktHistoryItem> response = await client.Sync.GetWatchedHistoryAsync(historyItemType: HistoryItemType, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.Page.ShouldBe(Page);
-            response.Limit.ShouldBe(Limit);
-        }
-
-        [Fact]
-        public async Task TestGetWatchedHistoryWithHistoryItemTypeAndItemId()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedhistory.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedHistoryUri}/shows/123?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
-
-            TraktPagedResponse<TraktHistoryItem> response = await client.Sync.GetWatchedHistoryAsync(historyItemType: TraktSyncItemType.Show, itemId: 123U, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.Page.ShouldBe(Page);
-            response.Limit.ShouldBe(Limit);
-        }
-
-        [Fact]
-        public async Task TestGetWatchedHistoryWithStartAt()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedhistory.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedHistoryUri}?start_at={StartAtString}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
-
-            TraktPagedResponse<TraktHistoryItem> response = await client.Sync.GetWatchedHistoryAsync(startAt: StartAt, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.Page.ShouldBe(Page);
-            response.Limit.ShouldBe(Limit);
-        }
-
-        [Fact]
-        public async Task TestGetWatchedHistoryWithEndAt()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedhistory.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedHistoryUri}?end_at={EndAtString}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
-
-            TraktPagedResponse<TraktHistoryItem> response = await client.Sync.GetWatchedHistoryAsync(endAt: EndAt, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.Page.ShouldBe(Page);
-            response.Limit.ShouldBe(Limit);
-        }
-
-        [Fact]
-        public async Task TestGetWatchedHistoryWithFilter()
-        {
-            var filter = new TraktFilter { Query = "batman" };
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedhistory.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedHistoryUri}?query=batman&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktHistoryItem> response = await client.Sync.GetWatchedHistoryAsync(filter: filter, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetWatchedHistoryComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\History\\syncwatchedhistory.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedHistoryUri}/episodes/251?start_at={StartAtString}&end_at={EndAtString}&extended=full&page=2&limit=10", responseContent, 2, 1, 10, 10);
-
-            TraktPagedResponse<TraktHistoryItem> response = await client.Sync.GetWatchedHistoryAsync(
-                historyItemType: TraktSyncItemType.Episode,
-                itemId: 251U,
-                startAt: StartAt,
-                endAt: EndAt,
-                extendedInfo: ExtendedInfo,
-                page: 2U,
-                limit: 10U,
-                cancellationToken: TestContext.Current.CancellationToken
-            );
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.Page.ShouldBe(2U);
-            response.Limit.ShouldBe(10U);
         }
 
         [Fact]
@@ -318,27 +208,7 @@ namespace TraktNET.SyncModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetWatchedHistoryThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetWatchedHistoryThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetWatchedHistoryUri, statusCode);
 

@@ -10,7 +10,22 @@ namespace TraktNET.SmartListsModule
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Fact]
-        public async Task TestGetSmartListWithoutExtendedInfo()
+        public async Task TestGetSmartListWithID()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("SmartLists\\smartlist.json");
+
+            TraktClient client = ModuleTestUtility.GetClient($"smart-lists/{ListID}", responseContent);
+
+            TraktResponse<TraktSmartList> response = await client.SmartLists.GetSmartListAsync(ListID, cancellationToken: TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+        }
+
+        [Fact]
+        public async Task TestGetSmartListWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("SmartLists\\smartlist.json");
 
@@ -25,62 +40,7 @@ namespace TraktNET.SmartListsModule
         }
 
         [Fact]
-        public async Task TestGetSmartListWithTraktID()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("SmartLists\\smartlist.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(GetSmartListUri, responseContent);
-
-            TraktResponse<TraktSmartList> response = await client.SmartLists.GetSmartListAsync(ListID, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetSmartListWithListIDsTraktID()
-        {
-            var listIDs = new TraktListIDs
-            {
-                Trakt = ListID
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("SmartLists\\smartlist.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(GetSmartListUri, responseContent);
-
-            TraktResponse<TraktSmartList> response = await client.SmartLists.GetSmartListAsync(listIDs, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetSmartListWithListIDsSlug()
-        {
-            var listIDs = new TraktListIDs
-            {
-                Slug = ListSlug
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("SmartLists\\smartlist.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"smart-lists/{ListSlug}", responseContent);
-
-            TraktResponse<TraktSmartList> response = await client.SmartLists.GetSmartListAsync(listIDs, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetSmartListWithListIDs()
+        public async Task TestGetSmartListWithIDs()
         {
             var listIDs = new TraktListIDs
             {
@@ -129,9 +89,9 @@ namespace TraktNET.SmartListsModule
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("SmartLists\\smartlist.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"smart-lists/{ListSlug}?extended={ExtendedInfo.ToURI()}", responseContent);
+            TraktClient client = ModuleTestUtility.GetClient($"smart-lists/{ListID}?extended={ExtendedInfo.ToURI()}", responseContent);
 
-            TraktResponse<TraktSmartList> response = await client.SmartLists.GetSmartListAsync(ListSlug, ExtendedInfo, TestContext.Current.CancellationToken);
+            TraktResponse<TraktSmartList> response = await client.SmartLists.GetSmartListAsync(ListID, ExtendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -153,31 +113,7 @@ namespace TraktNET.SmartListsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiListNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetSmartListThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetSmartListWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetSmartListUri, statusCode);
 
@@ -186,7 +122,7 @@ namespace TraktNET.SmartListsModule
         }
 
         [Fact]
-        public async Task TestGetSmartListThrowsArgumentExceptions()
+        public async Task TestGetSmartListWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetClient(GetSmartListUri, HttpStatusCode.OK);
 

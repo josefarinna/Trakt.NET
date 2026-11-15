@@ -14,14 +14,19 @@ namespace TraktNET.UsersModule
         private const uint Page = 2U;
         private const TraktCommentSortOrder CommentSortOrder = TraktCommentSortOrder.Likes;
 
-        [Fact]
-        public async Task TestGetListComments()
+        [Theory]
+        [InlineData(null, null, null, GetListCommentsUri)]
+        [InlineData(CommentSortOrder, null, null, $"{GetListCommentsUri}/likes")]
+        [InlineData(null, Page, null, $"{GetListCommentsUri}?page=2")]
+        [InlineData(null, null, ListCommentsLimits, $"{GetListCommentsUri}?limit=4")]
+        [InlineData(CommentSortOrder, Page, ListCommentsLimits, $"{GetListCommentsUri}/likes?page=2&limit=4")]
+        public async Task TestGetListCommentsWithID(TraktCommentSortOrder? commentSortOrder, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetListCommentsUri, responseContent, 1, 1, 10, ListCommentsItemCount);
-            
-            TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync(Username, ListID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, ListCommentsItemCount);
+
+            TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync(Username, TraktListID, commentSortOrder, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -29,69 +34,19 @@ namespace TraktNET.UsersModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ListCommentsItemCount);
             response.ItemCount.ShouldBe(ListCommentsItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
         [Fact]
-        public async Task TestGetListCommentsWithTraktID()
+        public async Task TestGetListCommentsWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(GetListCommentsUri, responseContent, 1, 1, 10, ListCommentsItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync(Username, TraktListID, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListCommentsItemCount);
-            response.ItemCount.ShouldBe(ListCommentsItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListCommentsWithListIdsTraktID()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
-
-            var listIds = new TraktListIDs
-            {
-                Trakt = TraktListID
-            };
-
-            TraktClient client = ModuleTestUtility.GetClient(GetListCommentsUri, responseContent, 1, 1, 10, ListCommentsItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync(Username, listIds, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListCommentsItemCount);
-            response.ItemCount.ShouldBe(ListCommentsItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListCommentsWithListIdsSlug()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
-
-            var listIds = new TraktListIDs
-            {
-                Slug = ListSlug
-            };
 
             TraktClient client = ModuleTestUtility.GetClient($"users/{Username}/lists/{ListSlug}/comments", responseContent, 1, 1, 10, ListCommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync(Username, listIds, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync(Username, ListSlug, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -105,7 +60,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetListCommentsWithListIds()
+        public async Task TestGetListCommentsWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
 
@@ -165,7 +120,7 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetListCommentsUri, responseContent, 1, 1, 10, ListCommentsItemCount);
             client.IgnoreOAuthIfOptional = false;
 
-            TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync(Username, ListID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync(Username, TraktListID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -185,7 +140,7 @@ namespace TraktNET.UsersModule
 
             TraktClient client = ModuleTestUtility.GetOAuthClient($"users/me/lists/{ListID}/comments", responseContent, 1, 1, 10, ListCommentsItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync("me", ListID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Users.GetListCommentsAsync("me", TraktListID, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -199,164 +154,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetListCommentsWithSortOrder()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListCommentsUri}/{CommentSortOrder.ToURI()}", responseContent, 1, 1, 10, ListCommentsItemCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, CommentSortOrder, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListCommentsItemCount);
-            response.ItemCount.ShouldBe(ListCommentsItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListCommentsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListCommentsUri}?page={Page}", responseContent, Page, 1, 10, ListCommentsItemCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListCommentsItemCount);
-            response.ItemCount.ShouldBe(ListCommentsItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListCommentsWithSortOrderAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetListCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}",
-                responseContent, Page, 1, 10, ListCommentsItemCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, CommentSortOrder, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListCommentsItemCount);
-            response.ItemCount.ShouldBe(ListCommentsItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListCommentsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetListCommentsUri}?limit={ListCommentsLimits}",
-                responseContent, 1, 1, ListCommentsLimits, ListCommentsItemCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, null, null, ListCommentsLimits, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListCommentsItemCount);
-            response.ItemCount.ShouldBe(ListCommentsItemCount);
-            response.Limit.ShouldBe(ListCommentsLimits);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListCommentsWithSortOrderAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetListCommentsUri}/{CommentSortOrder.ToURI()}?limit={ListCommentsLimits}",
-                responseContent, 1, 1, ListCommentsLimits, ListCommentsItemCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, CommentSortOrder, null, ListCommentsLimits, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListCommentsItemCount);
-            response.ItemCount.ShouldBe(ListCommentsItemCount);
-            response.Limit.ShouldBe(ListCommentsLimits);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListCommentsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetListCommentsUri}?page={Page}&limit={ListCommentsLimits}",
-                responseContent, Page, 1, ListCommentsLimits, ListCommentsItemCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, null, Page, ListCommentsLimits, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListCommentsItemCount);
-            response.ItemCount.ShouldBe(ListCommentsItemCount);
-            response.Limit.ShouldBe(ListCommentsLimits);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListCommentsComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetListCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}&limit={ListCommentsLimits}",
-                responseContent, Page, 1, ListCommentsLimits, ListCommentsItemCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, CommentSortOrder, Page, ListCommentsLimits, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListCommentsItemCount);
-            response.ItemCount.ShouldBe(ListCommentsItemCount);
-            response.Limit.ShouldBe(ListCommentsLimits);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetListCommentsPagingHasPreviousPageAndHasNextPage()
+        public async Task TestGetListCommentsWithIDPagingHasPreviousPageAndHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
 
@@ -365,7 +163,7 @@ namespace TraktNET.UsersModule
                 responseContent, 2, 5, ListCommentsLimits, ListCommentsItemCount);
 
             TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, CommentSortOrder, 2U, ListCommentsLimits, TestContext.Current.CancellationToken);
+                await client.Users.GetListCommentsAsync(Username, TraktListID, CommentSortOrder, 2U, ListCommentsLimits, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -381,7 +179,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetListCommentsPagingOnlyHasPreviousPage()
+        public async Task TestGetListCommentsWithIDPagingOnlyHasPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
 
@@ -390,7 +188,7 @@ namespace TraktNET.UsersModule
                 responseContent, 2, 2, ListCommentsLimits, ListCommentsItemCount);
 
             TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, CommentSortOrder, 2U, ListCommentsLimits, TestContext.Current.CancellationToken);
+                await client.Users.GetListCommentsAsync(Username, TraktListID, CommentSortOrder, 2U, ListCommentsLimits, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -406,7 +204,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetListCommentsPagingOnlyHasNextPage()
+        public async Task TestGetListCommentsWithIDPagingOnlyHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
 
@@ -415,7 +213,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 2, ListCommentsLimits, ListCommentsItemCount);
 
             TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, CommentSortOrder, 1U, ListCommentsLimits, TestContext.Current.CancellationToken);
+                await client.Users.GetListCommentsAsync(Username, TraktListID, CommentSortOrder, 1U, ListCommentsLimits, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -431,7 +229,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetListCommentsPagingNotHasPreviousPageOrHasNextPage()
+        public async Task TestGetListCommentsWithIDPagingNotHasPreviousPageOrHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
 
@@ -440,7 +238,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 1, ListCommentsLimits, ListCommentsItemCount);
 
             TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, CommentSortOrder, 1U, ListCommentsLimits, TestContext.Current.CancellationToken);
+                await client.Users.GetListCommentsAsync(Username, TraktListID, CommentSortOrder, 1U, ListCommentsLimits, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -456,7 +254,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetListCommentsPagingGetPreviousPage()
+        public async Task TestGetListCommentsWithIDPagingGetPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
 
@@ -465,7 +263,7 @@ namespace TraktNET.UsersModule
                 responseContent, 2, 2, ListCommentsLimits, ListCommentsItemCount);
 
             TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, CommentSortOrder, 2U, ListCommentsLimits, TestContext.Current.CancellationToken);
+                await client.Users.GetListCommentsAsync(Username, TraktListID, CommentSortOrder, 2U, ListCommentsLimits, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -499,7 +297,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetListCommentsPagingGetNextPage()
+        public async Task TestGetListCommentsWithIDPagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\listcomments.json");
 
@@ -508,7 +306,7 @@ namespace TraktNET.UsersModule
                 responseContent, 1, 2, ListCommentsLimits, ListCommentsItemCount);
 
             TraktPagedResponse<TraktComment> response =
-                await client.Users.GetListCommentsAsync(Username, ListID, CommentSortOrder, 1U, ListCommentsLimits, TestContext.Current.CancellationToken);
+                await client.Users.GetListCommentsAsync(Username, TraktListID, CommentSortOrder, 1U, ListCommentsLimits, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -543,40 +341,16 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetListCommentsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetListCommentsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetListCommentsUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktComment>>> act = () => client.Users.GetListCommentsAsync(Username, ListID, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktComment>>> act = () => client.Users.GetListCommentsAsync(Username, TraktListID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
         [Fact]
-        public async Task TestGetListCommentsThrowsArgumentExceptions()
+        public async Task TestGetListCommentsWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetClient(GetListCommentsUri, HttpStatusCode.OK);
 

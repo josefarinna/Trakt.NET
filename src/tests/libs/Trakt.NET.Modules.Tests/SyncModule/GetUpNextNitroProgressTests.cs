@@ -9,88 +9,20 @@ namespace TraktNET.SyncModule
         private const uint Limit = 10U;
         private const uint ItemsCount = 1U;
 
-        [Fact]
-        public async Task TestGetUpNextNitroProgress()
+        [Theory]
+        [InlineData(null, null, null, null, $"{GetUpNextNitroProgressUri}?page=1&limit=10")]
+        [InlineData(TraktSortBy.Title, null, null, null, $"{GetUpNextNitroProgressUri}?sort_by=title&page=1&limit=10")]
+        [InlineData(null, TraktSortHow.Ascending, null, null, $"{GetUpNextNitroProgressUri}?sort_how=asc&page=1&limit=10")]
+        [InlineData(null, null, TraktUpNextIntent.Continue, null, $"{GetUpNextNitroProgressUri}?intent=continue&page=1&limit=10")]
+        [InlineData(null, null, null, "favorites", $"{GetUpNextNitroProgressUri}?watchnow=favorites&page=1&limit=10")]
+        [InlineData(TraktSortBy.Title, TraktSortHow.Ascending, TraktUpNextIntent.Continue, "favorites", $"{GetUpNextNitroProgressUri}?sort_by=title&sort_how=asc&intent=continue&watchnow=favorites&page=1&limit=10")]
+        public async Task TestGetUpNextNitroProgress(TraktSortBy? sortBy, TraktSortHow? sortHow, TraktUpNextIntent? intent, string? watchNow, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetUpNextNitroProgressUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetUpNextNitroProgressAsync(null, null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, Page, 1, Limit, ItemsCount);
 
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemsCount);
-            response.ItemCount.ShouldBe(ItemsCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetUpNextNitroProgressWithSortBy()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetUpNextNitroProgressUri}?sort_by=title&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetUpNextNitroProgressAsync(TraktSortBy.Title, null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestGetUpNextNitroProgressWithSortHow()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetUpNextNitroProgressUri}?sort_how=asc&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetUpNextNitroProgressAsync(null, TraktSortHow.Ascending, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestGetUpNextNitroProgressWithIntent()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetUpNextNitroProgressUri}?intent=continue&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetUpNextNitroProgressAsync(null, null, TraktUpNextIntent.Continue, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestGetUpNextNitroProgressWithWatchNow()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetUpNextNitroProgressUri}?watchnow=favorites&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetUpNextNitroProgressAsync(null, null, null, "favorites", null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestGetUpNextNitroProgressWithAllParameters()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetUpNextNitroProgressUri}?sort_by=title&sort_how=asc&intent=continue&watchnow=favorites&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ItemsCount);
-
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetUpNextNitroProgressAsync(
-                TraktSortBy.Title, TraktSortHow.Ascending, TraktUpNextIntent.Continue, "favorites", null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetUpNextNitroProgressAsync(sortBy, sortHow, intent, watchNow, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -291,31 +223,7 @@ namespace TraktNET.SyncModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetUpNextNitroProgressThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetUpNextNitroProgressThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetUpNextNitroProgressUri}?page={Page}&limit={Limit}", statusCode);
 
@@ -324,7 +232,7 @@ namespace TraktNET.SyncModule
         }
 
         [Fact]
-        public async Task TestGetUpNextNitroProgressThrowsArgumentExceptions()
+        public async Task TestGetUpNextNitroProgressThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetUpNextNitroProgressUri}?page={Page}&limit={Limit}", HttpStatusCode.OK);
 

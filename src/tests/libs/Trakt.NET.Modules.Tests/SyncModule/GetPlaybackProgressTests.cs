@@ -15,14 +15,21 @@ namespace TraktNET.SyncModule
         private const string StartAtString = "2015-02-18T12:54:39.000Z";
         private const string EndAtString = "2016-11-07T03:11:00.000Z";
 
-        [Fact]
-        public async Task TestGetPlaybackProgress()
+        [Theory]
+        [InlineData(null, null, null, null, Page, Limit, $"{GetPlaybackUri}?page=2&limit=4")]
+        [InlineData(SyncType, null, null, null, Page, Limit, $"{GetPlaybackUri}/movies?page=2&limit=4")]
+        [InlineData(null, "2015-02-18T12:54:39.000Z", null, null, Page, Limit, $"{GetPlaybackUri}?start_at={StartAtString}&page=2&limit=4")]
+        [InlineData(null, "2015-02-18T12:54:39.000Z", "2016-11-07T03:11:00.000Z", null, Page, Limit, $"{GetPlaybackUri}?start_at={StartAtString}&end_at={EndAtString}&page=2&limit=4")]
+        [InlineData(TraktSyncType.Episode, "2015-02-18T12:54:39.000Z", null, null, Page, Limit, $"{GetPlaybackUri}/episodes?start_at={StartAtString}&page=2&limit=4")]
+        [InlineData(null, null, null, TraktExtendedInfo.Full, Page, Limit, $"{GetPlaybackUri}?extended=full&page=2&limit=4")]
+        [InlineData(TraktSyncType.Movie, "2015-02-18T12:54:39.000Z", "2016-11-07T03:11:00.000Z", null, 3U, 10U, $"{GetPlaybackUri}/movies?start_at={StartAtString}&end_at={EndAtString}&page=3&limit=10")]
+        public async Task TestGetPlaybackProgress(TraktSyncType? objectType, string? startAt, string? endAt, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, ItemCount);
 
-            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(objectType, startAt is not null ? TestUtility.ParseUTCDateTime(startAt) : null, endAt is not null ? TestUtility.ParseUTCDateTime(endAt) : null, null, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -30,100 +37,22 @@ namespace TraktNET.SyncModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ResponseCount);
             response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
+            response.Limit.ShouldBe(limit ?? Limit);
+            response.Page.ShouldBe(page ?? Page);
             response.PageCount.ShouldBe(1U);
         }
 
-        [Fact]
-        public async Task TestGetPlaybackProgressWithSyncType()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}/{SyncType.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(SyncType, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ResponseCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPlaybackProgressWithStartAt()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?start_at={StartAtString}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(startAt: StartAt, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ResponseCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPlaybackProgressWithStartAtAndEndAt()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?start_at={StartAtString}&end_at={EndAtString}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(startAt: StartAt, endAt: EndAt, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ResponseCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPlaybackProgressWithSyncTypeAndStartAt()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}/episodes?start_at={StartAtString}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(TraktSyncType.Episode, startAt: StartAt, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ResponseCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPlaybackProgressWithFilter()
+        [Theory]
+        [InlineData(null, null, null, null, Page, Limit, $"{GetPlaybackUri}?query=batman&page=2&limit=4")]
+        public async Task TestGetPlaybackProgressWithFilter(TraktSyncType? objectType, string? startAt, string? endAt, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             var filter = new TraktFilter { Query = "batman" };
+
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?query=batman&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, ItemCount);
 
-            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(filter: filter, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(objectType, startAt is not null ? TestUtility.ParseUTCDateTime(startAt) : null, endAt is not null ? TestUtility.ParseUTCDateTime(endAt) : null, filter, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -131,48 +60,8 @@ namespace TraktNET.SyncModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ResponseCount);
             response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPlaybackProgressWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}?extended=full&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(extendedInfo: TraktExtendedInfo.Full, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ResponseCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPlaybackProgressComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Playback\\syncplaybackprogress.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetPlaybackUri}/movies?start_at={StartAtString}&end_at={EndAtString}&page=3&limit=10", responseContent, 3, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktSyncPlaybackProgressItem> response = await client.Sync.GetPlaybackProgressAsync(TraktSyncType.Movie, StartAt, EndAt, page: 3U, limit: 10U, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ResponseCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(3U);
+            response.Limit.ShouldBe(limit ?? Limit);
+            response.Page.ShouldBe(page ?? Page);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -342,31 +231,7 @@ namespace TraktNET.SyncModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetPlaybackProgressThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetPlaybackProgressThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetPlaybackUri, statusCode);
 

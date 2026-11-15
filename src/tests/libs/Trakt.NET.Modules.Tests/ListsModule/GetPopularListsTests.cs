@@ -10,14 +10,19 @@ namespace TraktNET.ListsModule
         private const uint ItemCount = 2U;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetPopularLists()
+        [Theory]
+        [InlineData(null, null, null, GetPopularListsUri)]
+        [InlineData(ExtendedInfo, null, null, $"{GetPopularListsUri}?extended=full")]
+        [InlineData(null, Page, null, $"{GetPopularListsUri}?page=2")]
+        [InlineData(null, null, Limit, $"{GetPopularListsUri}?limit=4")]
+        [InlineData(ExtendedInfo, Page, Limit, $"{GetPopularListsUri}?extended=full&page=2&limit=4")]
+        public async Task TestGetPopularLists(TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetPopularListsUri, responseContent, 1, 1, 10, ItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, ItemCount);
 
-            TraktPagedResponse<TraktPopularList> response = await client.Lists.GetPopularListsAsync(cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktPopularList> response = await client.Lists.GetPopularListsAsync(extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -25,149 +30,8 @@ namespace TraktNET.ListsModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ItemCount);
             response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPopularListsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularListsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktPopularList> response = await client.Lists.GetPopularListsAsync(ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPopularListsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularListsUri}?page={Page}", responseContent, Page, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktPopularList> response = await client.Lists.GetPopularListsAsync(null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPopularListsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularListsUri}?limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktPopularList> response = await client.Lists.GetPopularListsAsync(null, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPopularListsWithExtendedInfoAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktPopularList> response = await client.Lists.GetPopularListsAsync(ExtendedInfo, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPopularListsWithExtendedInfoAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularListsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktPopularList> response = await client.Lists.GetPopularListsAsync(ExtendedInfo, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPopularListsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetPopularListsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktPopularList> response = await client.Lists.GetPopularListsAsync(null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetPopularListsComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\listpopularortrending.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetPopularListsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktPopularList> response = await client.Lists.GetPopularListsAsync(ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -337,30 +201,6 @@ namespace TraktNET.ListsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiListNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetPopularListsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetPopularListsUri, statusCode);

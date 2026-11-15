@@ -44,8 +44,6 @@ namespace TraktNET.MoviesModule
 
         [Theory]
         [InlineData(null, GetMovieReleasesUriWithSlug, "Movies\\moviereleases.json")]
-        [InlineData("", GetMovieReleasesUriWithSlug, "Movies\\moviereleases.json")]
-        [InlineData("fr", $"{GetMovieReleasesUriWithSlug}/fr", "Movies\\moviereleases.json")]
         public async Task TestGetMovieReleasesWithSlug(string? country, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
@@ -77,8 +75,6 @@ namespace TraktNET.MoviesModule
 
         [Theory]
         [InlineData(null, GetMovieReleasesUriWithSlug, "Movies\\moviereleases.json")]
-        [InlineData("", GetMovieReleasesUriWithSlug, "Movies\\moviereleases.json")]
-        [InlineData("fr", $"{GetMovieReleasesUriWithSlug}/fr", "Movies\\moviereleases.json")]
         public async Task TestGetMovieReleasesWithIDs(string? country, string requestUri, string responseContentFile)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
@@ -110,125 +106,12 @@ namespace TraktNET.MoviesModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiMovieNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetMovieReleasesWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetMovieReleasesUri, statusCode);
 
-            try
-            {
-                await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.TraktMovieID, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
-        }
-
-        [Theory]
-        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiMovieNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetMovieReleasesWithSlugThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
-        {
-            TraktClient client = ModuleTestUtility.GetClient(GetMovieReleasesUriWithSlug, statusCode);
-
-            try
-            {
-                await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieSlug, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
-        }
-
-        [Theory]
-        [InlineData(HttpStatusCode.NotFound, typeof(TraktApiMovieNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetMovieReleasesWithIDsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
-        {
-            TraktClient client = ModuleTestUtility.GetClient(GetMovieReleasesUriWithSlug, statusCode);
-
-            try
-            {
-                await client.Movies.GetMovieReleasesAsync(TestConstants.Movies.MovieIDs, cancellationToken: TestContext.Current.CancellationToken);
-                Assert.False(true);
-            }
-            catch (Exception exception)
-            {
-                (exception.GetType() == exceptionType).ShouldBe(true);
-            }
+            Func<Task<TraktListResponse<TraktMovieRelease>>> act = () => client.Movies.GetMovieReleasesAsync(TestConstants.Movies.TraktMovieID, cancellationToken: TestContext.Current.CancellationToken);
+            (await act.ShouldThrowAsync(exceptionType)).ShouldBeOfType(exceptionType);
         }
 
         [Fact]

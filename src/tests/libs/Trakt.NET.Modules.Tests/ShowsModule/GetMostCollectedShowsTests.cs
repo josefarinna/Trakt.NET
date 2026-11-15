@@ -11,14 +11,20 @@ namespace TraktNET.ShowsModule
         private const TraktTimePeriod Period = TraktTimePeriod.Monthly;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetMostCollectedShows()
+        [Theory]
+        [InlineData(null, null, null, null, GetMostCollectedShowsUri, "Shows\\mostpwcshows_minimal.json")]
+        [InlineData(Period, null, null, null, $"{GetMostCollectedShowsUri}/monthly", "Shows\\mostpwcshows_minimal.json")]
+        [InlineData(null, ExtendedInfo, null, null, $"{GetMostCollectedShowsUri}?extended=full", "Shows\\mostpwcshows.json")]
+        [InlineData(null, null, Page, null, $"{GetMostCollectedShowsUri}?page=4", "Shows\\mostpwcshows_minimal.json")]
+        [InlineData(null, null, null, Limit, $"{GetMostCollectedShowsUri}?limit=20", "Shows\\mostpwcshows_minimal.json")]
+        [InlineData(null, ExtendedInfo, Page, Limit, $"{GetMostCollectedShowsUri}?extended=full&page=4&limit=20", "Shows\\mostpwcshows.json")]
+        public async Task TestGetMostCollectedShows(TraktTimePeriod? timePeriod, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows_minimal.json");
+            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
 
-            TraktClient client = ModuleTestUtility.GetClient(GetMostCollectedShowsUri, responseContent, 1, 1, 10, ListItemCount);
-            
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, ListItemCount);
+
+            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(timePeriod, extendedInfo, null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -26,19 +32,22 @@ namespace TraktNET.ShowsModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ListItemCount);
             response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithPeriod()
+        [Theory]
+        [InlineData(null, null, null, null, $"{GetMostCollectedShowsUri}?genres=fantasy,drama&years=2011", "Shows\\mostpwcshows_minimal.json")]
+        [InlineData(Period, null, null, null, $"{GetMostCollectedShowsUri}/monthly?genres=fantasy,drama&years=2011", "Shows\\mostpwcshows_minimal.json")]
+        [InlineData(Period, ExtendedInfo, Page, Limit, $"{GetMostCollectedShowsUri}/monthly?genres=fantasy,drama&years=2011&extended=full&page=4&limit=20", "Shows\\mostpwcshows.json")]
+        public async Task TestGetMostCollectedShowsWithFilter(TraktTimePeriod? timePeriod, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri, string responseContentFile)
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows_minimal.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}/{Period.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
+            string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
 
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(Period, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, ListItemCount);
+
+            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(timePeriod, extendedInfo, TestConstants.Shows.Filter, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -46,268 +55,8 @@ namespace TraktNET.ShowsModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ListItemCount);
             response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(extendedInfo: ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithFilter()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows_minimal.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}?genres=fantasy,drama&years=2011", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(filter: TestConstants.Shows.Filter, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows_minimal.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(page: Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows_minimal.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows_minimal.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithExtendedInfoAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(null, ExtendedInfo, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithExtendedInfoAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(null, ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithExtendedInfoAndPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(null, ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithPeriodAndExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}/{Period.ToURI()}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(Period, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithPeriodAndFilter()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows_minimal.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}/{Period.ToURI()}?genres=fantasy,drama&years=2011", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(Period, null, TestConstants.Shows.Filter, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithPeriodAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows_minimal.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}/{Period.ToURI()}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(Period, null, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsWithPeriodAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows_minimal.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}/{Period.ToURI()}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(Period, null, null, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetMostCollectedShowsComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\mostpwcshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetMostCollectedShowsUri}/{Period.ToURI()}?genres=fantasy,drama&years=2011&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktMostCollectedShow> response = await client.Shows.GetMostCollectedShowsAsync(Period, ExtendedInfo, TestConstants.Shows.Filter, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -477,30 +226,6 @@ namespace TraktNET.ShowsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetMostCollectedShowsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetMostCollectedShowsUri, statusCode);

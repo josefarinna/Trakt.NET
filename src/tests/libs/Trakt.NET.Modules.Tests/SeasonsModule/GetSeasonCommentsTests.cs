@@ -12,14 +12,21 @@ namespace TraktNET.SeasonsModule
         private readonly TraktCommentSortOrder CommentSortOrder = TraktCommentSortOrder.Likes;
         private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetSeasonComments()
+        [Theory]
+        [InlineData(null, null, null, null, GetSeasonCommentsUri)]
+        [InlineData(TraktCommentSortOrder.Likes, null, null, null, $"{GetSeasonCommentsUri}/likes")]
+        [InlineData(null, TraktExtendedInfo.Full, null, null, $"{GetSeasonCommentsUri}?extended=full")]
+        [InlineData(null, null, Page, null, $"{GetSeasonCommentsUri}?page=2")]
+        [InlineData(null, null, null, Limit, $"{GetSeasonCommentsUri}?limit=4")]
+        [InlineData(TraktCommentSortOrder.Likes, TraktExtendedInfo.Full, Page, Limit, $"{GetSeasonCommentsUri}/likes?extended=full&page=2&limit=4")]
+        public async Task TestGetSeasonCommentsWithID(TraktCommentSortOrder? commentSortOrder, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonCommentsUri, responseContent, 1, 1, 10, ItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.TraktShowID, SeasonNr, commentSortOrder, extendedInfo,
+                null, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -27,69 +34,19 @@ namespace TraktNET.SeasonsModule
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)ItemCount);
             response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
         [Fact]
-        public async Task TestGetSeasonCommentsWithTraktID()
+        public async Task TestGetSeasonCommentsWithSlug()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonCommentsUri, responseContent, 1, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.TraktShowID, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithShowIDsTraktID()
-        {
-            var showIDs = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.TraktShowID
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(GetSeasonCommentsUri, responseContent, 1, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithShowIDsSlug()
-        {
-            var showIDs = new TraktShowIDs
-            {
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"shows/{TestConstants.Shows.ShowSlug}/seasons/{SeasonNr}/comments", responseContent, 1, 1, 10, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(showIDs, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowSlug, SeasonNr, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -103,7 +60,7 @@ namespace TraktNET.SeasonsModule
         }
 
         [Fact]
-        public async Task TestGetSeasonCommentsWithShowIDs()
+        public async Task TestGetSeasonCommentsWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
 
@@ -148,276 +105,13 @@ namespace TraktNET.SeasonsModule
         }
 
         [Fact]
-        public async Task TestGetSeasonCommentsWithSortOrder()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}", responseContent, 1, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetSeasonCommentsUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?page={Page}",
-                                                           responseContent, Page, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, null, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, null, null, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithSortOrderAndExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithSortOrderAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}", responseContent, Page, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithSortOrderAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithExtendedInfoAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, ExtendedInfo, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(10u);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithExtendedInfoAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, ExtendedInfo, null, null, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithSortOrderAndPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsWithExtendedInfoAndPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, null, ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1u);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemCount);
-
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, ExtendedInfo, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(ItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetSeasonCommentsPagingHasPreviousPageAndHasNextPage()
+        public async Task TestGetSeasonCommentsWithIDPagingHasPreviousPageAndHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.TraktShowID, SeasonNr, CommentSortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -433,13 +127,13 @@ namespace TraktNET.SeasonsModule
         }
 
         [Fact]
-        public async Task TestGetSeasonCommentsPagingOnlyHasPreviousPage()
+        public async Task TestGetSeasonCommentsWithIDPagingOnlyHasPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.TraktShowID, SeasonNr, CommentSortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -455,13 +149,13 @@ namespace TraktNET.SeasonsModule
         }
 
         [Fact]
-        public async Task TestGetSeasonCommentsPagingOnlyHasNextPage()
+        public async Task TestGetSeasonCommentsWithIDPagingOnlyHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.TraktShowID, SeasonNr, CommentSortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -477,13 +171,13 @@ namespace TraktNET.SeasonsModule
         }
 
         [Fact]
-        public async Task TestGetSeasonCommentsPagingNotHasPreviousPageOrHasNextPage()
+        public async Task TestGetSeasonCommentsWithIDPagingNotHasPreviousPageOrHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.TraktShowID, SeasonNr, CommentSortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -499,13 +193,13 @@ namespace TraktNET.SeasonsModule
         }
 
         [Fact]
-        public async Task TestGetSeasonCommentsPagingGetPreviousPage()
+        public async Task TestGetSeasonCommentsWithIDPagingGetPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.TraktShowID, SeasonNr, CommentSortOrder, null, null, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -537,13 +231,13 @@ namespace TraktNET.SeasonsModule
         }
 
         [Fact]
-        public async Task TestGetSeasonCommentsPagingGetNextPage()
+        public async Task TestGetSeasonCommentsWithIDPagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"{GetSeasonCommentsUri}/{CommentSortOrder.ToURI()}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, CommentSortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.TraktShowID, SeasonNr, CommentSortOrder, null, null, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -583,7 +277,7 @@ namespace TraktNET.SeasonsModule
             string responseContent = await TestUtility.GetJsonFileContentAsync(responseContentFile);
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, 1, 1, 10, ItemCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.ShowID, SeasonNr, language: language, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Seasons.GetSeasonCommentsAsync(TestConstants.Shows.TraktShowID, SeasonNr, language: language, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -594,31 +288,7 @@ namespace TraktNET.SeasonsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiSeasonNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetSeasonCommentsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetSeasonCommentsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Seasons\\seasoncomments.json");
 

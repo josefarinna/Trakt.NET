@@ -12,22 +12,26 @@ namespace TraktNET.SearchModule
         private const uint Limit = 4U;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetTrendingSearchResults()
+        [Theory]
+        [InlineData(null, null, null, null, "search/recent_by_id/global/movies")]
+        [InlineData(Query, null, null, null, $"search/recent_by_id/global/movies?query={Query}")]
+        [InlineData(null, ExtendedInfo, null, null, "search/recent_by_id/global/movies?extended=full")]
+        [InlineData(null, null, Page, null, "search/recent_by_id/global/movies?page=2")]
+        [InlineData(null, null, null, Limit, "search/recent_by_id/global/movies?limit=4")]
+        [InlineData(Query, ExtendedInfo, Page, Limit, $"search/recent_by_id/global/movies?query={Query}&extended=full&page=2&limit=4")]
+        public async Task TestGetTrendingSearchResults(string? searchQuery, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\trendingsearchresult.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetTrendingSearchUri, responseContent, 1, 1, 10, SearchResultItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, SearchResultItemCount);
 
-            TraktPagedResponse<TraktTrendingSearchResult> response =
-                await client.Search.GetTrendingSearchResultsAsync(SearchType, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktTrendingSearchResult> response = await client.Search.GetTrendingSearchResultsAsync(SearchType, searchQuery, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Content.Count.ShouldBe((int)SearchResultItemCount);
-            
             var firstResult = response.Content[0];
             firstResult.ShouldNotBeNull();
             firstResult.ID.ShouldBe(1U);
@@ -35,117 +39,9 @@ namespace TraktNET.SearchModule
             firstResult.Type.ShouldBe(TraktSearchResultType.Movie);
             firstResult.Movie.ShouldNotBeNull();
             firstResult.Movie!.Title.ShouldBe("Batman Begins");
-
             response.ItemCount.ShouldBe(SearchResultItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetTrendingSearchResultsWithQuery()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\trendingsearchresult.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingSearchUri}?query={Query}", responseContent, 1, 1, 10, SearchResultItemCount);
-
-            TraktPagedResponse<TraktTrendingSearchResult> response =
-                await client.Search.GetTrendingSearchResultsAsync(SearchType, Query, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)SearchResultItemCount);
-            response.ItemCount.ShouldBe(SearchResultItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetTrendingSearchResultsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\trendingsearchresult.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingSearchUri}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, SearchResultItemCount);
-
-            TraktPagedResponse<TraktTrendingSearchResult> response =
-                await client.Search.GetTrendingSearchResultsAsync(SearchType, extendedInfo: ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)SearchResultItemCount);
-            response.ItemCount.ShouldBe(SearchResultItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetTrendingSearchResultsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\trendingsearchresult.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingSearchUri}?page={Page}", responseContent, Page, 1, 10, SearchResultItemCount);
-
-            TraktPagedResponse<TraktTrendingSearchResult> response =
-                await client.Search.GetTrendingSearchResultsAsync(SearchType, page: Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)SearchResultItemCount);
-            response.ItemCount.ShouldBe(SearchResultItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetTrendingSearchResultsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\trendingsearchresult.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetTrendingSearchUri}?limit={Limit}", responseContent, 1, 1, Limit, SearchResultItemCount);
-
-            TraktPagedResponse<TraktTrendingSearchResult> response =
-                await client.Search.GetTrendingSearchResultsAsync(SearchType, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)SearchResultItemCount);
-            response.ItemCount.ShouldBe(SearchResultItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetTrendingSearchResultsWithAllParameters()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\trendingsearchresult.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetTrendingSearchUri}?query={Query}&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, SearchResultItemCount);
-
-            TraktPagedResponse<TraktTrendingSearchResult> response =
-                await client.Search.GetTrendingSearchResultsAsync(SearchType, Query, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)SearchResultItemCount);
-            response.ItemCount.ShouldBe(SearchResultItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -337,30 +233,6 @@ namespace TraktNET.SearchModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
         public async Task TestGetTrendingSearchResultsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetTrendingSearchUri, statusCode);

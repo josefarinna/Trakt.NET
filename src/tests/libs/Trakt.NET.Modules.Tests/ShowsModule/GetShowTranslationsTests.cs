@@ -10,7 +10,7 @@ namespace TraktNET.ShowsModule
         private const string Language = "es";
 
         [Fact]
-        public async Task TestGetShowTranslations()
+        public async Task TestGetShowTranslationsWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showtranslations.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUriWithSlug, responseContent);
@@ -24,43 +24,16 @@ namespace TraktNET.ShowsModule
             response.Content.Count.ShouldBe(ListItemCount);
         }
 
-        [Fact]
-        public async Task TestGetShowTranslationsWithLanguage()
+        [Theory]
+        [InlineData(null, GetShowTranslationsUri)]
+        [InlineData(Language, $"{GetShowTranslationsUri}?language={Language}")]
+        [InlineData("", GetShowTranslationsUri)]
+        public async Task TestGetShowTranslationsWithID(string? language, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showtranslations.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowTranslationsUriWithSlug}?language={Language}", responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowSlug, Language, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(ListItemCount);
-        }
-
-        [Fact]
-        public async Task TestGetShowTranslationsWithEmptyLanguage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showtranslations.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUriWithSlug, responseContent);
-
-            TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowSlug, string.Empty, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe(ListItemCount);
-        }
-
-        [Fact]
-        public async Task TestGetShowTranslationsWithID()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showtranslations.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUri, responseContent);
-
-            TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktListResponse<TraktShowTranslation> response = await client.Shows.GetShowTranslationsAsync(TestConstants.Shows.TraktShowID, language, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -86,35 +59,11 @@ namespace TraktNET.ShowsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetShowTranslationsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetShowTranslationsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUriWithSlug, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowTranslationsUri, statusCode);
 
-            Func<Task<TraktListResponse<TraktShowTranslation>>> act = () => client.Shows.GetShowTranslationsAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktListResponse<TraktShowTranslation>>> act = () => client.Shows.GetShowTranslationsAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 

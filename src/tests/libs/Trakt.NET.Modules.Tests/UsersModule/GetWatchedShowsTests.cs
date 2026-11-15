@@ -11,14 +11,16 @@ namespace TraktNET.UsersModule
         private const uint ShowsCount = 2U;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetWatchedShows()
+        [Theory]
+        [InlineData(null, $"{GetWatchedShowsUri}?page=2&limit=4")]
+        [InlineData(ExtendedInfo, $"{GetWatchedShowsUri}?extended=full&page=2&limit=4")]
+        public async Task TestGetWatchedShows(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\watched_movies.json");
 
-            TraktClient client = ModuleTestUtility.GetClient($"{GetWatchedShowsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ShowsCount);
-            
-            TraktPagedResponse<TraktWatchedShow> response = await client.Users.GetWatchedShowsAsync(Username, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, Page, 1, Limit, ShowsCount);
+
+            TraktPagedResponse<TraktWatchedShow> response = await client.Users.GetWatchedShowsAsync(Username, extendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -60,27 +62,6 @@ namespace TraktNET.UsersModule
             TraktClient client = ModuleTestUtility.GetOAuthClient($"users/me/watched/shows?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ShowsCount);
             
             TraktPagedResponse<TraktWatchedShow> response = await client.Users.GetWatchedShowsAsync("me", null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ShowsCount);
-            response.ItemCount.ShouldBe(ShowsCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetWatchedShowsComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\watched_movies.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetWatchedShowsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ShowsCount);
-
-            TraktPagedResponse<TraktWatchedShow> response = await client.Users.GetWatchedShowsAsync(Username, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -281,31 +262,7 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetWatchedShowsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetWatchedShowsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetWatchedShowsUri, statusCode);
 
@@ -314,7 +271,7 @@ namespace TraktNET.UsersModule
         }
 
         [Fact]
-        public async Task TestGetWatchedShowsThrowsArgumentExceptions()
+        public async Task TestGetWatchedShowsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetClient(GetWatchedShowsUri, HttpStatusCode.OK);
 

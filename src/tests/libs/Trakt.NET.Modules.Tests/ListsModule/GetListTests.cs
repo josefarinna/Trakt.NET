@@ -9,22 +9,22 @@ namespace TraktNET.ListsModule
         private const string ListSlug = "marvel-cinematic-universe";
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetListWithoutExtendedInfo()
+        [Theory]
+        [InlineData(null, "lists/1248149")]
+        [InlineData(ExtendedInfo, "lists/1248149?extended=full")]
+        public async Task TestGetListWithID(TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\list.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetListUri, responseContent);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            TraktResponse<TraktList> response = await client.Lists.GetListAsync(ListID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse<TraktList> response = await client.Lists.GetListAsync(ListID, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-
             TraktList responseValue = response.Content;
-
             responseValue.ShouldNotBeNull();
             responseValue.Name.ShouldBe("MARVEL Cinematic Universe");
             responseValue.Description.ShouldBe("MCU Shows and Movies in chronological order.");
@@ -38,11 +38,9 @@ namespace TraktNET.ListsModule
             responseValue.ItemCount.ShouldBe(218U);
             responseValue.CommentCount.ShouldBe(33U);
             responseValue.Likes.ShouldBe(4668U);
-
             responseValue.IDs.ShouldNotBeNull();
             responseValue.IDs.Trakt.ShouldBe(1248149U);
             responseValue.IDs.Slug.ShouldBe("marvel-cinematic-universe");
-
             responseValue.User.ShouldNotBeNull();
             responseValue.User.Username.ShouldBe("Donxy");
             responseValue.User.Private.ShouldBe(false);
@@ -54,53 +52,13 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListWithTraktID()
+        public async Task TestGetListWithSlug()
         {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\list.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(GetListUri, responseContent);
-
-            TraktResponse<TraktList> response = await client.Lists.GetListAsync(ListID, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetListWithListIDsTraktID()
-        {
-            var listIDs = new TraktListIDs
-            {
-                Trakt = ListID
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\list.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(GetListUri, responseContent);
-            
-            TraktResponse<TraktList> response = await client.Lists.GetListAsync(listIDs, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetListWithListIDsSlug()
-        {
-            var listIDs = new TraktListIDs
-            {
-                Slug = ListSlug
-            };
-
             string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\list.json");
 
             TraktClient client = ModuleTestUtility.GetClient($"lists/{ListSlug}", responseContent);
             
-            TraktResponse<TraktList> response = await client.Lists.GetListAsync(listIDs, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse<TraktList> response = await client.Lists.GetListAsync(ListSlug, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -109,7 +67,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListWithListIDs()
+        public async Task TestGetListWithIDs()
         {
             var listIDs = new TraktListIDs
             {
@@ -129,77 +87,9 @@ namespace TraktNET.ListsModule
             response.Content.ShouldNotBeNull();
         }
 
-        [Fact]
-        public async Task TestGetListComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Lists\\list.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetListUri}?extended={ExtendedInfo.ToURI()}", responseContent);
-
-            TraktResponse<TraktList> response = await client.Lists.GetListAsync(ListID, ExtendedInfo, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-
-            TraktList responseValue = response.Content;
-
-            responseValue.ShouldNotBeNull();
-            responseValue.Name.ShouldBe("MARVEL Cinematic Universe");
-            responseValue.Description.ShouldBe("MCU Shows and Movies in chronological order.");
-            responseValue.Privacy.ShouldBe(TraktListPrivacy.Public);
-            responseValue.DisplayNumbers.ShouldBe(true);
-            responseValue.AllowComments.ShouldBe(true);
-            responseValue.SortBy.ShouldBe(TraktSortBy.Rank);
-            responseValue.SortHow.ShouldBe(TraktSortHow.Ascending);
-            responseValue.CreatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-07-16T14:59:57.000Z"));
-            responseValue.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-10-04T06:47:38.000Z"));
-            responseValue.ItemCount.ShouldBe(218U);
-            responseValue.CommentCount.ShouldBe(33U);
-            responseValue.Likes.ShouldBe(4668U);
-
-            responseValue.IDs.ShouldNotBeNull();
-            responseValue.IDs.Trakt.ShouldBe(1248149U);
-            responseValue.IDs.Slug.ShouldBe("marvel-cinematic-universe");
-
-            responseValue.User.ShouldNotBeNull();
-            responseValue.User.Username.ShouldBe("Donxy");
-            responseValue.User.Private.ShouldBe(false);
-            responseValue.User.Name.ShouldBe("Donxy");
-            responseValue.User.VIP.ShouldBe(false);
-            responseValue.User.VIPEP.ShouldBe(true);
-            responseValue.User.IDs.ShouldNotBeNull();
-            responseValue.User.IDs.Slug.ShouldBe("donxy");
-        }
-
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiListNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetListThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetListWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetListUri, statusCode);
 
@@ -208,7 +98,7 @@ namespace TraktNET.ListsModule
         }
 
         [Fact]
-        public async Task TestGetListThrowsArgumentExceptions()
+        public async Task TestGetListWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetClient(GetListUri, HttpStatusCode.OK);
 

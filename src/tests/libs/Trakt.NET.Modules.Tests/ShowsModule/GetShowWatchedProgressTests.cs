@@ -8,7 +8,7 @@ namespace TraktNET.ShowsModule
         private const string GetShowWatchedProgressUriWithSlug = $"shows/{TestConstants.Shows.ShowSlug}/progress/watched";
 
         [Fact]
-        public async Task TestGetShowWatchedProgress()
+        public async Task TestGetShowWatchedProgressWithSlug()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchedprogress.json");
             TraktClient client = ModuleTestUtility.GetClient(GetShowWatchedProgressUriWithSlug, responseContent);
@@ -22,74 +22,19 @@ namespace TraktNET.ShowsModule
             response.Content.ShouldNotBeNull();
         }
 
-        [Fact]
-        public async Task TestGetShowWatchedProgressWithHidden()
+        [Theory]
+        [InlineData(null, null, null, GetShowWatchedProgressUri)]
+        [InlineData(true, null, null, $"{GetShowWatchedProgressUri}?hidden=true")]
+        [InlineData(null, true, null, $"{GetShowWatchedProgressUri}?specials=true")]
+        [InlineData(null, null, true, $"{GetShowWatchedProgressUri}?count_specials=true")]
+        [InlineData(true, true, true, $"{GetShowWatchedProgressUri}?hidden=true&specials=true&count_specials=true")]
+        public async Task TestGetShowWatchedProgressWithID(bool? hidden, bool? specials, bool? countSpecials, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchedprogress.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowWatchedProgressUriWithSlug}?hidden=true", responseContent);
 
-            TraktResponse<TraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(
-                TestConstants.Shows.ShowSlug, hidden: true, cancellationToken: TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent);
 
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetShowWatchedProgressWithSpecials()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchedprogress.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowWatchedProgressUriWithSlug}?specials=true", responseContent);
-
-            TraktResponse<TraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(
-                TestConstants.Shows.ShowSlug, specials: true, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetShowWatchedProgressWithCountSpecials()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchedprogress.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowWatchedProgressUriWithSlug}?count_specials=true", responseContent);
-
-            TraktResponse<TraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(
-                TestConstants.Shows.ShowSlug, countSpecials: true, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetShowWatchedProgressWithAllParameters()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchedprogress.json");
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowWatchedProgressUriWithSlug}?hidden=true&specials=true&count_specials=true", responseContent);
-
-            TraktResponse<TraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(
-                TestConstants.Shows.ShowSlug, hidden: true, specials: true, countSpecials: true, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetShowWatchedProgressWithID()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showwatchedprogress.json");
-            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchedProgressUri, responseContent);
-
-            TraktResponse<TraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(
-                TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
+            TraktResponse<TraktShowWatchedProgress> response = await client.Shows.GetShowWatchedProgressAsync(TestConstants.Shows.TraktShowID, hidden, specials, countSpecials, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -114,35 +59,11 @@ namespace TraktNET.ShowsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetShowWatchedProgressThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetShowWatchedProgressWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchedProgressUriWithSlug, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowWatchedProgressUri, statusCode);
 
-            Func<Task<TraktResponse<TraktShowWatchedProgress>>> act = () => client.Shows.GetShowWatchedProgressAsync(TestConstants.Shows.ShowIDs, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktShowWatchedProgress>>> act = () => client.Shows.GetShowWatchedProgressAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 

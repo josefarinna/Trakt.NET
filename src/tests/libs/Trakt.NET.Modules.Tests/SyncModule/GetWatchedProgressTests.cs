@@ -10,131 +10,23 @@ namespace TraktNET.SyncModule
         private const uint ItemsCount = 1U;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetWatchedProgress()
+        [Theory]
+        [InlineData(null, null, null, null, null, null, null, $"{GetWatchedProgressUri}?page=1&limit=10")]
+        [InlineData(TraktSortBy.Title, null, null, null, null, null, null, $"{GetWatchedProgressUri}?sort_by=title&page=1&limit=10")]
+        [InlineData(null, TraktSortHow.Ascending, null, null, null, null, null, $"{GetWatchedProgressUri}?sort_how=asc&page=1&limit=10")]
+        [InlineData(null, null, true, null, null, null, null, $"{GetWatchedProgressUri}?lifetime_stats=true&page=1&limit=10")]
+        [InlineData(null, null, null, true, null, null, null, $"{GetWatchedProgressUri}?hide_completed=true&page=1&limit=10")]
+        [InlineData(null, null, null, null, true, null, null, $"{GetWatchedProgressUri}?hide_not_completed=true&page=1&limit=10")]
+        [InlineData(null, null, null, null, null, true, null, $"{GetWatchedProgressUri}?only_rewatching=true&page=1&limit=10")]
+        [InlineData(null, null, null, null, null, null, ExtendedInfo, $"{GetWatchedProgressUri}?extended=full&page=1&limit=10")]
+        [InlineData(TraktSortBy.Title, TraktSortHow.Ascending, true, true, false, true, ExtendedInfo, $"{GetWatchedProgressUri}?sort_by=title&sort_how=asc&lifetime_stats=true&hide_completed=true&hide_not_completed=false&only_rewatching=true&extended=full&page=1&limit=10")]
+        public async Task TestGetWatchedProgress(TraktSortBy? sortBy, TraktSortHow? sortHow, bool? lifetimeStats, bool? hideCompleted, bool? hideNotCompleted, bool? onlyRewatching, TraktExtendedInfo? extendedInfo, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedProgressUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetWatchedProgressAsync(null, null, null, null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, Page, 1, Limit, ItemsCount);
 
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemsCount);
-            response.ItemCount.ShouldBe(ItemsCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetWatchedProgressWithSortBy()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedProgressUri}?sort_by=title&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetWatchedProgressAsync(TraktSortBy.Title, null, null, null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemsCount);
-        }
-
-        [Fact]
-        public async Task TestGetWatchedProgressWithSortHow()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedProgressUri}?sort_how=asc&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetWatchedProgressAsync(null, TraktSortHow.Ascending, null, null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetWatchedProgressWithLifetimeStats()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedProgressUri}?lifetime_stats=true&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetWatchedProgressAsync(null, null, true, null, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestGetWatchedProgressWithHideCompleted()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedProgressUri}?hide_completed=true&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetWatchedProgressAsync(null, null, null, true, null, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestGetWatchedProgressWithHideNotCompleted()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedProgressUri}?hide_not_completed=true&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetWatchedProgressAsync(null, null, null, null, true, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestGetWatchedProgressWithOnlyRewatching()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedProgressUri}?only_rewatching=true&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetWatchedProgressAsync(null, null, null, null, null, true, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestGetWatchedProgressWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedProgressUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ItemsCount);
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetWatchedProgressAsync(null, null, null, null, null, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-        }
-
-        [Fact]
-        public async Task TestGetWatchedProgressWithAllParameters()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Progress\\syncprogresswatched.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(
-                $"{GetWatchedProgressUri}?sort_by=title&sort_how=asc&lifetime_stats=true&hide_completed=true&hide_not_completed=false&only_rewatching=true&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}",
-                responseContent, Page, 1, Limit, ItemsCount);
-
-            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetWatchedProgressAsync(
-                TraktSortBy.Title, TraktSortHow.Ascending, true, true, false, true, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktSyncProgressWatchedItem> response = await client.Sync.GetWatchedProgressAsync(sortBy, sortHow, lifetimeStats, hideCompleted, hideNotCompleted, onlyRewatching, extendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -335,31 +227,7 @@ namespace TraktNET.SyncModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetWatchedProgressThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetWatchedProgressThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedProgressUri}?page={Page}&limit={Limit}", statusCode);
 
@@ -368,7 +236,7 @@ namespace TraktNET.SyncModule
         }
 
         [Fact]
-        public async Task TestGetWatchedProgressThrowsArgumentExceptions()
+        public async Task TestGetWatchedProgressThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetWatchedProgressUri}?page={Page}&limit={Limit}", HttpStatusCode.OK);
 

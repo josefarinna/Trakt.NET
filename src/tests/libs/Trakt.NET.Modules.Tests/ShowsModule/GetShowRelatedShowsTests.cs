@@ -11,13 +11,40 @@ namespace TraktNET.ShowsModule
         private const uint Limit = 4U;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetShowRelatedShows()
+        [Theory]
+        [InlineData(null, null, null, null, GetShowRelatedShowsUri)]
+        [InlineData(ExtendedInfo, null, null, null, $"{GetShowRelatedShowsUri}?extended=full")]
+        [InlineData(null, true, null, null, $"{GetShowRelatedShowsUri}?personalized=true")]
+        [InlineData(null, false, null, null, $"{GetShowRelatedShowsUri}?personalized=false")]
+        [InlineData(null, null, Page, null, $"{GetShowRelatedShowsUri}?page=2")]
+        [InlineData(null, null, null, Limit, $"{GetShowRelatedShowsUri}?limit=4")]
+        [InlineData(ExtendedInfo, true, Page, Limit, $"{GetShowRelatedShowsUri}?personalized=true&extended=full&page=2&limit=4")]
+        public async Task TestGetShowRelatedShowsWithID(TraktExtendedInfo? extendedInfo, bool? personalized, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetShowRelatedShowsUriWithSlug, responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, ListItemCount);
+
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.TraktShowID, extendedInfo, personalized, page, limit, TestContext.Current.CancellationToken);
+
+            response.ShouldNotBeNull();
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
+            response.Content.ShouldNotBeNull();
+            response.Content.Count.ShouldBe((int)ListItemCount);
+            response.ItemCount.ShouldBe(ListItemCount);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
+            response.PageCount.ShouldBe(1U);
+        }
+
+        [Fact]
+        public async Task TestGetShowRelatedShowsWithSlug()
+        {
+            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
+            TraktClient client = ModuleTestUtility.GetClient(GetShowRelatedShowsUriWithSlug, responseContent, 1, 1, 10, ListItemCount);
+
             TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
@@ -32,77 +59,7 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowRelatedShowsWithID()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient(GetShowRelatedShowsUri, responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithShowIDsTraktID()
-        {
-            var showIDs = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.TraktShowID
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient(GetShowRelatedShowsUri, responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIDs, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithShowIDsSlug()
-        {
-            var showIDs = new TraktShowIDs
-            {
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient(GetShowRelatedShowsUriWithSlug, responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(showIDs, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithShowIDs()
+        public async Task TestGetShowRelatedShowsWithIDs()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
@@ -121,255 +78,15 @@ namespace TraktNET.ShowsModule
             response.PageCount.ShouldBe(1U);
         }
 
+
         [Fact]
-        public async Task TestGetShowRelatedShowsWithExtendedInfo()
+        public async Task TestGetShowRelatedShowsWithIDPagingHasPreviousPageAndHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithPersonalized()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?personalized=true", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, personalized: true, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithPersonalizedFalse()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?personalized=false", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, personalized: false, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?page={Page}", responseContent, Page, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, page: Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithExtendedInfoAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?extended={ExtendedInfo.ToURI()}&page={Page}", responseContent, Page, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, page: Page, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithExtendedInfoAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?extended={ExtendedInfo.ToURI()}&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithExtendedInfoAndPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithExtendedInfoAndPersonalized()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?personalized=true&extended={ExtendedInfo.ToURI()}", responseContent, 1, 1, 10, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, personalized: true, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithPersonalizedAndPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?personalized=true&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, personalized: true, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsWithExtendedInfoAndPersonalizedAndPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?personalized=true&extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, ExtendedInfo, personalized: true, page: Page, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ListItemCount);
-            response.ItemCount.ShouldBe(ListItemCount);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-
-        [Fact]
-        public async Task TestGetShowRelatedShowsPagingHasPreviousPageAndHasNextPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
-            
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?page=2&limit={Limit}", responseContent, 2, 5, Limit, ListItemCount);
-
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.TraktShowID, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -385,13 +102,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowRelatedShowsPagingOnlyHasPreviousPage()
+        public async Task TestGetShowRelatedShowsWithIDPagingOnlyHasPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.TraktShowID, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -407,13 +124,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowRelatedShowsPagingOnlyHasNextPage()
+        public async Task TestGetShowRelatedShowsWithIDPagingOnlyHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.TraktShowID, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -429,13 +146,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowRelatedShowsPagingNotHasPreviousPageOrHasNextPage()
+        public async Task TestGetShowRelatedShowsWithIDPagingNotHasPreviousPageOrHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 1, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.TraktShowID, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -451,13 +168,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowRelatedShowsPagingGetPreviousPage()
+        public async Task TestGetShowRelatedShowsWithIDPagingGetPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.TraktShowID, page: 2, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -471,7 +188,7 @@ namespace TraktNET.ShowsModule
             response.HasPreviousPage.ShouldBeTrue();
             response.HasNextPage.ShouldBeFalse();
 
-            ModuleTestUtility.SetClient(client, $"{GetShowRelatedShowsUriWithSlug}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+            ModuleTestUtility.SetClient(client, $"{GetShowRelatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
             response = await response.GetPreviousPageAsync(TestContext.Current.CancellationToken);
 
@@ -489,13 +206,13 @@ namespace TraktNET.ShowsModule
         }
 
         [Fact]
-        public async Task TestGetShowRelatedShowsPagingGetNextPage()
+        public async Task TestGetShowRelatedShowsWithIDPagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Shows\\showrelatedshows.json");
             
-            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUriWithSlug}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
+            TraktClient client = ModuleTestUtility.GetClient($"{GetShowRelatedShowsUri}?page=1&limit={Limit}", responseContent, 1, 2, Limit, ListItemCount);
 
-            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktShow> response = await client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.TraktShowID, page: 1, limit: Limit, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -509,7 +226,7 @@ namespace TraktNET.ShowsModule
             response.HasPreviousPage.ShouldBeFalse();
             response.HasNextPage.ShouldBeTrue();
 
-            ModuleTestUtility.SetClient(client, $"{GetShowRelatedShowsUriWithSlug}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
+            ModuleTestUtility.SetClient(client, $"{GetShowRelatedShowsUri}?page=2&limit={Limit}", responseContent, 2, 2, Limit, ListItemCount);
 
             response = await response.GetNextPageAsync(TestContext.Current.CancellationToken);
 
@@ -528,35 +245,11 @@ namespace TraktNET.ShowsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetShowRelatedShowsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetShowRelatedShowsWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
-            TraktClient client = ModuleTestUtility.GetClient(GetShowRelatedShowsUriWithSlug, statusCode);
+            TraktClient client = ModuleTestUtility.GetClient(GetShowRelatedShowsUri, statusCode);
 
-            Func<Task<TraktPagedResponse<TraktShow>>> act = () => client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.ShowSlug, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktShow>>> act = () => client.Shows.GetShowRelatedShowsAsync(TestConstants.Shows.TraktShowID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 

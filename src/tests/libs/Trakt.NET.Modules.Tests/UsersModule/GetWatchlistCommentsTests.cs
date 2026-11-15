@@ -11,23 +11,31 @@ namespace TraktNET.UsersModule
         private const uint CommentsLimit = 6U;
         private const TraktCommentSortOrder CommentSortOrder = TraktCommentSortOrder.Likes;
 
-        [Fact]
-        public async Task TestGetWatchlistComments()
+        [Theory]
+        [InlineData(null, null, null, GetWatchlistCommentsUri)]
+        [InlineData(CommentSortOrder, null, null, $"{GetWatchlistCommentsUri}/likes")]
+        [InlineData(CommentSortOrder, Page, null, $"{GetWatchlistCommentsUri}/likes?page=2")]
+        [InlineData(CommentSortOrder, null, CommentsLimit, $"{GetWatchlistCommentsUri}/likes?limit=6")]
+        [InlineData(null, Page, null, $"{GetWatchlistCommentsUri}?page=2")]
+        [InlineData(null, null, CommentsLimit, $"{GetWatchlistCommentsUri}?limit=6")]
+        [InlineData(null, Page, CommentsLimit, $"{GetWatchlistCommentsUri}?page=2&limit=6")]
+        [InlineData(CommentSortOrder, Page, CommentsLimit, $"{GetWatchlistCommentsUri}/likes?page=2&limit=6")]
+        public async Task TestGetWatchlistComments(TraktCommentSortOrder? sortOrder, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\comments.json");
 
-            TraktClient client = ModuleTestUtility.GetClient(GetWatchlistCommentsUri, responseContent, 1, 1, 10, CommentsCount);
+            TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, CommentsCount);
 
-            TraktPagedResponse<TraktComment> response = await client.Users.GetWatchlistCommentsAsync(Username, cancellationToken: TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktComment> response = await client.Users.GetWatchlistCommentsAsync(Username, sortOrder, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)CommentsCount);
+            response.Content.Count.ShouldBe((int)CommentsCount);
             response.ItemCount.ShouldBe(CommentsCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
+            response.Limit.ShouldBe(limit ?? 10U);
+            response.Page.ShouldBe(page ?? 1U);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -70,164 +78,6 @@ namespace TraktNET.UsersModule
             response.ItemCount.ShouldBe(CommentsCount);
             response.Limit.ShouldBe(10U);
             response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetWatchlistCommentsWithSort()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\comments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetWatchlistCommentsUri}/{CommentSortOrder.ToURI()}",
-                responseContent, 1, 1, 10, CommentsCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetWatchlistCommentsAsync(Username, CommentSortOrder, cancellationToken: TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)CommentsCount);
-            response.ItemCount.ShouldBe(CommentsCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetWatchlistCommentsWithSortAndPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\comments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetWatchlistCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}",
-                responseContent, 1, 1, 10, CommentsCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetWatchlistCommentsAsync(Username, CommentSortOrder, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)CommentsCount);
-            response.ItemCount.ShouldBe(CommentsCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetWatchlistCommentsWithSortAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\comments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetWatchlistCommentsUri}/{CommentSortOrder.ToURI()}?limit={CommentsLimit}",
-                responseContent, 1, 1, 10, CommentsCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetWatchlistCommentsAsync(Username, CommentSortOrder, null, CommentsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)CommentsCount);
-            response.ItemCount.ShouldBe(CommentsCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetWatchlistCommentsWithPage()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\comments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistCommentsUri}?page={Page}",
-                responseContent, Page, 1, 10, CommentsCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetWatchlistCommentsAsync(Username, null, Page, null, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)CommentsCount);
-            response.ItemCount.ShouldBe(CommentsCount);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetWatchlistCommentsWithLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\comments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistCommentsUri}?limit={CommentsLimit}",
-                responseContent, 1, 1, CommentsLimit, CommentsCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetWatchlistCommentsAsync(Username, null, null, CommentsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)CommentsCount);
-            response.ItemCount.ShouldBe(CommentsCount);
-            response.Limit.ShouldBe(CommentsLimit);
-            response.Page.ShouldBe(1U);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetWatchlistCommentsWithPageAndLimit()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\comments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient($"{GetWatchlistCommentsUri}?page={Page}&limit={CommentsLimit}",
-                responseContent, Page, 1, CommentsLimit, CommentsCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetWatchlistCommentsAsync(Username, null, Page, CommentsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)CommentsCount);
-            response.ItemCount.ShouldBe(CommentsCount);
-            response.Limit.ShouldBe(CommentsLimit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetWatchlistCommentsComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\comments.json");
-
-            TraktClient client = ModuleTestUtility.GetClient(
-                $"{GetWatchlistCommentsUri}/{CommentSortOrder.ToURI()}?page={Page}&limit={CommentsLimit}",
-                responseContent, Page, 1, CommentsLimit, CommentsCount);
-
-            TraktPagedResponse<TraktComment> response =
-                await client.Users.GetWatchlistCommentsAsync(Username, CommentSortOrder, Page, CommentsLimit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-			response.Content.Count.ShouldBe((int)CommentsCount);
-            response.ItemCount.ShouldBe(CommentsCount);
-            response.Limit.ShouldBe(CommentsLimit);
-            response.Page.ShouldBe(Page);
             response.PageCount.ShouldBe(1U);
         }
 
@@ -419,31 +269,7 @@ namespace TraktNET.UsersModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetWatchlistCommentsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetWatchlistCommentsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetWatchlistCommentsUri, statusCode);
 

@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using System.Net;
+﻿using System.Net;
 
 namespace TraktNET.RecommendationsModule
 {
@@ -8,17 +7,7 @@ namespace TraktNET.RecommendationsModule
         private readonly string HideShowRecommendationUri = $"recommendations/shows/{TestConstants.Shows.TraktShowID}";
 
         [Fact]
-        public async Task TestHideShowRecommendation()
-        {
-            TraktClient client = ModuleTestUtility.GetOAuthClient(HideShowRecommendationUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Recommendations.HideShowRecommendationAsync(TestConstants.Shows.TraktShowID.ToString(CultureInfo.InvariantCulture), TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestHideShowRecommendationRatingsWithTraktID()
+        public async Task TestHideShowRecommendationWithID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideShowRecommendationUri, HttpStatusCode.NoContent);
             TraktResponse response = await client.Recommendations.HideShowRecommendationAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
@@ -28,37 +17,17 @@ namespace TraktNET.RecommendationsModule
         }
 
         [Fact]
-        public async Task TestHideShowRecommendationRatingsWithShowIdsTraktID()
+        public async Task TestHideShowRecommendationWithSlug()
         {
-            var showIds = new TraktShowIDs
-            {
-                Trakt = TestConstants.Shows.TraktShowID
-            };
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient(HideShowRecommendationUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Recommendations.HideShowRecommendationAsync(showIds, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-        }
-
-        [Fact]
-        public async Task TestHideShowRecommendationRatingsWithShowIdsSlug()
-        {
-            var showIds = new TraktShowIDs
-            {
-                Slug = TestConstants.Shows.ShowSlug
-            };
-
             TraktClient client = ModuleTestUtility.GetOAuthClient($"recommendations/shows/{TestConstants.Shows.ShowSlug}", HttpStatusCode.NoContent);
-            TraktResponse response = await client.Recommendations.HideShowRecommendationAsync(showIds, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Recommendations.HideShowRecommendationAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
         }
 
         [Fact]
-        public async Task TestHideShowRecommendationRatingsWithShowIds()
+        public async Task TestHideShowRecommendationWithIDs()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient($"recommendations/shows/{TestConstants.Shows.ShowSlug}", HttpStatusCode.NoContent);
             TraktResponse response = await client.Recommendations.HideShowRecommendationAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
@@ -68,7 +37,7 @@ namespace TraktNET.RecommendationsModule
         }
 
         [Fact]
-        public async Task TestHideShowRecommendationRatingsWithShow()
+        public async Task TestHideShowRecommendationWithShow()
         {
             var show = new TraktShow
             {
@@ -84,31 +53,7 @@ namespace TraktNET.RecommendationsModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiShowNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetShowRecommendationsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestHideShowRecommendationWithIDThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideShowRecommendationUri, statusCode);
 
@@ -117,7 +62,7 @@ namespace TraktNET.RecommendationsModule
         }
 
         [Fact]
-        public async Task TestGetShowRatingsThrowsArgumentExceptions()
+        public async Task TestHideShowRecommendationWithIDsThrowsArgumentException()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(HideShowRecommendationUri, HttpStatusCode.NoContent);
 

@@ -62,6 +62,7 @@ namespace TraktNET.Responses
         }
 
         [Theory]
+        [InlineData(HttpStatusCode.Continue, false)]
         [InlineData(HttpStatusCode.OK, true)]
         [InlineData(HttpStatusCode.NoContent, true)]
         [InlineData(HttpStatusCode.NotFound, false)]
@@ -118,6 +119,35 @@ namespace TraktNET.Responses
             result.ShouldBeFalse();
         }
 
+        [Fact]
+        public void TestTraktListResponseNotSuccessfulImplicitBoolConversion()
+        {
+            bool result = TraktListResponse<string>.Create(HttpStatusCode.NotFound, ["item"], null, null, null);
+            result.ShouldBeFalse();
+        }
+
+        [Fact]
+        public void TestTraktPagedResponseWithoutPagingHeaders()
+        {
+            var response = TraktPagedResponse<string>.Create(HttpStatusCode.OK, ["item"], null, null, null);
+
+            response.PageCount.ShouldBeNull();
+            response.ItemCount.ShouldBeNull();
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+
+            response = TraktPagedResponse<string>.Create(HttpStatusCode.OK, ["item"], new TraktResponseHeaders { Page = 2 }, null, null);
+
+            response.HasPreviousPage.ShouldBeFalse();
+            response.HasNextPage.ShouldBeFalse();
+        }
+
+        [Fact]
+        public void TestTraktPagedResponseNotSuccessfulImplicitBoolConversion()
+        {
+            bool result = TraktPagedResponse<string>.Create(HttpStatusCode.NotFound, ["item"], null, null, null);
+            result.ShouldBeFalse();
+        }
         [Fact]
         public void TestTraktPagedResponseHeaderProperties()
         {

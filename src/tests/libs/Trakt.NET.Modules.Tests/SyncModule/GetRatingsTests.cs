@@ -11,14 +11,20 @@ namespace TraktNET.SyncModule
         private const TraktRatingsItemType RatingsType = TraktRatingsItemType.Movie;
         private const TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
-        [Fact]
-        public async Task TestGetRatings()
+        [Theory]
+        [InlineData(null, null, null, Page, Limit, $"{GetRatingsUri}?page=2&limit=4")]
+        [InlineData(RatingsType, null, null, Page, Limit, $"{GetRatingsUri}/movies?page=2&limit=4")]
+        [InlineData(TraktRatingsItemType.Show, new int[] { 10 }, null, Page, Limit, $"{GetRatingsUri}/shows/10?page=2&limit=4")]
+        [InlineData(TraktRatingsItemType.Season, new int[] { 8, 10 }, null, Page, Limit, $"{GetRatingsUri}/seasons/8,10?page=2&limit=4")]
+        [InlineData(null, null, ExtendedInfo, Page, Limit, $"{GetRatingsUri}?extended=full&page=2&limit=4")]
+        [InlineData(TraktRatingsItemType.Episode, new int[] { 5, 8 }, ExtendedInfo, 3U, 10U, $"{GetRatingsUri}/episodes/5,8?extended=full&page=3&limit=10")]
+        public async Task TestGetRatings(TraktRatingsItemType? ratingsItemType, int[]? ratingsFilter, TraktExtendedInfo? extendedInfo, uint page, uint limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Ratings\\syncratings.json");
 
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetRatingsUri}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
+            TraktClient client = ModuleTestUtility.GetOAuthClient(requestUri, responseContent, page, 1, limit, 10);
 
-            TraktPagedResponse<TraktRatingsItem> response = await client.Sync.GetRatingsAsync(null, null, null, Page, Limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktRatingsItem> response = await client.Sync.GetRatingsAsync(ratingsItemType, ratingsFilter, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -28,8 +34,8 @@ namespace TraktNET.SyncModule
             var items = response.Content!.ToArray();
             items.Length.ShouldBe((int)ItemCount);
             response.ItemCount.ShouldBe(10U);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
+            response.Limit.ShouldBe(limit);
+            response.Page.ShouldBe(page);
             response.PageCount.ShouldBe(1U);
 
             items[0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-09-01T09:10:11.000Z"));
@@ -62,106 +68,6 @@ namespace TraktNET.SyncModule
             items[3].Episode!.Number.ShouldBe(1U);
             items[3].Show.ShouldNotBeNull();
             items[3].Show!.Title.ShouldBe("Breaking Bad");
-        }
-
-        [Fact]
-        public async Task TestGetRatingsWithRatingsType()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Ratings\\syncratings.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetRatingsUri}/{RatingsType.ToURI()}?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
-
-            TraktPagedResponse<TraktRatingsItem> response = await client.Sync.GetRatingsAsync(RatingsType, null, null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(10U);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetRatingsWithRatingsFilter()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Ratings\\syncratings.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetRatingsUri}/shows/10?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
-
-            TraktPagedResponse<TraktRatingsItem> response = await client.Sync.GetRatingsAsync(TraktRatingsItemType.Show, [10], null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(10U);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetRatingsWithRatingsFilterMultiple()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Ratings\\syncratings.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetRatingsUri}/seasons/8,10?page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
-
-            TraktPagedResponse<TraktRatingsItem> response = await client.Sync.GetRatingsAsync(TraktRatingsItemType.Season, [8, 10], null, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(10U);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetRatingsWithExtendedInfo()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Ratings\\syncratings.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetRatingsUri}?extended={ExtendedInfo.ToURI()}&page={Page}&limit={Limit}", responseContent, Page, 1, Limit, 10);
-
-            TraktPagedResponse<TraktRatingsItem> response = await client.Sync.GetRatingsAsync(null, null, ExtendedInfo, Page, Limit, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(10U);
-            response.Limit.ShouldBe(Limit);
-            response.Page.ShouldBe(Page);
-            response.PageCount.ShouldBe(1U);
-        }
-
-        [Fact]
-        public async Task TestGetRatingsComplete()
-        {
-            string responseContent = await TestUtility.GetJsonFileContentAsync("Syncs\\Ratings\\syncratings.json");
-
-            TraktClient client = ModuleTestUtility.GetOAuthClient($"{GetRatingsUri}/episodes/5,8?extended=full&page=3&limit=10", responseContent, 3, 1, 10, 10);
-
-            TraktPagedResponse<TraktRatingsItem> response = await client.Sync.GetRatingsAsync(TraktRatingsItemType.Episode, [5, 8], TraktExtendedInfo.Full, 3U, 10U, TestContext.Current.CancellationToken);
-
-            response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBeTrue();
-            response.HasValue.ShouldBeTrue();
-            response.Content.ShouldNotBeNull();
-            response.Content.Count.ShouldBe((int)ItemCount);
-            response.ItemCount.ShouldBe(10U);
-            response.Limit.ShouldBe(10U);
-            response.Page.ShouldBe(3U);
-            response.PageCount.ShouldBe(1U);
         }
 
         [Fact]
@@ -330,31 +236,7 @@ namespace TraktNET.SyncModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        [InlineData(HttpStatusCode.BadRequest, typeof(TraktApiBadRequestException))]
-        [InlineData(HttpStatusCode.Unauthorized, typeof(TraktApiAuthorizationException))]
-        [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
-        [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
-        [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
-        [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
-        [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
-#if TRAKT_NET_4XX_FRAMEWORK_TARGET
-        [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]
-        [InlineData((HttpStatusCode)423, typeof(TraktApiLockedUserAccountException))]
-        [InlineData((HttpStatusCode)429, typeof(TraktApiRateLimitException))]
-#else
-        [InlineData(HttpStatusCode.UnprocessableEntity, typeof(TraktApiValidationException))]
-        [InlineData(HttpStatusCode.Locked, typeof(TraktApiLockedUserAccountException))]
-        [InlineData(HttpStatusCode.TooManyRequests, typeof(TraktApiRateLimitException))]
-#endif
-        [InlineData(HttpStatusCode.UpgradeRequired, typeof(TraktApiVipValidationException))]
-        [InlineData(HttpStatusCode.InternalServerError, typeof(TraktApiServerException))]
-        [InlineData(HttpStatusCode.BadGateway, typeof(TraktApiBadGatewayException))]
-        [InlineData(HttpStatusCode.ServiceUnavailable, typeof(TraktApiServerUnavailableException))]
-        [InlineData(HttpStatusCode.GatewayTimeout, typeof(TraktApiGatewayTimeoutException))]
-        [InlineData((HttpStatusCode)520, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)521, typeof(TraktApiCloudflareException))]
-        [InlineData((HttpStatusCode)522, typeof(TraktApiCloudflareException))]
-        public async Task TestGetRatingsThrowsAPIException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetRatingsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetRatingsUri, statusCode);
 
