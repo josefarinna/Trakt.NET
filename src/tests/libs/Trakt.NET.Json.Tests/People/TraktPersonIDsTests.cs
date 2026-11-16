@@ -12,7 +12,7 @@
             personIDs.IMDB.ShouldBeNull();
             personIDs.TMDB.ShouldBeNull();
 
-            personIDs.HasAnyID.ShouldBe(false);
+            personIDs.HasAnyID.ShouldBeFalse();
             personIDs.BestID.ShouldBeEmpty();
         }
 
@@ -122,13 +122,13 @@
 
             personIDs.ShouldNotBeNull();
 
-            personIDs!.Trakt.ShouldBe(297737U);
-            personIDs!.Slug.ShouldBe("bryan-cranston");
-            personIDs!.IMDB.ShouldBe("nm0186505");
-            personIDs!.TMDB.ShouldBe(17419U);
+            personIDs.Trakt.ShouldBe(297737U);
+            personIDs.Slug.ShouldBe("bryan-cranston");
+            personIDs.IMDB.ShouldBe("nm0186505");
+            personIDs.TMDB.ShouldBe(17419U);
 
-            personIDs!.HasAnyID.ShouldBe(true);
-            personIDs!.BestID.ShouldBe("bryan-cranston");
+            personIDs.HasAnyID.ShouldBeTrue();
+            personIDs.BestID.ShouldBe("bryan-cranston");
         }
     }
 }

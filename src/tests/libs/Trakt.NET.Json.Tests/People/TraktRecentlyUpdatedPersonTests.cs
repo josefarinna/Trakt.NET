@@ -21,7 +21,7 @@ namespace TraktNET.Json.People
             recentlyUpdatedPerson.Homepage.ShouldBeNull();
             recentlyUpdatedPerson.Gender.ShouldBeNull();
             recentlyUpdatedPerson.KnownForDepartment.ShouldBeNull();
-            recentlyUpdatedPerson.SocialIds.ShouldBeNull();
+            recentlyUpdatedPerson.SocialIDs.ShouldBeNull();
             recentlyUpdatedPerson.UpdatedAt.ShouldBeNull();
             recentlyUpdatedPerson.Images.ShouldBeNull();
         }
@@ -53,7 +53,7 @@ namespace TraktNET.Json.People
                 Homepage = "http://www.bryancranston.com/",
                 Gender = TraktGender.Male,
                 KnownForDepartment = TraktKnownForDepartment.Acting,
-                SocialIds = socialIds,
+                SocialIDs = socialIds,
                 UpdatedAt = updatedAt,
                 Images = images
             };
@@ -91,7 +91,7 @@ namespace TraktNET.Json.People
                 Homepage = "Homepage",
                 Gender = TraktGender.Male,
                 KnownForDepartment = TraktKnownForDepartment.Acting,
-                SocialIds = new TraktPersonSocialIDs(),
+                SocialIDs = new TraktPersonSocialIDs(),
                 UpdatedAt = DateTime.UtcNow,
                 Images = new TraktPersonImages()
             };
@@ -106,7 +106,7 @@ namespace TraktNET.Json.People
             recentlyUpdatedPerson.Homepage.ShouldBeNull();
             recentlyUpdatedPerson.Gender.ShouldBeNull();
             recentlyUpdatedPerson.KnownForDepartment.ShouldBeNull();
-            recentlyUpdatedPerson.SocialIds.ShouldBeNull();
+            recentlyUpdatedPerson.SocialIDs.ShouldBeNull();
             recentlyUpdatedPerson.UpdatedAt.ShouldBeNull();
             recentlyUpdatedPerson.Images.ShouldBeNull();
         }
@@ -164,11 +164,11 @@ namespace TraktNET.Json.People
             recentlyUpdatedPerson.Homepage.ShouldBe("http://www.bryancranston.com/");
             recentlyUpdatedPerson.Gender.ShouldBe(TraktGender.Male);
             recentlyUpdatedPerson.KnownForDepartment.ShouldBe(TraktKnownForDepartment.Acting);
-            recentlyUpdatedPerson.SocialIds.ShouldNotBeNull();
-            recentlyUpdatedPerson.SocialIds.Twitter.ShouldBe("BryanCranston");
-            recentlyUpdatedPerson.SocialIds.Facebook.ShouldBe("thebryancranston");
-            recentlyUpdatedPerson.SocialIds.Instagram.ShouldBe("bryancranston");
-            recentlyUpdatedPerson.SocialIds.Wikipedia.ShouldBe("Bryan_Cranston");
+            recentlyUpdatedPerson.SocialIDs.ShouldNotBeNull();
+            recentlyUpdatedPerson.SocialIDs.Twitter.ShouldBe("BryanCranston");
+            recentlyUpdatedPerson.SocialIDs.Facebook.ShouldBe("thebryancranston");
+            recentlyUpdatedPerson.SocialIDs.Instagram.ShouldBe("bryancranston");
+            recentlyUpdatedPerson.SocialIDs.Wikipedia.ShouldBe("Bryan_Cranston");
             recentlyUpdatedPerson.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2022-11-03T18:58:09.000Z"));
         }
     }

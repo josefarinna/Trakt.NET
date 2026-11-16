@@ -40,13 +40,13 @@ namespace TraktNET.Exceptions
             var rateLimitException = exception as TraktApiRateLimitException;
 
             rateLimitException.ShouldNotBeNull();
-            rateLimitException!.RateLimitInfo.ShouldNotBeNull();
-            rateLimitException!.RateLimitInfo!.Name.ShouldBe("UNAUTHED_API_GET_LIMIT");
-            rateLimitException!.RateLimitInfo!.Period.ShouldBe(300U);
-            rateLimitException!.RateLimitInfo!.Limit.ShouldBe(1000U);
-            rateLimitException!.RateLimitInfo!.Remaining.ShouldBe(500U);
-            rateLimitException!.RateLimitInfo!.Until.ShouldBe(Until);
-            rateLimitException!.RetryAfter.ShouldBe(1000U);
+            rateLimitException.RateLimitInfo.ShouldNotBeNull();
+            rateLimitException.RateLimitInfo.Name.ShouldBe("UNAUTHED_API_GET_LIMIT");
+            rateLimitException.RateLimitInfo.Period.ShouldBe(300U);
+            rateLimitException.RateLimitInfo.Limit.ShouldBe(1000U);
+            rateLimitException.RateLimitInfo.Remaining.ShouldBe(500U);
+            rateLimitException.RateLimitInfo.Until.ShouldBe(Until);
+            rateLimitException.RetryAfter.ShouldBe(1000U);
         }
     }
 }

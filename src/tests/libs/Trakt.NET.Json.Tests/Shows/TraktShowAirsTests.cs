@@ -19,13 +19,13 @@
 
             showAirs.ShouldNotBeNull();
 
-            showAirs!.Day.ShouldBe(TraktDayOfWeek.Sunday);
+            showAirs.Day.ShouldBe(TraktDayOfWeek.Sunday);
 #if NET7_0_OR_GREATER
-            showAirs!.Time.ShouldBe(TestUtility.ParseTime("21:00"));
+            showAirs.Time.ShouldBe(TestUtility.ParseTime("21:00"));
 #else
-            showAirs!.Time.ShouldBe("21:00");
+            showAirs.Time.ShouldBe("21:00");
 #endif
-            showAirs!.Timezone.ShouldBe("America/New_York");
+            showAirs.Timezone.ShouldBe("America/New_York");
         }
     }
 }

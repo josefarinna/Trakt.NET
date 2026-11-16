@@ -20,11 +20,11 @@ namespace TraktNET.CalendarsModule
             TraktListResponse<TraktCalendarShow> response = await client.Calendar.GetAllFinalesAsync(date, days, null, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            List<TraktCalendarShow> calendarShows = [.. response.Content!];
+            List<TraktCalendarShow> calendarShows = [.. response.Content];
             calendarShows.ShouldNotBeEmpty();
 
             TraktCalendarShow calendarShow = calendarShows[0];
@@ -32,10 +32,10 @@ namespace TraktNET.CalendarsModule
             calendarShow.Episode.ShouldNotBeNull();
             calendarShow.Show.ShouldNotBeNull();
 
-            calendarShow.Show!.Title.ShouldBe("Game of Thrones");
-            calendarShow.Episode!.Title.ShouldBe("Fire and Blood");
-            calendarShow.Episode!.Season.ShouldBe(1U);
-            calendarShow.Episode!.Number.ShouldBe(10U);
+            calendarShow.Show.Title.ShouldBe("Game of Thrones");
+            calendarShow.Episode.Title.ShouldBe("Fire and Blood");
+            calendarShow.Episode.Season.ShouldBe(1U);
+            calendarShow.Episode.Number.ShouldBe(10U);
         }
 
         [Fact]
@@ -56,11 +56,11 @@ namespace TraktNET.CalendarsModule
             TraktListResponse<TraktCalendarShow> response = await client.Calendar.GetAllFinalesAsync(date, 7U, filter, null, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            List<TraktCalendarShow> items = [.. response.Content!];
+            List<TraktCalendarShow> items = [.. response.Content];
             items.ShouldNotBeEmpty();
         }
 

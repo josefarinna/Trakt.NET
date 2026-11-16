@@ -15,15 +15,15 @@ namespace TraktNET.AwardsModule
             TraktListResponse<TraktUpcomingCeremony> response = await client.Awards.GetCeremoniesAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktUpcomingCeremony> ceremonies = response.Content!;
+            IReadOnlyList<TraktUpcomingCeremony> ceremonies = response.Content;
 
             TraktUpcomingCeremony ceremony = ceremonies[0];
             ceremony.Slug.ShouldBe("oscars");
@@ -63,8 +63,8 @@ namespace TraktNET.AwardsModule
             TraktListResponse<TraktUpcomingCeremony> response = await client.Awards.GetUpcomingCeremoniesAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Count.ShouldBe(2);
         }

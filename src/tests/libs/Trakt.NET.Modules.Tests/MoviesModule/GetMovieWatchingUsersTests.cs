@@ -21,15 +21,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.TraktMovieID, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktUser> watchingUsers = response.Content!;
+            IReadOnlyList<TraktUser> watchingUsers = response.Content;
 
             TraktUser watchingUser = watchingUsers[0];
 
@@ -52,15 +52,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieSlug, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktUser> watchingUsers = response.Content!;
+            IReadOnlyList<TraktUser> watchingUsers = response.Content;
 
             TraktUser watchingUser = watchingUsers[0];
 
@@ -83,15 +83,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktUser> response = await client.Movies.GetMovieWatchingUsersAsync(TestConstants.Movies.MovieIDs, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktUser> watchingUsers = response.Content!;
+            IReadOnlyList<TraktUser> watchingUsers = response.Content;
 
             TraktUser watchingUser = watchingUsers[0];
 

@@ -22,27 +22,27 @@ namespace TraktNET.CalendarsModule
             TraktListResponse<TraktCalendarMedia> response = await client.Calendar.GetHotReleasesAsync(date, days, type, group, null, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            List<TraktCalendarMedia> items = [.. response.Content!];
+            List<TraktCalendarMedia> items = [.. response.Content];
             items.ShouldNotBeEmpty();
             items.Count.ShouldBe(2);
 
             TraktCalendarMedia movieItem = items[0];
             movieItem.Released.ShouldNotBeNull();
             movieItem.Movie.ShouldNotBeNull();
-            movieItem.Movie!.Title.ShouldBe("The Avengers");
+            movieItem.Movie.Title.ShouldBe("The Avengers");
 
             TraktCalendarMedia showItem = items[1];
             showItem.FirstAired.ShouldNotBeNull();
             showItem.Show.ShouldNotBeNull();
             showItem.Episode.ShouldNotBeNull();
-            showItem.Show!.Title.ShouldBe("Game of Thrones");
+            showItem.Show.Title.ShouldBe("Game of Thrones");
         }
 
         [Fact]
@@ -58,11 +58,11 @@ namespace TraktNET.CalendarsModule
             TraktListResponse<TraktCalendarMedia> response = await client.Calendar.GetHotReleasesAsync(date, 7U, filter: filterObj, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            List<TraktCalendarMedia> items = [.. response.Content!];
+            List<TraktCalendarMedia> items = [.. response.Content];
             items.ShouldNotBeEmpty();
         }
 

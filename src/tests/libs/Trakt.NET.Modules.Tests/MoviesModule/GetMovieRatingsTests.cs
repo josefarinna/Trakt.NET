@@ -19,14 +19,14 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktRating> response = await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.TraktMovieID, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktRating movieRatings = response.Content!;
+            TraktRating movieRatings = response.Content;
 
             movieRatings.Rating.ShouldBe(7.96017f);
             movieRatings.Votes.ShouldBe(18906U);
@@ -42,14 +42,14 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktRating> response = await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.MovieSlug, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktRating movieRatings = response.Content!;
+            TraktRating movieRatings = response.Content;
 
             movieRatings.Rating.ShouldBe(7.96017f);
             movieRatings.Votes.ShouldBe(18906U);
@@ -65,14 +65,14 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktRating> response = await client.Movies.GetMovieRatingsAsync(TestConstants.Movies.MovieIDs, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktRating movieRatings = response.Content!;
+            TraktRating movieRatings = response.Content;
 
             movieRatings.Rating.ShouldBe(7.96017f);
             movieRatings.Votes.ShouldBe(18906U);

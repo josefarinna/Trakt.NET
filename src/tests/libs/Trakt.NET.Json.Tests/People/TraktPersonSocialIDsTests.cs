@@ -24,14 +24,14 @@
 
             personSocialIDs.ShouldNotBeNull();
 
-            personSocialIDs!.Twitter.ShouldBe("BryanCranston");
-            personSocialIDs!.Facebook.ShouldBe("thebryancranston");
-            personSocialIDs!.Instagram.ShouldBe("bryancranston");
-            personSocialIDs!.TikTok.ShouldBe("bryancranston");
-            personSocialIDs!.YouTube.ShouldBe("UC0000000000000000000000");
-            personSocialIDs!.Wikidata.ShouldBe("Q43416");
-            personSocialIDs!.Wikipedia.ShouldBe("test-data");
-            personSocialIDs!.WikipediaLanguage.ShouldBe("de");
+            personSocialIDs.Twitter.ShouldBe("BryanCranston");
+            personSocialIDs.Facebook.ShouldBe("thebryancranston");
+            personSocialIDs.Instagram.ShouldBe("bryancranston");
+            personSocialIDs.TikTok.ShouldBe("bryancranston");
+            personSocialIDs.YouTube.ShouldBe("UC0000000000000000000000");
+            personSocialIDs.Wikidata.ShouldBe("Q43416");
+            personSocialIDs.Wikipedia.ShouldBe("test-data");
+            personSocialIDs.WikipediaLanguage.ShouldBe("de");
         }
 
         [Fact]

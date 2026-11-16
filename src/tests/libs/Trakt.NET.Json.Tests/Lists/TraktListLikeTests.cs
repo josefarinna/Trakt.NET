@@ -27,7 +27,7 @@
             listLike.User.VIPEP.ShouldBe(true);
 
             listLike.User.IDs.ShouldNotBeNull();
-            listLike.User.IDs!.Slug.ShouldBe("justin");
+            listLike.User.IDs.Slug.ShouldBe("justin");
         }
     }
 }

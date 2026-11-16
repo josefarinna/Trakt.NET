@@ -85,7 +85,7 @@ namespace TraktNET
     }
 
     [TraktGetRequest("episodes/{id!!}/watchnow/{country!!}", SupportsExtendedInfo = true)]
-    internal sealed partial class EpisodeByIdWatchnowGetRequest
+    internal sealed partial class EpisodeByIDWatchnowGetRequest
     {
         [TraktRequestQuery("links")]
         internal bool? Links { get; set; }

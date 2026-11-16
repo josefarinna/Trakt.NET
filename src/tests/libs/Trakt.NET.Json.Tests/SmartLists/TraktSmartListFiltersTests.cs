@@ -22,7 +22,7 @@ namespace TraktNET.Json.SmartLists
             filters.Years.ShouldBeNull();
             filters.Ratings.ShouldBeNull();
             filters.Runtimes.ShouldBeNull();
-            filters.ImdbRatings.ShouldBeNull();
+            filters.IMDBRatings.ShouldBeNull();
             filters.RtMeters.ShouldBeNull();
             filters.RtUserMeters.ShouldBeNull();
             filters.LetterboxdRatings.ShouldBeNull();
@@ -46,10 +46,10 @@ namespace TraktNET.Json.SmartLists
             filters.PeopleOperator.ShouldBeNull();
             filters.PeopleRole.ShouldBeNull();
             filters.ReleasedWithinDays.ShouldBeNull();
-            filters.TmdbRatings.ShouldBeNull();
+            filters.TMDBRatings.ShouldBeNull();
             filters.Metascores.ShouldBeNull();
             filters.Votes.ShouldBeNull();
-            filters.ImdbVotes.ShouldBeNull();
+            filters.IMDBVotes.ShouldBeNull();
             filters.Awards.ShouldBeNull();
             filters.AwardYears.ShouldBeNull();
             filters.AwardWon.ShouldBeNull();

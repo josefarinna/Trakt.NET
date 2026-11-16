@@ -20,7 +20,7 @@ namespace TraktNET
             {
                 Code = code,
                 CodeVerifier = codeVerifier,
-                ClientId = clientId,
+                ClientID = clientId,
                 ClientSecret = clientSecret,
                 RedirectUri = redirectUri
             };
@@ -38,7 +38,7 @@ namespace TraktNET
         {
             var traktAuthorizationRefreshPost = new TraktAuthorizationRefreshPost
             {
-                ClientId = clientId,
+                ClientID = clientId,
                 ClientSecret = clientSecret,
                 RedirectUri = redirectUri,
                 RefreshToken = refreshToken
@@ -58,7 +58,7 @@ namespace TraktNET
             var traktAuthorizationRevokePost = new TraktAuthorizationRevokePost
             {
                 Token = accessToken,
-                ClientId = clientId,
+                ClientID = clientId,
                 ClientSecret = clientSecret
             };
 
@@ -75,7 +75,7 @@ namespace TraktNET
         {
             var traktDevicePost = new TraktDevicePost
             {
-                ClientId = clientId
+                ClientID = clientId
             };
 
             var request = new DeviceRequest
@@ -92,7 +92,7 @@ namespace TraktNET
             var traktAuthorizationPollPost = new TraktAuthorizationPollPost
             {
                 Device = device,
-                ClientId = clientId,
+                ClientID = clientId,
                 ClientSecret = clientSecret
             };
 

@@ -204,7 +204,7 @@ namespace TraktNET.Json.Movies
             collectionMovie.IDs.Slug.ShouldBe("deadpool-wolverine-2024");
             collectionMovie.IDs.IMDB.ShouldBe("tt6263850");
             collectionMovie.IDs.TMDB.ShouldBe(533535U);
-            collectionMovie.IDs.HasAnyID.ShouldBe(true);
+            collectionMovie.IDs.HasAnyID.ShouldBeTrue();
             collectionMovie.IDs.BestID.ShouldBe("deadpool-wolverine-2024");
 
             collectionMovie.ToString().ShouldBe("Deadpool & Wolverine (2024)");
@@ -226,7 +226,7 @@ namespace TraktNET.Json.Movies
             collectionMovie.IDs.Slug.ShouldBe("deadpool-wolverine-2024");
             collectionMovie.IDs.IMDB.ShouldBe("tt6263850");
             collectionMovie.IDs.TMDB.ShouldBe(533535U);
-            collectionMovie.IDs.HasAnyID.ShouldBe(true);
+            collectionMovie.IDs.HasAnyID.ShouldBeTrue();
             collectionMovie.IDs.BestID.ShouldBe("deadpool-wolverine-2024");
 
             collectionMovie.ToString().ShouldBe("Deadpool & Wolverine (2024)");

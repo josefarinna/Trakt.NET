@@ -46,7 +46,7 @@ namespace TraktNET.SyncModule
             firstItem.ID.ShouldBe(1982346U);
             firstItem.Type.ShouldBe(TraktSyncItemType.Movie);
             firstItem.Movie.ShouldNotBeNull();
-            firstItem.Movie!.Title.ShouldBe("The Dark Knight");
+            firstItem.Movie.Title.ShouldBe("The Dark Knight");
             firstItem.Action.ShouldBe(TraktHistoryActionType.Scrobble);
         }
 

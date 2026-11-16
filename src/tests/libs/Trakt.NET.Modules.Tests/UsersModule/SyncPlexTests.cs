@@ -11,7 +11,7 @@ namespace TraktNET.UsersModule
         {
             var syncPost = new TraktPlexSyncPost
             {
-                ServerId = "server1",
+                ServerID = "server1",
                 AllData = true
             };
 

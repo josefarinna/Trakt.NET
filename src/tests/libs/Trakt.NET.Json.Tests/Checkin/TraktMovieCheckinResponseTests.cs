@@ -20,21 +20,21 @@
 
             response.ShouldNotBeNull();
 
-            response!.ID.ShouldBe(3373536619UL);
-            response!.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-08-06T01:11:37.000Z"));
+            response.ID.ShouldBe(3373536619UL);
+            response.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-08-06T01:11:37.000Z"));
 
-            response!.Sharing.ShouldNotBeNull();
-            response!.Sharing!.Twitter.ShouldBe(true);
-            response!.Sharing!.Tumblr.ShouldBe(false);
+            response.Sharing.ShouldNotBeNull();
+            response.Sharing.Twitter.ShouldBe(true);
+            response.Sharing.Tumblr.ShouldBe(false);
 
-            response!.Movie.ShouldNotBeNull();
-            response!.Movie!.Title.ShouldBe("Guardians of the Galaxy");
-            response!.Movie!.Year.ShouldBe(2014U);
-            response!.Movie!.IDs.ShouldNotBeNull();
-            response!.Movie!.IDs!.Trakt.ShouldBe(28U);
-            response!.Movie!.IDs!.Slug.ShouldBe("guardians-of-the-galaxy-2014");
-            response!.Movie!.IDs!.IMDB.ShouldBe("tt2015381");
-            response!.Movie!.IDs!.TMDB.ShouldBe(118340U);
+            response.Movie.ShouldNotBeNull();
+            response.Movie.Title.ShouldBe("Guardians of the Galaxy");
+            response.Movie.Year.ShouldBe(2014U);
+            response.Movie.IDs.ShouldNotBeNull();
+            response.Movie.IDs.Trakt.ShouldBe(28U);
+            response.Movie.IDs.Slug.ShouldBe("guardians-of-the-galaxy-2014");
+            response.Movie.IDs.IMDB.ShouldBe("tt2015381");
+            response.Movie.IDs.TMDB.ShouldBe(118340U);
         }
     }
 }

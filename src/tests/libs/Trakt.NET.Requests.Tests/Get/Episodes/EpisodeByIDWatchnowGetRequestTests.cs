@@ -4,7 +4,7 @@ using System.Net.Http;
 
 namespace TraktNET.GetRequests.Episodes
 {
-    public sealed class EpisodeByIdWatchnowGetRequestTests
+    public sealed class EpisodeByIDWatchnowGetRequestTests
     {
         private const string EpisodeID = "456";
         private const string Country = "us";
@@ -18,9 +18,9 @@ namespace TraktNET.GetRequests.Episodes
         [InlineData(true, TraktExtendedInfo.Full, $"{URIPath}?links=true&extended=full")]
         [InlineData(null, TraktExtendedInfo.StreamingRanks, $"{URIPath}?extended=streaming_ranks")]
         [InlineData(true, TraktExtendedInfo.StreamingRanks, $"{URIPath}?links=true&extended=streaming_ranks")]
-        public void TestEpisodeByIdWatchnowGetRequestHasValidURIPath(bool? links, TraktExtendedInfo? extendedInfo, string expectedURIPath)
+        public void TestEpisodeByIDWatchnowGetRequestHasValidURIPath(bool? links, TraktExtendedInfo? extendedInfo, string expectedURIPath)
         {
-            var request = new EpisodeByIdWatchnowGetRequest
+            var request = new EpisodeByIDWatchnowGetRequest
             {
                 Id = EpisodeID,
                 Country = Country,
@@ -33,50 +33,50 @@ namespace TraktNET.GetRequests.Episodes
         }
 
         [Fact]
-        public void TestEpisodeByIdWatchnowGetRequestHasValidOAuthRequirement()
+        public void TestEpisodeByIDWatchnowGetRequestHasValidOAuthRequirement()
         {
-            var request = new EpisodeByIdWatchnowGetRequest { Id = EpisodeID, Country = Country };
+            var request = new EpisodeByIDWatchnowGetRequest { Id = EpisodeID, Country = Country };
             request.OAuthRequirement.ShouldBe(TraktOAuthRequirement.NotRequired);
         }
 
         [Fact]
-        public void TestEpisodeByIdWatchnowGetRequestIsGetRequest()
+        public void TestEpisodeByIDWatchnowGetRequestIsGetRequest()
         {
-            var request = new EpisodeByIdWatchnowGetRequest { Id = EpisodeID, Country = Country };
+            var request = new EpisodeByIDWatchnowGetRequest { Id = EpisodeID, Country = Country };
             request.Method.ShouldBe(HttpMethod.Get);
         }
 
         [Fact]
-        public void TestEpisodeByIdWatchnowGetRequestHasCorrectRequestObjectType()
+        public void TestEpisodeByIDWatchnowGetRequestHasCorrectRequestObjectType()
         {
-            var request = new EpisodeByIdWatchnowGetRequest { Id = EpisodeID, Country = Country };
+            var request = new EpisodeByIDWatchnowGetRequest { Id = EpisodeID, Country = Country };
             request.RequestObjectType.ShouldBe(TraktRequestObjectType.Episode);
         }
 
         [Fact]
-        public void TestEpisodeByIdWatchnowGetRequestValidate()
+        public void TestEpisodeByIDWatchnowGetRequestValidate()
         {
-            var request = new EpisodeByIdWatchnowGetRequest { Id = string.Empty, Country = Country };
+            var request = new EpisodeByIDWatchnowGetRequest { Id = string.Empty, Country = Country };
             Action act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new EpisodeByIdWatchnowGetRequest { Id = "  ", Country = Country };
+            request = new EpisodeByIDWatchnowGetRequest { Id = "  ", Country = Country };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new EpisodeByIdWatchnowGetRequest { Id = "id with spaces", Country = Country };
+            request = new EpisodeByIDWatchnowGetRequest { Id = "id with spaces", Country = Country };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new EpisodeByIdWatchnowGetRequest { Id = EpisodeID, Country = string.Empty };
+            request = new EpisodeByIDWatchnowGetRequest { Id = EpisodeID, Country = string.Empty };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new EpisodeByIdWatchnowGetRequest { Id = EpisodeID, Country = "  " };
+            request = new EpisodeByIDWatchnowGetRequest { Id = EpisodeID, Country = "  " };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
 
-            request = new EpisodeByIdWatchnowGetRequest { Id = EpisodeID, Country = "country with spaces" };
+            request = new EpisodeByIDWatchnowGetRequest { Id = EpisodeID, Country = "country with spaces" };
             act = () => request.Validate();
             act.ShouldThrow<TraktRequestValidationException>();
         }

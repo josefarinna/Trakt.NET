@@ -39,8 +39,8 @@
             episode1.LastWatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2012-10-09T14:32:00.000Z"));
 
             episode1.Stats.ShouldNotBeNull();
-            episode1.Stats!.PlayCount.ShouldBe(1U);
-            episode1.Stats!.MinutesWatched.ShouldBe(62U);
+            episode1.Stats.PlayCount.ShouldBe(1U);
+            episode1.Stats.MinutesWatched.ShouldBe(62U);
         }
     }
 }

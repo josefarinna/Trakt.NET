@@ -2,7 +2,7 @@
 
 namespace TraktNET.SearchModule
 {
-    public sealed class GetIdLookupResultsTests
+    public sealed class GetIDLookupResultsTests
     {
         private readonly string GetIDLookupUri = $"search/{IDLookupType.ToURI()}/{LookupID}";
         private const string LookupID = "tt0848228";
@@ -21,13 +21,13 @@ namespace TraktNET.SearchModule
         [InlineData(null, null, null, Limit, $"search/imdb/{LookupID}?limit=4")]
         [InlineData(IDLookupResultType, ExtendedInfo, Page, Limit, $"search/imdb/{LookupID}?type=movie&extended=full&page=2&limit=4")]
         [InlineData(TraktSearchResultType.Unspecified, null, null, null, $"search/imdb/{LookupID}")]
-        public async Task TestGetIdLookupResults(TraktSearchResultType? searchResultTypes, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
+        public async Task TestGetIDLookupResults(TraktSearchResultType? searchResultTypes, TraktExtendedInfo? extendedInfo, uint? page, uint? limit, string requestUri)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
 
             TraktClient client = ModuleTestUtility.GetClient(requestUri, responseContent, page, 1, limit, IDLookupItemCount);
 
-            TraktPagedResponse<TraktSearchResult> response = await client.Search.GetIdLookupResultsAsync(IDLookupType, LookupID, searchResultTypes, extendedInfo, page, limit, TestContext.Current.CancellationToken);
+            TraktPagedResponse<TraktSearchResult> response = await client.Search.GetIDLookupResultsAsync(IDLookupType, LookupID, searchResultTypes, extendedInfo, page, limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -41,7 +41,7 @@ namespace TraktNET.SearchModule
         }
 
         [Fact]
-        public async Task TestGetIdLookupResultsPagingHasPreviousPageAndHasNextPage()
+        public async Task TestGetIDLookupResultsPagingHasPreviousPageAndHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
 			
@@ -50,7 +50,7 @@ namespace TraktNET.SearchModule
                 responseContent, 2, 5, Limit, IDLookupItemCount);
 
             TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+                await client.Search.GetIDLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -66,7 +66,7 @@ namespace TraktNET.SearchModule
         }
 
         [Fact]
-        public async Task TestGetIdLookupResultsPagingOnlyHasPreviousPage()
+        public async Task TestGetIDLookupResultsPagingOnlyHasPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
 			
@@ -74,7 +74,7 @@ namespace TraktNET.SearchModule
                 $"{GetIDLookupUri}?type={IDLookupResultType.ToURI()}&extended={ExtendedInfo.ToURI()}&page=2&limit={Limit}", responseContent, 2, 2, Limit, IDLookupItemCount);
 
             TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+                await client.Search.GetIDLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -90,7 +90,7 @@ namespace TraktNET.SearchModule
         }
 
         [Fact]
-        public async Task TestGetIdLookupResultsPagingOnlyHasNextPage()
+        public async Task TestGetIDLookupResultsPagingOnlyHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
 			
@@ -98,7 +98,7 @@ namespace TraktNET.SearchModule
                 $"{GetIDLookupUri}?type={IDLookupResultType.ToURI()}&extended={ExtendedInfo.ToURI()}&page=1&limit={Limit}", responseContent, 1, 2, Limit, IDLookupItemCount);
 
             TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+                await client.Search.GetIDLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -114,7 +114,7 @@ namespace TraktNET.SearchModule
         }
 
         [Fact]
-        public async Task TestGetIdLookupResultsPagingNotHasPreviousPageOrHasNextPage()
+        public async Task TestGetIDLookupResultsPagingNotHasPreviousPageOrHasNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
 			
@@ -122,7 +122,7 @@ namespace TraktNET.SearchModule
                 $"{GetIDLookupUri}?type={IDLookupResultType.ToURI()}&extended={ExtendedInfo.ToURI()}&page=1&limit={Limit}", responseContent, 1, 1, Limit, IDLookupItemCount);
 
             TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+                await client.Search.GetIDLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -138,7 +138,7 @@ namespace TraktNET.SearchModule
         }
 
         [Fact]
-        public async Task TestGetIdLookupResultsPagingGetPreviousPage()
+        public async Task TestGetIDLookupResultsPagingGetPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
 			
@@ -146,7 +146,7 @@ namespace TraktNET.SearchModule
                 $"{GetIDLookupUri}?type={IDLookupResultType.ToURI()}&extended={ExtendedInfo.ToURI()}&page=2&limit={Limit}", responseContent, 2, 2, Limit, IDLookupItemCount);
 
             TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
+                await client.Search.GetIDLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 2, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -179,7 +179,7 @@ namespace TraktNET.SearchModule
         }
 
         [Fact]
-        public async Task TestGetIdLookupResultsPagingGetNextPage()
+        public async Task TestGetIDLookupResultsPagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
 			
@@ -187,7 +187,7 @@ namespace TraktNET.SearchModule
                 $"{GetIDLookupUri}?type={IDLookupResultType.ToURI()}&extended={ExtendedInfo.ToURI()}&page=1&limit={Limit}", responseContent, 1, 2, Limit, IDLookupItemCount);
 
             TraktPagedResponse<TraktSearchResult> response =
-                await client.Search.GetIdLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
+                await client.Search.GetIDLookupResultsAsync(IDLookupType, LookupID, IDLookupResultType, ExtendedInfo, 1, Limit, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -221,13 +221,13 @@ namespace TraktNET.SearchModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiNotFoundException))]
-        public async Task TestGetIdLookupResultsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetIDLookupResultsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("Searchs\\searchresult.json");
 			
             TraktClient client = ModuleTestUtility.GetClient("search/trakt/123", statusCode);
 
-            Func<Task<TraktPagedResponse<TraktSearchResult>>> act = () => client.Search.GetIdLookupResultsAsync(TraktSearchIDType.Trakt, "123", cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktPagedResponse<TraktSearchResult>>> act = () => client.Search.GetIDLookupResultsAsync(TraktSearchIDType.Trakt, "123", cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }

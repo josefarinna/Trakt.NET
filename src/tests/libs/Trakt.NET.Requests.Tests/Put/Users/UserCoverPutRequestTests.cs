@@ -13,7 +13,7 @@ namespace TraktNET.PutRequests.Users
         {
             var request = new UserCoverPutRequest
             {
-                TraktUserCoverPost = new TraktUserCoverPost { CoverType = TraktCoverType.Movie, CoverId = 123U }
+                TraktUserCoverPost = new TraktUserCoverPost { CoverType = TraktCoverType.Movie, CoverID = 123U }
             };
             request.BuildUri();
             request.RequestUri.ShouldBe(new Uri(URIPath, UriKind.Relative));

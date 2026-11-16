@@ -39,10 +39,10 @@ namespace TraktNET.ScrobbleModule
             responseValue.Episode.Number.ShouldBe(1U);
             responseValue.Episode.Title.ShouldBe("Pilot");
             responseValue.Episode.IDs.ShouldNotBeNull();
-            responseValue.Episode.IDs!.Trakt.ShouldBe(16U);
-            responseValue.Episode.IDs!.TVDB.ShouldBe(349232U);
-            responseValue.Episode.IDs!.IMDB.ShouldBe("tt0959621");
-            responseValue.Episode.IDs!.TMDB.ShouldBe(62085U);
+            responseValue.Episode.IDs.Trakt.ShouldBe(16U);
+            responseValue.Episode.IDs.TVDB.ShouldBe(349232U);
+            responseValue.Episode.IDs.IMDB.ShouldBe("tt0959621");
+            responseValue.Episode.IDs.TMDB.ShouldBe(62085U);
         }
 
         [Theory]

@@ -31,14 +31,14 @@ namespace TraktNET.Json.Seasons
 
             season.ShouldNotBeNull();
 
-            season!.Number.ShouldBe(1U);
+            season.Number.ShouldBe(1U);
 
-            season!.IDs.ShouldNotBeNull();
-            season!.IDs!.Trakt.ShouldBe(3963U);
-            season!.IDs!.TVDB.ShouldBe(364731U);
-            season!.IDs!.TMDB.ShouldBe(3624U);
-            season!.IDs!.HasAnyID.ShouldBe(true);
-            season!.IDs!.BestID.ShouldBe("3963");
+            season.IDs.ShouldNotBeNull();
+            season.IDs.Trakt.ShouldBe(3963U);
+            season.IDs.TVDB.ShouldBe(364731U);
+            season.IDs.TMDB.ShouldBe(3624U);
+            season.IDs.HasAnyID.ShouldBeTrue();
+            season.IDs.BestID.ShouldBe("3963");
         }
 
         [Fact]
@@ -48,24 +48,24 @@ namespace TraktNET.Json.Seasons
 
             season.ShouldNotBeNull();
 
-            season!.Number.ShouldBe(1U);
+            season.Number.ShouldBe(1U);
 
-            season!.IDs.ShouldNotBeNull();
-            season!.IDs!.Trakt.ShouldBe(3963U);
-            season!.IDs!.TVDB.ShouldBe(364731U);
-            season!.IDs!.TMDB.ShouldBe(3624U);
-            season!.IDs!.HasAnyID.ShouldBe(true);
-            season!.IDs!.BestID.ShouldBe("3963");
+            season.IDs.ShouldNotBeNull();
+            season.IDs.Trakt.ShouldBe(3963U);
+            season.IDs.TVDB.ShouldBe(364731U);
+            season.IDs.TMDB.ShouldBe(3624U);
+            season.IDs.HasAnyID.ShouldBeTrue();
+            season.IDs.BestID.ShouldBe("3963");
 
-            season!.Images.ShouldNotBeNull();
+            season.Images.ShouldNotBeNull();
 
-            season!.Images!.Poster.ShouldNotBeNull();
-            season!.Images!.Poster!.Count.ShouldBe(1);
-            season!.Images!.Poster!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"]);
+            season.Images.Poster.ShouldNotBeNull();
+            season.Images.Poster.Count.ShouldBe(1);
+            season.Images.Poster.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"]);
 
-            season!.Images!.Thumb.ShouldNotBeNull();
-            season!.Images!.Thumb!.Count.ShouldBe(1);
-            season!.Images!.Thumb!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"]);
+            season.Images.Thumb.ShouldNotBeNull();
+            season.Images.Thumb.Count.ShouldBe(1);
+            season.Images.Thumb.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"]);
         }
 
         [Fact]
@@ -75,28 +75,28 @@ namespace TraktNET.Json.Seasons
 
             season.ShouldNotBeNull();
 
-            season!.Number.ShouldBe(1U);
+            season.Number.ShouldBe(1U);
 
-            season!.IDs.ShouldNotBeNull();
-            season!.IDs!.Trakt.ShouldBe(3963U);
-            season!.IDs!.TVDB.ShouldBe(364731U);
-            season!.IDs!.TMDB.ShouldBe(3624U);
-            season!.IDs!.HasAnyID.ShouldBe(true);
-            season!.IDs!.BestID.ShouldBe("3963");
+            season.IDs.ShouldNotBeNull();
+            season.IDs.Trakt.ShouldBe(3963U);
+            season.IDs.TVDB.ShouldBe(364731U);
+            season.IDs.TMDB.ShouldBe(3624U);
+            season.IDs.HasAnyID.ShouldBeTrue();
+            season.IDs.BestID.ShouldBe("3963");
 
-            season!.Rating.ShouldBe(8.96076f);
-            season!.Votes.ShouldBe(4970U);
-            season!.EpisodeCount.ShouldBe(10U);
-            season!.AiredEpisodes.ShouldBe(10U);
-            season!.TotalRuntime.ShouldBe(570U);
-            season!.Title.ShouldBe("Season 1");
-            season!.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
-            season!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
-            season!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:24:59.000Z"));
-            season!.Network.ShouldBe("HBO");
-            season!.Episodes.ShouldBeNull();
+            season.Rating.ShouldBe(8.96076f);
+            season.Votes.ShouldBe(4970U);
+            season.EpisodeCount.ShouldBe(10U);
+            season.AiredEpisodes.ShouldBe(10U);
+            season.TotalRuntime.ShouldBe(570U);
+            season.Title.ShouldBe("Season 1");
+            season.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
+            season.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
+            season.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:24:59.000Z"));
+            season.Network.ShouldBe("HBO");
+            season.Episodes.ShouldBeNull();
 
-            season!.ToString().ShouldBe("S01: Season 1");
+            season.ToString().ShouldBe("S01: Season 1");
         }
 
         [Fact]
@@ -106,38 +106,38 @@ namespace TraktNET.Json.Seasons
 
             season.ShouldNotBeNull();
 
-            season!.Number.ShouldBe(1U);
+            season.Number.ShouldBe(1U);
 
-            season!.IDs.ShouldNotBeNull();
-            season!.IDs!.Trakt.ShouldBe(3963U);
-            season!.IDs!.TVDB.ShouldBe(364731U);
-            season!.IDs!.TMDB.ShouldBe(3624U);
-            season!.IDs!.HasAnyID.ShouldBe(true);
-            season!.IDs!.BestID.ShouldBe("3963");
+            season.IDs.ShouldNotBeNull();
+            season.IDs.Trakt.ShouldBe(3963U);
+            season.IDs.TVDB.ShouldBe(364731U);
+            season.IDs.TMDB.ShouldBe(3624U);
+            season.IDs.HasAnyID.ShouldBeTrue();
+            season.IDs.BestID.ShouldBe("3963");
 
-            season!.Rating.ShouldBe(8.96076f);
-            season!.Votes.ShouldBe(4970U);
-            season!.EpisodeCount.ShouldBe(10U);
-            season!.AiredEpisodes.ShouldBe(10U);
-            season!.TotalRuntime.ShouldBe(570U);
-            season!.Title.ShouldBe("Season 1");
-            season!.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
-            season!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
-            season!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:24:59.000Z"));
-            season!.Network.ShouldBe("HBO");
-            season!.Episodes.ShouldBeNull();
+            season.Rating.ShouldBe(8.96076f);
+            season.Votes.ShouldBe(4970U);
+            season.EpisodeCount.ShouldBe(10U);
+            season.AiredEpisodes.ShouldBe(10U);
+            season.TotalRuntime.ShouldBe(570U);
+            season.Title.ShouldBe("Season 1");
+            season.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
+            season.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
+            season.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:24:59.000Z"));
+            season.Network.ShouldBe("HBO");
+            season.Episodes.ShouldBeNull();
 
-            season!.Images.ShouldNotBeNull();
+            season.Images.ShouldNotBeNull();
 
-            season!.Images!.Poster.ShouldNotBeNull();
-            season!.Images!.Poster!.Count.ShouldBe(1);
-            season!.Images!.Poster!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"]);
+            season.Images.Poster.ShouldNotBeNull();
+            season.Images.Poster.Count.ShouldBe(1);
+            season.Images.Poster.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"]);
 
-            season!.Images!.Thumb.ShouldNotBeNull();
-            season!.Images!.Thumb!.Count.ShouldBe(1);
-            season!.Images!.Thumb!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"]);
+            season.Images.Thumb.ShouldNotBeNull();
+            season.Images.Thumb.Count.ShouldBe(1);
+            season.Images.Thumb.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"]);
 
-            season!.ToString().ShouldBe("S01: Season 1");
+            season.ToString().ShouldBe("S01: Season 1");
         }
 
         [Fact]
@@ -147,31 +147,31 @@ namespace TraktNET.Json.Seasons
 
             season.ShouldNotBeNull();
 
-            season!.Number.ShouldBe(1U);
+            season.Number.ShouldBe(1U);
 
-            season!.IDs.ShouldNotBeNull();
-            season!.IDs!.Trakt.ShouldBe(3963U);
-            season!.IDs!.TVDB.ShouldBe(364731U);
-            season!.IDs!.TMDB.ShouldBe(3624U);
-            season!.IDs!.HasAnyID.ShouldBe(true);
-            season!.IDs!.BestID.ShouldBe("3963");
+            season.IDs.ShouldNotBeNull();
+            season.IDs.Trakt.ShouldBe(3963U);
+            season.IDs.TVDB.ShouldBe(364731U);
+            season.IDs.TMDB.ShouldBe(3624U);
+            season.IDs.HasAnyID.ShouldBeTrue();
+            season.IDs.BestID.ShouldBe("3963");
 
-            season!.Rating.ShouldBe(8.96076f);
-            season!.Votes.ShouldBe(4970U);
-            season!.EpisodeCount.ShouldBe(10U);
-            season!.AiredEpisodes.ShouldBe(10U);
-            season!.TotalRuntime.ShouldBe(570U);
-            season!.Title.ShouldBe("Season 1");
-            season!.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
-            season!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
-            season!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:24:59.000Z"));
-            season!.Network.ShouldBe("HBO");
-            season!.Episodes.ShouldNotBeNull();
-            season!.Episodes!.Count.ShouldBe(10);
+            season.Rating.ShouldBe(8.96076f);
+            season.Votes.ShouldBe(4970U);
+            season.EpisodeCount.ShouldBe(10U);
+            season.AiredEpisodes.ShouldBe(10U);
+            season.TotalRuntime.ShouldBe(570U);
+            season.Title.ShouldBe("Season 1");
+            season.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
+            season.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
+            season.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:24:59.000Z"));
+            season.Network.ShouldBe("HBO");
+            season.Episodes.ShouldNotBeNull();
+            season.Episodes.Count.ShouldBe(10);
 
-            season!.ToString().ShouldBe("S01: Season 1");
+            season.ToString().ShouldBe("S01: Season 1");
 
-            List<TraktEpisode> episodes = season!.Episodes!;
+            List<TraktEpisode> episodes = season.Episodes;
 
             episodes[0].ShouldNotBeNull();
             episodes[0].Season.ShouldBe(1U);
@@ -281,41 +281,41 @@ namespace TraktNET.Json.Seasons
 
             season.ShouldNotBeNull();
 
-            season!.Number.ShouldBe(1U);
+            season.Number.ShouldBe(1U);
 
-            season!.IDs.ShouldNotBeNull();
-            season!.IDs!.Trakt.ShouldBe(3963U);
-            season!.IDs!.TVDB.ShouldBe(364731U);
-            season!.IDs!.TMDB.ShouldBe(3624U);
-            season!.IDs!.HasAnyID.ShouldBe(true);
-            season!.IDs!.BestID.ShouldBe("3963");
+            season.IDs.ShouldNotBeNull();
+            season.IDs.Trakt.ShouldBe(3963U);
+            season.IDs.TVDB.ShouldBe(364731U);
+            season.IDs.TMDB.ShouldBe(3624U);
+            season.IDs.HasAnyID.ShouldBeTrue();
+            season.IDs.BestID.ShouldBe("3963");
 
-            season!.Rating.ShouldBe(8.96076f);
-            season!.Votes.ShouldBe(4970U);
-            season!.EpisodeCount.ShouldBe(10U);
-            season!.AiredEpisodes.ShouldBe(10U);
-            season!.TotalRuntime.ShouldBe(570U);
-            season!.Title.ShouldBe("Season 1");
-            season!.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
-            season!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
-            season!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:24:59.000Z"));
-            season!.Network.ShouldBe("HBO");
-            season!.Episodes.ShouldNotBeNull();
-            season!.Episodes!.Count.ShouldBe(10);
+            season.Rating.ShouldBe(8.96076f);
+            season.Votes.ShouldBe(4970U);
+            season.EpisodeCount.ShouldBe(10U);
+            season.AiredEpisodes.ShouldBe(10U);
+            season.TotalRuntime.ShouldBe(570U);
+            season.Title.ShouldBe("Season 1");
+            season.Overview.ShouldBe("Trouble is brewing in the Seven Kingdoms of Westeros.");
+            season.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
+            season.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-23T06:24:59.000Z"));
+            season.Network.ShouldBe("HBO");
+            season.Episodes.ShouldNotBeNull();
+            season.Episodes.Count.ShouldBe(10);
 
-            season!.Images.ShouldNotBeNull();
+            season.Images.ShouldNotBeNull();
 
-            season!.Images!.Poster.ShouldNotBeNull();
-            season!.Images!.Poster!.Count.ShouldBe(1);
-            season!.Images!.Poster!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"]);
+            season.Images.Poster.ShouldNotBeNull();
+            season.Images.Poster.Count.ShouldBe(1);
+            season.Images.Poster.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/posters/thumb/15e611179e.jpg.webp"]);
 
-            season!.Images!.Thumb.ShouldNotBeNull();
-            season!.Images!.Thumb!.Count.ShouldBe(1);
-            season!.Images!.Thumb!.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"]);
+            season.Images.Thumb.ShouldNotBeNull();
+            season.Images.Thumb.Count.ShouldBe(1);
+            season.Images.Thumb.ShouldBe(["walter-r2.trakt.tv/images/seasons/000/003/963/thumbs/medium/6c996deed7.jpg.webp"]);
 
-            season!.ToString().ShouldBe("S01: Season 1");
+            season.ToString().ShouldBe("S01: Season 1");
 
-            List<TraktEpisode> episodes = season!.Episodes!;
+            List<TraktEpisode> episodes = season.Episodes;
 
             episodes[0].ShouldNotBeNull();
             episodes[0].Season.ShouldBe(1U);

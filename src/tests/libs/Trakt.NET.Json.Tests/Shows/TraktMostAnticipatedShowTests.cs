@@ -46,20 +46,20 @@ namespace TraktNET.Json.Shows
             TraktMostAnticipatedShow? mostAnticipatedShow = await TestUtility.DeserializeJsonAsync<TraktMostAnticipatedShow>("Shows\\mostanticipatedshow_minimal.json");
 
             mostAnticipatedShow.ShouldNotBeNull();
-            mostAnticipatedShow!.ListCount.ShouldBe(12805U);
+            mostAnticipatedShow.ListCount.ShouldBe(12805U);
 
-            mostAnticipatedShow!.Title.ShouldBe("Game of Thrones");
-            mostAnticipatedShow!.Year.ShouldBe(2011U);
+            mostAnticipatedShow.Title.ShouldBe("Game of Thrones");
+            mostAnticipatedShow.Year.ShouldBe(2011U);
 
             mostAnticipatedShow!.IDs!.Trakt.ShouldBe(1390U);
-            mostAnticipatedShow!.IDs!.Slug.ShouldBe("game-of-thrones");
-            mostAnticipatedShow!.IDs!.IMDB.ShouldBe("tt0944947");
-            mostAnticipatedShow!.IDs!.TMDB.ShouldBe(1399U);
-            mostAnticipatedShow!.IDs!.TVDB.ShouldBe(121361U);
-            mostAnticipatedShow!.IDs!.HasAnyID.ShouldBe(true);
-            mostAnticipatedShow!.IDs!.BestID.ShouldBe("game-of-thrones");
+            mostAnticipatedShow.IDs.Slug.ShouldBe("game-of-thrones");
+            mostAnticipatedShow.IDs.IMDB.ShouldBe("tt0944947");
+            mostAnticipatedShow.IDs.TMDB.ShouldBe(1399U);
+            mostAnticipatedShow.IDs.TVDB.ShouldBe(121361U);
+            mostAnticipatedShow.IDs.HasAnyID.ShouldBeTrue();
+            mostAnticipatedShow.IDs.BestID.ShouldBe("game-of-thrones");
 
-            mostAnticipatedShow!.ToString().ShouldBe("Game of Thrones (2011)");
+            mostAnticipatedShow.ToString().ShouldBe("Game of Thrones (2011)");
         }
 
         [Fact]
@@ -75,14 +75,14 @@ namespace TraktNET.Json.Shows
             IReadOnlyList<TraktMostAnticipatedShow>? shows = await TestUtility.DeserializeJsonListAsync<TraktMostAnticipatedShow>("Shows\\mostanticipatedshows_minimal.json");
 
             shows.ShouldNotBeNull();
-            shows!.Count.ShouldBe(2);
+            shows.Count.ShouldBe(2);
 
             var show0 = shows[0];
             show0.ListCount.ShouldBe(12805U);
             show0.Title.ShouldBe("Game of Thrones");
             show0.Year.ShouldBe(2011U);
             show0.IDs!.Trakt.ShouldBe(1390U);
-            show0.IDs!.Slug.ShouldBe("game-of-thrones");
+            show0.IDs.Slug.ShouldBe("game-of-thrones");
 
             var show1 = shows[1];
             show1.ListCount.ShouldBe(23502U);
@@ -97,7 +97,7 @@ namespace TraktNET.Json.Shows
             IReadOnlyList<TraktMostAnticipatedShow>? shows = await TestUtility.DeserializeJsonListAsync<TraktMostAnticipatedShow>("Shows\\mostanticipatedshows.json");
 
             shows.ShouldNotBeNull();
-            shows!.Count.ShouldBe(2);
+            shows.Count.ShouldBe(2);
 
             // Validate the first item in full detail
             ValidateMostAnticipatedShow(shows[0]);
@@ -113,68 +113,68 @@ namespace TraktNET.Json.Shows
         private static void ValidateMostAnticipatedShow(TraktMostAnticipatedShow? mostAnticipatedShow)
         {
             mostAnticipatedShow.ShouldNotBeNull();
-            mostAnticipatedShow!.ListCount.ShouldBe(12805U);
-            mostAnticipatedShow!.Title.ShouldBe("Game of Thrones");
-            mostAnticipatedShow!.Year.ShouldBe(2011U);
+            mostAnticipatedShow.ListCount.ShouldBe(12805U);
+            mostAnticipatedShow.Title.ShouldBe("Game of Thrones");
+            mostAnticipatedShow.Year.ShouldBe(2011U);
 
-            mostAnticipatedShow!.IDs.ShouldNotBeNull();
-            mostAnticipatedShow!.IDs!.Trakt.ShouldBe(1390U);
-            mostAnticipatedShow!.IDs!.Slug.ShouldBe("game-of-thrones");
-            mostAnticipatedShow!.IDs!.IMDB.ShouldBe("tt0944947");
-            mostAnticipatedShow!.IDs!.TMDB.ShouldBe(1399U);
-            mostAnticipatedShow!.IDs!.TVDB.ShouldBe(121361U);
+            mostAnticipatedShow.IDs.ShouldNotBeNull();
+            mostAnticipatedShow.IDs.Trakt.ShouldBe(1390U);
+            mostAnticipatedShow.IDs.Slug.ShouldBe("game-of-thrones");
+            mostAnticipatedShow.IDs.IMDB.ShouldBe("tt0944947");
+            mostAnticipatedShow.IDs.TMDB.ShouldBe(1399U);
+            mostAnticipatedShow.IDs.TVDB.ShouldBe(121361U);
 
-            mostAnticipatedShow!.Tagline.ShouldBe("Winter Is Coming");
-            mostAnticipatedShow!.Overview.ShouldStartWith("Seven noble families fight");
-            mostAnticipatedShow!.Runtime.ShouldBe(60U);
-            mostAnticipatedShow!.Certification.ShouldBe("TV-MA");
-            mostAnticipatedShow!.Country.ShouldBe("us");
-            mostAnticipatedShow!.Trailer.ShouldBe("http://youtube.com/watch?v=F9Bo89m2f6g");
-            mostAnticipatedShow!.Homepage.ShouldBe("http://www.hbo.com/game-of-thrones");
-            mostAnticipatedShow!.Status.ShouldBe(TraktShowStatus.Ended);
-            mostAnticipatedShow!.Rating.ShouldBe(8.891263f);
-            mostAnticipatedShow!.Votes.ShouldBe(145001U);
-            mostAnticipatedShow!.CommentCount.ShouldBe(449U);
-            mostAnticipatedShow!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-21T15:43:57.000Z"));
-            mostAnticipatedShow!.Language.ShouldBe("en");
+            mostAnticipatedShow.Tagline.ShouldBe("Winter Is Coming");
+            mostAnticipatedShow.Overview.ShouldStartWith("Seven noble families fight");
+            mostAnticipatedShow.Runtime.ShouldBe(60U);
+            mostAnticipatedShow.Certification.ShouldBe("TV-MA");
+            mostAnticipatedShow.Country.ShouldBe("us");
+            mostAnticipatedShow.Trailer.ShouldBe("http://youtube.com/watch?v=F9Bo89m2f6g");
+            mostAnticipatedShow.Homepage.ShouldBe("http://www.hbo.com/game-of-thrones");
+            mostAnticipatedShow.Status.ShouldBe(TraktShowStatus.Ended);
+            mostAnticipatedShow.Rating.ShouldBe(8.891263f);
+            mostAnticipatedShow.Votes.ShouldBe(145001U);
+            mostAnticipatedShow.CommentCount.ShouldBe(449U);
+            mostAnticipatedShow.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-21T15:43:57.000Z"));
+            mostAnticipatedShow.Language.ShouldBe("en");
 
-            mostAnticipatedShow!.Languages.ShouldNotBeNull();
-            mostAnticipatedShow!.Languages!.Count.ShouldBe(1);
-            mostAnticipatedShow!.Languages.ShouldBe(["en"], Case.Sensitive);
+            mostAnticipatedShow.Languages.ShouldNotBeNull();
+            mostAnticipatedShow.Languages.Count.ShouldBe(1);
+            mostAnticipatedShow.Languages.ShouldBe(["en"], Case.Sensitive);
 
-            mostAnticipatedShow!.AvailableTranslations.ShouldNotBeNull();
-            mostAnticipatedShow!.AvailableTranslations!.Count.ShouldBe(4);
-            mostAnticipatedShow!.AvailableTranslations.ShouldBe(["en", "es", "fr", "de"], Case.Sensitive);
+            mostAnticipatedShow.AvailableTranslations.ShouldNotBeNull();
+            mostAnticipatedShow.AvailableTranslations.Count.ShouldBe(4);
+            mostAnticipatedShow.AvailableTranslations.ShouldBe(["en", "es", "fr", "de"], Case.Sensitive);
 
-            mostAnticipatedShow!.Genres.ShouldNotBeNull();
-            mostAnticipatedShow!.Genres!.Count.ShouldBe(4);
-            mostAnticipatedShow!.Genres.ShouldBe(["fantasy", "drama", "action", "adventure"], Case.Sensitive);
+            mostAnticipatedShow.Genres.ShouldNotBeNull();
+            mostAnticipatedShow.Genres.Count.ShouldBe(4);
+            mostAnticipatedShow.Genres.ShouldBe(["fantasy", "drama", "action", "adventure"], Case.Sensitive);
 
-            mostAnticipatedShow!.Subgenres.ShouldNotBeNull();
-            mostAnticipatedShow!.Subgenres!.Count.ShouldBe(4);
-            mostAnticipatedShow!.Subgenres.ShouldBe(["fantasy-world", "dragon", "kingdom", "king"], Case.Sensitive);
+            mostAnticipatedShow.Subgenres.ShouldNotBeNull();
+            mostAnticipatedShow.Subgenres.Count.ShouldBe(4);
+            mostAnticipatedShow.Subgenres.ShouldBe(["fantasy-world", "dragon", "kingdom", "king"], Case.Sensitive);
 
-            mostAnticipatedShow!.OriginalTitle.ShouldBe("Game of Thrones");
+            mostAnticipatedShow.OriginalTitle.ShouldBe("Game of Thrones");
 
-            mostAnticipatedShow!.Images.ShouldNotBeNull();
-            mostAnticipatedShow!.Images!.Poster.ShouldBe(["media.trakt.tv/images/shows/000/001/390/posters/medium/93df9cd612.jpg.webp"]);
+            mostAnticipatedShow.Images.ShouldNotBeNull();
+            mostAnticipatedShow.Images.Poster.ShouldBe(["media.trakt.tv/images/shows/000/001/390/posters/medium/93df9cd612.jpg.webp"]);
 
-            mostAnticipatedShow!.Colors.ShouldNotBeNull();
-            mostAnticipatedShow!.Colors!.Poster.ShouldBe(["#AD836A", "#261713"]);
+            mostAnticipatedShow.Colors.ShouldNotBeNull();
+            mostAnticipatedShow.Colors.Poster.ShouldBe(["#AD836A", "#261713"]);
 
-            mostAnticipatedShow!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-17T07:00:00Z"));
-            mostAnticipatedShow!.AiredEpisodes.ShouldBe(73U);
+            mostAnticipatedShow.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-17T07:00:00Z"));
+            mostAnticipatedShow.AiredEpisodes.ShouldBe(73U);
 
-            mostAnticipatedShow!.Airs.ShouldNotBeNull();
-            mostAnticipatedShow!.Airs!.Day.ShouldBe(TraktDayOfWeek.Sunday);
+            mostAnticipatedShow.Airs.ShouldNotBeNull();
+            mostAnticipatedShow.Airs.Day.ShouldBe(TraktDayOfWeek.Sunday);
 #if NET7_0_OR_GREATER
-            mostAnticipatedShow!.Airs!.Time.ShouldBe(TestUtility.ParseTime("21:00"));
+            mostAnticipatedShow.Airs.Time.ShouldBe(TestUtility.ParseTime("21:00"));
 #else
-            mostAnticipatedShow!.Airs!.Time.ShouldBe("21:00");
+            mostAnticipatedShow.Airs.Time.ShouldBe("21:00");
 #endif
-            mostAnticipatedShow!.Airs!.Timezone.ShouldBe("America/New_York");
+            mostAnticipatedShow.Airs.Timezone.ShouldBe("America/New_York");
 
-            mostAnticipatedShow!.Network.ShouldBe("HBO");
+            mostAnticipatedShow.Network.ShouldBe("HBO");
         }
     }
 }

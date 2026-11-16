@@ -19,9 +19,9 @@
 
             certification.ShouldNotBeNull();
 
-            certification!.Name.ShouldBe("G");
-            certification!.Slug.ShouldBe("g");
-            certification!.Description.ShouldBe("All Ages");
+            certification.Name.ShouldBe("G");
+            certification.Slug.ShouldBe("g");
+            certification.Description.ShouldBe("All Ages");
         }
     }
 }

@@ -27,23 +27,23 @@ namespace TraktNET.UsersModule
             TraktSmartListDraft responseValue = response.Content;
 
             responseValue.List.ShouldNotBeNull();
-            responseValue.List!.IDs.ShouldNotBeNull();
-            responseValue.List!.IDs!.Trakt.ShouldBe(1248149U);
-            responseValue.List!.IDs!.Slug.ShouldBe("marvel-cinematic-universe");
+            responseValue.List.IDs.ShouldNotBeNull();
+            responseValue.List.IDs.Trakt.ShouldBe(1248149U);
+            responseValue.List.IDs.Slug.ShouldBe("marvel-cinematic-universe");
 
             responseValue.OriginUrl.ShouldBe("https://mdblist.com/lists/trakt/mcu");
             responseValue.Source.ShouldBe(TraktSmartListSource.Popular);
             responseValue.MediaType.ShouldBe(TraktSmartListMediaType.Movies);
 
             responseValue.Filters.ShouldNotBeNull();
-            responseValue.Filters!.Genres.ShouldNotBeNull();
-            responseValue.Filters!.Genres.Length.ShouldBe(2);
-            responseValue.Filters!.Genres[0].ShouldBe("action");
-            responseValue.Filters!.Genres[1].ShouldBe("adventure");
-            responseValue.Filters!.Years.ShouldNotBeNull();
-            responseValue.Filters!.Years.Length.ShouldBe(2);
-            responseValue.Filters!.Years![0].ShouldBe(2008U);
-            responseValue.Filters!.Years![1].ShouldBe(2024U);
+            responseValue.Filters.Genres.ShouldNotBeNull();
+            responseValue.Filters.Genres.Length.ShouldBe(2);
+            responseValue.Filters.Genres[0].ShouldBe("action");
+            responseValue.Filters.Genres[1].ShouldBe("adventure");
+            responseValue.Filters.Years.ShouldNotBeNull();
+            responseValue.Filters.Years.Length.ShouldBe(2);
+            responseValue.Filters.Years[0].ShouldBe(2008U);
+            responseValue.Filters.Years[1].ShouldBe(2024U);
 
             responseValue.Unsupported.ShouldNotBeNull();
             responseValue.Unsupported.Count.ShouldBe(1);
@@ -52,8 +52,8 @@ namespace TraktNET.UsersModule
             responseValue.Confidence.ShouldBe(0.95f);
 
             responseValue.Converted.ShouldNotBeNull();
-            responseValue.Converted!.SmartListId.ShouldBe(99999);
-            responseValue.Converted!.ConvertedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-10-12T12:00:00.000Z"));
+            responseValue.Converted.SmartListID.ShouldBe(99999);
+            responseValue.Converted.ConvertedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-10-12T12:00:00.000Z"));
         }
 
         [Fact]

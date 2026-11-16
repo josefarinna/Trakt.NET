@@ -17,7 +17,7 @@
 
             checkinErrorResponse.ShouldNotBeNull();
 
-            checkinErrorResponse!.ExpiresAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-08-04T22:21:29.000Z"));
+            checkinErrorResponse.ExpiresAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-08-04T22:21:29.000Z"));
         }
     }
 }

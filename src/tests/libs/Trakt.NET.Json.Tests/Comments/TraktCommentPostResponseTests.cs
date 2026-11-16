@@ -40,22 +40,22 @@ namespace TraktNET.Json.Comments
             commentPostResponse.Likes.ShouldBe(2U);
 
             commentPostResponse.UserStats.ShouldNotBeNull();
-            commentPostResponse.UserStats!.Rating.ShouldBe(8U);
+            commentPostResponse.UserStats.Rating.ShouldBe(8U);
             commentPostResponse.UserStats.PlayCount.ShouldBe(1U);
             commentPostResponse.UserStats.CompletedCount.ShouldBe(1U);
 
             commentPostResponse.User.ShouldNotBeNull();
-            commentPostResponse.User!.Username.ShouldBe("sean");
+            commentPostResponse.User.Username.ShouldBe("sean");
             commentPostResponse.User.Private.ShouldBe(false);
             commentPostResponse.User.Name.ShouldBe("Sean Rudford");
             commentPostResponse.User.VIP.ShouldBe(true);
             commentPostResponse.User.VIPEP.ShouldBe(true);
 
             commentPostResponse.User.IDs.ShouldNotBeNull();
-            commentPostResponse.User.IDs!.Slug.ShouldBe("sean");
+            commentPostResponse.User.IDs.Slug.ShouldBe("sean");
 
             commentPostResponse.Sharing.ShouldNotBeNull();
-            commentPostResponse.Sharing!.Twitter.ShouldBe(true);
+            commentPostResponse.Sharing.Twitter.ShouldBe(true);
             commentPostResponse.Sharing.Tumblr.ShouldBe(true);
         }
     }

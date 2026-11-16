@@ -19,7 +19,7 @@ namespace TraktNET.UsersModule
             TraktResponse response = await client.Users.ReportPersonalListAsync(Username, TraktListID, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -32,7 +32,7 @@ namespace TraktNET.UsersModule
             TraktResponse response = await client.Users.ReportPersonalListAsync(Username, ListSlug, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -51,7 +51,7 @@ namespace TraktNET.UsersModule
             TraktResponse response = await client.Users.ReportPersonalListAsync(Username, listIds, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }
@@ -73,7 +73,7 @@ namespace TraktNET.UsersModule
             TraktResponse response = await client.Users.ReportPersonalListAsync(Username, list, TraktReason.Spam, cancellationToken: TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
         }

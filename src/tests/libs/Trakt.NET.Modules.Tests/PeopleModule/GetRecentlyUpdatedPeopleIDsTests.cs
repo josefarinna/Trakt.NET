@@ -33,7 +33,7 @@ namespace TraktNET.PeopleModule
         }
 
         [Fact]
-        public async Task TestGetRecentlyUpdatedPeopleIdsPagingGetPreviousPage()
+        public async Task TestGetRecentlyUpdatedPeopleIDsPagingGetPreviousPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdatedids.json");
             string uriPage2 = $"{GetRecentlyUpdatedPeopleIdsUri}?page=2&limit=10";
@@ -54,7 +54,7 @@ namespace TraktNET.PeopleModule
         }
 
         [Fact]
-        public async Task TestGetRecentlyUpdatedPeopleIdsPagingGetNextPage()
+        public async Task TestGetRecentlyUpdatedPeopleIDsPagingGetNextPage()
         {
             string responseContent = await TestUtility.GetJsonFileContentAsync("People\\peoplerecentlyupdatedids.json");
             string uriPage1 = $"{GetRecentlyUpdatedPeopleIdsUri}?page=1&limit=10";
@@ -76,7 +76,7 @@ namespace TraktNET.PeopleModule
 
         [Theory]
         [InlineData(HttpStatusCode.NotFound, typeof(TraktApiPersonNotFoundException))]
-        public async Task TestGetRecentlyUpdatedPeopleIdsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
+        public async Task TestGetRecentlyUpdatedPeopleIDsThrowsApiException(HttpStatusCode statusCode, Type exceptionType)
         {
             TraktClient client = ModuleTestUtility.GetClient(GetRecentlyUpdatedPeopleIdsUri, statusCode);
 

@@ -36,9 +36,9 @@ namespace TraktNET.Json.Users
             IReadOnlyList<TraktUserBlockedUser>? blockedUsers = await TestUtility.DeserializeJsonListAsync<TraktUserBlockedUser>("Users\\blockedusers.json");
 
             blockedUsers.ShouldNotBeNull();
-            blockedUsers!.Count.ShouldBe(2);
+            blockedUsers.Count.ShouldBe(2);
 
-            TraktUserBlockedUser blockedUser = blockedUsers![0];
+            TraktUserBlockedUser blockedUser = blockedUsers[0];
             blockedUser.ShouldNotBeNull();
             blockedUser.BlockedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-01-15T10:30:00.000Z"));
             blockedUser.User.ShouldNotBeNull();
@@ -52,7 +52,7 @@ namespace TraktNET.Json.Users
 
             // --------------------------------------------------------------------------------------------
 
-            blockedUser = blockedUsers![1];
+            blockedUser = blockedUsers[1];
             blockedUser.ShouldNotBeNull();
             blockedUser.BlockedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-03-20T08:00:00.000Z"));
             blockedUser.User.ShouldNotBeNull();

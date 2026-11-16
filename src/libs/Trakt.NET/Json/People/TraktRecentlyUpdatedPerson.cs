@@ -97,7 +97,7 @@ namespace TraktNET
         }
 
         [JsonIgnore]
-        public TraktPersonSocialIDs? SocialIds
+        public TraktPersonSocialIDs? SocialIDs
         {
             get => Person?.SocialIDs;
             set => Person?.SocialIDs = value;

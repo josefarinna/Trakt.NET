@@ -42,9 +42,9 @@ namespace TraktNET.Json.Watchnow
             IReadOnlyList<TraktWatchnowSource>? watchnowSources = await TestUtility.DeserializeJsonListAsync<TraktWatchnowSource>("Watchnow\\watchnowsource_list.json");
 
             watchnowSources.ShouldNotBeNull();
-            watchnowSources!.Count.ShouldBe(2);
+            watchnowSources.Count.ShouldBe(2);
 
-            TraktWatchnowSource watchnowSource = watchnowSources![0];
+            TraktWatchnowSource watchnowSource = watchnowSources[0];
             watchnowSource.ShouldNotBeNull();
             watchnowSource.Source.ShouldBe("netflix");
             watchnowSource.Name.ShouldBe("Netflix");
@@ -59,7 +59,7 @@ namespace TraktNET.Json.Watchnow
 
             // --------------------------------------------------------------------------------------------
 
-            watchnowSource = watchnowSources![1];
+            watchnowSource = watchnowSources[1];
             watchnowSource.ShouldNotBeNull();
             watchnowSource.Source.ShouldBe("hulu");
             watchnowSource.Name.ShouldBe("Hulu");

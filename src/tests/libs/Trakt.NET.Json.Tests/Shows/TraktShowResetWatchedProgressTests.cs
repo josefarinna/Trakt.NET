@@ -16,7 +16,7 @@ namespace TraktNET.Json.Shows
             TraktShowResetWatchedProgress? resetWatchedProgress = await TestUtility.DeserializeJsonAsync<TraktShowResetWatchedProgress>("Shows\\showresetwatchedprogress.json");
 
             resetWatchedProgress.ShouldNotBeNull();
-            resetWatchedProgress!.ResetAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T19:08:15.000Z"));
+            resetWatchedProgress.ResetAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-09-23T19:08:15.000Z"));
         }
 
         [Fact]

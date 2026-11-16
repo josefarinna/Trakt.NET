@@ -36,7 +36,7 @@ namespace TraktNET.SyncModule
             responseValue.NotFound.Movies.ShouldNotBeNull();
             responseValue.NotFound.Movies.Count.ShouldBe(1);
 
-            TraktSyncRatingsPostResponseNotFoundMovie[] movies = [.. responseValue.NotFound.Movies!];
+            TraktSyncRatingsPostResponseNotFoundMovie[] movies = [.. responseValue.NotFound.Movies];
 
             movies[0].Rating.ShouldBe(10);
             movies[0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
@@ -49,7 +49,7 @@ namespace TraktNET.SyncModule
             responseValue.NotFound.Shows.ShouldNotBeNull();
             responseValue.NotFound.Shows.Count.ShouldBe(1);
 
-            TraktSyncRatingsPostResponseNotFoundShow[] shows = [.. responseValue.NotFound.Shows!];
+            TraktSyncRatingsPostResponseNotFoundShow[] shows = [.. responseValue.NotFound.Shows];
 
             shows[0].Rating.ShouldBe(9);
             shows[0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
@@ -68,9 +68,9 @@ namespace TraktNET.SyncModule
             shows[0].Seasons![0].Episodes![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
 
             responseValue.NotFound.Seasons.ShouldNotBeNull();
-            responseValue.NotFound.Seasons!.Count.ShouldBe(1);
+            responseValue.NotFound.Seasons.Count.ShouldBe(1);
 
-            TraktSyncRatingsPostResponseNotFoundShow[] seasons = [.. responseValue.NotFound.Seasons!];
+            TraktSyncRatingsPostResponseNotFoundShow[] seasons = [.. responseValue.NotFound.Seasons];
 
             seasons[0].Rating.ShouldBeNull();
             seasons[0].RatedAt.ShouldBeNull();
@@ -83,9 +83,9 @@ namespace TraktNET.SyncModule
             seasons[0].Seasons![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
 
             responseValue.NotFound.Episodes.ShouldNotBeNull();
-            responseValue.NotFound.Episodes!.Count.ShouldBe(1);
+            responseValue.NotFound.Episodes.Count.ShouldBe(1);
 
-            TraktSyncRatingsPostResponseNotFoundShow[] episodes = [.. responseValue.NotFound.Episodes!];
+            TraktSyncRatingsPostResponseNotFoundShow[] episodes = [.. responseValue.NotFound.Episodes];
 
             episodes[0].Rating.ShouldBeNull();
             episodes[0].RatedAt.ShouldBeNull();

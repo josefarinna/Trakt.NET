@@ -48,22 +48,22 @@ namespace TraktNET.Json.Shows
             TraktMostPWCShow? mostPWCShow = await TestUtility.DeserializeJsonAsync<TraktMostPWCShow>("Shows\\mostpwcshow_minimal.json");
 
             mostPWCShow.ShouldNotBeNull();
-            mostPWCShow!.WatcherCount.ShouldBe(3910U);
-            mostPWCShow!.PlayCount.ShouldBe(69164U);
-            mostPWCShow!.CollectedCount.ShouldBe(1000U);
+            mostPWCShow.WatcherCount.ShouldBe(3910U);
+            mostPWCShow.PlayCount.ShouldBe(69164U);
+            mostPWCShow.CollectedCount.ShouldBe(1000U);
 
-            mostPWCShow!.Title.ShouldBe("Game of Thrones");
-            mostPWCShow!.Year.ShouldBe(2011U);
+            mostPWCShow.Title.ShouldBe("Game of Thrones");
+            mostPWCShow.Year.ShouldBe(2011U);
 
             mostPWCShow!.IDs!.Trakt.ShouldBe(1390U);
-            mostPWCShow!.IDs!.Slug.ShouldBe("game-of-thrones");
-            mostPWCShow!.IDs!.IMDB.ShouldBe("tt0944947");
-            mostPWCShow!.IDs!.TMDB.ShouldBe(1399U);
-            mostPWCShow!.IDs!.TVDB.ShouldBe(121361U);
-            mostPWCShow!.IDs!.HasAnyID.ShouldBe(true);
-            mostPWCShow!.IDs!.BestID.ShouldBe("game-of-thrones");
+            mostPWCShow.IDs.Slug.ShouldBe("game-of-thrones");
+            mostPWCShow.IDs.IMDB.ShouldBe("tt0944947");
+            mostPWCShow.IDs.TMDB.ShouldBe(1399U);
+            mostPWCShow.IDs.TVDB.ShouldBe(121361U);
+            mostPWCShow.IDs.HasAnyID.ShouldBeTrue();
+            mostPWCShow.IDs.BestID.ShouldBe("game-of-thrones");
 
-            mostPWCShow!.ToString().ShouldBe("Game of Thrones (2011)");
+            mostPWCShow.ToString().ShouldBe("Game of Thrones (2011)");
         }
 
         [Fact]
@@ -79,7 +79,7 @@ namespace TraktNET.Json.Shows
             IReadOnlyList<TraktMostPWCShow>? shows = await TestUtility.DeserializeJsonListAsync<TraktMostPWCShow>("Shows\\mostpwcshows_minimal.json");
 
             shows.ShouldNotBeNull();
-            shows!.Count.ShouldBe(2);
+            shows.Count.ShouldBe(2);
 
             var show0 = shows[0];
             show0.WatcherCount.ShouldBe(3910U);
@@ -99,7 +99,7 @@ namespace TraktNET.Json.Shows
             IReadOnlyList<TraktMostPWCShow>? shows = await TestUtility.DeserializeJsonListAsync<TraktMostPWCShow>("Shows\\mostpwcshows.json");
 
             shows.ShouldNotBeNull();
-            shows!.Count.ShouldBe(2);
+            shows.Count.ShouldBe(2);
 
             ValidateMostPWCShow(shows[0]);
 
@@ -115,60 +115,60 @@ namespace TraktNET.Json.Shows
         private static void ValidateMostPWCShow(TraktMostPWCShow? mostPWCShow)
         {
             mostPWCShow.ShouldNotBeNull();
-            mostPWCShow!.WatcherCount.ShouldBe(3910U);
-            mostPWCShow!.PlayCount.ShouldBe(69164U);
+            mostPWCShow.WatcherCount.ShouldBe(3910U);
+            mostPWCShow.PlayCount.ShouldBe(69164U);
 
-            mostPWCShow!.Title.ShouldBe("Game of Thrones");
-            mostPWCShow!.Year.ShouldBe(2011U);
+            mostPWCShow.Title.ShouldBe("Game of Thrones");
+            mostPWCShow.Year.ShouldBe(2011U);
 
-            mostPWCShow!.IDs.ShouldNotBeNull();
-            mostPWCShow!.IDs!.Trakt.ShouldBe(1390U);
-            mostPWCShow!.IDs!.Slug.ShouldBe("game-of-thrones");
-            mostPWCShow!.IDs!.IMDB.ShouldBe("tt0944947");
-            mostPWCShow!.IDs!.TMDB.ShouldBe(1399U);
-            mostPWCShow!.IDs!.TVDB.ShouldBe(121361U);
+            mostPWCShow.IDs.ShouldNotBeNull();
+            mostPWCShow.IDs.Trakt.ShouldBe(1390U);
+            mostPWCShow.IDs.Slug.ShouldBe("game-of-thrones");
+            mostPWCShow.IDs.IMDB.ShouldBe("tt0944947");
+            mostPWCShow.IDs.TMDB.ShouldBe(1399U);
+            mostPWCShow.IDs.TVDB.ShouldBe(121361U);
 
-            mostPWCShow!.Tagline.ShouldBe("Winter is coming.");
-            mostPWCShow!.Overview.ShouldStartWith("Seven noble families fight");
-            mostPWCShow!.Runtime.ShouldBe(55U);
-            mostPWCShow!.Certification.ShouldBe("TV-MA");
-            mostPWCShow!.Country.ShouldBe("us");
-            mostPWCShow!.Trailer.ShouldBe("https://youtube.com/watch?v=KPLWWIOCOOQ");
-            mostPWCShow!.Homepage.ShouldBe("http://www.hbo.com/game-of-thrones");
-            mostPWCShow!.Status.ShouldBe(TraktShowStatus.Ended);
-            mostPWCShow!.Rating.ShouldBe(8.89122f);
-            mostPWCShow!.Votes.ShouldBe(145017U);
-            mostPWCShow!.CommentCount.ShouldBe(449U);
-            mostPWCShow!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-21T15:43:57.000Z"));
-            mostPWCShow!.Language.ShouldBe("en");
+            mostPWCShow.Tagline.ShouldBe("Winter is coming.");
+            mostPWCShow.Overview.ShouldStartWith("Seven noble families fight");
+            mostPWCShow.Runtime.ShouldBe(55U);
+            mostPWCShow.Certification.ShouldBe("TV-MA");
+            mostPWCShow.Country.ShouldBe("us");
+            mostPWCShow.Trailer.ShouldBe("https://youtube.com/watch?v=KPLWWIOCOOQ");
+            mostPWCShow.Homepage.ShouldBe("http://www.hbo.com/game-of-thrones");
+            mostPWCShow.Status.ShouldBe(TraktShowStatus.Ended);
+            mostPWCShow.Rating.ShouldBe(8.89122f);
+            mostPWCShow.Votes.ShouldBe(145017U);
+            mostPWCShow.CommentCount.ShouldBe(449U);
+            mostPWCShow.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-21T15:43:57.000Z"));
+            mostPWCShow.Language.ShouldBe("en");
 
-            mostPWCShow!.Languages.ShouldNotBeNull();
-            mostPWCShow!.Languages!.Count.ShouldBe(1);
-            mostPWCShow!.Languages.ShouldBe(["en"], Case.Sensitive);
+            mostPWCShow.Languages.ShouldNotBeNull();
+            mostPWCShow.Languages.Count.ShouldBe(1);
+            mostPWCShow.Languages.ShouldBe(["en"], Case.Sensitive);
 
-            mostPWCShow!.AvailableTranslations.ShouldNotBeNull();
-            mostPWCShow!.AvailableTranslations!.Count.ShouldBe(48);
-            mostPWCShow!.AvailableTranslations!.ShouldContain("es");
-            mostPWCShow!.AvailableTranslations!.ShouldContain("en");
+            mostPWCShow.AvailableTranslations.ShouldNotBeNull();
+            mostPWCShow.AvailableTranslations.Count.ShouldBe(48);
+            mostPWCShow.AvailableTranslations.ShouldContain("es");
+            mostPWCShow.AvailableTranslations.ShouldContain("en");
 
-            mostPWCShow!.Genres.ShouldNotBeNull();
-            mostPWCShow!.Genres!.Count.ShouldBe(4);
-            mostPWCShow!.Genres.ShouldBe(["fantasy", "drama", "action", "adventure"], Case.Sensitive);
+            mostPWCShow.Genres.ShouldNotBeNull();
+            mostPWCShow.Genres.Count.ShouldBe(4);
+            mostPWCShow.Genres.ShouldBe(["fantasy", "drama", "action", "adventure"], Case.Sensitive);
 
-            mostPWCShow!.OriginalTitle.ShouldBe("Game of Thrones");
+            mostPWCShow.OriginalTitle.ShouldBe("Game of Thrones");
 
-            mostPWCShow!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
+            mostPWCShow.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2011-04-18T01:00:00.000Z"));
 
-            mostPWCShow!.Airs.ShouldNotBeNull();
-            mostPWCShow!.Airs!.Day.ShouldBe(TraktDayOfWeek.Sunday);
+            mostPWCShow.Airs.ShouldNotBeNull();
+            mostPWCShow.Airs.Day.ShouldBe(TraktDayOfWeek.Sunday);
 #if NET7_0_OR_GREATER
-            mostPWCShow!.Airs!.Time.ShouldBe(TestUtility.ParseTime("21:00"));
+            mostPWCShow.Airs.Time.ShouldBe(TestUtility.ParseTime("21:00"));
 #else
-            mostPWCShow!.Airs!.Time.ShouldBe("21:00");
+            mostPWCShow.Airs.Time.ShouldBe("21:00");
 #endif
-            mostPWCShow!.Airs!.Timezone.ShouldBe("America/New_York");
+            mostPWCShow.Airs.Timezone.ShouldBe("America/New_York");
 
-            mostPWCShow!.Network.ShouldBe("HBO");
+            mostPWCShow.Network.ShouldBe("HBO");
         }
     }
 }

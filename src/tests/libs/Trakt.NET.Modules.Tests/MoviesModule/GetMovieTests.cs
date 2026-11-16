@@ -20,14 +20,14 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.TraktMovieID, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktMovie movie = response.Content!;
+            TraktMovie movie = response.Content;
 
             movie.Title.ShouldBe("Guardians of the Galaxy Volume 3");
             movie.Year.ShouldBe(2023U);
@@ -44,14 +44,14 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieSlug, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktMovie movie = response.Content!;
+            TraktMovie movie = response.Content;
 
             movie.Title.ShouldBe("Guardians of the Galaxy Volume 3");
             movie.Year.ShouldBe(2023U);
@@ -68,14 +68,14 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktMovie> response = await client.Movies.GetMovieAsync(TestConstants.Movies.MovieIDs, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktMovie movie = response.Content!;
+            TraktMovie movie = response.Content;
 
             movie.Title.ShouldBe("Guardians of the Galaxy Volume 3");
             movie.Year.ShouldBe(2023U);

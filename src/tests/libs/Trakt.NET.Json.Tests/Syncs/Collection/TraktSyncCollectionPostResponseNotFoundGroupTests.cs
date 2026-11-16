@@ -29,7 +29,7 @@ namespace TraktNET.Json.Syncs
             movie.Title.ShouldBe("Tron: Legacy");
             movie.Year.ShouldBe(2010U);
             movie.IDs.ShouldNotBeNull();
-            movie.IDs!.IMDB.ShouldBe("tt0000111");
+            movie.IDs.IMDB.ShouldBe("tt0000111");
             movie.MediaType.ShouldBe(TraktMediaType.Bluray);
             movie.Resolution.ShouldBe(TraktMediaResolution.UHD4k);
             movie.HDR.ShouldBe(TraktMediaHDR.DolbyVision);
@@ -46,7 +46,7 @@ namespace TraktNET.Json.Syncs
             show.Title.ShouldBe("Game of Thrones");
             show.Year.ShouldBe(2011U);
             show.IDs.ShouldNotBeNull();
-            show.IDs!.IMDB.ShouldBe("tt0000222");
+            show.IDs.IMDB.ShouldBe("tt0000222");
             show.Seasons.ShouldNotBeNull();
             show.Seasons.Count.ShouldBe(1);
             show.Seasons[0].Number.ShouldBe(1);

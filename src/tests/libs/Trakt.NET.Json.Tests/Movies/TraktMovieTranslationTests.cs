@@ -23,13 +23,13 @@ namespace TraktNET.Json.Movies
 
             movieTranslation.ShouldNotBeNull();
 
-            movieTranslation!.Title.ShouldBe("Guardians of the Galaxy Vol. 3");
-            movieTranslation!.Overview.ShouldBe("Star-Lord, encara recuperant-se de la pèrdua de Gamora, ha de reunir...");
-            movieTranslation!.Tagline.ShouldBe("Ho donaran tot.");
-            movieTranslation!.Language.ShouldBe("ca");
-            movieTranslation!.Country.ShouldBe("es");
+            movieTranslation.Title.ShouldBe("Guardians of the Galaxy Vol. 3");
+            movieTranslation.Overview.ShouldBe("Star-Lord, encara recuperant-se de la pèrdua de Gamora, ha de reunir...");
+            movieTranslation.Tagline.ShouldBe("Ho donaran tot.");
+            movieTranslation.Language.ShouldBe("ca");
+            movieTranslation.Country.ShouldBe("es");
 
-            movieTranslation!.ToString().ShouldBe("ca-ES=Guardians of the Galaxy Vol. 3");
+            movieTranslation.ToString().ShouldBe("ca-ES=Guardians of the Galaxy Vol. 3");
         }
 
         [Fact]
@@ -38,9 +38,9 @@ namespace TraktNET.Json.Movies
             IReadOnlyList<TraktMovieTranslation>? movieTranslations = await TestUtility.DeserializeJsonListAsync<TraktMovieTranslation>("Movies\\movietranslations.json");
 
             movieTranslations.ShouldNotBeNull();
-            movieTranslations!.Count.ShouldBe(2);
+            movieTranslations.Count.ShouldBe(2);
 
-            TraktMovieTranslation movieTranslation = movieTranslations![0];
+            TraktMovieTranslation movieTranslation = movieTranslations[0];
 
             movieTranslation.ShouldNotBeNull();
 
@@ -54,7 +54,7 @@ namespace TraktNET.Json.Movies
 
             // --------------------------------------------------------------------------------------------
 
-            movieTranslation = movieTranslations![1];
+            movieTranslation = movieTranslations[1];
 
             movieTranslation.ShouldNotBeNull();
 

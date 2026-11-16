@@ -1015,7 +1015,7 @@ namespace TraktNET
             var coverPost = new TraktUserCoverPost
             {
                 CoverType = coverType,
-                CoverId = coverId
+                CoverID = coverId
             };
 
             var request = new UserCoverPutRequest

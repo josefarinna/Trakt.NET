@@ -28,16 +28,16 @@ namespace TraktNET.Json.Users
             settings.Sync.Error.ShouldBeFalse();
             settings.Sync.ServerLimit.ShouldBe(1U);
             settings.Sync.Selection.ShouldNotBeNull();
-            settings.Sync.Selection.ServerIds.ShouldNotBeNull();
-            settings.Sync.Selection.ServerIds.Count.ShouldBe(1);
-            settings.Sync.Selection.ServerIds[0].ShouldBe("server1");
-            settings.Sync.Selection.LibraryIds.ShouldNotBeNull();
-            settings.Sync.Selection.LibraryIds.Count.ShouldBe(1);
-            settings.Sync.Selection.LibraryIds[0].ServerId.ShouldBe("server1");
-            settings.Sync.Selection.LibraryIds[0].Uuid.ShouldBe("uuid1");
-            settings.Sync.Selection.UserIds.ShouldNotBeNull();
-            settings.Sync.Selection.UserIds.Count.ShouldBe(1);
-            settings.Sync.Selection.UserIds[0].ShouldBe("user1");
+            settings.Sync.Selection.ServerIDs.ShouldNotBeNull();
+            settings.Sync.Selection.ServerIDs.Count.ShouldBe(1);
+            settings.Sync.Selection.ServerIDs[0].ShouldBe("server1");
+            settings.Sync.Selection.LibraryIDs.ShouldNotBeNull();
+            settings.Sync.Selection.LibraryIDs.Count.ShouldBe(1);
+            settings.Sync.Selection.LibraryIDs[0].ServerID.ShouldBe("server1");
+            settings.Sync.Selection.LibraryIDs[0].Uuid.ShouldBe("uuid1");
+            settings.Sync.Selection.UserIDs.ShouldNotBeNull();
+            settings.Sync.Selection.UserIDs.Count.ShouldBe(1);
+            settings.Sync.Selection.UserIDs[0].ShouldBe("user1");
 
             settings.Sync.Toggles.ShouldNotBeNull();
             settings.Sync.Toggles.Movie.ShouldNotBeNull();

@@ -49,7 +49,7 @@ namespace TraktNET.Json.Shows
             hotShow.IDs.TVDB.ShouldBe(121361U);
             hotShow.IDs.IMDB.ShouldBe("tt0944947");
             hotShow.IDs.TMDB.ShouldBe(1399U);
-            hotShow.IDs.HasAnyID.ShouldBe(true);
+            hotShow.IDs.HasAnyID.ShouldBeTrue();
             hotShow.IDs.BestID.ShouldBe("game-of-thrones");
 
             hotShow.ToString().ShouldBe("Game of Thrones (2011)");

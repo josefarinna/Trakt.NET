@@ -24,14 +24,14 @@
 
             movieStatistics.ShouldNotBeNull();
 
-            movieStatistics!.Watchers.ShouldBe(164943U);
-            movieStatistics!.Plays.ShouldBe(219925U);
-            movieStatistics!.Collectors.ShouldBe(66444U);
-            movieStatistics!.Comments.ShouldBe(177U);
-            movieStatistics!.Lists.ShouldBe(51079U);
-            movieStatistics!.Votes.ShouldBe(18906U);
-            movieStatistics!.Favorited.ShouldBe(773U);
-            movieStatistics!.Recommended.ShouldBe(773U);
+            movieStatistics.Watchers.ShouldBe(164943U);
+            movieStatistics.Plays.ShouldBe(219925U);
+            movieStatistics.Collectors.ShouldBe(66444U);
+            movieStatistics.Comments.ShouldBe(177U);
+            movieStatistics.Lists.ShouldBe(51079U);
+            movieStatistics.Votes.ShouldBe(18906U);
+            movieStatistics.Favorited.ShouldBe(773U);
+            movieStatistics.Recommended.ShouldBe(773U);
         }
     }
 }

@@ -17,8 +17,8 @@ namespace TraktNET.Json.General
             TraktReportPost? reportPost = await TestUtility.DeserializeJsonAsync<TraktReportPost>("General\\reportpost.json");
 
             reportPost.ShouldNotBeNull();
-            reportPost!.Reason.ShouldBe(TraktReason.Spam);
-            reportPost!.Message.ShouldBe("This is spam.");
+            reportPost.Reason.ShouldBe(TraktReason.Spam);
+            reportPost.Message.ShouldBe("This is spam.");
         }
 
         [Fact]

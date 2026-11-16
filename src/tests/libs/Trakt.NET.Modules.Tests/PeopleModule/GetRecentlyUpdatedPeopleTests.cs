@@ -28,7 +28,7 @@ namespace TraktNET.PeopleModule
             response.IsSuccess.ShouldBeTrue();
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
-            response.Content!.Count.ShouldBe((int)UpdatedPeopleCount);
+            response.Content.Count.ShouldBe((int)UpdatedPeopleCount);
             response.Page.ShouldBe(page ?? 1U);
             response.Limit.ShouldBe(limit ?? 10U);
         }

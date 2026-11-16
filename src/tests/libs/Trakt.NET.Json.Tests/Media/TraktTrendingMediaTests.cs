@@ -19,7 +19,7 @@ namespace TraktNET.Json.Media
             IReadOnlyList<TraktTrendingMedia>? media = await TestUtility.DeserializeJsonListAsync<TraktTrendingMedia>("Media\\trendingmedia.json");
 
             media.ShouldNotBeNull();
-            media!.Count.ShouldBe(2);
+            media.Count.ShouldBe(2);
 
             media[0].Watchers.ShouldBe(150U);
             media[0].Type.ShouldBe(TraktSearchResultType.Movie);

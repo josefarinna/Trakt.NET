@@ -30,9 +30,9 @@ namespace TraktNET.GenresModule
                 actionGenre.Name.ShouldBe("Action");
 
                 actionGenre.Subgenres.ShouldNotBeNull();
-                actionGenre.Subgenres!.Count.ShouldBe(85);
+                actionGenre.Subgenres.Count.ShouldBe(85);
 
-                TraktSubgenre firstSub = actionGenre.Subgenres!.First();
+                TraktSubgenre firstSub = actionGenre.Subgenres.First();
                 firstSub.Name.ShouldBe("19th Century");
             }
             else

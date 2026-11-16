@@ -14,7 +14,7 @@ namespace TraktNET.CheckinModule
             TraktResponse response = await client.Checkins.DeleteAnyActiveCheckinsAsync(TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
         }
 
         [Theory]

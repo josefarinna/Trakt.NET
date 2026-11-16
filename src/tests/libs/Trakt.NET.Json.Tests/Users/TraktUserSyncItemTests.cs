@@ -13,11 +13,11 @@ namespace TraktNET.Json.Users
             item.Show.ShouldBeNull();
             item.Season.ShouldBeNull();
             item.Episode.ShouldBeNull();
-            item.ServiceId.ShouldBeNull();
-            item.ContentId.ShouldBeNull();
-            item.ProfileId.ShouldBeNull();
-            item.TmdbId.ShouldBeNull();
-            item.TmdbSeriesId.ShouldBeNull();
+            item.ServiceID.ShouldBeNull();
+            item.ContentID.ShouldBeNull();
+            item.ProfileID.ShouldBeNull();
+            item.TMDBID.ShouldBeNull();
+            item.TMDBSeriesID.ShouldBeNull();
             item.WatchedAt.ShouldBeNull();
             item.RatedAt.ShouldBeNull();
             item.Progress.ShouldBeNull();
@@ -37,10 +37,10 @@ namespace TraktNET.Json.Users
             item.ShouldNotBeNull();
             item.Kind.ShouldBe(TraktUserSyncItemKind.History);
             item.Type.ShouldBe(TraktSyncItemType.Movie);
-            item.ServiceId.ShouldBe("plex_1");
-            item.ContentId.ShouldBe("movie_123");
-            item.ProfileId.ShouldBe("profile_1");
-            item.TmdbId.ShouldBe(550U);
+            item.ServiceID.ShouldBe("plex_1");
+            item.ContentID.ShouldBe("movie_123");
+            item.ProfileID.ShouldBe("profile_1");
+            item.TMDBID.ShouldBe(550U);
             item.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2024-11-20T12:00:00.000Z"));
             item.Progress.ShouldBe(45.5f);
 

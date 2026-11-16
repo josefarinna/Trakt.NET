@@ -21,11 +21,11 @@
 
             rateLimitInfo.ShouldNotBeNull();
 
-            rateLimitInfo!.Name.ShouldBe("UNAUTHED_API_GET_LIMIT");
-            rateLimitInfo!.Period.ShouldBe(300U);
-            rateLimitInfo!.Limit.ShouldBe(1000U);
-            rateLimitInfo!.Remaining.ShouldBe(500U);
-            rateLimitInfo!.Until.ShouldBe(TestUtility.ParseUTCDateTime("2024-08-04T00:24:00Z"));
+            rateLimitInfo.Name.ShouldBe("UNAUTHED_API_GET_LIMIT");
+            rateLimitInfo.Period.ShouldBe(300U);
+            rateLimitInfo.Limit.ShouldBe(1000U);
+            rateLimitInfo.Remaining.ShouldBe(500U);
+            rateLimitInfo.Until.ShouldBe(TestUtility.ParseUTCDateTime("2024-08-04T00:24:00Z"));
         }
     }
 }

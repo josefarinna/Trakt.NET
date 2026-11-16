@@ -52,7 +52,7 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestCreateAuthorizationUrlWithClientId()
+        public async Task TestCreateAuthorizationUrlWithClientID()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, TestConstants.RedirectURI);
@@ -63,7 +63,7 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestCreateAuthorizationUrlWithClientIdAndRedirectUri()
+        public async Task TestCreateAuthorizationUrlWithClientIDAndRedirectUri()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(RequestUri, "{}");
             string encodedUrl = await TestUtility.BuildEncodedAuthorizeUrl(false, CustomClientID, CustomRedirectUri);

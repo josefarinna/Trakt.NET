@@ -35,7 +35,7 @@ namespace TraktNET
                 cancellationToken);
         }
 
-        private Task<TraktPagedResponse<TraktSearchResult>> GetIdLookupResultsImplAsync(TraktSearchIDType searchIdType, string lookupId,
+        private Task<TraktPagedResponse<TraktSearchResult>> GetIDLookupResultsImplAsync(TraktSearchIDType searchIdType, string lookupId,
             TraktSearchResultType? searchResultTypes = null, TraktExtendedInfo? extendedInfo = null,
             uint? page = null, uint? limit = null, CancellationToken cancellationToken = default)
         {

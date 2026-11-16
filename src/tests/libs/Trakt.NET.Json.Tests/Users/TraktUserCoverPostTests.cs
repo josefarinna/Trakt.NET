@@ -5,21 +5,21 @@ namespace TraktNET.Json.Users
         [Fact]
         public void TestTraktUserCoverPostConstructor()
         {
-            var post = new TraktUserCoverPost { CoverType = TraktCoverType.Movie, CoverId = 123U };
+            var post = new TraktUserCoverPost { CoverType = TraktCoverType.Movie, CoverID = 123U };
             post.CoverType.ShouldBe(TraktCoverType.Movie);
-            post.CoverId.ShouldBe(123U);
+            post.CoverID.ShouldBe(123U);
         }
 
         [Fact]
         public void TestTraktUserCoverPostValidate()
         {
-            var traktUserCoverPost = new TraktUserCoverPost { CoverType = TraktCoverType.Unspecified, CoverId = 0 };
+            var traktUserCoverPost = new TraktUserCoverPost { CoverType = TraktCoverType.Unspecified, CoverID = 0 };
 
             Action act = () => traktUserCoverPost.Validate();
             act.ShouldThrow<TraktPostValidationException>();
 
             traktUserCoverPost.CoverType = TraktCoverType.Movie;
-            traktUserCoverPost.CoverId = 0;
+            traktUserCoverPost.CoverID = 0;
             act.ShouldThrow<TraktPostValidationException>();
         }
     }

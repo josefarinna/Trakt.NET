@@ -32,19 +32,19 @@
             episodeScrobbleResponse.Episode.Number.ShouldBe(1U);
             episodeScrobbleResponse.Episode.Title.ShouldBe("Winter Is Coming");
             episodeScrobbleResponse.Episode.IDs.ShouldNotBeNull();
-            episodeScrobbleResponse.Episode.IDs!.Trakt.ShouldBe(73640U);
-            episodeScrobbleResponse.Episode.IDs!.TVDB.ShouldBe(3254641U);
-            episodeScrobbleResponse.Episode.IDs!.IMDB.ShouldBe("tt1480055");
-            episodeScrobbleResponse.Episode.IDs!.TMDB.ShouldBe(63056U);
+            episodeScrobbleResponse.Episode.IDs.Trakt.ShouldBe(73640U);
+            episodeScrobbleResponse.Episode.IDs.TVDB.ShouldBe(3254641U);
+            episodeScrobbleResponse.Episode.IDs.IMDB.ShouldBe("tt1480055");
+            episodeScrobbleResponse.Episode.IDs.TMDB.ShouldBe(63056U);
             episodeScrobbleResponse.Show.ShouldNotBeNull();
             episodeScrobbleResponse.Show.Title.ShouldBe("Game of Thrones");
             episodeScrobbleResponse.Show.Year.ShouldBe(2011U);
             episodeScrobbleResponse.Show.IDs.ShouldNotBeNull();
-            episodeScrobbleResponse.Show.IDs!.Trakt.ShouldBe(1390U);
-            episodeScrobbleResponse.Show.IDs!.Slug.ShouldBe("game-of-thrones");
-            episodeScrobbleResponse.Show.IDs!.TVDB.ShouldBe(121361U);
-            episodeScrobbleResponse.Show.IDs!.IMDB.ShouldBe("tt0944947");
-            episodeScrobbleResponse.Show.IDs!.TMDB.ShouldBe(1399U);
+            episodeScrobbleResponse.Show.IDs.Trakt.ShouldBe(1390U);
+            episodeScrobbleResponse.Show.IDs.Slug.ShouldBe("game-of-thrones");
+            episodeScrobbleResponse.Show.IDs.TVDB.ShouldBe(121361U);
+            episodeScrobbleResponse.Show.IDs.IMDB.ShouldBe("tt0944947");
+            episodeScrobbleResponse.Show.IDs.TMDB.ShouldBe(1399U);
         }
     }
 }

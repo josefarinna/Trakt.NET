@@ -39,22 +39,22 @@ namespace TraktNET.CheckinModule
             TraktResponse<TraktMovieCheckinResponse> response = await client.Checkins.CheckIntoMovieAsync(movieCheckin, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktMovieCheckinResponse responseData = response.Content!;
+            TraktMovieCheckinResponse responseData = response.Content;
             responseData.ID.ShouldBe(3373536619UL);
             responseData.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-08-06T01:11:37.000Z"));
 
             responseData.Movie.ShouldNotBeNull();
-            responseData.Movie!.Title.ShouldBe("Guardians of the Galaxy");
-            responseData.Movie!.Year.ShouldBe(2014U);
+            responseData.Movie.Title.ShouldBe("Guardians of the Galaxy");
+            responseData.Movie.Year.ShouldBe(2014U);
             responseData.Movie!.IDs!.Trakt.ShouldBe(28U);
 
             responseData.Sharing.ShouldNotBeNull();
-            responseData.Sharing!.Twitter.ShouldBe(true);
-            responseData.Sharing!.Tumblr.ShouldBe(false);
+            responseData.Sharing.Twitter.ShouldBe(true);
+            responseData.Sharing.Tumblr.ShouldBe(false);
         }
 
         [Fact]
@@ -88,23 +88,23 @@ namespace TraktNET.CheckinModule
             TraktResponse<TraktMovieCheckinResponse> response = await client.Checkins.CheckIntoMovieAsync(movieCheckin, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.StatusCode.ShouldBe(HttpStatusCode.Created);
-            response.HasValue.ShouldBe(true);
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktMovieCheckinResponse responseData = response.Content!;
+            TraktMovieCheckinResponse responseData = response.Content;
             responseData.ID.ShouldBe(3373536619UL);
             responseData.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-08-06T01:11:37.000Z"));
 
             responseData.Movie.ShouldNotBeNull();
-            responseData.Movie!.Title.ShouldBe("Guardians of the Galaxy");
-            responseData.Movie!.Year.ShouldBe(2014U);
+            responseData.Movie.Title.ShouldBe("Guardians of the Galaxy");
+            responseData.Movie.Year.ShouldBe(2014U);
             responseData.Movie!.IDs!.Trakt.ShouldBe(28U);
 
             responseData.Sharing.ShouldNotBeNull();
-            responseData.Sharing!.Twitter.ShouldBe(true);
-            responseData.Sharing!.Tumblr.ShouldBe(false);
+            responseData.Sharing.Twitter.ShouldBe(true);
+            responseData.Sharing.Tumblr.ShouldBe(false);
         }
 
         [Theory]

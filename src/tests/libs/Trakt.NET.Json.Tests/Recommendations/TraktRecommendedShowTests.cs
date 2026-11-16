@@ -50,11 +50,11 @@ namespace TraktNET.Json.Recommendations
             recommendedShow.AvailableTranslations.Count.ShouldBe(4);
             recommendedShow.AvailableTranslations.ShouldBe(["en", "fr", "it", "de"]);
             recommendedShow.IDs.ShouldNotBeNull();
-            recommendedShow.IDs!.Trakt.ShouldBe(1390U);
-            recommendedShow.IDs!.Slug.ShouldBe("game-of-thrones");
-            recommendedShow.IDs!.TVDB.ShouldBe(121361U);
-            recommendedShow.IDs!.IMDB.ShouldBe("tt0944947");
-            recommendedShow.IDs!.TMDB.ShouldBe(1399U);
+            recommendedShow.IDs.Trakt.ShouldBe(1390U);
+            recommendedShow.IDs.Slug.ShouldBe("game-of-thrones");
+            recommendedShow.IDs.TVDB.ShouldBe(121361U);
+            recommendedShow.IDs.IMDB.ShouldBe("tt0944947");
+            recommendedShow.IDs.TMDB.ShouldBe(1399U);
             recommendedShow.Genres.ShouldNotBeNull();
             recommendedShow.Genres.Count.ShouldBe(5);
             recommendedShow.Genres.ShouldBe(["drama", "fantasy", "science-fiction", "action", "adventure"]);

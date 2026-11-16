@@ -16,7 +16,7 @@ namespace TraktNET.YounifyModule
 
             var post = new TraktYounifyConnectPost
             {
-                ServiceId = "netflix",
+                ServiceID = "netflix",
                 ReturnUrl = "https://trakt.tv/return"
             };
 
@@ -36,7 +36,7 @@ namespace TraktNET.YounifyModule
         {
             var post = new TraktYounifyConnectPost
             {
-                ServiceId = "netflix",
+                ServiceID = "netflix",
                 ReturnUrl = "https://trakt.tv/return"
             };
             TraktClient client = ModuleTestUtility.GetOAuthClient(ConnectUri, statusCode);

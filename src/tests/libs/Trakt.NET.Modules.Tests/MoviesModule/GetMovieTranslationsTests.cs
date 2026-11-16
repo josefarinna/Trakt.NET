@@ -21,15 +21,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktMovieTranslation> response = await client.Movies.GetMovieTranslationsAsync(TestConstants.Movies.TraktMovieID, language, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktMovieTranslation> movieTranslations = response.Content!;
+            IReadOnlyList<TraktMovieTranslation> movieTranslations = response.Content;
 
             TraktMovieTranslation movieTranslation = movieTranslations[0];
 
@@ -52,15 +52,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktMovieTranslation> response = await client.Movies.GetMovieTranslationsAsync(TestConstants.Movies.MovieSlug, language, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktMovieTranslation> movieTranslations = response.Content!;
+            IReadOnlyList<TraktMovieTranslation> movieTranslations = response.Content;
 
             TraktMovieTranslation movieTranslation = movieTranslations[0];
 
@@ -83,15 +83,15 @@ namespace TraktNET.MoviesModule
             TraktListResponse<TraktMovieTranslation> response = await client.Movies.GetMovieTranslationsAsync(TestConstants.Movies.MovieIDs, language, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
             response.Count.ShouldBe(2);
 
-            IReadOnlyList<TraktMovieTranslation> movieTranslations = response.Content!;
+            IReadOnlyList<TraktMovieTranslation> movieTranslations = response.Content;
 
             TraktMovieTranslation movieTranslation = movieTranslations[0];
 

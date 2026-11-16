@@ -23,13 +23,13 @@
 
             seasonStatistics.ShouldNotBeNull();
 
-            seasonStatistics!.Watchers.ShouldBe(312487U);
-            seasonStatistics!.Plays.ShouldBe(3697671U);
-            seasonStatistics!.Collectors.ShouldBe(1748222U);
-            seasonStatistics!.CollectedEpisodes.ShouldBe(1825953U);
-            seasonStatistics!.Comments.ShouldBe(17U);
-            seasonStatistics!.Lists.ShouldBe(1169U);
-            seasonStatistics!.Votes.ShouldBe(6553U);
+            seasonStatistics.Watchers.ShouldBe(312487U);
+            seasonStatistics.Plays.ShouldBe(3697671U);
+            seasonStatistics.Collectors.ShouldBe(1748222U);
+            seasonStatistics.CollectedEpisodes.ShouldBe(1825953U);
+            seasonStatistics.Comments.ShouldBe(17U);
+            seasonStatistics.Lists.ShouldBe(1169U);
+            seasonStatistics.Votes.ShouldBe(6553U);
         }
     }
 }

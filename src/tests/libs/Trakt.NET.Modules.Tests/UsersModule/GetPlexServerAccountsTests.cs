@@ -4,8 +4,8 @@ namespace TraktNET.UsersModule
 {
     public sealed class GetPlexServerAccountsTests
     {
-        private const string ServerId = "some_server_id";
-        private const string GetPlexServerAccountsUri = $"users/settings/plex/servers/{ServerId}";
+        private const string ServerID = "some_server_id";
+        private const string GetPlexServerAccountsUri = $"users/settings/plex/servers/{ServerID}";
 
         [Fact]
         public async Task TestGetPlexServerAccounts()
@@ -13,7 +13,7 @@ namespace TraktNET.UsersModule
             string responseContent = await TestUtility.GetJsonFileContentAsync("Users\\plexserveraccounts.json");
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetPlexServerAccountsUri, responseContent);
-            TraktResponse<TraktPlexServerAccountsAndLibraries> response = await client.Users.GetPlexServerAccountsAsync(ServerId, TestContext.Current.CancellationToken);
+            TraktResponse<TraktPlexServerAccountsAndLibraries> response = await client.Users.GetPlexServerAccountsAsync(ServerID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -46,7 +46,7 @@ namespace TraktNET.UsersModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(GetPlexServerAccountsUri, statusCode);
 
-            Func<Task<TraktResponse<TraktPlexServerAccountsAndLibraries>>> act = () => client.Users.GetPlexServerAccountsAsync(ServerId, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse<TraktPlexServerAccountsAndLibraries>>> act = () => client.Users.GetPlexServerAccountsAsync(ServerID, TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }

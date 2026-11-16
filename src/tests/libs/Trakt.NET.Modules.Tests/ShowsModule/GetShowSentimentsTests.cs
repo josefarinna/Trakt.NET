@@ -16,21 +16,21 @@ namespace TraktNET.ShowsModule
             TraktResponse<TraktSentiments> response = await client.Shows.GetShowSentimentsAsync(TestConstants.Shows.TraktShowID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktSentiments showSentiments = response.Content!;
+            TraktSentiments showSentiments = response.Content;
 
             showSentiments.Good.ShouldNotBeNull();
-            showSentiments.Good!.Count.ShouldBe(1);
-            showSentiments.Good![0].Sentiment.ShouldBe("funny");
+            showSentiments.Good.Count.ShouldBe(1);
+            showSentiments.Good[0].Sentiment.ShouldBe("funny");
             showSentiments.Bad.ShouldNotBeNull();
-            showSentiments.Bad!.Count.ShouldBe(1);
-            showSentiments.Bad![0].Sentiment.ShouldBe("boring");
+            showSentiments.Bad.Count.ShouldBe(1);
+            showSentiments.Bad[0].Sentiment.ShouldBe("boring");
             showSentiments.CommentCount.ShouldBe(100U);
         }
 
@@ -43,18 +43,18 @@ namespace TraktNET.ShowsModule
             TraktResponse<TraktSentiments> response = await client.Shows.GetShowSentimentsAsync(TestConstants.Shows.ShowSlug, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktSentiments showSentiments = response.Content!;
+            TraktSentiments showSentiments = response.Content;
 
             showSentiments.Good.ShouldNotBeNull();
-            showSentiments.Good!.Count.ShouldBe(1);
-            showSentiments.Good![0].Sentiment.ShouldBe("funny");
+            showSentiments.Good.Count.ShouldBe(1);
+            showSentiments.Good[0].Sentiment.ShouldBe("funny");
             showSentiments.Bad.ShouldNotBeNull();
-            showSentiments.Bad!.Count.ShouldBe(1);
-            showSentiments.Bad![0].Sentiment.ShouldBe("boring");
+            showSentiments.Bad.Count.ShouldBe(1);
+            showSentiments.Bad[0].Sentiment.ShouldBe("boring");
             showSentiments.CommentCount.ShouldBe(100U);
         }
 
@@ -67,18 +67,18 @@ namespace TraktNET.ShowsModule
             TraktResponse<TraktSentiments> response = await client.Shows.GetShowSentimentsAsync(TestConstants.Shows.ShowIDs, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktSentiments showSentiments = response.Content!;
+            TraktSentiments showSentiments = response.Content;
 
             showSentiments.Good.ShouldNotBeNull();
-            showSentiments.Good!.Count.ShouldBe(1);
-            showSentiments.Good![0].Sentiment.ShouldBe("funny");
+            showSentiments.Good.Count.ShouldBe(1);
+            showSentiments.Good[0].Sentiment.ShouldBe("funny");
             showSentiments.Bad.ShouldNotBeNull();
-            showSentiments.Bad!.Count.ShouldBe(1);
-            showSentiments.Bad![0].Sentiment.ShouldBe("boring");
+            showSentiments.Bad.Count.ShouldBe(1);
+            showSentiments.Bad[0].Sentiment.ShouldBe("boring");
             showSentiments.CommentCount.ShouldBe(100U);
         }
 

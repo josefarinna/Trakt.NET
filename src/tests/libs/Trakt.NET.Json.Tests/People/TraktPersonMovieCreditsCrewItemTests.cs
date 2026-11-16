@@ -24,10 +24,10 @@
             creditsCrewItem.Movie.Title.ShouldBe("Star Wars: The Force Awakens");
             creditsCrewItem.Movie.Year.ShouldBe(2015U);
             creditsCrewItem.Movie.IDs.ShouldNotBeNull();
-            creditsCrewItem.Movie.IDs!.Trakt.ShouldBe(94024U);
-            creditsCrewItem.Movie.IDs!.Slug.ShouldBe("star-wars-the-force-awakens-2015");
-            creditsCrewItem.Movie.IDs!.IMDB.ShouldBe("tt2488496");
-            creditsCrewItem.Movie.IDs!.TMDB.ShouldBe(140607U);
+            creditsCrewItem.Movie.IDs.Trakt.ShouldBe(94024U);
+            creditsCrewItem.Movie.IDs.Slug.ShouldBe("star-wars-the-force-awakens-2015");
+            creditsCrewItem.Movie.IDs.IMDB.ShouldBe("tt2488496");
+            creditsCrewItem.Movie.IDs.TMDB.ShouldBe(140607U);
             creditsCrewItem.Movie.Tagline.ShouldBeNullOrEmpty();
             creditsCrewItem.Movie.Overview.ShouldBeNullOrEmpty();
             creditsCrewItem.Movie.Released.ShouldBeNull();

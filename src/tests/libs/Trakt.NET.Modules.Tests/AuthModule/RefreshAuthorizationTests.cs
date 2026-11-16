@@ -33,7 +33,7 @@ namespace TraktNET.AuthModule
         }
 
         [Fact]
-        public async Task TestRefreshAuthorizationWithTokenAndClientId()
+        public async Task TestRefreshAuthorizationWithTokenAndClientID()
         {
             string authorizationJson = TestUtility.SerializeObject(TestConstants.MockAuthorization);
             TraktClient client = ModuleTestUtility.GetOAuthClient(RefreshAuthorizationUri, authorizationJson, null, null, null, null, true);

@@ -32,7 +32,7 @@ namespace TraktNET.Json.Notes
             noteItem.Type.ShouldBe(TraktListItemType.Movie);
 
             noteItem.Movie.ShouldNotBeNull();
-            noteItem.Movie!.Title.ShouldBe("Batman Begins");
+            noteItem.Movie.Title.ShouldBe("Batman Begins");
             noteItem.Movie.Year.ShouldBe(2005U);
             noteItem.Movie.IDs.ShouldNotBeNull();
             noteItem.Movie.IDs.Trakt.ShouldBe(1U);
@@ -68,7 +68,7 @@ namespace TraktNET.Json.Notes
             noteItem.ShouldNotBeNull();
 
             noteItem.AttachedTo.ShouldNotBeNull();
-            noteItem.AttachedTo!.Type.ShouldBe(TraktNotesObjectType.History);
+            noteItem.AttachedTo.Type.ShouldBe(TraktNotesObjectType.History);
             noteItem.AttachedTo.ID.ShouldBe(3253454U);
 
             noteItem.Type.ShouldBe(TraktListItemType.Movie);

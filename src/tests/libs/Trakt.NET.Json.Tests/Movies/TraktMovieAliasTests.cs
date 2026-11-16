@@ -18,8 +18,8 @@
 
             movieAlias.ShouldNotBeNull();
 
-            movieAlias!.Title.ShouldBe("Les Gardiens de la Galaxie 3");
-            movieAlias!.Country.ShouldBe("fr");
+            movieAlias.Title.ShouldBe("Les Gardiens de la Galaxie 3");
+            movieAlias.Country.ShouldBe("fr");
         }
 
         [Fact]
@@ -28,9 +28,9 @@
             IReadOnlyList<TraktMovieAlias>? movieAliases = await TestUtility.DeserializeJsonListAsync<TraktMovieAlias>("Movies\\moviealiases.json");
 
             movieAliases.ShouldNotBeNull();
-            movieAliases!.Count.ShouldBe(2);
+            movieAliases.Count.ShouldBe(2);
 
-            TraktMovieAlias movieAlias = movieAliases![0];
+            TraktMovieAlias movieAlias = movieAliases[0];
 
             movieAlias.ShouldNotBeNull();
 
@@ -39,7 +39,7 @@
 
             // --------------------------------------------------------------------------------------------
 
-            movieAlias = movieAliases![1];
+            movieAlias = movieAliases[1];
 
             movieAlias.ShouldNotBeNull();
 

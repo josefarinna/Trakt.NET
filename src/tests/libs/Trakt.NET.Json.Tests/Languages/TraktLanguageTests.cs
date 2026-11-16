@@ -18,7 +18,7 @@
             IReadOnlyList<TraktLanguage>? languages = await TestUtility.DeserializeJsonListAsync<TraktLanguage>("Languages\\languagesmovies.json");
 
             languages.ShouldNotBeNull();
-            languages!.Count.ShouldBe(177);
+            languages.Count.ShouldBe(177);
 
             TraktLanguage firstLanguage = languages[0];
             firstLanguage.Name.ShouldBe("Abkhazian");

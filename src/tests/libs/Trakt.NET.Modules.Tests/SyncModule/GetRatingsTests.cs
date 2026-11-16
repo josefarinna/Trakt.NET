@@ -31,7 +31,7 @@ namespace TraktNET.SyncModule
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            var items = response.Content!.ToArray();
+            var items = response.Content.ToArray();
             items.Length.ShouldBe((int)ItemCount);
             response.ItemCount.ShouldBe(10U);
             response.Limit.ShouldBe(limit);

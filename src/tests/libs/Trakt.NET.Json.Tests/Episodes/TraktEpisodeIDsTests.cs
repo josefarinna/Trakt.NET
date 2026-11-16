@@ -12,7 +12,7 @@ namespace TraktNET.Json.Episodes
             episodeIDs.IMDB.ShouldBeNull();
             episodeIDs.TMDB.ShouldBeNull();
 
-            episodeIDs.HasAnyID.ShouldBe(false);
+            episodeIDs.HasAnyID.ShouldBeFalse();
             episodeIDs.BestID.ShouldBeEmpty();
         }
 
@@ -135,7 +135,7 @@ namespace TraktNET.Json.Episodes
             episodeIDs.IMDB.ShouldBe("tt1480055");
             episodeIDs.TMDB.ShouldBe(63056U);
 
-            episodeIDs.HasAnyID.ShouldBe(true);
+            episodeIDs.HasAnyID.ShouldBeTrue();
             episodeIDs.BestID.ShouldBe("73640");
         }
     }

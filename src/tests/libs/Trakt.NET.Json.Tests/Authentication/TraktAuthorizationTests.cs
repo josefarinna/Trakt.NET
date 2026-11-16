@@ -21,10 +21,10 @@
             authorization.CreatedAtDateTime.ShouldBe(default);
             authorization.Scope.ShouldBeNull();
             authorization.TokenType.ShouldBeNull();
-            authorization.IsExpired.ShouldBe(true);
-            authorization.IsValid.ShouldBe(false);
-            authorization.IsRefreshPossible.ShouldBe(false);
-            authorization.IgnoreExpiration.ShouldBe(false);
+            authorization.IsExpired.ShouldBeTrue();
+            authorization.IsValid.ShouldBeFalse();
+            authorization.IsRefreshPossible.ShouldBeFalse();
+            authorization.IgnoreExpiration.ShouldBeFalse();
 
             authorization.AsBearerToken().ShouldBe("Bearer: invalid access token");
         }
@@ -36,21 +36,21 @@
 
             authorization.ShouldNotBeNull();
 
-            authorization!.AccessToken.ShouldBe("dbaf9757982a9e738f05d249b7b5b4a266b3a139049317c4909f2f263572c781");
-            authorization!.RefreshToken.ShouldBe("76ba4c5c75c96f6087f58a4de10be6c00b29ea1ddc3b2022ee2016d1363e3a7c");
-            authorization!.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
-            authorization!.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
-            authorization!.CreatedAt.ShouldBe(1487889741UL);
-            authorization!.CreatedAtTimestamp.ShouldBe(1487889741UL);
-            authorization!.CreatedAtDateTime.ShouldBe(CreatedAt);
-            authorization!.Scope.ShouldBe(TraktAccessScope.Public);
-            authorization!.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization!.IsExpired.ShouldBe(true);
-            authorization!.IsValid.ShouldBe(true);
-            authorization!.IsRefreshPossible.ShouldBe(true);
-            authorization!.IgnoreExpiration.ShouldBe(false);
+            authorization.AccessToken.ShouldBe("dbaf9757982a9e738f05d249b7b5b4a266b3a139049317c4909f2f263572c781");
+            authorization.RefreshToken.ShouldBe("76ba4c5c75c96f6087f58a4de10be6c00b29ea1ddc3b2022ee2016d1363e3a7c");
+            authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
+            authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
+            authorization.CreatedAt.ShouldBe(1487889741UL);
+            authorization.CreatedAtTimestamp.ShouldBe(1487889741UL);
+            authorization.CreatedAtDateTime.ShouldBe(CreatedAt);
+            authorization.Scope.ShouldBe(TraktAccessScope.Public);
+            authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
+            authorization.IsExpired.ShouldBeTrue();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeTrue();
+            authorization.IgnoreExpiration.ShouldBeFalse();
 
-            authorization!.AsBearerToken().ShouldBe("Bearer: dbaf9757982a9e738f05d249b7b5b4a266b3a139049317c4909f2f263572c781");
+            authorization.AsBearerToken().ShouldBe("Bearer: dbaf9757982a9e738f05d249b7b5b4a266b3a139049317c4909f2f263572c781");
         }
 
         [Fact]
@@ -58,16 +58,16 @@
         {
             var authorization = new TraktAuthorization();
 
-            authorization.IsValid.ShouldBe(false);
+            authorization.IsValid.ShouldBeFalse();
 
             authorization.AccessToken = string.Empty;
-            authorization.IsValid.ShouldBe(false);
+            authorization.IsValid.ShouldBeFalse();
 
             authorization.AccessToken = "access token";
-            authorization.IsValid.ShouldBe(false);
+            authorization.IsValid.ShouldBeFalse();
 
             authorization.AccessToken = "accessToken";
-            authorization.IsValid.ShouldBe(true);
+            authorization.IsValid.ShouldBeTrue();
         }
 
         [Fact]
@@ -75,16 +75,16 @@
         {
             var authorization = new TraktAuthorization();
 
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IsRefreshPossible.ShouldBeFalse();
 
             authorization.RefreshToken = string.Empty;
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IsRefreshPossible.ShouldBeFalse();
 
             authorization.RefreshToken = "refresh token";
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IsRefreshPossible.ShouldBeFalse();
 
             authorization.RefreshToken = "refreshToken";
-            authorization.IsRefreshPossible.ShouldBe(true);
+            authorization.IsRefreshPossible.ShouldBeTrue();
         }
 
         [Fact]
@@ -102,19 +102,19 @@
                 CreatedAt = (ulong)differenceSeconds
             };
 
-            authorization.IsExpired.ShouldBe(true);
+            authorization.IsExpired.ShouldBeTrue();
 
             authorization.AccessToken = string.Empty;
-            authorization.IsExpired.ShouldBe(true);
+            authorization.IsExpired.ShouldBeTrue();
 
             authorization.AccessToken = "access token";
-            authorization.IsExpired.ShouldBe(true);
+            authorization.IsExpired.ShouldBeTrue();
 
             authorization.AccessToken = "accessToken";
-            authorization.IsExpired.ShouldBe(true);
+            authorization.IsExpired.ShouldBeTrue();
 
             authorization.ExpiresIn = 1;
-            authorization.IsExpired.ShouldBe(false);
+            authorization.IsExpired.ShouldBeFalse();
         }
 
         [Fact]
@@ -126,16 +126,16 @@
                 ExpiresIn = 0
             };
 
-            authorization.IsExpired.ShouldBe(true);
+            authorization.IsExpired.ShouldBeTrue();
 
             authorization.AccessToken = string.Empty;
-            authorization.IsExpired.ShouldBe(true);
+            authorization.IsExpired.ShouldBeTrue();
 
             authorization.AccessToken = "access token";
-            authorization.IsExpired.ShouldBe(true);
+            authorization.IsExpired.ShouldBeTrue();
 
             authorization.AccessToken = "accessToken";
-            authorization.IsExpired.ShouldBe(false);
+            authorization.IsExpired.ShouldBeFalse();
         }
 
         [Fact]
@@ -183,7 +183,7 @@
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldBe(ACCESS_TOKEN);
             authorization.RefreshToken.ShouldNotBeNull();
-            authorization.RefreshToken!.ShouldBeEmpty();
+            authorization.RefreshToken.ShouldBeEmpty();
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.CreatedAt.ShouldBe(createdAtUtcNowTimestamp);
@@ -191,10 +191,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(true);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IgnoreExpiration.ShouldBeTrue();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeFalse();
         }
 
         [Fact]
@@ -215,10 +215,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(true);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(true);
+            authorization.IgnoreExpiration.ShouldBeTrue();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeTrue();
         }
 
         [Fact]
@@ -232,7 +232,7 @@
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldBe(ACCESS_TOKEN);
             authorization.RefreshToken.ShouldNotBeNull();
-            authorization.RefreshToken!.ShouldBeEmpty();
+            authorization.RefreshToken.ShouldBeEmpty();
             authorization.ExpiresIn.ShouldBe(1000U);
             authorization.ExpiresInSeconds.ShouldBe(1000U);
             authorization.CreatedAt.ShouldBe(createdAtUtcNowTimestamp);
@@ -240,10 +240,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(false);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IgnoreExpiration.ShouldBeFalse();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeFalse();
         }
 
         [Fact]
@@ -264,10 +264,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(false);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(true);
+            authorization.IgnoreExpiration.ShouldBeFalse();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeTrue();
         }
 
         [Fact]
@@ -281,7 +281,7 @@
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldBe(ACCESS_TOKEN);
             authorization.RefreshToken.ShouldNotBeNull();
-            authorization.RefreshToken!.ShouldBeEmpty();
+            authorization.RefreshToken.ShouldBeEmpty();
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.CreatedAt.ShouldBe(createdAtUtcNowTimestamp);
@@ -289,10 +289,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(true);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IgnoreExpiration.ShouldBeTrue();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeFalse();
         }
 
         [Fact]
@@ -313,10 +313,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(true);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(true);
+            authorization.IgnoreExpiration.ShouldBeTrue();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeTrue();
         }
 
         [Fact]
@@ -330,7 +330,7 @@
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldBe(ACCESS_TOKEN);
             authorization.RefreshToken.ShouldNotBeNull();
-            authorization.RefreshToken!.ShouldBeEmpty();
+            authorization.RefreshToken.ShouldBeEmpty();
             authorization.ExpiresIn.ShouldBe(1000U);
             authorization.ExpiresInSeconds.ShouldBe(1000U);
             authorization.CreatedAt.ShouldBe(createdAtUtcNowTimestamp);
@@ -338,10 +338,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(false);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IgnoreExpiration.ShouldBeFalse();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeFalse();
         }
 
         [Fact]
@@ -362,10 +362,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(false);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(true);
+            authorization.IgnoreExpiration.ShouldBeFalse();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeTrue();
         }
 
         [Fact]
@@ -378,7 +378,7 @@
 
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldNotBeNull();
-            authorization.AccessToken!.ShouldBeEmpty();
+            authorization.AccessToken.ShouldBeEmpty();
             authorization.RefreshToken.ShouldBe(REFRESH_TOKEN);
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
@@ -386,10 +386,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(true);
-            authorization.IsExpired.ShouldBe(true);
-            authorization.IsValid.ShouldBe(false);
-            authorization.IsRefreshPossible.ShouldBe(true);
+            authorization.IgnoreExpiration.ShouldBeTrue();
+            authorization.IsExpired.ShouldBeTrue();
+            authorization.IsValid.ShouldBeFalse();
+            authorization.IsRefreshPossible.ShouldBeTrue();
 
             // ----------------------------------------------------------------------------------------
 
@@ -398,17 +398,17 @@
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldBe(ACCESS_TOKEN);
             authorization.RefreshToken.ShouldNotBeNull();
-            authorization.RefreshToken!.ShouldBeEmpty();
+            authorization.RefreshToken.ShouldBeEmpty();
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.CreatedAtTimestamp.ShouldBeInRange(createdAtUtcNowTimestamp - 10, createdAtUtcNowTimestamp + 10);
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(true);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IgnoreExpiration.ShouldBeTrue();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeFalse();
 
             // ----------------------------------------------------------------------------------------
 
@@ -416,7 +416,7 @@
 
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldNotBeNull();
-            authorization.AccessToken!.ShouldBeEmpty();
+            authorization.AccessToken.ShouldBeEmpty();
             authorization.RefreshToken.ShouldBe(REFRESH_TOKEN);
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
@@ -424,10 +424,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(false);
-            authorization.IsExpired.ShouldBe(true);
-            authorization.IsValid.ShouldBe(false);
-            authorization.IsRefreshPossible.ShouldBe(true);
+            authorization.IgnoreExpiration.ShouldBeFalse();
+            authorization.IsExpired.ShouldBeTrue();
+            authorization.IsValid.ShouldBeFalse();
+            authorization.IsRefreshPossible.ShouldBeTrue();
 
             // ----------------------------------------------------------------------------------------
 
@@ -436,17 +436,17 @@
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldBe(ACCESS_TOKEN);
             authorization.RefreshToken.ShouldNotBeNull();
-            authorization.RefreshToken!.ShouldBeEmpty();
+            authorization.RefreshToken.ShouldBeEmpty();
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.CreatedAtTimestamp.ShouldBeInRange(createdAtUtcNowTimestamp - 10, createdAtUtcNowTimestamp + 10);
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(false);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IgnoreExpiration.ShouldBeFalse();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeFalse();
 
             // ----------------------------------------------------------------------------------------
 
@@ -454,7 +454,7 @@
 
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldNotBeNull();
-            authorization.AccessToken!.ShouldBeEmpty();
+            authorization.AccessToken.ShouldBeEmpty();
             authorization.RefreshToken.ShouldBe(REFRESH_TOKEN);
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
@@ -463,10 +463,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(true);
-            authorization.IsExpired.ShouldBe(true);
-            authorization.IsValid.ShouldBe(false);
-            authorization.IsRefreshPossible.ShouldBe(true);
+            authorization.IgnoreExpiration.ShouldBeTrue();
+            authorization.IsExpired.ShouldBeTrue();
+            authorization.IsValid.ShouldBeFalse();
+            authorization.IsRefreshPossible.ShouldBeTrue();
 
             // ----------------------------------------------------------------------------------------
 
@@ -475,7 +475,7 @@
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldBe(ACCESS_TOKEN);
             authorization.RefreshToken.ShouldNotBeNull();
-            authorization.RefreshToken!.ShouldBeEmpty();
+            authorization.RefreshToken.ShouldBeEmpty();
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.CreatedAt.ShouldBe(createdAtUtcNowTimestamp);
@@ -483,10 +483,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(true);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IgnoreExpiration.ShouldBeTrue();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeFalse();
 
             // ----------------------------------------------------------------------------------------
 
@@ -494,7 +494,7 @@
 
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldNotBeNull();
-            authorization.AccessToken!.ShouldBeEmpty();
+            authorization.AccessToken.ShouldBeEmpty();
             authorization.RefreshToken.ShouldBe(REFRESH_TOKEN);
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
@@ -503,10 +503,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(false);
-            authorization.IsExpired.ShouldBe(true);
-            authorization.IsValid.ShouldBe(false);
-            authorization.IsRefreshPossible.ShouldBe(true);
+            authorization.IgnoreExpiration.ShouldBeFalse();
+            authorization.IsExpired.ShouldBeTrue();
+            authorization.IsValid.ShouldBeFalse();
+            authorization.IsRefreshPossible.ShouldBeTrue();
 
             // ----------------------------------------------------------------------------------------
 
@@ -515,7 +515,7 @@
             authorization.ShouldNotBeNull();
             authorization.AccessToken.ShouldBe(ACCESS_TOKEN);
             authorization.RefreshToken.ShouldNotBeNull();
-            authorization.RefreshToken!.ShouldBeEmpty();
+            authorization.RefreshToken.ShouldBeEmpty();
             authorization.ExpiresIn.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.ExpiresInSeconds.ShouldBe(EXPIRES_IN_SECONDS);
             authorization.CreatedAt.ShouldBe(createdAtUtcNowTimestamp);
@@ -523,10 +523,10 @@
             authorization.CreatedAtDateTime.ShouldBe(createdAtUtcNow, TimeSpan.FromSeconds(1));
             authorization.Scope.ShouldBe(TraktAccessScope.Public);
             authorization.TokenType.ShouldBe(TraktAccessTokenType.Bearer);
-            authorization.IgnoreExpiration.ShouldBe(false);
-            authorization.IsExpired.ShouldBe(false);
-            authorization.IsValid.ShouldBe(true);
-            authorization.IsRefreshPossible.ShouldBe(false);
+            authorization.IgnoreExpiration.ShouldBeFalse();
+            authorization.IsExpired.ShouldBeFalse();
+            authorization.IsValid.ShouldBeTrue();
+            authorization.IsRefreshPossible.ShouldBeFalse();
         }
 
         private static ulong CalculateTimestamp(DateTime createdAt) => (ulong)new DateTimeOffset(createdAt).ToUnixTimeSeconds();

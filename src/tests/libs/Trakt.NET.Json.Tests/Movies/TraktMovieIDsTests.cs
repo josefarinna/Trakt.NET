@@ -12,7 +12,7 @@
             movieIDs.IMDB.ShouldBeNull();
             movieIDs.TMDB.ShouldBeNull();
 
-            movieIDs.HasAnyID.ShouldBe(false);
+            movieIDs.HasAnyID.ShouldBeFalse();
             movieIDs.BestID.ShouldBeEmpty();
         }
 
@@ -122,13 +122,13 @@
 
             movieIDs.ShouldNotBeNull();
 
-            movieIDs!.Trakt.ShouldBe(293990U);
-            movieIDs!.Slug.ShouldBe("guardians-of-the-galaxy-volume-3-2023");
-            movieIDs!.IMDB.ShouldBe("tt6791350");
-            movieIDs!.TMDB.ShouldBe(447365U);
+            movieIDs.Trakt.ShouldBe(293990U);
+            movieIDs.Slug.ShouldBe("guardians-of-the-galaxy-volume-3-2023");
+            movieIDs.IMDB.ShouldBe("tt6791350");
+            movieIDs.TMDB.ShouldBe(447365U);
 
-            movieIDs!.HasAnyID.ShouldBe(true);
-            movieIDs!.BestID.ShouldBe("guardians-of-the-galaxy-volume-3-2023");
+            movieIDs.HasAnyID.ShouldBeTrue();
+            movieIDs.BestID.ShouldBe("guardians-of-the-galaxy-volume-3-2023");
         }
     }
 }

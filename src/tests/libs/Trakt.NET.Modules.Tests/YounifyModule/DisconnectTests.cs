@@ -6,14 +6,14 @@ namespace TraktNET.YounifyModule
 {
     public sealed class DisconnectTests
     {
-        private const string ServiceId = "netflix";
-        private static readonly string DisconnectUri = $"younify/users/services/{ServiceId}";
+        private const string ServiceID = "netflix";
+        private static readonly string DisconnectUri = $"younify/users/services/{ServiceID}";
 
         [Fact]
         public async Task TestDisconnect()
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(DisconnectUri, HttpStatusCode.NoContent);
-            TraktResponse response = await client.Younify.DisconnectAsync(ServiceId, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Younify.DisconnectAsync(ServiceID, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -37,7 +37,7 @@ namespace TraktNET.YounifyModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(DisconnectUri, statusCode);
 
-            Func<Task<TraktResponse>> act = () => client.Younify.DisconnectAsync(ServiceId, cancellationToken: TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Younify.DisconnectAsync(ServiceID, cancellationToken: TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
     }

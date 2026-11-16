@@ -37,25 +37,25 @@ namespace TraktNET.CheckinModule
             TraktResponse<TraktEpisodeCheckinResponse> response = await client.Checkins.CheckIntoEpisodeAsync(episodeCheckin, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktEpisodeCheckinResponse responseData = response.Content!;
+            TraktEpisodeCheckinResponse responseData = response.Content;
             responseData.ID.ShouldBe(3373536620UL);
             responseData.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-08-06T01:11:37.000Z"));
 
             responseData.Show.ShouldNotBeNull();
-            responseData.Show!.Title.ShouldBe("Breaking Bad");
+            responseData.Show.Title.ShouldBe("Breaking Bad");
             responseData.Show!.IDs!.Trakt.ShouldBe(1U);
 
             responseData.Episode.ShouldNotBeNull();
-            responseData.Episode!.Season.ShouldBe(1U);
-            responseData.Episode!.Number.ShouldBe(1U);
+            responseData.Episode.Season.ShouldBe(1U);
+            responseData.Episode.Number.ShouldBe(1U);
 
             responseData.Sharing.ShouldNotBeNull();
-            responseData.Sharing!.Twitter.ShouldBe(true);
-            responseData.Sharing!.Tumblr.ShouldBe(false);
+            responseData.Sharing.Twitter.ShouldBe(true);
+            responseData.Sharing.Tumblr.ShouldBe(false);
         }
 
         [Fact]
@@ -87,26 +87,26 @@ namespace TraktNET.CheckinModule
             TraktResponse<TraktEpisodeCheckinResponse> response = await client.Checkins.CheckIntoEpisodeAsync(episodeCheckin, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
             response.StatusCode.ShouldBe(HttpStatusCode.Created);
-            response.HasValue.ShouldBe(true);
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktEpisodeCheckinResponse responseData = response.Content!;
+            TraktEpisodeCheckinResponse responseData = response.Content;
             responseData.ID.ShouldBe(3373536620UL);
             responseData.WatchedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-08-06T01:11:37.000Z"));
 
             responseData.Show.ShouldNotBeNull();
-            responseData.Show!.Title.ShouldBe("Breaking Bad");
+            responseData.Show.Title.ShouldBe("Breaking Bad");
             responseData.Show!.IDs!.Trakt.ShouldBe(1U);
 
             responseData.Episode.ShouldNotBeNull();
-            responseData.Episode!.Season.ShouldBe(1U);
-            responseData.Episode!.Number.ShouldBe(1U);
+            responseData.Episode.Season.ShouldBe(1U);
+            responseData.Episode.Number.ShouldBe(1U);
 
             responseData.Sharing.ShouldNotBeNull();
-            responseData.Sharing!.Twitter.ShouldBe(true);
-            responseData.Sharing!.Tumblr.ShouldBe(false);
+            responseData.Sharing.Twitter.ShouldBe(true);
+            responseData.Sharing.Tumblr.ShouldBe(false);
         }
 
         [Theory]

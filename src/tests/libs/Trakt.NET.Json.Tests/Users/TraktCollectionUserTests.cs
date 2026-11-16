@@ -165,7 +165,7 @@ namespace TraktNET.Json.Users
             collectionUser.IDs.ShouldNotBeNull();
             collectionUser.IDs.Slug.ShouldBe("ixxus");
             collectionUser.IDs.UUID.ShouldBe("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
-            collectionUser.IDs.HasAnyID.ShouldBe(true);
+            collectionUser.IDs.HasAnyID.ShouldBeTrue();
             collectionUser.IDs.BestID.ShouldBe("ixxus");
         }
 
@@ -187,7 +187,7 @@ namespace TraktNET.Json.Users
             collectionUser.IDs.ShouldNotBeNull();
             collectionUser.IDs.Slug.ShouldBe("ixxus");
             collectionUser.IDs.UUID.ShouldBe("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
-            collectionUser.IDs.HasAnyID.ShouldBe(true);
+            collectionUser.IDs.HasAnyID.ShouldBeTrue();
             collectionUser.IDs.BestID.ShouldBe("ixxus");
 
             collectionUser.JoinedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-02-18T12:54:39.000Z"));

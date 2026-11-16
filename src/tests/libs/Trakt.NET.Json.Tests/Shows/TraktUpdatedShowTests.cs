@@ -41,19 +41,19 @@ namespace TraktNET.Json.Shows
             TraktUpdatedShow? updatedShow = await TestUtility.DeserializeJsonAsync<TraktUpdatedShow>("Shows\\updatedshow_minimal.json");
 
             updatedShow.ShouldNotBeNull();
-            updatedShow!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-22T00:31:21.000Z"));
-            updatedShow!.Show.ShouldNotBeNull();
+            updatedShow.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-22T00:31:21.000Z"));
+            updatedShow.Show.ShouldNotBeNull();
 
-            updatedShow!.Title.ShouldBe("Medalist");
-            updatedShow!.Year.ShouldBe(2025U);
+            updatedShow.Title.ShouldBe("Medalist");
+            updatedShow.Year.ShouldBe(2025U);
 
             updatedShow!.IDs!.Trakt.ShouldBe(223571U);
-            updatedShow!.IDs!.Slug.ShouldBe("medalist");
-            updatedShow!.IDs!.TVDB.ShouldBe(433953U);
-            updatedShow!.IDs!.IMDB.ShouldBe("tt33310730");
-            updatedShow!.IDs!.TMDB.ShouldBe(237529U);
+            updatedShow.IDs.Slug.ShouldBe("medalist");
+            updatedShow.IDs.TVDB.ShouldBe(433953U);
+            updatedShow.IDs.IMDB.ShouldBe("tt33310730");
+            updatedShow.IDs.TMDB.ShouldBe(237529U);
 
-            updatedShow!.ToString().ShouldBe("Medalist (2025)");
+            updatedShow.ToString().ShouldBe("Medalist (2025)");
         }
 
         [Fact]
@@ -62,21 +62,21 @@ namespace TraktNET.Json.Shows
             TraktUpdatedShow? updatedShow = await TestUtility.DeserializeJsonAsync<TraktUpdatedShow>("Shows\\updatedshow.json");
 
             updatedShow.ShouldNotBeNull();
-            updatedShow!.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-22T00:31:21.000Z"));
+            updatedShow.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-22T00:31:21.000Z"));
 
-            updatedShow!.Title.ShouldBe("Medalist");
-            updatedShow!.Year.ShouldBe(2025U);
+            updatedShow.Title.ShouldBe("Medalist");
+            updatedShow.Year.ShouldBe(2025U);
             updatedShow!.IDs!.Trakt.ShouldBe(223571U);
 
-            updatedShow!.Overview.ShouldStartWith("Tsukasa Akeuraji, a frustrated skater");
-            updatedShow!.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2025-01-04T16:30:00.000Z"));
-            updatedShow!.Runtime.ShouldBe(23U);
-            updatedShow!.Network.ShouldBe("Iwate Asahi TV");
-            updatedShow!.Country.ShouldBe("jp");
-            updatedShow!.Status.ShouldBe(TraktShowStatus.ReturningSeries);
-            updatedShow!.Rating.ShouldBe(7.93548f);
+            updatedShow.Overview.ShouldStartWith("Tsukasa Akeuraji, a frustrated skater");
+            updatedShow.FirstAired.ShouldBe(TestUtility.ParseUTCDateTime("2025-01-04T16:30:00.000Z"));
+            updatedShow.Runtime.ShouldBe(23U);
+            updatedShow.Network.ShouldBe("Iwate Asahi TV");
+            updatedShow.Country.ShouldBe("jp");
+            updatedShow.Status.ShouldBe(TraktShowStatus.ReturningSeries);
+            updatedShow.Rating.ShouldBe(7.93548f);
 
-            updatedShow!.ToString().ShouldBe("Medalist (2025)");
+            updatedShow.ToString().ShouldBe("Medalist (2025)");
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace TraktNET.Json.Shows
             IReadOnlyList<TraktUpdatedShow>? updatedShows = await TestUtility.DeserializeJsonListAsync<TraktUpdatedShow>("Shows\\updatedshows_minimal.json");
 
             updatedShows.ShouldNotBeNull();
-            updatedShows!.Count.ShouldBe(2);
+            updatedShows.Count.ShouldBe(2);
 
             // First show: Medalist
             updatedShows[0].Title.ShouldBe("Medalist");
@@ -104,16 +104,16 @@ namespace TraktNET.Json.Shows
             IReadOnlyList<TraktUpdatedShow>? updatedShows = await TestUtility.DeserializeJsonListAsync<TraktUpdatedShow>("Shows\\updatedshows.json");
 
             updatedShows.ShouldNotBeNull();
-            updatedShows!.Count.ShouldBe(2);
+            updatedShows.Count.ShouldBe(2);
 
-            TraktUpdatedShow updatedShow = updatedShows![1]; // Test the second one (Scrubs)
+            TraktUpdatedShow updatedShow = updatedShows[1]; // Test the second one (Scrubs)
 
             updatedShow.Title.ShouldBe("Scrubs");
             updatedShow.Year.ShouldBe(2026U);
             updatedShow.UpdatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2026-02-22T00:37:47.000Z"));
             updatedShow.Trailer.ShouldBe("https://youtube.com/watch?v=dJq8WJ5lMec");
             updatedShow.Genres.ShouldNotBeNull();
-            updatedShow.Genres!.Count.ShouldBe(1);
+            updatedShow.Genres.Count.ShouldBe(1);
             updatedShow.Genres.ShouldContain("comedy");
 
             updatedShow.ToString().ShouldBe("Scrubs (2026)");

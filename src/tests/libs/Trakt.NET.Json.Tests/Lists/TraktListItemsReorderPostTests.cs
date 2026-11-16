@@ -16,7 +16,7 @@
 
             listItemsReorderPost.ShouldNotBeNull();
             listItemsReorderPost.Rank.ShouldNotBeNull();
-            listItemsReorderPost.Rank!.Count.ShouldBe(7);
+            listItemsReorderPost.Rank.Count.ShouldBe(7);
             listItemsReorderPost.Rank.ShouldBe([823, 224, 88768, 356456, 245, 2, 890]);
         }
     }

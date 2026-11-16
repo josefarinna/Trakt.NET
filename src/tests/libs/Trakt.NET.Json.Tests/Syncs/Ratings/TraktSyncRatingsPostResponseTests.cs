@@ -84,9 +84,9 @@ namespace TraktNET.Json.Syncs
             notFoundShows[0].Seasons![0].Episodes![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
 
             syncRatingsPostResponse.NotFound.Seasons.ShouldNotBeNull();
-            syncRatingsPostResponse.NotFound.Seasons!.Count.ShouldBe(1);
+            syncRatingsPostResponse.NotFound.Seasons.Count.ShouldBe(1);
 
-            TraktSyncRatingsPostResponseNotFoundShow[] notFoundSeasons = [.. syncRatingsPostResponse.NotFound.Seasons!];
+            TraktSyncRatingsPostResponseNotFoundShow[] notFoundSeasons = [.. syncRatingsPostResponse.NotFound.Seasons];
 
             notFoundSeasons[0].ShouldNotBeNull();
             notFoundSeasons[0].Rating.ShouldBeNull();
@@ -100,9 +100,9 @@ namespace TraktNET.Json.Syncs
             notFoundSeasons[0].Seasons![0].RatedAt.ShouldBe(TestUtility.ParseUTCDateTime("2014-10-11T17:00:54.000Z"));
 
             syncRatingsPostResponse.NotFound.Episodes.ShouldNotBeNull();
-            syncRatingsPostResponse.NotFound.Episodes!.Count.ShouldBe(1);
+            syncRatingsPostResponse.NotFound.Episodes.Count.ShouldBe(1);
 
-            TraktSyncRatingsPostResponseNotFoundShow[] notFoundEpisodes = [.. syncRatingsPostResponse.NotFound.Episodes!];
+            TraktSyncRatingsPostResponseNotFoundShow[] notFoundEpisodes = [.. syncRatingsPostResponse.NotFound.Episodes];
 
             notFoundEpisodes[0].ShouldNotBeNull();
             notFoundEpisodes[0].Rating.ShouldBeNull();

@@ -29,7 +29,7 @@ namespace TraktNET.CommentsModule
             responseValue.Movie.Title.ShouldBe("Star Wars: The Force Awakens");
             responseValue.Movie.Year.ShouldBe(2015U);
             responseValue.Movie.IDs.ShouldNotBeNull();
-            responseValue.Movie.IDs!.Trakt.ShouldBe(94024U);
+            responseValue.Movie.IDs.Trakt.ShouldBe(94024U);
             responseValue.Show.ShouldNotBeNull();
             responseValue.Show.Title.ShouldBe("Game of Thrones");
             responseValue.Show.Year.ShouldBe(2011U);
@@ -38,7 +38,7 @@ namespace TraktNET.CommentsModule
             responseValue.Season.ShouldNotBeNull();
             responseValue.Season.Number.ShouldBe(1U);
             responseValue.Season.IDs.ShouldNotBeNull();
-            responseValue.Season.IDs!.Trakt.ShouldBe(61430U);
+            responseValue.Season.IDs.Trakt.ShouldBe(61430U);
             responseValue.Episode.ShouldNotBeNull();
             responseValue.Episode.Number.ShouldBe(1U);
             responseValue.Episode.Season.ShouldBe(1U);

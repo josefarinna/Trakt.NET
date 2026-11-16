@@ -28,18 +28,18 @@
 
             video.ShouldNotBeNull();
 
-            video!.Title.ShouldBe("Disney+ Promo");
-            video!.Url.ShouldBe("https://youtube.com/watch?v=3RLT34SwtQc");
-            video!.Site.ShouldBe("youtube");
-            video!.Type.ShouldBe(TraktVideoType.Teaser);
-            video!.Size.ShouldBe(1080U);
-            video!.Official.ShouldBe(true);
-            video!.PublishedAt.ShouldBe(TestUtility.ParseUTCDateTime("2023-08-03T18:00:02.000Z"));
-            video!.Country.ShouldBe("us");
-            video!.Language.ShouldBe("en");
+            video.Title.ShouldBe("Disney+ Promo");
+            video.Url.ShouldBe("https://youtube.com/watch?v=3RLT34SwtQc");
+            video.Site.ShouldBe("youtube");
+            video.Type.ShouldBe(TraktVideoType.Teaser);
+            video.Size.ShouldBe(1080U);
+            video.Official.ShouldBe(true);
+            video.PublishedAt.ShouldBe(TestUtility.ParseUTCDateTime("2023-08-03T18:00:02.000Z"));
+            video.Country.ShouldBe("us");
+            video.Language.ShouldBe("en");
 
-            video!.CultureName().ShouldBe("en-US");
-            video!.ToString().ShouldBe("Teaser: Disney+ Promo");
+            video.CultureName().ShouldBe("en-US");
+            video.ToString().ShouldBe("Teaser: Disney+ Promo");
         }
 
         [Fact]
@@ -48,9 +48,9 @@
             IReadOnlyList<TraktVideo>? videos = await TestUtility.DeserializeJsonListAsync<TraktVideo>("General\\videos.json");
 
             videos.ShouldNotBeNull();
-            videos!.Count.ShouldBe(2);
+            videos.Count.ShouldBe(2);
 
-            TraktVideo video = videos![0];
+            TraktVideo video = videos[0];
 
             video.ShouldNotBeNull();
 
@@ -69,7 +69,7 @@
 
             // --------------------------------------------------------------------------------------------
 
-            video = videos![1];
+            video = videos[1];
 
             video.ShouldNotBeNull();
 

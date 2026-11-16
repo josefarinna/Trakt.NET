@@ -19,7 +19,7 @@ namespace TraktNET.SyncModule
             response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
 
-            TraktSyncLastActivities responseValue = response.Content!;
+            TraktSyncLastActivities responseValue = response.Content;
 
             responseValue.All.ShouldBe(TestUtility.ParseUTCDateTime("2023-06-30T13:38:37.000Z"));
 

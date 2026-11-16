@@ -7,7 +7,7 @@ namespace TraktNET
         public TraktCoverType CoverType { get; set; }
 
         /// <summary>Gets or sets the cover image ID.</summary>
-        public uint CoverId { get; set; }
+        public uint CoverID { get; set; }
 
         public void Validate()
         {
@@ -16,9 +16,9 @@ namespace TraktNET
                 throw new TraktPostValidationException(nameof(CoverType), "Cover type must be specified.");
             }
 
-            if (CoverId == 0)
+            if (CoverID == 0)
             {
-                throw new TraktPostValidationException(nameof(CoverId), "Cover ID must be greater than 0.");
+                throw new TraktPostValidationException(nameof(CoverID), "Cover ID must be greater than 0.");
             }
         }
     }

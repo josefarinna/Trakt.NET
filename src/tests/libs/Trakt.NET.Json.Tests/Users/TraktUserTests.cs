@@ -37,17 +37,17 @@ namespace TraktNET.Json.Users
 
             user.ShouldNotBeNull();
 
-            user!.Username.ShouldBe("ixxus");
-            user!.Private.ShouldBe(false);
-            user!.Name.ShouldBe("Henrik");
-            user!.VIP.ShouldBe(true);
-            user!.VIPEP.ShouldBe(false);
+            user.Username.ShouldBe("ixxus");
+            user.Private.ShouldBe(false);
+            user.Name.ShouldBe("Henrik");
+            user.VIP.ShouldBe(true);
+            user.VIPEP.ShouldBe(false);
 
-            user!.IDs.ShouldNotBeNull();
-            user!.IDs!.Slug.ShouldBe("ixxus");
-            user!.IDs!.UUID.ShouldBe("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
-            user!.IDs!.HasAnyID.ShouldBe(true);
-            user!.IDs!.BestID.ShouldBe("ixxus");
+            user.IDs.ShouldNotBeNull();
+            user.IDs.Slug.ShouldBe("ixxus");
+            user.IDs.UUID.ShouldBe("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
+            user.IDs.HasAnyID.ShouldBeTrue();
+            user.IDs.BestID.ShouldBe("ixxus");
         }
 
         [Fact]
@@ -57,37 +57,37 @@ namespace TraktNET.Json.Users
 
             user.ShouldNotBeNull();
 
-            user!.Username.ShouldBe("ixxus");
-            user!.Private.ShouldBe(false);
-            user!.Name.ShouldBe("Henrik");
-            user!.VIP.ShouldBe(true);
-            user!.VIPEP.ShouldBe(false);
+            user.Username.ShouldBe("ixxus");
+            user.Private.ShouldBe(false);
+            user.Name.ShouldBe("Henrik");
+            user.VIP.ShouldBe(true);
+            user.VIPEP.ShouldBe(false);
 
-            user!.IDs.ShouldNotBeNull();
-            user!.IDs!.Slug.ShouldBe("ixxus");
-            user!.IDs!.UUID.ShouldBe("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
-            user!.IDs!.HasAnyID.ShouldBe(true);
-            user!.IDs!.BestID.ShouldBe("ixxus");
+            user.IDs.ShouldNotBeNull();
+            user.IDs.Slug.ShouldBe("ixxus");
+            user.IDs.UUID.ShouldBe("jljgsagj092ß9u0294jlgalngoi0t0qntggnafng82");
+            user.IDs.HasAnyID.ShouldBeTrue();
+            user.IDs.BestID.ShouldBe("ixxus");
 
-            user!.JoinedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-02-18T12:54:39.000Z"));
-            user!.Location.ShouldBe("Germany");
-            user!.About.ShouldBeEmpty();
-            user!.Gender.ShouldBe(TraktGender.Male);
-            user!.Age.ShouldBe(36U);
+            user.JoinedAt.ShouldBe(TestUtility.ParseUTCDateTime("2015-02-18T12:54:39.000Z"));
+            user.Location.ShouldBe("Germany");
+            user.About.ShouldBeEmpty();
+            user.Gender.ShouldBe(TraktGender.Male);
+            user.Age.ShouldBe(36U);
 
-            user!.Images.ShouldNotBeNull();
-            user!.Images!.Avatar.ShouldNotBeNull();
-            user!.Images!.Avatar!.Full.ShouldBe("https://walter.trakt.tv/images/users/000/894/246/avatars/large/754b7e3761.png");
+            user.Images.ShouldNotBeNull();
+            user.Images.Avatar.ShouldNotBeNull();
+            user.Images.Avatar.Full.ShouldBe("https://walter.trakt.tv/images/users/000/894/246/avatars/large/754b7e3761.png");
 
-            user!.VIPOG.ShouldBe(false);
-            user!.VIPYears.ShouldBe(6U);
-            user!.VIPCoverImage.ShouldBe("https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg");
-            user!.VIPVeteranSince.ShouldBe(TestUtility.ParseUTCDateTime("2020-03-01T00:00:00.000Z"));
-            user!.VIPVeteranYears.ShouldBe(5U);
-            user!.VIPVeteranTier.ShouldBe(5U);
-            user!.VIPVeteranTitle.ShouldBe(TraktVipVeteranTitle.Veteran);
-            user!.VIPGraceEndsAt.ShouldBe(TestUtility.ParseUTCDateTime("2025-04-01T00:00:00.000Z"));
-            user!.Email.ShouldBeNull();
+            user.VIPOG.ShouldBe(false);
+            user.VIPYears.ShouldBe(6U);
+            user.VIPCoverImage.ShouldBe("https://walter.trakt.tv/images/shows/000/043/973/fanarts/full/eb3a126015.jpg");
+            user.VIPVeteranSince.ShouldBe(TestUtility.ParseUTCDateTime("2020-03-01T00:00:00.000Z"));
+            user.VIPVeteranYears.ShouldBe(5U);
+            user.VIPVeteranTier.ShouldBe(5U);
+            user.VIPVeteranTitle.ShouldBe(TraktVipVeteranTitle.Veteran);
+            user.VIPGraceEndsAt.ShouldBe(TestUtility.ParseUTCDateTime("2025-04-01T00:00:00.000Z"));
+            user.Email.ShouldBeNull();
         }
     }
 }

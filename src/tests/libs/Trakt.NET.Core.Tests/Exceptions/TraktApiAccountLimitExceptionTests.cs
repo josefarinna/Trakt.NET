@@ -32,9 +32,9 @@ namespace TraktNET.Exceptions
             var accountLimitException = exception as TraktApiAccountLimitException;
 
             accountLimitException.ShouldNotBeNull();
-            accountLimitException!.UpgradeURL.ShouldBe("upgrade/url");
-            accountLimitException!.IsVIPUser.ShouldBe(true);
-            accountLimitException!.AccountLimit.ShouldBe(1000U);
+            accountLimitException.UpgradeURL.ShouldBe("upgrade/url");
+            accountLimitException.IsVIPUser.ShouldBeTrue();
+            accountLimitException.AccountLimit.ShouldBe(1000U);
         }
     }
 }

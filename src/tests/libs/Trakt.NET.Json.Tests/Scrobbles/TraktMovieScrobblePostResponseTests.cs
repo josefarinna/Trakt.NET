@@ -30,10 +30,10 @@
             movieScrobbleResponse.Movie.Title.ShouldBe("Star Wars: The Force Awakens");
             movieScrobbleResponse.Movie.Year.ShouldBe(2015U);
             movieScrobbleResponse.Movie.IDs.ShouldNotBeNull();
-            movieScrobbleResponse.Movie.IDs!.Trakt.ShouldBe(94024U);
-            movieScrobbleResponse.Movie.IDs!.Slug.ShouldBe("star-wars-the-force-awakens-2015");
-            movieScrobbleResponse.Movie.IDs!.IMDB.ShouldBe("tt2488496");
-            movieScrobbleResponse.Movie.IDs!.TMDB.ShouldBe(140607U);
+            movieScrobbleResponse.Movie.IDs.Trakt.ShouldBe(94024U);
+            movieScrobbleResponse.Movie.IDs.Slug.ShouldBe("star-wars-the-force-awakens-2015");
+            movieScrobbleResponse.Movie.IDs.IMDB.ShouldBe("tt2488496");
+            movieScrobbleResponse.Movie.IDs.TMDB.ShouldBe(140607U);
         }
     }
 }

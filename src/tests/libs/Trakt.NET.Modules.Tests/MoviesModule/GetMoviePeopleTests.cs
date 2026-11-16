@@ -21,22 +21,22 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktCastAndCrew> response = await client.Movies.GetMoviePeopleAsync(TestConstants.Movies.TraktMovieID, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktCastAndCrew moviePeople = response.Content!;
+            TraktCastAndCrew moviePeople = response.Content;
 
             moviePeople.Cast.ShouldNotBeNull();
-            moviePeople.Cast![0].Person.ShouldNotBeNull();
+            moviePeople.Cast[0].Person.ShouldNotBeNull();
             moviePeople.Cast[0].Person!.Name.ShouldBe("Chris Pratt");
 
             moviePeople.Crew.ShouldNotBeNull();
-            moviePeople.Crew!.Directing.ShouldNotBeNull();
-            moviePeople.Crew.Directing![0].Person.ShouldNotBeNull();
+            moviePeople.Crew.Directing.ShouldNotBeNull();
+            moviePeople.Crew.Directing[0].Person.ShouldNotBeNull();
             moviePeople.Crew.Directing![0].Person!.Name.ShouldBe("Kera Dacy");
         }
 
@@ -50,22 +50,22 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktCastAndCrew> response = await client.Movies.GetMoviePeopleAsync(TestConstants.Movies.MovieSlug, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktCastAndCrew moviePeople = response.Content!;
+            TraktCastAndCrew moviePeople = response.Content;
 
             moviePeople.Cast.ShouldNotBeNull();
-            moviePeople.Cast![0].Person.ShouldNotBeNull();
+            moviePeople.Cast[0].Person.ShouldNotBeNull();
             moviePeople.Cast[0].Person!.Name.ShouldBe("Chris Pratt");
 
             moviePeople.Crew.ShouldNotBeNull();
-            moviePeople.Crew!.Directing.ShouldNotBeNull();
-            moviePeople.Crew.Directing![0].Person.ShouldNotBeNull();
+            moviePeople.Crew.Directing.ShouldNotBeNull();
+            moviePeople.Crew.Directing[0].Person.ShouldNotBeNull();
             moviePeople.Crew.Directing![0].Person!.Name.ShouldBe("Kera Dacy");
         }
 
@@ -79,22 +79,22 @@ namespace TraktNET.MoviesModule
             TraktResponse<TraktCastAndCrew> response = await client.Movies.GetMoviePeopleAsync(TestConstants.Movies.MovieIDs, extendedInfo, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
-            response.IsSuccess.ShouldBe(true);
-            response.HasValue.ShouldBe(true);
+            response.IsSuccess.ShouldBeTrue();
+            response.HasValue.ShouldBeTrue();
             response.Content.ShouldNotBeNull();
             response.Headers.ShouldNotBeNull();
             response.TraktHeaders.ShouldNotBeNull();
             response.ContentHeaders.ShouldNotBeNull();
 
-            TraktCastAndCrew moviePeople = response.Content!;
+            TraktCastAndCrew moviePeople = response.Content;
 
             moviePeople.Cast.ShouldNotBeNull();
-            moviePeople.Cast![0].Person.ShouldNotBeNull();
+            moviePeople.Cast[0].Person.ShouldNotBeNull();
             moviePeople.Cast[0].Person!.Name.ShouldBe("Chris Pratt");
 
             moviePeople.Crew.ShouldNotBeNull();
-            moviePeople.Crew!.Directing.ShouldNotBeNull();
-            moviePeople.Crew.Directing![0].Person.ShouldNotBeNull();
+            moviePeople.Crew.Directing.ShouldNotBeNull();
+            moviePeople.Crew.Directing[0].Person.ShouldNotBeNull();
             moviePeople.Crew.Directing![0].Person!.Name.ShouldBe("Kera Dacy");
         }
 

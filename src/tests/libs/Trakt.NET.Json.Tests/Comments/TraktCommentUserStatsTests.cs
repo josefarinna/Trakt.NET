@@ -19,9 +19,9 @@
 
             commentUserStats.ShouldNotBeNull();
 
-            commentUserStats!.Rating.ShouldBe(9U);
-            commentUserStats!.PlayCount.ShouldBe(3U);
-            commentUserStats!.CompletedCount.ShouldBe(1U);
+            commentUserStats.Rating.ShouldBe(9U);
+            commentUserStats.PlayCount.ShouldBe(3U);
+            commentUserStats.CompletedCount.ShouldBe(1U);
         }
     }
 }
