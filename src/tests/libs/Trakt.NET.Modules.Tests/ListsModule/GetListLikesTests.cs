@@ -11,7 +11,6 @@ namespace TraktNET.ListsModule
         private const uint ListLikesCount = 2U;
         private const uint Page = 2U;
         private const uint Limit = 4U;
-        private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Theory]
         [InlineData(null, null, null, GetListLikesUri)]
