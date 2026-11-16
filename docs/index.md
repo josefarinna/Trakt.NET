@@ -6,7 +6,7 @@
 ## Install latest Trakt.NET package
 
 ```ps
-dotnet add package Trakt.NET.Ex --version 2.2.0
+dotnet add package Trakt.NET.Ex
 ```
 
 ## Get basic info about the show "[The Last of Us](https://trakt.tv/shows/the-last-of-us)" (including media images)
@@ -92,7 +92,7 @@ To use **Trakt.NET**, you will need to [obtain an API key](https://trakt.tv/oaut
 - Completely asynchronous architecture
 
 ## Supported Platforms
-- .NET 6.0, .NET 7.0, .NET 8.0, .NET 9.0, .NET 10.0
+- .NET 6.0, .NET 7.0, .NET 8.0, .NET 9.0, .NET 10.0, .NET 11.0
 - .NET Standard 2.0, .NET Standard 2.1
 - .NET Framework >= 4.7.2
 - .NET MAUI / iOS / Android / macOS / Mac Catalyst

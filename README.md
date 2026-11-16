@@ -123,7 +123,7 @@ catch (TraktException ex)
 
 ### Documentation
 
-- [Changelogs](Changelogs/v2.2.0.md)
+- [Changelogs](https://github.com/josefarinna/Trakt.NET/tree/develop/Changelogs)
 - [Official Trakt API Documentation](https://developer.trakt.tv/)
 
 ### License
