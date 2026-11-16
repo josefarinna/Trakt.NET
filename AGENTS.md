@@ -99,6 +99,11 @@ The official Trakt developer portal has migrated to `developer.trakt.tv`. Note t
    - **NuGet.org Account**: `jose.farinna`
    - **Deployment Workflow**: `.github/workflows/ci.yml` -> `build.yml`
    - Requires `id-token: write` permission in CI jobs to generate ephemeral OIDC tokens.
+3. **Documentation Publishing**:
+   - The DocFX site is built on every CI run, but deployed to GitHub Pages (`gh-pages`) only from `v*` tags (`.github/workflows/documentation.yml`), so it always matches the released package. To redeploy it, run the CI workflow manually on the release tag.
+4. **Release Process**:
+   - Day-to-day work (features, fixes, Dependabot) targets `develop`, whose `src/version.json` holds the next version.
+   - To close a version: update the changelog and the versioned links (`README.md`, `docs/`, `.github/ISSUE_TEMPLATE/bug_report.yml`, `src/Trakt.NET.slnx`, `Postman/`), run `nbgv prepare-release` from `src/` to create `release-x.y.z` and bump `develop` to the next minor version, then push the `vx.y.z` tag to publish NuGet and the documentation. Merge any fixes made in the release branch back into `develop`.
 
 ---
 

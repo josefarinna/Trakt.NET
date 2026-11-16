@@ -1,5 +1,5 @@
 # Quick Start
-[![NuGet Package](https://img.shields.io/badge/Latest%20Version%20on%20NuGet-v2.2.0-blue.svg?style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex/2.2.0) [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT) 
+[![NuGet Package](https://img.shields.io/nuget/v/Trakt.NET.Ex.svg?label=Latest%20Version%20on%20NuGet&color=blue&style=flat)](https://www.nuget.org/packages/Trakt.NET.Ex) [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT) 
 
 `Trakt.NET` is a modernized, high-performance .NET wrapper library with which developers can build .NET applications that integrate with the [Trakt.tv API](https://docs.trakt.tv/reference).
 
