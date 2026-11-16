@@ -112,7 +112,9 @@ namespace TraktNET
         [InlineData(HttpStatusCode.Forbidden, typeof(TraktApiForbiddenException))]
         [InlineData(HttpStatusCode.MethodNotAllowed, typeof(TraktApiMethodNotFoundException))]
         [InlineData(HttpStatusCode.Conflict, typeof(TraktApiConflictException))]
+        [InlineData(HttpStatusCode.Gone, typeof(TraktApiException))]
         [InlineData(HttpStatusCode.PreconditionFailed, typeof(TraktApiPreconditionFailedException))]
+        [InlineData((HttpStatusCode)418, typeof(TraktApiDeniedException))]
         [InlineData((HttpStatusCode)420, typeof(TraktApiAccountLimitException))]
 #if TRAKT_NET_4XX_FRAMEWORK_TARGET
         [InlineData((HttpStatusCode)422, typeof(TraktApiValidationException))]

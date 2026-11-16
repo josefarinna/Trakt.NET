@@ -58,7 +58,7 @@ namespace TraktNET
 #endif
 
         private static string GetJsonFilepath(string jsonFilename)
-            => Path.Combine(GetLocation(), Path.Combine("..\\..\\..\\..\\JsonData", jsonFilename));
+            => Path.Combine(GetLocation(), "..\\..\\..\\..\\JsonData", jsonFilename);
 
         private static string GetLocation() => _location ??= GetExecutingAssemblyDirectory();
 

@@ -9,7 +9,6 @@ namespace TraktNET.SeasonsModule
         private const uint ListItemCount = 2U;
         private const uint Page = 2U;
         private const uint Limit = 4U;
-        private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
         private const TraktListType ListType = TraktListType.Official;
         private const TraktListSortOrder ListSortOrder = TraktListSortOrder.Comments;
 

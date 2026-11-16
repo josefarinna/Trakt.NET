@@ -10,7 +10,6 @@ namespace TraktNET.SeasonsModule
         private const uint Page = 2U;
         private const uint Limit = 4U;
         private readonly TraktCommentSortOrder CommentSortOrder = TraktCommentSortOrder.Likes;
-        private readonly TraktExtendedInfo ExtendedInfo = TraktExtendedInfo.Full;
 
         [Theory]
         [InlineData(null, null, null, null, GetSeasonCommentsUri)]

@@ -9,7 +9,7 @@ This file provides comprehensive context regarding the architecture, code struct
 `Trakt.NET` is a modern .NET wrapper library (v2 architecture) for interacting with the **Trakt.tv API v2** (https://docs.trakt.tv).
 
 ### Key Architectural Features
-- **Supported Runtimes**: .NET 6.0, 7.0, 8.0, 9.0, and 10.0, as well as .NET Standard 2.0/2.1 and .NET Framework.
+- **Supported Runtimes**: .NET 6.0, 7.0, 8.0, 9.0, 10.0, and 11.0, as well as .NET Standard 2.0/2.1 and .NET Framework.
 - **Concrete Data Models (`record class`)**: Replaced all legacy `ITrakt...` interfaces with concrete `record class` types for zero allocation overhead and maximum performance.
 - **`System.Text.Json` Serialization**: Utilizes **Source Generation** (`System.Text.Json.Serialization`) without reflection for high performance and full compatibility with **Native AOT** (`IsAotCompatible`) and **Trimming** (`IsTrimmable`).
 - **Media Image Support**: Full support for retrieving metadata and images (`TraktExtendedInfo.Images`).

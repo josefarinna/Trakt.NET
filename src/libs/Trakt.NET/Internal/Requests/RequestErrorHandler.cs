@@ -37,7 +37,7 @@ namespace TraktNET
                         throw new TraktApiAuthenticationDeviceException("Expired - the token has expired, restart the process", parameters);
                     }
 
-                    break;
+                    throw TraktApiException.Create(parameters);
                 case Constants.StatusCodes.Denied:
                     if (parameters.IsInAuthorizationPolling)
                     {
@@ -45,7 +45,7 @@ namespace TraktNET
                         throw new TraktApiAuthenticationDeviceException("Denied - user explicitly denied this code", parameters);
                     }
 
-                    break;
+                    throw TraktApiException.Create(parameters);
                 case Constants.StatusCodes.AccountLimitExceeded:
                     throw new TraktApiAccountLimitException(parameters);
                 case Constants.StatusCodes.VIPValidationError:
