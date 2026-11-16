@@ -6,18 +6,18 @@ namespace TraktNET.SearchModule
     {
         private const string AddRecentSearchUri = "search/recent";
         private const string Query = "batman";
-        private const uint Id = 99U;
+        private const uint ItemID = 99U;
         private const TraktSearchRecentType Type = TraktSearchRecentType.Movie;
 
         [Fact]
         public async Task TestAddRecentSearch()
         {
-            string requestContent = $"{{\"query\":\"{Query}\",\"id\":{Id},\"type\":\"movies\"}}";
+            string requestContent = TestUtility.SerializeObject(new TraktSearchRecentPost { Query = Query, ID = ItemID, Type = Type });
 
             TraktClient client = ModuleTestUtility.GetOAuthClient(AddRecentSearchUri);
             ModuleTestUtility.AddMockExpectationResponse(client, AddRecentSearchUri, requestContent, HttpStatusCode.Created);
 
-            TraktResponse response = await client.Search.AddRecentSearchAsync(Query, Id, Type, TestContext.Current.CancellationToken);
+            TraktResponse response = await client.Search.AddRecentSearchAsync(Query, ItemID, Type, TestContext.Current.CancellationToken);
 
             response.ShouldNotBeNull();
             response.IsSuccess.ShouldBeTrue();
@@ -29,7 +29,7 @@ namespace TraktNET.SearchModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(AddRecentSearchUri, statusCode);
 
-            Func<Task<TraktResponse>> act = () => client.Search.AddRecentSearchAsync(Query, Id, Type, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Search.AddRecentSearchAsync(Query, ItemID, Type, TestContext.Current.CancellationToken);
             (await act.ShouldThrowAsync(exceptionType)).ShouldNotBeNull();
         }
 
@@ -38,19 +38,19 @@ namespace TraktNET.SearchModule
         {
             TraktClient client = ModuleTestUtility.GetOAuthClient(AddRecentSearchUri, HttpStatusCode.Created);
 
-            Func<Task<TraktResponse>> act = () => client.Search.AddRecentSearchAsync(null!, Id, Type, TestContext.Current.CancellationToken);
+            Func<Task<TraktResponse>> act = () => client.Search.AddRecentSearchAsync(null!, ItemID, Type, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Search.AddRecentSearchAsync(string.Empty, Id, Type, TestContext.Current.CancellationToken);
+            act = () => client.Search.AddRecentSearchAsync(string.Empty, ItemID, Type, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
-            act = () => client.Search.AddRecentSearchAsync("  ", Id, Type, TestContext.Current.CancellationToken);
+            act = () => client.Search.AddRecentSearchAsync("  ", ItemID, Type, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<ArgumentException>();
 
             act = () => client.Search.AddRecentSearchAsync(Query, 0, Type, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
 
-            act = () => client.Search.AddRecentSearchAsync(Query, Id, TraktSearchRecentType.Unspecified, TestContext.Current.CancellationToken);
+            act = () => client.Search.AddRecentSearchAsync(Query, ItemID, TraktSearchRecentType.Unspecified, TestContext.Current.CancellationToken);
             await act.ShouldThrowAsync<TraktRequestValidationException>();
         }
     }

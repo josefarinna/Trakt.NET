@@ -40,7 +40,8 @@ namespace TraktNET
 
             if (Season.HasValue && Number.HasValue)
             {
-                title = $"S{Season.Value.ToInvariantCultureString("D2")}E{Number.Value.ToInvariantCultureString("D2")}: {title}";
+                string episode = $"S{Season.Value.ToInvariantCultureString("D2")}E{Number.Value.ToInvariantCultureString("D2")}";
+                return title.Length > 0 ? $"{episode}: {title}" : episode;
             }
 
             return title;
